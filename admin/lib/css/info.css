@@ -79,3 +79,52 @@ and open the template in the editor.
     font-size: 16px;
     font-weight: 500
 }
+
+ul#cssClock li{
+    border: none;
+}
+
+#cssClock {
+    position: relative;
+    height: 155px;
+    left: calc(100% - 155px);
+    margin: -55px auto 0;
+    background: url(../img/clock/clockface.png) no-repeat;
+    list-style: none;
+}
+
+#cssSec, #cssMin, #cssHour {
+    position: absolute;
+    width: 15px;
+    height: 185px;
+    top: -15px;
+    left: 73px;
+}
+
+#cssSec {
+    background: url(../img/clock/sechand.png);
+    z-index: 3;
+    overflow: hidden;
+}
+
+#cssMin {
+    background: url(../img/clock/minhand.png);
+    z-index: 2;
+}
+
+#cssHour {
+    background: url(../img/clock/hourhand.png);
+    z-index: 1;
+}
+
+.specialclock{
+    position: absolute !important;
+}
+
+.overflow_visible{
+    overflow: visible !important;
+}
+
+.overflow_visible > .th-inner {
+    overflow: visible !important;
+}
