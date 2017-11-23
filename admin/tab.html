@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <link rel="stylesheet" type="text/css" href="../../lib/css/themes/jquery-ui/redmond/jquery-ui.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../../lib/css/themes/jquery-ui/redmond/jquery-ui.structure.min.css"/>
+        <link rel="stylesheet" type="text/css" href="../../lib/css/themes/jquery-ui/redmond/jquery-ui.theme.min.css"/>
+        <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.min.css"/>
+        <link rel="stylesheet" type="text/css" href="lib/css/info.css"/>
+
+        <script type="text/javascript" src="../../lib/js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="../../lib/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/lib/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="../../lib/js/translate.js"></script>
+        <script type="text/javascript" src="../../lib/js/jquery.fancytree-all.min.js"></script>
+        <script type="text/javascript" src="../../lib/js/selectID.js"></script>
+        <script type="text/javascript" src="../../lib/js/loStorage.js"></script>
+
+        <script type="text/javascript" src="/lib/js/words.js"></script>        
+
+    </head>
+    <body>
+
+        <div id="homeTemplate"> 
+            <div class="page-title">
+                <div class="title_left">
+
+                </div>       
+                <div class="title_right">
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div id="home-container">
+
+                <div class="row justify-content-start">
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="tile-stats">
+                            <div class="icon"><i class="fa fa-microchip"></i></div>
+                            <div class="count">
+                                <span id="homeFreeMemPercent">-%</span>
+                                <span id="homeFreeMemSparkline"></span>
+                            </div>
+                            <h3 data-i18n="freeMem">free RAM</h3>
+                            <p>
+                                <span id="homeTotalRamText">-</span> 
+                            </p>
+                        </div>
+                    </div>      
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="tile-stats">
+                            <div class="icon"><i class="fa fa-tasks"></i></div>
+                            <div class="count" id="homeRunningProcesses">-</div>
+                            <h3 data-i18n="running_processes">running processes</h3>
+                            <p>
+                                <span data-i18n="host">Host</span>: 
+                                <span id="homeCurrentHost"></span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="tile-stats">
+                            <div class="icon"><i class="fa fa-file-text-o"></i></div>
+                            <div class="count" id="homeLogSize">- MB</div>
+                            <h3 data-i18n="log_size">Log-Size</h3>
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 clock">
+                        <div class="tile-stats overflow_visible">
+                            <div class="count specialclock col-lg-8 col-md-3 col-sm-6 col-xs-6" id="date_now">-</div>
+                            <h3 class="specialclock" style="top: 65px;" id="weekday_now">-</h3>
+                            <ul id="cssClock">
+                                <li id="cssSec"></li>
+                                <li id="cssHour"></li>
+                                <li id="cssMin"></li>
+                            </ul>                    
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div id="homeUpdateListTab" class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>
+                                <span data-i18n="updateList">Update List</span> <small data-i18n="updateListText">Instances to be updated</small>
+                            </h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div class="">
+                                <ul id="updateHomeList"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="homePlaceholderTab" class="col-lg-4 hidden-md hidden-sm hidden-xs">
+                    <img class="img-responsive center-block tranparent" src="img/logoNoText.png" alt="ioBroker"/>
+                </div>
+
+                <div id="homeNewAdapterTab" class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>
+                                <span data-i18n="newList">New Adapters</span> <small data-i18n="newListText">The newest adapters</small>
+                            </h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div class="">
+                                <ul id="newHomeList"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="systemInfoTab" class="col-lg-4 col-md-12 col-sm-12 col-xs-12" style="display: none">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>
+                                <span data-i18n="systemInfo">System info</span> <small data-i18n="systemInfoText">Versions and numbers</small>
+                            </h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div class="">
+                                <dl class="dl-horizontal" id="systemInfoList"></dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2 id="forumTitle">IoBroker Forum <small id="forumTime"></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li>
+                                    <a id="forum-link" target="_blank"><i class="fa fa-globe"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <ul class="list-unstyled timeline" id="forumList">
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Forum Entry -->
+        <ul id="forumEntryTemplate" class="hidden">
+            <li>
+                <div class="block">
+                    <div class="tags hidden-xs">
+                        <a href="" class="tag">
+                            <span class="forumClass">Entertainment</span>
+                        </a>
+                    </div>
+                    <div class="block_content">
+                        <h2 class="title">
+                            <a target="_blank" class="titleLink">Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
+                        </h2>
+                        <div class="byline"></div>
+                        <p class="description">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a>Read&nbsp;More</a>
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <!-- / Forum Entry -->
+
+        <!-- UpdateList -->
+        <ul id="updateHomeListTemplate" class="hidden">
+            <li>
+                <p>
+                    <a class="btn btn-default adapter-update-submit"><i class="fa fa-refresh"></i></a>&nbsp;
+                    <span class="title">fronius adapter</span>&nbsp;
+                    <span class="version">0.0.6</span>&nbsp;
+                    <i class="fa fa-arrow-right"></i>&nbsp;
+                    <strong class="newVersion">0.1.0</strong>&nbsp;
+                    <a href="javascript:;" class="notesVersion" data-toggle="tooltip" title="infos"><i class="fa fa-info-circle text-info"></i></a>
+                </p> 
+            </li>
+        </ul>
+        <!-- / UpdateList -->
+
+        <!-- NewList -->
+        <ul id="newHomeListTemplate" class="hidden">
+            <li>
+                <p>
+                    <a class="btn btn-default adapter-install-submit"><i class="fa fa-plus"></i></a>&nbsp;
+                    <span class="title">fronius adapter</span>&nbsp;
+                    <span class="version">0.0.6</span>&nbsp;
+                    <a href="javascript:;" class="adapter-readme-submit show-md" data-i18n-tooltip="clickForInfo">
+                        <i class="fa fa-info-circle text-info"></i>
+                    </a>
+                </p> 
+            </li>
+        </ul>
+        <!-- / NewList -->
+
+    </body>
+</html>
