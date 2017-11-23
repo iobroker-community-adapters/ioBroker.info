@@ -12,125 +12,15 @@
         <script type="text/javascript" src="../../lib/js/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="../../socket.io/socket.io.js"></script>
         <script type="text/javascript" src="../../lib/js/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="/lib/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="lib/js/bootstrap.min.js"></script>
 
         <script type="text/javascript" src="../../lib/js/translate.js"></script>
         <script type="text/javascript" src="../../lib/js/jquery.fancytree-all.min.js"></script>
         <script type="text/javascript" src="../../lib/js/selectID.js"></script>
         <script type="text/javascript" src="../../lib/js/loStorage.js"></script>
 
-        <script type="text/javascript" src="/lib/js/words.js"></script>
-
-        <script>
-            $(function () {
-                
-                $(document.body).on('click', '.x_panel .x_title', function () {
-                    var $BOX_PANEL = $(this).closest('.x_panel'),
-                            $ICON = $(this).find('i'),
-                            $BOX_CONTENT = $BOX_PANEL.find('.x_content');
-                    // fix for some div with hardcoded fix class
-                    if ($BOX_PANEL.attr('style')) {
-                        $BOX_CONTENT.slideToggle(200, function () {
-                            $BOX_PANEL.removeAttr('style');
-                        });
-                    } else {
-                        $BOX_CONTENT.slideToggle(200);
-                        $BOX_PANEL.css('height', 'auto');
-                    }
-
-                    $ICON.toggleClass('fa-chevron-up fa-chevron-down');
-                });
-                $('.close-link').click(function () {
-                    var $BOX_PANEL = $(this).closest('.x_panel');
-                    $BOX_PANEL.remove();
-                });
-
-                // Clock
-                var secInterval, hourInterval, minInterval, isClockOn = false;
-
-                function startClock() {
-                    isClockOn = true;
-                    secInterval = setInterval(function () {
-                        var seconds = new Date().getSeconds();
-                        var sdegree = seconds * 6;
-                        var srotate = "rotate(" + sdegree + "deg)";
-
-                        $("#cssSec").css({"-moz-transform": srotate, "-webkit-transform": srotate});
-
-                    }, 1000);
-
-
-                    hourInterval = setInterval(function () {
-                        var hours = new Date().getHours();
-                        if (hours === 0) {
-                            getActualDate();
-                        }
-                        var mins = new Date().getMinutes();
-                        var hdegree = hours * 30 + (mins / 2);
-                        var hrotate = "rotate(" + hdegree + "deg)";
-
-                        $("#cssHour").css({"-moz-transform": hrotate, "-webkit-transform": hrotate});
-
-                    }, 1000);
-
-
-                    minInterval = setInterval(function () {
-                        var mins = new Date().getMinutes();
-                        var mdegree = mins * 6;
-                        var mrotate = "rotate(" + mdegree + "deg)";
-
-                        $("#cssMin").css({"-moz-transform": mrotate, "-webkit-transform": mrotate});
-
-                    }, 1000);
-
-                    getActualDate();
-
-                    $(window).on('resize', checkWindowSize);
-                    checkWindowSize();
-                }
-
-                function getActualDate() {
-                    var MONTH = [
-                        'january',
-                        'february',
-                        'march',
-                        'april',
-                        'may',
-                        'june',
-                        'july',
-                        'august',
-                        'september',
-                        'october',
-                        'november',
-                        'december'
-                    ];
-                    var DOW = [
-                        'sunday',
-                        'monday',
-                        'tuesday',
-                        'wednesday',
-                        'thursday',
-                        'friday',
-                        'saturday'
-                    ];
-                    var date = new Date();
-                    $('#date_now').text(date.getDate() + '. ' + MONTH[date.getMonth()] + ' ' + date.getFullYear());
-                    $('#weekday_now').text(DOW[date.getDay()]);
-                }
-
-                function stopClock() {
-                    isClockOn = false;
-                    clearInterval(secInterval);
-                    clearInterval(hourInterval);
-                    clearInterval(minInterval);
-                    $(window).off('resize');
-                }
-                
-                startClock();
-                // / Clock
-
-            });
-        </script>
+        <script type="text/javascript" src="lib/js/words.js"></script>
+        <script type="text/javascript" src="lib/js/info.js"></script>
 
     </head>
     <body>
