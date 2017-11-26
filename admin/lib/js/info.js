@@ -46,7 +46,6 @@ $(function () {
         if (data.results && data.results[0]) {
             var $forumContent = $($.parseXML(data.results[0]));
 
-            $('#forumTitle').text($forumContent.find('title:first').text());
             $('#forumTime').text($forumContent.find('updated:first').text());
             $('#forum-link').attr("href", $forumContent.find('link:nth-of-type(2)').attr('href'));
 
@@ -60,10 +59,31 @@ $(function () {
                 $item.find('.postimage').addClass('img-responsive');
                 $item.find('.description a').attr('target', '_blank');
                 $item.find('.byline').text(new Date($(this).find('updated').eq(0).text()) + " - " + $(this).find('name').eq(0).text());
-                $('#forumList').prepend($item);
+                $('#forumList').append($item);
             });
         }
     };
+    
+    var getNewsData = function (data){
+        if (data.results && data.results[0]) {
+            var $newsContent = $($.parseXML(data.results[0]));
+
+            $('#newsTime').text($newsContent.find('lastBuildDate:first').text());
+            $('#news-link').attr("href", $newsContent.find('link:first').text());
+
+            $('#newsList').empty();
+            $('item', $newsContent).each(function () {
+                var $item = $('#forumEntryTemplate').children().clone(true, true);
+                $item.find('.forumClass').text($(this).find('category').text());
+                $item.find('.titleLink').text($(this).find('title').text())
+                        .attr('href', $(this).find('link').text());
+                $item.find('.description').html($(this).find('description').text());
+                $item.find('.description a').attr('target', '_blank');
+                $item.find('.byline').text($(this).find('pubDate').text() + " - " + $(this).find('dc\\:creator').text());
+                $('#newsList').append($item);
+            });
+        }
+    }
 
     // Clock
     var secInterval, hourInterval, minInterval, isClockOn = false;
@@ -146,6 +166,7 @@ $(function () {
     // / Clock
     
     requestCrossDomain('http://forum.iobroker.net/feed.php?mode=topics', getForumData);
+    requestCrossDomain('http://www.iobroker.net/docu/?feed=rss2&lang=de', getNewsData);
     startClock();
 
 });
