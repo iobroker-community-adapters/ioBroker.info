@@ -1,8 +1,12 @@
 {
     "common": {
         "name": "info",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "news": {            
+            "0.0.2": {
+                "en": "system info",
+                "de": "Systeminformationen"
+            },
             "0.0.1": {
                 "en": "initial adapter",
                 "de": "Initiale Version",
@@ -29,7 +33,6 @@
         "icon": "info.png",
         "enabled": true,
         "singleton": true,
-        "noConfig": true,
         "extIcon": "https://raw.githubusercontent.com/ldittmar81/ioBroker.info/master/admin/info.png",
         "keywords": ["info", "information"],
         "readme": "https://raw.githubusercontent.com/ldittmar81/ioBroker.info/blob/master/README.md",
@@ -41,7 +44,9 @@
             "fa-icon": "fa-info-circle"
         }
     },
-    "native": {       
+    "native": {
+        "news": "de",
+        "forum": true
     },
     "objects": [
     ]

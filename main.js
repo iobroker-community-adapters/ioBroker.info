@@ -3,7 +3,7 @@
 "use strict";
 
 // you have to require the utils module and call adapter function
-var utils =    require(__dirname + '/lib/utils'); // Get common adapter utils
+var utils = require(__dirname + '/lib/utils'); // Get common adapter utils
 
 // you have to call the adapter function and pass a options object
 // name has to be set and has to be equal to adapters folder name and main file name excluding extension
@@ -45,7 +45,8 @@ adapter.on('message', function (obj) {
             console.log('send command');
 
             // Send response in callback if required
-            if (obj.callback) adapter.sendTo(obj.from, obj.command, 'Message received', obj.callback);
+            if (obj.callback)
+                adapter.sendTo(obj.from, obj.command, 'Message received', obj.callback);
         }
     }
 });
@@ -57,7 +58,8 @@ adapter.on('ready', function () {
 });
 
 function main() {
-
-
-
+    
+    var host = adapter.host;
+    var forum = adapter.config.forum;
+    var news = adapter.config.news;
 }

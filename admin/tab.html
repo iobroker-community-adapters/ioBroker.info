@@ -14,9 +14,8 @@
         <script type="text/javascript" src="../../lib/js/jquery-ui.min.js"></script>
         <script type="text/javascript" src="lib/js/bootstrap.min.js"></script>
 
-        <script type="text/javascript" src="../../lib/js/translate.js"></script>
-        <script type="text/javascript" src="../../lib/js/jquery.fancytree-all.min.js"></script>
-        <script type="text/javascript" src="../../lib/js/selectID.js"></script>
+        <script type="text/javascript" src="../../js/translate.js"></script>
+        <script type="text/javascript" src="../../js/selectID.js"></script>
         <script type="text/javascript" src="../../lib/js/loStorage.js"></script>
 
         <script type="text/javascript" src="lib/js/words.js"></script>
@@ -46,7 +45,7 @@
                                 <span id="homeFreeMemPercent">-%</span>
                                 <span id="homeFreeMemSparkline"></span>
                             </div>
-                            <h3 data-i18n="freeMem">free RAM</h3>
+                            <h3 class="translate">free RAM</h3>
                             <p>
                                 <span id="homeTotalRamText">-</span> 
                             </p>
@@ -57,9 +56,9 @@
                         <div class="tile-stats">
                             <div class="icon"><i class="fa fa-tasks"></i></div>
                             <div class="count" id="homeRunningProcesses">-</div>
-                            <h3 data-i18n="running_processes">running processes</h3>
+                            <h3 class="translate">running processes</h3>
                             <p>
-                                <span data-i18n="host">Host</span>: 
+                                <span class="translate">Host</span>: 
                                 <span id="homeCurrentHost"></span>
                             </p>
                         </div>
@@ -69,7 +68,7 @@
                         <div class="tile-stats">
                             <div class="icon"><i class="fa fa-file-text-o"></i></div>
                             <div class="count" id="homeLogSize">- MB</div>
-                            <h3 data-i18n="log_size">Log-Size</h3>
+                            <h3 class="translate">Log-Size</h3>
                             <p>
 
                             </p>
@@ -97,7 +96,7 @@
                     <div class="x_panel">
                         <div class="x_title">
                             <h2>
-                                <span data-i18n="updateList">Update List</span> <small data-i18n="updateListText">Instances to be updated</small>
+                                <span class="translate">Update List</span> <small class="translate">Instances to be updated</small>
                             </h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li>
@@ -118,7 +117,7 @@
                     <div class="x_panel">
                         <div class="x_title">
                             <h2>
-                                <span data-i18n="newList">New Adapters</span> <small data-i18n="newListText">The newest adapters</small>
+                                <span class="translate">New Adapters</span> <small class="translate">The newest adapters</small>
                             </h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li>
@@ -139,7 +138,7 @@
                     <div class="x_panel">
                         <div class="x_title">
                             <h2>
-                                <span data-i18n="systemInfo">System info</span> <small data-i18n="systemInfoText">Versions and numbers</small>
+                                <span class="translate">System info</span> <small class="translate">Versions and numbers</small>
                             </h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li>
@@ -160,7 +159,7 @@
 
             <div class="row">
                 
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" id="newsBlock">
                     <div class="x_panel">
                         <div class="x_title">
                             <h2 id="newsTitle">ioBroker News <small id="newsTime"></small></h2>
@@ -183,7 +182,7 @@
                     </div>
                 </div>
 
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" id="forumBlock">
                     <div class="x_panel">
                         <div class="x_title">
                             <h2 id="forumTitle">IoBroker Forum <small id="forumTime"></small></h2>
@@ -253,13 +252,12 @@
                     <a class="btn btn-default adapter-install-submit"><i class="fa fa-plus"></i></a>&nbsp;
                     <span class="title">fronius adapter</span>&nbsp;
                     <span class="version">0.0.6</span>&nbsp;
-                    <a href="javascript:;" class="adapter-readme-submit show-md" data-i18n-tooltip="clickForInfo">
+                    <a href="javascript:;" class="adapter-readme-submit show-md">
                         <i class="fa fa-info-circle text-info"></i>
                     </a>
                 </p> 
             </li>
         </ul>
-        <!-- / NewList -->
-
+        <!-- / NewList -->         
     </body>
 </html>

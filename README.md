@@ -21,6 +21,9 @@ This is an ioBroker adapter to get informations about your system and some news 
 
 ## Changelog
 
+#### 0.0.2
+* (ldittmar) show system informations
+
 #### 0.0.1
 * (ldittmar) initial commit
 
