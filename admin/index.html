@@ -61,20 +61,11 @@
     <!-- you have to put your config page in a div with id adapter-container -->
     <div id="adapter-container">
 
-        <table><tr><td><img src="info.png"></td><td><h3 class="translate">information adapter settings</h3></td></tr></table>
+        <table><tr><td><img src="info.png"></td><td><h3 class="translate">Information adapter settings</h3></td></tr></table>
 
         <table>
-            <tr><td><label class="translate" for="news">show iobroker news:</label></td><td class="admin-icon"></td><td>
-                    <select  class="value" id="news">
-                        <option value="none" class="translate">no</option>
-                        <option value="de" class="translate">german</option>
-                        <option value="en" class="translate">english</option>
-                        <option value="ru" class="translate">russian</option>
-                    </select>
-                </td>
-                <td class="admin-tooltip"></td>
-            </tr>
-            <tr><td><label for="forum" class="translate">show forum news:</label></td><td class="admin-icon"></td><td><input class="value" id="forum" type="checkbox" /></td><td class="admin-tooltip" data-link="forum"></td></tr>
+            <tr><td><label for="news" class="translate">Show ioBroker news:</label></td><td class="admin-icon"></td><td><input class="value" id="news" type="checkbox" /></td><td class="admin-tooltip" data-link="news"></td></tr>
+            <tr><td><label for="forum" class="translate">Show forum news:</label></td><td class="admin-icon"></td><td><input class="value" id="forum" type="checkbox" /></td><td class="admin-tooltip" data-link="forum"></td></tr>
         </table>
 
         <p class="translate">on save adapter restarts with new config immediately</p>

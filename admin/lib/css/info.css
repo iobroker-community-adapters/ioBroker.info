@@ -87,7 +87,6 @@ ul#cssClock li{
 #cssClock {
     position: relative;
     height: 155px;
-    left: calc(100% - 155px);
     margin: -55px auto 0;
     background: url(../img/clock/clockface.png) no-repeat;
     list-style: none;
@@ -118,7 +117,14 @@ ul#cssClock li{
 }
 
 .specialclock{
-    position: absolute !important;
+    position: absolute;
+    left: 200px;
+    top: -80px;
+    width: 200px;
+}
+
+.specialclock.count{
+    top: -30px !important;
 }
 
 .overflow_visible{

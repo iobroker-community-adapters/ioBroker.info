@@ -5,6 +5,9 @@ $(function () {
 
     const socket = io.connect();
     var hosts = [];
+    var mainHost = '';
+    var systemLang = 'en';
+    var systemConfig = {};
 
     //--------------------------------------------------------- COMMONS -----------------------------------------------------------------------
     /** 
@@ -12,13 +15,28 @@ $(function () {
      * @param {type} callback
      */
     function readInstanceConfig(callback) {
-        socket.emit('getObject', 'system.adapter.info', function (err, res) {
-            if (!err && res && res.native) {
-                adapterConfig = res.native;
+        socket.emit('getObject', 'system.config', function (err, data) {
+            systemConfig = data;
+            if (!err && systemConfig && systemConfig.common) {
+                systemLang = systemConfig.common.language;
+            } else {
+                systemLang = window.navigator.userLanguage || window.navigator.language;
+
+                if (systemLang !== 'en' && systemLang !== 'de' && systemLang !== 'ru') {
+                    systemConfig.common.language = 'en';
+                    systemLang = 'en';
+                }
             }
-            if (typeof callback === 'function') {
-                callback(adapterConfig);
-            }
+            
+            socket.emit('getObject', 'system.adapter.info.0', function (err, res) {
+                var adapterConfig;
+                if (!err && res && res.native) {
+                    adapterConfig = res.native;
+                }
+                if (typeof callback === 'function') {
+                    callback(adapterConfig);
+                }
+            });
         });
     }
 
@@ -211,6 +229,185 @@ $(function () {
         }
     };
 
+    //------------------------------------------------------ UPDATE ADAPTER LIST --------------------------------------------------------------
+
+    var curInstalled = null;
+    var curRepository = null;
+    var curRepoLastUpdate = null;
+    var curRunning = null;
+
+    var getAdaptersInfo = function (host, callback) {
+        if (!host) {
+            return;
+        }
+
+        if (!callback) {
+            throw 'Callback cannot be null or undefined';
+        }
+
+        if (!curRepoLastUpdate || ((new Date()).getTime() - curRepoLastUpdate > 1000)) {
+            curRepository = null;
+            curInstalled = null;
+        }
+
+        if (curRunning) {
+            curRunning.push(callback);
+            return;
+        }
+
+        if (!this.curRepository) {
+            socket.emit('sendToHost', host, 'getRepository', {repo: systemConfig.common.activeRepo, update: true}, function (_repository) {
+                if (_repository === 'permissionError') {
+                    console.error('May not read "getRepository"');
+                    _repository = {};
+                }
+
+                curRepository = _repository || {};
+                if (curRepository && curInstalled && curRunning) {
+                    curRepoLastUpdate = (new Date()).getTime();
+                    setTimeout(function () {
+                        for (var c = 0; c < curRunning.length; c++) {
+                            curRunning[c](curRepository, curInstalled);
+                        }
+                        curRunning = null;
+                    }, 0);
+                }
+            });
+        }
+        if (!this.curInstalled) {
+            socket.emit('sendToHost', host, 'getInstalled', null, function (_installed) {
+                if (_installed === 'permissionError') {
+                    console.error('May not read "getInstalled"');
+                    _installed = {};
+                }
+
+                curInstalled = _installed || {};
+                if (curRepository && curInstalled) {
+                    curRepoLastUpdate = (new Date()).getTime();
+                    setTimeout(function () {
+                        for (var c = 0; c < curRunning.length; c++) {
+                            curRunning[c](curRepository, curInstalled);
+                        }
+                        curRunning = null;
+                    }, 0);
+                }
+            });
+        }
+
+        if (this.curInstalled && this.curRepository) {
+            setTimeout(function () {
+                if (curRunning) {
+                    for (var c = 0; c < curRunning.length; c++) {
+                        curRunning[c](curRepository, curInstalled);
+                    }
+                    curRunning = null;
+                }
+                if (callback)
+                    callback(curRepository, curInstalled);
+            }, 0);
+        } else {
+            curRunning = [callback];
+        }
+    };
+
+    /** 
+     * Look if the adapter is up to date
+     * @param {type} _new
+     * @param {type} old
+     * @returns {Boolean}
+     */
+    var upToDate = function (_new, old) {
+        _new = _new.split('.');
+        old = old.split('.');
+        _new[0] = parseInt(_new[0], 10);
+        old[0] = parseInt(old[0], 10);
+        if (_new[0] > old[0]) {
+            return false;
+        } else if (_new[0] === old[0]) {
+            _new[1] = parseInt(_new[1], 10);
+            old[1] = parseInt(old[1], 10);
+            if (_new[1] > old[1]) {
+                return false;
+            } else if (_new[1] === old[1]) {
+                _new[2] = parseInt(_new[2], 10);
+                old[2] = parseInt(old[2], 10);
+                if (_new[2] > old[2]) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return true;
+            }
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * fill the update and new adapters list
+     * @param {String} type
+     * @param {Array} list
+     * @param {Object} repository
+     * @param {Object} installedList
+     */
+    function fillList(type, list, repository, installedList) {
+        var $ul = $('#' + type + 'HomeList');
+        $ul.empty();
+
+        var isInstalled = type === 'update';
+
+        for (var i = 0; i < list.length; i++) {
+
+            var $tmpLiElement = $('#' + type + 'HomeListTemplate').children().clone(true, true);
+
+            var adapter = list[i];
+            var obj = isInstalled ? (installedList ? installedList[adapter] : null) : repository[adapter];
+
+            $tmpLiElement.find('.title').text((obj.title || '').replace('ioBroker Visualisation - ', ''));
+            $tmpLiElement.find('.version').text(obj.version);
+
+            if (isInstalled && repository[adapter]) {
+                $tmpLiElement.find('.adapter-update-submit').attr('data-adapter-name', adapter);
+                $tmpLiElement.find('.newVersion').text(repository[adapter].version);
+                var news = getNews(obj.version, repository[adapter]);
+                if (news) {
+                    $tmpLiElement.find('.notesVersion').attr('title', news);
+                } else {
+                    $tmpLiElement.find('.notesVersion').remove();
+                }
+            } else if (!isInstalled) {
+                $tmpLiElement.find('.adapter-install-submit').attr('data-adapter-name', adapter);
+                if (obj.readme) {
+                    $tmpLiElement.find('.adapter-readme-submit').attr('data-md-url', obj.readme.replace('https://github.com', 'https://raw.githubusercontent.com').replace('blob/', ''));
+                } else {
+                    $tmpLiElement.find('.adapter-readme-submit').remove();
+                }
+            }
+
+            $ul.append($tmpLiElement);
+        }
+    }
+
+    var getNews = function (actualVersion, adapter) {
+        var text = '';
+        if (adapter.news) {
+            for (var v in adapter.news) {
+                if (!adapter.news.hasOwnProperty(v)) {
+                    continue;
+                }
+                if (systemLang === v) {
+                    text += (text ? '\n' : '') + adapter.news[v];
+                }
+                if (v === actualVersion) {
+                    break;
+                }
+                text += (text ? '\n' : '') + (adapter.news[v][systemLang] || adapter.news[v].en);
+            }
+        }
+        return text;
+    };
+
     //------------------------------------------------------ MEMORY FUNCTIONS -----------------------------------------------------------------
     var totalmem;
     /** 
@@ -278,16 +475,21 @@ $(function () {
     };
 
     //------------------------------------------------------ HOST INFORMATION FUNCTIONS -------------------------------------------------------
-    
-    var getHosts = function(callback){
+
+    /** 
+     * Get all ioBroker hosts
+     * @param {type} callback
+     */
+    var getHosts = function (callback) {
         socket.emit('getObjectView', 'system', 'host', {startkey: 'system.host.', endkey: 'system.host.\u9999'}, function (err, res) {
             if (!err && res) {
                 hosts = [];
                 for (var i = 0; i < res.rows.length; i++) {
                     hosts.push(res.rows[i].id.substring('system.host.'.length));
                 }
+                mainHost = res.rows[0].id.substring('system.host.'.length);
             }
-            if (callback){
+            if (callback) {
                 callback(hosts);
             }
         });
@@ -380,8 +582,8 @@ $(function () {
     //------------------------------------------------------- FILL DATA -----------------------------------------------------------------------   
 
     readInstanceConfig(function (config) {
-        getHosts(function(){
-            for(var currentHost in hosts ){
+        getHosts(function () {
+            for (var currentHost in hosts) {
                 getHostInfo(hosts[currentHost], function (data) {
                     var text = '';
                     if (data) {
@@ -397,6 +599,58 @@ $(function () {
                     }
                 });
             }
+
+            getAdaptersInfo(mainHost, function (repository, installedList) {
+
+                var listUpdatable = [];
+                var listNew = [];
+                var adapter, obj;
+
+                if (installedList) {
+                    for (adapter in installedList) {
+                        if (!installedList.hasOwnProperty(adapter)) {
+                            continue;
+                        }
+                        obj = installedList[adapter];
+                        if (!obj || obj.controller || adapter === 'hosts' || !obj.version) {
+                            continue;
+                        }
+                        var version = '';
+                        if (repository[adapter] && repository[adapter].version) {
+                            version = repository[adapter].version;
+                        }
+                        if (upToDate(version, obj.version)) {
+                            listUpdatable.push(adapter);
+                        }
+
+                    }
+                    listUpdatable.sort();
+                }
+
+                fillList('update', listUpdatable, repository, installedList);
+
+                var now = new Date();
+                for (adapter in repository) {
+                    if (!repository.hasOwnProperty(adapter)) {
+                        continue;
+                    }
+                    obj = repository[adapter];
+                    if (!obj || obj.controller) {
+                        continue;
+                    }
+                    if (installedList && installedList[adapter]) {
+                        continue;
+                    }
+                    if (!(obj.published && ((now - new Date(obj.published)) < 3600000 * 24 * 31))) {
+                        continue;
+                    }
+                    listNew.push(adapter);
+                }
+                listNew.sort();
+
+                fillList('new', listNew, repository, installedList);
+            });
+
         });
 
         if (config.forum) {
@@ -404,8 +658,8 @@ $(function () {
         } else {
             $('#forumBlock').hide();
         }
-        if (config.news != 'none') {
-            requestCrossDomain('http://www.iobroker.net/docu/?feed=rss2&lang=' + config.news, getNewsData);
+        if (config.news) {
+            requestCrossDomain('http://www.iobroker.net/docu/?feed=rss2&lang=' + systemLang, getNewsData);
         } else {
             $('#newsBlock').hide();
         }

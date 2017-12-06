@@ -1,8 +1,12 @@
 {
     "common": {
         "name": "info",
-        "version": "0.0.2",
-        "news": {            
+        "version": "0.0.3",
+        "news": {  
+            "0.0.3": {
+                "en": "show adapters infos",
+                "de": "Adapterinformationen anzeigen"
+            },
             "0.0.2": {
                 "en": "system info",
                 "de": "Systeminformationen"
@@ -16,9 +20,9 @@
                 "nl": "Eerste release"
             }
         },
-        "title": "ioBroker information Tab",
+        "title": "ioBroker information tab",
         "desc": {
-            "en": "ioBroker information Tab",
+            "en": "ioBroker information tab",
             "de": "ioBroker Informations Adapter",
             "ru": "ioBroker информация драйвер как образец",
             "pt": "Adaptador de informação para o ioBroker",
@@ -40,12 +44,12 @@
         "type": "misc-data",
         "adminTab": {
             "singleton": true,
-            "name": "Home",
+            "name": "Info",
             "fa-icon": "fa-info-circle"
         }
     },
     "native": {
-        "news": "de",
+        "news": true,
         "forum": true
     },
     "objects": [
