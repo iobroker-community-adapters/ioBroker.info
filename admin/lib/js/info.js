@@ -5,9 +5,10 @@ $(function () {
     const socket = io.connect();
     var hosts = [];
     var mainHost = '';
+    var states = {};
     var systemLang = 'en';
     var systemConfig = {};
-    var dateOptions = {"weekday":"short","year":"numeric","month":"long","day":"2-digit","hour":"2-digit","minute":"2-digit","second":"2-digit"};
+    var dateOptions = {"weekday": "short", "year": "numeric", "month": "long", "day": "2-digit", "hour": "2-digit", "minute": "2-digit", "second": "2-digit"};
 
     //--------------------------------------------------------- COMMONS -----------------------------------------------------------------------
     /** 
@@ -37,6 +38,20 @@ $(function () {
                     callback(adapterConfig);
                 }
             });
+        });
+    }
+
+    function getState(id, callback) {
+        socket.emit('getState', id, function (err, res) {
+            if (!err && res) {
+                if (callback) {
+                    callback(err, res);
+                }
+            } else {
+                if (callback) {
+                    callback(null);
+                }
+            }
         });
     }
 
@@ -115,9 +130,13 @@ $(function () {
 
         }, 1000);
 
+        getActualDate();
+    }
+
+    function getActualDate() {
         var date = new Date();
-        $('#date_now').text(date.toLocaleString(systemLang, {"year":"numeric","month":"long","day":"2-digit"}));
-        $('#weekday_now').text(date.toLocaleString(systemLang, {weekday:"long"}));
+        $('#date_now').text(date.toLocaleString(systemLang, {"year": "numeric", "month": "long", "day": "2-digit"}));
+        $('#weekday_now').text(date.toLocaleString(systemLang, {weekday: "long"}));
     }
 
     /** 
@@ -313,18 +332,14 @@ $(function () {
             } else if (_new[1] === old[1]) {
                 _new[2] = parseInt(_new[2], 10);
                 old[2] = parseInt(old[2], 10);
-                if (_new[2] > old[2]) {
-                    return false;
-                } else {
-                    return true;
-                }
+                return (_new[2] <= old[2]);
             } else {
                 return true;
             }
         } else {
             return true;
         }
-    }
+    };
 
     /**
      * fill the update and new adapters list
@@ -352,6 +367,11 @@ $(function () {
             if (isInstalled && repository[adapter]) {
                 $tmpLiElement.find('.adapter-update-submit').attr('data-adapter-name', adapter);
                 $tmpLiElement.find('.newVersion').text(repository[adapter].version);
+                if (obj.readme) {
+                    $tmpLiElement.find('.adapter-readme-submit').attr('data-md-url', obj.readme.replace('https://github.com', 'https://raw.githubusercontent.com').replace('blob/', ''));
+                } else {
+                    $tmpLiElement.find('.adapter-readme-submit').remove();
+                }
                 var news = getNews(obj.version, repository[adapter]);
                 if (news) {
                     $tmpLiElement.find('.notesVersion').attr('title', news).tooltip();
@@ -388,72 +408,6 @@ $(function () {
             }
         }
         return text;
-    };
-
-    //------------------------------------------------------ MEMORY FUNCTIONS -----------------------------------------------------------------
-    var totalmem;
-    /** 
-     * Calculate free memory
-     * @param {type} aktHost
-     * @returns {undefined|Number}
-     */
-    var calculateFreeMem = function (aktHost) {
-        if (!aktHost) {
-            return;
-        }
-        var host = that.main.states['system.host.' + aktHost + '.freemem'];
-        if (host) {
-            that.totalmem = that.totalmem || that.main.objects['system.host.' + aktHost].native.hardware.totalmem / (1024 * 1024);
-            var percent = Math.round((host.val / that.totalmem) * 100);
-
-            if (host.val.toString() !== $('#freeMem').text()) {
-                $('#' + page + 'FreeMemPercent').text(percent + ' %');
-                $("#" + page + "FreeMemSparkline").sparkline([that.totalmem - host.val, host.val], {
-                    type: 'pie',
-                    sliceColors: ["#F78181", "#088A29"],
-                    height: "40px",
-                    width: "40px"
-                });
-                $('#' + page + 'FreeMemSparkline > canvas').css('vertical-align', 'middle');
-            }
-        } else {
-            $('.free-mem-label').hide();
-        }
-
-        return Math.round(host.val);
-    };
-
-    /** 
-     * Calcutate total RAM 
-     * @param {type} host
-     * @returns {undefined|Number}
-     */
-    var calculateTotalRam = function (aktHost) {
-        if (!aktHost) {
-            return;
-        }
-        var host = that.main.states['system.host.' + host + '.memRss'];
-        var processes = 1;
-        var mem = host ? host.val : 0;
-        for (var i = 0; i < that.list.length; i++) {
-            var obj = that.main.objects[that.list[i]];
-            if (!obj || !obj.common)
-                continue;
-            if (obj.common.host !== aktHost)
-                continue;
-            if (obj.common.enabled && obj.common.mode === 'daemon') {
-                var m = that.main.states[obj._id + '.memRss'];
-                mem += m ? m.val : 0;
-                processes++;
-            }
-        }
-        var text = $.i18n('countProcesses', processes);
-        var $running_processes = $('#' + page + 'RunningProcesses');
-        if (text !== $running_processes.text()) {
-            $running_processes.html('<span class="highlight">' + text + '</span>');
-        }
-
-        return Math.round(mem);
     };
 
     //------------------------------------------------------ HOST INFORMATION FUNCTIONS -------------------------------------------------------
@@ -525,7 +479,7 @@ $(function () {
         }
         var text = '';
         if (days) {
-            text += days + systemDictionary.daysShortText + ' ';
+            text += days + " " + translateWord("daysShortText", systemLang, systemDictionary) + ' ';
         }
         text += hours + ':' + minutes + ':' + seconds;
 
@@ -543,12 +497,16 @@ $(function () {
         var MB = Math.floor(bytes / (1024 * 1024) * 10) / 10;
         var text = '';
         if (GB > 1) {
-            text += GB + 'GB ';
+            text += GB + ' GB ';
         } else {
-            text += MB + 'MB ';
+            text += MB + ' MB ';
         }
 
         return text;
+    }
+
+    function formatSpeed(mhz) {
+        return mhz + " MHz";
     }
 
     /** 
@@ -558,11 +516,11 @@ $(function () {
     var formatInfo = {
         'Uptime': formatSeconds,
         'System uptime': formatSeconds,
-        'RAM': formatRam
+        'RAM': formatRam,
+        'Speed': formatSpeed
     };
 
     //------------------------------------------------------- FILL DATA -----------------------------------------------------------------------   
-
     readInstanceConfig(function (config) {
         getHosts(function () {
             for (var currentHost in hosts) {
@@ -573,7 +531,7 @@ $(function () {
                         text += "<dl class='dl-horizontal'>";
                         for (var item in data) {
                             if (data.hasOwnProperty(item)) {
-                                text += '<dt>' + item + '</dt>';
+                                text += '<dt>' + translateWord(item, systemLang, systemDictionary) + '</dt>';
                                 text += '<dd class="system-info" data-attribute="' + item + '">' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</dd>';
                             }
                         }
@@ -604,7 +562,7 @@ $(function () {
                         if (repository[adapter] && repository[adapter].version) {
                             version = repository[adapter].version;
                         }
-                        if (upToDate(version, obj.version)) {
+                        if (!upToDate(version, obj.version)) {
                             listUpdatable.push(adapter);
                         }
 
@@ -649,6 +607,8 @@ $(function () {
             $('#newsBlock').hide();
         }
         startClock();
+        translateAll(systemLang, systemDictionary);
+        $('#homeRunningProcesses').html($('#running_processes').html());
     });
 
 });

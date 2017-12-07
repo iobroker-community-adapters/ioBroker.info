@@ -9,7 +9,12 @@ and open the template in the editor.
 */
 
 body{
-   background-color: #efefef;
+    background-color: #efefef;
+}
+
+.height_300 {
+    height: 300px;
+    overflow-x: auto;
 }
 
 .page-title {
@@ -125,6 +130,10 @@ ul#cssClock li{
     left: 200px;
     top: -80px;
     width: 200px;
+}
+
+.clock {
+    margin-bottom: 10px;
 }
 
 .specialclock.count{

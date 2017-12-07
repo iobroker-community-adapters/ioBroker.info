@@ -16,8 +16,8 @@
         <script type="text/javascript" src="lib/js/bootbox.min.js"></script>
         <script type="text/javascript" src="lib/js/showdown.min.js"></script>
 
-        <script type="text/javascript" src="../../js/translate.js"></script>
-        <script type="text/javascript" src="../../js/selectID.js"></script>
+        <script type="text/javascript" src="../../lib/js/translate.js"></script>
+        <script type="text/javascript" src="../../lib/js/selectID.js"></script>
         <script type="text/javascript" src="../../lib/js/loStorage.js"></script>
 
         <script type="text/javascript" src="lib/js/words.js"></script>
@@ -55,38 +55,19 @@
 
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-microchip"></i></div>
-                            <div class="count">
-                                <span id="homeFreeMemPercent">-%</span>
-                                <span id="homeFreeMemSparkline"></span>
-                            </div>
-                            <h3 class="translate">free RAM</h3>
-                            <p>
-                                <span id="homeTotalRamText">-</span> 
-                            </p>
+                            
                         </div>
                     </div>      
 
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-tasks"></i></div>
-                            <div class="count" id="homeRunningProcesses">-</div>
-                            <h3 class="translate">running processes</h3>
-                            <p>
-                                <span class="translate">Host</span>: 
-                                <span id="homeCurrentHost"></span>
-                            </p>
+                            
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="tile-stats">
-                            <div class="icon"><i class="fa fa-file-text-o"></i></div>
-                            <div class="count" id="homeLogSize">- MB</div>
-                            <h3 class="translate">Log-Size</h3>
-                            <p>
-
-                            </p>
+                            
                         </div>
                     </div>
 
@@ -99,7 +80,7 @@
                     <div class="x_panel">
                         <div class="x_title">
                             <h2>
-                                <span class="translate">Update List</span> <small class="translate">Instances to be updated</small>
+                                <span class="translate">Updates</span> <small class="translate">can be done here</small>
                             </h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li>
@@ -108,7 +89,7 @@
                             </ul>
                             <div class="clearfix"></div>
                         </div>
-                        <div class="x_content">
+                        <div class="x_content height_300">
                             <div class="">
                                 <ul id="updateHomeList"></ul>
                             </div>
@@ -120,7 +101,7 @@
                     <div class="x_panel">
                         <div class="x_title">
                             <h2>
-                                <span class="translate">New Adapters</span> <small class="translate">The newest adapters</small>
+                                <span class="translate">New adapters</span> <small class="translate">are listed here</small>
                             </h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li>
@@ -129,7 +110,7 @@
                             </ul>
                             <div class="clearfix"></div>
                         </div>
-                        <div class="x_content">
+                        <div class="x_content height_300">
                             <div class="">
                                 <ul id="newHomeList"></ul>
                             </div>
@@ -141,7 +122,7 @@
                     <div class="x_panel">
                         <div class="x_title">
                             <h2>
-                                <span class="translate">System info</span> <small class="translate">Versions and numbers</small>
+                                <span class="translate">System informations</span> <small class="translate">about the server</small>
                             </h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li>
@@ -150,7 +131,7 @@
                             </ul>
                             <div class="clearfix"></div>
                         </div>
-                        <div class="x_content">
+                        <div class="x_content height_300">
                             <div id="systemInfoList">                                
                             </div>
                         </div>
@@ -187,7 +168,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" id="forumBlock">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2 id="forumTitle">IoBroker Forum <small id="forumTime"></small></h2>
+                            <h2 id="forumTitle">ioBroker Forum <small id="forumTime"></small></h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li>
                                     <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -242,7 +223,12 @@
                     <span class="version">0.0.6</span>&nbsp;
                     <i class="fa fa-arrow-right"></i>&nbsp;
                     <strong class="newVersion">0.1.0</strong>&nbsp;
-                    <a href="javascript:;" class="notesVersion" title="infos"><i class="fa fa-info-circle text-info"></i></a>
+                    <a href="javascript:;" class="adapter-readme-submit show-md">
+                        <i class="fa fa-file-text text-info"></i>
+                    </a>
+                    <a class="notesVersion" title="infos">
+                        <i class="fa fa-info-circle text-info"></i>
+                    </a>
                 </p> 
             </li>
         </ul>
@@ -256,7 +242,7 @@
                     <span class="title">fronius adapter</span>&nbsp;
                     <span class="version">0.0.6</span>&nbsp;
                     <a href="javascript:;" class="adapter-readme-submit show-md">
-                        <i class="fa fa-info-circle text-info"></i>
+                        <i class="fa fa-file-text text-info"></i>
                     </a>
                 </p> 
             </li>

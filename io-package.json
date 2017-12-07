@@ -1,8 +1,12 @@
 {
     "common": {
         "name": "info",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "news": {  
+            "0.0.4": {
+                "en": "some fixes and design correction",
+                "de": "Bugfixes und Designkorrektur"
+            },
             "0.0.3": {
                 "en": "show adapters infos",
                 "de": "Adapterinformationen anzeigen"

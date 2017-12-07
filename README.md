@@ -21,6 +21,9 @@ This is an ioBroker adapter to get informations about your system and some news 
 
 ## Changelog
 
+#### 0.0.4
+* (ldittmar) some fixes and design correction
+
 #### 0.0.3
 * (ldittmar) show informations about adapters (update/new)
 
