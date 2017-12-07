@@ -1,5 +1,4 @@
-/* global io */
-/* global systemDictionary */
+/* global io, systemDictionary, showdown, bootbox */
 
 $(function () {
 
@@ -8,6 +7,7 @@ $(function () {
     var mainHost = '';
     var systemLang = 'en';
     var systemConfig = {};
+    var dateOptions = {"weekday":"short","year":"numeric","month":"long","day":"2-digit","hour":"2-digit","minute":"2-digit","second":"2-digit"};
 
     //--------------------------------------------------------- COMMONS -----------------------------------------------------------------------
     /** 
@@ -27,7 +27,7 @@ $(function () {
                     systemLang = 'en';
                 }
             }
-            
+
             socket.emit('getObject', 'system.adapter.info.0', function (err, res) {
                 var adapterConfig;
                 if (!err && res && res.native) {
@@ -60,6 +60,18 @@ $(function () {
     $('.close-link').click(function () {
         var $BOX_PANEL = $(this).closest('.x_panel');
         $BOX_PANEL.remove();
+    });
+    $(document.body).on('click', '.show-md', function () {
+        var url = $(this).data('md-url');
+        $.get(url, function (data) {
+            var link = url.match(/([^/]*\/){6}/);
+            var html = new showdown.Converter().makeHtml(data).replace(/src="(?!http)/g, 'class="img-responsive" src="' + link[0]);
+            bootbox.alert({
+                size: 'large',
+                backdrop: true,
+                message: html
+            }).off("shown.bs.modal");
+        });
     });
 
     //------------------------------------------------------- CLOCK FUNCTIONS -----------------------------------------------------------------
@@ -103,39 +115,9 @@ $(function () {
 
         }, 1000);
 
-        getActualDate();
-    }
-
-    /** 
-     * Fill actual date to clock
-     */
-    function getActualDate() {
-        var MONTH = [
-            'january',
-            'february',
-            'march',
-            'april',
-            'may',
-            'june',
-            'july',
-            'august',
-            'september',
-            'october',
-            'november',
-            'december'
-        ];
-        var DOW = [
-            'sunday',
-            'monday',
-            'tuesday',
-            'wednesday',
-            'thursday',
-            'friday',
-            'saturday'
-        ];
         var date = new Date();
-        $('#date_now').text(date.getDate() + '. ' + MONTH[date.getMonth()] + ' ' + date.getFullYear());
-        $('#weekday_now').text(DOW[date.getDay()]);
+        $('#date_now').text(date.toLocaleString(systemLang, {"year":"numeric","month":"long","day":"2-digit"}));
+        $('#weekday_now').text(date.toLocaleString(systemLang, {weekday:"long"}));
     }
 
     /** 
@@ -186,7 +168,7 @@ $(function () {
         if (data.results && data.results[0]) {
             var $forumContent = $($.parseXML(data.results[0]));
 
-            $('#forumTime').text($forumContent.find('updated:first').text());
+            $('#forumTime').text(new Date($forumContent.find('updated:first').text()).toLocaleDateString(systemLang, dateOptions));
             $('#forum-link').attr("href", $forumContent.find('link:nth-of-type(2)').attr('href'));
 
             $('#forumList').empty();
@@ -198,7 +180,7 @@ $(function () {
                 $item.find('.description').html($(this).find('content').eq(0).text());
                 $item.find('.postimage').addClass('img-responsive');
                 $item.find('.description a').attr('target', '_blank');
-                $item.find('.byline').text(new Date($(this).find('updated').eq(0).text()) + " - " + $(this).find('name').eq(0).text());
+                $item.find('.byline').text(new Date($(this).find('updated').eq(0).text()).toLocaleDateString(systemLang, dateOptions) + " - " + $(this).find('name').eq(0).text());
                 $('#forumList').append($item);
             });
         }
@@ -212,7 +194,7 @@ $(function () {
         if (data.results && data.results[0]) {
             var $newsContent = $($.parseXML(data.results[0]));
 
-            $('#newsTime').text($newsContent.find('lastBuildDate:first').text());
+            $('#newsTime').text(new Date($newsContent.find('lastBuildDate:first').text()).toLocaleDateString(systemLang, dateOptions));
             $('#news-link').attr("href", $newsContent.find('link:first').text());
 
             $('#newsList').empty();
@@ -223,7 +205,7 @@ $(function () {
                         .attr('href', $(this).find('link').text());
                 $item.find('.description').html($(this).find('description').text());
                 $item.find('.description a').attr('target', '_blank');
-                $item.find('.byline').text($(this).find('pubDate').text() + " - " + $(this).find('dc\\:creator').text());
+                $item.find('.byline').text(new Date($(this).find('pubDate').text()).toLocaleDateString(systemLang, dateOptions) + " - " + $(this).find('dc\\:creator').text());
                 $('#newsList').append($item);
             });
         }
@@ -372,7 +354,7 @@ $(function () {
                 $tmpLiElement.find('.newVersion').text(repository[adapter].version);
                 var news = getNews(obj.version, repository[adapter]);
                 if (news) {
-                    $tmpLiElement.find('.notesVersion').attr('title', news);
+                    $tmpLiElement.find('.notesVersion').attr('title', news).tooltip();
                 } else {
                     $tmpLiElement.find('.notesVersion').remove();
                 }
@@ -587,15 +569,18 @@ $(function () {
                 getHostInfo(hosts[currentHost], function (data) {
                     var text = '';
                     if (data) {
+                        text += "<h3>" + hosts[currentHost] + "</h3>";
+                        text += "<dl class='dl-horizontal'>";
                         for (var item in data) {
                             if (data.hasOwnProperty(item)) {
                                 text += '<dt>' + item + '</dt>';
                                 text += '<dd class="system-info" data-attribute="' + item + '">' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</dd>';
                             }
                         }
+                        text += "</dl>";
                     }
                     if (text) {
-                        $('#systemInfoList').html(text);
+                        $('#systemInfoList').append(text);
                     }
                 });
             }
