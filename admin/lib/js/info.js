@@ -5,9 +5,10 @@ $(function () {
     const socket = io.connect();
     var hosts = [];
     var mainHost = '';
-    var states = {};
     var systemLang = 'en';
     var systemConfig = {};
+    var adapterConfig = {};
+    var uptimeMap = {};
     var dateOptions = {"weekday": "short", "year": "numeric", "month": "long", "day": "2-digit", "hour": "2-digit", "minute": "2-digit", "second": "2-digit"};
 
     //--------------------------------------------------------- COMMONS -----------------------------------------------------------------------
@@ -30,28 +31,13 @@ $(function () {
             }
 
             socket.emit('getObject', 'system.adapter.info.0', function (err, res) {
-                var adapterConfig;
                 if (!err && res && res.native) {
                     adapterConfig = res.native;
                 }
                 if (typeof callback === 'function') {
-                    callback(adapterConfig);
+                    callback();
                 }
             });
-        });
-    }
-
-    function getState(id, callback) {
-        socket.emit('getState', id, function (err, res) {
-            if (!err && res) {
-                if (callback) {
-                    callback(err, res);
-                }
-            } else {
-                if (callback) {
-                    callback(null);
-                }
-            }
         });
     }
 
@@ -426,7 +412,7 @@ $(function () {
                 mainHost = res.rows[0].id.substring('system.host.'.length);
             }
             if (callback) {
-                callback(hosts);
+                callback();
             }
         });
     };
@@ -520,95 +506,113 @@ $(function () {
         'Speed': formatSpeed
     };
 
-    //------------------------------------------------------- FILL DATA -----------------------------------------------------------------------   
-    readInstanceConfig(function (config) {
-        getHosts(function () {
-            for (var currentHost in hosts) {
-                getHostInfo(hosts[currentHost], function (data) {
-                    var text = '';
-                    if (data) {
-                        text += "<h3>" + hosts[currentHost] + "</h3>";
-                        text += "<dl class='dl-horizontal'>";
-                        for (var item in data) {
-                            if (data.hasOwnProperty(item)) {
-                                text += '<dt>' + translateWord(item, systemLang, systemDictionary) + '</dt>';
-                                text += '<dd class="system-info" data-attribute="' + item + '">' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</dd>';
-                            }
+    //------------------------------------------------------- UPDATE FIELDS -------------------------------------------------------------------
+
+    var updateInfoPage = function () {
+        $('#systemInfoList').empty();
+        for (var currentHost in hosts) {
+            getHostInfo(hosts[currentHost], function (data) {
+                var text = '';
+                if (data) {
+                    text += "<h3>" + hosts[currentHost] + "</h3>";
+                    text += "<dl class='dl-horizontal'>";
+                    for (var item in data) {
+                        if (data.hasOwnProperty(item)) {
+                            text += '<dt>' + translateWord(item, systemLang, systemDictionary) + '</dt>';
+                            text += '<dd' + ((item === 'Uptime' || item === 'System uptime') ? (" id='" + hosts[currentHost] + item + "' class='timeCounter' data-start='" + data[item] + "'") : "") + '>' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</dd>';
                         }
-                        text += "</dl>";
                     }
-                    if (text) {
-                        $('#systemInfoList').append(text);
+                    text += "</dl>";
+                }
+                if (text) {
+                    $('#systemInfoList').append(text);
+                }
+            });
+        }
+
+        setInterval(function () {
+            $(".timeCounter").each(function () {
+                var key = $(this).attr("id");
+                if(!(key in uptimeMap)){
+                    uptimeMap[key] = $(this).data("start");
+                }
+                uptimeMap[key] = ++uptimeMap[key];
+                $(this).text(formatSeconds(uptimeMap[key]));
+            });
+        }, 1000);
+
+
+        getAdaptersInfo(mainHost, function (repository, installedList) {
+
+            var listUpdatable = [];
+            var listNew = [];
+            var adapter, obj;
+
+            if (installedList) {
+                for (adapter in installedList) {
+                    if (!installedList.hasOwnProperty(adapter)) {
+                        continue;
                     }
-                });
+                    obj = installedList[adapter];
+                    if (!obj || obj.controller || adapter === 'hosts' || !obj.version) {
+                        continue;
+                    }
+                    var version = '';
+                    if (repository[adapter] && repository[adapter].version) {
+                        version = repository[adapter].version;
+                    }
+                    if (!upToDate(version, obj.version)) {
+                        listUpdatable.push(adapter);
+                    }
+
+                }
+                listUpdatable.sort();
             }
 
-            getAdaptersInfo(mainHost, function (repository, installedList) {
+            fillList('update', listUpdatable, repository, installedList);
 
-                var listUpdatable = [];
-                var listNew = [];
-                var adapter, obj;
-
-                if (installedList) {
-                    for (adapter in installedList) {
-                        if (!installedList.hasOwnProperty(adapter)) {
-                            continue;
-                        }
-                        obj = installedList[adapter];
-                        if (!obj || obj.controller || adapter === 'hosts' || !obj.version) {
-                            continue;
-                        }
-                        var version = '';
-                        if (repository[adapter] && repository[adapter].version) {
-                            version = repository[adapter].version;
-                        }
-                        if (!upToDate(version, obj.version)) {
-                            listUpdatable.push(adapter);
-                        }
-
-                    }
-                    listUpdatable.sort();
+            var now = new Date();
+            for (adapter in repository) {
+                if (!repository.hasOwnProperty(adapter)) {
+                    continue;
                 }
-
-                fillList('update', listUpdatable, repository, installedList);
-
-                var now = new Date();
-                for (adapter in repository) {
-                    if (!repository.hasOwnProperty(adapter)) {
-                        continue;
-                    }
-                    obj = repository[adapter];
-                    if (!obj || obj.controller) {
-                        continue;
-                    }
-                    if (installedList && installedList[adapter]) {
-                        continue;
-                    }
-                    if (!(obj.published && ((now - new Date(obj.published)) < 3600000 * 24 * 31))) {
-                        continue;
-                    }
-                    listNew.push(adapter);
+                obj = repository[adapter];
+                if (!obj || obj.controller) {
+                    continue;
                 }
-                listNew.sort();
+                if (installedList && installedList[adapter]) {
+                    continue;
+                }
+                if (!(obj.published && ((now - new Date(obj.published)) < 3600000 * 24 * 31))) {
+                    continue;
+                }
+                listNew.push(adapter);
+            }
+            listNew.sort();
 
-                fillList('new', listNew, repository, installedList);
-            });
+            fillList('new', listNew, repository, installedList);
 
         });
+    };
 
-        if (config.forum) {
+    //------------------------------------------------------- FILL DATA -----------------------------------------------------------------------   
+    readInstanceConfig(function () {
+
+        getHosts(updateInfoPage);
+
+        if (adapterConfig.forum) {
             requestCrossDomain('http://forum.iobroker.net/feed.php?mode=topics', getForumData);
         } else {
             $('#forumBlock').hide();
         }
-        if (config.news) {
+        if (adapterConfig.news) {
             requestCrossDomain('http://www.iobroker.net/docu/?feed=rss2&lang=' + systemLang, getNewsData);
         } else {
             $('#newsBlock').hide();
         }
         startClock();
         translateAll(systemLang, systemDictionary);
-        $('#homeRunningProcesses').html($('#running_processes').html());
+
     });
 
 });

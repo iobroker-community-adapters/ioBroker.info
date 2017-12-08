@@ -12,8 +12,13 @@ body{
     background-color: #efefef;
 }
 
-.height_300 {
-    height: 300px;
+.height_320 {
+    height: 320px;
+    overflow-x: auto;
+}
+
+.height_150 {
+    height: 150px;
     overflow-x: auto;
 }
 
