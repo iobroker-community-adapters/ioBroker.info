@@ -1,8 +1,12 @@
 {
     "common": {
         "name": "info",
-        "version": "0.0.4",
-        "news": {  
+        "version": "0.0.5",
+        "news": {
+            "0.0.5": {
+                "en": "install and update function",
+                "de": "Funtionen für Install + Upsate implementiert"
+            },
             "0.0.4": {
                 "en": "some fixes and design correction",
                 "de": "Bugfixes und Designkorrektur"

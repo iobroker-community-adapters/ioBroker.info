@@ -10,6 +10,11 @@ $(function () {
     var adapterConfig = {};
     var uptimeMap = {};
     var dateOptions = {"weekday": "short", "year": "numeric", "month": "long", "day": "2-digit", "hour": "2-digit", "minute": "2-digit", "second": "2-digit"};
+    var installMsg = {};
+    var cmdCallback = null;
+    var activeCmdId = null;
+    var $stdout = $('#stdout');
+    var stdout = '';
 
     //--------------------------------------------------------- COMMONS -----------------------------------------------------------------------
     /** 
@@ -39,6 +44,15 @@ $(function () {
                 }
             });
         });
+    }
+    
+    /** 
+     * Translate word
+     * @param {type} word
+     * @returns {String}
+     */
+    function translateInfo(word){
+        return translateWord(word, systemLang, systemDictionary);
     }
 
     //-------------------------------------------------------- USABILITY FUNCTIONS -------------------------------------------------------------
@@ -223,6 +237,30 @@ $(function () {
     var curRepoLastUpdate = null;
     var curRunning = null;
 
+    $(document.body).on('click', '.adapter-update-submit', function () {
+        var aName = $(this).attr('data-adapter-name');
+
+        // genereate the unique id to coordinate the outputs
+        activeCmdId = Math.floor(Math.random() * 0xFFFFFFE) + 1;
+        $(this).closest("li").attr('id', activeCmdId);
+
+        cmdExec('upgrade ' + aName, function (exitCode) {
+            if (!exitCode) {
+
+            }
+        });
+    });
+
+    $(document.body).on('hidden.bs.modal', '#modal-command', function () {
+        if (installMsg.hasOwnProperty(activeCmdId)) {
+            installMsg[activeCmdId].closed = true;
+        }
+        activeCmdId = null;
+        $('#adapter-meter').progressbar(1);
+        $('#adapter-install-message-on-end').html('&nbsp;');
+        $('#adapter-install-close-btn').text(translateInfo('Run on background'));
+    });
+
     var getAdaptersInfo = function (host, callback) {
         if (!host) {
             return;
@@ -295,6 +333,7 @@ $(function () {
         } else {
             curRunning = [callback];
         }
+
     };
 
     /** 
@@ -375,6 +414,9 @@ $(function () {
 
             $ul.append($tmpLiElement);
         }
+        if (installedList) {
+            $('#adapterCountSysInfo').html(Object.keys(installedList).length);
+        }
     }
 
     var getNews = function (actualVersion, adapter) {
@@ -395,6 +437,102 @@ $(function () {
         }
         return text;
     };
+
+    var cmdExec = function (cmd, callback) {
+
+        $stdout.val('');
+
+        var title = cmd, tmp, name, msgSuccess, msgError;
+        if (title.startsWith('add')) {
+            tmp = title.split(' ');
+            name = tmp[1];
+            title = 'Installing adapter ' + name + '...';
+            msgSuccess = 'The adapter ' + name + ' has been successfully installed.';
+            msgError = 'Failed to install ' + name;
+        } else if (title.startsWith('upgrade')) {
+            tmp = title.split(' ');
+            name = tmp[1];
+            title = 'Updating adapter ' + name + '...';
+            msgSuccess = 'The adpter ' + name + ' has been successfully updated!';
+            msgError = 'Failed to update ' + name;
+        }
+
+        $('#modal-command-label').text(title);
+
+        stdout = '$ ./iobroker ' + cmd;
+        $stdout.val(stdout);
+
+        installMsg[activeCmdId] = {};
+        installMsg[activeCmdId].success = msgSuccess;
+        installMsg[activeCmdId].error = msgError;
+
+        $('#modal-command').modal();
+
+        cmdCallback = callback;
+        socket.emit('cmdExec', mainHost, activeCmdId, cmd, function (err) {
+            if (err) {
+                stdout += '\n' + $.i18n(err);
+                $stdout.val(stdout);
+                cmdCallback = null;
+                callback(err);
+            } else {
+                if (callback) {
+                    callback();
+                }
+            }
+        });
+    };
+
+    socket.on('cmdStdout', function (_id, text) {
+        if (activeCmdId === _id) {
+            stdout += '\n' + text;
+            $('#adapter-meter').progressbar("auto");
+            $stdout.val(stdout);
+            $stdout.scrollTop($stdout[0].scrollHeight - $stdout.height());
+        }
+    });
+    socket.on('cmdStderr', function (_id, text) {
+        if (activeCmdId === _id) {
+            stdout += '\nERROR: ' + text;
+            $('#adapter-meter').progressbar("auto");
+            $stdout.val(stdout);
+            $stdout.scrollTop($stdout[0].scrollHeight - $stdout.height());
+        }
+    });
+    socket.on('cmdExit', function (_id, exitCode) {
+        exitCode = parseInt(exitCode, 10);
+        if (activeCmdId === _id) {
+            stdout += '\n' + (exitCode !== 0 ? 'ERROR: ' : '') + 'process exited with code ' + exitCode;
+            $stdout.val(stdout);
+            $stdout.scrollTop($stdout[0].scrollHeight - $stdout.height());
+            $('#adapter-install-close-btn').text('close');
+
+            if (!exitCode) {
+                $('#adapter-meter').progressbar(100);
+                $('#adapter-install-message-on-end').text(installMsg[_id].success);
+                setTimeout(function () {
+                    $('#modal-command').modal('hide');
+                }, 1500);
+                $('#' + _id).remove();
+            } else {
+                $('#adapter-meter').progressbar(90, "error");
+                $('#adapter-install-message-on-end').text(installMsg[_id].error);
+            }
+            if (cmdCallback) {
+                $('#adapter-install-close-btn').text('close');
+                cmdCallback(exitCode);
+                cmdCallback = null;
+            }
+        } else if (installMsg.hasOwnProperty(_id)) {
+            if (!exitCode) {
+                $('#' + _id).remove();
+                alert(installMsg[_id].success);
+            } else {
+                alert(installMsg[_id].error);
+            }
+            delete installMsg[_id];
+        }
+    });
 
     //------------------------------------------------------ HOST INFORMATION FUNCTIONS -------------------------------------------------------
 
@@ -435,6 +573,8 @@ $(function () {
                 console.error('May not read "getHostInfo"');
             } else if (!data) {
                 console.error('Cannot read "getHostInfo"');
+            } else {
+                data.hostname = host;
             }
 
             data && callback && callback(data);
@@ -465,7 +605,7 @@ $(function () {
         }
         var text = '';
         if (days) {
-            text += days + " " + translateWord("daysShortText", systemLang, systemDictionary) + ' ';
+            text += days + " " + translateInfo("daysShortText") + ' ';
         }
         text += hours + ':' + minutes + ':' + seconds;
 
@@ -495,6 +635,10 @@ $(function () {
         return mhz + " MHz";
     }
 
+    function formatAdaptercount(all) {
+        return "<span id='adapterCountSysInfo'>?</span>/" + all;
+    }
+
     /** 
      * FormatObject for host informations
      * @type type
@@ -503,7 +647,8 @@ $(function () {
         'Uptime': formatSeconds,
         'System uptime': formatSeconds,
         'RAM': formatRam,
-        'Speed': formatSpeed
+        'Speed': formatSpeed,
+        'adapters count': formatAdaptercount
     };
 
     //------------------------------------------------------- UPDATE FIELDS -------------------------------------------------------------------
@@ -514,12 +659,12 @@ $(function () {
             getHostInfo(hosts[currentHost], function (data) {
                 var text = '';
                 if (data) {
-                    text += "<h3>" + hosts[currentHost] + "</h3>";
+                    text += "<h3>" + data.hostname + "</h3>";
                     text += "<dl class='dl-horizontal'>";
                     for (var item in data) {
                         if (data.hasOwnProperty(item)) {
                             text += '<dt>' + translateWord(item, systemLang, systemDictionary) + '</dt>';
-                            text += '<dd' + ((item === 'Uptime' || item === 'System uptime') ? (" id='" + hosts[currentHost] + item + "' class='timeCounter' data-start='" + data[item] + "'") : "") + '>' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</dd>';
+                            text += '<dd' + ((item === 'Uptime' || item === 'System uptime') ? (" id='" + data.hostname + item + "' class='timeCounter' data-start='" + data[item] + "'") : "") + '>' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</dd>';
                         }
                     }
                     text += "</dl>";
@@ -533,7 +678,7 @@ $(function () {
         setInterval(function () {
             $(".timeCounter").each(function () {
                 var key = $(this).attr("id");
-                if(!(key in uptimeMap)){
+                if (!(key in uptimeMap)) {
                     uptimeMap[key] = $(this).data("start");
                 }
                 uptimeMap[key] = ++uptimeMap[key];
@@ -567,6 +712,7 @@ $(function () {
 
                 }
                 listUpdatable.sort();
+
             }
 
             fillList('update', listUpdatable, repository, installedList);
@@ -616,3 +762,63 @@ $(function () {
     });
 
 });
+
+jQuery.fn.progressbar = function (a, b) {
+    var $this = $(this);
+    if ($this.hasClass('meter')) {
+        if (a === "error" || b === "error") {
+            $this.removeClass('orange').addClass('red').addClass('nostripes');
+        } else if (a === "warning" || b === "warning") {
+            $this.removeClass('red').addClass('orange').removeClass('nostripes');
+        } else {
+            $this.removeClass('red').removeClass('orange').removeClass('nostripes');
+        }
+
+        var $span = $this.find('span');
+
+        var value;
+        var orgval = 100 * $span.width() / $span.offsetParent().width();
+        if (a === "auto" || b === "auto") {
+            if (orgval < 10) {
+                value = orgval + 3;
+            } else if (orgval < 30) {
+                value = orgval + 1;
+            } else if (orgval < 40) {
+                value = orgval + 2;
+            } else if (orgval < 60) {
+                value = orgval + 0.5;
+            } else if (orgval < 80) {
+                value = orgval + 1;
+            } else if (orgval < 90) {
+                value = orgval + 0.2;
+            } else {
+                value = orgval;
+            }
+        } else if (typeof a === "string" && a.startsWith("+")) {
+            value = parseInt(a.substr(1));
+            value = a.startsWith("+") ? (orgval + value) : (orgval - value);
+            if (value > 90) {
+                value = orgval;
+            }
+        } else if (typeof b === "string" && b.startsWith("+")) {
+            value = parseInt(b.substr(1));
+            value = orgval + value;
+            if (value > 90) {
+                value = orgval;
+            }
+        } else {
+            value = parseInt(a) || parseInt(b);
+        }
+
+        if (!isNaN(value)) {
+            if (value > 100) {
+                value = 100;
+            }
+            if (value === 100) {
+                $this.addClass('nostripes');
+            }
+            $span.width(value + "%");
+        }
+    }
+    return this;
+};

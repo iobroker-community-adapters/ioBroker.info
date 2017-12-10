@@ -119,13 +119,13 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="tile-stats">
-                            
+
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="tile-stats">
-                            
+
                             </div>
                         </div>
                     </div>
@@ -260,6 +260,36 @@
                 </p> 
             </li>
         </ul>
-        <!-- / NewList -->         
+        <!-- / NewList --> 
+
+        <!-- Install/Update -->
+        <div id="modal-command" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-command" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <i class="fa fa-window-minimize"></i>
+                        </button>
+                        <h4 class="modal-title" id="modal-command-label">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="adapter-meter" class="meter">
+                            <span style="width: 1%;"></span>
+                        </div>
+                        <p id="adapter-install-message-on-end">&nbsp;</p>
+                        <a data-toggle="collapse" href="#collapseApadpterInstallDetails" aria-expanded="false" aria-controls="collapseApadpterInstallDetails">
+                            <span data-i18n="details">Details</span> ...
+                        </a>
+                        <div class="collapse" id="collapseApadpterInstallDetails">
+                            <textarea class="command" id="stdout" disabled="disabled" cols="120" rows="30"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default translate" id="adapter-install-close-btn" data-dismiss="modal">Run on background</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- / Install/Update -->
     </body>
 </html>

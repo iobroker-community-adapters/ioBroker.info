@@ -19,5 +19,6 @@ systemDictionary = {
     "Architecture": {"de": "Architektur"},
     "Speed": {"de": "Geschwindigkeit"},
     "System uptime": {"de": "System Betriebszeit"},
-    "Uptime": {"de": "Betriebszeit"}
+    "Uptime": {"de": "Betriebszeit"},
+    "Run on background" : {"de": "Im Hintergrund laufen"}
 };
