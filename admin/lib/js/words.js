@@ -20,5 +20,11 @@ systemDictionary = {
     "Speed": {"de": "Geschwindigkeit"},
     "System uptime": {"de": "System Betriebszeit"},
     "Uptime": {"de": "Betriebszeit"},
-    "Run on background" : {"de": "Im Hintergrund laufen"}
+    "Run on background" : {"de": "Im Hintergrund laufen"},
+    "Installing adapter %s...": {"de":"Adapter %s wird installiert..."},
+    "The adapter %s has been successfully installed!": {"de":"Der Adapter %s wurde erfolgreich installiert!"},
+    "Failed to install %s": {"de":"Der Adapter %s konnte leider nicht intalliert werden."},
+    "Updating adapter %s...": {"de":"Adapter %s wird aktualisiert..."},
+    "The adpter %s has been successfully updated!":{"de":"Der Adapter %s wurde erfolgreich aktualisiert!"},
+    "Failed to update %s": {"de":"Der Adapter %s konnte leider nicht aktualisiert werden."}
 };

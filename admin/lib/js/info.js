@@ -45,14 +45,23 @@ $(function () {
             });
         });
     }
-    
+
     /** 
      * Translate word
      * @param {type} word
      * @returns {String}
      */
-    function translateInfo(word){
-        return translateWord(word, systemLang, systemDictionary);
+    function _(word) {
+        var text = translateWord(word, systemLang, systemDictionary);
+        
+        for (var i = 1; i < arguments.length; i++) {
+            var pos = text.indexOf('%s');
+            if (pos !== -1) {
+                text = text.replace('%s', arguments[i]);
+            }
+        }
+        
+        return text;
     }
 
     //-------------------------------------------------------- USABILITY FUNCTIONS -------------------------------------------------------------
@@ -72,10 +81,12 @@ $(function () {
 
         $ICON.toggleClass('fa-chevron-up fa-chevron-down');
     });
+
     $('.close-link').click(function () {
         var $BOX_PANEL = $(this).closest('.x_panel');
         $BOX_PANEL.remove();
     });
+
     $(document.body).on('click', '.show-md', function () {
         var url = $(this).data('md-url');
         $.get(url, function (data) {
@@ -133,6 +144,9 @@ $(function () {
         getActualDate();
     }
 
+    /** 
+     * Get actual local date
+     */
     function getActualDate() {
         var date = new Date();
         $('#date_now').text(date.toLocaleString(systemLang, {"year": "numeric", "month": "long", "day": "2-digit"}));
@@ -251,6 +265,20 @@ $(function () {
         });
     });
 
+    $(document.body).on('click', '.adapter-install-submit', function () {
+        var aName = $(this).attr('data-adapter-name');
+
+        // genereate the unique id to coordinate the outputs
+        activeCmdId = Math.floor(Math.random() * 0xFFFFFFE) + 1;
+        $(this).closest("li").attr('id', activeCmdId);
+
+        cmdExec('install ' + aName, function (exitCode) {
+            if (!exitCode) {
+
+            }
+        });
+    });
+
     $(document.body).on('hidden.bs.modal', '#modal-command', function () {
         if (installMsg.hasOwnProperty(activeCmdId)) {
             installMsg[activeCmdId].closed = true;
@@ -258,9 +286,14 @@ $(function () {
         activeCmdId = null;
         $('#adapter-meter').progressbar(1);
         $('#adapter-install-message-on-end').html('&nbsp;');
-        $('#adapter-install-close-btn').text(translateInfo('Run on background'));
+        $('#adapter-install-close-btn').text(_('Run on background'));
     });
 
+    /** 
+     * Get adapter informations
+     * @param {type} host
+     * @param {type} callback
+     */
     var getAdaptersInfo = function (host, callback) {
         if (!host) {
             return;
@@ -446,15 +479,15 @@ $(function () {
         if (title.startsWith('add')) {
             tmp = title.split(' ');
             name = tmp[1];
-            title = 'Installing adapter ' + name + '...';
-            msgSuccess = 'The adapter ' + name + ' has been successfully installed.';
-            msgError = 'Failed to install ' + name;
+            title = _('Installing adapter %s...', name);
+            msgSuccess = _('The adapter %s has been successfully installed!', name);
+            msgError = _('Failed to install %s', name);
         } else if (title.startsWith('upgrade')) {
             tmp = title.split(' ');
             name = tmp[1];
-            title = 'Updating adapter ' + name + '...';
-            msgSuccess = 'The adpter ' + name + ' has been successfully updated!';
-            msgError = 'Failed to update ' + name;
+            title = _('Updating adapter %s...', name);
+            msgSuccess = _('The adpter %s has been successfully updated!', name);
+            msgError = _('Failed to update %s', name);
         }
 
         $('#modal-command-label').text(title);
@@ -471,7 +504,7 @@ $(function () {
         cmdCallback = callback;
         socket.emit('cmdExec', mainHost, activeCmdId, cmd, function (err) {
             if (err) {
-                stdout += '\n' + $.i18n(err);
+                stdout += '\n' + _(err);
                 $stdout.val(stdout);
                 cmdCallback = null;
                 callback(err);
@@ -605,7 +638,7 @@ $(function () {
         }
         var text = '';
         if (days) {
-            text += days + " " + translateInfo("daysShortText") + ' ';
+            text += days + " " + _("daysShortText") + ' ';
         }
         text += hours + ':' + minutes + ':' + seconds;
 
@@ -663,7 +696,7 @@ $(function () {
                     text += "<dl class='dl-horizontal'>";
                     for (var item in data) {
                         if (data.hasOwnProperty(item)) {
-                            text += '<dt>' + translateWord(item, systemLang, systemDictionary) + '</dt>';
+                            text += '<dt>' + _(item) + '</dt>';
                             text += '<dd' + ((item === 'Uptime' || item === 'System uptime') ? (" id='" + data.hostname + item + "' class='timeCounter' data-start='" + data[item] + "'") : "") + '>' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</dd>';
                         }
                     }
@@ -757,7 +790,7 @@ $(function () {
             $('#newsBlock').hide();
         }
         startClock();
-        translateAll(systemLang, systemDictionary);
+        translateAll(systemLang);
 
     });
 
