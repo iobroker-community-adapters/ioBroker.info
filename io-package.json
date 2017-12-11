@@ -41,7 +41,7 @@
             "ldittmar <iobroker@lmdsoft.de>"
         ],
         "platform": "Javascript/Node.js",
-        "mode": "none",
+        "mode": "daemon",
         "icon": "info.png",
         "enabled": true,
         "singleton": true,

@@ -411,6 +411,7 @@ $(function () {
         $ul.empty();
 
         var isInstalled = type === 'update';
+        var counter = 0;
 
         for (var i = 0; i < list.length; i++) {
 
@@ -423,6 +424,7 @@ $(function () {
             $tmpLiElement.find('.version').text(obj.version);
 
             if (isInstalled && repository[adapter]) {
+                counter++;
                 $tmpLiElement.find('.adapter-update-submit').attr('data-adapter-name', adapter);
                 $tmpLiElement.find('.newVersion').text(repository[adapter].version);
                 if (obj.readme) {
@@ -447,7 +449,13 @@ $(function () {
 
             $ul.append($tmpLiElement);
         }
-        if (installedList) {
+        if (isInstalled && installedList) {
+            if(counter === 0){
+                $('#homeUpdateListTab')
+                        .find(".x_content")
+                        .addClass('allOk')
+                        .html('<h3 id="noUpdateAllOk" style="text-align: center;">' + _('All adapters are up to date!') + '</h3>');
+            }
             $('#adapterCountSysInfo').html(Object.keys(installedList).length);
         }
     }
@@ -762,7 +770,7 @@ $(function () {
                 if (installedList && installedList[adapter]) {
                     continue;
                 }
-                if (!(obj.published && ((now - new Date(obj.published)) < 3600000 * 24 * 31))) {
+                if (!(obj.published && ((now - new Date(obj.published)) < 3600000 * 24 * 60))) {
                     continue;
                 }
                 listNew.push(adapter);

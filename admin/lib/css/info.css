@@ -13,7 +13,7 @@ body{
 }
 
 .height_320 {
-    height: 320px;
+    height: 330px;
     overflow-x: auto;
 }
 
@@ -305,4 +305,8 @@ ul#cssClock li{
     .modal-dialog{
         margin-left: 80px;
     }    
+}
+
+.allOk {
+    background: url(../img/thumb.png) no-repeat center;
 }
