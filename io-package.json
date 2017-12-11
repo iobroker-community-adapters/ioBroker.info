@@ -47,7 +47,7 @@
         "singleton": true,
         "extIcon": "https://raw.githubusercontent.com/ldittmar81/ioBroker.info/master/admin/info.png",
         "keywords": ["info", "information"],
-        "readme": "https://raw.githubusercontent.com/ldittmar81/ioBroker.info/blob/master/README.md",
+        "readme": "https://github.com/ldittmar81/ioBroker.info/blob/master/README.md",
         "loglevel": "info",
         "type": "misc-data",
         "adminTab": {
