@@ -15,6 +15,7 @@ $(function () {
     var activeCmdId = null;
     var $stdout = $('#stdout');
     var stdout = '';
+    var languages = ["de", "en", "ru", "pt", "nl", "fr", "it", "es"];
 
     //--------------------------------------------------------- COMMONS -----------------------------------------------------------------------
     /** 
@@ -29,7 +30,7 @@ $(function () {
             } else {
                 systemLang = window.navigator.userLanguage || window.navigator.language;
 
-                if (systemLang !== 'en' && systemLang !== 'de' && systemLang !== 'ru') {
+                if (!(systemLang in languages)) {
                     systemConfig.common.language = 'en';
                     systemLang = 'en';
                 }
@@ -53,14 +54,14 @@ $(function () {
      */
     function _(word) {
         var text = translateWord(word, systemLang, systemDictionary);
-        
+
         for (var i = 1; i < arguments.length; i++) {
             var pos = text.indexOf('%s');
             if (pos !== -1) {
                 text = text.replace('%s', arguments[i]);
             }
         }
-        
+
         return text;
     }
 
@@ -450,7 +451,7 @@ $(function () {
             $ul.append($tmpLiElement);
         }
         if (isInstalled && installedList) {
-            if(counter === 0){
+            if (counter === 0) {
                 $('#homeUpdateListTab')
                         .find(".x_content")
                         .addClass('allOk')
@@ -732,6 +733,7 @@ $(function () {
 
             var listUpdatable = [];
             var listNew = [];
+            var listHost = [];
             var adapter, obj;
 
             if (installedList) {
@@ -740,15 +742,21 @@ $(function () {
                         continue;
                     }
                     obj = installedList[adapter];
-                    if (!obj || obj.controller || adapter === 'hosts' || !obj.version) {
+
+                    if (!obj || !obj.version) {
                         continue;
                     }
+
                     var version = '';
                     if (repository[adapter] && repository[adapter].version) {
                         version = repository[adapter].version;
                     }
                     if (!upToDate(version, obj.version)) {
-                        listUpdatable.push(adapter);
+                        if (obj.controller) {
+                            listHost.push(adapter);
+                        } else {
+                            listUpdatable.push(adapter);
+                        }
                     }
 
                 }
@@ -756,6 +764,7 @@ $(function () {
 
             }
 
+            fillList('hostUpdate', listHost, repository, installedList);
             fillList('update', listUpdatable, repository, installedList);
 
             var now = new Date();
@@ -793,7 +802,11 @@ $(function () {
             $('#forumBlock').hide();
         }
         if (adapterConfig.news) {
-            requestCrossDomain('http://www.iobroker.net/docu/?feed=rss2&lang=' + systemLang, getNewsData);
+            var newsLang = systemLang;
+            if (newsLang !== "de" && newsLang !== "ru") {
+                newsLang = "en";
+            }
+            requestCrossDomain('http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang, getNewsData);
         } else {
             $('#newsBlock').hide();
         }
