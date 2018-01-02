@@ -3,21 +3,55 @@
         "name": "info",
         "version": "0.0.7",
         "news": {
-            "0.0.7": {
-                "en": "install and update function",
-                "de": "Funtionen für Install + Update implementiert"
+            "0.1.0": {
+                "en": "Compatibility with Admin 3.x.",
+                "de": "Kompatibilität zu Admin 3.x",
+                "ru": "Совместимость с Admin 3.x.",
+                "pt": "Compatibilidade com Admin 3.x.",
+                "fr": "Compatibilité avec Admin 3.x.",
+                "nl": "Compatibiliteit met Admin 3.x.",
+                "it": "Compatibilità con Admin 3.x.",
+                "es": "Compatibilidad con Admin 3.x."
+            },
+            "0.0.6": {
+                "en": "Install and update function",
+                "de": "Funktionen für Install + Update implementiert",
+                "ru": "Функции для установки + обновления",
+                "pt": "Funções para instalação + atualização implementadas",
+                "fr": "Fonctions pour Install + Update implémentées",
+                "nl": "Functies voor installatie + update geïmplementeerd",
+                "it": "Funzioni per installazione + aggiornamento implementate",
+                "es": "Funciones para Install + Update implementadas"
             },
             "0.0.4": {
-                "en": "some fixes and design correction",
-                "de": "Bugfixes und Designkorrektur"
+                "en": "Some fixes and design correction",
+                "de": "Bugfixes und Designkorrektur",
+                "ru": "Некоторые исправления ошибок и дизайн",
+                "pt": "Algumas correçoes de erros e design",
+                "fr": "Quelques corrections de bugs et de design",
+                "nl": "Enkele fixes en ontwerpcorrectie",
+                "it": "Alcune correzioni di bug e progettazione",
+                "es": "Algunas correcciones de errores y diseño"
             },
             "0.0.3": {
-                "en": "show adapters infos",
-                "de": "Adapterinformationen anzeigen"
+                "en": "Show adapters infos",
+                "de": "Adapterinformationen anzeigen",
+                "ru": "Показать информацию об адаптере",
+                "pt": "Mostrar informações dos adaptadores",
+                "fr": "Plus d'informations sur les adaptateurs",
+                "nl": "Meest bekeken informadores adaptadores",
+                "it": "Mostra informazioni su adattatori",
+                "es": "Mostrar informações dos adaptadores"
             },
             "0.0.2": {
-                "en": "system info",
-                "de": "Systeminformationen"
+                "en": "System info",
+                "de": "Systeminformationen",
+                "ru": "информационная система",
+                "pt": "Informações do sistema",
+                "fr": "Informations sur le système",
+                "nl": "Systeeminformatie",
+                "it": "Informazioni di sistema",
+                "es": "Información del sistema"
             },
             "0.0.1": {
                 "en": "initial adapter",
@@ -25,7 +59,9 @@
                 "ru": "Первоначальный адаптер",
                 "pt": "Versão inicial",
                 "fr": "Version initiale",
-                "nl": "Eerste release"
+                "nl": "Eerste release",
+                "it": "Versione iniziale",
+                "es": "Versión inicial"
             }
         },
         "title": "ioBroker information tab",
@@ -34,8 +70,10 @@
             "de": "ioBroker Informations Adapter",
             "ru": "ioBroker информация драйвер как образец",
             "pt": "Adaptador de informação para o ioBroker",
-            "fr": "ioBroker information adaptateur",
-            "nl": "ioBroker informatie Adapter"
+            "fr": "Adaptateur d'information pour ioBroker",
+            "nl": "Informatie-adapter voor ioBroker",
+            "it": "Scheda di informazione per ioBroker",
+            "es": "Adaptador de información para el ioBroker"
         },
         "authors": [
             "ldittmar <iobroker@lmdsoft.de>"
@@ -53,7 +91,7 @@
         "adminTab": {
             "singleton": true,
             "name": "Info",
-            "fa-icon": "fa-info-circle"
+            "fa-icon": "info"
         }
     },
     "native": {
