@@ -15,6 +15,7 @@ $(function () {
     var activeCmdId = null;
     var $stdout = $('#stdout');
     var stdout = '';
+    var languages = ["de", "en", "ru", "pt", "nl", "fr", "it", "es"];
 
     //--------------------------------------------------------- COMMONS -----------------------------------------------------------------------
     /** 
@@ -28,8 +29,7 @@ $(function () {
                 systemLang = systemConfig.common.language;
             } else {
                 systemLang = window.navigator.userLanguage || window.navigator.language;
-
-                if (systemLang !== 'en' && systemLang !== 'de' && systemLang !== 'ru' && systemLang !== 'pt' && systemLang !== 'it' && systemLang !== 'es' && systemLang !== 'fr') {
+                if (!(systemLang in languages)) {
                     systemConfig.common.language = 'en';
                     systemLang = 'en';
                 }
@@ -411,19 +411,35 @@ $(function () {
         $ul.empty();
 
         var isInstalled = type === 'update';
+        var isHost = type === 'hostUpdate';
         var counter = 0;
+        var uniqueCount = [];
 
         for (var i = 0; i < list.length; i++) {
 
             var $tmpLiElement = $('#' + type + 'HomeListTemplate').children().clone(true, true);
 
             var adapter = list[i];
-            var obj = isInstalled ? (installedList ? installedList[adapter] : null) : repository[adapter];
+            var obj = (isInstalled || isHost) ? (installedList ? installedList[adapter] : null) : repository[adapter];
 
-            $tmpLiElement.find('.title').text((obj.title || '').replace('ioBroker Visualisation - ', ''));
+            if (isHost) {
+                $tmpLiElement.find('.title').text(_("Your host '%s' is outdated!", adapter));
+            } else {
+                $tmpLiElement.find('.title').text((obj.title || '').replace('ioBroker Visualisation - ', ''));
+            }
+
             $tmpLiElement.find('.version').text(obj.version);
 
-            if (isInstalled && repository[adapter]) {
+            if (isHost) {
+                $tmpLiElement.find('.newVersion').text(repository[adapter].version);
+                $tmpLiElement.find('.host-readme-submit').attr('data-md-url', obj.readme.replace('https://github.com', 'https://raw.githubusercontent.com').replace('blob/', ''));
+                var news = getNews(obj.version, repository[adapter]);
+                if (news) {
+                    $tmpLiElement.find('.notesVersion').attr('title', news).tooltip();
+                } else {
+                    $tmpLiElement.find('.notesVersion').remove();
+                }
+            } else if (isInstalled && repository[adapter]) {
                 counter++;
                 $tmpLiElement.find('.adapter-update-submit').attr('data-adapter-name', adapter);
                 $tmpLiElement.find('.newVersion').text(repository[adapter].version);
@@ -456,7 +472,7 @@ $(function () {
                         .addClass('allOk')
                         .html('<h3 id="noUpdateAllOk" style="text-align: center;">' + _('All adapters are up to date!') + '</h3>');
             }
-            $('#adapterCountSysInfo').html(Object.keys(installedList).length);
+            $('#adapterCountSysInfo').html(uniqueCount.length);
         }
     }
 
@@ -732,6 +748,7 @@ $(function () {
 
             var listUpdatable = [];
             var listNew = [];
+            var listHost = [];
             var adapter, obj;
 
             if (installedList) {
@@ -740,15 +757,21 @@ $(function () {
                         continue;
                     }
                     obj = installedList[adapter];
-                    if (!obj || obj.controller || adapter === 'hosts' || !obj.version) {
+
+                    if (!obj || !obj.version) {
                         continue;
                     }
+
                     var version = '';
                     if (repository[adapter] && repository[adapter].version) {
                         version = repository[adapter].version;
                     }
                     if (!upToDate(version, obj.version)) {
-                        listUpdatable.push(adapter);
+                        if (obj.controller) {
+                            listHost.push(adapter);
+                        } else {
+                            listUpdatable.push(adapter);
+                        }
                     }
 
                 }
@@ -756,6 +779,7 @@ $(function () {
 
             }
 
+            fillList('hostUpdate', listHost, repository, installedList);
             fillList('update', listUpdatable, repository, installedList);
 
             var now = new Date();
@@ -794,8 +818,8 @@ $(function () {
         }
         if (adapterConfig.news) {
             var newsLang = systemLang;
-            if (newsLang !== 'en' && newsLang !== 'de' && newsLang !== 'ru') {
-                newsLang = 'en';
+            if (newsLang !== "de" && newsLang !== "ru") {
+                newsLang = "en";
             }
             requestCrossDomain('http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang, getNewsData);
         } else {

@@ -116,19 +116,17 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="tile-stats">
-
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="tile-stats">
-
-                            </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_content height_50">
+                                <div class="">
+                                    <ul id="hostUpdateHomeList"></ul>
+                                </div>
+                            </div>                            
                         </div>
                     </div>
+                    
                 </div>
 
                 <div id="systemInfoTab" class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
@@ -261,6 +259,26 @@
             </li>
         </ul>
         <!-- / NewList --> 
+        
+        <!-- HostUpdateList -->
+        <ul id="hostUpdateHomeListTemplate" class="hidden">
+            <li>
+                <p>
+                    <a class="btn btn-default" href="#tab-hosts"><i class="fa fa-h-square"></i></a>&nbsp;
+                    <span class="title">Your host is outdated!</span>&nbsp;
+                    <span class="version">0.0.6</span>&nbsp;
+                    <i class="fa fa-arrow-up"></i>&nbsp;
+                    <strong class="newVersion">0.1.0</strong>&nbsp;
+                    <a href="javascript:;" class="host-readme-submit show-md">
+                        <i class="fa fa-file-text text-info"></i>
+                    </a>
+                    <a class="notesVersion" title="infos">
+                        <i class="fa fa-info-circle text-info"></i>
+                    </a>
+                </p> 
+            </li>
+        </ul>
+        <!-- / HostUpdateList -->
 
         <!-- Install/Update -->
         <div id="modal-command" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-command" aria-hidden="true">
