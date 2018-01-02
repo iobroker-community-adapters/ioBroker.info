@@ -100,6 +100,10 @@ $(function () {
         });
     });
 
+    $(document.body).on('click', '.host-update', function () {
+        parent.window.location.hash = '#tab-hosts';
+    });
+
     //------------------------------------------------------- CLOCK FUNCTIONS -----------------------------------------------------------------
     var secInterval, hourInterval, minInterval, isClockOn = false;
 
@@ -435,11 +439,14 @@ $(function () {
                 $tmpLiElement.find('.host-readme-submit').attr('data-md-url', obj.readme.replace('https://github.com', 'https://raw.githubusercontent.com').replace('blob/', ''));
                 var news = getNews(obj.version, repository[adapter]);
                 if (news) {
-                    $tmpLiElement.find('.notesVersion').attr('title', news).tooltip();
+                    $tmpLiElement.find('.notesVersion').attr('title', news);
                 } else {
                     $tmpLiElement.find('.notesVersion').remove();
                 }
             } else if (isInstalled && repository[adapter]) {
+                if (!(adapter in uniqueCount)) {
+                    uniqueCount.push(adapter);
+                }
                 counter++;
                 $tmpLiElement.find('.adapter-update-submit').attr('data-adapter-name', adapter);
                 $tmpLiElement.find('.newVersion').text(repository[adapter].version);
@@ -450,7 +457,7 @@ $(function () {
                 }
                 var news = getNews(obj.version, repository[adapter]);
                 if (news) {
-                    $tmpLiElement.find('.notesVersion').attr('title', news).tooltip();
+                    $tmpLiElement.find('.notesVersion').attr('title', news);
                 } else {
                     $tmpLiElement.find('.notesVersion').remove();
                 }
@@ -465,6 +472,7 @@ $(function () {
 
             $ul.append($tmpLiElement);
         }
+
         if (isInstalled && installedList) {
             if (counter === 0) {
                 $('#homeUpdateListTab')
@@ -473,6 +481,10 @@ $(function () {
                         .html('<h3 id="noUpdateAllOk" style="text-align: center;">' + _('All adapters are up to date!') + '</h3>');
             }
             $('#adapterCountSysInfo').html(uniqueCount.length);
+        }
+
+        if (isHost && list.length === 0) {
+            $('#hostUpdateHomeListTemplate').hide();
         }
     }
 
@@ -758,7 +770,7 @@ $(function () {
                     }
                     obj = installedList[adapter];
 
-                    if (!obj || !obj.version) {
+                    if (!obj || !obj.version || adapter === "hosts") {
                         continue;
                     }
 

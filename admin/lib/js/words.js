@@ -213,9 +213,9 @@ systemDictionary = {
         "de": "Adapter %s wird aktualisiert...",
         "en": "Updating adapter %s...",
         "pt": "O adaptador %s está sendo atualizado...",
-        "nl": "",
-        "it": "",
-        "fr": "",
+        "nl": "Adapter %s bijwerken...",
+        "it": "Aggiornamento dell'adattatore %s...",
+        "fr": "L'adaptateur %s est mis à jour...",
         "ru": "Обновление адаптера %s ...",
         "es": "Actualizando el adaptador %s ..."
     },
@@ -248,5 +248,75 @@ systemDictionary = {
         "fr": "Tous les adaptateurs sont à jour!",
         "ru": "Все адаптеры обновлены!",
         "es": "¡Todos los adaptadores están actualizados!"
+    },
+    "CPUs": {
+        "de": "CPUs",
+        "en": "CPUs",
+        "pt": "CPUs",
+        "nl": "CPU's",
+        "it": "CPUs",
+        "fr": "CPUs",
+        "ru": "процессоры",
+        "es": "CPUs"
+    },
+    "Model": {
+        "de": "Modell",
+        "en": "Model",
+        "pt": "Modelo",
+        "nl": "Model",
+        "it": "Modello",
+        "fr": "Modèle",
+        "ru": "Модель",
+        "es": "Modelo"
+    },
+    "Node.js": {
+        "de": "Node.js",
+        "en": "Node.js",
+        "pt": "Node.js",
+        "nl": "Node.js",
+        "it": "Node.js",
+        "fr": "Node.js",
+        "ru": "Node.js",
+        "es": "Node.js"
+    },
+    "NPM": {
+        "de": "NPM",
+        "en": "NPM",
+        "pt": "NPM",
+        "nl": "NPM",
+        "it": "NPM",
+        "fr": "NPM",
+        "ru": "NPM",
+        "es": "NPM"
+    },
+    "RAM": {
+        "de": "RAM",
+        "en": "RAM",
+        "pt": "RAM",
+        "nl": "RAM",
+        "it": "RAM",
+        "fr": "RAM",
+        "ru": "ОЗУ",
+        "es": "RAM"
+    },
+    "hostname": {
+        "de": "Hostname",
+        "en": "Hostname",
+        "pt": "Nome do host",
+        "nl": "Hostnaam",
+        "it": "Nome dell'host",
+        "fr": "Nom d'hôte",
+        "ru": "имя хоста",
+        "es": "Nombre de host"
+    },    
+    "Your host '%s' is outdated!": {
+        "de": "Dein Host (%s) ist veraltet!",
+        "en": "Your host (%s) is outdated!",
+        "pt": "Seu host (%s) está desatualizado!",
+        "nl": "Uw host (%s) is verouderd!",
+        "it": "Il tuo host (%s) è obsoleto!",
+        "fr": "Votre hôte (%s) est obsolète!",
+        "ru": "Ваш хозяин (%s) устарел!",
+        "es": "¡Su host (%s) está desactualizado!"
     }
 };

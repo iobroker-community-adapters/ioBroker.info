@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "info",
-        "version": "0.0.7",
+        "version": "0.1.0",
         "news": {
             "0.1.0": {
                 "en": "Compatibility with Admin 3.x.",

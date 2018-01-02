@@ -80,7 +80,7 @@
                     <div class="x_panel">
                         <div class="x_title">
                             <h2>
-                                <span class="translate">Updates</span> <small class="translate">can be done here</small>
+                                <span class="translate">Updates</span> <small class="translate word-break">can be done here</small>
                             </h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li>
@@ -101,7 +101,7 @@
                     <div class="x_panel">
                         <div class="x_title">
                             <h2>
-                                <span class="translate">New adapters</span> <small class="translate">are listed here</small>
+                                <span class="translate">New adapters</span> <small class="translate word-break">are listed here</small>
                             </h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li>
@@ -119,11 +119,11 @@
                     
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="x_content height_50">
-                                <div class="">
-                                    <ul id="hostUpdateHomeList"></ul>
+                            <div class="x_panel">
+                                <div class="x_content height_143">
+                                    <div id="hostUpdateHomeList" class=""></div>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                     
@@ -133,7 +133,7 @@
                     <div class="x_panel">
                         <div class="x_title">
                             <h2>
-                                <span class="translate">System informations</span> <small class="translate">about the server</small>
+                                <span class="translate">System informations</span> <small class="translate word-break">about the server</small>
                             </h2>
                             <ul class="nav navbar-right panel_toolbox">
                                 <li>
@@ -143,8 +143,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content height_320">
-                            <div id="systemInfoList">                                
-                            </div>
+                            <div id="systemInfoList"></div>
                         </div>
                     </div>
                 </div>
@@ -168,10 +167,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            <ul class="list-unstyled timeline" id="newsList">
-
-                            </ul>
-
+                            <ul class="list-unstyled timeline" id="newsList"></ul>
                         </div>
                     </div>
                 </div>
@@ -191,10 +187,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            <ul class="list-unstyled timeline" id="forumList">
-
-                            </ul>
-
+                            <ul class="list-unstyled timeline" id="forumList"></ul>
                         </div>
                     </div>
                 </div>
@@ -261,23 +254,20 @@
         <!-- / NewList --> 
         
         <!-- HostUpdateList -->
-        <ul id="hostUpdateHomeListTemplate" class="hidden">
-            <li>
-                <p>
-                    <a class="btn btn-default" href="#tab-hosts"><i class="fa fa-h-square"></i></a>&nbsp;
-                    <span class="title">Your host is outdated!</span>&nbsp;
-                    <span class="version">0.0.6</span>&nbsp;
-                    <i class="fa fa-arrow-up"></i>&nbsp;
-                    <strong class="newVersion">0.1.0</strong>&nbsp;
-                    <a href="javascript:;" class="host-readme-submit show-md">
-                        <i class="fa fa-file-text text-info"></i>
-                    </a>
-                    <a class="notesVersion" title="infos">
-                        <i class="fa fa-info-circle text-info"></i>
-                    </a>
-                </p> 
-            </li>
-        </ul>
+        <div id="hostUpdateHomeListTemplate" class="hidden">
+            <p class="text-center">
+                <a href="#" class="title host-update">Your host is outdated!</a>&nbsp;
+                <span class="version">0.0.6</span>&nbsp;
+                <i class="fa fa-arrow-up"></i>&nbsp;
+                <strong class="newVersion">0.1.0</strong>&nbsp;
+                <a href="javascript:;" class="host-readme-submit show-md">
+                    <i class="fa fa-file-text text-info"></i>
+                </a>
+                <a class="notesVersion" title="infos">
+                    <i class="fa fa-info-circle text-info"></i>
+                </a>
+            </p>
+        </div>
         <!-- / HostUpdateList -->
 
         <!-- Install/Update -->
