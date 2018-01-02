@@ -29,7 +29,7 @@ $(function () {
             } else {
                 systemLang = window.navigator.userLanguage || window.navigator.language;
 
-                if (systemLang !== 'en' && systemLang !== 'de' && systemLang !== 'ru') {
+                if (systemLang !== 'en' && systemLang !== 'de' && systemLang !== 'ru' && systemLang !== 'pt' && systemLang !== 'it' && systemLang !== 'es' && systemLang !== 'fr') {
                     systemConfig.common.language = 'en';
                     systemLang = 'en';
                 }
@@ -53,14 +53,14 @@ $(function () {
      */
     function _(word) {
         var text = translateWord(word, systemLang, systemDictionary);
-        
+
         for (var i = 1; i < arguments.length; i++) {
             var pos = text.indexOf('%s');
             if (pos !== -1) {
                 text = text.replace('%s', arguments[i]);
             }
         }
-        
+
         return text;
     }
 
@@ -450,7 +450,7 @@ $(function () {
             $ul.append($tmpLiElement);
         }
         if (isInstalled && installedList) {
-            if(counter === 0){
+            if (counter === 0) {
                 $('#homeUpdateListTab')
                         .find(".x_content")
                         .addClass('allOk')
@@ -793,7 +793,11 @@ $(function () {
             $('#forumBlock').hide();
         }
         if (adapterConfig.news) {
-            requestCrossDomain('http://www.iobroker.net/docu/?feed=rss2&lang=' + systemLang, getNewsData);
+            var newsLang = systemLang;
+            if (newsLang !== 'en' && newsLang !== 'de' && newsLang !== 'ru') {
+                newsLang = 'en';
+            }
+            requestCrossDomain('http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang, getNewsData);
         } else {
             $('#newsBlock').hide();
         }
