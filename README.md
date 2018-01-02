@@ -21,6 +21,9 @@ This is an ioBroker adapter to get informations about your system and some news 
 
 ## Changelog
 
+#### 0.1.0
+* (ldittmar) compatibility to Admin 3.x / beta release
+
 #### 0.0.6
 * (ldittmar) some fixes / install and update implemented
 
