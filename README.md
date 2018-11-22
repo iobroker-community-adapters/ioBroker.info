@@ -19,6 +19,8 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ldittma
 
 This is an ioBroker adapter to get informations about your system and some news about ioBroker.
 
+## Feature Requests (please vote oder add new)
+
 [![Feature Requests](http://feathub.com/ldittmar81/ioBroker.info?format=svg)](http://feathub.com/ldittmar81/ioBroker.info)
 
 ## Changelog
