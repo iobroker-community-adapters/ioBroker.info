@@ -6,7 +6,6 @@ ioBroker.info
 [![Downloads](https://img.shields.io/npm/dm/iobroker.info.svg)](https://www.npmjs.com/package/iobroker.info)
 [![Dependency Status](https://img.shields.io/david/ldittmar81/iobroker.info.svg)](https://david-dm.org/ldittmar81/iobroker.info)
 [![Known Vulnerabilities](https://snyk.io/test/github/ldittmar81/ioBroker.info/badge.svg)](https://snyk.io/test/github/ldittmar81/ioBroker.info)
-[![bitHound Overall Score](https://www.bithound.io/github/ldittmar81/ioBroker.info/badges/score.svg)](https://www.bithound.io/github/ldittmar81/ioBroker.info)
 
 [![NPM](https://nodei.co/npm/iobroker.info.png?downloads=true)](https://nodei.co/npm/iobroker.info/)
 
