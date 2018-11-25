@@ -1,0 +1,6 @@
+{
+    "on save adapter restarts with new config immediately": "on save-adapter wordt onmiddellijk opnieuw opgestart met nieuwe config",
+    "Hide clock:": "Laat de klok niet zien",
+    "Show ioBroker news:": "Toon nieuws van iobroker.net",
+    "Show forum news:": "Toon de laatste forumbijdragen"
+}

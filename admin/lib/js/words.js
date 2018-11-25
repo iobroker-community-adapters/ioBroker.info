@@ -10,36 +10,6 @@ systemDictionary = {
         "ru": "Настройки адаптера информации",
         "es": "Configuración del adaptador de información"
     },
-    "Show ioBroker news:": {
-        "de": "Zeige News vom ioBroker:",
-        "en": "Show ioBroker news:",
-        "pt": "Veja as novidades do ioBroker:",
-        "nl": "Ontdek wat er nieuw is in ioBroker:",
-        "it": "Mostra le notizie di ioBroker:",
-        "fr": "Afficher les nouvelles d'ioBroker:",
-        "ru": "Показать новости от ioBroker:",
-        "es": "Mostrar noticias do ioBroker:"
-    },
-    "Show forum news:": {
-        "de": "Foren-News anzeigen:",
-        "en": "Show forum news:",
-        "pt": "Mostrar notícias do fórum:",
-        "nl": "Toon forumnieuws:",
-        "it": "Mostra notizie sul forum:",
-        "fr": "Afficher les actualités du forum:",
-        "ru": "Показать новости форума:",
-        "es": "Mostrar noticias del foro:"
-    },
-    "on save adapter restarts with new config immediately": {
-        "de": "Beim Speichern von Einstellungen der Adapter wird sofort neu gestartet.",
-        "en": "On save adapter restarts with new config immediately.",
-        "pt": "Ao salvar as configurações dos adaptadores, será reiniciado imediatamente.",
-        "nl": "Bij het opslaan van instellingen worden de adapters onmiddellijk opnieuw gestart.",
-        "it": "Quando si salvano le impostazioni, gli adattatori verranno riavviati immediatamente.",
-        "fr": "Lors de la sauvegarde des paramètres, les adaptateurs seront immédiatement redémarrés.",
-        "es": "Al guardar la configuración de los adaptadores, se reiniciará de inmediato.",
-        "ru": "При сохранении настроек адаптера он сразу же перезапускается."
-    },
     "daysShortText": {
         "de": "T.", 
         "en": "d.",

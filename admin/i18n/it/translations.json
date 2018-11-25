@@ -1,0 +1,6 @@
+{
+    "on save adapter restarts with new config immediately": "su save adapter si riavvia immediatamente con la nuova configurazione",
+    "Hide clock:": "Non mostrare l'orologio",
+    "Show ioBroker news:": "Mostra notizie da iobroker.net",
+    "Show forum news:": "Mostra le ultime voci del forum"
+}

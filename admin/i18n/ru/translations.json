@@ -1,0 +1,6 @@
+{
+    "on save adapter restarts with new config immediately": "При сохранении настроек адаптера он сразу же перезапускается",
+    "Hide clock:": "Не показывать часы",
+    "Show ioBroker news:": "Показать новости от iobroker.net",
+    "Show forum news:": "Показать последние записи в форуме"
+}

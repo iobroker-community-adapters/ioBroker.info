@@ -482,9 +482,10 @@ $(function () {
             }
             $('#adapterCountSysInfo').html(uniqueCount.length);
         }
-
+        
         if (isHost && list.length === 0) {
-            $('#hostUpdateHomeListTemplate').hide();
+            $('#hostUpdateHomeListRow').hide();
+            $('#homeNewAdapterDiv').removeClass('height_150').addClass('height_320');
         }
     }
 
@@ -837,7 +838,11 @@ $(function () {
         } else {
             $('#newsBlock').hide();
         }
-        startClock();
+        if (!adapterConfig.clock) {
+            startClock();
+        } else {
+            $('#home-container').hide();
+        }
         translateAll(systemLang);
 
     });

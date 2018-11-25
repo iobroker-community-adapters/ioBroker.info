@@ -1,8 +1,18 @@
 {
     "common": {
         "name": "info",
-        "version": "0.1.0",
+        "version": "1.0.0",
         "news": {
+            "1.0.0": {
+                "en": "Full compatibility to Admin 3.x.",
+                "de": "Volle Kompatibilität zu Admin 3.x",
+                "ru": "Полная совместимость с Admin 3.x.",
+                "pt": "Compatibilidade completa com Admin 3.x.",
+                "fr": "Compatibilité complète avec Admin 3.x.",
+                "nl": "Volledige compatibiliteit met Admin 3.x.",
+                "it": "Completa compatibilità con Admin 3.x.",
+                "es": "Compatibilidad completa con Admin 3.x."
+            },
             "0.1.0": {
                 "en": "Compatibility to Admin 3.x.",
                 "de": "Kompatibilität zu Admin 3.x",
@@ -65,6 +75,16 @@
             }
         },
         "title": "ioBroker information tab",
+        "titleLang": {
+            "en": "ioBroker information tab",
+            "de": "ioBroker Informationsseite",
+            "ru": "Информационная страница ioBroker",
+            "pt": "Página de informações do ioBroker",
+            "nl": "ioBroker-informatiepagina",
+            "fr": "Page d'information ioBroker",
+            "it": "Pagina di informazioni di ioBroker",
+            "es": "Página de información de ioBroker"
+        },
         "desc": {
             "en": "ioBroker information tab",
             "de": "ioBroker Informations Adapter",
@@ -81,6 +101,7 @@
         "platform": "Javascript/Node.js",
         "mode": "daemon",
         "icon": "info.png",
+        "materialize": true,
         "enabled": true,
         "singleton": true,
         "extIcon": "https://raw.githubusercontent.com/ldittmar81/ioBroker.info/master/admin/info.png",
@@ -88,6 +109,8 @@
         "readme": "https://github.com/ldittmar81/ioBroker.info/blob/master/README.md",
         "loglevel": "info",
         "type": "misc-data",
+        "license": "MIT",
+        "messagebox": false,
         "adminTab": {
             "singleton": true,
             "name": "Info",
@@ -96,8 +119,10 @@
     },
     "native": {
         "news": true,
-        "forum": true
+        "forum": true,
+        "clock": true
     },
     "objects": [
+        
     ]
 }

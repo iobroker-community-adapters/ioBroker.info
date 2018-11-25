@@ -1,0 +1,6 @@
+{
+  "on save adapter restarts with new config immediately": "Beim Speichern von Einstellungen der Adapter wird sofort neu gestartet.",
+  "Hide clock:": "Uhr nicht anzeigen",
+  "Show ioBroker news:": "Zeige News vom iobroker.net",
+  "Show forum news:": "Zeige die neusten Forumeinträge" 
+}

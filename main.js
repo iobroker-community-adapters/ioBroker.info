@@ -57,9 +57,9 @@ adapter.on('ready', function () {
     main();
 });
 
-function main() {
-    
+function main() {    
     var host = adapter.host;
     var forum = adapter.config.forum;
     var news = adapter.config.news;
+    var clock = adapter.config.clock;
 }
