@@ -62,4 +62,5 @@ function main() {
     var forum = adapter.config.forum;
     var news = adapter.config.news;
     var clock = adapter.config.clock;
+    var new_adapters = adapter.config.new_adapters;
 }

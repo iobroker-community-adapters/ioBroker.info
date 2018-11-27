@@ -15,7 +15,7 @@ $(function () {
     var activeCmdId = null;
     var $stdout = $('#stdout');
     var stdout = '';
-    var languages = ["de", "en", "ru", "pt", "nl", "fr", "it", "es"];
+    var languages = ["de", "en", "ru", "pt", "nl", "fr", "it", "es", "pl"];
 
     //--------------------------------------------------------- COMMONS -----------------------------------------------------------------------
     /** 
@@ -182,7 +182,7 @@ $(function () {
             return false;
         }
 
-        var yql = 'http://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from xml where url="' + site + '"') + '&format=xml&callback=?';
+        var yql = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from xml where url="' + site + '"') + '&format=xml&callback=?';
 
         $.getJSON(yql, cbFunc);
 
@@ -238,8 +238,7 @@ $(function () {
             $('item', $newsContent).each(function () {
                 var $item = $('#forumEntryTemplate').children().clone(true, true);
                 $item.find('.forumClass').text($(this).find('category').text());
-                $item.find('.titleLink').text($(this).find('title').text())
-                        .attr('href', $(this).find('link').text());
+                $item.find('.titleLink').text($(this).find('title').text()).attr('href', $(this).find('link').text());
                 $item.find('.description').html($(this).find('description').text());
                 $item.find('.description a').attr('target', '_blank');
                 $item.find('.byline').text(new Date($(this).find('pubDate').text()).toLocaleDateString(systemLang, dateOptions) + " - " + $(this).find('dc\\:creator').text());
@@ -247,6 +246,53 @@ $(function () {
             });
         }
     };
+
+    //------------------------------------------------------ SEARCH GITHUB --------------------------------------------------------------------
+
+    var searchGithubForNewAdapters = function(){
+
+        $.getJSON('https://raw.githubusercontent.com/ioBroker/ioBroker.repositories/master/sources-dist.json', function(data){
+            var adapters = [];
+            $.each( data, function( key, val ) {
+                adapters.push( key.toUpperCase() );
+            });
+            checkGitHub(createIgnoreList(adapters));
+        });
+
+    };
+
+    function createIgnoreList(adapterList){
+        adapterList.push('BUILD');
+        adapterList.push('SCRIPT.RAUMKLIMA');
+        adapterList.push('RESOL-VBUS');
+        adapterList.push('OLD');
+        adapterList.push('DOCS');
+        adapterList.push('WIKI.JS');
+        adapterList.push('REPOSITORIES');
+        adapterList.push('TEMPLATE');
+        adapterList.push('TEMPLATE-REST');
+        adapterList.push('TEMPLATE-TS');
+        adapterList.push('DOKU-ADAPTERENWICKLUNG-MIT-VSCODE');
+        adapterList.push('PELLETOFENSTEUERUNG');
+        adapterList.push('PFLANZEN-GIESSEN-SCRIPT');
+        adapterList.push('ADAPTER-CORE');
+        return adapterList;
+    }
+
+    function checkGitHub(adapterList){
+        for(var i=0;i<8;i++){
+            $.getJSON( "https://api.github.com/search/repositories?q=iobroker&sort=updated&page=" + i + "&per_page=100", function( data ) {
+                $.each( data.items, function( key, val ) {
+                    var adapter = val.name;
+                    var upcaseName = adapter.toUpperCase();
+                    if(upcaseName.startsWith('IOBROKER.') && $.inArray(upcaseName.substring(9), adapterList) === -1){
+                        $('#githubSearchList').append( "<li><a href='" + val.html_url + "' target='_blank'>" + adapter + "</a> - (" + val.size + " kb) - " + val.owner.login + " - " + new Date(val.updated_at).toLocaleDateString(systemLang, dateOptions) + " - " + val.description + "</li>" );
+                    }
+                });
+            });
+        }
+    }
+
 
     //------------------------------------------------------ UPDATE ADAPTER LIST --------------------------------------------------------------
 
@@ -480,7 +526,6 @@ $(function () {
                         .addClass('allOk')
                         .html('<h3 id="noUpdateAllOk" style="text-align: center;">' + _('All adapters are up to date!') + '</h3>');
             }
-            $('#adapterCountSysInfo').html(uniqueCount.length);
         }
         
         if (isHost && list.length === 0) {
@@ -606,6 +651,20 @@ $(function () {
 
     //------------------------------------------------------ HOST INFORMATION FUNCTIONS -------------------------------------------------------
 
+    var getNodeVersionMap = function(){
+        $.getJSON("https://nodejs.org/dist/index.json", function(data){
+            var versionMap = {};
+            $.each(data, function( index, value ) {
+                var version = value.version;
+                var key = version.substring(0, version.indexOf("."));
+                if(!versionMap[key]){
+                    versionMap[key] = version;
+                }
+            });
+            return versionMap;
+        });
+    };
+
     /** 
      * Get all ioBroker hosts
      * @param {type} callback
@@ -705,8 +764,31 @@ $(function () {
         return mhz + " MHz";
     }
 
-    function formatAdaptercount(all) {
-        return "<span id='adapterCountSysInfo'>?</span>/" + all;
+    function formatNodeVersion(version){
+        var versionMap = getNodeVersionMap();
+
+        if(!versionMap){
+            return version;
+        }
+
+        var aktKey = version.substring(0, version.indexOf("."));
+
+        var extraInfo = "";
+
+        if(aktKey === "v0" || aktKey === "v4" || aktKey === "v5" || aktKey === "v7") {
+            extraInfo += " <span style='color: red; font-weight: bold;'>(" + _("Node.js too old") + " " + versionMap["v8"] + "</span>";
+        }else if(versionMap[aktKey] !== version){
+            extraInfo += " (" + _("New Node version") + " " + versionMap[aktKey];
+            if(aktKey === "v9" || aktKey === "v10" || aktKey === "v11" || aktKey === "v12"){
+                extraInfo += " <span style='color: red; font-weight: bold;'>" + _("Version %s.x of Node.js is currently not fully supported.", aktKey) + "</span>";
+            }
+            if(aktKey !== "v8"){
+                extraInfo += " - " + _("Recommended version:") + " " + versionMap["v8"];
+            }
+            extraInfo += ")";
+        }
+
+        return version + extraInfo;
     }
 
     /** 
@@ -718,7 +800,7 @@ $(function () {
         'System uptime': formatSeconds,
         'RAM': formatRam,
         'Speed': formatSpeed,
-        'adapters count': formatAdaptercount
+        'Node.js': formatNodeVersion
     };
 
     //------------------------------------------------------- UPDATE FIELDS -------------------------------------------------------------------
@@ -842,6 +924,11 @@ $(function () {
             startClock();
         } else {
             $('#home-container').hide();
+        }
+        if(adapterConfig.new_adapters){
+            searchGithubForNewAdapters();
+        }else{
+            $('#adapterSearchBlock').hide();
         }
         translateAll(systemLang);
 

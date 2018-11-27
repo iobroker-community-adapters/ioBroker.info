@@ -1,8 +1,19 @@
 {
     "common": {
         "name": "info",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "news": {
+            "1.0.1": {
+                "en": "Search for new adapters on Github",
+                "de": "Suche nach neuen Adaptern auf Github",
+                "ru": "Поиск новых адаптеров на Github",
+                "pt": "Procurar por novos adaptadores no Github",
+                "fr": "Recherche de nouveaux adaptateurs sur Github",
+                "nl": "Zoeken naar nieuwe adapters op Github",
+                "it": "Cerca nuovi adattatori su Github",
+                "es": "Buscar nuevos adaptadores en Github",
+                "pl": "Wyszukaj nowe adaptery na Github"
+            },
             "1.0.0": {
                 "en": "Full compatibility to Admin 3.x.",
                 "de": "Volle Kompatibilität zu Admin 3.x",
@@ -11,7 +22,8 @@
                 "fr": "Compatibilité complète avec Admin 3.x.",
                 "nl": "Volledige compatibiliteit met Admin 3.x.",
                 "it": "Completa compatibilità con Admin 3.x.",
-                "es": "Compatibilidad completa con Admin 3.x."
+                "es": "Compatibilidad completa con Admin 3.x.",
+                "pl": "Pełna zgodność z Adminem 3.x."
             },
             "0.1.0": {
                 "en": "Compatibility to Admin 3.x.",
@@ -21,7 +33,8 @@
                 "fr": "Compatibilité avec Admin 3.x.",
                 "nl": "Compatibiliteit met Admin 3.x.",
                 "it": "Compatibilità con Admin 3.x.",
-                "es": "Compatibilidad con Admin 3.x."
+                "es": "Compatibilidad con Admin 3.x.",
+                "pl": "Zgodność z administratorem 3.x."
             },
             "0.0.6": {
                 "en": "Install and update function",
@@ -31,7 +44,8 @@
                 "fr": "Fonctions pour Install + Update implémentées",
                 "nl": "Functies voor installatie + update geïmplementeerd",
                 "it": "Funzioni per installazione + aggiornamento implementate",
-                "es": "Funciones para Install + Update implementadas"
+                "es": "Funciones para Install + Update implementadas",
+                "pl": "Zainstaluj i zaktualizuj funkcję"
             },
             "0.0.4": {
                 "en": "Some fixes and design correction",
@@ -41,7 +55,8 @@
                 "fr": "Quelques corrections de bugs et de design",
                 "nl": "Enkele fixes en ontwerpcorrectie",
                 "it": "Alcune correzioni di bug e progettazione",
-                "es": "Algunas correcciones de errores y diseño"
+                "es": "Algunas correcciones de errores y diseño",
+                "pl": "Niektóre poprawki i korekta projektu"
             },
             "0.0.3": {
                 "en": "Show adapters infos",
@@ -51,7 +66,8 @@
                 "fr": "Plus d'informations sur les adaptateurs",
                 "nl": "Meest bekeken informadores adaptadores",
                 "it": "Mostra informazioni su adattatori",
-                "es": "Mostrar informações dos adaptadores"
+                "es": "Mostrar informações dos adaptadores",
+                "pl": "Pokaż informacje o adapterach"
             },
             "0.0.2": {
                 "en": "System info",
@@ -61,17 +77,19 @@
                 "fr": "Informations sur le système",
                 "nl": "Systeeminformatie",
                 "it": "Informazioni di sistema",
-                "es": "Información del sistema"
+                "es": "Información del sistema",
+                "pl": "Informacje o systemie"
             },
             "0.0.1": {
-                "en": "initial adapter",
+                "en": "initial version",
                 "de": "Initiale Version",
                 "ru": "Первоначальный адаптер",
                 "pt": "Versão inicial",
                 "fr": "Version initiale",
                 "nl": "Eerste release",
                 "it": "Versione iniziale",
-                "es": "Versión inicial"
+                "es": "Versión inicial",
+                "pl": "początkowa wersja"
             }
         },
         "title": "ioBroker information tab",
@@ -83,7 +101,8 @@
             "nl": "ioBroker-informatiepagina",
             "fr": "Page d'information ioBroker",
             "it": "Pagina di informazioni di ioBroker",
-            "es": "Página de información de ioBroker"
+            "es": "Página de información de ioBroker",
+            "pl": "Adapter informacyjny ioBroker"
         },
         "desc": {
             "en": "ioBroker information tab",
@@ -93,7 +112,8 @@
             "fr": "Adaptateur d'information pour ioBroker",
             "nl": "Informatie-adapter voor ioBroker",
             "it": "Scheda di informazione per ioBroker",
-            "es": "Adaptador de información para el ioBroker"
+            "es": "Adaptador de información para el ioBroker",
+            "pl": "Adapter informacyjny ioBroker"
         },
         "authors": [
             "ldittmar <iobroker@lmdsoft.de>"
@@ -123,7 +143,8 @@
     "native": {
         "news": true,
         "forum": true,
-        "clock": false
+        "clock": false,
+        "new_adapters": false
     },
     "objects": []
 }
