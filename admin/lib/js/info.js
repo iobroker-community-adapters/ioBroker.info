@@ -2,6 +2,11 @@
 
 $(function () {
 
+    const nodeOld = ["v0", "v4", "v5", "v7"];
+    const nodeNew = ["v9", "v10", "v11", "v12"];
+    const nodeAccepted = ["v6"];
+    const nodeRecommended = "v8";
+
     const socket = io.connect();
     var hosts = [];
     var mainHost = '';
@@ -655,6 +660,7 @@ $(function () {
         $.getJSON("https://nodejs.org/dist/index.json", function(data){
             const version = $('#aktNodeVersion').text();
             const versionMap = {};
+
             $.each(data, function( index, value ) {
                 var version = value.version;
                 var key = version.substring(0, version.indexOf("."));
@@ -668,21 +674,39 @@ $(function () {
             let extraInfo = "";
             let color = "green";
 
-            if(aktKey === "v0" || aktKey === "v4" || aktKey === "v5" || aktKey === "v7") {
-                extraInfo += " <span style='color: red; font-weight: bold;'>(" + _("Node.js too old") + " " + versionMap["v8"] + "</span>";
+            if(nodeOld.indexOf(aktKey) !== -1) {
+                extraInfo += " <span style='color: red; font-weight: bold;'>(" + _("Node.js too old") + " " + versionMap[nodeRecommended] + "</span>";
                 color = "red";
-            }else if(versionMap[aktKey] !== version){
-                extraInfo += " (" + _("New Node version") + " " + versionMap[aktKey];
-                if(aktKey === "v9" || aktKey === "v10" || aktKey === "v11" || aktKey === "v12"){
-                    extraInfo += " <span style='color: red; font-weight: bold;'>" + _("Version %s.x of Node.js is currently not fully supported.", aktKey) + "</span>";
+            }else if(versionMap[aktKey] !== version || aktKey !== nodeRecommended){
+                let first = true;
+                extraInfo += " (";
+
+                if(versionMap[aktKey] !== version) {
+                    extraInfo += _("New Node version") + " " + versionMap[aktKey];
+                    color = "orange";
+                    first = false;
+                }
+                if(nodeNew.indexOf(aktKey) !== -1){
+                    if(!first){
+                        extraInfo += " ";
+                    }else{
+                        first = false;
+                    }
+                    extraInfo += _("Version %s.x of Node.js is currently not fully supported.", aktKey);
                     color = "red";
                 }
-                if(aktKey !== "v8"){
-                    extraInfo += " - " + _("Recommended version:") + " " + versionMap["v8"];
-                    if(color === "green"){
+                if(aktKey !== nodeRecommended){
+                    if(!first){
+                        extraInfo += " - ";
+                    }else{
+                        first = false;
+                    }
+                    extraInfo += _("Recommended version:") + " " + versionMap[nodeRecommended];
+                    if(color === "green" && nodeAccepted.indexOf(aktKey) === -1){
                         color = "orange";
                     }
                 }
+
                 extraInfo += ")";
             }
 

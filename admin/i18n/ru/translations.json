@@ -37,6 +37,7 @@
   "hostname": "имя хоста",
   "information adapter settings": "Настройки адаптера информации",
   "ioBroker Adapters on Github": "Адаптеры ioBroker на Github",
+  "not officially released": "официально не выпущен",
   "on save adapter restarts with new config immediately": "При сохранении настроек адаптера он сразу же перезапускается",
   "only for experts": "Внимание!! Эти адаптеры могут находиться на очень ранней стадии и не рекомендуется устанавливать в производственной системе."
 }
