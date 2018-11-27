@@ -651,6 +651,46 @@ $(function () {
 
     //------------------------------------------------------ HOST INFORMATION FUNCTIONS -------------------------------------------------------
 
+    function getNodeExtrainfo(){
+        $.getJSON("https://nodejs.org/dist/index.json", function(data){
+            const version = $('#aktNodeVersion').text();
+            const versionMap = {};
+            $.each(data, function( index, value ) {
+                var version = value.version;
+                var key = version.substring(0, version.indexOf("."));
+                if(!versionMap[key]){
+                    versionMap[key] = version;
+                }
+            });
+
+            const aktKey = version.substring(0, version.indexOf("."));
+
+            let extraInfo = "";
+            let color = "green";
+
+            if(aktKey === "v0" || aktKey === "v4" || aktKey === "v5" || aktKey === "v7") {
+                extraInfo += " <span style='color: red; font-weight: bold;'>(" + _("Node.js too old") + " " + versionMap["v8"] + "</span>";
+                color = "red";
+            }else if(versionMap[aktKey] !== version){
+                extraInfo += " (" + _("New Node version") + " " + versionMap[aktKey];
+                if(aktKey === "v9" || aktKey === "v10" || aktKey === "v11" || aktKey === "v12"){
+                    extraInfo += " <span style='color: red; font-weight: bold;'>" + _("Version %s.x of Node.js is currently not fully supported.", aktKey) + "</span>";
+                    color = "red";
+                }
+                if(aktKey !== "v8"){
+                    extraInfo += " - " + _("Recommended version:") + " " + versionMap["v8"];
+                    if(color === "green"){
+                        color = "orange";
+                    }
+                }
+                extraInfo += ")";
+            }
+
+            $('#nodeExtraInfo').append(extraInfo);
+            $('#aktNodeVersion').css('color', color).css('font-weight', 'bold');
+        });
+    }
+
     /** 
      * Get all ioBroker hosts
      * @param {type} callback
@@ -751,40 +791,7 @@ $(function () {
     }
 
     function formatNodeVersion(version){
-
-        $.getJSON("https://nodejs.org/dist/index.json", function(data){
-            var versionMap = {};
-            $.each(data, function( index, value ) {
-                var version = value.version;
-                var key = version.substring(0, version.indexOf("."));
-                if(!versionMap[key]){
-                    versionMap[key] = version;
-                }
-            });
-
-            if(!versionMap){
-                return version;
-            }
-
-            var aktKey = version.substring(0, version.indexOf("."));
-
-            var extraInfo = "";
-
-            if(aktKey === "v0" || aktKey === "v4" || aktKey === "v5" || aktKey === "v7") {
-                extraInfo += " <span style='color: red; font-weight: bold;'>(" + _("Node.js too old") + " " + versionMap["v8"] + "</span>";
-            }else if(versionMap[aktKey] !== version){
-                extraInfo += " (" + _("New Node version") + " " + versionMap[aktKey];
-                if(aktKey === "v9" || aktKey === "v10" || aktKey === "v11" || aktKey === "v12"){
-                    extraInfo += " <span style='color: red; font-weight: bold;'>" + _("Version %s.x of Node.js is currently not fully supported.", aktKey) + "</span>";
-                }
-                if(aktKey !== "v8"){
-                    extraInfo += " - " + _("Recommended version:") + " " + versionMap["v8"];
-                }
-                extraInfo += ")";
-            }
-
-            return version + extraInfo;
-        });
+        return "<span id='aktNodeVersion'>" + version + "</span><span id='nodeExtraInfo'></span>";
     }
 
     /** 
@@ -819,6 +826,7 @@ $(function () {
                 }
                 if (text) {
                     $('#systemInfoList').append(text);
+                    getNodeExtrainfo();
                 }
             });
         }
