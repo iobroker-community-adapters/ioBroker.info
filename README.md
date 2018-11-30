@@ -20,6 +20,9 @@ This is an ioBroker adapter to get informations about your system and some news 
 
 ## Changelog
 
+#### 1.0.2
+* (ldittmar) fixed problems with Node version info in multihost system
+
 #### 1.0.1
 * (ldittmar) search for new adapters on Github
 * (ldittmar) check for Node.js update
