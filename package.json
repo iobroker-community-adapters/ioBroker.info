@@ -1,6 +1,6 @@
 {
   "name": "iobroker.info",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Some informations about your ioBroker",
   "author": {
     "name": "ldittmar",
@@ -28,7 +28,7 @@
     "test": "node node_modules/mocha/bin/mocha --exit"
   },
   "bugs": {
-    "url": "https://github.com/ldittmar81/ioBroker.test/issues"
+    "url": "https://github.com/ldittmar81/ioBroker.info/issues"
   },
   "readmeFilename": "README.md"
 }

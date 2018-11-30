@@ -1,8 +1,19 @@
 {
     "common": {
         "name": "info",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "news": {
+            "1.0.2": {
+                "en": "Minor fixes",
+                "de": "Kleine Korrekturen",
+                "ru": "Незначительные исправления",
+                "pt": "Pequenas correções",
+                "fr": "Corrections mineures",
+                "nl": "Kleine fixes",
+                "it": "Correzioni minori",
+                "es": "Correcciones menores",
+                "pl": "Drobne poprawki"
+            },
             "1.0.1": {
                 "en": "Search for new adapters on Github",
                 "de": "Suche nach neuen Adaptern auf Github",

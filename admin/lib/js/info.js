@@ -2,6 +2,7 @@
 
 $(function () {
 
+    let versionMap;
     const nodeOld = ["v0", "v4", "v5", "v7"];
     const nodeNew = ["v9", "v10", "v11", "v12"];
     const nodeAccepted = ["v6"];
@@ -211,7 +212,11 @@ $(function () {
             var $forumContent = $($.parseXML(data.results[0]));
 
             $('#forumTime').text(new Date($forumContent.find('updated:first').text()).toLocaleDateString(systemLang, dateOptions));
-            $('#forum-link').attr("href", $forumContent.find('link:nth-of-type(2)').attr('href'));
+            let forumLink = $forumContent.find('link:nth-of-type(2)').attr('href');
+            if (!forumLink) {
+                forumLink = "https://forum.iobroker.net/";
+            }
+            $('#forum-link').attr("href", forumLink);
 
             $('#forumList').empty();
             $('entry', $forumContent).each(function () {
@@ -254,19 +259,19 @@ $(function () {
 
     //------------------------------------------------------ SEARCH GITHUB --------------------------------------------------------------------
 
-    var searchGithubForNewAdapters = function(){
+    var searchGithubForNewAdapters = function () {
 
-        $.getJSON('https://raw.githubusercontent.com/ioBroker/ioBroker.repositories/master/sources-dist.json', function(data){
+        $.getJSON('https://raw.githubusercontent.com/ioBroker/ioBroker.repositories/master/sources-dist.json', function (data) {
             var adapters = [];
-            $.each( data, function( key, val ) {
-                adapters.push( key.toUpperCase() );
+            $.each(data, function (key, val) {
+                adapters.push(key.toUpperCase());
             });
             checkGitHub(createIgnoreList(adapters));
         });
 
     };
 
-    function createIgnoreList(adapterList){
+    function createIgnoreList(adapterList) {
         adapterList.push('BUILD');
         adapterList.push('SCRIPT.RAUMKLIMA');
         adapterList.push('RESOL-VBUS');
@@ -284,14 +289,14 @@ $(function () {
         return adapterList;
     }
 
-    function checkGitHub(adapterList){
-        for(var i=0;i<8;i++){
-            $.getJSON( "https://api.github.com/search/repositories?q=iobroker&sort=updated&page=" + i + "&per_page=100", function( data ) {
-                $.each( data.items, function( key, val ) {
+    function checkGitHub(adapterList) {
+        for (var i = 0; i < 8; i++) {
+            $.getJSON("https://api.github.com/search/repositories?q=iobroker&sort=updated&page=" + i + "&per_page=100", function (data) {
+                $.each(data.items, function (key, val) {
                     var adapter = val.name;
                     var upcaseName = adapter.toUpperCase();
-                    if(upcaseName.startsWith('IOBROKER.') && $.inArray(upcaseName.substring(9), adapterList) === -1){
-                        $('#githubSearchList').append( "<li><a href='" + val.html_url + "' target='_blank'>" + adapter + "</a> - (" + val.size + " kb) - " + val.owner.login + " - " + new Date(val.updated_at).toLocaleDateString(systemLang, dateOptions) + " - " + val.description + "</li>" );
+                    if (upcaseName.startsWith('IOBROKER.') && $.inArray(upcaseName.substring(9), adapterList) === -1) {
+                        $('#githubSearchList').append("<li><a href='" + val.html_url + "' target='_blank'>" + adapter + "</a> - (" + val.size + " kb) - " + val.owner.login + " - " + new Date(val.updated_at).toLocaleDateString(systemLang, dateOptions) + " - " + val.description + "</li>");
                     }
                 });
             });
@@ -532,7 +537,7 @@ $(function () {
                         .html('<h3 id="noUpdateAllOk" style="text-align: center;">' + _('All adapters are up to date!') + '</h3>');
             }
         }
-        
+
         if (isHost && list.length === 0) {
             $('#hostUpdateHomeListRow').hide();
             $('#homeNewAdapterDiv').removeClass('height_150').addClass('height_320');
@@ -655,64 +660,66 @@ $(function () {
     });
 
     //------------------------------------------------------ HOST INFORMATION FUNCTIONS -------------------------------------------------------
+    function getNodeVersionList() {
+        $.getJSON("https://nodejs.org/dist/index.json", function (data) {
+            versionMap = {};
 
-    function getNodeExtrainfo(){
-        $.getJSON("https://nodejs.org/dist/index.json", function(data){
-            const version = $('#aktNodeVersion').text();
-            const versionMap = {};
-
-            $.each(data, function( index, value ) {
+            $.each(data, function (i, value) {
                 var version = value.version;
                 var key = version.substring(0, version.indexOf("."));
-                if(!versionMap[key]){
+                if (!versionMap[key]) {
                     versionMap[key] = version;
                 }
             });
+        }).always(updateInfoPage);
+    }
 
-            const aktKey = version.substring(0, version.indexOf("."));
+    function getNodeExtrainfo(host) {
+        const version = $('#aktNodeVersion' + host).text();
+        const aktKey = version.substring(0, version.indexOf("."));
 
-            let extraInfo = "";
-            let color = "green";
+        let extraInfo = "";
+        let color = "green";
 
-            if(nodeOld.indexOf(aktKey) !== -1) {
-                extraInfo += " <span style='color: red; font-weight: bold;'>(" + _("Node.js too old") + " " + versionMap[nodeRecommended] + "</span>";
-                color = "red";
-            }else if(versionMap[aktKey] !== version || aktKey !== nodeRecommended){
-                let first = true;
-                extraInfo += " (";
+        if (nodeOld.indexOf(aktKey) !== -1) {
+            extraInfo += " <span style='color: red; font-weight: bold;'>(" + _("Node.js too old") + " " + versionMap[nodeRecommended] + "</span>";
+            color = "red";
+        } else if (versionMap[aktKey] !== version || aktKey !== nodeRecommended) {
+            let first = true;
+            extraInfo += " (";
 
-                if(versionMap[aktKey] !== version) {
-                    extraInfo += _("New Node version") + " " + versionMap[aktKey];
-                    color = "orange";
+            if (versionMap[aktKey] !== version) {
+                extraInfo += _("New Node version") + " " + versionMap[aktKey];
+                color = "orange";
+                first = false;
+            }
+            if (nodeNew.indexOf(aktKey) !== -1) {
+                if (!first) {
+                    extraInfo += " ";
+                } else {
                     first = false;
                 }
-                if(nodeNew.indexOf(aktKey) !== -1){
-                    if(!first){
-                        extraInfo += " ";
-                    }else{
-                        first = false;
-                    }
-                    extraInfo += _("Version %s.x of Node.js is currently not fully supported.", aktKey);
-                    color = "red";
+                extraInfo += _("Version %s.x of Node.js is currently not fully supported.", aktKey);
+                color = "red";
+            }
+            if (aktKey !== nodeRecommended) {
+                if (!first) {
+                    extraInfo += " - ";
+                } else {
+                    first = false;
                 }
-                if(aktKey !== nodeRecommended){
-                    if(!first){
-                        extraInfo += " - ";
-                    }else{
-                        first = false;
-                    }
-                    extraInfo += _("Recommended version:") + " " + versionMap[nodeRecommended];
-                    if(color === "green" && nodeAccepted.indexOf(aktKey) === -1){
-                        color = "orange";
-                    }
+                extraInfo += _("Recommended version") + " " + versionMap[nodeRecommended];
+                if (color === "green" && nodeAccepted.indexOf(aktKey) === -1) {
+                    color = "orange";
                 }
-
-                extraInfo += ")";
             }
 
-            $('#nodeExtraInfo').append(extraInfo);
-            $('#aktNodeVersion').css('color', color).css('font-weight', 'bold');
-        });
+            extraInfo += ")";
+        }
+
+        $('#nodeExtraInfo' + host).append(extraInfo);
+        $('#aktNodeVersion' + host).css('color', color).css('font-weight', 'bold');
+
     }
 
     /** 
@@ -814,10 +821,6 @@ $(function () {
         return mhz + " MHz";
     }
 
-    function formatNodeVersion(version){
-        return "<span id='aktNodeVersion'>" + version + "</span><span id='nodeExtraInfo'></span>";
-    }
-
     /** 
      * FormatObject for host informations
      * @type type
@@ -826,8 +829,7 @@ $(function () {
         'Uptime': formatSeconds,
         'System uptime': formatSeconds,
         'RAM': formatRam,
-        'Speed': formatSpeed,
-        'Node.js': formatNodeVersion
+        'Speed': formatSpeed
     };
 
     //------------------------------------------------------- UPDATE FIELDS -------------------------------------------------------------------
@@ -843,14 +845,20 @@ $(function () {
                     for (var item in data) {
                         if (data.hasOwnProperty(item)) {
                             text += '<dt>' + _(item) + '</dt>';
-                            text += '<dd' + ((item === 'Uptime' || item === 'System uptime') ? (" id='" + data.hostname + item + "' class='timeCounter' data-start='" + data[item] + "'") : "") + '>' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</dd>';
+                            if (item === 'Node.js') {
+                                text += '<dd><span id="aktNodeVersion' + data.hostname + '">' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</span><span id="nodeExtraInfo' + data.hostname + '"></span></dd>';
+                            } else {
+                                text += '<dd' + ((item === 'Uptime' || item === 'System uptime') ? (" id='" + data.hostname + item + "' class='timeCounter' data-start='" + data[item] + "'") : "") + '>' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</dd>';
+                            }
                         }
                     }
                     text += "</dl>";
                 }
                 if (text) {
                     $('#systemInfoList').append(text);
-                    getNodeExtrainfo();
+                    if (versionMap) {
+                        getNodeExtrainfo(data.hostname);
+                    }
                 }
             });
         }
@@ -932,7 +940,7 @@ $(function () {
     //------------------------------------------------------- FILL DATA -----------------------------------------------------------------------   
     readInstanceConfig(function () {
 
-        getHosts(updateInfoPage);
+        getHosts(getNodeVersionList);
 
         if (adapterConfig.forum) {
             requestCrossDomain('http://forum.iobroker.net/feed.php?mode=topics', getForumData);
@@ -953,9 +961,9 @@ $(function () {
         } else {
             $('#home-container').hide();
         }
-        if(adapterConfig.new_adapters){
+        if (adapterConfig.new_adapters) {
             searchGithubForNewAdapters();
-        }else{
+        } else {
             $('#adapterSearchBlock').hide();
         }
         translateAll(systemLang);
