@@ -116,15 +116,15 @@
             "pl": "Adapter informacyjny ioBroker"
         },
         "desc": {
-            "en": "ioBroker information tab",
-            "de": "ioBroker Informations Adapter",
-            "ru": "ioBroker информация драйвер как образец",
-            "pt": "Adaptador de informação para o ioBroker",
-            "fr": "Adaptateur d'information pour ioBroker",
-            "nl": "Informatie-adapter voor ioBroker",
-            "it": "Scheda di informazione per ioBroker",
-            "es": "Adaptador de información para el ioBroker",
-            "pl": "Adapter informacyjny ioBroker"
+            "en": "This is an ioBroker adapter to get informations about your system and some news about ioBroker.",
+            "de": "Dies ist ein ioBroker-Adapter, um Informationen über Ihr System und Neuigkeiten über ioBroker zu erhalten.",
+            "ru": "Это адаптер ioBroker для получения информации о вашей системе и некоторых новостях о ioBroker.",
+            "pt": "Este é um adaptador ioBroker para obter informações sobre o seu sistema e algumas novidades sobre o ioBroker.",
+            "fr": "Ceci est un adaptateur ioBroker pour obtenir des informations sur votre système et des nouvelles de ioBroker.",
+            "nl": "Dit is een ioBroker-adapter voor informatie over uw systeem en nieuws over ioBroker.",
+            "it": "Questo è un adattatore ioBroker per ottenere informazioni sul tuo sistema e alcune notizie su ioBroker.",
+            "es": "Este es un adaptador ioBroker para obtener información sobre su sistema y algunas noticias sobre ioBroker.",
+            "pl": "Jest to adapter ioBroker, aby uzyskać informacje o systemie i kilka wiadomości o ioBroker."
         },
         "authors": [
             "ldittmar <iobroker@lmdsoft.de>"
