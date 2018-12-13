@@ -1,5 +1,5 @@
 ![Logo](admin/info.png)
-ioBroker.info
+#ioBroker.info
 =============
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.info.svg)](https://www.npmjs.com/package/iobroker.info)
@@ -13,8 +13,7 @@ ioBroker.info
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ldittmar81/ioBroker.info?branch=master&svg=true)](https://ci.appveyor.com/project/ldittmar81/ioBroker-info/)
 
 
-### Information adapter for ioBroker
-=================
+## Information adapter for ioBroker
 
 This is an ioBroker adapter to get informations about your system and some news about ioBroker.
 
