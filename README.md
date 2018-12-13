@@ -19,35 +19,35 @@ This is an ioBroker adapter to get informations about your system and some news 
 
 ## Changelog
 
-#### 1.0.2
+### 1.0.2
 * (ldittmar) fixed problems with Node version info in multihost system
 
-#### 1.0.1
+### 1.0.1
 * (ldittmar) search for new adapters on Github
 * (ldittmar) check for Node.js update
 * (ldittmar) https problems with news and forum data solved
 * (ldittmar) polish added as language
 
-#### 1.0.0
+### 1.0.0
 * (ldittmar) full compatibility to Admin 3.x
 * (ldittmar) clock can be disabled
 
-#### 0.1.0
+### 0.1.0
 * (ldittmar) compatibility to Admin 3.x / beta release
 
-#### 0.0.6
+### 0.0.6
 * (ldittmar) some fixes / install and update implemented
 
-#### 0.0.4
+### 0.0.4
 * (ldittmar) some fixes and design correction
 
-#### 0.0.3
+### 0.0.3
 * (ldittmar) show informations about adapters (update/new)
 
-#### 0.0.2
+### 0.0.2
 * (ldittmar) show system informations
 
-#### 0.0.1
+### 0.0.1
 * (ldittmar) initial commit
 
 ## License
