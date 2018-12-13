@@ -1,6 +1,5 @@
-![Logo](admin/info.png)
+![Logo](admin/info.png | width=50)
 # ioBroker.info
-=============
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.info.svg)](https://www.npmjs.com/package/iobroker.info)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.info.svg)](https://www.npmjs.com/package/iobroker.info)
