@@ -1,5 +1,7 @@
-![Logo](admin/info.png | width=50)
-# ioBroker.info
+<h1>
+  <img src="https://github.com/ldittmar81/ioBroker.info/blob/master/admin/info.png" width="64"/>
+  ioBroker.info
+</h1>
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.info.svg)](https://www.npmjs.com/package/iobroker.info)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.info.svg)](https://www.npmjs.com/package/iobroker.info)
@@ -10,7 +12,6 @@
 
 **Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/ldittmar81/ioBroker.info/master.svg)](https://travis-ci.org/ldittmar81/ioBroker.info)
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ldittmar81/ioBroker.info?branch=master&svg=true)](https://ci.appveyor.com/project/ldittmar81/ioBroker-info/)
-
 
 ## Information adapter for ioBroker
 
