@@ -81,8 +81,7 @@ const checkNews = function() {
         }
         if(body){
             const feed = JSON.parse(body).query.results.rss.channel;
-            adapter.log.info(JSON.stringify(feed));
-            adapter.setState('newsfeed', {val: feed, ack: true});
+            adapter.setState('newsfeed', {val: JSON.stringify(feed), ack: true});
             adapter.getState('lastPopupWarningDate', function (err, state) {
                 const lastInfo = new Date(state);
                 const infos = [];
@@ -98,7 +97,7 @@ const checkNews = function() {
                 });
                 if(infos.length > 0){
                     adapter.setState('popupReaded', {val: false, ack: true});
-                    adapter.setState('lastPopupWarning', {val: infos, ack: true});
+                    adapter.setState('lastPopupWarning', {val: JSON.stringify(infos), ack: true});
                     adapter.setState('lastPopupWarningDate', {val: new Date(), ack: true});
                 }
             });

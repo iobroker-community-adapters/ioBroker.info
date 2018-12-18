@@ -237,9 +237,9 @@ $(function () {
 
     socket.on('stateChange', function (id, obj) {
         if (adapterConfig.news && id === "info.0.newsfeed") {
-            writeNewsData(obj);
+            writeNewsData(JSON.parse(obj));
         } else if (id === "info.0.lastPopupWarning") {
-            showPopup(obj);
+            showPopup(JSON.parse(obj));
         }
     });
 
@@ -255,7 +255,7 @@ $(function () {
      * @param {type} data
      */
     const writeNewsData = function (data) {
-        if (data.results && data.results[0]) {
+        if (data && data.results && data.results[0]) {
             const $newsContent = $($.parseXML(data.results[0]));
 
             $('#newsTime').text(new Date($newsContent.find('lastBuildDate:first').text()).toLocaleDateString(systemLang, dateOptions));
@@ -970,7 +970,7 @@ $(function () {
         }
         if (adapterConfig.news) {
             socket.emit('getState', 'info.0.newsfeed', function (err, state) {
-                writeNewsData(state);
+                writeNewsData(JSON.parse(state));
             });
             socket.emit('subscribe', 'info.0.newsfeed');
         } else {
