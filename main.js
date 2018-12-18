@@ -4,15 +4,13 @@
 
 // you have to require the utils module and call adapter function
 const utils = require(__dirname + '/lib/utils'); // Get common adapter utils
-const Parser = require('rss-parser');
-const parser = new Parser();
+const request = require('request');
 
 // you have to call the adapter function and pass a options object
 // name has to be set and has to be equal to adapters folder name and main file name excluding extension
 // adapter will be restarted automatically every time as the configuration changed, e.g system.adapter.template.0
 const adapter = utils.Adapter('info');
 
-const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
 let systemLang = "en";
 let newsLang = "en";
 
@@ -75,17 +73,20 @@ adapter.on('ready', function () {
 const checkNews = function() {
 
     const newsLink = 'http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang;
+    const yql = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from xml where url="' + newsLink + '"') + '&format=json';
 
-    parser.parseURL(CORS_PROXY + newsLink, function (err, feed) {
+    request.get(yql, function (err, resp, body) {
         if(err){
             adapter.log.error(err);
         }
-        if(feed){
+        if(body){
+            const feed = JSON.parse(body).query.results.rss.channel;
+            adapter.log.info(JSON.stringify(feed));
             adapter.setState('newsfeed', {val: feed, ack: true});
             adapter.getState('lastPopupWarningDate', function (err, state) {
                 const lastInfo = new Date(state);
                 const infos = [];
-                feed.items.forEach(function(entry) {
+                feed.item.forEach(function(entry) {
                     let pubDate = new Date(entry.pubDate);
                     if('Info' === entry.category && pubDate > lastInfo){
                         const info = {};
@@ -101,9 +102,9 @@ const checkNews = function() {
                     adapter.setState('lastPopupWarningDate', {val: new Date(), ack: true});
                 }
             });
-        }
-    });
-}
+        }     
+    });   
+};
 
 function main() {
     checkNews();

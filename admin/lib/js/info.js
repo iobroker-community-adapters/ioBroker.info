@@ -190,9 +190,7 @@ $(function () {
 
         const yql = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from xml where url="' + site + '"') + '&format=xml&callback=?';
 
-        $.getJSON(yql, cbFunc);
-
-        function cbFunc(data) {
+        $.getJSON(yql, function(data){
             if (data.results[0]) {
                 if (typeof callback === 'function') {
                     callback(data);
@@ -200,7 +198,7 @@ $(function () {
             } else {
                 throw new Error('Nothing returned from getJSON.');
             }
-        }
+        });
     }
 
     const getForumData = function () {
@@ -964,13 +962,16 @@ $(function () {
         getHosts(getNodeVersionList);
 
         if (adapterConfig.forum) {
-            getForumData;
+            getForumData();
             setInterval(getForumData, 10 * 60 * 1000);
 
         } else {
             $('#forumBlock').hide();
         }
         if (adapterConfig.news) {
+            socket.emit('getState', 'info.0.newsfeed', function (err, state) {
+                writeNewsData(state);
+            });
             socket.emit('subscribe', 'info.0.newsfeed');
         } else {
             $('#newsBlock').hide();

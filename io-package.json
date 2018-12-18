@@ -149,7 +149,10 @@
             "singleton": true,
             "name": "Info",
             "fa-icon": "info"
-        }
+        },
+        "dependencies": [{
+            "admin": ">=3.0.0"
+        }]        
     },
     "native": {
         "news": true,
