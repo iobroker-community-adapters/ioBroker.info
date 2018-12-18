@@ -639,6 +639,7 @@ $(function () {
                     $('#modal-command').modal('hide');
                 }, 1500);
                 $('#' + _id).remove();
+                window.top.gMain.tabs.adapters.updateCounter;
             } else {
                 $('#adapter-meter').progressbar(90, "error");
                 $('#adapter-install-message-on-end').text(installMsg[_id].error);
@@ -651,6 +652,7 @@ $(function () {
         } else if (installMsg.hasOwnProperty(_id)) {
             if (!exitCode) {
                 $('#' + _id).remove();
+                window.top.gMain.tabs.adapters.updateCounter;
                 alert(installMsg[_id].success);
             } else {
                 alert(installMsg[_id].error);
