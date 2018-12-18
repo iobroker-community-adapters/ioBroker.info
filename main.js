@@ -3,12 +3,18 @@
 "use strict";
 
 // you have to require the utils module and call adapter function
-var utils = require(__dirname + '/lib/utils'); // Get common adapter utils
+const utils = require(__dirname + '/lib/utils'); // Get common adapter utils
+const Parser = require('rss-parser');
+const parser = new Parser();
 
 // you have to call the adapter function and pass a options object
 // name has to be set and has to be equal to adapters folder name and main file name excluding extension
 // adapter will be restarted automatically every time as the configuration changed, e.g system.adapter.template.0
-var adapter = utils.Adapter('info');
+const adapter = utils.Adapter('info');
+
+const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
+let systemLang = "en";
+let newsLang = "en";
 
 // is called when adapter shuts down - callback has to be called under any circumstances!
 adapter.on('unload', function (callback) {
@@ -54,13 +60,52 @@ adapter.on('message', function (obj) {
 // is called when databases are connected and adapter received configuration.
 // start here!
 adapter.on('ready', function () {
-    main();
+    adapter.getForeignObject('system.config', (err, data) => {
+        if (data && data.common) {
+            systemLang = data.common.language;
+        }        
+        newsLang = systemLang;
+        if (newsLang !== "de" && newsLang !== "ru") {
+            newsLang = "en";
+        }
+        main();
+    });
 });
 
-function main() {    
-    var host = adapter.host;
-    var forum = adapter.config.forum;
-    var news = adapter.config.news;
-    var clock = adapter.config.clock;
-    var new_adapters = adapter.config.new_adapters;
+const checkNews = function() {
+
+    const newsLink = 'http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang;
+
+    parser.parseURL(CORS_PROXY + newsLink, function (err, feed) {
+        if(err){
+            adapter.log.error(err);
+        }
+        if(feed){
+            adapter.setState('newsfeed', {val: feed, ack: true});
+            adapter.getState('lastPopupWarningDate', function (err, state) {
+                const lastInfo = new Date(state);
+                const infos = [];
+                feed.items.forEach(function(entry) {
+                    let pubDate = new Date(entry.pubDate);
+                    if('Info' === entry.category && pubDate > lastInfo){
+                        const info = {};
+                        info.title = entry.title;
+                        info.pubDate = entry.pubDate;
+                        info.description = entry.description;
+                        infos.push(info);
+                    }      
+                });
+                if(infos.length > 0){
+                    adapter.setState('popupReaded', {val: false, ack: true});
+                    adapter.setState('lastPopupWarning', {val: infos, ack: true});
+                    adapter.setState('lastPopupWarningDate', {val: new Date(), ack: true});
+                }
+            });
+        }
+    });
+}
+
+function main() {
+    checkNews();
+    setInterval(checkNews, 30 * 60 * 1000);
 }

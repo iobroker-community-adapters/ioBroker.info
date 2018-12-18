@@ -157,5 +157,56 @@
         "clock": false,
         "new_adapters": false
     },
-    "objects": []
+    "objects": [],
+    "instanceObjects": [        
+        {
+            "_id": "newsfeed",
+            "type": "state",
+            "common": {
+                "name": "Last Newsfeed",
+                "type": "string",
+                "role": "json",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "lastPopupWarningDate",
+            "type": "state",
+            "common": {
+                "name": "Last popup date",
+                "type": "string",
+                "role": "value.time",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "lastPopupWarning",
+            "type": "state",
+            "common": {
+                "name": "Last Popup",
+                "type": "string",
+                "role": "json",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "popupReaded",
+            "type": "state",
+            "common": {
+                "name": "Last popup readed",
+                "type": "boolean",
+                "role": "state",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        }
+    ]
 }
