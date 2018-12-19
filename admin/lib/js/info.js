@@ -273,7 +273,7 @@ $(function () {
             const feed = JSON.parse(data);
 
             $('#newsTime').text(new Date(feed['lastBuildDate']).toLocaleDateString(systemLang, dateOptions));
-            $('#news-link').attr("href", feed['link']);
+            $('#news-link').attr("href", feed.link[1]);
 
             $('#newsList').empty();
             feed.item.forEach(function (entry) {
@@ -282,7 +282,7 @@ $(function () {
                 $item.find('.titleLink').text(entry['title']).attr('href', entry['link']);
                 $item.find('.description').html(entry['description']);
                 $item.find('.description a').attr('target', '_blank');
-                $item.find('.byline').text(new Date(entry['pubDate']).toLocaleDateString(systemLang, dateOptions) + " - " + entry['dc:creator']);
+                $item.find('.byline').text(new Date(entry['pubDate']).toLocaleDateString(systemLang, dateOptions) + " - " + entry['creator']);
                 $('#newsList').append($item);
             });
         } catch (err) {
