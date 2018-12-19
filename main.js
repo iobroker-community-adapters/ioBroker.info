@@ -87,7 +87,7 @@ const checkNews = function() {
                 const infos = [];
                 feed.item.forEach(function(entry) {
                     let pubDate = new Date(entry.pubDate);
-                    if('Info' === entry.category && pubDate > lastInfo){
+                    if(entry.title.indexOf('*') == 0 && pubDate > lastInfo){
                         const info = {};
                         info.title = entry.title;
                         info.pubDate = entry.pubDate;
