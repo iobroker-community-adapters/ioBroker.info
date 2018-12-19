@@ -5,6 +5,7 @@
   "Failed to install %s": "Der Adapter %s konnte leider nicht intalliert werden.",
   "Failed to update %s": "Der Adapter %s konnte leider nicht aktualisiert werden.",
   "Hide clock:": "Uhr nicht anzeigen",
+  "Important information!": "Wichtige Informationen!",
   "Installing adapter %s...": "Adapter %s wird installiert...",
   "Model": "Modell",
   "NPM": "NPM",

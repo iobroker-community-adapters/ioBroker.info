@@ -5,6 +5,7 @@
   "Failed to install %s": "Адаптер %s к сожалению не может быть установлен.",
   "Failed to update %s": "Не удалось обновить %s.",
   "Hide clock:": "Не показывать часы",
+  "Important information!": "Важная информация!",
   "Installing adapter %s...": "Установка адаптера %s ...",
   "Model": "Модель",
   "NPM": "NPM",

@@ -12,10 +12,10 @@ $(function () {
 
     let hosts = [];
     let mainHost = '';
-    let systemLang;    
+    let systemLang = 'en';
     let systemConfig = {};
     let adapterConfig = {};
-    
+
     const uptimeMap = {};
     const languages = ["de", "en", "ru", "pt", "nl", "fr", "it", "es", "pl"];
     const dateOptions = {"weekday": "short", "year": "numeric", "month": "long", "day": "2-digit", "hour": "2-digit", "minute": "2-digit", "second": "2-digit"};
@@ -38,7 +38,6 @@ $(function () {
             } else {
                 systemLang = window.navigator.userLanguage || window.navigator.language;
                 if (!(systemLang in languages)) {
-                    systemConfig.common.language = 'en';
                     systemLang = 'en';
                 }
             }
@@ -190,7 +189,7 @@ $(function () {
 
         const yql = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from xml where url="' + site + '"') + '&format=xml&callback=?';
 
-        $.getJSON(yql, function(data){
+        $.getJSON(yql, function (data) {
             if (data.results[0]) {
                 if (typeof callback === 'function') {
                     callback(data);
@@ -237,17 +236,32 @@ $(function () {
 
     socket.on('stateChange', function (id, obj) {
         if (adapterConfig.news && id === "info.0.newsfeed") {
-            writeNewsData(JSON.parse(obj));
+            writeNewsData(obj.val);
         } else if (id === "info.0.lastPopupWarning") {
-            showPopup(JSON.parse(obj));
+            showPopup(obj.val);
         }
     });
 
     function showPopup(obj) {
-        $.each(obj, function (i, val) {
-            window.top.gMain.showMessage(val.title, val.description, 'info');
-            socket.emit('setState', 'info.0.popupReaded', {val: true, ack: true});
-        });
+        try {
+            const messages = JSON.parse(obj);
+            if (messages.length > 1) {
+                const title = _("Important information!");
+                let description = "";
+                $.each(messages, function (i, val) {
+                    description += "<b>" + val.title + "</b>";
+                    description += "<p>" + val.description + "</p>";
+                    description += "<br/>";
+                });
+                window.top.gMain.showMessage(title, description, 'info');
+                socket.emit('setState', 'info.0.popupReaded', {val: true, ack: true});
+            } else {
+                window.top.gMain.showMessage(messages[0].title, messages[0].description, 'info');
+                socket.emit('setState', 'info.0.popupReaded', {val: true, ack: true});
+            }
+        } catch (err) {
+
+        }
     }
 
     /** 
@@ -255,23 +269,26 @@ $(function () {
      * @param {type} data
      */
     const writeNewsData = function (data) {
-        if (data && data.results && data.results[0]) {
-            const $newsContent = $($.parseXML(data.results[0]));
+        try {
+            const feed = JSON.parse(data);
 
-            $('#newsTime').text(new Date($newsContent.find('lastBuildDate:first').text()).toLocaleDateString(systemLang, dateOptions));
-            $('#news-link').attr("href", $newsContent.find('link:first').text());
+            $('#newsTime').text(new Date(feed['lastBuildDate']).toLocaleDateString(systemLang, dateOptions));
+            $('#news-link').attr("href", feed['link']);
 
             $('#newsList').empty();
-            $('item', $newsContent).each(function () {
+            feed.item.forEach(function (entry) {
                 const $item = $('#forumEntryTemplate').children().clone(true, true);
-                $item.find('.forumClass').text($(this).find('category').text());
-                $item.find('.titleLink').text($(this).find('title').text()).attr('href', $(this).find('link').text());
-                $item.find('.description').html($(this).find('description').text());
+                $item.find('.forumClass').text(entry['category']);
+                $item.find('.titleLink').text(entry['title']).attr('href', entry['link']);
+                $item.find('.description').html(entry['description']);
                 $item.find('.description a').attr('target', '_blank');
-                $item.find('.byline').text(new Date($(this).find('pubDate').text()).toLocaleDateString(systemLang, dateOptions) + " - " + $(this).find('dc\\:creator').text());
+                $item.find('.byline').text(new Date(entry['pubDate']).toLocaleDateString(systemLang, dateOptions) + " - " + entry['dc:creator']);
                 $('#newsList').append($item);
             });
+        } catch (err) {
+            console.log(err);
         }
+
     };
 
     //------------------------------------------------------ SEARCH GITHUB --------------------------------------------------------------------
@@ -969,8 +986,8 @@ $(function () {
             $('#forumBlock').hide();
         }
         if (adapterConfig.news) {
-            socket.emit('getState', 'info.0.newsfeed', function (err, state) {
-                writeNewsData(JSON.parse(state));
+            socket.emit('getState', 'info.0.newsfeed', function (err, obj) {
+                writeNewsData(obj.val);
             });
             socket.emit('subscribe', 'info.0.newsfeed');
         } else {

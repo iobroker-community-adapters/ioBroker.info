@@ -5,6 +5,7 @@
   "Failed to install %s": "De adapter %s kon niet worden geïnstalleerd.",
   "Failed to update %s": "Sorry, de adapter %s kon niet worden bijgewerkt.",
   "Hide clock:": "Laat de klok niet zien",
+  "Important information!": "Belangrijke informatie!",
   "Installing adapter %s...": "Adapter %s wordt geïnstalleerd...",
   "Model": "Model",
   "NPM": "NPM",
