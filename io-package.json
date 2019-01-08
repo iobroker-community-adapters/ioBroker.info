@@ -2,7 +2,7 @@
     "common": {
         "name": "info",
         "version": "1.0.2",
-        "news": {
+        "news": {            
             "1.0.2": {
                 "en": "Minor fixes",
                 "de": "Kleine Korrekturen",
@@ -129,6 +129,7 @@
         "authors": [
             "ldittmar <iobroker@lmdsoft.de>"
         ],
+        "compact": true,
         "platform": "Javascript/Node.js",
         "mode": "daemon",
         "icon": "info.png",
