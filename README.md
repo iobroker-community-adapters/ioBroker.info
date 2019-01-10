@@ -19,6 +19,10 @@ This is an ioBroker adapter to get informations about your system and some news 
 
 ## Changelog
 
+### 1.0.3
+* (ldittmar) compact mode compatibility added
+* (ldittmar) add chinese support
+
 ### 1.0.2
 * (ldittmar) fixed problems with Node version info in multihost system
 
