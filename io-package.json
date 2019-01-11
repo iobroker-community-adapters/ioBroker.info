@@ -12,7 +12,8 @@
                 "nl": "Kleine fixes",
                 "it": "Correzioni minori",
                 "es": "Correcciones menores",
-                "pl": "Drobne poprawki"
+                "pl": "Drobne poprawki",
+                "zh-cn": "小修正"
             },
             "1.0.1": {
                 "en": "Search for new adapters on Github",
@@ -23,7 +24,8 @@
                 "nl": "Zoeken naar nieuwe adapters op Github",
                 "it": "Cerca nuovi adattatori su Github",
                 "es": "Buscar nuevos adaptadores en Github",
-                "pl": "Wyszukaj nowe adaptery na Github"
+                "pl": "Wyszukaj nowe adaptery na Github",
+                "zh-cn": "在Github上搜索新的适配器"
             },
             "1.0.0": {
                 "en": "Full compatibility to Admin 3.x.",
@@ -34,7 +36,8 @@
                 "nl": "Volledige compatibiliteit met Admin 3.x.",
                 "it": "Completa compatibilità con Admin 3.x.",
                 "es": "Compatibilidad completa con Admin 3.x.",
-                "pl": "Pełna zgodność z Adminem 3.x."
+                "pl": "Pełna zgodność z Adminem 3.x.",
+                "zh-cn": "与Admin 3.x完全兼容。"
             },
             "0.1.0": {
                 "en": "Compatibility to Admin 3.x.",
@@ -45,7 +48,8 @@
                 "nl": "Compatibiliteit met Admin 3.x.",
                 "it": "Compatibilità con Admin 3.x.",
                 "es": "Compatibilidad con Admin 3.x.",
-                "pl": "Zgodność z administratorem 3.x."
+                "pl": "Zgodność z administratorem 3.x.",
+                "zh-cn": "与Admin 3.x的兼容性。"
             },
             "0.0.6": {
                 "en": "Install and update function",
@@ -56,7 +60,8 @@
                 "nl": "Functies voor installatie + update geïmplementeerd",
                 "it": "Funzioni per installazione + aggiornamento implementate",
                 "es": "Funciones para Install + Update implementadas",
-                "pl": "Zainstaluj i zaktualizuj funkcję"
+                "pl": "Zainstaluj i zaktualizuj funkcję",
+                "zh-cn": "安装和更新功能"
             },
             "0.0.4": {
                 "en": "Some fixes and design correction",
@@ -67,7 +72,8 @@
                 "nl": "Enkele fixes en ontwerpcorrectie",
                 "it": "Alcune correzioni di bug e progettazione",
                 "es": "Algunas correcciones de errores y diseño",
-                "pl": "Niektóre poprawki i korekta projektu"
+                "pl": "Niektóre poprawki i korekta projektu",
+                "zh-cn": "一些修复和设计更正"
             },
             "0.0.3": {
                 "en": "Show adapters infos",
@@ -78,7 +84,8 @@
                 "nl": "Meest bekeken informadores adaptadores",
                 "it": "Mostra informazioni su adattatori",
                 "es": "Mostrar informações dos adaptadores",
-                "pl": "Pokaż informacje o adapterach"
+                "pl": "Pokaż informacje o adapterach",
+                "zh-cn": "显示适配器信息"
             },
             "0.0.2": {
                 "en": "System info",
@@ -89,7 +96,8 @@
                 "nl": "Systeeminformatie",
                 "it": "Informazioni di sistema",
                 "es": "Información del sistema",
-                "pl": "Informacje o systemie"
+                "pl": "Informacje o systemie",
+                "zh-cn": "系统信息"
             },
             "0.0.1": {
                 "en": "initial version",
@@ -100,7 +108,8 @@
                 "nl": "Eerste release",
                 "it": "Versione iniziale",
                 "es": "Versión inicial",
-                "pl": "początkowa wersja"
+                "pl": "początkowa wersja",
+                "zh-cn": "初始版本"
             }
         },
         "title": "ioBroker information tab",
@@ -113,7 +122,8 @@
             "fr": "Page d'information ioBroker",
             "it": "Pagina di informazioni di ioBroker",
             "es": "Página de información de ioBroker",
-            "pl": "Adapter informacyjny ioBroker"
+            "pl": "Adapter informacyjny ioBroker",
+            "zh-cn": "ioBroker信息页面"
         },
         "desc": {
             "en": "This is an ioBroker adapter to get informations about your system and some news about ioBroker.",
@@ -124,7 +134,8 @@
             "nl": "Dit is een ioBroker-adapter voor informatie over uw systeem en nieuws over ioBroker.",
             "it": "Questo è un adattatore ioBroker per ottenere informazioni sul tuo sistema e alcune notizie su ioBroker.",
             "es": "Este es un adaptador ioBroker para obtener información sobre su sistema y algunas noticias sobre ioBroker.",
-            "pl": "Jest to adapter ioBroker, aby uzyskać informacje o systemie i kilka wiadomości o ioBroker."
+            "pl": "Jest to adapter ioBroker, aby uzyskać informacje o systemie i kilka wiadomości o ioBroker.",
+            "zh-cn": "这是一个ioBroker适配器，用于获取有关系统的信息以及有关ioBroker的一些新闻。"
         },
         "authors": [
             "ldittmar <iobroker@lmdsoft.de>"
