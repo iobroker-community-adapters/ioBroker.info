@@ -156,7 +156,7 @@
         "loglevel": "info",
         "type": "misc-data",
         "license": "MIT",
-        "messagebox": false,
+        "messagebox": true,
         "adminTab": {
             "singleton": true,
             "name": "Info",

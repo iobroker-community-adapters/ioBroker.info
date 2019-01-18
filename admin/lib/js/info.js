@@ -17,7 +17,7 @@ $(function () {
     let adapterConfig = {};
 
     const uptimeMap = {};
-    const languages = ["de", "en", "ru", "pt", "nl", "fr", "it", "es", "pl"];
+    const languages = ["de", "en", "ru", "pt", "nl", "fr", "it", "es", "pl", "zh-cn"];
     const dateOptions = {"weekday": "short", "year": "numeric", "month": "long", "day": "2-digit", "hour": "2-digit", "minute": "2-digit", "second": "2-digit"};
 
     const installMsg = {};
