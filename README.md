@@ -11,7 +11,7 @@
 [![NPM](https://nodei.co/npm/iobroker.info.png?downloads=true)](https://nodei.co/npm/iobroker.info/)
 
 **Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/ldittmar81/ioBroker.info/master.svg)](https://travis-ci.org/ldittmar81/ioBroker.info)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ldittmar81/ioBroker.info?branch=master&svg=true)](https://ci.appveyor.com/project/ldittmar81/ioBroker-info/)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ldittmar81/ioBroker.info?branch=master&svg=true)](https://ci.appveyor.com/project/ldittmar81/ioBroker-info/) [![Greenkeeper badge](https://badges.greenkeeper.io/ldittmar81/ioBroker.info.svg)](https://greenkeeper.io/)
 
 ## Information adapter for ioBroker
 
