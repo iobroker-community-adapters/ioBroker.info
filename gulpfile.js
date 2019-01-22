@@ -1,3 +1,7 @@
+/*!
+ * ioBroker gulpfile
+ * Date: 2019-01-22
+ */
 "use strict";
 
 const gulp = require("gulp");
@@ -30,7 +34,7 @@ function lang2data(lang, isFlat) {
             if (isFlat) {
                 str += (lang[w] === '' ? (isFlat[w] || w) : lang[w]) + '\n';
             } else {
-                const key = '  "' + w.replace(/"/g, '\\"') + '": ';
+                const key = '    "' + w.replace(/"/g, '\\"') + '": ';
                 str += key + '"' + lang[w].replace(/"/g, '\\"') + '",\n';
             }
         }
@@ -454,6 +458,6 @@ gulp.task('translate', async function (done) {
     fs.writeFileSync('io-package.json', JSON.stringify(iopackage, null, 4));
 });
 
-gulp.task("translateAndUpdateWordsJS", gulp.series("translate", "adminLanguages2words"));
+gulp.task("translateAndUpdateWordsJS", gulp.series("translate", "adminLanguages2words", "adminWords2languages"));
 
 gulp.task('default', gulp.series('updatePackages', 'updateReadme'));
