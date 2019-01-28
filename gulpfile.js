@@ -342,8 +342,10 @@ async function translateNotExisting(obj, baseText, yandex) {
 
     if (t) {
         for (let l in languages) {
-            if (!obj[l]) {
+            if (!obj[l]) {                
+                const time = new Date().getTime();
                 obj[l] = await translate(t, l, yandex);
+                console.log("en -> " + l + " " + (new Date().getTime() - time) + " ms");
             }
         }
     }
@@ -430,21 +432,26 @@ gulp.task('translate', async function (done) {
     
     if (iopackage && iopackage.common) {
         if (iopackage.common.news) {
+            console.log("Translate News");
             for (let k in iopackage.common.news) {
+                console.log("News: " + k);
                 let nw = iopackage.common.news[k];
                 await translateNotExisting(nw, null, yandex);
             }
         }
         if (iopackage.common.titleLang) {
+            console.log("Translate Title");
             await translateNotExisting(iopackage.common.titleLang, iopackage.common.title, yandex);
         }
         if (iopackage.common.desc) {
+            console.log("Translate Description");
             await translateNotExisting(iopackage.common.desc, null, yandex);
         }
 
         if (fs.existsSync('./admin/i18n/en/translations.json')) {
             let enTranslations = require('./admin/i18n/en/translations.json');
             for (let l in languages) {
+                console.log("Translate Text: " + l);
                 let existing = {};
                 if (fs.existsSync('./admin/i18n/' + l + '/translations.json')) {
                     existing = require('./admin/i18n/' + l + '/translations.json');
