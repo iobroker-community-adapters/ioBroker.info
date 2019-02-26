@@ -11,7 +11,7 @@ let mainHost = '';
 
 //------------------------------------------------------ HOST INFORMATION FUNCTIONS -------------------------------------------------------
 async function getNodeVersionList() {
-    const data = await fetch("https://nodejs.org/dist/index.json");
+    const data = await(await fetch("https://nodejs.org/dist/index.json")).json();
     versionMap = {};
     $.each(data, function (i, value) {
         const version = value.version;
@@ -19,7 +19,7 @@ async function getNodeVersionList() {
         if (!versionMap[key]) {
             versionMap[key] = version;
         }
-    });   
+    });
 }
 
 function getNodeExtrainfo(host) {
