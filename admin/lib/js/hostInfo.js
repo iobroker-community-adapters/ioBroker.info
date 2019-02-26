@@ -10,7 +10,7 @@ let hosts = [];
 let mainHost = '';
 
 //------------------------------------------------------ HOST INFORMATION FUNCTIONS -------------------------------------------------------
-async function getNodeVersionList() {
+async function getNodeVersionList(callback) {
     const data = await(await fetch("https://nodejs.org/dist/index.json")).json();
     versionMap = {};
     await asyncForEach(data, function (value) {
@@ -21,7 +21,9 @@ async function getNodeVersionList() {
         }
     });
     
-    updateInfoPage();
+    if(callback){
+        callback();
+    }
 }
 
 function getNodeExtrainfo(host) {
@@ -76,8 +78,8 @@ function getNodeExtrainfo(host) {
  * Get all ioBroker hosts
  * @param {type} callback
  */
-const getHosts = function (callback) {
-    socket.emit('getObjectView', 'system', 'host', {startkey: 'system.host.', endkey: 'system.host.\u9999'}, function (err, res) {
+const getHosts = function () {
+    socket.emit('getObjectView', 'system', 'host', {startkey: 'system.host.', endkey: 'system.host.\u9999'}, async function (err, res) {
         if (!err && res) {
             hosts = [];
             for (let i = 0; i < res.rows.length; i++) {
@@ -85,9 +87,9 @@ const getHosts = function (callback) {
             }
             mainHost = res.rows[0].id.substring('system.host.'.length);
         }
-        if (callback) {
-            callback();
-        }
+        
+        await getNodeVersionList(updateInfoPage);           
+        
     });
 };
 
