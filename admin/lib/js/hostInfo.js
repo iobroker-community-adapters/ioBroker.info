@@ -13,7 +13,7 @@ let mainHost = '';
 async function getNodeVersionList() {
     const data = await(await fetch("https://nodejs.org/dist/index.json")).json();
     versionMap = {};
-    $.each(data, function (i, value) {
+    await asyncForEach(data, function (value) {
         const version = value.version;
         const key = version.substring(0, version.indexOf("."));
         if (!versionMap[key]) {

@@ -121,7 +121,9 @@ $(function () {
         }
         if (adapterConfig.news) {
             socket.emit('getState', 'info.0.newsfeed', function (err, obj) {
-                writeNewsData(obj ? obj.val : null);
+                if(obj){
+                    writeNewsData(obj.val);
+                }
             });
             socket.emit('subscribe', 'info.0.newsfeed');
         } else {

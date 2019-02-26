@@ -30,7 +30,7 @@ function showPopup(obj) {
     }
 }
 
-function writeNewsData(data) {
+function writeNewsData(data) {   
     try {
         const feed = JSON.parse(data);
 
