@@ -20,6 +20,8 @@ async function getNodeVersionList() {
             versionMap[key] = version;
         }
     });
+    
+    updateInfoPage();
 }
 
 function getNodeExtrainfo(host) {

@@ -111,8 +111,7 @@ $(function () {
     //------------------------------------------------------- FILL DATA -----------------------------------------------------------------------   
     readInstanceConfig(async function () {
 
-        getHosts(await getNodeVersionList()); //hostInfo
-        await updateInfoPage();
+        getHosts(await getNodeVersionList());  
 
         if (adapterConfig.forum) {
             startForum();
