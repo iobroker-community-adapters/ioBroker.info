@@ -183,5 +183,9 @@ $(function () {
     $(document.body).on('click', '.host-update', function () {
         parent.window.location.hash = '#tab-hosts';
     });
+    
+    $(document.body).on('click', '.spoiler-control', function () {
+        $(this).parent().children(".spoiler-content").toggle();
+    });
 
 });

@@ -324,3 +324,9 @@ ul#cssClock li{
 .allOk {
     background: url(../img/thumb.png) no-repeat center;
 }
+
+.spoiler-content{
+    margin-top:3px;
+    border:1px solid #c7c7c7;
+    padding:2px
+}
