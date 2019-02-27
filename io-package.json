@@ -4,7 +4,16 @@
         "version": "1.0.2",
         "news": {
             "1.1.0": {
-              "en": "Add new forum and fix news"  
+                "en": "Add new forum and fix news",
+                "de": "Neues Forum hinzufügen und Neuigkeiten korrigieren",
+                "ru": "Добавить новый форум и исправить новости",
+                "pt": "Adicionar novo fórum e corrigir notícias",
+                "nl": "Voeg een nieuw forum toe en repareer nieuws",
+                "fr": "Ajouter un nouveau forum et corriger les nouvelles",
+                "it": "Aggiungi un nuovo forum e aggiusta le notizie",
+                "es": "Añadir nuevo foro y arreglar noticias",
+                "pl": "Dodaj nowe forum i popraw aktualności",
+                "zh-cn": "添加新论坛并修复新闻"
             },
             "1.0.2": {
                 "en": "Minor fixes",
@@ -166,9 +175,11 @@
             "name": "Info",
             "fa-icon": "info"
         },
-        "dependencies": [{
-            "admin": ">=3.0.0"
-        }]        
+        "dependencies": [
+            {
+                "admin": ">=3.0.0"
+            }
+        ]
     },
     "native": {
         "news": true,
@@ -177,7 +188,7 @@
         "new_adapters": false
     },
     "objects": [],
-    "instanceObjects": [        
+    "instanceObjects": [
         {
             "_id": "newsfeed",
             "type": "state",

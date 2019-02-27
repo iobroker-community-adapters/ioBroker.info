@@ -4,7 +4,8 @@
 
 // you have to require the utils module and call adapter function
 const utils = require(__dirname + '/lib/utils'); // Get common adapter utils
-const request = require('request');
+const feed = require('feed-to-json');
+
 
 let systemLang = "en";
 let newsLang = "en";
@@ -71,15 +72,13 @@ function startAdapter(options) {
 
 const checkNews = function () {
 
-    const newsLink = 'http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang;
-    const yql = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from xml where url="' + newsLink + '"') + '&format=json';
-
-    request.get(yql, function (err, resp, body) {
+    const newsLink = 'https://cors-anywhere.herokuapp.com/http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang;
+  
+    feed.load(newsLink, function (err, feed) {
         if (err) {
             adapter.log.error(err);
         }
-        if (body) {
-            const feed = JSON.parse(body).query.results.rss.channel;
+        if (feed) {
             adapter.setState('newsfeed', {val: JSON.stringify(feed), ack: true});
             adapter.getState('lastPopupWarningDate', function (err, state) {
                 const lastInfo = new Date(state);

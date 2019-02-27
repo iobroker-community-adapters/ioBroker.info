@@ -18,7 +18,7 @@
     "url": "https://github.com/ldittmar81/ioBroker.info"
   },
   "dependencies": {
-    "request": "^2.88.0"
+    "feed-to-json": "^1.0.3"
   },
   "devDependencies": {
     "gulp": "^4.0.0",

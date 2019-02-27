@@ -7,7 +7,7 @@ function startForum() {
         if ($.inArray(lang, Object.keys(forumRss)) === -1) {
             lang = "en";
         }
-
+ 
         if (lang === "zh-cn") {
             getChinaForumData(lang);
         } else {
@@ -37,7 +37,7 @@ function startForum() {
             const $item = $('#forumEntryTemplate').children().clone(true, true);
             $item.find('.forumClass').text(thread.category);
             $item.find('.titleLink').text(feed.title).attr('href', feed.link);
-            let desc = feed.description + "&#9711;&nbsp;&#9711;&nbsp;&#9711;<br><p><b>" + thread.author + ":</b><br>" + thread.description + "</p>";
+            let desc = feed.description + "<hr><br><p><b>" + thread.author + " " + _("replied on") + " " + new Date(thread.pubDate).toLocaleDateString(systemLang, dateOptions) + ":</b><br>" + thread.description + "</p>";
             desc = desc.replace(/\/assets\/uploads\/files/g, "https://forum.iobroker.net/assets/uploads/files");
             $item.find('.description').html(desc);
             $item.find('.description a').attr('target', '_blank');
