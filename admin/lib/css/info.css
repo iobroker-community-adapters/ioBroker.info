@@ -325,8 +325,22 @@ ul#cssClock li{
     background: url(../img/thumb.png) no-repeat center;
 }
 
+.byline {
+    -webkit-font-smoothing: antialiased;
+    font-style: italic;
+    font-size: .9375em;
+    line-height: 1.3;
+    color: #aab6aa;
+}
+
+.tags {
+    float: right;
+    font-size: 1.1em;
+    line-height: 1.3;
+}
+
 .spoiler-content{
     margin-top:3px;
     border:1px solid #c7c7c7;
-    padding:2px
+    padding:2px;
 }

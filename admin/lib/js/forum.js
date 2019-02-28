@@ -35,10 +35,17 @@ function startForum() {
             }
             const feed = await getDescription(thread);
             const $item = $('#forumEntryTemplate').children().clone(true, true);
-            $item.find('.forumClass').text(thread.category);
+            $item.find('.tag').text(thread.category);
+            $item.find('.forumClass').attr('href', thread.categoryLink);
             $item.find('.titleLink').text(feed.title).attr('href', feed.link);
-            let desc = feed.description + "<hr><br><p><b>" + thread.author + " " + _("replied on") + " " + new Date(thread.pubDate).toLocaleDateString(systemLang, dateOptions) + ":</b><br>" + thread.description + "</p>";
+            
+            let desc = feed.description;
+            desc += "<div style='width: 100%; text-align: center;'>&#9711;&nbsp;&#9711;&nbsp;&#9711;</div>"; 
+            desc += "<p class='spoiler-content'>";
+            desc += "<b>" + thread.author + " " + _("replied on") + " " + new Date(thread.pubDate).toLocaleDateString(systemLang, dateOptions) + ":</b>";
+            desc += "<br>" + thread.description + "</p>";
             desc = desc.replace(/\/assets\/uploads\/files/g, "https://forum.iobroker.net/assets/uploads/files");
+            
             $item.find('.description').html(desc);
             $item.find('.description a').attr('target', '_blank');
 
@@ -53,7 +60,8 @@ function startForum() {
             const data = await feednami.load(link);
             if (data && data.entries) {
                 await asyncForEach(data.entries, function (feed) {
-                    feed.category = data.meta.title;
+                    feed.category = $("<div/>").html(data.meta.title).text();
+                    feed.categoryLink = data.meta.link;
                     rssFeedUnordered.push(feed);
                 });
             }
