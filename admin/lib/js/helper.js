@@ -1,6 +1,7 @@
 /* global io, systemDictionary, systemLang, bootbox, showdown */
 
 const dateOptions = {"weekday": "short", "year": "numeric", "month": "long", "day": "2-digit", "hour": "2-digit", "minute": "2-digit", "second": "2-digit"};
+let infoData = {};
 
 const socket = io.connect();
 
@@ -67,9 +68,9 @@ jQuery.fn.progressbar = function (a, b) {
     return this;
 };
 
-(function($){
+(function ($) {
     $.extend({
-    	  // Case insensative $.inArray (http://api.jquery.com/jquery.inarray/)
+        // Case insensative $.inArray (http://api.jquery.com/jquery.inarray/)
         // $.inArrayIn(value, array [, fromIndex])
         //  value (type: String)
         //    The value to search for
@@ -78,18 +79,18 @@ jQuery.fn.progressbar = function (a, b) {
         //  fromIndex (type: Number)
         //    The index of the array at which to begin the search.
         //    The default is 0, which will search the whole array.
-        inArrayIn: function(elem, arr, i){
+        inArrayIn: function (elem, arr, i) {
             // not looking for a string anyways, use default method
-            if (typeof elem !== 'string'){
+            if (typeof elem !== 'string') {
                 return $.inArray.apply(this, arguments);
             }
             // confirm array is populated
-            if (arr){
+            if (arr) {
                 var len = arr.length;
-                    i = i ? (i < 0 ? Math.max(0, len + i) : i) : 0;
+                i = i ? (i < 0 ? Math.max(0, len + i) : i) : 0;
                 elem = elem.toLowerCase();
-                for (; i < len; i++){
-                    if (i in arr && arr[i].toLowerCase() == elem){
+                for (; i < len; i++) {
+                    if (i in arr && arr[i].toLowerCase() == elem) {
                         return i;
                     }
                 }
@@ -118,8 +119,18 @@ function _(word) {
     return text;
 }
 
-function readInstanceConfig(callback) {
-    const languages = ["de", "en", "ru", "pt", "nl", "fr", "it", "es", "pl", "zh-cn"];
+async function readInstanceConfig(callback) {
+    
+    if (sessionStorage.getItem('ioBroker.info.infoData')) {
+        infoDate = JSON.parse(sessionStorage.getItem('ioBroker.info.infoData'));
+    } else {
+        try{
+            infoData = await (await fetch("https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.info/master/data/infoData.json")).json();
+        }catch(e){
+            infoData = await (await fetch("../data/infoData.json")).json();
+        }
+            sessionStorage.setItem('ioBroker.info.infoData', JSON.stringify(infoData));
+    }
 
     socket.emit('getObject', 'system.config', function (err, data) {
         systemConfig = data;
@@ -127,7 +138,7 @@ function readInstanceConfig(callback) {
             systemLang = systemConfig.common.language;
         } else {
             systemLang = window.navigator.userLanguage || window.navigator.language;
-            if (!(systemLang in languages)) {
+            if (!(systemLang in infoData.languages)) {
                 systemLang = 'en';
             }
         }
@@ -183,7 +194,7 @@ $(function () {
     $(document.body).on('click', '.host-update', function () {
         parent.window.location.hash = '#tab-hosts';
     });
-    
+
     $(document.body).on('click', '.spoiler-control', function () {
         $(this).parent().children(".spoiler-content").toggle();
     });

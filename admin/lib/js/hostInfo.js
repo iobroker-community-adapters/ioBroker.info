@@ -1,10 +1,6 @@
-/* global socket, updateInfoPage */
+/* global socket, updateInfoPage, infoData */
 
 let versionMap;
-const nodeOld = ["v0", "v4", "v5", "v7"];
-const nodeNew = ["v9", "v10", "v11", "v12"];
-const nodeAccepted = ["v6"];
-const nodeRecommended = "v8";
 
 let hosts = [];
 let mainHost = '';
@@ -33,10 +29,10 @@ function getNodeExtrainfo(host) {
     let extraInfo = "";
     let color = "green";
 
-    if (nodeOld.indexOf(aktKey) !== -1) {
-        extraInfo += " <span style='color: red; font-weight: bold;'>(" + _("Node.js too old") + " " + versionMap[nodeRecommended] + "</span>";
+    if (infoData.nodeOld.indexOf(aktKey) !== -1) {
+        extraInfo += " <span style='color: red; font-weight: bold;'>(" + _("Node.js too old") + " " + versionMap[infoData.nodeRecommended] + "</span>";
         color = "red";
-    } else if (versionMap[aktKey] !== version || aktKey !== nodeRecommended) {
+    } else if (versionMap[aktKey] !== version || aktKey !== infoData.nodeRecommended) {
         let first = true;
         extraInfo += " (";
 
@@ -45,7 +41,7 @@ function getNodeExtrainfo(host) {
             color = "orange";
             first = false;
         }
-        if (nodeNew.indexOf(aktKey) !== -1) {
+        if (infoData.nodeNew.indexOf(aktKey) !== -1) {
             if (!first) {
                 extraInfo += " ";
             } else {
@@ -54,14 +50,14 @@ function getNodeExtrainfo(host) {
             extraInfo += _("Version %s.x of Node.js is currently not fully supported.", aktKey);
             color = "red";
         }
-        if (aktKey !== nodeRecommended) {
+        if (aktKey !== infoData.nodeRecommended) {
             if (!first) {
                 extraInfo += " - ";
             } else {
                 first = false;
             }
-            extraInfo += _("Recommended version") + " " + versionMap[nodeRecommended];
-            if (color === "green" && nodeAccepted.indexOf(aktKey) === -1) {
+            extraInfo += _("Recommended version") + " " + versionMap[infoData.nodeRecommended];
+            if (color === "green" && infoData.nodeAccepted.indexOf(aktKey) === -1) {
                 color = "orange";
             }
         }

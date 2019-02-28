@@ -1,6 +1,4 @@
-/* global socket, adapterConfig, systemLang, dateOptions, forumRss, feednami */
-
-const supportedNewsLang = ["de", "en", "ru"];
+/* global socket, adapterConfig, systemLang, dateOptions, forumRss, feednami, infoData */
 
 socket.on('stateChange', function (id, obj) {
     if (adapterConfig.news && id === "info.0.newsfeed") {
@@ -56,7 +54,7 @@ function writeNewsData(data, lang) {
 
 function checkNewsLang(){
     let newsLang = systemLang;
-    if ($.inArray(newsLang, supportedNewsLang) === -1) {
+    if ($.inArray(newsLang, infoData.supportedNewsLang) === -1) {
         newsLang = "en";
     }    
     return newsLang;
