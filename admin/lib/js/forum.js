@@ -35,8 +35,8 @@ function startForum() {
             }
             const feed = await getDescription(thread);
             const $item = $('#forumEntryTemplate').children().clone(true, true);
-            $item.find('.tag').text(thread.category);
-            $item.find('.forumClass').attr('href', thread.categoryLink);
+            $item.find('.forumClass').text(thread.category);
+            $item.find('.tag').attr('href', thread.categoryLink);
             $item.find('.titleLink').text(feed.title).attr('href', feed.link);
             
             let desc = feed.description;
