@@ -111,34 +111,40 @@ $(function () {
     //------------------------------------------------------- FILL DATA -----------------------------------------------------------------------   
     readInstanceConfig(async function () {
 
-        getHosts(await getNodeVersionList());  
+        if (parent.window.location.hash === "#tab-info") {
 
-        if (adapterConfig.forum) {
-            startForum();
-        } else {
-            $('#forumBlock').hide();
-        }
-        if (adapterConfig.news) {
-            socket.emit('getState', 'info.0.newsfeed', function (err, obj) {
-                if(obj){
-                    writeNewsData(obj.val, checkNewsLang());
-                }else{
-                    readAndWriteNewsData(checkNewsLang());
-                }
-            });
-            socket.emit('subscribe', 'info.0.newsfeed');
-        } else {
-            $('#newsBlock').hide();
-        }
-        if (!adapterConfig.clock) {
-            startClock("start");
-        } else {
-            $('#home-container').hide();
-        }
-        if (adapterConfig.new_adapters) {
-            searchGithubForNewAdapters();
-        } else {
-            $('#adapterSearchBlock').hide();
+            getHosts(await getNodeVersionList());
+
+            if (adapterConfig.forum) {
+                startForum();
+            } else {
+                $('#forumBlock').hide();
+            }
+            if (adapterConfig.news) {
+                socket.emit('getState', 'info.0.newsfeed', function (err, obj) {
+                    if (obj) {
+                        writeNewsData(obj.val, checkNewsLang());
+                    } else {
+                        readAndWriteNewsData(checkNewsLang());
+                    }
+                });
+                socket.emit('subscribe', 'info.0.newsfeed');
+            } else {
+                $('#newsBlock').hide();
+            }
+            if (!adapterConfig.clock) {
+                startClock("start");
+            } else {
+                $('#home-container').hide();
+            }
+            if (adapterConfig.new_adapters) {
+                searchGithubForNewAdapters();
+            } else {
+                $('#adapterSearchBlock').hide();
+            }
+
+            translateAll(systemLang);
+
         }
 
         socket.emit('getState', 'info.0.popupReaded', function (err, state) {
@@ -149,8 +155,6 @@ $(function () {
             }
             socket.emit('subscribe', 'info.0.lastPopupWarning');
         });
-
-        translateAll(systemLang);
 
     });
 });
