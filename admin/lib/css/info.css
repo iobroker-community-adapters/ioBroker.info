@@ -344,3 +344,8 @@ ul#cssClock li{
     border:1px solid #c7c7c7;
     padding:2px;
 }
+
+.vertical-align {
+    display: grid;
+    align-items: center;
+}
