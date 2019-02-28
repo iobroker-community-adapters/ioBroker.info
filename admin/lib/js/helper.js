@@ -120,16 +120,16 @@ function _(word) {
 }
 
 async function readInstanceConfig(callback) {
-    
+
     if (sessionStorage.getItem('ioBroker.info.infoData')) {
         infoDate = JSON.parse(sessionStorage.getItem('ioBroker.info.infoData'));
     } else {
-        try{
-            infoData = await (await fetch("https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.info/master/data/infoData.json")).json();
-        }catch(e){
+        try {
+            infoData = await (await fetch("https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.info/master/admin/lib/data/infoData.json")).json();
+        } catch (e) {
             infoData = await (await fetch("../data/infoData.json")).json();
         }
-            sessionStorage.setItem('ioBroker.info.infoData', JSON.stringify(infoData));
+        sessionStorage.setItem('ioBroker.info.infoData', JSON.stringify(infoData));
     }
 
     socket.emit('getObject', 'system.config', function (err, data) {
