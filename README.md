@@ -1,17 +1,17 @@
 <h1>
-  <img src="https://github.com/ldittmar81/ioBroker.info/blob/master/admin/info.png" width="64"/>
+  <img src="https://github.com/iobroker-community-adapters/ioBroker.info/blob/master/admin/info.png" width="64"/>
   ioBroker.info
 </h1>
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.info.svg)](https://www.npmjs.com/package/iobroker.info)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.info.svg)](https://www.npmjs.com/package/iobroker.info)
-[![Dependency Status](https://img.shields.io/david/ldittmar81/iobroker.info.svg)](https://david-dm.org/ldittmar81/iobroker.info)
-[![Known Vulnerabilities](https://snyk.io/test/github/ldittmar81/ioBroker.info/badge.svg)](https://snyk.io/test/github/ldittmar81/ioBroker.info)
+[![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.info.svg)](https://david-dm.org/iobroker-community-adapters/iobroker.info)
+[![Known Vulnerabilities](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.info/badge.svg)](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.info)
 
 [![NPM](https://nodei.co/npm/iobroker.info.png?downloads=true)](https://nodei.co/npm/iobroker.info/)
 
-**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/ldittmar81/ioBroker.info/master.svg)](https://travis-ci.org/ldittmar81/ioBroker.info)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ldittmar81/ioBroker.info?branch=master&svg=true)](https://ci.appveyor.com/project/ldittmar81/ioBroker-info/) [![Greenkeeper badge](https://badges.greenkeeper.io/ldittmar81/ioBroker.info.svg)](https://greenkeeper.io/)
+**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.info/master.svg)](https://travis-ci.org/iobroker-community-adapters/ioBroker.info)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/iobroker-community-adapters/ioBroker.info?branch=master&svg=true)](https://ci.appveyor.com/project/iobroker-community-adapters/ioBroker-info/) [![Greenkeeper badge](https://badges.greenkeeper.io/iobroker-community-adapters/ioBroker.info.svg)](https://greenkeeper.io/)
 
 ## Information adapter for ioBroker
 
@@ -23,7 +23,8 @@ This is an ioBroker adapter to get informations about your system and some news 
 * (ldittmar) compact mode compatibility added
 * (ldittmar) add chinese support
 * (ldittmar) add new forum support
-* (ldittmar) add chinese forum support 
+* (ldittmar) add chinese forum support
+* (ldittmar) move to iobroker-community-adapters
 
 ### 1.0.2
 * (ldittmar) fixed problems with Node version info in multihost system

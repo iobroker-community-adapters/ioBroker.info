@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "info",
-        "version": "1.0.2",
+        "version": "1.1.0",
         "news": {
             "1.1.0": {
                 "en": "Add new forum and fix news",
@@ -160,12 +160,12 @@
         "materializeTab": true,
         "enabled": true,
         "singleton": true,
-        "extIcon": "https://raw.githubusercontent.com/ldittmar81/ioBroker.info/master/admin/info.png",
+        "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.info/master/admin/info.png",
         "keywords": [
             "info",
             "information"
         ],
-        "readme": "https://github.com/ldittmar81/ioBroker.info/blob/master/README.md",
+        "readme": "https://github.com/iobroker-community-adapters/ioBroker.info/blob/master/README.md",
         "loglevel": "info",
         "type": "misc-data",
         "license": "MIT",
