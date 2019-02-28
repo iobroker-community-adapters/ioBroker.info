@@ -145,16 +145,18 @@ $(function () {
 
             translateAll(systemLang);
 
-        }
+            socket.emit('getState', 'info.0.popupReaded', function (err, state) {
+                if (!state) {
+                    socket.emit('getState', 'info.0.lastPopupWarning', function (err, obj) {
+                        showPopup(obj);
+                    });
+                }
+                socket.emit('subscribe', 'info.0.lastPopupWarning');
+            });
 
-        socket.emit('getState', 'info.0.popupReaded', function (err, state) {
-            if (!state) {
-                socket.emit('getState', 'info.0.lastPopupWarning', function (err, obj) {
-                    showPopup(obj);
-                });
-            }
-            socket.emit('subscribe', 'info.0.lastPopupWarning');
-        });
+        } else {
+            startClock("stop");
+        }
 
     });
 });

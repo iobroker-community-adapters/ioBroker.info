@@ -1,0 +1,30 @@
+{
+    "forumRss": {
+        "de": {
+            "link": "https://forum.iobroker.net/category/4",
+            "feeds": ["https://forum.iobroker.net/category/5.rss", "https://forum.iobroker.net/category/6.rss", "https://forum.iobroker.net/category/93.rss", "https://forum.iobroker.net/category/94.rss", "https://forum.iobroker.net/category/96.rss", "https://forum.iobroker.net/category/7.rss", "https://forum.iobroker.net/category/8.rss", "https://forum.iobroker.net/category/10.rss", "https://forum.iobroker.net/category/11.rss", "https://forum.iobroker.net/category/91.rss", "https://forum.iobroker.net/category/12.rss", "https://forum.iobroker.net/category/13.rss", "https://forum.iobroker.net/category/14.rss", "https://forum.iobroker.net/category/15.rss"]
+        },
+        "en": {
+            "link": "https://forum.iobroker.net/category/16",
+            "feeds": ["https://forum.iobroker.net/category/17.rss", "https://forum.iobroker.net/category/18.rss", "https://forum.iobroker.net/category/97.rss", "https://forum.iobroker.net/category/99.rss", "https://forum.iobroker.net/category/98.rss", "https://forum.iobroker.net/category/19.rss", "https://forum.iobroker.net/category/20.rss", "https://forum.iobroker.net/category/22.rss", "https://forum.iobroker.net/category/23.rss", "https://forum.iobroker.net/category/24.rss", "https://forum.iobroker.net/category/25.rss", "https://forum.iobroker.net/category/26.rss", "https://forum.iobroker.net/category/27.rss"]
+        },
+        "nl": {
+            "link": "https://forum.iobroker.net/category/40",
+            "feeds": ["https://forum.iobroker.net/category/41.rss", "https://forum.iobroker.net/category/42.rss", "https://forum.iobroker.net/category/100.rss", "https://forum.iobroker.net/category/102.rss", "https://forum.iobroker.net/category/103.rss", "https://forum.iobroker.net/category/43.rss", "https://forum.iobroker.net/category/44.rss", "https://forum.iobroker.net/category/47.rss", "https://forum.iobroker.net/category/46.rss", "https://forum.iobroker.net/category/48.rss", "https://forum.iobroker.net/category/49.rss", "https://forum.iobroker.net/category/50.rss", "https://forum.iobroker.net/category/51.rss"]
+        },
+        "ru": {
+            "link": "https://forum.iobroker.net/category/28",
+            "feeds": ["https://forum.iobroker.net/category/29.rss", "https://forum.iobroker.net/category/30.rss", "https://forum.iobroker.net/category/32.rss", "https://forum.iobroker.net/category/34.rss", "https://forum.iobroker.net/category/60.rss", "https://forum.iobroker.net/category/63.rss", "https://forum.iobroker.net/category/31.rss", "https://forum.iobroker.net/category/35.rss", "https://forum.iobroker.net/category/61.rss", "https://forum.iobroker.net/category/70.rss", "https://forum.iobroker.net/category/36.rss", "https://forum.iobroker.net/category/73.rss", "https://forum.iobroker.net/category/86.rss", "https://forum.iobroker.net/category/37.rss", "https://forum.iobroker.net/category/78.rss", "https://forum.iobroker.net/category/38.rss", "https://forum.iobroker.net/category/35.rss"]
+        },
+        "zh-cn": {
+            "link": "https://bbs.iobroker.cn",
+            "feeds": ["https://bbs.iobroker.cn/?mod=rss"]
+        }
+    },
+    "supportedNewsLang" : ["de", "en", "ru"],
+    "languages": ["de", "en", "ru", "pt", "nl", "fr", "it", "es", "pl", "zh-cn"],
+    "nodeOld": ["v0", "v4", "v5", "v7"],
+    "nodeNew": ["v9", "v10", "v11", "v12"],
+    "nodeAccepted": ["v6"],
+    "nodeRecommended": "v8"
+}

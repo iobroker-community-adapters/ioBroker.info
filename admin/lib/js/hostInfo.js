@@ -74,10 +74,6 @@ function getNodeExtrainfo(host) {
 
 }
 
-/** 
- * Get all ioBroker hosts
- * @param {type} callback
- */
 const getHosts = function () {
     socket.emit('getObjectView', 'system', 'host', {startkey: 'system.host.', endkey: 'system.host.\u9999'}, async function (err, res) {
         if (!err && res) {
