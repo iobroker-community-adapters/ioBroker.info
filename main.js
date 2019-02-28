@@ -4,8 +4,7 @@
 
 // you have to require the utils module and call adapter function
 const utils = require(__dirname + '/lib/utils'); // Get common adapter utils
-const feed = require('feed-to-json');
-
+const axios = require('axios');
 
 let systemLang = "en";
 let newsLang = "en";
@@ -64,7 +63,7 @@ function startAdapter(options) {
             });
         }
     });
-    
+
     adapter = new utils.Adapter(options);
 
     return adapter;
@@ -72,34 +71,32 @@ function startAdapter(options) {
 
 const checkNews = function () {
 
-    const newsLink = 'https://cors-anywhere.herokuapp.com/http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang;
-  
-    feed.load(newsLink, function (err, feed) {
-        if (err) {
-            adapter.log.error(err);
-        }
-        if (feed) {
-            adapter.setState('newsfeed', {val: JSON.stringify(feed), ack: true});
-            adapter.getState('lastPopupWarningDate', function (err, state) {
-                const lastInfo = new Date(state);
-                const infos = [];
-                feed.item.forEach(function (entry) {
-                    let pubDate = new Date(entry.pubDate);
-                    if (entry.title.indexOf('*') == 0 && pubDate > lastInfo) {
-                        const info = {};
-                        info.title = entry.title;
-                        info.pubDate = entry.pubDate;
-                        info.description = entry.description;
-                        infos.push(info);
-                    }
-                });
-                if (infos.length > 0) {
-                    adapter.setState('popupReaded', {val: false, ack: true});
-                    adapter.setState('lastPopupWarning', {val: JSON.stringify(infos), ack: true});
-                    adapter.setState('lastPopupWarningDate', {val: new Date(), ack: true});
+    const newsLink = 'https://api.feednami.com/api/v1.1/feeds/load?url=http%3A%2F%2Fwww.iobroker.net%2Fdocu%2F%3Ffeed%3Drss2%26lang%3D' + newsLang;
+
+    axios(newsLink).then(function (feed) {
+        adapter.log.info("News feed readed...");
+        adapter.setState('newsfeed', {val: JSON.stringify(feed), ack: true});
+        adapter.getState('lastPopupWarningDate', function (err, state) {
+            const lastInfo = new Date(state ? state : 0);
+            const infos = [];
+            feed.entries.forEach(function (entry) {
+                let pubDate = new Date(entry.pubDate);
+                if (entry.title.indexOf('*') == 0 && pubDate > lastInfo) {
+                    const info = {};
+                    info.title = entry.title;
+                    info.pubDate = entry.pubDate;
+                    info.description = entry.description;
+                    infos.push(info);
                 }
             });
-        }
+            if (infos.length > 0) {
+                adapter.setState('popupReaded', {val: false, ack: true});
+                adapter.setState('lastPopupWarning', {val: JSON.stringify(infos), ack: true});
+                adapter.setState('lastPopupWarningDate', {val: new Date(), ack: true});
+            }
+        });
+    }).catch(function (error) {
+        adapter.log.error(error);
     });
 };
 

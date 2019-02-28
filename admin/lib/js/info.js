@@ -121,7 +121,9 @@ $(function () {
         if (adapterConfig.news) {
             socket.emit('getState', 'info.0.newsfeed', function (err, obj) {
                 if(obj){
-                    writeNewsData(obj.val);
+                    writeNewsData(obj.val, checkNewsLang());
+                }else{
+                    readAndWriteNewsData(checkNewsLang());
                 }
             });
             socket.emit('subscribe', 'info.0.newsfeed');

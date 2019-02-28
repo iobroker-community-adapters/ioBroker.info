@@ -1,4 +1,6 @@
-/* global socket, adapterConfig, systemLang, dateOptions */
+/* global socket, adapterConfig, systemLang, dateOptions, forumRss, feednami */
+
+const supportedNewsLang = ["de", "en", "ru"];
 
 socket.on('stateChange', function (id, obj) {
     if (adapterConfig.news && id === "info.0.newsfeed") {
@@ -30,24 +32,37 @@ function showPopup(obj) {
     }
 }
 
-function writeNewsData(data) {   
+function writeNewsData(data, lang) {
     try {
-        const feed = JSON.parse(data);
+        const feed = (typeof data === 'object') ? data : JSON.parse(data);
 
-        $('#newsTime').text(new Date(feed['lastBuildDate']).toLocaleDateString(systemLang, dateOptions));
-        $('#news-link').attr("href", feed.link[1]);
+        $('#newsTime').text(new Date(feed.meta.pubDate).toLocaleDateString(systemLang, dateOptions));
+        $('#news-link').attr("href", "http://www.iobroker.net/docu/?lang=" + lang);
 
         $('#newsList').empty();
-        feed.item.forEach(function (entry) {
+        feed.entries.forEach(function (entry) {
             const $item = $('#forumEntryTemplate').children().clone(true, true);
-            $item.find('.forumClass').text(entry['category']);
-            $item.find('.titleLink').text(entry['title']).attr('href', entry['link']);
-            $item.find('.description').html(entry['description']);
+            $item.find('.tags').remove();
+            $item.find('.titleLink').text(entry.title).attr('href', entry.link);
+            $item.find('.description').html(entry.description);
             $item.find('.description a').attr('target', '_blank');
-            $item.find('.byline').text(new Date(entry['pubDate']).toLocaleDateString(systemLang, dateOptions) + " - " + entry['creator']);
+            $item.find('.byline').text(new Date(entry.pubDate).toLocaleDateString(systemLang, dateOptions) + " - " + entry.author);
             $('#newsList').append($item);
         });
     } catch (err) {
         console.log(err);
     }
-};
+}
+
+function checkNewsLang(){
+    let newsLang = systemLang;
+    if ($.inArray(newsLang, supportedNewsLang) === -1) {
+        newsLang = "en";
+    }    
+    return newsLang;
+}
+
+async function readAndWriteNewsData(newsLang) {    
+
+    writeNewsData(await feednami.load('http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang), newsLang);
+}
