@@ -16,7 +16,7 @@ function showIssues() {
                 
                 $item.find('.titleLink').text(adapter.title).attr('href', "https://github.com/" + full_name + "/issues");
                 $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
-                $item.find('.y_content').addClass('spoiler-content').css('display', 'none').clear();
+                $item.find('.y_content').addClass('spoiler-content').css('display', 'none').empty();
 
                 $('#adapterIssueList').append($item);
             });
