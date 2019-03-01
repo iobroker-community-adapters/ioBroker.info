@@ -3,6 +3,7 @@ admin/i18n
 tasks
 node_modules
 .idea
+nbproject
 .git
 /node_modules
 test
