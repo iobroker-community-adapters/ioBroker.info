@@ -17,6 +17,16 @@ body{
     overflow-x: auto;
 }
 
+.height_520 {
+    height: 530px;
+    overflow-x: auto;
+}
+
+.height_565 {
+    height: 565px;
+    overflow-x: auto;
+}
+
 .height_150 {
     height: 150px;
     overflow-x: auto;
