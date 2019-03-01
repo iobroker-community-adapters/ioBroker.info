@@ -379,3 +379,7 @@ ul#cssClock li{
 .assigner_img {
     height: 22px;
 }
+
+.y_title, .y_content {
+    background-color: white;
+}

@@ -48,6 +48,7 @@
     "ioBroker Adapters on Github": "Adaptadores ioBroker en Github",
     "last update": "última actualización",
     "name": "nombre",
+    "no issues found": "No hay errores conocidos, problemas o solicitudes para el adaptador seleccionado.",
     "not officially released": "no lanzado oficialmente",
     "on save adapter restarts with new config immediately": "en el adaptador de guardar se reinicia con nueva configuración de inmediato",
     "only for experts": "Atención!! Estos adaptadores pueden estar en una etapa muy temprana y no se recomienda instalarlos en un sistema de producción.",

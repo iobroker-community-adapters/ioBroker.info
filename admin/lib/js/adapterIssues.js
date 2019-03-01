@@ -22,7 +22,7 @@ function showIssues() {
                     $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
                     
                     const ul = $('<ul/>').attr("id", "issue_" + fullNameId).addClass("list-unstyled timeline");                    
-                    $item.find('.y_content').addClass('spoiler-content').css('display', 'none').empty().append(ul);
+                    $item.find('.y_content').addClass('spoiler-content').css('display', 'none').css('background-color', 'cornsilk').empty().append(ul);
                     
                     $('#adapterIssueList').append($item);
                 }

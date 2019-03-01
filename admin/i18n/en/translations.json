@@ -48,6 +48,7 @@
     "ioBroker Adapters on Github": "ioBroker Adapters on Github",
     "last update": "last update",
     "name": "name",
+    "no issues found": "There are no known bugs, issues or requests for the selected adapter.",
     "not officially released": "not officially released",
     "on save adapter restarts with new config immediately": "on save adapter restarts with new config immediately",
     "only for experts": "Attention !! These adapters may be in a very early stage and it is not recommended to install them in a production system.",
