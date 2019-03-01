@@ -21,6 +21,7 @@ This is an ioBroker adapter to get informations about your system and some news 
 
 ### 1.2.0
 * (ldittmar) show adapter requests
+* (ldittmar) show bugs and issues
 
 ### 1.1.3
 * (ldittmar) compact mode compatibility added

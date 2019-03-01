@@ -20,8 +20,10 @@ function showIssues() {
                     $item.find('.titleLink').text(adapter.title).attr('href', "https://github.com/" + full_name + "/issues");
                     $item.find('.collapse-link').attr("data-adapter", fullNameId).addClass("loadAdapterIssues");
                     $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
-                    $item.find('.y_content').attr("id", "issue_" + fullNameId).addClass('spoiler-content').css('display', 'none').empty();
-
+                    
+                    const ul = $('<ul/>').attr("id", "issue_" + fullNameId).addClass("list-unstyled timeline");                    
+                    $item.find('.y_content').addClass('spoiler-content').css('display', 'none').empty().append(ul);
+                    
                     $('#adapterIssueList').append($item);
                 }
             });

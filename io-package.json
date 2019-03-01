@@ -1,19 +1,31 @@
 {
     "common": {
         "name": "info",
-        "version": "1.1.3",
+        "version": "1.2.0",
         "news": {
+            "1.2.0": {
+                "en": "Added adapter request and known bugs list",
+                "de": "Adapteranfrage und bekannte Fehlerliste hinzugefügt",
+                "ru": "Добавлен запрос адаптера и список известных ошибок",
+                "pt": "Adicionado pedido de adaptador e lista de bugs conhecidos",
+                "nl": "Toegevoegd adapter verzoek en bekende bugs lijst",
+                "fr": "Ajout de la demande d'adaptateur et de la liste des bogues connus",
+                "it": "Aggiunta la richiesta dell'adattatore e l'elenco dei bug noti",
+                "es": "Solicitud de adaptador agregado y lista de errores conocidos",
+                "pl": "Dodano żądanie adaptera i listę znanych błędów",
+                "zh-cn": "添加了适配器请求和已知错误列表"
+            },
             "1.1.3": {
-                "en": "Add new forum and fix news",
-                "de": "Neues Forum hinzufügen und Neuigkeiten korrigieren",
-                "ru": "Добавить новый форум и исправить новости",
-                "pt": "Adicionar novo fórum e corrigir notícias",
-                "nl": "Voeg een nieuw forum toe en repareer nieuws",
-                "fr": "Ajouter un nouveau forum et corriger les nouvelles",
-                "it": "Aggiungi un nuovo forum e aggiusta le notizie",
-                "es": "Añadir nuevo foro y arreglar noticias",
-                "pl": "Dodaj nowe forum i popraw aktualności",
-                "zh-cn": "添加新论坛并修复新闻"
+                "en": "Added new forum and fixed news",
+                "de": "Neues Forum und feste Nachrichten hinzugefügt",
+                "ru": "Добавлен новый форум и исправлены новости",
+                "pt": "Adicionado novo fórum e notícias fixas",
+                "nl": "Nieuw forum en vast nieuws toegevoegd",
+                "fr": "Ajout d'un nouveau forum et nouvelles fixes",
+                "it": "Aggiunto nuovo forum e notizie fisse",
+                "es": "Agregado nuevo foro y noticias fijas.",
+                "pl": "Dodano nowe forum i stałe wiadomości",
+                "zh-cn": "添加了新论坛和固定新闻"
             },
             "1.0.2": {
                 "en": "Minor fixes",
