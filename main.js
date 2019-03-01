@@ -103,8 +103,8 @@ const checkNews = function () {
 };
 
 function main() {
-    checkNews();
-    setInterval(checkNews, 30 * 60 * 1000);
+    //checkNews();
+    //setInterval(checkNews, 30 * 60 * 1000);
 }
 
 // If started as allInOne/compact mode => return function to create instance

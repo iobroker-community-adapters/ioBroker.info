@@ -63,6 +63,6 @@ function checkNewsLang(){
 }
 
 async function readAndWriteNewsData() {    
-
-    writeNewsData(await feednami.load('http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang), newsLang);
+    
+    writeNewsData(await feednami.load('http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang));
 }
