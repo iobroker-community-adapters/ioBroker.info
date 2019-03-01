@@ -1,9 +1,9 @@
 {
     "common": {
         "name": "info",
-        "version": "1.1.0",
+        "version": "1.1.1",
         "news": {
-            "1.1.0": {
+            "1.1.1": {
                 "en": "Add new forum and fix news",
                 "de": "Neues Forum hinzufügen und Neuigkeiten korrigieren",
                 "ru": "Добавить новый форум и исправить новости",
