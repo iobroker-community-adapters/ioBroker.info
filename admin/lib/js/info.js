@@ -158,7 +158,7 @@ $(function () {
                 }
             }            
             if (adapterConfig.adapter_issue) {
-                searchGithubForNewAdapters(adapterConfig.new_adapters_sort, adapterConfig.new_adapters_order);
+                showIssues();
             } else {
                 $('#knownIssuesBlock').hide();
                 if(adapterConfig.adapter_request){
