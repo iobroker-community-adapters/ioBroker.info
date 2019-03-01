@@ -20,7 +20,7 @@ This is an ioBroker adapter to get informations about your system and some news 
 ## Changelog
 
 ### 1.2.0
-* Next step
+* (ldittmar) show adapter requests
 
 ### 1.1.3
 * (ldittmar) compact mode compatibility added

@@ -157,7 +157,7 @@ async function readInstanceConfig(callback) {
 //-------------------------------------------------------- USABILITY FUNCTIONS -------------------------------------------------------------
 $(function () {
 
-    $(document.body).on('click', '.x_panel .x_title .collapse-link', function () {
+    $(document.body).on('click', '.collapse-link', function () {
         const $BOX_PANEL = $(this).closest('.block_content'),
                 $ICON = $(this).find('i'),
                 $BOX_CONTENT = $BOX_PANEL.find('.y_content');

@@ -44,6 +44,7 @@ function writeNewsData(data) {
             const $item = $('#forumEntryTemplate').children().clone(true, true);
             $item.find('.tags').remove();
             $item.find('.navbar-right').remove();
+            $item.find('.assignDiv').remove;
             $item.find('.titleLink').text(entry.title).attr('href', entry.link);
             $item.find('.description').html(entry.description);
             $item.find('.description a').attr('target', '_blank');

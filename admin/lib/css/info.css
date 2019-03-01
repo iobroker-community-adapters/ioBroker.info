@@ -357,3 +357,15 @@ ul#cssClock li{
     overflow: hidden;
     white-space: nowrap;
 }
+
+.y_title > .nav {
+    margin-right: 0 !important;
+}
+
+.tag {
+    margin-left: 4px;
+}
+
+.assigner_img {
+    height: 22px;
+}
