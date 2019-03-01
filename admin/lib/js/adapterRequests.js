@@ -6,9 +6,13 @@ function showAdapterRequest() {
 
     async function getIssues() {
 
-        const issues = await (await fetch("https://api.github.com/repos/ioBroker/AdapterRequests/issues")).json();
+        const issues = await (await fetch("https://api.github.com/repos/ioBroker/AdapterRequests/issues?page=1&per_page=100")).json();
+        const issues2 = await (await fetch("https://api.github.com/repos/ioBroker/AdapterRequests/issues?page=2&per_page=100")).json();
+        const issues3 = await (await fetch("https://api.github.com/repos/ioBroker/AdapterRequests/issues?page=3&per_page=100")).json();
+        let allIssues = issues.concat(issues2);
+        allIssues = allIssues.concat(issues3);
 
-        await asyncForEach(issues, async function (issue) {
+        await asyncForEach(allIssues, async function (issue) {
             const $item = $('#forumEntryTemplate').children().clone(true, true);
             $item.find('.label-success').remove();
             $item.find('.titleLink').text(issue.title).attr('href', issue.html_url);
