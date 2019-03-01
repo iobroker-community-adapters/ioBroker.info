@@ -342,10 +342,18 @@ ul#cssClock li{
 .spoiler-content{
     margin-top:3px;
     border:1px solid #c7c7c7;
-    padding:2px;
+    padding:10px;
 }
 
 .vertical-align {
     display: grid;
     align-items: center;
+}
+
+.y_title h2 {
+    margin: 5px 0 6px;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
