@@ -84,6 +84,8 @@
                         <label for="clock" class="translate">Hide clock:</label>
                         <span class="translate"></span>
                     </div>
+                </div>
+                <div class="row">
                     <div class="input-field col s6">
                         <input class="value" id="news" type="checkbox" />
                         <label for="news" class="translate">Show ioBroker news:</label>
@@ -94,10 +96,26 @@
                         <label for="forum" class="translate">Show forum news:</label>
                         <span class="translate"></span>
                     </div>
-                    <div class="input-field col s12">
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
                         <input class="value" id="new_adapters" type="checkbox" />
                         <label for="new_adapters" class="translate">Search for new adapters:</label>
                         <span class="translate">only for experts</span>
+                    </div>
+                    <div class="input-field col s4">
+                        <select class="value" id="new_adapters_sort" >
+                            <option class="translate" value="name">name</option>
+                            <option class="translate" value="create">creation date</option>
+                            <option class="translate" value="update">last update</option>
+                        </select>    
+                        <label for="new_adapters_sort" class="translate">Sort adapters by:</label>
+                        <span class="translate"></span>
+                    </div>
+                    <div class="input-field col s2">
+                        <input class="value" id="new_adapters_order" type="checkbox" />
+                        <label for="new_adapters_order" class="translate">reverse order</label>
+                        <span class="translate"></span>
                     </div>
                 </div>
 

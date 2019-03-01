@@ -20,6 +20,7 @@
     "Search for new adapters:": "在Github上搜索未知适配器（专家）",
     "Show forum news:": "显示最新的论坛条目",
     "Show ioBroker news:": "显示来自iobroker.net的新闻",
+    "Sort adapters by:": "排序适配器，通过：",
     "Speed": "速度",
     "System informations": "系统信息",
     "System uptime": "系统正常运行时间",
@@ -34,12 +35,16 @@
     "adapters count": "适配器数量",
     "are listed here": "在这里列出",
     "can be done here": "可以在这里完成",
+    "creation date": "创建日期",
     "daysShortText": "d。",
     "hostname": "主机名",
     "information adapter settings": "信息适配器设置",
     "ioBroker Adapters on Github": "Github上的ioBroker适配器",
+    "last update": "最后更新",
+    "name": "名称",
     "not officially released": "没有正式发布",
     "on save adapter restarts with new config immediately": "保存适配器立即重新启动新配置",
     "only for experts": "注意!!这些适配器可能处于非常早期阶段，建议不要将它们安装在生产系统中。",
-    "replied on": "回复"
+    "replied on": "回复",
+    "reverse order": "相反的顺序"
 }

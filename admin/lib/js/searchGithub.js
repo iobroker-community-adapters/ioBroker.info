@@ -2,7 +2,7 @@
 
 //------------------------------------------------------ SEARCH GITHUB --------------------------------------------------------------------
 
-function searchGithubForNewAdapters() {
+function searchGithubForNewAdapters(by = "name", order = false) {
 
     sessionStorage.getItem('ioBroker.info.foundGit') ? write() : search();
 
@@ -34,17 +34,32 @@ function searchGithubForNewAdapters() {
                     await asyncForEach(data.items, async function (val) {
                         const full_name = val.full_name;
                         if ($.inArrayIn(full_name, adapters) === -1) {
-                            found[val.name] = val;
+                            if (by === "create") {
+                                found[val.created_at] = val;
+                            } else if (by === "update") {
+                                found[val.updated_at] = val;
+                            } else {
+                                found[val.name] = val;
+                            }
                         }
                     });
                 }
             }
             const foundSorted = {};
-            Object.keys(found).sort(function (a, b) {
-                return a.toLowerCase().localeCompare(b.toLowerCase());
-            }).forEach(function (key) {
-                foundSorted[key] = found[key];
-            });
+
+            if ((by === "name" && !order) || (by !== "name" && order)) {
+                Object.keys(found).sort(function (a, b) {
+                    return a.toLowerCase().localeCompare(b.toLowerCase());
+                }).forEach(function (key) {
+                    foundSorted[key] = found[key];
+                });
+            } else {
+                Object.keys(found).sort(function (a, b) {
+                    return a.toLowerCase().localeCompare(b.toLowerCase());
+                }).reverse().forEach(function (key) {
+                    foundSorted[key] = found[key];
+                });
+            }
 
             sessionStorage.setItem('ioBroker.info.foundGit', JSON.stringify(foundSorted));
 
@@ -61,5 +76,5 @@ function searchGithubForNewAdapters() {
             const val = data[key];
             $('#githubSearchList').append("<li><a href='" + val.html_url + "' target='_blank'>" + val.name + "</a> - (" + val.size + " kb) - " + val.owner.login + " - " + new Date(val.updated_at).toLocaleDateString(systemLang, dateOptions) + " - " + val.description + "</li>");
         });
-    }
+}
 }

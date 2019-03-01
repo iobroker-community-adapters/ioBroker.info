@@ -20,6 +20,7 @@
     "Search for new adapters:": "Durchsuche Github nach unbekannten Adapter (Experten)",
     "Show forum news:": "Zeige die neusten Forumeinträge",
     "Show ioBroker news:": "Zeige News vom iobroker.net",
+    "Sort adapters by:": "Art Adapter von:",
     "Speed": "Geschwindigkeit",
     "System informations": "Systeminformationen",
     "System uptime": "System Betriebszeit",
@@ -34,12 +35,16 @@
     "adapters count": "Anzahl der Adapter",
     "are listed here": "werden hier aufgelistet",
     "can be done here": "können hier durchgeführt werden",
+    "creation date": "Erstellungsdatum",
     "daysShortText": "T.",
     "hostname": "Hostname",
     "information adapter settings": "Informationsadapter Einstellungen",
     "ioBroker Adapters on Github": "ioBroker-Adapter auf Github",
+    "last update": "letztes update",
+    "name": "name",
     "not officially released": "nicht offiziell Freigegeben",
     "on save adapter restarts with new config immediately": "Beim Speichern von Einstellungen der Adapter wird sofort neu gestartet.",
     "only for experts": "Achtung!! Diese Adapter können sich in einem sehr frühen Stadium befinden und es wird davon abgeraten, diese in einem Produktivsystem zu installieren.",
-    "replied on": "antwortete am"
+    "replied on": "antwortete am",
+    "reverse order": "umgekehrter Reihenfolge"
 }

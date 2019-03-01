@@ -185,7 +185,9 @@
         "news": true,
         "forum": true,
         "clock": false,
-        "new_adapters": false
+        "new_adapters": false,
+        "new_adapters_sort": "name",
+        "new_adapters_order": false
     },
     "objects": [],
     "instanceObjects": [

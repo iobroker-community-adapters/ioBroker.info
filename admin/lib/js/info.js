@@ -121,15 +121,17 @@ $(function () {
                 $('#forumBlock').hide();
             }
             if (adapterConfig.news) {
-                socket.emit('getState', 'info.0.newsfeed', function (err, obj) {
-                    checkNewsLang();
-                    if (obj && obj.val) {
-                        writeNewsData(obj.val);
-                    } else {
-                        readAndWriteNewsData();
-                    }
-                });
-                socket.emit('subscribe', 'info.0.newsfeed');
+                checkNewsLang();
+                readAndWriteNewsData();
+                //socket.emit('getState', 'info.0.newsfeed', function (err, obj) {
+                //    checkNewsLang();
+                //    if (obj && obj.val) {
+                //        writeNewsData(obj.val);
+                //    } else {
+                //        readAndWriteNewsData();
+                //    }
+                //});
+                //socket.emit('subscribe', 'info.0.newsfeed');
             } else {
                 $('#newsBlock').hide();
             }
@@ -139,7 +141,7 @@ $(function () {
                 $('#home-container').hide();
             }
             if (adapterConfig.new_adapters) {
-                searchGithubForNewAdapters();
+                searchGithubForNewAdapters(adapterConfig.new_adapters_sort, adapterConfig.new_adapters_order);
             } else {
                 $('#adapterSearchBlock').hide();
             }
