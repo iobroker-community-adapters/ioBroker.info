@@ -49,7 +49,7 @@ async function writeAllIssues(allIssues, id) {
         });
     }else{
         
-        $('#' + id).parents().empty().html("<h2>" + _('no issues found') + "</h2>")
+        $('#' + id).parent().empty().html("<h2>" + _('no issues found') + "</h2>")
     }
 }
 
