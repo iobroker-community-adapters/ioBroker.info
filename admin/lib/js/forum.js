@@ -29,6 +29,7 @@ function startForum() {
             }
             const feed = await getDescription(thread);
             const $item = $('#forumEntryTemplate').children().clone(true, true);
+            $item.find('.navbar-right').remove();
             $item.find('.forumClass').text(thread.category);
             $item.find('.tag').attr('href', thread.categoryLink);
             $item.find('.titleLink').text(feed.title).attr('href', feed.link);
@@ -86,7 +87,8 @@ function startForum() {
                     $('#forum-link').attr("href", forumRss[lang].link);
                     $('#forumList').empty();
                 }
-                const $item = $('#forumEntryTemplate').children().clone(true, true);               
+                const $item = $('#forumEntryTemplate').children().clone(true, true); 
+                $item.find('.navbar-right').remove();
                 $item.find('.forumClass').text(thread.categories.join());
                 $item.find('.titleLink').text(thread.title).attr('href', thread.link);                
                 $item.find('.description').html(thread.description);

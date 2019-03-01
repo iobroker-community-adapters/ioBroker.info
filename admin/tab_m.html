@@ -155,6 +155,51 @@
 
             </div>
 
+            <div class="row" id="adapterRequestIssueBlock">
+
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="adapterRequestBlock">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>
+                                <span class="translate">Adapter Requests</span> <small class="translate">for new adapters</small>
+                            </h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/ioBroker/AdapterRequests" target="_blank"><i class="fa fa-globe"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content height_320">
+                            <ul class="list-unstyled timeline" id="adapterRequestList"></ul>
+                        </div>
+                    </div>                   
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="knownIssuesBlock">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>
+                                <span class="translate">Issues & bugs</span> <small class="translate">for my adapters</small>
+                            </h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>                               
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content height_320">
+                            <ul class="list-unstyled timeline" id="adapterIssueList"></ul>
+                        </div>
+                    </div>                    
+                </div>
+
+            </div>
+
             <div class="row" id="adapterSearchBlock">
 
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -176,7 +221,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div>           
 
             <div class="row">
 
@@ -228,25 +273,39 @@
             <li>
                 <div class="block">                    
                     <div class="block_content">
-                        <h2 class="title">
-                            <a target="_blank" class="titleLink">Who Needs Sundance When You’ve Got&nbsp;Crowdfunding?</a>
-                        </h2>                        
-                        <div>
-                            <div class="tags hidden-xs">
-                                <a href="" target="_blank" class="tag label label-success">
-                                    <span class="forumClass"></span>
-                                </a>
-                            </div>
-                            <div class="byline"></div>
+                        <div class="y_title">
+                            <h2 class="title">
+                                <a target="_blank" class="titleLink"></a>
+                            </h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>                             
+                            </ul>
                         </div>
-                        <br/>
-                        <p class="description">Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that could fund your project, and if the buyers liked your flick, they’d pay to Fast-forward and… <a>Read&nbsp;More</a>
-                        </p>
+                        <div class="y_content">
+                            <div>
+                                <div class="tags hidden-xs">
+                                    <a href="" target="_blank" class="tag label label-success">
+                                        <span class="forumClass"></span>
+                                    </a>
+                                </div>
+                                <div class="byline"></div>
+                            </div>
+                            <br/>
+                            <p class="description"></p>
+                        </div>
                     </div>
                 </div>
             </li>
         </ul>
         <!-- / Forum Entry -->
+
+        <div id="tagTemplate" class="hidden">
+            <a href="" target="_blank" class="tag label">
+                <span class="forumClass"></span>
+            </a>
+        </div>
 
         <!-- UpdateList -->
         <ul id="updateHomeListTemplate" class="hidden">

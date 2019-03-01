@@ -19,7 +19,10 @@ This is an ioBroker adapter to get informations about your system and some news 
 
 ## Changelog
 
-### 1.1.x
+### 1.2.0
+* Next step
+
+### 1.1.3
 * (ldittmar) compact mode compatibility added
 * (ldittmar) add chinese support
 * (ldittmar) add new forum support

@@ -187,7 +187,9 @@
         "clock": false,
         "new_adapters": false,
         "new_adapters_sort": "name",
-        "new_adapters_order": false
+        "new_adapters_order": false,
+        "adapter_request": true,
+        "adapter_issue": true
     },
     "objects": [],
     "instanceObjects": [

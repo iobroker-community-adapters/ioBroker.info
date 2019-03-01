@@ -120,6 +120,7 @@ $(function () {
             } else {
                 $('#forumBlock').hide();
             }
+            
             if (adapterConfig.news) {
                 checkNewsLang();
                 readAndWriteNewsData();
@@ -135,27 +136,49 @@ $(function () {
             } else {
                 $('#newsBlock').hide();
             }
+            
             if (!adapterConfig.clock) {
                 startClock("start");
             } else {
                 $('#home-container').hide();
             }
+            
             if (adapterConfig.new_adapters) {
                 searchGithubForNewAdapters(adapterConfig.new_adapters_sort, adapterConfig.new_adapters_order);
             } else {
                 $('#adapterSearchBlock').hide();
             }
+            
+            if (adapterConfig.adapter_request) {
+                showAdapterRequets();
+            } else {
+                $('#adapterRequestBlock').hide();
+                if(adapterConfig.adapter_issue){
+                    $('#knownIssuesBlock').removeClass().addClass("col-xs-12 col-sm-12 col-md-12 col-lg-12");
+                }
+            }            
+            if (adapterConfig.adapter_issue) {
+                searchGithubForNewAdapters(adapterConfig.new_adapters_sort, adapterConfig.new_adapters_order);
+            } else {
+                $('#knownIssuesBlock').hide();
+                if(adapterConfig.adapter_request){
+                    $('#adapterRequestBlock').removeClass().addClass("col-xs-12 col-sm-12 col-md-12 col-lg-12");
+                }
+            }            
+            if(!adapterConfig.adapter_issue && !adapterConfig.adapter_request){
+                $('#adapterRequestIssueBlock').hide();                
+            }
 
             translateAll(systemLang);
 
-            socket.emit('getState', 'info.0.popupReaded', function (err, state) {
-                if (!state) {
-                    socket.emit('getState', 'info.0.lastPopupWarning', function (err, obj) {
-                        showPopup(obj);
-                    });
-                }
-                socket.emit('subscribe', 'info.0.lastPopupWarning');
-            });
+            //socket.emit('getState', 'info.0.popupReaded', function (err, state) {
+            //    if (!state) {
+            //        socket.emit('getState', 'info.0.lastPopupWarning', function (err, obj) {
+            //            showPopup(obj);
+            //        });
+            //    }
+            //    socket.emit('subscribe', 'info.0.lastPopupWarning');
+            //});
 
         } else {
             startClock("stop");
