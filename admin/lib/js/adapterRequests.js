@@ -15,6 +15,11 @@ function showAdapterRequest() {
             const issues3 = await (await fetch("https://api.github.com/repos/ioBroker/AdapterRequests/issues?page=3&per_page=100")).json();
             allIssues = issues.concat(issues2);
             allIssues = allIssues.concat(issues3);
+
+            allIssues.sort(function (a, b) {
+                return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
+            });
+
             sessionStorage.setItem('ioBroker.info.adapterRequest', JSON.stringify(allIssues));
         }
 
@@ -29,7 +34,7 @@ function showAdapterRequest() {
 
             if (issue.assignee) {
                 $item.find('.assigner_img').attr('src', issue.assignee.avatar_url);
-                $item.find('.assigner').text('assined from ' + issue.assignee.login);
+                $item.find('.assigner').text('assined to ' + issue.assignee.login);
             } else {
                 $item.find('.assignDiv').remove();
             }
