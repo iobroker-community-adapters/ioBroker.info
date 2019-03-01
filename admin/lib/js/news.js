@@ -1,5 +1,7 @@
 /* global socket, adapterConfig, systemLang, dateOptions, forumRss, feednami, infoData */
 
+let newsLang;
+
 socket.on('stateChange', function (id, obj) {
     if (adapterConfig.news && id === "info.0.newsfeed") {
         writeNewsData(obj.val);
@@ -30,12 +32,12 @@ function showPopup(obj) {
     }
 }
 
-function writeNewsData(data, lang) {
+function writeNewsData(data) {
     try {
         const feed = (typeof data === 'object') ? data : JSON.parse(data);
 
         $('#newsTime').text(new Date(feed.meta.pubDate).toLocaleDateString(systemLang, dateOptions));
-        $('#news-link').attr("href", "http://www.iobroker.net/docu/?lang=" + lang);
+        $('#news-link').attr("href", "http://www.iobroker.net/docu/?lang=" + newsLang);
 
         $('#newsList').empty();
         feed.entries.forEach(function (entry) {
@@ -53,14 +55,14 @@ function writeNewsData(data, lang) {
 }
 
 function checkNewsLang(){
-    let newsLang = systemLang;
+    newsLang = systemLang;
     if ($.inArray(newsLang, infoData.supportedNewsLang) === -1) {
         newsLang = "en";
     }    
     return newsLang;
 }
 
-async function readAndWriteNewsData(newsLang) {    
+async function readAndWriteNewsData() {    
 
     writeNewsData(await feednami.load('http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang), newsLang);
 }

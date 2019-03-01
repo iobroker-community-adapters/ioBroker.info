@@ -122,10 +122,11 @@ $(function () {
             }
             if (adapterConfig.news) {
                 socket.emit('getState', 'info.0.newsfeed', function (err, obj) {
-                    if (obj) {
-                        writeNewsData(obj.val, checkNewsLang());
+                    checkNewsLang();
+                    if (obj && obj.val) {
+                        writeNewsData(obj.val);
                     } else {
-                        readAndWriteNewsData(checkNewsLang());
+                        readAndWriteNewsData();
                     }
                 });
                 socket.emit('subscribe', 'info.0.newsfeed');
