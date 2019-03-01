@@ -17,7 +17,7 @@ function showAdapterRequest() {
             $item.find('.byline').text(new Date(issue.created_at).toLocaleDateString('en', dateOptions) + " - " + issue.user.login);
             $item.find('.description').html(issue.body);
 
-            if (issue.assignee) {
+            if (issue.assignee !== null) {
                 $item.find('.assigner_img').attr('src', issue.assignee.avatar_url);
                 $item.find('.assigner').text('assined from' + issue.assignee.login);
             } else {
