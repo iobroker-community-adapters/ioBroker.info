@@ -122,7 +122,7 @@ function _(word) {
 async function readInstanceConfig(callback) {
 
     if (sessionStorage.getItem('ioBroker.info.infoData')) {
-        infoDate = JSON.parse(sessionStorage.getItem('ioBroker.info.infoData'));
+        infoData = JSON.parse(sessionStorage.getItem('ioBroker.info.infoData'));
     } else {
         try {
             infoData = await (await fetch("https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.info/master/admin/lib/data/infoData.json")).json();
