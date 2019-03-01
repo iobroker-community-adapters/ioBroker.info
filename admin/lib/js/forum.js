@@ -7,7 +7,7 @@ function startForum() {
         if ($.inArray(lang, Object.keys(forumRss)) === -1) {
             lang = "en";
         }
- 
+
         if (lang === "zh-cn") {
             getChinaForumData(lang);
         } else {
@@ -16,7 +16,7 @@ function startForum() {
     }
 
     const forumRss = infoData.forumRss;
-    
+
     async function getGermanForumData(lang) {
         const rssFeed = await getGermanFeedData(lang);
 
@@ -30,18 +30,18 @@ function startForum() {
             const feed = await getDescription(thread);
             const $item = $('#forumEntryTemplate').children().clone(true, true);
             $item.find('.navbar-right').remove();
-            $item.find('.assignDiv').remove;
+            $item.find('.assignDiv').remove();
             $item.find('.forumClass').text(thread.category);
             $item.find('.tag').attr('href', thread.categoryLink);
             $item.find('.titleLink').text(feed.title).attr('href', feed.link);
-            
+
             let desc = feed.description;
-            desc += "<div style='width: 100%; text-align: center;'>&#9711;&nbsp;&#9711;&nbsp;&#9711;</div>"; 
+            desc += "<div style='width: 100%; text-align: center;'>&#9711;&nbsp;&#9711;&nbsp;&#9711;</div>";
             desc += "<p class='spoiler-content'>";
             desc += "<b>" + thread.author + " " + _("replied on") + " " + new Date(thread.pubDate).toLocaleDateString(systemLang, dateOptions) + ":</b>";
             desc += "<br>" + thread.description + "</p>";
             desc = desc.replace(/\/assets\/uploads\/files/g, "https://forum.iobroker.net/assets/uploads/files");
-            
+
             $item.find('.description').html(desc);
             $item.find('.description a').attr('target', '_blank');
 
@@ -88,11 +88,11 @@ function startForum() {
                     $('#forum-link').attr("href", forumRss[lang].link);
                     $('#forumList').empty();
                 }
-                const $item = $('#forumEntryTemplate').children().clone(true, true); 
+                const $item = $('#forumEntryTemplate').children().clone(true, true);
                 $item.find('.navbar-right').remove();
-                $item.find('.assignDiv').remove;
+                $item.find('.assignDiv').remove();
                 $item.find('.forumClass').text(thread.categories.join());
-                $item.find('.titleLink').text(thread.title).attr('href', thread.link);                
+                $item.find('.titleLink').text(thread.title).attr('href', thread.link);
                 $item.find('.description').html(thread.description);
                 $item.find('.description a').attr('target', '_blank');
 

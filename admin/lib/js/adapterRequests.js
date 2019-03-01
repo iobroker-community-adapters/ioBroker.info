@@ -27,11 +27,11 @@ function showAdapterRequest() {
             $item.find('.byline').text(new Date(issue.created_at).toLocaleDateString('en', dateOptions) + " - " + issue.user.login);
             $item.find('.description').html(issue.body);
 
-            if (issue.assignee && issue.assignee.login) {
+            if (issue.assignee) {
                 $item.find('.assigner_img').attr('src', issue.assignee.avatar_url);
                 $item.find('.assigner').text('assined from ' + issue.assignee.login);
             } else {
-                $item.find('.assignDiv').remove;
+                $item.find('.assignDiv').remove();
             }
 
             issue.labels.forEach(function (label) {

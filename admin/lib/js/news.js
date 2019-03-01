@@ -44,7 +44,7 @@ function writeNewsData(data) {
             const $item = $('#forumEntryTemplate').children().clone(true, true);
             $item.find('.tags').remove();
             $item.find('.navbar-right').remove();
-            $item.find('.assignDiv').remove;
+            $item.find('.assignDiv').remove();
             $item.find('.titleLink').text(entry.title).attr('href', entry.link);
             $item.find('.description').html(entry.description);
             $item.find('.description a').attr('target', '_blank');
@@ -56,15 +56,15 @@ function writeNewsData(data) {
     }
 }
 
-function checkNewsLang(){
+function checkNewsLang() {
     newsLang = systemLang;
     if ($.inArray(newsLang, infoData.supportedNewsLang) === -1) {
         newsLang = "en";
-    }    
+    }
     return newsLang;
 }
 
-async function readAndWriteNewsData() {    
-    
+async function readAndWriteNewsData() {
+
     writeNewsData(await feednami.load('http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang));
 }
