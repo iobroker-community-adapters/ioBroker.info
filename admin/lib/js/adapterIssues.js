@@ -15,7 +15,7 @@ function showIssues() {
 
                     const full_name = adapter.readme.substring(adapter.readme.indexOf(".com/") + 5, adapter.readme.indexOf("/blob/"));
                     
-                    const fullNameId = full_name.replace("/", "ISSUE-ISSUE");
+                    const fullNameId = full_name.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE");
 
                     $item.find('.titleLink').text(adapter.title).attr('href', "https://github.com/" + full_name + "/issues");
                     $item.find('.collapse-link').attr("data-adapter", fullNameId).addClass("loadAdapterIssues");
@@ -34,7 +34,7 @@ function showIssues() {
 }
 
 async function getAndWriteIssuesFor(id){
-    const full_name = id.replace("ISSUE-ISSUE", "/");
+    const full_name = id.replace("ISSUE-ISSUE", "/").replace("ISSUE-PUNKT-ISSUE", ".");
     const allIssues = await getAllIssuesFromAdapter(full_name);
     await writeAllIssues(allIssues, "issue_" + id);
 }
