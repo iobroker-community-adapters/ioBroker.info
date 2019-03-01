@@ -18,7 +18,7 @@ function showIssues() {
                     const fullNameId = full_name.replace("/", "ISSUE-ISSUE");
 
                     $item.find('.titleLink').text(adapter.title).attr('href', "https://github.com/" + full_name + "/issues");
-                    $item.find('.collapse-link').data("adapter", fullNameId).addClass("loadAdapterIssues");
+                    $item.find('.collapse-link').attr("data-adapter", fullNameId).addClass("loadAdapterIssues");
                     $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
                     $item.find('.y_content').attr("id", "issue_" + fullNameId).addClass('spoiler-content').css('display', 'none').empty();
 
