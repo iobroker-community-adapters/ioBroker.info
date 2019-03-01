@@ -178,6 +178,11 @@ $(function () {
         $(this).closest('.x_panel').remove();
     });
 
+    $(document.body).on('click', ".loadAdapterIssues", function () {
+        $(this).removeClass("loadAdapterIssues");        
+        getAndWriteIssuesFor($(this).attr("data-adapter"));
+    });
+
     $(document.body).on('click', '.show-md', function () {
         const url = $(this).data('md-url');
         $.get(url, function (data) {
