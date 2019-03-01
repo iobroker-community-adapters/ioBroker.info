@@ -7,7 +7,15 @@ let mainHost = '';
 
 //------------------------------------------------------ HOST INFORMATION FUNCTIONS -------------------------------------------------------
 async function getNodeVersionList(callback) {
-    const data = await(await fetch("https://nodejs.org/dist/index.json")).json();
+    
+    let data;
+    if (sessionStorage.getItem('ioBroker.info.nodejsInfo')) {
+        data = JSON.parse(sessionStorage.getItem('ioBroker.info.nodejsInfo'));
+    } else {
+        data = await(await fetch("https://nodejs.org/dist/index.json")).json();
+        sessionStorage.setItem('ioBroker.info.nodejsInfo', JSON.stringify(infoData));
+    }
+
     versionMap = {};
     await asyncForEach(data, function (value) {
         const version = value.version;
@@ -16,8 +24,8 @@ async function getNodeVersionList(callback) {
             versionMap[key] = version;
         }
     });
-    
-    if(callback){
+
+    if (callback) {
         callback();
     }
 }
@@ -79,9 +87,9 @@ const getHosts = function () {
             }
             mainHost = res.rows[0].id.substring('system.host.'.length);
         }
-        
-        await getNodeVersionList(updateInfoPage);           
-        
+
+        await getNodeVersionList(updateInfoPage);
+
     });
 };
 
