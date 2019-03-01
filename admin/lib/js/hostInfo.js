@@ -13,7 +13,7 @@ async function getNodeVersionList(callback) {
         data = JSON.parse(sessionStorage.getItem('ioBroker.info.nodejsInfo'));
     } else {
         data = await(await fetch("https://nodejs.org/dist/index.json")).json();
-        sessionStorage.setItem('ioBroker.info.nodejsInfo', JSON.stringify(infoData));
+        sessionStorage.setItem('ioBroker.info.nodejsInfo', JSON.stringify(data));
     }
 
     versionMap = {};

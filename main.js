@@ -75,13 +75,15 @@ const checkNews = function () {
 
     axios(newsLink).then(function (feed) {
         adapter.log.info("News feed readed...");
+        adapter.log.debug(feed);
         adapter.setState('newsfeed', {val: JSON.stringify(feed), ack: true});
         adapter.getState('lastPopupWarningDate', function (err, state) {
+            adapter.log.debug("lastPopupWarningDate " + state);
             const lastInfo = new Date(state ? state : 0);
             const infos = [];
             feed.entries.forEach(function (entry) {
                 let pubDate = new Date(entry.pubDate);
-                if (entry.title.indexOf('*') == 0 && pubDate > lastInfo) {
+                if (entry.title.indexOf('*') === 0 && pubDate > lastInfo) {
                     const info = {};
                     info.title = entry.title;
                     info.pubDate = entry.pubDate;
