@@ -150,7 +150,7 @@ $(function () {
             }
             
             if (adapterConfig.adapter_request) {
-                showAdapterRequets();
+                showAdapterRequest();
             } else {
                 $('#adapterRequestBlock').hide();
                 if(adapterConfig.adapter_issue){

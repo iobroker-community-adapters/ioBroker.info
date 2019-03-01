@@ -2,7 +2,7 @@
 
 //------------------------------------------------------ SEARCH GITHUB --------------------------------------------------------------------
 
-function showAdapterRequets() {
+function showAdapterRequest() {
 
     async function getIssues() {
 

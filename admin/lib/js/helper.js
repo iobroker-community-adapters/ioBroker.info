@@ -159,7 +159,7 @@ $(function () {
 
     $(document.body).on('click', '.x_panel .x_title', function () {
         const $BOX_PANEL = $(this).closest('.x_panel'),
-                $ICON = $(this).find('i.fa'),
+                $ICON = $(this).find('i'),
                 $BOX_CONTENT = $BOX_PANEL.find('.x_content');
         // fix for some div with hardcoded fix class
         if ($BOX_PANEL.attr('style')) {
@@ -176,7 +176,7 @@ $(function () {
 
     $(document.body).on('click', '.collapse-link', function () {
         const $BOX_PANEL = $(this).closest('.block_content'),
-                $ICON = $(this).find('i.fa'),
+                $ICON = $(this).find('i'),
                 $BOX_CONTENT = $BOX_PANEL.find('.y_content');
         // fix for some div with hardcoded fix class
         if ($BOX_PANEL.attr('style')) {
