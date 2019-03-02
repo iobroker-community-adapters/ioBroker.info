@@ -61,7 +61,7 @@ function showAdapterRequest() {
         if (sessionStorage.getItem('ioBroker.info.adapterRequest')) {
             allIssues = JSON.parse(sessionStorage.getItem('ioBroker.info.adapterRequest'));
         } else {
-            allIssues = getAllIssuesFromAdapter("ioBroker/AdapterRequests");
+            allIssues = await getAllIssuesFromAdapter("ioBroker/AdapterRequests");
             sessionStorage.setItem('ioBroker.info.adapterRequest', JSON.stringify(allIssues));
         }
 
