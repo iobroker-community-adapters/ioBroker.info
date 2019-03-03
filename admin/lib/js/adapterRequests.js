@@ -22,18 +22,17 @@ async function getAllIssuesFromAdapter(full_name) {
     return allIssues;
 }
 
-async function cleanTitle(allIssues){    
+async function cleanTitle(allIssues){
+    const response = [];
     await asyncForEach(allIssues, async function (issue, i) {
         let title = issue.title;
-        if(title.toLowerCase().startsWith("adapter for ")){
-            title = title.substring(11, title.length);
-        }else if(title.toLowerCase().startsWith("adapter für ")){
-            title = title.substring(11, title.length);
+        if(title.toLowerCase().startsWith("adapter for ") || title.toLowerCase().startsWith("adapter für ")){
+            title = title.substring(12, title.length);      
         }else if(title.toLowerCase().startsWith("adapter ")){
-            title = title.substring(7, title.length);
-        }
+            title = title.substring(8, title.length);
+        }    
         issue.title = title;
-        allIssues[i] = issue;
+        response.push(issue);
     });    
 }
 
