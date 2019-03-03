@@ -12,12 +12,29 @@ async function getAllIssuesFromAdapter(full_name) {
             i = 100;
         }
     }
+    
+    allIssues = await cleanTitle(allIssues); 
 
-    allIssues.sort(function (a, b) {
+    allIssues.sort(function (a, b) {        
         return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
     });
 
     return allIssues;
+}
+
+async function(allIssues){    
+    await asyncForEach(allIssues, async function (issue, i) {
+        let title = issue.title;
+        if(title.toLowerCase().startsWith("adapter for ")){
+            title = title.substring(11, title.length);
+        }else if(title.toLowerCase().startsWith("adapter für ")){
+            title = title.substring(11, title.length);
+        }else if(title.toLowerCase().startsWith("adapter ")){
+            title = title.substring(7, title.length);
+        }
+        issue.title = title;
+        allIssues[i] = issue;
+    });    
 }
 
 async function writeAllIssues(allIssues, id) {

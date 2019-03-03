@@ -9,6 +9,10 @@
                 {
                     "title": "IoBroker SmartHome und IoT Facebook Gruppe",
                     "link": "https://www.facebook.com/groups/440499112958264/"
+                },
+                {
+                    "title": "SmartHome - SchimmerMediaHD Forum",
+                    "link": "http://smarthome.schimmer-media.de/forum/"
                 }
             ],
             "documentation": [
@@ -27,6 +31,10 @@
                 {
                     "title": "IoT Blog &#8211; Hier findest du Tutorials und Tricks rund um IoT und Smart Home, mit einem Fokus auf das System ioBroker.",
                     "link": "https://iot-blog.net/"
+                },
+                {
+                    "title": "smarthome-tagebuch.de - Der Smarthome-Blog",
+                    "link": "https://smarthome-tagebuch.de/themen/software-systeme/iobroker/"
                 }
             ],
             "news": [
@@ -69,6 +77,10 @@
                 {
                     "title": "Core Concept (Schema)",
                     "link": "https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md"
+                },
+                {
+                    "title": "ioBroker adapter creator",
+                    "link": "https://github.com/ioBroker/create-adapter/blob/master/README.md"
                 }
             ],
             "blog": [
@@ -94,6 +106,11 @@
             "blog": [
             ],
             "news": [
+                {
+                    "title": "Домашняя автоматизация с ioBroker",
+                    "link": "https://habr.com/en/post/394961/",
+                    "date": "22.07.2016"
+                }
             ]
         },
         "pt": {
