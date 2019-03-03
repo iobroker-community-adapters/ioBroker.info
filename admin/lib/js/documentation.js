@@ -35,42 +35,42 @@ function showDocumentation() {
         langs = tmpLangs.split(',');
 
         langs.forEach(function (lang) {
-            infoData.docs.community[lang].forEach(function (data) {
+            infoData.docs[lang].community.forEach(function (data) {
                 const $link = $('#tagTemplate').children().clone(true, true);
                 $link.find('.forumClass').text(data.title);
                 $link.find('.tag').addClass("tag label").attr("href", data.link);
                 const $li = $('<li/>').append($link);
                 $('#doc_community').append($li);
             });
-            infoData.docs.documentation[lang].forEach(function (data) {
+            infoData.docs[lang].documentation.forEach(function (data) {
                 const $link = $('#tagTemplate').children().clone(true, true);
                 $link.find('.forumClass').text(data.title);
                 $link.find('.tag').addClass("tag label").attr("href", data.link);
                 const $li = $('<li/>').append($link);
                 $('#doc_documentation').append($li);
             });
-            infoData.docs.news[lang].forEach(function (data) {
+            infoData.docs[lang].news.forEach(function (data) {
                 const $link = $('#tagTemplate').children().clone(true, true);
                 $link.find('.forumClass').text(data.title + " (" + data.date + ")");
                 $link.find('.tag').addClass("tag label").attr("href", data.link);
                 const $li = $('<li/>').append($link);
                 $('#doc_news').append($li);
             });
-            infoData.docs.blog[lang].forEach(function (data) {
+            infoData.docs[lang].blog.forEach(function (data) {
                 const $link = $('#tagTemplate').children().clone(true, true);
                 $link.find('.forumClass').text(data.title);
                 $link.find('.tag').addClass("tag label").attr("href", data.link);
                 const $li = $('<li/>').append($link);
                 $('#doc_blog').append($li);
             });
-            infoData.docs.development[lang].forEach(function (data) {
+            infoData.docs[lang].development.forEach(function (data) {
                 const $link = $('#tagTemplate').children().clone(true, true);
                 $link.find('.forumClass').text(data.title);
                 $link.find('.tag').addClass("tag label").attr("href", data.link);
                 const $li = $('<li/>').append($link);
                 $('#doc_development').append($li);
             });
-            infoData.docs.other[lang].forEach(function (data) {
+            infoData.docs[lang].other.forEach(function (data) {
                 const $link = $('#tagTemplate').children().clone(true, true);
                 $link.find('.forumClass').text(data.title);
                 $link.find('.tag').addClass("tag label").attr("href", data.link);
