@@ -1,7 +1,5 @@
 /* global systemLang, dateOptions */
 
-//------------------------------------------------------ SEARCH GITHUB --------------------------------------------------------------------
-
 function searchGithubForNewAdapters(by = "name", order = false) {
 
     sessionStorage.getItem('ioBroker.info.foundGit') ? write() : search();

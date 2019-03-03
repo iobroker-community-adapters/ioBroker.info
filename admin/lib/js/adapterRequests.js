@@ -1,7 +1,5 @@
 /* global systemLang, dateOptions */
 
-//------------------------------------------------------ SEARCH GITHUB --------------------------------------------------------------------
-
 async function getAllIssuesFromAdapter(full_name) {
     let allIssues = [];
 

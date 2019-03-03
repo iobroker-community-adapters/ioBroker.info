@@ -201,7 +201,9 @@
         "new_adapters_sort": "name",
         "new_adapters_order": false,
         "adapter_request": true,
-        "adapter_issue": true
+        "adapter_issue": true,
+        "documentation": true,
+        "doc_langs": []
     },
     "objects": [],
     "instanceObjects": [

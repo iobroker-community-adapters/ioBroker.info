@@ -168,6 +168,12 @@ $(function () {
             if(!adapterConfig.adapter_issue && !adapterConfig.adapter_request){
                 $('#adapterRequestIssueBlock').hide();                
             }
+            
+            if (adapterConfig.documentation) {
+                showDocumentation();
+            } else {
+                $('.rotate-button').hide();
+            }
 
             translateAll(systemLang);
 
