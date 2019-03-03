@@ -10,6 +10,8 @@ and open the template in the editor.
 
 body{
     background-color: #efefef;
+    padding-top: 50px;
+    overflow: hidden;
 }
 
 .height_320 {
@@ -382,4 +384,50 @@ ul#cssClock li{
 
 .y_title, .y_content {
     background-color: white;
+}
+
+#homeTemplate {
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    display: inline-block;
+}
+#main-wrapper {
+    height: 100%;
+    overflow-y: auto;
+    padding: 50px 0 0px 0;
+    transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    -o-transition: all .5s linear;
+}
+.no-transition {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    -ms-transition: none !important;
+    transition: none !important;
+}
+#main {
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+    padding: 0 15px;
+}
+#sidebar-wrapper {
+    height: 100%;
+    padding: 50px 0 0px 0;
+    position: fixed;
+    right:0;
+}
+#sidebar {
+    border-right: 1px solid gray;
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+    padding: 10px 15px 0;
+    overflow-x: hidden;
 }

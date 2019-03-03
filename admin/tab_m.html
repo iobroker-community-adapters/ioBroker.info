@@ -33,241 +33,256 @@
     </head>
     <body>
 
-        <div id="homeTemplate"> 
-            <div class="page-title">
-                <div class="title_left">
+        <div id="homeTemplate">
 
-                </div>       
-                <div class="title_right">
+            <div id="main-wrapper" class="col-md-10">
+                
+                <div id="main">                
 
-                </div>
-            </div>
-            <div class="clearfix"></div>
+                    <div class="page-title">
+                        <div class="title_left">
 
-            <div id="home-container">
-
-                <div class="row justify-content-start">
-
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 clock">
-                        <div class="tile-stats">                            
-                            <ul id="cssClock">
-                                <li id="cssSec"></li>
-                                <li id="cssHour"></li>
-                                <li id="cssMin"></li>
-                            </ul>
-                            <h3 class="specialclock" id="weekday_now">-</h3>
-                            <div class="count specialclock col-lg-8 col-md-3 col-sm-6 col-xs-6" id="date_now">-</div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-
-                        </div>
-                    </div>      
-
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
+                        </div>       
+                        <div class="title_right">
 
                         </div>
                     </div>
+                    <div class="clearfix"></div>
 
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
+                    <div id="home-container">
 
-                        </div>
-                    </div>
+                        <div class="row justify-content-start">
 
-                </div>
-            </div>
-
-            <div class="row">
-
-                <div id="homeUpdateListTab" class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="x_panel block_content">
-                        <div class="x_title">
-                            <h2>
-                                <span class="translate">Updates</span> <small class="translate word-break">can be done here</small>
-                            </h2>
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li>
-                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content y_content height_320">
-                            <div class="">
-                                <ul id="updateHomeList"></ul>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 clock">
+                                <div class="tile-stats">                            
+                                    <ul id="cssClock">
+                                        <li id="cssSec"></li>
+                                        <li id="cssHour"></li>
+                                        <li id="cssMin"></li>
+                                    </ul>
+                                    <h3 class="specialclock" id="weekday_now">-</h3>
+                                    <div class="count specialclock col-lg-8 col-md-3 col-sm-6 col-xs-6" id="date_now">-</div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div id="homeNewAdapterTab" class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div class="x_panel block_content">
-                        <div class="x_title">
-                            <h2>
-                                <span class="translate">New adapters</span> <small class="translate word-break">are listed here</small>
-                            </h2>
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li>
-                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div id="homeNewAdapterDiv" class="x_content y_content height_150">
-                            <div class="">
-                                <ul id="newHomeList"></ul>
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="tile-stats">
+
+                                </div>
+                            </div>      
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="tile-stats">
+
+                                </div>
                             </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="tile-stats">
+
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
-                    <div class="row" id="hostUpdateHomeListRow">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+
+                        <div id="homeUpdateListTab" class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <div class="x_panel block_content">
-                                <div class="x_content y_content vertical-align height_143">
-                                    <div id="hostUpdateHomeList" class=""></div>
+                                <div class="x_title">
+                                    <h2>
+                                        <span class="translate">Updates</span> <small class="translate word-break">can be done here</small>
+                                    </h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content y_content height_320">
+                                    <div class="">
+                                        <ul id="updateHomeList"></ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+                        <div id="homeNewAdapterTab" class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="x_panel block_content">
+                                <div class="x_title">
+                                    <h2>
+                                        <span class="translate">New adapters</span> <small class="translate word-break">are listed here</small>
+                                    </h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div id="homeNewAdapterDiv" class="x_content y_content height_150">
+                                    <div class="">
+                                        <ul id="newHomeList"></ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" id="hostUpdateHomeListRow">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="x_panel block_content">
+                                        <div class="x_content y_content vertical-align height_143">
+                                            <div id="hostUpdateHomeList" class=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="systemInfoTab" class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel block_content">
+                                <div class="x_title">
+                                    <h2>
+                                        <span class="translate">System informations</span> <small class="translate word-break">about the server</small>
+                                    </h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content y_content height_320">
+                                    <div id="systemInfoList"></div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
-                </div>
+                    <div class="row" id="adapterRequestIssueBlock">
 
-                <div id="systemInfoTab" class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                    <div class="x_panel block_content">
-                        <div class="x_title">
-                            <h2>
-                                <span class="translate">System informations</span> <small class="translate word-break">about the server</small>
-                            </h2>
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li>
-                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="adapterRequestBlock">
+                            <div class="x_panel block_content">
+                                <div class="x_title">
+                                    <h2>
+                                        <span class="translate">Adapter Requests</span> <small class="translate">for new adapters</small>
+                                    </h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="https://github.com/ioBroker/AdapterRequests" target="_blank"><i class="fa fa-globe"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content y_content height_520">
+                                    <ul class="list-unstyled timeline" id="adapterRequestList"></ul>
+                                </div>
+                            </div>                   
                         </div>
-                        <div class="x_content y_content height_320">
-                            <div id="systemInfoList"></div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="knownIssuesBlock">
+                            <div class="x_panel block_content">
+                                <div class="x_title">
+                                    <h2>
+                                        <span class="translate">Issues & bugs</span> <small class="translate">for my adapters</small>
+                                    </h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>                               
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content y_content height_565">
+                                    <ul class="list-unstyled timeline" id="adapterIssueList"></ul>
+                                </div>
+                            </div>                    
                         </div>
+
+                    </div>
+
+                    <div class="row" id="adapterSearchBlock">
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="x_panel block_content">
+                                <div class="x_title">
+                                    <h2>
+                                        <span class="translate">ioBroker Adapters on Github</span> <small class="translate">not officially released</small>
+                                    </h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content y_content height_320">
+                                    <ol class="list-unstyled timeline" id="githubSearchList"></ol>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>           
+
+                    <div class="row">
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" id="newsBlock">
+                            <div class="x_panel block_content">
+                                <div class="x_title">
+                                    <h2 id="newsTitle">ioBroker News <small id="newsTime"></small></h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li>
+                                            <a id="news-link" target="_blank"><i class="fa fa-globe"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content y_content">
+                                    <ul class="list-unstyled timeline" id="newsList"></ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" id="forumBlock">
+                            <div class="x_panel block_content">
+                                <div class="x_title">
+                                    <h2 id="forumTitle">ioBroker Forum <small id="forumTime"></small></h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li>
+                                            <a id="forum-link" target="_blank"><i class="fa fa-globe"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content y_content">
+                                    <ul class="list-unstyled timeline" id="forumList"></ul>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
             </div>
 
-            <div class="row" id="adapterRequestIssueBlock">
-
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="adapterRequestBlock">
-                    <div class="x_panel block_content">
-                        <div class="x_title">
-                            <h2>
-                                <span class="translate">Adapter Requests</span> <small class="translate">for new adapters</small>
-                            </h2>
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li>
-                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                                <li>
-                                    <a href="https://github.com/ioBroker/AdapterRequests" target="_blank"><i class="fa fa-globe"></i></a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content y_content height_520">
-                            <ul class="list-unstyled timeline" id="adapterRequestList"></ul>
-                        </div>
-                    </div>                   
+            <div id="sidebar-wrapper" class="col-md-2 pull-right">
+                <div id="sidebar">
+                   
                 </div>
-
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="knownIssuesBlock">
-                    <div class="x_panel block_content">
-                        <div class="x_title">
-                            <h2>
-                                <span class="translate">Issues & bugs</span> <small class="translate">for my adapters</small>
-                            </h2>
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li>
-                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>                               
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content y_content height_565">
-                            <ul class="list-unstyled timeline" id="adapterIssueList"></ul>
-                        </div>
-                    </div>                    
-                </div>
-
             </div>
 
-            <div class="row" id="adapterSearchBlock">
-
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="x_panel block_content">
-                        <div class="x_title">
-                            <h2>
-                                <span class="translate">ioBroker Adapters on Github</span> <small class="translate">not officially released</small>
-                            </h2>
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li>
-                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content y_content height_320">
-                            <ol class="list-unstyled timeline" id="githubSearchList"></ol>
-                        </div>
-                    </div>
-                </div>
-
-            </div>           
-
-            <div class="row">
-
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" id="newsBlock">
-                    <div class="x_panel block_content">
-                        <div class="x_title">
-                            <h2 id="newsTitle">ioBroker News <small id="newsTime"></small></h2>
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li>
-                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                                <li>
-                                    <a id="news-link" target="_blank"><i class="fa fa-globe"></i></a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content y_content">
-                            <ul class="list-unstyled timeline" id="newsList"></ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" id="forumBlock">
-                    <div class="x_panel block_content">
-                        <div class="x_title">
-                            <h2 id="forumTitle">ioBroker Forum <small id="forumTime"></small></h2>
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li>
-                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                                <li>
-                                    <a id="forum-link" target="_blank"><i class="fa fa-globe"></i></a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content y_content">
-                            <ul class="list-unstyled timeline" id="forumList"></ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
         </div>
 
         <!-- Forum Entry -->
