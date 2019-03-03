@@ -33,7 +33,8 @@ async function cleanTitle(allIssues){
         }    
         issue.title = title;
         response.push(issue);
-    });    
+    }); 
+    return response;
 }
 
 async function writeAllIssues(allIssues, id) {
