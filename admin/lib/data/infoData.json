@@ -5,13 +5,30 @@
                 {
                     "title": "Deutsches Support Forum",
                     "link": "https://forum.iobroker.net/category/4"
+                },
+                {
+                    "title": "IoBroker SmartHome und IoT Facebook Gruppe",
+                    "link": "https://www.facebook.com/groups/440499112958264/"
                 }
             ],
             "documentation": [
+                {
+                    "title": "Willkommen bei ioBroker",
+                    "link": "https://iobroker.github.io/ioBroker.docs/#/README"
+                },
+                {
+                    "title": "smarthome-tricks.de - Tricks und Tipps rund um Dein Smarthome",
+                    "link": "https://www.smarthome-tricks.de/iobroker-uebersicht/"
+                }
             ],
             "development": [
             ],
             "news": [
+                {
+                    "title": "Alle Smarthome Systeme unter einen Hut – ioBroker vereint das Smart Home",
+                    "link": "https://www.techniktest-online.de/testberichte/smarthome/alle-smarthome-systeme-unter-einen-hut-iobroker-vereint-das-smart-home/",
+                    "date": "25.02.2019"
+                },
                 {
                     "title": "IO-Broker integriert diverse Smart-Home-Protokolle",
                     "link": "http://www.linux-magazin.de/ausgaben/2018/04/io-broker/",
@@ -37,6 +54,10 @@
                 }
             ],
             "documentation": [
+                {
+                    "title": "Welcome to ioBroker",
+                    "link": "https://iobroker.github.io/ioBroker.docs/#/_en/"
+                }
             ],
             "development": [
                 {
@@ -55,6 +76,10 @@
                 }
             ],
             "documentation": [
+                {
+                    "title": "Добро пожаловать в ioBroker",
+                    "link": "https://iobroker.github.io/ioBroker.docs/#/_ru/"
+                }
             ],
             "development": [
             ],
@@ -79,6 +104,10 @@
                 }
             ],
             "documentation": [
+                {
+                    "title": "[iObroker] Automate your life! opensource platform",
+                    "link": "https://gathering.tweakers.net/forum/list_messages/1891809"
+                }
             ],
             "development": [
             ],
