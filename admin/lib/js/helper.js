@@ -223,12 +223,10 @@ $(function () {
                 $menu.hide(1000);
             });
             $content.removeClass('col-md-9').addClass('col-md-12');
-            $.cookie('offcanvas', 'hide');
         } else {
             // Slide in
             $menu.show(500).animate({right: 0});
             $content.removeClass('col-md-12').addClass('col-md-9');
-            $.cookie('offcanvas', 'show');
         }
         if ($content.hasClass('col-md-12') && $menu.is(':hidden')) {
             $menu.animate({

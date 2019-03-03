@@ -36,7 +36,7 @@ function showDocumentation() {
 
         const docs = infoData.docs;
 
-        await asyncForEach(tmpLangs, async function (lang) {
+        await asyncForEach(langs, async function (lang) {
             await asyncForEach(docs.community[lang], async function (data) {
                 const $link = $('#tagTemplate').children().clone(true, true);
                 $link.find('.forumClass').text(data.title);
