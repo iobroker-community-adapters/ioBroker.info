@@ -37,43 +37,43 @@ function showDocumentation() {
         langs.forEach(function (lang) {
             infoData.docs[lang].community.forEach(function (data) {
                 const $link = $('#tagTemplate').children().clone(true, true);
-                $link.find('.forumClass').removeClass('.forumClass').text(data.title);
-                $link.find('.tag').removeClass("tag label").attr("href", data.link);
+                $link.find('.forumClass').removeClass('forumClass').text(data.title);
+                $link.removeClass("tag label").attr("href", data.link);
                 const $li = $('<li/>').append($link);
                 $('#doc_community').append($li);
             });
             infoData.docs[lang].documentation.forEach(function (data) {
                 const $link = $('#tagTemplate').children().clone(true, true);
-                $link.find('.forumClass').removeClass('.forumClass').text(data.title);
-                $link.find('.tag').removeClass("tag label").attr("href", data.link);
+                $link.find('.forumClass').removeClass('forumClass').text(data.title);
+                $link.removeClass("tag label").attr("href", data.link);
                 const $li = $('<li/>').append($link);
                 $('#doc_documentation').append($li);
             });
             infoData.docs[lang].news.forEach(function (data) {
                 const $link = $('#tagTemplate').children().clone(true, true);
-                $link.find('.forumClass').removeClass('.forumClass').text(data.title + " (" + data.date + ")");
-                $link.find('.tag').removeClass("tag label").attr("href", data.link);
+                $link.find('.forumClass').removeClass('forumClass').text(data.title + " (" + data.date + ")");
+                $link.removeClass("tag label").attr("href", data.link);
                 const $li = $('<li/>').append($link);
                 $('#doc_news').append($li);
             });
             infoData.docs[lang].blog.forEach(function (data) {
                 const $link = $('#tagTemplate').children().clone(true, true);
-                $link.find('.forumClass').removeClass('.forumClass').text(data.title);
-                $link.find('.tag').removeClass("tag label").attr("href", data.link);
+                $link.find('.forumClass').removeClass('forumClass').text(data.title);
+                $link.removeClass("tag label").attr("href", data.link);
                 const $li = $('<li/>').append($link);
                 $('#doc_blog').append($li);
             });
             infoData.docs[lang].development.forEach(function (data) {
                 const $link = $('#tagTemplate').children().clone(true, true);
-                $link.find('.forumClass').removeClass('.forumClass').text(data.title);
-                $link.find('.tag').removeClass("tag label").attr("href", data.link);
+                $link.find('.forumClass').removeClass('forumClass').text(data.title);
+                $link.removeClass("tag label").attr("href", data.link);
                 const $li = $('<li/>').append($link);
                 $('#doc_development').append($li);
             });
             infoData.docs[lang].other.forEach(function (data) {
                 const $link = $('#tagTemplate').children().clone(true, true);
-                $link.find('.forumClass').removeClass('.forumClass').text(data.title);
-                $link.find('.tag').removeClass("tag label").attr("href", data.link);
+                $link.find('.forumClass').removeClass('forumClass').text(data.title);
+                $link.removeClass("tag label").attr("href", data.link);
                 const $li = $('<li/>').append($link);
                 $('#doc_other').append($li);
             });
