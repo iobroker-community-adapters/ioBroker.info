@@ -237,7 +237,17 @@
             "other": [                
             ]
         },
-        "noLang": {  
+        "noLang": {
+            "community": [
+            ],
+            "documentation": [
+            ],
+            "development": [
+            ],
+            "blog": [
+            ],
+            "news": [
+            ],
             "other": [
                 {
                     "title": {
