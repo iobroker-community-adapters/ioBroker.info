@@ -211,23 +211,23 @@ $(function () {
     $content.addClass('no-transition');
     $menu.hide();
     $menu.css('right', -($menu.outerWidth() + 10));
-    $content.removeClass('col-md-10').addClass('col-md-12');
+    $content.removeClass('col-md-9').addClass('col-md-12');
 
     $('#documentation').click(function () {
         $content.removeClass('no-transition');
-        if ($menu.is(':visible') && $content.hasClass('col-md-10')) {
+        if ($menu.is(':visible') && $content.hasClass('col-md-9')) {
             // Slide out
             $menu.animate({
                 right: -($menu.outerWidth() + 10)
             }, function () {
                 $menu.hide(1000);
             });
-            $content.removeClass('col-md-10').addClass('col-md-12');
+            $content.removeClass('col-md-9').addClass('col-md-12');
             $.cookie('offcanvas', 'hide');
         } else {
             // Slide in
             $menu.show(500).animate({right: 0});
-            $content.removeClass('col-md-12').addClass('col-md-10');
+            $content.removeClass('col-md-12').addClass('col-md-9');
             $.cookie('offcanvas', 'show');
         }
         if ($content.hasClass('col-md-12') && $menu.is(':hidden')) {
@@ -237,7 +237,7 @@ $(function () {
                 $menu.show(1000);
             });
             $content.removeClass('no-transition');
-            $content.removeClass('col-md-12').addClass('col-md-10');
+            $content.removeClass('col-md-12').addClass('col-md-9');
         }
     });
     $('.bs-tooltip').tooltip();

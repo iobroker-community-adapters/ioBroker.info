@@ -22,7 +22,7 @@ async function getAllIssuesFromAdapter(full_name) {
 
 async function cleanTitle(allIssues){
     const response = [];
-    await asyncForEach(allIssues, async function (issue, i) {
+    await asyncForEach(allIssues, async function (issue) {
         let title = issue.title;
         if(title.toLowerCase().startsWith("adapter for ") || title.toLowerCase().startsWith("adapter für ")){
             title = title.substring(12, title.length);      
