@@ -72,7 +72,13 @@ function showDocumentation() {
             });
             infoData.docs[lang].other.forEach(function (data) {
                 const $link = $('#tagTemplate').children().clone(true, true);
-                $link.find('.forumClass').removeClass('forumClass').text(data.title);
+                let title;
+                if("noLang" === lang){
+                    title = data.title[systemLang];
+                }else{
+                    title = data.title;
+                }
+                $link.find('.forumClass').removeClass('forumClass').text(title);
                 $link.removeClass("tag label").attr("href", data.link);
                 const $li = $('<li/>').append($link);
                 $('#doc_other').append($li);
