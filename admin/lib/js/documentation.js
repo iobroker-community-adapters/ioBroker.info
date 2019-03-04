@@ -74,12 +74,12 @@ function showDocumentation() {
         }
 
         if (hasDate) {
-            title += " (" + data.date + ")";
+            title += " (" + new Date(data.date).toLocaleDateString(systemLang, { weekday: 'short', year: 'numeric', month: 'numeric', day: 'numeric' }) + ")";
         }
 
         $link.find('.forumClass').removeClass('forumClass').text(title);
         $link.removeClass("tag label").attr("href", data.link);
-        const $i = $('<i/>').addClass("fa fa-arrow-circle-right")
+        const $i = $('<i/>').addClass("fa fa-arrow-circle-right");
         $link.prepend($i);
         return $('<li/>').append($link);
     }
