@@ -58,7 +58,7 @@ function showDocumentation() {
 
         newsObject.sort(function (a, b) {
             return a.date.localeCompare(b.date);
-        }).forEach(function(data){
+        }).reverse().forEach(function(data){
             $('#doc_news').append(createLi(data, systemLang, true));
         });
 
