@@ -438,4 +438,5 @@ ul#cssClock li{
     -ms-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
     padding-right: 150px;
+    margin-right: -130px;
 }
