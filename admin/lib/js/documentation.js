@@ -34,57 +34,54 @@ function showDocumentation() {
         });
         langs = tmpLangs.split(',');
 
-        langs.forEach(function (lang) {
+        const newsObject = [];
+        await asyncForEach(langs, function (lang) {
             infoData.docs[lang].community.forEach(function (data) {
-                const $link = $('#tagTemplate').children().clone(true, true);
-                $link.find('.forumClass').removeClass('forumClass').text(data.title);
-                $link.removeClass("tag label").attr("href", data.link);
-                const $li = $('<li/>').append($link);
-                $('#doc_community').append($li);
+                $('#doc_community').append(createLi(data, lang, false));
             });
             infoData.docs[lang].documentation.forEach(function (data) {
-                const $link = $('#tagTemplate').children().clone(true, true);
-                $link.find('.forumClass').removeClass('forumClass').text(data.title);
-                $link.removeClass("tag label").attr("href", data.link);
-                const $li = $('<li/>').append($link);
-                $('#doc_documentation').append($li);
+                $('#doc_documentation').append(createLi(data, lang, false));
             });
             infoData.docs[lang].news.forEach(function (data) {
-                const $link = $('#tagTemplate').children().clone(true, true);
-                $link.find('.forumClass').removeClass('forumClass').text(data.title + " (" + data.date + ")");
-                $link.removeClass("tag label").attr("href", data.link);
-                const $li = $('<li/>').append($link);
-                $('#doc_news').append($li);
+                newsObject.push(data);
             });
             infoData.docs[lang].blog.forEach(function (data) {
-                const $link = $('#tagTemplate').children().clone(true, true);
-                $link.find('.forumClass').removeClass('forumClass').text(data.title);
-                $link.removeClass("tag label").attr("href", data.link);
-                const $li = $('<li/>').append($link);
-                $('#doc_blog').append($li);
+                $('#doc_blog').append(createLi(data, lang, false));
             });
             infoData.docs[lang].development.forEach(function (data) {
-                const $link = $('#tagTemplate').children().clone(true, true);
-                $link.find('.forumClass').removeClass('forumClass').text(data.title);
-                $link.removeClass("tag label").attr("href", data.link);
-                const $li = $('<li/>').append($link);
-                $('#doc_development').append($li);
+                $('#doc_development').append(createLi(data, lang, false));
             });
             infoData.docs[lang].other.forEach(function (data) {
-                const $link = $('#tagTemplate').children().clone(true, true);
-                let title;
-                if("noLang" === lang){
-                    title = data.title[systemLang];
-                }else{
-                    title = data.title;
-                }
-                $link.find('.forumClass').removeClass('forumClass').text(title);
-                $link.removeClass("tag label").attr("href", data.link);
-                const $li = $('<li/>').append($link);
-                $('#doc_other').append($li);
+                $('#doc_other').append(createLi(data, lang, false));
             });
         });
 
+        newsObject.sort(function (a, b) {
+            return a.date.localeCompare(b.date);
+        }).forEach(function(data){
+            $('#doc_news').append(createLi(data, systemLang, true));
+        });
+
+    }
+
+    function createLi(data, lang, hasDate) {
+        const $link = $('#tagTemplate').children().clone(true, true);
+        let title;
+        if ("noLang" === lang) {
+            title = data.title[systemLang];
+        } else {
+            title = data.title;
+        }
+
+        if (hasDate) {
+            title += " (" + data.date + ")";
+        }
+
+        $link.find('.forumClass').removeClass('forumClass').text(title);
+        $link.removeClass("tag label").attr("href", data.link);
+        const $i = $('<i/>').addClass("fa fa-arrow-circle-right")
+        $link.prepend($i);
+        return $('<li/>').append($link);
     }
 
     getDocuments();

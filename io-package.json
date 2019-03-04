@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.2.1",
+        "version": "1.2.2",
         "news": {
+            "1.2.2": {
+                "en": "Added important links (documentation)",
+                "de": "Wichtige Links (Dokumentation) hinzugefügt",
+                "ru": "Добавлены важные ссылки (документация)",
+                "pt": "Adicionado links importantes (documentação)",
+                "nl": "Belangrijke links toegevoegd (documentatie)",
+                "fr": "Ajout de liens importants (documentation)",
+                "it": "Aggiunti collegamenti importanti (documentazione)",
+                "es": "Agregados enlaces importantes (documentación)",
+                "pl": "Dodano ważne linki (dokumentacja)",
+                "zh-cn": "添加了重要链接（文档）"
+            },
             "1.2.0": {
                 "en": "Added adapter request and known bugs list",
                 "de": "Adapteranfrage und bekannte Fehlerliste hinzugefügt",
