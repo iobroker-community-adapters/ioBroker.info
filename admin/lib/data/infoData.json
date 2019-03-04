@@ -13,6 +13,10 @@
                 {
                     "title": "SmartHome - SchimmerMediaHD Forum",
                     "link": "http://smarthome.schimmer-media.de/forum/"
+                },
+                {
+                    "title": "ioBroker Meetup Karlsruhe Smart Home IoT",
+                    "link": "https://www.meetup.com/de-DE/ioBroker-Meetup-Karlsruhe-Smart-Home-IoT/?_locale=de-DE"
                 }
             ],
             "documentation": [
@@ -28,6 +32,10 @@
             "development": [
             ],
             "blog": [
+                {
+                    "title": "verdrahtet.info",
+                    "link": "https://www.verdrahtet.info/category/iobroker/"
+                },
                 {
                     "title": "IoT Blog &#8211; Hier findest du Tutorials und Tricks rund um IoT und Smart Home, mit einem Fokus auf das System ioBroker.",
                     "link": "https://iot-blog.net/"
@@ -67,6 +75,10 @@
                 {
                     "title": "English support forum",
                     "link": "https://forum.iobroker.net/category/16"
+                },
+                {
+                    "title": "ioBroker official tweeter",
+                    "link": "https://twitter.com/iobroker"
                 }
             ],
             "documentation": [
@@ -87,6 +99,18 @@
                 {
                     "title": "ioBroker translator",
                     "link": "http://www.iobroker.net:3000/"
+                },
+                {
+                    "title": "ioBroker on GitHub",
+                    "link": "https://github.com/ioBroker"
+                },
+                {
+                    "title": "Requirements for adapter to get added to the latest repository",
+                    "link": "https://github.com/ioBroker/ioBroker.repositories/blob/master/README.md"
+                },
+                {
+                    "title": "Who or what is 'ioBroker Community Adapters'?",
+                    "link": "https://github.com/iobroker-community-adapters/info/blob/master/ABOUT_US.md"
                 }
             ],
             "blog": [
@@ -115,9 +139,19 @@
             ],
             "news": [
                 {
+                    "title": "15 лучших рецептов для Умного Дома с ioBroker",
+                    "link": "https://habr.com/en/post/330332/",
+                    "date": "06.06.2017"
+                },
+                {
                     "title": "Домашняя автоматизация с ioBroker",
                     "link": "https://habr.com/en/post/394961/",
                     "date": "22.07.2016"
+                },
+                {
+                    "title": "Никогда не «не делай» того, о чем пожалеешь или умный дом с CCU.IO",
+                    "link": "https://habr.com/en/post/227435/",
+                    "date": "15.07.2014"
                 }
             ],
             "other": [
@@ -293,6 +327,36 @@
                         "zh-cn": "ioBroker统计数据"
                     },
                     "link": "http://download.iobroker.net/stat.html"
+                },
+                {
+                    "title": {
+                        "en": "Demonstration of the ioBroker administration page",
+                        "de": "Demonstration der ioBroker-Verwaltungsseite",
+                        "ru": "Демонстрация страницы администрирования ioBroker",
+                        "pt": "Demonstração da página de administração do ioBroker",
+                        "nl": "Demonstratie van de beheerpagina van ioBroker",
+                        "fr": "Démonstration de la page d'administration d'ioBroker",
+                        "it": "Dimostrazione della pagina di amministrazione ioBroker",
+                        "es": "Demostración de la página de administración de ioBroker",
+                        "pl": "Demonstracja strony administracyjnej ioBroker",
+                        "zh-cn": "演示ioBroker管理页面"
+                    },
+                    "link": "http://iobroker.click/"
+                },
+                {
+                    "title": {
+                        "en": "Examples of ioBroker.vis designs",
+                        "de": "Beispiele für ioBroker.vis-Designs",
+                        "ru": "Примеры дизайнов ioBroker.vis",
+                        "pt": "Exemplos de designs ioBroker.vis",
+                        "nl": "Voorbeelden van ontwerpen van ioBroker.vis",
+                        "fr": "Exemples de conceptions ioBroker.vis",
+                        "it": "Esempi di progetti ioBroker.vis",
+                        "es": "Ejemplos de diseños de ioBroker.vis",
+                        "pl": "Przykłady projektów ioBroker.vis",
+                        "zh-cn": "ioBroker.vis设计的示例"
+                    },
+                    "link": "https://iobroker.click/"
                 }
             ]
         }
