@@ -74,7 +74,7 @@ function showDocumentation() {
         }
 
         if (hasDate) {
-            title += " (" + new Date(data.date).toLocaleDateString(systemLang, { weekday: 'short', year: 'numeric', month: 'numeric', day: 'numeric' }) + ")";
+            title += " (" + new Date(data.date).toLocaleDateString(systemLang, { weekday: 'short', year: 'numeric', month: '2-digit', day: '2-digit' }) + ")";
         }
 
         $link.find('.forumClass').removeClass('forumClass').text(title);
