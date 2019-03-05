@@ -28,6 +28,10 @@
                 }
             ],
             "documentation": [
+            	{
+            		"title": "ioBroker Homepage",
+            		"link": "http://www.iobroker.net/docu/?lang=de"
+            	},
                 {
                     "title": "Willkommen bei ioBroker",
                     "link": "https://iobroker.github.io/ioBroker.docs/#/README"
@@ -146,6 +150,10 @@
                 }
             ],
             "documentation": [
+            	{
+            		"title": "ioBroker Homepage",
+            		"link": "http://www.iobroker.net/docu/?lang=en"
+            	},
                 {
                     "title": "Welcome to ioBroker",
                     "link": "https://iobroker.github.io/ioBroker.docs/#/_en/"
@@ -159,6 +167,10 @@
                 {
                     "title": "ioBroker adapter creator",
                     "link": "https://github.com/ioBroker/create-adapter/blob/master/README.md"
+                },
+                {
+                	"title": "Adapter Development Documentation",
+                	"link": "https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation"
                 },
                 {
                     "title": "ioBroker translator",
@@ -197,6 +209,10 @@
                 }
             ],
             "documentation": [
+            	{
+            		"title": "Домашняя страница ioBroker",
+            		"link": "http://www.iobroker.net/docu/?lang=ru"
+            	},
                 {
                     "title": "Добро пожаловать в ioBroker",
                     "link": "https://iobroker.github.io/ioBroker.docs/#/_ru/"
