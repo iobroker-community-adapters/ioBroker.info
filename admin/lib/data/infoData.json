@@ -11,8 +11,8 @@
                     "link": "https://www.facebook.com/groups/440499112958264/"
                 },
                 {	
-                	"title": "CREATIONX - Smart Home Forum",
-                	"link": "https://forum.creationx.de/forum/index.php?board/19-iobroker/"
+                    "title": "CREATIONX - Smart Home Forum",
+                    "link": "https://forum.creationx.de/forum/index.php?board/19-iobroker/"
                 },
                 {
                     "title": "SmartHome - SchimmerMediaHD Forum",
@@ -23,15 +23,15 @@
                     "link": "https://www.meetup.com/de-DE/ioBroker-Meetup-Karlsruhe-Smart-Home-IoT/?_locale=de-DE"
                 },
                 {
-                	"title": "SmartHome-Franken e.V",
-                	"link": "https://smarthome-franken.org/"
+                    "title": "SmartHome-Franken e.V",
+                    "link": "https://smarthome-franken.org/"
                 }
             ],
             "documentation": [
-            	{
-            		"title": "ioBroker Homepage",
-            		"link": "http://www.iobroker.net/docu/?lang=de"
-            	},
+                {
+                    "title": "ioBroker Homepage",
+                    "link": "http://www.iobroker.net/docu/?lang=de"
+                },
                 {
                     "title": "Willkommen bei ioBroker",
                     "link": "https://iobroker.github.io/ioBroker.docs/#/README"
@@ -41,12 +41,12 @@
                     "link": "https://www.smarthome-tricks.de/software-iobroker/"
                 },
                 {
-                	"title": "Smarthome Assistent - Anleitungen & Hilfestellungen: ioBroker",
-                	"link": "https://www.smarthomeassistent.de/anleitung/iobroker/"
+                    "title": "Smarthome Assistent - Anleitungen & Hilfestellungen: ioBroker",
+                    "link": "https://www.smarthomeassistent.de/anleitung/iobroker/"
                 },
                 {
-                	"title": "ioBroker-Tutorial-Reihe",
-                	"link": "https://haus-automatisierung.com/iobroker-tutorial-reihe/"
+                    "title": "ioBroker-Tutorial-Reihe",
+                    "link": "https://haus-automatisierung.com/iobroker-tutorial-reihe/"
                 }
             ],
             "development": [
@@ -65,8 +65,8 @@
                     "link": "https://smarthome-tagebuch.de/themen/software-systeme/iobroker/"
                 },
                 {
-                	"title": "Homematic-Guru.de",
-                	"link": "https://homematic-guru.de/category/iobroker"
+                    "title": "Homematic-Guru.de",
+                    "link": "https://homematic-guru.de/category/iobroker"
                 }
             ],
             "news": [
@@ -81,19 +81,19 @@
                     "date": "2019-02-09T00:00:00.000Z"
                 },
                 {
-                	"title": "OctoPrint in ioBroker integrieren",
-                	"link": "https://technikkram.net/2019/01/octoprint-in-iobroker-integrieren",
-                	"date": "2019-01-27T00:00:00.000Z"
+                    "title": "OctoPrint in ioBroker integrieren",
+                    "link": "https://technikkram.net/2019/01/octoprint-in-iobroker-integrieren",
+                    "date": "2019-01-27T00:00:00.000Z"
                 },
                 {
-                	"title": "ioBroker – Erste Beta des Homematic IP Access Point Adapters – Installation",
-                	"link": "https://technikkram.net/2019/01/iobroker-erste-beta-des-homematic-ip-access-point-adapters-installation",
-                	"date": "2019-01-19T00:00:00.000Z"
+                    "title": "ioBroker – Erste Beta des Homematic IP Access Point Adapters – Installation",
+                    "link": "https://technikkram.net/2019/01/iobroker-erste-beta-des-homematic-ip-access-point-adapters-installation",
+                    "date": "2019-01-19T00:00:00.000Z"
                 },
                 {
-                	"title": "[DIY Smart Home] Teil 1: Die Vorbereitungen",
-                	"link": "https://appkosmos.de/hardware/smarthome/diy-smart-home-teil-1/",
-                	"date": "2018-09-13T00:00:00.000Z"
+                    "title": "[DIY Smart Home] Teil 1: Die Vorbereitungen",
+                    "link": "https://appkosmos.de/hardware/smarthome/diy-smart-home-teil-1/",
+                    "date": "2018-09-13T00:00:00.000Z"
                 },
                 {
                     "title": "Die wichtigsten Neuerungen der Smart-Home-Steuersoftware ioBroker",
@@ -111,14 +111,14 @@
                     "date": "2018-04-01T00:00:00.000Z"
                 },
                 {
-                	"title": "ioBroker mit Amazon Alexa verbinden",
-                	"link": "https://www.homeandsmart.de/iobroker-mit-alexa-verbinden",
-                	"date": "2018-03-03T00:00:00.000Z"
+                    "title": "ioBroker mit Amazon Alexa verbinden",
+                    "link": "https://www.homeandsmart.de/iobroker-mit-alexa-verbinden",
+                    "date": "2018-03-03T00:00:00.000Z"
                 },
                 {
-                	"title": "Homematic – Visualisierung über ioBroker Video-Anleitung",
-                	"link": "https://technikkram.net/2018/01/homematic-visualisierung-ueber-iobroker-video-anleitung",
-                	"date": "2018-01-19T00:00:00.000Z"
+                    "title": "Homematic – Visualisierung über ioBroker Video-Anleitung",
+                    "link": "https://technikkram.net/2018/01/homematic-visualisierung-ueber-iobroker-video-anleitung",
+                    "date": "2018-01-19T00:00:00.000Z"
                 },
                 {
                     "title": "Erste Schritte mit der Smart-Home-Steuersoftware ioBroker",
@@ -137,10 +137,10 @@
                 }
             ],
             "other": [
-            	{
-            		"title": "Wikipedia - ioBroker",
-            		"link": "https://de.wikipedia.org/wiki/IoBroker"
-            	}
+                {
+                    "title": "Wikipedia - ioBroker",
+                    "link": "https://de.wikipedia.org/wiki/IoBroker"
+                }
             ]
         },
         "en": {
@@ -155,10 +155,10 @@
                 }
             ],
             "documentation": [
-            	{
-            		"title": "ioBroker Homepage",
-            		"link": "http://www.iobroker.net/docu/?lang=en"
-            	},
+                {
+                    "title": "ioBroker Homepage",
+                    "link": "http://www.iobroker.net/docu/?lang=en"
+                },
                 {
                     "title": "Welcome to ioBroker",
                     "link": "https://iobroker.github.io/ioBroker.docs/#/_en/"
@@ -174,8 +174,8 @@
                     "link": "https://github.com/ioBroker/create-adapter/blob/master/README.md"
                 },
                 {
-                	"title": "Adapter Development Documentation",
-                	"link": "https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation"
+                    "title": "Adapter Development Documentation",
+                    "link": "https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation"
                 },
                 {
                     "title": "ioBroker translator",
@@ -197,7 +197,7 @@
             "blog": [
             ],
             "news": [
-            	{
+                {
                     "title": "ioBroker integrates different smart home protocols into a single easy interface",
                     "link": "http://www.linux-magazine.com/Issues/2018/212/ioBroker",
                     "date": "2018-07-01T00:00:00.000Z"
@@ -214,10 +214,10 @@
                 }
             ],
             "documentation": [
-            	{
-            		"title": "Домашняя страница ioBroker",
-            		"link": "http://www.iobroker.net/docu/?lang=ru"
-            	},
+                {
+                    "title": "Домашняя страница ioBroker",
+                    "link": "http://www.iobroker.net/docu/?lang=ru"
+                },
                 {
                     "title": "Добро пожаловать в ioBroker",
                     "link": "https://iobroker.github.io/ioBroker.docs/#/_ru/"
@@ -229,14 +229,34 @@
             ],
             "news": [
                 {
+                    "title": "HomeKit и ioBroker Давайте дружить домами",
+                    "link": "https://habr.com/ru/company/iobroker/blog/433798/",
+                    "date": "2018-12-24T00:00:00.000Z"
+                },
+                {
+                    "title": "Беспроводные устройства Xiaomi в умном доме ioBroker",
+                    "link": "https://habr.com/ru/company/iobroker/blog/433340/",
+                    "date": "2018-12-16T00:00:00.000Z"
+                },
+                {
+                    "title": "ioBroker — открытая система автоматизации (обзор)",
+                    "link": "https://habr.com/ru/company/iobroker/blog/374363/",
+                    "date": "2018-03-26T00:00:00.000Z"
+                },                              
+                {
                     "title": "15 лучших рецептов для Умного Дома с ioBroker",
                     "link": "https://habr.com/en/post/330332/",
                     "date": "2017-06-06T00:00:00.000Z"
-                },
+                }, 
                 {
                     "title": "ioBroker — домашняя автоматизация. Факты",
                     "link": "https://habr.com/ru/post/402767/",
                     "date": "2017-06-04T00:00:00.000Z"
+                },  
+                {
+                    "title": "Amazon Alexa Skill Smart Home c Open Source платформой для Домашней Автоматизации ioBroker",
+                    "link": "https://habr.com/ru/post/330026/",
+                    "date": "2017-06-01T00:00:00.000Z"
                 },
                 {
                     "title": "Домашняя автоматизация с ioBroker",
