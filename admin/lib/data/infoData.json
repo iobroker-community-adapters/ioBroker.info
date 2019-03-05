@@ -67,6 +67,10 @@
                 {
                     "title": "Homematic-Guru.de",
                     "link": "https://homematic-guru.de/category/iobroker"
+                },
+                {
+                    "title": "Sabrije und André Germann Blog",
+                    "link": "https://buanet.de/category/iobroker/"
                 }
             ],
             "news": [
@@ -129,6 +133,11 @@
                     "title": "Das Projekt IO-Broker macht Smart-Home-Anwendungen kompatibel",
                     "link": "http://www.linux-magazin.de/ausgaben/2017/07/io-broker/",
                     "date": "2017-07-01T00:00:00.000Z"
+                },
+                {
+                    "title": "ioBroker: Die Open Source Plattform ist nominiert für einen #smartaward17",
+                    "link": "https://www.ehome-news.de/iobroker-die-open-source-plattform-ist-nominiert-fuer-einen-smartaward17/",
+                    "date": "2017-05-16T00:00:00.000Z"
                 },
                 {
                     "title": "ioBroker: Integrationsplattform für das Internet der Dinge",
@@ -221,11 +230,19 @@
                 {
                     "title": "Добро пожаловать в ioBroker",
                     "link": "https://iobroker.github.io/ioBroker.docs/#/_ru/"
+                },
+                {
+                    "title": "ioBroker - Визуализация",
+                    "link": "https://sprut.ai/client/article/278"
                 }
             ],
             "development": [
             ],
             "blog": [
+                {
+                    "title": "blog.instalator",
+                    "link": "https://blog.instalator.ru/archives/category/smart-house/iobroker"
+                }
             ],
             "news": [
                 {
@@ -237,7 +254,7 @@
                     "title": "Беспроводные устройства Xiaomi в умном доме ioBroker",
                     "link": "https://habr.com/ru/company/iobroker/blog/433340/",
                     "date": "2018-12-16T00:00:00.000Z"
-                },
+                },    
                 {
                     "title": "ioBroker — открытая система автоматизации (обзор)",
                     "link": "https://habr.com/ru/company/iobroker/blog/374363/",
