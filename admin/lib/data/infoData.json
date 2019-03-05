@@ -10,6 +10,10 @@
                     "title": "IoBroker SmartHome und IoT Facebook Gruppe",
                     "link": "https://www.facebook.com/groups/440499112958264/"
                 },
+                {	
+                	"title": "CREATIONX - Smart Home Forum",
+                	"link": "https://forum.creationx.de/forum/index.php?board/19-iobroker/"
+                },
                 {
                     "title": "SmartHome - SchimmerMediaHD Forum",
                     "link": "http://smarthome.schimmer-media.de/forum/"
@@ -17,6 +21,10 @@
                 {
                     "title": "ioBroker Meetup Karlsruhe Smart Home IoT",
                     "link": "https://www.meetup.com/de-DE/ioBroker-Meetup-Karlsruhe-Smart-Home-IoT/?_locale=de-DE"
+                },
+                {
+                	"title": "SmartHome-Franken e.V",
+                	"link": "https://smarthome-franken.org/"
                 }
             ],
             "documentation": [
@@ -26,7 +34,15 @@
                 },
                 {
                     "title": "smarthome-tricks.de - Tricks und Tipps rund um Dein Smarthome",
-                    "link": "https://www.smarthome-tricks.de/iobroker-uebersicht/"
+                    "link": "https://www.smarthome-tricks.de/software-iobroker/"
+                },
+                {
+                	"title": "Smarthome Assistent - Anleitungen & Hilfestellungen: ioBroker",
+                	"link": "https://www.smarthomeassistent.de/anleitung/iobroker/"
+                },
+                {
+                	"title": "ioBroker-Tutorial-Reihe",
+                	"link": "https://haus-automatisierung.com/iobroker-tutorial-reihe/"
                 }
             ],
             "development": [
@@ -43,6 +59,10 @@
                 {
                     "title": "smarthome-tagebuch.de - Der Smarthome-Blog",
                     "link": "https://smarthome-tagebuch.de/themen/software-systeme/iobroker/"
+                },
+                {
+                	"title": "Homematic-Guru.de",
+                	"link": "https://homematic-guru.de/category/iobroker"
                 }
             ],
             "news": [
@@ -52,9 +72,49 @@
                     "date": "2019-02-25T00:00:00.000Z"
                 },
                 {
+                	"title": "OctoPrint in ioBroker integrieren",
+                	"link": "https://technikkram.net/2019/01/octoprint-in-iobroker-integrieren",
+                	"date": "2019-01-27T00:00:00.000Z"
+                },
+                {
+                	"title": "ioBroker – Erste Beta des Homematic IP Access Point Adapters – Installation",
+                	"link": "https://technikkram.net/2019/01/iobroker-erste-beta-des-homematic-ip-access-point-adapters-installation",
+                	"date": "2019-01-19T00:00:00.000Z"
+                },
+                {
+                	"title": "[DIY Smart Home] Teil 1: Die Vorbereitungen",
+                	"link": "https://appkosmos.de/hardware/smarthome/diy-smart-home-teil-1/",
+                	"date": "2018-09-13T00:00:00.000Z"
+                },
+                {
+                    "title": "Die wichtigsten Neuerungen der Smart-Home-Steuersoftware ioBroker",
+                    "link": "https://www.heise.de/select/ct/2018/17/1534562336998502",
+                    "date": "2018-08-03T00:00:00.000Z"
+                },   
+                {
+                    "title": "Fibaro & ioBroker Teil 1: Wie bekommt Ihr Geräte & Daten vom ioBroker in Euer Fibaro Home Center?",
+                    "link": "https://www.intelligentes-haus.de/tutorials/fibaro-tutorials/fibaro-iobroker-teil-1-wie-bekommt-ihr-gerate-daten-vom-iobroker-in-euer-fibaro-home-center/",
+                    "date": "2018-07-20T00:00:00.000Z"
+                },
+                {
                     "title": "IO-Broker integriert diverse Smart-Home-Protokolle",
                     "link": "http://www.linux-magazin.de/ausgaben/2018/04/io-broker/",
                     "date": "2018-04-01T00:00:00.000Z"
+                },
+                {
+                	"title": "ioBroker mit Amazon Alexa verbinden",
+                	"link": "https://www.homeandsmart.de/iobroker-mit-alexa-verbinden",
+                	"date": "2018-03-03T00:00:00.000Z"
+                },
+                {
+                	"title": "Homematic – Visualisierung über ioBroker Video-Anleitung",
+                	"link": "https://technikkram.net/2018/01/homematic-visualisierung-ueber-iobroker-video-anleitung",
+                	"date": "2018-01-19T00:00:00.000Z"
+                },
+                {
+                    "title": "Erste Schritte mit der Smart-Home-Steuersoftware ioBroker",
+                    "link": "https://www.heise.de/select/ct/2017/18/1503875643519180",
+                    "date": "2017-08-18T00:00:00.000Z"
                 },
                 {
                     "title": "Das Projekt IO-Broker macht Smart-Home-Anwendungen kompatibel",
@@ -68,6 +128,10 @@
                 }
             ],
             "other": [
+            	{
+            		"title": "Wikipedia - ioBroker",
+            		"link": "https://de.wikipedia.org/wiki/IoBroker"
+            	}
             ]
         },
         "en": {
@@ -116,6 +180,11 @@
             "blog": [
             ],
             "news": [
+            	{
+                    "title": "ioBroker integrates different smart home protocols into a single easy interface",
+                    "link": "http://www.linux-magazine.com/Issues/2018/212/ioBroker",
+                    "date": "2018-07-01T00:00:00.000Z"
+                },
             ],
             "other": [
             ]
