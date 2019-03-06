@@ -65,6 +65,5 @@ function checkNewsLang() {
 }
 
 async function readAndWriteNewsData() {
-    feednami.setPublicApiKey('ad5fd39c8e52b129fc38e17ca8b62ddbafb0039b38283a3c0deeef1b6de8300d');
     writeNewsData(await feednami.load('http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang));
 }
