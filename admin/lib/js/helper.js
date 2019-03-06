@@ -204,16 +204,14 @@ $(function () {
         $(this).parent().children(".spoiler-content").toggle();
     });
 
-
     var $menu = $('#sidebar-wrapper');
     var $content = $('#main-wrapper');
 
     $content.addClass('no-transition');
     $menu.hide();
     $menu.css('right', -($menu.outerWidth() + 10));
-    $content.removeClass('col-md-9').addClass('col-md-12');
 
-    $('#documentation').click(function () {
+    $('.documentationButton').click(function () {
         $content.removeClass('no-transition');
         if ($menu.is(':visible') && $content.hasClass('col-md-9')) {
             // Slide out
@@ -222,11 +220,11 @@ $(function () {
             }, function () {
                 $menu.hide(1000);
             });
-            $content.removeClass('col-md-9').addClass('col-md-12');
+            $content.removeClass('hidden-xs hidden-sm col-md-9').addClass('col-xs-12 col-md-12');
         } else {
             // Slide in
             $menu.show(500).animate({right: 0});
-            $content.removeClass('col-md-12').addClass('col-md-9');
+            $content.removeClass('col-xs-12 col-md-12').addClass('hidden-xs hidden-sm col-md-9');
         }
         if ($content.hasClass('col-md-12') && $menu.is(':hidden')) {
             $menu.animate({
@@ -235,7 +233,7 @@ $(function () {
                 $menu.show(1000);
             });
             $content.removeClass('no-transition');
-            $content.removeClass('col-md-12').addClass('col-md-9');
+            $content.removeClass('col-xs-12 col-md-12').addClass('hidden-xs hidden-sm col-md-9');
         }
     });
     $('.bs-tooltip').tooltip();
