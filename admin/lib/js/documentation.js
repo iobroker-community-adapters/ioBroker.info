@@ -48,6 +48,9 @@ function showDocumentation() {
             infoData.docs[lang].blog.forEach(function (data) {
                 $('#doc_blog').append(createLi(data, lang, false));
             });
+            infoData.docs[lang].video.forEach(function (data) {
+                $('#doc_video').append(createLi(data, lang, false));
+            });
             infoData.docs[lang].development.forEach(function (data) {
                 $('#doc_development').append(createLi(data, lang, false));
             });
@@ -56,11 +59,33 @@ function showDocumentation() {
             });
         });
 
-        newsObject.sort(function (a, b) {
-            return a.date.localeCompare(b.date);
-        }).reverse().forEach(function(data){
-            $('#doc_news').append(createLi(data, systemLang, true));
-        });
+        if ($('#doc_community').children().length === 0) {
+            $('#doc_community_parent').remove();
+        }
+        if ($('#doc_documentation').children().length === 0) {
+            $('#doc_documentation_parent').remove();
+        }
+        if ($('#doc_blog').children().length === 0) {
+            $('#doc_blog_parent').remove();
+        }
+        if ($('#doc_video').children().length === 0) {
+            $('#doc_video_parent').remove();
+        }
+        if ($('#doc_development').children().length === 0) {
+            $('#doc_development_parent').remove();
+        }
+        if ($('#doc_other').children().length === 0) {
+            $('#doc_other_parent').remove();
+        }
+        if (newsObject.length === 0) {
+            $('#doc_news_parent').remove();
+        } else {
+            newsObject.sort(function (a, b) {
+                return a.date.localeCompare(b.date);
+            }).reverse().forEach(function (data) {
+                $('#doc_news').append(createLi(data, systemLang, true));
+            });
+        }
 
     }
 
@@ -74,7 +99,7 @@ function showDocumentation() {
         }
 
         if (hasDate) {
-            title += " (" + new Date(data.date).toLocaleDateString(systemLang, { weekday: 'short', year: 'numeric', month: '2-digit', day: '2-digit' }) + ")";
+            title += " (" + new Date(data.date).toLocaleDateString(systemLang, {weekday: 'short', year: 'numeric', month: '2-digit', day: '2-digit'}) + ")";
         }
 
         $link.find('.forumClass').removeClass('forumClass').text(title);

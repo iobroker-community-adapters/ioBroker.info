@@ -54,6 +54,7 @@
     "Updating adapter %s...": "Обновление адаптера %s ...",
     "Uptime": "Провел",
     "Version %s.x of Node.js is currently not fully supported.": "Версия %s.x из Node.js в настоящее время не поддерживается полностью.",
+    "Video Playlist": "Видео плейлист",
     "Your host '%s' is outdated!": "Ваш хозяин (%s) устарел!",
     "about the server": "над сервером",
     "adapters count": "Количество адаптеров",
