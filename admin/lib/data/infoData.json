@@ -149,6 +149,56 @@
                     "date": "2017-03-14T00:00:00.000Z"
                 }
             ],
+            "video": [
+                {
+                    "title": "Smart Home - ioBroker",
+                    "link": "https://www.youtube.com/channel/UCpZRrUCA-D4KDLgGM5GL4Iw"
+                },
+                {
+                    "title": "Verdrahtet",
+                    "link": "https://www.youtube.com/playlist?list=PLXwTV9CYYswieFE27l0hc4zWAjuEfC_uG"
+                },
+                {
+                    "title": "Meister TR",
+                    "link": "https://www.youtube.com/channel/UCYb_rkrpyqOPXpvtlXvTvEQ/videos"
+                },
+                {
+                    "title": "haus-automatisierung.com",
+                    "link": "https://www.youtube.com/playlist?list=PLcXIjZgo0R3AWNbOypQ7F66qKmupMxWKx"
+                },
+                {
+                    "title": "SmarthomeAssistent",
+                    "link": "https://www.youtube.com/playlist?list=PL0nObA7djdaVbMn4jtSwLlNyB66hWQePa"
+                },
+                {
+                    "title": "Elzershark",
+                    "link": "https://www.youtube.com/user/MrElzershark/videos"
+                },
+                {
+                    "title": "IoT Blog",
+                    "link": "https://www.youtube.com/user/IR0Nmetin2/videos"
+                },
+                {
+                    "title": "SmartesHome",
+                    "link": "https://www.youtube.com/user/TheKonrad650/videos"
+                },
+                {
+                    "title": "Sven Topp",
+                    "link": "https://www.youtube.com/channel/UCWNrpBBFbvrK8gAWLDX9QuQ"
+                },
+                {
+                    "title": "EddyD's SmartHome",
+                    "link": "https://www.youtube.com/channel/UCAqbw0Fw9C_hgiqJKqKpd-g/videos"
+                },
+                {
+                    "title": "SmartMediaRLP",
+                    "link": "https://www.youtube.com/channel/UC9DPatzHvGqLBGTzFxR7i5w/videos"
+                },
+                {
+                    "title": "Michael Mackedanz",
+                    "link": "https://www.youtube.com/channel/UCgBrBIIUrmIjJwJZ7sOLu4A"
+                }
+            ],
             "other": [
                 {
                     "title": "Wikipedia - ioBroker",
@@ -215,6 +265,8 @@
                     "link": "http://www.linux-magazine.com/Issues/2018/212/ioBroker",
                     "date": "2018-07-01T00:00:00.000Z"
                 }
+            ],
+            "video": [
             ],
             "other": [
             ]
@@ -290,6 +342,8 @@
                     "date": "2014-07-15T00:00:00.000Z"
                 }
             ],
+            "video": [
+            ],
             "other": [
             ]
         },
@@ -303,6 +357,8 @@
             "blog": [
             ],
             "news": [
+            ],
+            "video": [
             ],
             "other": [
             ]
@@ -326,6 +382,8 @@
             ],
             "news": [
             ],
+            "video": [
+            ],
             "other": [
             ]
         },
@@ -339,6 +397,8 @@
             "blog": [
             ],
             "news": [
+            ],
+            "video": [
             ],
             "other": [
             ]
@@ -354,6 +414,8 @@
             ],
             "news": [
             ],
+            "video": [
+            ],
             "other": [
             ]
         },
@@ -368,6 +430,8 @@
             ],
             "news": [
             ],
+            "video": [
+            ],
             "other": [
             ]
         },
@@ -381,6 +445,8 @@
             "blog": [
             ],
             "news": [
+            ],
+            "video": [
             ],
             "other": [
             ]
@@ -404,6 +470,8 @@
             ],
             "news": [
             ],
+            "video": [
+            ],
             "other": [                
             ]
         },
@@ -417,6 +485,8 @@
             "blog": [
             ],
             "news": [
+            ],
+            "video": [
             ],
             "other": [
                 {
