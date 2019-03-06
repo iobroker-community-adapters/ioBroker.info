@@ -53,6 +53,7 @@ function startForum() {
     async function getGermanFeedData(lang) {
         let rssFeedUnordered = [];
         await asyncForEach(forumRss[lang].feeds, async function (link) {
+            feednami.setPublicApiKey('df71de3955ec5b1d0b27ec176eeafe29ecc820a19e28ea8b96f56306912feb5c');
             const data = await feednami.load(link);
             if (data && data.entries) {
                 await asyncForEach(data.entries, function (feed) {
@@ -70,6 +71,7 @@ function startForum() {
     async function getDescription(thread) {
         const link = thread.link;
         const topic = link.substring(0, link.lastIndexOf('/')) + ".rss";
+        feednami.setPublicApiKey('df71de3955ec5b1d0b27ec176eeafe29ecc820a19e28ea8b96f56306912feb5c');
         const data = await feednami.load(topic);
         if (data && data.entries) {
             return data.entries[0];
@@ -79,6 +81,7 @@ function startForum() {
     }
 
     async function getChinaForumData(lang) {
+        feednami.setPublicApiKey('d32399506338321fd27308df68c56089a376721b6673cc775dc22718a04fc4bb');
         const data = await feednami.load(forumRss[lang].feeds[0]);
         if (data && data.entries) {
             for (let i = 0; i < data.entries.length; i++) {
