@@ -261,11 +261,7 @@
                     "link": "https://github.com/iobroker-community-adapters/info/blob/master/ABOUT_US.md"
                 }
             ],
-            "blog": [
-                {
-                    "title": "ioBroker ШКОЛА (на русском)",
-                    "link": "https://www.youtube.com/playlist?list=PLhZP6yZlpKQ9c_EukRSrgWs0A9adz36w6"
-                }
+            "blog": [                
             ],
             "news": [
                 {
