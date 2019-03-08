@@ -151,8 +151,8 @@
             ],
             "video": [
                 {
-                    "title": "Smart Home - ioBroker",
-                    "link": "https://www.youtube.com/channel/UCpZRrUCA-D4KDLgGM5GL4Iw"
+                    "title": "ioBroker Schule (auf Deutsch)",
+                    "link": "https://www.youtube.com/playlist?list=PLhZP6yZlpKQ9MFV74PQe5JYNItbLLgfG4"
                 },
                 {
                     "title": "Verdrahtet",
@@ -262,6 +262,10 @@
                 }
             ],
             "blog": [
+                {
+                    "title": "ioBroker ШКОЛА (на русском)",
+                    "link": "https://www.youtube.com/playlist?list=PLhZP6yZlpKQ9c_EukRSrgWs0A9adz36w6"
+                }
             ],
             "news": [
                 {
@@ -271,6 +275,10 @@
                 }
             ],
             "video": [
+                {
+                    "title": "ioBroker School (in English)",
+                    "link": "https://www.youtube.com/playlist?list=PLhZP6yZlpKQ-t9lvkpztuinxOzzGSXUYw"
+                }
             ],
             "other": [
             ]
@@ -347,6 +355,10 @@
                 }
             ],
             "video": [
+                {
+                    "title": "ioBroker ШКОЛА (на русском)",
+                    "link": "https://www.youtube.com/playlist?list=PLhZP6yZlpKQ9c_EukRSrgWs0A9adz36w6"
+                },
                 {
                     "title": "Мастерская Владимира",
                     "link": "https://www.youtube.com/playlist?list=PLA6TBm4tmPqKzrYniTBb1TVm_pNg3fOuY"
@@ -495,6 +507,21 @@
             "news": [
             ],
             "video": [
+                {
+                    "title": {
+                        "en": "ioBroker",
+                        "de": "ioBroker",
+                        "ru": "ioBroker",
+                        "pt": "ioBroker",
+                        "nl": "ioBroker",
+                        "fr": "ioBroker",
+                        "it": "ioBroker",
+                        "es": "ioBroker",
+                        "pl": "ioBroker",
+                        "zh-cn": "ioBroker"
+                    },
+                    "link": "https://www.youtube.com/playlist?list=PLhZP6yZlpKQ8bwaGwrVoQzyjmS0SbQoNr"
+                }
             ],
             "other": [
                 {
