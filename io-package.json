@@ -1,9 +1,9 @@
 {
     "common": {
         "name": "info",
-        "version": "1.2.2",
+        "version": "1.2.3",
         "news": {
-            "1.2.2": {
+            "1.2.3": {
                 "en": "Added important links (documentation)",
                 "de": "Wichtige Links (Dokumentation) hinzugefügt",
                 "ru": "Добавлены важные ссылки (документация)",
@@ -215,7 +215,8 @@
         "adapter_request": true,
         "adapter_issue": true,
         "documentation": true,
-        "doc_langs": []
+        "doc_langs": [],
+        "feednami": ""
     },
     "objects": [],
     "instanceObjects": [

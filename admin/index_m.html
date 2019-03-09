@@ -85,6 +85,19 @@
                         <span class="translate"></span>
                     </div>
                     <div class="input-field col s4">
+                        <input class="value" id="adapter_request" type="checkbox" />
+                        <label for="adapter_request" class="translate">Show adapter requests</label>
+                        <span class="translate"></span>
+                    </div>
+                    <div class="input-field col s4">
+                        <input class="value" id="adapter_issue" type="checkbox" />
+                        <label for="adapter_issue" class="translate">Show known errors</label>
+                        <span class="translate"></span>
+                    </div>                    
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s4">
                         <input class="value" id="news" type="checkbox" />
                         <label for="news" class="translate">Show ioBroker news</label>
                         <span class="translate"></span>
@@ -94,20 +107,11 @@
                         <label for="forum" class="translate">Show forum news</label>
                         <span class="translate"></span>
                     </div>
-                </div>
-
-                <div class="row">
                     <div class="input-field col s4">
-                        <input class="value" id="adapter_request" type="checkbox" />
-                        <label for="adapter_request" class="translate">Show adapter requests</label>
-                        <span class="translate"></span>
-                    </div>
-                    <div class="input-field col s4">
-                        <input class="value" id="adapter_issue" type="checkbox" />
-                        <label for="adapter_issue" class="translate">Show known errors</label>
-                        <span class="translate"></span>
-                    </div>
-                    <div class="input-field col s4">                       
+                        <input class="value" id="feednami" type="text" />
+                        <label for="feednami" class="translate">Feednami API Key</label>
+                        <span class="translate">To read news or forum, you need a free API Key if your ioBroker installation can be reached via a hostname, such as iobroker: 8081 or something similar. For IP access it is not needed.</span>
+                        <span><a href="https://toolkit.sekando.com/docs/en/setup/hostnames" target="_blank" class="translate">Click here to register</a></span>
                     </div>
                 </div>
 

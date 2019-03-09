@@ -1,4 +1,4 @@
-/* global systemLang, feednami, dateOptions, infoData */
+/* global systemLang, feednami, dateOptions, infoData, adapterConfig */
 
 function startForum() {
 
@@ -53,6 +53,9 @@ function startForum() {
     async function getGermanFeedData(lang) {
         let rssFeedUnordered = [];
         await asyncForEach(forumRss[lang].feeds, async function (link) {
+            if (adapterConfig.feednami) {
+                feednami.setPublicApiKey(adapterConfig.feednami);
+            }
             const data = await feednami.load(link);
             if (data && data.entries) {
                 await asyncForEach(data.entries, function (feed) {
@@ -70,6 +73,9 @@ function startForum() {
     async function getDescription(thread) {
         const link = thread.link;
         const topic = link.substring(0, link.lastIndexOf('/')) + ".rss";
+        if (adapterConfig.feednami) {
+            feednami.setPublicApiKey(adapterConfig.feednami);
+        }
         const data = await feednami.load(topic);
         if (data && data.entries) {
             return data.entries[0];
@@ -79,6 +85,9 @@ function startForum() {
     }
 
     async function getChinaForumData(lang) {
+        if (adapterConfig.feednami) {
+            feednami.setPublicApiKey(adapterConfig.feednami);
+        }
         const data = await feednami.load(forumRss[lang].feeds[0]);
         if (data && data.entries) {
             for (let i = 0; i < data.entries.length; i++) {
