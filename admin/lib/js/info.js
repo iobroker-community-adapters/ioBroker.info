@@ -120,57 +120,73 @@ $(function () {
             } else {
                 $('#forumBlock').hide();
             }
-            
+
             if (adapterConfig.news) {
                 checkNewsLang();
-                readAndWriteNewsData();                
+                readAndWriteNewsData();
             } else {
                 $('#newsBlock').hide();
             }
-            
+
             if (!adapterConfig.clock) {
                 startClock("start");
             } else {
                 $('#home-container').hide();
             }
-            
+
             if (adapterConfig.new_adapters) {
                 searchGithubForNewAdapters(adapterConfig.new_adapters_sort, adapterConfig.new_adapters_order);
             } else {
                 $('#adapterSearchBlock').hide();
             }
-            
+
             if (adapterConfig.adapter_request) {
                 showAdapterRequest();
             } else {
                 $('#adapterRequestBlock').hide();
-                if(adapterConfig.adapter_issue){
+                if (adapterConfig.adapter_issue) {
                     $('#knownIssuesBlock').removeClass().addClass("col-xs-12 col-sm-12 col-md-12 col-lg-12");
                 }
-            }            
+            }
             if (adapterConfig.adapter_issue) {
                 showIssues();
             } else {
                 $('#knownIssuesBlock').hide();
-                if(adapterConfig.adapter_request){
+                if (adapterConfig.adapter_request) {
                     $('#adapterRequestBlock').removeClass().addClass("col-xs-12 col-sm-12 col-md-12 col-lg-12");
                 }
-            }            
-            if(!adapterConfig.adapter_issue && !adapterConfig.adapter_request){
-                $('#adapterRequestIssueBlock').hide();                
             }
-            
+            if (!adapterConfig.adapter_issue && !adapterConfig.adapter_request) {
+                $('#adapterRequestIssueBlock').hide();
+            }
+
             if (adapterConfig.documentation) {
                 showDocumentation();
             } else {
                 $('.rotate-button').hide();
             }
 
-            translateAll(systemLang);            
+            translateAll(systemLang);
 
         } else {
-            startClock("stop");            
+            startClock("stop");
         }
-        startPopupNews();
+
+        var loadJS = function (url, implementationCode, location) {
+        
+            var scriptTag = window.top.document.createElement('script');
+            scriptTag.src = url;
+
+            scriptTag.onload = implementationCode;
+            scriptTag.onreadystatechange = implementationCode;
+
+            location.appendChild(scriptTag);
+        };
+        var yourCodeToBeCalled = function () {
+             startPopupNews();
+        };
+        loadJS('popupnews.js', yourCodeToBeCalled, window.top.document.head);
+
+       
     });
 });

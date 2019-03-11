@@ -32,7 +32,7 @@ function startPopupNews() {
                     }
                 },
                 checkVersionBetween: function (inst, vers1, vers2) {
-                    return inst === vers1 || inst === vers2 || (checkVersion(vers1, inst) && checkVersion(inst, vers2));
+                    return inst === vers1 || inst === vers2 || (this.checkVersion(vers1, inst) && this.checkVersion(inst, vers2));
                 },
                 showPopup: async function (obj) {
                     try {
@@ -60,14 +60,14 @@ function startPopupNews() {
                                             showIt = (adapter.version === vers);
                                         } else if (adapter && condition.startsWith("bigger")) {
                                             const vers = condition.substring(7, condition.length() - 1).trim();
-                                            showIt = checkVersion(adapter.version, vers);
+                                            showIt = this.checkVersion(adapter.version, vers);
                                         } else if (adapter && condition.startsWith("smaller")) {
                                             const vers = condition.substring(8, condition.length() - 1).trim();
-                                            showIt = checkVersion(vers, adapter.version);
+                                            showIt = this.checkVersion(vers, adapter.version);
                                         } else if (adapter && condition.startsWith("between")) {
                                             const vers1 = condition.substring(8, condition.indexOf(',')).trim();
                                             const vers2 = condition.substring(condition.indexOf(',') + 1, condition.length() - 1).trim();
-                                            showIt = checkVersionBetween(adapter.version, vers1, vers2);
+                                            showIt = this.checkVersionBetween(adapter.version, vers1, vers2);
                                         }
 
                                     });
@@ -78,7 +78,7 @@ function startPopupNews() {
                                 }
                             });
 
-                            socket.emit('setState', 'info.0.popupReaded', {val: true, ack: true});
+                            window.top.gMain.socket.emit('setState', 'info.0.popupReaded', {val: true, ack: true});
                         }
                     } catch (err) {
 
