@@ -36,8 +36,8 @@ function startAdapter(options) {
             }
         },
         message: function (obj) {
-            if (typeof obj == 'object' && obj.message) {
-                if (obj.command == 'send') {
+            if (typeof obj === 'object' && obj.message) {
+                if (obj.command === 'send') {
                     // e.g. send email or pushover or whatever
                     console.log('send command');
 
@@ -61,9 +61,9 @@ const checkNews = function () {
 
     const newsLink = 'https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.info/master/data/news.json';
 
-    axios(newsLink).then(function (popupnews) {
-        adapter.log.info("Popup-News readed...");
-        adapter.setState('newsfeed', {val: JSON.stringify(popupnews), ack: true});
+    axios(newsLink).then(function (resp) {
+        adapter.log.info("Popup-News readed...");      
+        adapter.setState('newsfeed', {val: JSON.stringify(resp.data), ack: true});
     }).catch(function (error) {
         adapter.log.error(error);
     });

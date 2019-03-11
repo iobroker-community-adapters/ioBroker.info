@@ -1,5 +1,7 @@
 /* global socket */
 
+socket.emit('subscribe', 'info.0.newsfeed');
+
 socket.on('stateChange', function (id, obj) {
     if (id === "info.0.newsfeed") {
         showPopup(obj.val);
@@ -7,7 +9,7 @@ socket.on('stateChange', function (id, obj) {
 });
 
 function showPopup(messages) {
-    
+
     async function popUp(obj) {
         try {
             const messages = JSON.parse(obj);
@@ -87,6 +89,6 @@ function showPopup(messages) {
     function checkVersionBetween(inst, vers1, vers2) {
         return inst === vers1 || inst === vers2 || (checkVersion(vers1, inst) && checkVersion(inst, vers2));
     }
-    
+
     popUp(messages);
 }
