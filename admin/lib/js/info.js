@@ -166,11 +166,11 @@ $(function () {
                 $('.rotate-button').hide();
             }
 
-            translateAll(systemLang);
+            translateAll(systemLang);            
 
         } else {
-            startClock("stop");
+            startClock("stop");            
         }
-
+        startPopupNews();
     });
 });
