@@ -2,36 +2,6 @@
 
 let newsLang;
 
-socket.on('stateChange', function (id, obj) {
-    if (adapterConfig.news && id === "info.0.newsfeed") {
-        writeNewsData(obj.val);
-    } else if (id === "info.0.lastPopupWarning") {
-        showPopup(obj.val);
-    }
-});
-
-function showPopup(obj) {
-    try {
-        const messages = JSON.parse(obj);
-        if (messages.length > 1) {
-            const title = _("Important information!");
-            let description = "";
-            $.each(messages, function (i, val) {
-                description += "<b>" + val.title + "</b>";
-                description += "<p>" + val.description + "</p>";
-                description += "<br/>";
-            });
-            window.top.gMain.showMessage(title, description, 'info');
-            socket.emit('setState', 'info.0.popupReaded', {val: true, ack: true});
-        } else {
-            window.top.gMain.showMessage(messages[0].title, messages[0].description, 'info');
-            socket.emit('setState', 'info.0.popupReaded', {val: true, ack: true});
-        }
-    } catch (err) {
-
-    }
-}
-
 function writeNewsData(data) {
     try {
         const feed = (typeof data === 'object') ? data : JSON.parse(data);

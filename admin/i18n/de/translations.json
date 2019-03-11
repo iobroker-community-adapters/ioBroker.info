@@ -52,7 +52,7 @@
     "System uptime": "System Betriebszeit",
     "The adapter %s has been successfully installed!": "Der Adapter %s wurde erfolgreich installiert!",
     "The adpter %s has been successfully updated!": "Der Adapter %s wurde erfolgreich aktualisiert!",
-    "To read news or forum, you need a free API Key if your ioBroker installation can be reached via a hostname, such as iobroker: 8081 or something similar. For IP access it is not needed.": "News Lesen oder ein forum benötigen Sie einen kostenlosen API-Key, wenn Ihr ioBroker installation kann erreicht werden über einen Hostnamen, wie z.B. iobroker: 8081 oder so ähnlich. Für den IP-Zugriff ist nicht erforderlich.",
+    "To read news or forum, you need a free API Key if your ioBroker installation can be reached via a hostname, such as iobroker: 8081 or something similar. For IP access it is not needed.": "Um News- oder Forumeinträge zu Lesen, benötigen Sie einen kostenlosen API-Key, wenn Sie ioBroker über einen Hostnamen aufrufen, wie z.B. iobroker:8081 oder so ähnliches. Für den IP-Zugriff ist keine Key erforderlich.",
     "Updates": "Aktualisierungen",
     "Updating adapter %s...": "Adapter %s wird aktualisiert...",
     "Uptime": "Betriebszeit",

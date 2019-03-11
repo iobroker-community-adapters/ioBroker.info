@@ -8,6 +8,7 @@ const gulp = require("gulp");
 const fs = require("fs");
 const pkg = require("./package.json");
 const iopackage = require("./io-package.json");
+const popupNews = require("./data/news.json");
 const version = (pkg && pkg.version) ? pkg.version : iopackage.common.version;
 const fileName = "words.js";
 const EMPTY = "";
@@ -447,6 +448,16 @@ gulp.task('translate', async function (done) {
             console.log("Translate Description");
             await translateNotExisting(iopackage.common.desc, null, yandex);
         }
+        
+        if(popupNews && popupNews.length > 0){
+            for(let i in popupNews){
+                const news = popupNews[i];
+                console.log("Translate Popup-News Title " + i);
+                await translateNotExisting(news.title, null, yandex);
+                console.log("Translate Popup-News Content " + i);
+                await translateNotExisting(news.content, null, yandex);
+            }           
+        }
 
         if (fs.existsSync('./admin/i18n/en/translations.json')) {
             let enTranslations = require('./admin/i18n/en/translations.json');
@@ -470,6 +481,7 @@ gulp.task('translate', async function (done) {
 
     }
     fs.writeFileSync('io-package.json', JSON.stringify(iopackage, null, 4));
+    fs.writeFileSync('./data/news.json', JSON.stringify(popupNews, null, 4));
 });
 
 gulp.task("translateAndUpdateWordsJS", gulp.series("translate", "adminLanguages2words", "adminWords2languages"));

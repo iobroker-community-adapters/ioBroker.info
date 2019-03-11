@@ -245,18 +245,6 @@
             "native": {}
         },
         {
-            "_id": "lastPopupWarning",
-            "type": "state",
-            "common": {
-                "name": "Last Popup",
-                "type": "string",
-                "role": "json",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
             "_id": "popupReaded",
             "type": "state",
             "common": {

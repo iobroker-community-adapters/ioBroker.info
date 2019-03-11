@@ -6,9 +6,6 @@
 const utils = require('@iobroker/adapter-core'); // Get common adapter utils
 const axios = require('axios');
 
-let systemLang = "en";
-let newsLang = "en";
-
 // you have to call the adapter function and pass a options object
 // name has to be set and has to be equal to adapters folder name and main file name excluding extension
 // adapter will be restarted automatically every time as the configuration changed, e.g system.adapter.template.0
@@ -51,16 +48,7 @@ function startAdapter(options) {
             }
         },
         ready: function () {
-            adapter.getForeignObject('system.config', (err, data) => {
-                if (data && data.common) {
-                    systemLang = data.common.language;
-                }
-                newsLang = systemLang;
-                if (newsLang !== "de" && newsLang !== "ru") {
-                    newsLang = "en";
-                }
-                main();
-            });
+            main();
         }
     });
 
@@ -71,40 +59,19 @@ function startAdapter(options) {
 
 const checkNews = function () {
 
-    const newsLink = 'https://api.feednami.com/api/v1.1/feeds/load?url=http%3A%2F%2Fwww.iobroker.net%2Fdocu%2F%3Ffeed%3Drss2%26lang%3D' + newsLang;
+    const newsLink = 'https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.info/master/data/news.json';
 
-    axios(newsLink).then(function (feed) {
-        adapter.log.info("News feed readed...");
-        adapter.log.debug(feed);
-        adapter.setState('newsfeed', {val: JSON.stringify(feed), ack: true});
-        adapter.getState('lastPopupWarningDate', function (err, state) {
-            adapter.log.debug("lastPopupWarningDate " + state);
-            const lastInfo = new Date(state ? state : 0);
-            const infos = [];
-            feed.entries.forEach(function (entry) {
-                let pubDate = new Date(entry.pubDate);
-                if (entry.title.indexOf('*') === 0 && pubDate > lastInfo) {
-                    const info = {};
-                    info.title = entry.title;
-                    info.pubDate = entry.pubDate;
-                    info.description = entry.description;
-                    infos.push(info);
-                }
-            });
-            if (infos.length > 0) {
-                adapter.setState('popupReaded', {val: false, ack: true});
-                adapter.setState('lastPopupWarning', {val: JSON.stringify(infos), ack: true});
-                adapter.setState('lastPopupWarningDate', {val: new Date(), ack: true});
-            }
-        });
+    axios(newsLink).then(function (popupnews) {
+        adapter.log.info("Popup-News readed...");
+        adapter.setState('newsfeed', {val: JSON.stringify(popupnews), ack: true});
     }).catch(function (error) {
         adapter.log.error(error);
     });
 };
 
 function main() {
-    //checkNews();
-    //setInterval(checkNews, 30 * 60 * 1000);
+    checkNews();
+    setInterval(checkNews, 30 * 60 * 1000);
 }
 
 // If started as allInOne/compact mode => return function to create instance
