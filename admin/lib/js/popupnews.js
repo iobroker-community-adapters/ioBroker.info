@@ -1,4 +1,4 @@
-/* global socket */
+/* global socket, systemLang */
 
 socket.emit('subscribe', 'info.0.newsfeed');
 
@@ -22,7 +22,7 @@ function showPopup(messages) {
                         showIt = false;
                     } else if (message['date-end'] && new Date(message['date-end']) < today) {
                         showIt = false;
-                    } else if (message.conditions && message.conditions > 0) {
+                    } else if (message.conditions && Object.keys(message.conditions).length > 0) {
                         const adapters = window.top.gMain.tabs.adapters.curInstalled;
                         await asyncForEach(Object.keys(message.conditions), function (key) {
                             const adapter = adapters[key];
@@ -50,7 +50,7 @@ function showPopup(messages) {
                     }
 
                     if (showIt) {
-                        window.top.gMain.showMessage(message.title, message.content, 'info');
+                        window.top.gMain.showMessage(message.title[systemLang], message.content[systemLang], 'info');
                     }
                 });
 
