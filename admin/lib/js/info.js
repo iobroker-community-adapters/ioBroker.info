@@ -172,21 +172,7 @@ $(function () {
             startClock("stop");
         }
 
-        var loadJS = function (url, implementationCode, location) {
-        
-            var scriptTag = window.top.document.createElement('script');
-            scriptTag.src = url;
-           
-            scriptTag.onload = implementationCode;
-            scriptTag.onreadystatechange = implementationCode;
-
-            location.appendChild(scriptTag);
-        };
-        var yourCodeToBeCalled = function () {
-             startPopupNews();
-        };
-        loadJS('./adapter/info/lib/js/popupnews.js', yourCodeToBeCalled, window.top.document.head);
-
+        startPopupNews();
        
     });
 });
