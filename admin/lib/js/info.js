@@ -185,7 +185,7 @@ $(function () {
         var yourCodeToBeCalled = function () {
              startPopupNews();
         };
-        loadJS('./lib/js/popupnews.js', yourCodeToBeCalled, window.top.document.head);
+        loadJS('./adapter/info/lib/js/popupnews.js', yourCodeToBeCalled, window.top.document.head);
 
        
     });
