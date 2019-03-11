@@ -1,38 +1,31 @@
 [
     {
         "title": {
-            "en": "Conversion of the forum on 09.02.2019 from 18:00",
-            "de": "Umstellung des Forums am 09.02.2019 von 18:00 Uhr",
-            "ru": "Конверсия форума от 09.02.2019 с 18:00",
-            "pt": "Conversão do fórum em 09.02.2019 a partir das 18:00",
-            "nl": "Conversie van het forum op 09.02.2019 vanaf 18.00 uur",
-            "fr": "Conversion du forum le 09.02.2019 à partir de 18h00",
-            "it": "Conversione del forum il 09.02.2019 dalle 18:00",
-            "es": "Conversión del foro el 09.02.2019 a partir de las 18:00",
-            "pl": "Konwersja forum w dniu 09.02.2019 od godz. 18:00",
-            "zh-cn": "论坛于09.02.2019从18:00开始转换"
+            "en": "This is a test",
+            "de": "Dies ist ein Test",
+            "ru": "Это тест",
+            "pt": "Isto é um teste",
+            "nl": "Dit is een test",
+            "fr": "C'est un test",
+            "it": "Questo è un test",
+            "es": "Esto es una prueba",
+            "pl": "To jest test",
+            "zh-cn": "这是一个测试"
         },
         "content": {
-            "en": "The forum conversion will take place on Saturday the 9th of February from about 18:00. The passwords of your users are not taken over. For this reason please use the password forgot function after conversion.",
-            "de": "Die Forumumsetzung findet am Samstag, dem 9. Februar ab ca. 18:00 Uhr statt. ",
-            "ru": "Конверсия форума состоится в субботу 9 февраля с 18:00. ",
-            "pt": "A conversão do fórum ocorrerá no sábado, 9 de fevereiro, a partir das 18:00. ",
-            "nl": "De conversie van het forum vindt plaats op zaterdag 9 februari vanaf ongeveer 18:00 uur. ",
-            "fr": "La conversion du forum aura lieu le samedi 9 février à partir de 18h00 environ. ",
-            "it": "La conversione del forum si svolgerà sabato 9 febbraio dalle 18:00 circa. ",
-            "es": "La conversión del foro tendrá lugar el sábado 9 de febrero a partir de las 18:00. ",
-            "pl": "Konwersja forum odbędzie się w sobotę 9 lutego od około 18:00. ",
-            "zh-cn": "论坛转换将于2月9日星期六18:00左右开始。"
+            "en": "Hello World",
+            "de": "Hallo Welt",
+            "ru": "Привет, мир",
+            "pt": "Olá Mundo",
+            "nl": "Hallo Wereld",
+            "fr": "Bonjour le monde",
+            "it": "Ciao mondo",
+            "es": "Hola Mundo",
+            "pl": "Witaj świecie",
+            "zh-cn": "你好，世界"
         },
         "date-start": "",
         "date-end": "",
-        "conditions": {
-            "babab": "between(0.0.1, 0.1.1)",
-            "bibo": "bigger(1.1.2)",
-            "info": "smaller(1.1.0)",
-            "test": "installed",
-            "bla": "!installed",
-            "hhh": "equals(1.1.1)"
-        }
+        "conditions": {}
     }
 ]
