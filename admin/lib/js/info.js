@@ -172,22 +172,21 @@ $(function () {
             startClock("stop");
         }
 
-        var loadJS = function (implementationCode, location) {
+        var loadJS = function (url, implementationCode, location) {
+        
             var scriptTag = window.top.document.createElement('script');
-            scriptTag.type = 'text/javascript';
-            $.getScript("popupnews.js", function (data, textStatus, jqxhr) {
-                scriptTag.text = data;
-                scriptTag.onload = implementationCode;
-                scriptTag.onreadystatechange = implementationCode;
+            scriptTag.src = url;
+           
+            scriptTag.onload = implementationCode;
+            scriptTag.onreadystatechange = implementationCode;
 
-                location.appendChild(scriptTag);
-            });
+            location.appendChild(scriptTag);
         };
         var yourCodeToBeCalled = function () {
-            startPopupNews();
+             startPopupNews();
         };
-        loadJS(yourCodeToBeCalled, window.top.document.head);
+        loadJS('./lib/js/popupnews.js', yourCodeToBeCalled, window.top.document.head);
 
-
+       
     });
 });
