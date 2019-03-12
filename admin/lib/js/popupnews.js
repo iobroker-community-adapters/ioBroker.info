@@ -37,14 +37,14 @@ function startPopupNews() {
                 showPopup: async function (obj) {
                     try {
                         const messages = JSON.parse(obj);
-                        const today = new Date();
+                        const today = new Date().getTime();
                         const adapters = window.top.gMain.tabs.adapters.curInstalled;
                         if (messages.length > 0) {
                             await asyncForEach(messages, async function (message) {
                                 let showIt = true;
-                                if (showIt && message['date-start'] && new Date(message['date-start']) > today) {
+                                if (showIt && message['date-start'] && new Date(message['date-start']).getTime() > today) {
                                     showIt = false;
-                                } else if (showIt && message['date-end'] && new Date(message['date-end']) < today) {
+                                } else if (showIt && message['date-end'] && new Date(message['date-end']).getTime() < today) {
                                     showIt = false;
                                 } else if (showIt && message.conditions && Object.keys(message.conditions).length > 0) {
                                     const adapters = window.top.gMain.tabs.adapters.curInstalled;
@@ -58,20 +58,20 @@ function startPopupNews() {
                                         } else if (!adapter){
                                             showIt = false;
                                         } else if (condition.startsWith("equals")) {
-                                            const vers = condition.substring(7, condition.length() - 1).trim();
+                                            const vers = condition.substring(7, condition.length - 1).trim();
                                             showIt = (adapter.version === vers);
                                         } else if (condition.startsWith("bigger")) {
-                                            const vers = condition.substring(7, condition.length() - 1).trim();
+                                            const vers = condition.substring(7, condition.length - 1).trim();
                                             showIt = newsPopup.checkVersion(adapter.version, vers);
                                         } else if (condition.startsWith("smaller")) {
-                                            const vers = condition.substring(8, condition.length() - 1).trim();
+                                            const vers = condition.substring(8, condition.length - 1).trim();
                                             showIt = newsPopup.checkVersion(vers, adapter.version);
                                         } else if (condition.startsWith("between")) {
                                             const vers1 = condition.substring(8, condition.indexOf(',')).trim();
                                             const vers2 = condition.substring(condition.indexOf(',') + 1, condition.length() - 1).trim();
                                             showIt = newsPopup.checkVersionBetween(adapter.version, vers1, vers2);
                                         }
-
+                                        console.log(key + " " + condition + " = " + showIt);
                                     });
                                 }
 
