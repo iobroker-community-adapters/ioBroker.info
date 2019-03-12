@@ -84,7 +84,7 @@
         },
         "content": {
             "en": "Hello World",
-            "de": "Hallo Welt",
+            "de": "Das wird immer angezeigt",
             "ru": "Привет, мир",
             "pt": "Olá Mundo",
             "nl": "Hallo Wereld",
@@ -95,8 +95,8 @@
             "zh-cn": "你好，世界"
         },
         "created": "2019-01-01T00:00:00.000Z",
-        "class": "info|warning|danger",
-        "icon": "info|error_outline|warning|notification_important",
+        "class": "info",
+        "icon": "info",
         "date-start": "",
         "date-end": "",
         "conditions": {           
@@ -117,7 +117,7 @@
         },
         "content": {
             "en": "Hello World",
-            "de": "Hallo Welt",
+            "de": "Wird NUR angezeigt, wenn info größer 1.2.0 ist",
             "ru": "Привет, мир",
             "pt": "Olá Mundo",
             "nl": "Hallo Wereld",
@@ -128,12 +128,80 @@
             "zh-cn": "你好，世界"
         },
         "created": "2019-01-01T00:00:00.000Z",
-        "class": "info|warning|danger",
-        "icon": "info|error_outline|warning|notification_important",
+        "class": "danger",
+        "icon": "error_outline",
         "date-start": "",
         "date-end": "",
         "conditions": {
             "info": "bigger(1.2.0)"
+        }
+    },
+    {
+        "title": {
+            "en": "This is a test",
+            "de": "Dies ist ein !bring",
+            "ru": "Это тест",
+            "pt": "Isto é um teste",
+            "nl": "Dit is een test",
+            "fr": "C'est un test",
+            "it": "Questo è un test",
+            "es": "Esto es una prueba",
+            "pl": "To jest test",
+            "zh-cn": "这是一个测试"
+        },
+        "content": {
+            "en": "Hello World",
+            "de": "Wird NUR angezeigt, wenn bring nicht installiert ist",
+            "ru": "Привет, мир",
+            "pt": "Olá Mundo",
+            "nl": "Hallo Wereld",
+            "fr": "Bonjour le monde",
+            "it": "Ciao mondo",
+            "es": "Hola Mundo",
+            "pl": "Witaj świecie",
+            "zh-cn": "你好，世界"
+        },
+        "created": "2019-01-01T00:00:00.000Z",
+        "class": "info",
+        "icon": "error_outline",
+        "date-start": "",
+        "date-end": "",
+        "conditions": {
+            "bring": "!installed"
+        }
+    },
+    {
+        "title": {
+            "en": "This is a test",
+            "de": "Dies ist ein asterisk",
+            "ru": "Это тест",
+            "pt": "Isto é um teste",
+            "nl": "Dit is een test",
+            "fr": "C'est un test",
+            "it": "Questo è un test",
+            "es": "Esto es una prueba",
+            "pl": "To jest test",
+            "zh-cn": "这是一个测试"
+        },
+        "content": {
+            "en": "Hello World",
+            "de": "Wird NUR angezeigt, wenn asterisk installiert ist",
+            "ru": "Привет, мир",
+            "pt": "Olá Mundo",
+            "nl": "Hallo Wereld",
+            "fr": "Bonjour le monde",
+            "it": "Ciao mondo",
+            "es": "Hola Mundo",
+            "pl": "Witaj świecie",
+            "zh-cn": "你好，世界"
+        },
+        "created": "2019-01-01T00:00:00.000Z",
+        "class": "warning",
+        "icon": "android",
+        "date-start": "",
+        "date-end": "",
+        "conditions": {
+            "asterisk": "installed"
         }
     }
 ]

@@ -94,8 +94,7 @@ function startPopupNews() {
                     const $item = $('#popupNewsTemplate').children().clone(true, true);
                     $item.find('.popupnews_title').text(title);
                     $item.find('.popupnews_content').html(content);
-                    $('#popupnews').append($item);
-                    $('#popupnews').show();
+                    $('#popupnews').append($item);                   
                 }
 
             };
