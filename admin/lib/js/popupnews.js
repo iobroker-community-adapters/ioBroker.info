@@ -76,7 +76,7 @@ function startPopupNews() {
                                 }
 
                                 if (showIt) {
-                                    window.top.gMain.showMessage(message.title[systemLang], message.content[systemLang], message.icon ? message.icon : 'info');
+                                    //window.top.gMain.showMessage(message.title[systemLang], message.content[systemLang], message.icon ? message.icon : 'info');
 
                                     if (parent.window.location.hash === "#tab-info") {
                                         newsPopup.showDiv(message.title[systemLang], message.content[systemLang], message.class);
