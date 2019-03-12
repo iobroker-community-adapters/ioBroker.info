@@ -31,7 +31,10 @@
         "date-end": "2017-08-01T00:00:00.000Z",
         "conditions": {
             "admin": "between(0.0.1,1.0.0)",
-            "info": "!installed"
+            "info": "!installed",
+            "xxx": "smaller(1.0.0)",
+            "yyy": "bigger(0.0.1)",
+            "test": "installed"
         }
     },
     {
@@ -64,6 +67,73 @@
         "icon": "notification_important",
         "conditions": {
             "tankerkoenig": "between(1.0.5,2.0.4)"
+        }
+    },
+    {
+        "title": {
+            "en": "This is a test",
+            "de": "Dies ist ein Test Ohne Kondition",
+            "ru": "Это тест",
+            "pt": "Isto é um teste",
+            "nl": "Dit is een test",
+            "fr": "C'est un test",
+            "it": "Questo è un test",
+            "es": "Esto es una prueba",
+            "pl": "To jest test",
+            "zh-cn": "这是一个测试"
+        },
+        "content": {
+            "en": "Hello World",
+            "de": "Hallo Welt",
+            "ru": "Привет, мир",
+            "pt": "Olá Mundo",
+            "nl": "Hallo Wereld",
+            "fr": "Bonjour le monde",
+            "it": "Ciao mondo",
+            "es": "Hola Mundo",
+            "pl": "Witaj świecie",
+            "zh-cn": "你好，世界"
+        },
+        "created": "2019-01-01T00:00:00.000Z",
+        "class": "info|warning|danger",
+        "icon": "info|error_outline|warning|notification_important",
+        "date-start": "",
+        "date-end": "",
+        "conditions": {           
+        }
+    },
+    {
+        "title": {
+            "en": "This is a test",
+            "de": "Dies ist ein Info bigger 1.2.0",
+            "ru": "Это тест",
+            "pt": "Isto é um teste",
+            "nl": "Dit is een test",
+            "fr": "C'est un test",
+            "it": "Questo è un test",
+            "es": "Esto es una prueba",
+            "pl": "To jest test",
+            "zh-cn": "这是一个测试"
+        },
+        "content": {
+            "en": "Hello World",
+            "de": "Hallo Welt",
+            "ru": "Привет, мир",
+            "pt": "Olá Mundo",
+            "nl": "Hallo Wereld",
+            "fr": "Bonjour le monde",
+            "it": "Ciao mondo",
+            "es": "Hola Mundo",
+            "pl": "Witaj świecie",
+            "zh-cn": "你好，世界"
+        },
+        "created": "2019-01-01T00:00:00.000Z",
+        "class": "info|warning|danger",
+        "icon": "info|error_outline|warning|notification_important",
+        "date-start": "",
+        "date-end": "",
+        "conditions": {
+            "info": "bigger(1.2.0)"
         }
     }
 ]
