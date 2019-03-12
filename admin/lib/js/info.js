@@ -131,7 +131,8 @@ $(function () {
             if (!adapterConfig.clock) {
                 startClock("start");
             } else {
-                $('#home-container').hide();
+                $('.clock').hide();
+                $('.popupnews').addClass('col-sm-offset-3');
             }
 
             if (adapterConfig.new_adapters) {
@@ -167,12 +168,12 @@ $(function () {
             }
 
             translateAll(systemLang);
+            
+            startPopupNews();
 
         } else {
             startClock("stop");
         }
-
-        startPopupNews();
        
     });
 });

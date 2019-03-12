@@ -23,6 +23,7 @@ This is an ioBroker adapter to get informations about your system and some news 
 * (ldittmar) show adapter requests
 * (ldittmar) show bugs and issues
 * (ldittmar) diyplay important links
+* (ldittmar) add important popup news
 
 ### 1.1.x
 * (ldittmar) compact mode compatibility added

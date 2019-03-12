@@ -161,6 +161,7 @@ ul#cssClock li{
     left: 200px;
     top: -80px;
     width: 200px;
+    z-index: 100;
 }
 
 .clock {
@@ -443,4 +444,12 @@ ul#cssClock li{
 
 .docButton {
     margin-bottom: 30px;
+}
+
+.no-margin {
+    margin-top: 0;
+}
+
+.popupnews {
+    margin-top: -40px;
 }

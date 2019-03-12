@@ -74,15 +74,26 @@ function startPopupNews() {
                                 }
 
                                 if (showIt) {
-                                    window.top.gMain.showMessage(message.title[systemLang], message.content[systemLang], 'info');
+                                    window.top.gMain.showMessage(message.title[systemLang], message.content[systemLang], message.icon ? message.icon : 'info');
+
+                                    if (parent.window.location.hash === "#tab-info") {
+                                        this.showDiv(message.title[systemLang], message.content[systemLang], message.class);
+                                    }
+
                                 }
                             });
-
                             window.top.gMain.socket.emit('setState', 'info.0.popupReaded', {val: true, ack: true});
                         }
                     } catch (err) {
 
                     }
+                },
+                showDiv: function (title, content) {
+                    const $item = $('#popupNewsTemplate').children().clone(true, true);
+                    $item.find('.popupnews_title').text(title);
+                    $item.find('.popupnews_content').html(content);
+                    $('#popupnews').append($item);
+                    $('#popupnews').show();
                 }
 
             };

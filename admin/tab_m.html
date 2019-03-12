@@ -71,22 +71,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="tile-stats">
+                            <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 popupnews hidden" id="popupnews">
 
-                                </div>
-                            </div>      
-
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="tile-stats">
-
-                                </div>
-                            </div>
-
-                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <div class="tile-stats">
-
-                                </div>
                             </div>
 
                         </div>
@@ -481,6 +467,19 @@
             </li>
         </ul>
         <!-- / NewList --> 
+
+        <!-- Popup News -->
+        <div id="popupNewsTemplate" class="hidden">
+            <div class="alert alert-info alert-dismissible row" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="col-xs-2"><i class="fa fa-exclamation-triangle fa-5x"></i></div>
+                <div class="col-xs-9 col-xs-offset-1">
+                    <h2 class="no-margin popupnews_title"></h2>
+                    <p class="popupnews_content"></p>
+                </div>
+            </div>
+        </div>
+        <!-- / Popup News -->
 
         <!-- HostUpdateList -->
         <div id="hostUpdateHomeListTemplate" class="hidden">
