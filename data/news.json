@@ -24,8 +24,17 @@
             "pl": "Witaj świecie",
             "zh-cn": "你好，世界"
         },
-        "date-start": "",
-        "date-end": "",
-        "conditions": {}
+        "created": "2019-01-01T00:00:00.000Z",
+        "icon": "info|error_outline|warning|notification_important...",        
+        "date-start": "2017-07-01T00:00:00.000Z",
+        "date-end": "2017-08-01T00:00:00.000Z",
+        "conditions": {
+        	"admin": "equals(1.1.0)",
+        	"info": "bigger(0.0.1)",
+        	"info": "smaller(0.0.5)",
+        	"admin": "between(0.0.1,1.0.0)",
+        	"info": "installed",
+        	"info": "!installed"
+        }
     }
 ]
