@@ -51,26 +51,24 @@ function startPopupNews() {
                                     await asyncForEach(Object.keys(message.conditions), function (key) {
                                         const adapter = adapters[key];
                                         const condition = message.conditions[key];
-                                        if (!adapter && condition === "installed") {
+                                        if (!adapter && condition !== "!installed") {
                                             showIt = false;
                                         } else if (adapter && condition === "!installed") {
                                             showIt = false;
-                                        } else if (!adapter){
-                                            showIt = false;
-                                        } else if (condition.startsWith("equals")) {
+                                        } else if (adapter && condition.startsWith("equals")) {
                                             const vers = condition.substring(7, condition.length - 1).trim();
                                             showIt = (adapter.version === vers);
-                                        } else if (condition.startsWith("bigger")) {
+                                        } else if (adapter && condition.startsWith("bigger")) {
                                             const vers = condition.substring(7, condition.length - 1).trim();
                                             showIt = newsPopup.checkVersion(adapter.version, vers);
-                                        } else if (condition.startsWith("smaller")) {
+                                        } else if (adapter && condition.startsWith("smaller")) {
                                             const vers = condition.substring(8, condition.length - 1).trim();
                                             showIt = newsPopup.checkVersion(vers, adapter.version);
-                                        } else if (condition.startsWith("between")) {
+                                        } else if (adapter && condition.startsWith("between")) {
                                             const vers1 = condition.substring(8, condition.indexOf(',')).trim();
                                             const vers2 = condition.substring(condition.indexOf(',') + 1, condition.length() - 1).trim();
                                             showIt = newsPopup.checkVersionBetween(adapter.version, vers1, vers2);
-                                        }
+                                        } 
                                         console.log(key + " " + condition + " = " + showIt);
                                     });
                                 }
