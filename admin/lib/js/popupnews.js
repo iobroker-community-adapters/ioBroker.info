@@ -49,7 +49,7 @@ const newsPopup = {
         return inst === vers1 || inst === vers2 || (newsPopup.checkVersion(inst, vers1) && newsPopup.checkVersion(vers2, inst));
     },
     showPopup: async function (obj) {
-        const messages = await checkMessages(obj);
+        const messages = await newsPopup.checkMessages(obj);
         if (messages.length > 0) {
             await asyncForEach(messages, async function (message) {
                 if (parent.window.location.hash === "#tab-info") {
