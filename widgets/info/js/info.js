@@ -1,9 +1,9 @@
-/* global systemDictionary, vis */
+/* global systemDictionary, vis, socket, newsPopup */
 
 "use strict";
 
 // add translations for edit mode
-$.get( "adapter/info/words.js", function(script) {
+$.get("adapter/info/words.js", function (script) {
     let translation = script.substring(script.indexOf('{'), script.length);
     translation = translation.substring(0, translation.lastIndexOf(';'));
     $.extend(systemDictionary, JSON.parse(translation));
@@ -25,23 +25,13 @@ vis.binds["info"] = {
                 vis.binds["info"].createWidget(widgetID, view, data, style);
             }, 100);
         }
-
-        var text = '';
-        text += 'OID: ' + data.oid + '</div><br>';
-        text += 'OID value: <span class="myset-value">' + vis.states[data.oid + '.val'] + '</span><br>';
-        text += 'Color: <span style="color: ' + data.myColor + '">' + data.myColor + '</span><br>';
-        text += 'extraAttr: ' + data.extraAttr + '<br>';
-        text += 'Browser instance: ' + vis.instance + '<br>';
-        text += 'htmlText: <textarea readonly style="width:100%">' + (data.htmlText || '') + '</textarea><br>';
-
-        $('#' + widgetID).html(text);
-
-        // subscribe on updates of value
-        if (data.oid) {
-            vis.states.bind(data.oid + '.val', function (e, newVal, oldVal) {
-                $div.find('.info-value').html(newVal);
-            });
-        }
+        
+        socket.emit('getState', 'info.0.newsfeed', function (err, data) {
+            if (!err && data) {
+                newsPopup.showVisPopup(data.val, widgetID);
+            }
+        });
+        
     }
 };
 
