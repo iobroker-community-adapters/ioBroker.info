@@ -10,7 +10,7 @@ function startPopupNews() {
     });
 
     function loadPopup() {
-        socket.emit('getObject', 'info.0.newsfeed', function (err, data) {
+        socket.emit('getState', 'info.0.newsfeed', function (err, data) {
             if (!err && data) {
                 newsPopup.showPopup(data);
             }
