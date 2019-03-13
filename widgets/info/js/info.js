@@ -13,7 +13,7 @@ vis.binds["info"] = {
     version: "0.0.1",
     showVersion: function () {
         if (vis.binds["info"].version) {
-            console.log('Version template: ' + vis.binds["info"].version);
+            console.log('Version Info-Adapter-Widget: ' + vis.binds["info"].version);
             vis.binds["info"].version = null;
         }
     },
