@@ -12,7 +12,7 @@ function startPopupNews() {
     function loadPopup() {
         socket.emit('getState', 'info.0.newsfeed', function (err, data) {
             if (!err && data) {
-                newsPopup.showPopup(data);
+                newsPopup.showPopup(data.val);
             }
         });
     }

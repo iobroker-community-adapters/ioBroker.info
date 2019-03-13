@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "info",
-        "version": "1.2.3",
+        "version": "1.2.4",
         "news": {
             "1.2.3": {
                 "en": "Added important links (documentation)",
