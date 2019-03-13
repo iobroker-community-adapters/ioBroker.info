@@ -86,66 +86,6 @@
                 "es": "Compatibilidad con Admin 3.x.",
                 "pl": "Zgodność z administratorem 3.x.",
                 "zh-cn": "与Admin 3.x的兼容性。"
-            },
-            "0.0.6": {
-                "en": "Install and update function",
-                "de": "Funktionen für Install + Update implementiert",
-                "ru": "Функции для установки + обновления",
-                "pt": "Funções para instalação + atualização implementadas",
-                "fr": "Fonctions pour Install + Update implémentées",
-                "nl": "Functies voor installatie + update geïmplementeerd",
-                "it": "Funzioni per installazione + aggiornamento implementate",
-                "es": "Funciones para Install + Update implementadas",
-                "pl": "Zainstaluj i zaktualizuj funkcję",
-                "zh-cn": "安装和更新功能"
-            },
-            "0.0.4": {
-                "en": "Some fixes and design correction",
-                "de": "Bugfixes und Designkorrektur",
-                "ru": "Некоторые исправления ошибок и дизайн",
-                "pt": "Algumas correçoes de erros e design",
-                "fr": "Quelques corrections de bugs et de design",
-                "nl": "Enkele fixes en ontwerpcorrectie",
-                "it": "Alcune correzioni di bug e progettazione",
-                "es": "Algunas correcciones de errores y diseño",
-                "pl": "Niektóre poprawki i korekta projektu",
-                "zh-cn": "一些修复和设计更正"
-            },
-            "0.0.3": {
-                "en": "Show adapters infos",
-                "de": "Adapterinformationen anzeigen",
-                "ru": "Показать информацию об адаптере",
-                "pt": "Mostrar informações dos adaptadores",
-                "fr": "Plus d'informations sur les adaptateurs",
-                "nl": "Meest bekeken informadores adaptadores",
-                "it": "Mostra informazioni su adattatori",
-                "es": "Mostrar informações dos adaptadores",
-                "pl": "Pokaż informacje o adapterach",
-                "zh-cn": "显示适配器信息"
-            },
-            "0.0.2": {
-                "en": "System info",
-                "de": "Systeminformationen",
-                "ru": "информационная система",
-                "pt": "Informações do sistema",
-                "fr": "Informations sur le système",
-                "nl": "Systeeminformatie",
-                "it": "Informazioni di sistema",
-                "es": "Información del sistema",
-                "pl": "Informacje o systemie",
-                "zh-cn": "系统信息"
-            },
-            "0.0.1": {
-                "en": "initial version",
-                "de": "Initiale Version",
-                "ru": "Первоначальный адаптер",
-                "pt": "Versão inicial",
-                "fr": "Version initiale",
-                "nl": "Eerste release",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "początkowa wersja",
-                "zh-cn": "初始版本"
             }
         },
         "title": "Information tab",
@@ -198,11 +138,15 @@
             "singleton": true,
             "name": "Info",
             "fa-icon": "info"
-        },
+        },      
+        "restartAdapters": [
+            "vis"
+        ],
         "dependencies": [
             {
                 "admin": ">=3.0.0"
-            }
+            },
+            "vis"
         ]
     },
     "native": {

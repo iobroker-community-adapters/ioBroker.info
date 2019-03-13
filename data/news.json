@@ -162,7 +162,7 @@
         "fa-icon": "bath",
         "created": "2019-03-13T00:00:00.000Z",
         "conditions": {
-            "info": "bigger(1.2.0)"
+            "info": "bigger(1.2.3)"
         }
     }
 ]
