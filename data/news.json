@@ -14,13 +14,13 @@
         },
         "content": {
             "en": "We have been repeatedly reminded by the Tankerkönig-Team that users with one of the defective versions between 1.0.5 and 2.0.4, are blocking their servers.<br>Please install only versions before 1.0.5 or after 2.0.4.",
-            "de": "Wir wurden wiederholt vom Tankerkönig-Team daran erinnert, dass Benutzer mit einer der fehlerhaften Versionen zwischen 1.0.5 und 2.0.4 ihre Server blockieren. <br> Bitte installieren Sie nur Versionen vor 1.0.5 oder nach 2.0.4.",
+            "de": "Wir wurden wiederholt vom Tankerkönig-Team daran erinnert, dass Benutzer mit einer der fehlerhaften Versionen zwischen 1.0.5 und 2.0.4 ihre Server blockieren.<br>Bitte installieren Sie nur Versionen vor 1.0.5 oder nach 2.0.4.",
             "ru": "Команда Tankerkönig-Team неоднократно напоминала нам, что пользователи с одной из дефектных версий между 1.0.5 и 2.0.4 блокируют свои серверы. <br> Пожалуйста, устанавливайте только версии до 1.0.5 или после 2.0.4.",
-            "pt": "Temos sido repetidamente lembrados pelo Tankerkönig-Team que os usuários com uma das versões defeituosas entre 1.0.5 e 2.0.4, estão bloqueando seus servidores. Por favor, instale apenas versões anteriores a 1.0.5 ou posteriores à 2.0.4.",
-            "nl": "We hebben het Tankerkönig-team herhaaldelijk herinnerd aan het feit dat gebruikers met een van de defecte versies tussen 1.0.5 en 2.0.4 hun servers blokkeren. <br> Installeer alstublieft alleen versies vóór 1.0.5 of na 2.0.4.",
-            "fr": "L'équipe Tankerkönig nous a rappelé à plusieurs reprises que les utilisateurs qui utilisent l'une des versions défectueuses entre 1.0.5 et 2.0.4 bloquent leurs serveurs. <br> Veuillez installer uniquement les versions antérieures à 1.0.5 ou ultérieure.",
-            "it": "Ci è stato ripetutamente ricordato dal Team Tankerkönig che gli utenti con una delle versioni difettose tra 1.0.5 e 2.0.4 stanno bloccando i loro server. <br> Si prega di installare solo versioni precedenti alla 1.0.5 o successive alla 2.0.4.",
-            "es": "El equipo de Tankerkönig nos ha recordado repetidamente que los usuarios con una de las versiones defectuosas entre 1.0.5 y 2.0.4 están bloqueando sus servidores. Instale solo las versiones anteriores a 1.0.5 o posteriores a 2.0.4.",
+            "pt": "Temos sido repetidamente lembrados pelo Tankerkönig-Team que os usuários com uma das versões defeituosas entre 1.0.5 e 2.0.4, estão bloqueando seus servidores.<br>Por favor, instale apenas versões anteriores a 1.0.5 ou posteriores à 2.0.4.",
+            "nl": "We hebben het Tankerkönig-team herhaaldelijk herinnerd aan het feit dat gebruikers met een van de defecte versies tussen 1.0.5 en 2.0.4 hun servers blokkeren.<br>Installeer alstublieft alleen versies vóór 1.0.5 of na 2.0.4.",
+            "fr": "L'équipe Tankerkönig nous a rappelé à plusieurs reprises que les utilisateurs qui utilisent l'une des versions défectueuses entre 1.0.5 et 2.0.4 bloquent leurs serveurs.<br>Veuillez installer uniquement les versions antérieures à 1.0.5 ou ultérieure.",
+            "it": "Ci è stato ripetutamente ricordato dal Team Tankerkönig che gli utenti con una delle versioni difettose tra 1.0.5 e 2.0.4 stanno bloccando i loro server.<br>Si prega di installare solo versioni precedenti alla 1.0.5 o successive alla 2.0.4.",
+            "es": "El equipo de Tankerkönig nos ha recordado repetidamente que los usuarios con una de las versiones defectuosas entre 1.0.5 y 2.0.4 están bloqueando sus servidores.<br>Instale solo las versiones anteriores a 1.0.5 o posteriores a 2.0.4.",
             "pl": "Zespół Tankerkönig wielokrotnie przypominał, że użytkownicy z jedną z wadliwych wersji między 1.0.5 a 2.0.4 blokują swoje serwery. <br> Zainstaluj tylko wersje przed 1.0.5 lub po 2.0.4.",
             "zh-cn": "Tankerkönig-Team一再提醒我们，有一个1.0.5和2.0.4之间缺陷版本的用户正在阻止他们的服务器。<br>请仅安装1.0.5之前或2.0.4之后的版本。"
         },
@@ -47,24 +47,25 @@
         },
         "content": {
             "en": "On 06.01.2019, maintenance work will take place at 21:00 on the Free-Cloud. Duration approx. 1 hour.",
-            "de": "Am 06.01.2019 finden um 21:00 Uhr Wartungsarbeiten in der Free-Cloud statt. ",
-            "ru": "06.01.2019 г. в 21:00 на Free-Cloud начнутся работы по техническому обслуживанию. ",
-            "pt": "Em 06/01/2019, o trabalho de manutenção será realizado às 21:00 horas no Free-Cloud. ",
-            "nl": "Op 06.01.2019 vinden onderhoudswerkzaamheden plaats om 21.00 uur op de Free-Cloud. ",
-            "fr": "Le 06.01.2019, les travaux de maintenance auront lieu à 21h00 sur le Free-Cloud. ",
-            "it": "Il 06.01.2019, i lavori di manutenzione si svolgeranno alle 21:00 su Free-Cloud. ",
-            "es": "El 06.01.2019, el trabajo de mantenimiento se llevará a cabo a las 21:00 en el Free-Cloud. ",
-            "pl": "W dniu 06.01.2019 prace konserwacyjne będą miały miejsce o godzinie 21:00 w Free-Cloud. ",
-            "zh-cn": "在2017年1月6日，Free-Cloud的维护工作将于21:00进行。"
+            "de": "Am 06.01.2019 finden um 21:00 Uhr Wartungsarbeiten in der Free-Cloud statt. Dauer ca. 1 Stunde.",
+            "ru": "06.01.2019 г. в 21:00 на Free-Cloud начнутся работы по техническому обслуживанию. Продолжительность ок. 1 час.",
+            "pt": "Em 06/01/2019, o trabalho de manutenção será realizado às 21:00 horas no Free-Cloud. Duração aprox. 1 hora.",
+            "nl": "Op 06.01.2019 vinden onderhoudswerkzaamheden plaats om 21.00 uur op de Free-Cloud. Duur ca. 1 uur.",
+            "fr": "Le 06.01.2019, les travaux de maintenance auront lieu à 21h00 sur le Free-Cloud. Durée approx. 1 heure.",
+            "it": "Il 06.01.2019, i lavori di manutenzione si svolgeranno alle 21:00 su Free-Cloud. Durata ca. 1 ora.",
+            "es": "El 06.01.2019, el trabajo de mantenimiento se llevará a cabo a las 21:00 en el Free-Cloud. Duración aprox. 1 hora.",
+            "pl": "W dniu 06.01.2019 prace konserwacyjne będą miały miejsce o godzinie 21:00 w Free-Cloud. Czas trwania ok. 1 godzina.",
+            "zh-cn": "在2017年1月6日，Free-Cloud的维护工作将于21:00进行。持续时间约。 1小时。"
         },
         "id": "cloud",
+        "class": "warning",
         "created": "2019-01-01T00:00:00.000Z",
         "fa-icon": "info-circle",
         "date-end": "2019-01-06T23:00:00.000Z",
         "conditions": {
             "cloud": "installed"
         }
-    },        
+    },
     {
         "title": {
             "en": "Maintenance work on the cloud server on 06.01.2019",
@@ -80,22 +81,55 @@
         },
         "content": {
             "en": "On 06.01.2019, maintenance work will take place at 21:00 on the Free-Cloud. Duration approx. 1 hour.",
-            "de": "Am 06.01.2019 finden um 21:00 Uhr Wartungsarbeiten in der Free-Cloud statt. ",
-            "ru": "06.01.2019 г. в 21:00 на Free-Cloud начнутся работы по техническому обслуживанию. ",
-            "pt": "Em 06/01/2019, o trabalho de manutenção será realizado às 21:00 horas no Free-Cloud. ",
-            "nl": "Op 06.01.2019 vinden onderhoudswerkzaamheden plaats om 21.00 uur op de Free-Cloud. ",
-            "fr": "Le 06.01.2019, les travaux de maintenance auront lieu à 21h00 sur le Free-Cloud. ",
-            "it": "Il 06.01.2019, i lavori di manutenzione si svolgeranno alle 21:00 su Free-Cloud. ",
-            "es": "El 06.01.2019, el trabajo de mantenimiento se llevará a cabo a las 21:00 en el Free-Cloud. ",
-            "pl": "W dniu 06.01.2019 prace konserwacyjne będą miały miejsce o godzinie 21:00 w Free-Cloud. ",
-            "zh-cn": "在2017年1月6日，Free-Cloud的维护工作将于21:00进行。"
+            "de": "Am 06.01.2019 finden um 21:00 Uhr Wartungsarbeiten in der Free-Cloud statt. Dauer ca. 1 Stunde.",
+            "ru": "06.01.2019 г. в 21:00 на Free-Cloud начнутся работы по техническому обслуживанию. Продолжительность ок. 1 час.",
+            "pt": "Em 06/01/2019, o trabalho de manutenção será realizado às 21:00 horas no Free-Cloud. Duração aprox. 1 hora.",
+            "nl": "Op 06.01.2019 vinden onderhoudswerkzaamheden plaats om 21.00 uur op de Free-Cloud. Duur ca. 1 uur.",
+            "fr": "Le 06.01.2019, les travaux de maintenance auront lieu à 21h00 sur le Free-Cloud. Durée approx. 1 heure.",
+            "it": "Il 06.01.2019, i lavori di manutenzione si svolgeranno alle 21:00 su Free-Cloud. Durata ca. 1 ora.",
+            "es": "El 06.01.2019, el trabajo de mantenimiento se llevará a cabo a las 21:00 en el Free-Cloud. Duración aprox. 1 hora.",
+            "pl": "W dniu 06.01.2019 prace konserwacyjne będą miały miejsce o godzinie 21:00 w Free-Cloud. Czas trwania ok. 1 godzina.",
+            "zh-cn": "在2017年1月6日，Free-Cloud的维护工作将于21:00进行。持续时间约。 1小时。"
         },
         "id": "cloud",
+        "class": "warning",
         "created": "2019-01-01T00:00:00.000Z",
         "fa-icon": "info-circle",
         "date-end": "2019-01-06T23:00:00.000Z",
         "conditions": {
             "iot": "installed"
+        }
+    },
+    {
+        "title": {
+            "en": "Broadlink not maintained anymore",
+            "de": "Broadlink nicht mehr gepflegt",
+            "ru": "Broadlink больше не поддерживается",
+            "pt": "O Broadlink não é mais mantido",
+            "nl": "Broadlink niet meer onderhouden",
+            "fr": "Broadlink n'est plus maintenu",
+            "it": "Broadlink non mantenuto più",
+            "es": "Broadlink no se mantiene más",
+            "pl": "Broadlink nie jest już obsługiwany",
+            "zh-cn": "Broadlink不再维护了"
+        },
+        "content": {
+            "en": "This project is no longer maintained for personal reasons. Please use the ioBroker.broadlink2 instead.",
+            "de": "Dieses Projekt wird aus persönlichen Gründen nicht mehr gepflegt. Bitte verwenden Sie stattdessen den ioBroker.broadlink2.",
+            "ru": "Этот проект больше не поддерживается по личным причинам. Пожалуйста, используйте вместо этого ioBroker.broadlink2.",
+            "pt": "Este projeto não é mais mantido por motivos pessoais. Por favor, use o ioBroker.broadlink2 em seu lugar.",
+            "nl": "Dit project wordt om persoonlijke redenen niet langer onderhouden. Gebruik in plaats daarvan de ioBroker.broadlink2.",
+            "fr": "Ce projet n'est plus maintenu pour des raisons personnelles. Veuillez utiliser le ioBroker.broadlink2 à la place.",
+            "it": "Questo progetto non è più mantenuto per ragioni personali. Utilizzare invece ioBroker.broadlink2.",
+            "es": "Este proyecto ya no se mantiene por razones personales. Por favor use el ioBroker.broadlink2 en su lugar.",
+            "pl": "Ten projekt nie jest już utrzymywany z powodów osobistych. Zamiast tego użyj pliku ioBroker.broadlink2.",
+            "zh-cn": "由于个人原因，该项目不再维护。请改用ioBroker.broadlink2。"
+        },
+        "id": "broadlink",
+        "created": "2019-03-13T00:00:00.000Z",
+        "conditions": {
+            "broadlink": "installed",
+            "broadlink2": "!installed"
         }
     }
 ]
