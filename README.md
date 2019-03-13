@@ -19,54 +19,50 @@ This is an ioBroker adapter to get informations about your system and some news 
 
 ## Changelog
 
-### 1.2.x
+### 1.2.x (2019-03-09)
 * (ldittmar) show adapter requests
 * (ldittmar) show bugs and issues
 * (ldittmar) diyplay important links
-* (ldittmar) add important popup news
+* (ldittmar) show important popup news
 
-### 1.1.x
+### 1.1.3 (2019-01-03)
 * (ldittmar) compact mode compatibility added
 * (ldittmar) add chinese support
 * (ldittmar) add new forum support
 * (ldittmar) add chinese forum support
 * (ldittmar) move to iobroker-community-adapters
 
-### 1.0.2
+### 1.0.2 (2018-11-30)
 * (ldittmar) fixed problems with Node version info in multihost system
 
-### 1.0.1
+### 1.0.1 (2018-11-27)
 * (ldittmar) search for new adapters on Github
 * (ldittmar) check for Node.js update
 * (ldittmar) https problems with news and forum data solved
 * (ldittmar) polish added as language
 
-### 1.0.0
+### 1.0.0 (2018-11-25)
 * (ldittmar) full compatibility to Admin 3.x
 * (ldittmar) clock can be disabled
 
-### 0.1.0
+### 0.1.0 (2018-01-02)
 * (ldittmar) compatibility to Admin 3.x / beta release
 
-### 0.0.6
+### 0.0.6 (2017-12-11)
 * (ldittmar) some fixes / install and update implemented
 
-### 0.0.4
+### 0.0.4 (2017-12-08)
 * (ldittmar) some fixes and design correction
-
-### 0.0.3
 * (ldittmar) show informations about adapters (update/new)
-
-### 0.0.2
 * (ldittmar) show system informations
 
-### 0.0.1
+### 0.0.1 (2017-11-23)
 * (ldittmar) initial commit
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018 ldittmar <iobroker@lmdsoft.de>
+Copyright (c) 2017 - 2019 ldittmar <iobroker@lmdsoft.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

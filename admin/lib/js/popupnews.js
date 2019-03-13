@@ -1,9 +1,9 @@
 /* global socket, systemLang */
 
 function startPopupNews() {
-    window.top.gMain.subscribeStates('info.0.newsfeed');
+    socket.emit('subscribe', 'info.0.newsfeed');
 
-    window.top.gMain.socket.on('stateChange', function (id, obj) {
+    socket.on('stateChange', function (id, obj) {
         if (id === "info.0.newsfeed") {
 
             const newsPopup = {
@@ -68,8 +68,7 @@ function startPopupNews() {
                                             const vers1 = condition.substring(8, condition.indexOf(',')).trim();
                                             const vers2 = condition.substring(condition.indexOf(',') + 1, condition.length() - 1).trim();
                                             showIt = newsPopup.checkVersionBetween(adapter.version, vers1, vers2);
-                                        } 
-                                        console.log(key + " " + condition + " = " + showIt);
+                                        }
                                     });
                                 }
 
@@ -77,7 +76,7 @@ function startPopupNews() {
                                     //window.top.gMain.showMessage(message.title[systemLang], message.content[systemLang], message.icon ? message.icon : 'info');
 
                                     if (parent.window.location.hash === "#tab-info") {
-                                        newsPopup.showDiv(message.title[systemLang], message.content[systemLang], message.class);
+                                        newsPopup.showDiv(message.id, message.title[systemLang], message.content[systemLang], message.class, message['fa-icon']);
                                     }
 
                                 }
@@ -88,11 +87,19 @@ function startPopupNews() {
 
                     }
                 },
-                showDiv: function (title, content) {
-                    const $item = $('#popupNewsTemplate').children().clone(true, true);
-                    $item.find('.popupnews_title').text(title);
-                    $item.find('.popupnews_content').html(content);
-                    $('#popupnews').append($item);                   
+                showDiv: function (id, title, content, type, icon) {
+                    if (id && $("#popupnewsid_" + id).length == 0) {
+                        const $item = $('#popupNewsTemplate').children().clone(true, true);
+                        $item.find('.popupnews_title').text(title).attr('id', "popupnewsid_" + id);
+                        $item.find('.popupnews_content').html(content);
+                        if (type && type !== 'info') {
+                            $item.find('.alert').removeClass('alert-info').addClass('alert-' + type);
+                        }
+                        if (icon && icon !== 'fa-exclamation-triangle') {
+                            $item.find('.fa').removeClass('fa-exclamation-triangle').addClass('fa-' + icon);
+                        }
+                        $('#popupnews').append($item);
+                    }
                 }
 
             };

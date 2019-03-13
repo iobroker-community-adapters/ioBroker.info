@@ -1,44 +1,6 @@
 [
     {
         "title": {
-            "en": "This is a test",
-            "de": "Dies ist ein Test",
-            "ru": "Это тест",
-            "pt": "Isto é um teste",
-            "nl": "Dit is een test",
-            "fr": "C'est un test",
-            "it": "Questo è un test",
-            "es": "Esto es una prueba",
-            "pl": "To jest test",
-            "zh-cn": "这是一个测试"
-        },
-        "content": {
-            "en": "Hello World",
-            "de": "Hallo Welt",
-            "ru": "Привет, мир",
-            "pt": "Olá Mundo",
-            "nl": "Hallo Wereld",
-            "fr": "Bonjour le monde",
-            "it": "Ciao mondo",
-            "es": "Hola Mundo",
-            "pl": "Witaj świecie",
-            "zh-cn": "你好，世界"
-        },
-        "created": "2019-01-01T00:00:00.000Z",
-        "class": "info|warning|danger",
-        "icon": "info|error_outline|warning|notification_important",
-        "date-start": "2017-07-01T00:00:00.000Z",
-        "date-end": "2017-08-01T00:00:00.000Z",
-        "conditions": {
-            "admin": "between(0.0.1,1.0.0)",
-            "info": "!installed",
-            "xxx": "smaller(1.0.0)",
-            "yyy": "bigger(0.0.1)",
-            "test": "installed"
-        }
-    },
-    {
-        "title": {
             "en": "** ATTENTION ** defective versions of the Tankerkönig adapter cause massive problems on the server!",
             "de": "** ACHTUNG ** Defekte Versionen des Tankerkönig-Adapters verursachen massive Probleme auf dem Server!",
             "ru": "** ВНИМАНИЕ ** Дефектные версии адаптера Tankerkönig вызывают серьезные проблемы на сервере!",
@@ -62,146 +24,78 @@
             "pl": "Zespół Tankerkönig wielokrotnie przypominał, że użytkownicy z jedną z wadliwych wersji między 1.0.5 a 2.0.4 blokują swoje serwery. <br> Zainstaluj tylko wersje przed 1.0.5 lub po 2.0.4.",
             "zh-cn": "Tankerkönig-Team一再提醒我们，有一个1.0.5和2.0.4之间缺陷版本的用户正在阻止他们的服务器。<br>请仅安装1.0.5之前或2.0.4之后的版本。"
         },
+        "id": "tanker",
         "created": "2019-02-24T00:00:00.000Z",
         "class": "danger",
-        "icon": "notification_important",
+        "fa-icon": "bolt",
         "conditions": {
             "tankerkoenig": "between(1.0.5,2.0.4)"
         }
     },
     {
         "title": {
-            "en": "This is a test",
-            "de": "Dies ist ein Test Ohne Kondition",
-            "ru": "Это тест",
-            "pt": "Isto é um teste",
-            "nl": "Dit is een test",
-            "fr": "C'est un test",
-            "it": "Questo è un test",
-            "es": "Esto es una prueba",
-            "pl": "To jest test",
-            "zh-cn": "这是一个测试"
+            "en": "Maintenance work on the cloud server on 06.01.2019",
+            "de": "Wartungsarbeiten am Cloud-Server am 06.01.2019",
+            "ru": "Техническое обслуживание на облачном сервере 06.01.2019",
+            "pt": "Trabalho de manutenção no servidor de nuvem em 06.01.2019",
+            "nl": "Onderhoudswerkzaamheden aan de cloudserver op 06.01.2019",
+            "fr": "Travaux de maintenance sur le serveur cloud le 06.01.2019",
+            "it": "Lavori di manutenzione sul cloud server il 06.01.2019",
+            "es": "Trabajos de mantenimiento en el servidor en la nube el 06.01.2019",
+            "pl": "Prace konserwacyjne na serwerze chmury w dniu 06.01.2019",
+            "zh-cn": "在06.01.2019上对云服务器进行维护工作"
         },
         "content": {
-            "en": "Hello World",
-            "de": "Das wird immer angezeigt",
-            "ru": "Привет, мир",
-            "pt": "Olá Mundo",
-            "nl": "Hallo Wereld",
-            "fr": "Bonjour le monde",
-            "it": "Ciao mondo",
-            "es": "Hola Mundo",
-            "pl": "Witaj świecie",
-            "zh-cn": "你好，世界"
+            "en": "On 06.01.2019, maintenance work will take place at 21:00 on the Free-Cloud. Duration approx. 1 hour.",
+            "de": "Am 06.01.2019 finden um 21:00 Uhr Wartungsarbeiten in der Free-Cloud statt. ",
+            "ru": "06.01.2019 г. в 21:00 на Free-Cloud начнутся работы по техническому обслуживанию. ",
+            "pt": "Em 06/01/2019, o trabalho de manutenção será realizado às 21:00 horas no Free-Cloud. ",
+            "nl": "Op 06.01.2019 vinden onderhoudswerkzaamheden plaats om 21.00 uur op de Free-Cloud. ",
+            "fr": "Le 06.01.2019, les travaux de maintenance auront lieu à 21h00 sur le Free-Cloud. ",
+            "it": "Il 06.01.2019, i lavori di manutenzione si svolgeranno alle 21:00 su Free-Cloud. ",
+            "es": "El 06.01.2019, el trabajo de mantenimiento se llevará a cabo a las 21:00 en el Free-Cloud. ",
+            "pl": "W dniu 06.01.2019 prace konserwacyjne będą miały miejsce o godzinie 21:00 w Free-Cloud. ",
+            "zh-cn": "在2017年1月6日，Free-Cloud的维护工作将于21:00进行。"
         },
+        "id": "cloud",
         "created": "2019-01-01T00:00:00.000Z",
-        "class": "info",
-        "icon": "info",
-        "date-start": "",
-        "date-end": "",
-        "conditions": {           
+        "fa-icon": "info-circle",
+        "date-end": "2019-01-06T23:00:00.000Z",
+        "conditions": {
+            "cloud": "installed"
         }
-    },
+    },        
     {
         "title": {
-            "en": "This is a test",
-            "de": "Dies ist ein Info bigger 1.2.0",
-            "ru": "Это тест",
-            "pt": "Isto é um teste",
-            "nl": "Dit is een test",
-            "fr": "C'est un test",
-            "it": "Questo è un test",
-            "es": "Esto es una prueba",
-            "pl": "To jest test",
-            "zh-cn": "这是一个测试"
+            "en": "Maintenance work on the cloud server on 06.01.2019",
+            "de": "Wartungsarbeiten am Cloud-Server am 06.01.2019",
+            "ru": "Техническое обслуживание на облачном сервере 06.01.2019",
+            "pt": "Trabalho de manutenção no servidor de nuvem em 06.01.2019",
+            "nl": "Onderhoudswerkzaamheden aan de cloudserver op 06.01.2019",
+            "fr": "Travaux de maintenance sur le serveur cloud le 06.01.2019",
+            "it": "Lavori di manutenzione sul cloud server il 06.01.2019",
+            "es": "Trabajos de mantenimiento en el servidor en la nube el 06.01.2019",
+            "pl": "Prace konserwacyjne na serwerze chmury w dniu 06.01.2019",
+            "zh-cn": "在06.01.2019上对云服务器进行维护工作"
         },
         "content": {
-            "en": "Hello World",
-            "de": "Wird NUR angezeigt, wenn info größer 1.2.0 ist",
-            "ru": "Привет, мир",
-            "pt": "Olá Mundo",
-            "nl": "Hallo Wereld",
-            "fr": "Bonjour le monde",
-            "it": "Ciao mondo",
-            "es": "Hola Mundo",
-            "pl": "Witaj świecie",
-            "zh-cn": "你好，世界"
+            "en": "On 06.01.2019, maintenance work will take place at 21:00 on the Free-Cloud. Duration approx. 1 hour.",
+            "de": "Am 06.01.2019 finden um 21:00 Uhr Wartungsarbeiten in der Free-Cloud statt. ",
+            "ru": "06.01.2019 г. в 21:00 на Free-Cloud начнутся работы по техническому обслуживанию. ",
+            "pt": "Em 06/01/2019, o trabalho de manutenção será realizado às 21:00 horas no Free-Cloud. ",
+            "nl": "Op 06.01.2019 vinden onderhoudswerkzaamheden plaats om 21.00 uur op de Free-Cloud. ",
+            "fr": "Le 06.01.2019, les travaux de maintenance auront lieu à 21h00 sur le Free-Cloud. ",
+            "it": "Il 06.01.2019, i lavori di manutenzione si svolgeranno alle 21:00 su Free-Cloud. ",
+            "es": "El 06.01.2019, el trabajo de mantenimiento se llevará a cabo a las 21:00 en el Free-Cloud. ",
+            "pl": "W dniu 06.01.2019 prace konserwacyjne będą miały miejsce o godzinie 21:00 w Free-Cloud. ",
+            "zh-cn": "在2017年1月6日，Free-Cloud的维护工作将于21:00进行。"
         },
+        "id": "cloud",
         "created": "2019-01-01T00:00:00.000Z",
-        "class": "danger",
-        "icon": "error_outline",
-        "date-start": "",
-        "date-end": "",
+        "fa-icon": "info-circle",
+        "date-end": "2019-01-06T23:00:00.000Z",
         "conditions": {
-            "info": "bigger(1.2.0)"
-        }
-    },
-    {
-        "title": {
-            "en": "This is a test",
-            "de": "Dies ist ein !bring",
-            "ru": "Это тест",
-            "pt": "Isto é um teste",
-            "nl": "Dit is een test",
-            "fr": "C'est un test",
-            "it": "Questo è un test",
-            "es": "Esto es una prueba",
-            "pl": "To jest test",
-            "zh-cn": "这是一个测试"
-        },
-        "content": {
-            "en": "Hello World",
-            "de": "Wird NUR angezeigt, wenn bring nicht installiert ist",
-            "ru": "Привет, мир",
-            "pt": "Olá Mundo",
-            "nl": "Hallo Wereld",
-            "fr": "Bonjour le monde",
-            "it": "Ciao mondo",
-            "es": "Hola Mundo",
-            "pl": "Witaj świecie",
-            "zh-cn": "你好，世界"
-        },
-        "created": "2019-01-01T00:00:00.000Z",
-        "class": "info",
-        "icon": "error_outline",
-        "date-start": "",
-        "date-end": "",
-        "conditions": {
-            "bring": "!installed"
-        }
-    },
-    {
-        "title": {
-            "en": "This is a test",
-            "de": "Dies ist ein asterisk",
-            "ru": "Это тест",
-            "pt": "Isto é um teste",
-            "nl": "Dit is een test",
-            "fr": "C'est un test",
-            "it": "Questo è un test",
-            "es": "Esto es una prueba",
-            "pl": "To jest test",
-            "zh-cn": "这是一个测试"
-        },
-        "content": {
-            "en": "Hello World",
-            "de": "Wird NUR angezeigt, wenn asterisk installiert ist",
-            "ru": "Привет, мир",
-            "pt": "Olá Mundo",
-            "nl": "Hallo Wereld",
-            "fr": "Bonjour le monde",
-            "it": "Ciao mondo",
-            "es": "Hola Mundo",
-            "pl": "Witaj świecie",
-            "zh-cn": "你好，世界"
-        },
-        "created": "2019-01-01T00:00:00.000Z",
-        "class": "warning",
-        "icon": "android",
-        "date-start": "",
-        "date-end": "",
-        "conditions": {
-            "asterisk": "installed"
+            "iot": "installed"
         }
     }
 ]
