@@ -119,7 +119,7 @@ const newsPopup = {
             if (icon && icon !== 'fa-exclamation-triangle') {
                 $item.find('.fa').removeClass('fa-exclamation-triangle').addClass('fa-' + icon);
             }
-            $('#' + appendId ? appendId : "popupnews").append($item);
+            $('#' + (appendId ? appendId : "popupnews")).append($item);
         }
     },
     showVisPopup: async function (obj, id) {
