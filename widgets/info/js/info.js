@@ -10,28 +10,30 @@ $.get("../adapter/info/words.js", function (script) {
 });
 
 vis.binds["info"] = {
-    version: "0.0.1",
+    version: "0.0.2",
     showVersion: function () {
         if (vis.binds["info"].version) {
             console.log('Version Info-Adapter-Widget: ' + vis.binds["info"].version);
             vis.binds["info"].version = null;
         }
     },
-    createWidget: function (widgetID, view, data, style) {
+    createMessage: function (widgetID, view, data, style) {
         var $div = $('#' + widgetID);
         // if nothing found => wait
         if (!$div.length) {
             return setTimeout(function () {
-                vis.binds["info"].createWidget(widgetID, view, data, style);
-            }, 100);
+                vis.binds["info"].createMessage(widgetID, view, data, style);
+            }, 1000);
         }
-        
-        socket.emit('getState', 'info.0.newsfeed', function (err, data) {
-            if (!err && data) {
-                newsPopup.showVisPopup(data.val, widgetID);
-            }
-        });
-        
+
+        if (data.oid) {
+
+            vis.states.bind(data.oid + '.newsfeed', function (e, newVal, oldVal) {
+                newsPopup.showVisPopup(newVal.val, widgetID);
+            });
+                        
+            newsPopup.showVisPopup(vis.states[data.oid + '.newsfeed'].val, widgetID);
+        }
     }
 };
 

@@ -10,12 +10,13 @@
 <script id="tplInfoMessages"
         type="text/ejs"
         class="vis-tpl"
-        data-vis-prev='<div id="prev_tplInfoMessages" class="alert alert-info row" role="alert"><div class="col-xs-2"><i class="fa fa-5x fa-bath"></i></div> <div class="col-xs-9 col-xs-offset-1"><h2 class="no-margin popupnews_title" id="popupnewsid_infoTest">Title</h2><p class="popupnews_content">Content</p></div></div>'
+        data-vis-prev='<div><img src="widgets/info/img/messages.png"/></div>'
+        data-vis-attrs="oid/id;"
         data-vis-set="information"
         data-vis-type="data"
         data-vis-name="Messages">
     <div class="vis-widget <%== this.data.attr('class') %>" style="overflow:visible; width: 230px; height: 210px" id="<%= this.data.attr('wid') %>"><%
-    vis.binds.info.createWidget(this.data.wid, this.view, this.data, this.style);
+    vis.binds.info.createMessage(this.data.wid, this.view, this.data, this.style);
     %></div>
 </script>
 
