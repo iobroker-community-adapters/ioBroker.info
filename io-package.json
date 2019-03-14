@@ -74,18 +74,6 @@
                 "es": "Compatibilidad completa con Admin 3.x.",
                 "pl": "Pełna zgodność z Adminem 3.x.",
                 "zh-cn": "与Admin 3.x完全兼容。"
-            },
-            "0.1.0": {
-                "en": "Compatibility to Admin 3.x.",
-                "de": "Kompatibilität zu Admin 3.x",
-                "ru": "Совместимость с Admin 3.x.",
-                "pt": "Compatibilidade com Admin 3.x.",
-                "fr": "Compatibilité avec Admin 3.x.",
-                "nl": "Compatibiliteit met Admin 3.x.",
-                "it": "Compatibilità con Admin 3.x.",
-                "es": "Compatibilidad con Admin 3.x.",
-                "pl": "Zgodność z administratorem 3.x.",
-                "zh-cn": "与Admin 3.x的兼容性。"
             }
         },
         "title": "Information tab",
@@ -172,31 +160,6 @@
                 "role": "json",
                 "read": true,
                 "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "lastPopupWarningDate",
-            "type": "state",
-            "common": {
-                "name": "Last popup date",
-                "type": "string",
-                "role": "value.time",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "popupReaded",
-            "type": "state",
-            "common": {
-                "name": "Last popup readed",
-                "type": "boolean",
-                "role": "state",
-                "read": true,
-                "write": false,
-                "def": false
             },
             "native": {}
         }

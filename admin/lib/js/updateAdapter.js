@@ -4,7 +4,7 @@
 
 const installMsg = {};
 let cmdCallback, activeCmdId;
-const $stdout = $('#stdout');
+let $stdout;
 let stdout = '';
 
 let curInstalled = null;
@@ -228,6 +228,7 @@ const getNews = function (actualVersion, adapter) {
 
 const cmdExec = function (cmd, callback) {
 
+    $stdout = $('#stdout');
     $stdout.val('');
 
     let title = cmd, tmp, name, msgSuccess, msgError;
@@ -301,10 +302,12 @@ socket.on('cmdExit', function (_id, exitCode) {
             $('#adapter-meter').progressbar(100);
             $('#adapter-install-message-on-end').text(installMsg[_id].success);
             setTimeout(function () {
-                $('#modal-command').modal('hide');
+                if ($('#adapter-install-close-after').is(':checked')) {
+                    $('#modal-command').modal('hide');
+                }
             }, 1500);
             $('#' + _id).remove();
-            window.top.gMain.tabs.adapters.updateCounter;
+            window.top.gMain.tabs.adapters.updateCounter();
         } else {
             $('#adapter-meter').progressbar(90, "error");
             $('#adapter-install-message-on-end').text(installMsg[_id].error);
@@ -317,7 +320,7 @@ socket.on('cmdExit', function (_id, exitCode) {
     } else if (installMsg.hasOwnProperty(_id)) {
         if (!exitCode) {
             $('#' + _id).remove();
-            window.top.gMain.tabs.adapters.updateCounter;
+            window.top.gMain.tabs.adapters.updateCounter();
             alert(installMsg[_id].success);
         } else {
             alert(installMsg[_id].error);
