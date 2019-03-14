@@ -2,4 +2,7 @@
 .info-class {
     font-style: italic;
 }
+.no-margin {
+    margin: 0;
+}
 
