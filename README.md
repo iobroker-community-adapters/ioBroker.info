@@ -17,13 +17,23 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/iobroke
 
 This is an ioBroker adapter to get informations about your system and some news about ioBroker.
 
+## Informations
+
+### Forum and News
+If you reach your admin window over a hostname (for example, www.mysite.com), the news and forum entries will not be automatically displayed. To do this, you must first register your host name [here](https://toolkit.sekando.com/docs/en/setup/hostnames).
+After that just enter the API Key in the configuration of the adapter.
+
+### Popup Messages (VIS Widget)
+There is a new widget to display important messages in VIS. These messages are displayed ONLY if certain conditions are met. Either from date x to date y or even if you have a specific adapter installed. If nothing is displayed then everything is ok.
+
 ## Changelog
 
-### 1.2.x (2019-03-09)
+### 1.2.4 (2019-03-14)
 * (ldittmar) show adapter requests
 * (ldittmar) show bugs and issues
 * (ldittmar) diyplay important links
 * (ldittmar) show important popup news
+* (ldittmar) vis widget for popup news
 
 ### 1.1.3 (2019-01-03)
 * (ldittmar) compact mode compatibility added

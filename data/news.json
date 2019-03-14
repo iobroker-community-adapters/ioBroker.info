@@ -131,38 +131,5 @@
             "broadlink": "installed",
             "broadlink2": "!installed"
         }
-    },
-    {
-        "title": {
-            "en": "This version of the Info Adapter has not yet been released.",
-            "de": "Diese Version des Info Adapters wurde noch nicht veröffentlicht.",
-            "ru": "Эта версия информационного адаптера еще не выпущена.",
-            "pt": "Esta versão do Info Adapter ainda não foi lançada.",
-            "nl": "Deze versie van de Info Adapter is nog niet vrijgegeven.",
-            "fr": "Cette version de l'adaptateur d'informations n'a pas encore été publiée.",
-            "it": "Questa versione di Info Adapter non è stata ancora rilasciata.",
-            "es": "Esta versión del adaptador de información aún no se ha lanzado.",
-            "pl": "Ta wersja adaptera informacyjnego nie została jeszcze wydana.",
-            "zh-cn": "此版本的Info Adapter尚未发布。"
-        },
-        "content": {
-            "en": "I just want to test if everything here works the way I thought it would.<br><br>I also <b>ONLY</b> tried everything so that it <i style='color: red;'>works properly</i>.",
-            "de": "Ich möchte nur testen, ob hier alles so funktioniert, wie ich es mir vorgestellt hatte. Ich habe auch <b>ONLY</b> alles versucht, damit es <i style='color: red;'>richtig funktioniert</i>.",
-            "ru": "Я просто хочу проверить, все ли здесь работает так, как я думал.<br><br>Я также <b>ТОЛЬКО</b> попробовал все, чтобы он <i style='color: red;'>работал правильно</i>.",
-            "pt": "Eu só quero testar se tudo aqui funciona do jeito que eu pensei que seria.<br><br>Eu também <b>só</b> tentei de tudo para que <i style='color: red;'>funcione corretamente</i>.",
-            "nl": "Ik wil gewoon testen of alles hier werkt zoals ik dacht dat het zou zijn.<br><br>Ik heb ook <b>ALLEEN</b> alles geprobeerd, zodat het <i style='color: red;'>naar behoren werkt</i>.",
-            "fr": "Je veux juste vérifier si tout fonctionne comme je le pensais.<br><br><b>UNIQUEMENT</b> a également tout essayé pour que cela <i style='color: red;'>fonctionne correctement</i>.",
-            "it": "Voglio solo verificare se tutto qui funziona come pensavo.<br><br>Ho anche <b>SOLO</b> provato tutto in modo che <i style='color: red;'>funzioni correttamente</i>.",
-            "es": "Solo quiero probar si todo aquí funciona como pensé.<br><br> También <b>SOLAMENTE</b> probé todo para que <i style='color: red;'>funcione correctamente</i>.",
-            "pl": "Chcę tylko sprawdzić, czy wszystko tutaj działa tak, jak myślałem.<br><br><b>TYLKO</b> wypróbowałem wszystko, aby <i style='color: red;'>działa poprawnie</i>.",
-            "zh-cn": "我只是想测试一下这里的所有内容是否按照我的想法运行。<br><br>我也<b>仅</b>尝试了所有内容，以便<i style='color：red;'>正常工作</i>"
-        },
-        "id": "infoTest",
-        "class": "success",
-        "fa-icon": "bath",
-        "created": "2019-03-13T00:00:00.000Z",
-        "conditions": {
-            "info": "bigger(1.2.3)"
-        }
     }
 ]
