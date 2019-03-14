@@ -10,7 +10,7 @@ $.get("../adapter/info/words.js", function (script) {
 });
 
 vis.binds["info"] = {
-    version: "0.0.3",
+    version: "0.0.4",
     showVersion: function () {
         if (vis.binds["info"].version) {
             console.log('Version Info-Adapter-Widget: ' + vis.binds["info"].version);
@@ -28,11 +28,11 @@ vis.binds["info"] = {
 
         if (data.oid) {
 
-            vis.states.bind(data.oid + '.newsfeed', function (e, newVal, oldVal) {
+            vis.states.bind('info.0.newsfeed', function (e, newVal, oldVal) {
                 newsPopup.showVisPopup(newVal.val, widgetID);
             });
                         
-            newsPopup.showVisPopup(vis.states[data.oid + '.newsfeed'].val, widgetID);
+            newsPopup.showVisPopup(vis.states['info.0.newsfeed'].val, widgetID);
         }
     }
 };
