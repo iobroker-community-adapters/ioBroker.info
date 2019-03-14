@@ -145,8 +145,7 @@
         "dependencies": [
             {
                 "admin": ">=3.0.0"
-            },
-            "vis"
+            }
         ]
     },
     "native": {

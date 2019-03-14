@@ -3,7 +3,7 @@
 "use strict";
 
 vis.binds["info"] = {
-    version: "0.0.6",
+    version: "0.0.7",
     showVersion: function () {
         if (vis.binds["info"].version) {
             console.log('Version Info-Adapter-Widget: ' + vis.binds["info"].version);
@@ -23,18 +23,19 @@ vis.binds["info"] = {
             newsPopup.showVisPopup(newVal, widgetID);
         });
 
-        setData('info.0.newsfeed', widgetID);
+        setData('info.0.newsfeed.val', widgetID);
 
     }
 };
 
 function setData(id, widgetID) {
-    if (vis.states[id] === undefined) {
+    const value = vis.states.attr(id);
+    if (value === undefined) {
         return setTimeout(function () {
             setData(id, widgetID);
         }, 2000);
     } else {
-        newsPopup.showVisPopup(vis.states['info.0.newsfeed.val'], widgetID);
+        newsPopup.showVisPopup(value, widgetID);
     }
 }
 
