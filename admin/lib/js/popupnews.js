@@ -50,8 +50,7 @@ const newsPopup = {
     },
     showPopup: async function (obj, id) {
         let messages;
-        const adapters = window.top.gMain.tabs.adapters.curInstalled;
-        if (adapters) {
+        if (window.top.gMain) {
             messages = await newsPopup.checkMessages(obj);
             if (messages.length > 0) {
                 await asyncForEach(messages, async function (message) {

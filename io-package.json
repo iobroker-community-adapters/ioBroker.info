@@ -3,6 +3,18 @@
         "name": "info",
         "version": "1.2.4",
         "news": {
+            "1.2.4": {
+                "en": "Added important short messages about ioBroker",
+                "de": "Hinzugefügt wichtige Kurznachrichten über ioBroker",
+                "ru": "Добавлены важные короткие сообщения о ioBroker",
+                "pt": "Adicionado importantes mensagens curtas sobre ioBroker",
+                "nl": "Toegevoegd belangrijk korte berichten over ioBroker",
+                "fr": "Ajouté important de courts messages sur ioBroker",
+                "it": "Aggiunto importante brevi messaggi su ioBroker",
+                "es": "Añadido importante a corto mensajes sobre ioBroker",
+                "pl": "Dodane ważne krótkie wiadomości o ioBroker",
+                "zh-cn": "加入重要的短消息有关ioBroker"
+            },
             "1.2.3": {
                 "en": "Added important links (documentation)",
                 "de": "Wichtige Links (Dokumentation) hinzugefügt",
