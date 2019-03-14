@@ -296,7 +296,7 @@ socket.on('cmdExit', function (_id, exitCode) {
         stdout += '\n' + (exitCode !== 0 ? 'ERROR: ' : '') + 'process exited with code ' + exitCode;
         $stdout.val(stdout);
         $stdout.scrollTop($stdout[0].scrollHeight - $stdout.height());
-        $('#adapter-install-close-btn').text('close');
+        $('#adapter-install-close-btn').text(_('close'));
 
         if (!exitCode) {
             $('#adapter-meter').progressbar(100);
@@ -313,7 +313,7 @@ socket.on('cmdExit', function (_id, exitCode) {
             $('#adapter-install-message-on-end').text(installMsg[_id].error);
         }
         if (cmdCallback) {
-            $('#adapter-install-close-btn').text('close');
+            $('#adapter-install-close-btn').text(_('close'));
             cmdCallback(exitCode);
             cmdCallback = null;
         }
