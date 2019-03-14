@@ -109,7 +109,7 @@ const newsPopup = {
     },
     showDiv: function (id, title, content, type, icon, appendId) {
         const types = ["info", "success", "warning", "danger"];
-        if (id && $("#popupnewsid_" + id).length == 0) {
+        if (id && $("#popupnewsid_" + id).length === 0) {
             const $item = $('#popupNewsTemplate').children().clone(true, true);
             $item.find('.popupnews_title').text(title).attr('id', "popupnewsid_" + id);
             $item.find('.popupnews_content').html(content);
@@ -123,7 +123,7 @@ const newsPopup = {
         }
     },
     showVisPopup: async function (obj, id) {
-        const messages = await checkMessages(obj);
+        const messages = await newsPopup.checkMessages(obj);
         if (messages.length > 0) {
             await asyncForEach(messages, async function (message) {
                 newsPopup.showDiv(message.id, message.title, message.content, message.class, message.icon, id);
