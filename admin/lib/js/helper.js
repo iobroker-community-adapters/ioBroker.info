@@ -3,7 +3,7 @@
 const dateOptions = {"weekday": "short", "year": "numeric", "month": "long", "day": "2-digit", "hour": "2-digit", "minute": "2-digit", "second": "2-digit"};
 let infoData = {};
 
-const socket = io.connect();
+let socket = io.connect();
 
 let systemConfig = {};
 let adapterConfig = {};
