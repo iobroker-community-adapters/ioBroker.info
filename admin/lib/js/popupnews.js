@@ -1,4 +1,5 @@
 /* global socket, systemLang, io */
+const socket = io.connect();
 
 function startPopupNews() {
     socket.emit('subscribe', 'info.0.newsfeed');
@@ -129,9 +130,6 @@ const newsPopup = {
         }
     },
     getAdaptersAndcheckMessages: function (obj, toSetId) {
-        if (!socket) {
-            socket = io.connect();
-        }
         socket.emit('getObjectView', 'system', 'host', {startkey: 'system.host.', endkey: 'system.host.\u9999'}, function (err, res) {
             if (!err && res) {
                 const hosts = [];

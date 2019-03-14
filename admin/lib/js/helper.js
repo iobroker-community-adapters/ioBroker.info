@@ -1,9 +1,7 @@
-/* global io, systemDictionary, systemLang, bootbox, showdown */
+/* global io, systemDictionary, systemLang, bootbox, showdown, socket */
 
 const dateOptions = {"weekday": "short", "year": "numeric", "month": "long", "day": "2-digit", "hour": "2-digit", "minute": "2-digit", "second": "2-digit"};
 let infoData = {};
-
-let socket = io.connect();
 
 let systemConfig = {};
 let adapterConfig = {};
