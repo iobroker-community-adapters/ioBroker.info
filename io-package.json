@@ -126,7 +126,7 @@
             "singleton": true,
             "name": "Info",
             "fa-icon": "info"
-        },      
+        },
         "restartAdapters": [
             "vis"
         ],
