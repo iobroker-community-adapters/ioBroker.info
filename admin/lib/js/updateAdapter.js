@@ -249,6 +249,8 @@ const cmdExec = function (cmd, callback) {
 
     stdout = '$ ./iobroker ' + cmd;
     $stdout.val(stdout);
+    
+    activeCmdId = Math.floor(Math.random() * 0xFFFFFFE) + 1;
 
     installMsg[activeCmdId] = {};
     installMsg[activeCmdId].success = msgSuccess;
@@ -328,8 +330,6 @@ $(function () {
     $(document.body).on('click', '.adapter-update-submit', function () {
         const aName = $(this).attr('data-adapter-name');
 
-        // genereate the unique id to coordinate the outputs
-        activeCmdId = Math.floor(Math.random() * 0xFFFFFFE) + 1;
         $(this).closest("li").attr('id', activeCmdId);
 
         cmdExec('upgrade ' + aName, function (exitCode) {
@@ -342,8 +342,6 @@ $(function () {
     $(document.body).on('click', '.adapter-install-submit', function () {
         const aName = $(this).attr('data-adapter-name');
 
-        // genereate the unique id to coordinate the outputs
-        activeCmdId = Math.floor(Math.random() * 0xFFFFFFE) + 1;
         $(this).closest("li").attr('id', activeCmdId);
 
         cmdExec('install ' + aName, function (exitCode) {
