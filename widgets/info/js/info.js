@@ -31,10 +31,21 @@ vis.binds["info"] = {
             vis.states.bind('info.0.newsfeed', function (e, newVal, oldVal) {
                 newsPopup.showVisPopup(newVal.val, widgetID);
             });
-                        
-            newsPopup.showVisPopup(vis.states['info.0.newsfeed'].val, widgetID);
+
+            setData('info.0.newsfeed', widgetID);
+
         }
     }
 };
+
+function setData(id, widgetID) {
+    if (vis.states[id] === undefined) {
+        return setTimeout(function () {
+            setData(id, widgetID);
+        }, 2000);
+    } else {
+        newsPopup.showVisPopup(vis.states['info.0.newsfeed'].val, widgetID);
+    }
+}
 
 vis.binds["info"].showVersion();
