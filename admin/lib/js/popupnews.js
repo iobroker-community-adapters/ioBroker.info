@@ -48,22 +48,25 @@ const newsPopup = {
     checkVersionBetween: function (inst, vers1, vers2) {
         return inst === vers1 || inst === vers2 || (newsPopup.checkVersion(inst, vers1) && newsPopup.checkVersion(vers2, inst));
     },
-    showPopup: async function (obj) {
-        const messages = await newsPopup.checkMessages(obj);
-        if (messages.length > 0) {
-            await asyncForEach(messages, async function (message) {
-                if (parent.window.location.hash === "#tab-info") {
-                    newsPopup.showDiv(message.id, message.title, message.content, message.class, message.icon);
-                }
-            });
+    showPopup: async function (obj, id) {
+        let messages;
+        const adapters = window.top.gMain.tabs.adapters.curInstalled;
+        if (adapters) {
+            messages = await newsPopup.checkMessages(obj);
+            if (messages.length > 0) {
+                await asyncForEach(messages, async function (message) {
+                    newsPopup.showDiv(message.id, message.title, message.content, message.class, message.icon, id);
+                });
+            }
+        } else {
+            messages = await newsPopup.getAdaptersAndcheckMessages(obj, id);
         }
     },
-    checkMessages: async function (obj) {
+    checkMessages: async function (obj, instAdapters) {
         const messagesToShow = [];
         try {
             const messages = JSON.parse(obj);
             const today = new Date().getTime();
-            const adapters = window.top.gMain.tabs.adapters.curInstalled;
             if (messages.length > 0) {
                 await asyncForEach(messages, async function (message) {
                     let showIt = true;
@@ -72,7 +75,7 @@ const newsPopup = {
                     } else if (showIt && message['date-end'] && new Date(message['date-end']).getTime() < today) {
                         showIt = false;
                     } else if (showIt && message.conditions && Object.keys(message.conditions).length > 0) {
-                        const adapters = window.top.gMain.tabs.adapters.curInstalled;
+                        const adapters = instAdapters ? instAdapters : window.top.gMain.tabs.adapters.curInstalled;
                         await asyncForEach(Object.keys(message.conditions), function (key) {
                             const adapter = adapters[key];
                             const condition = message.conditions[key];
@@ -103,7 +106,6 @@ const newsPopup = {
                 });
             }
         } catch (err) {
-
         }
         return messagesToShow;
     },
@@ -122,12 +124,30 @@ const newsPopup = {
             $('#' + (appendId ? appendId : "popupnews")).append($item);
         }
     },
-    showVisPopup: async function (obj, id) {
-        const messages = await newsPopup.checkMessages(obj);
-        if (messages.length > 0) {
-            await asyncForEach(messages, async function (message) {
-                newsPopup.showDiv(message.id, message.title, message.content, message.class, message.icon, id);
-            });
-        }
+    getAdaptersAndcheckMessages: function (obj, toSetId) {
+        socket.emit('getObjectView', 'system', 'host', {startkey: 'system.host.', endkey: 'system.host.\u9999'}, function (err, res) {
+            if (!err && res) {
+                const hosts = [];
+                for (let i = 0; i < res.rows.length; i++) {
+                    hosts.push(res.rows[i].id.substring('system.host.'.length));
+                }
+                const mainHost = res.rows[0].id.substring('system.host.'.length);
+                socket.emit('sendToHost', mainHost, 'getInstalled', null, async function (_installed) {
+                    if (_installed === 'permissionError') {
+                        console.error('May not read "getInstalled"');
+                        _installed = {};
+                    }
+
+                    const curInstalled = _installed || {};
+                    const messages = await newsPopup.checkMessages(obj, curInstalled);
+                    if (messages.length > 0) {
+                        await asyncForEach(messages, async function (message) {
+                            newsPopup.showDiv(message.id, message.title, message.content, message.class, message.icon, toSetId);
+                        });
+                    }
+
+                });
+            }
+        });
     }
 };

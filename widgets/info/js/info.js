@@ -22,7 +22,7 @@ vis.binds["info"] = {
         if (data && data.oid) {
 
             vis.states.bind(data.oid + '.val', function (e, newVal, oldVal) {
-                newsPopup.showVisPopup(newVal, widgetID);
+                newsPopup.showPopup(newVal, widgetID);
             });
 
             setData(data.oid + '.val', widgetID);
@@ -38,7 +38,7 @@ function setData(id, widgetID) {
             setData(id, widgetID);
         }, 2000);
     } else {
-        newsPopup.showVisPopup(value, widgetID);
+        newsPopup.showPopup(value, widgetID);
     }
 }
 
