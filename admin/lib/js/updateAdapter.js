@@ -303,7 +303,7 @@ socket.on('cmdExit', function (_id, exitCode) {
             $('#adapter-install-message-on-end').text(installMsg[_id].success);
             setTimeout(function () {
                 if ($('#adapter-install-close-after').is(':checked')) {
-                    $('#modal-command').modal('hide');
+                    $('#modal-command').modal('hide');                   
                 }
             }, 1500);
             $('#' + _id).remove();

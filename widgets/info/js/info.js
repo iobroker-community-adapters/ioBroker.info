@@ -19,11 +19,14 @@ vis.binds["info"] = {
             }, 100);
         }
 
-        vis.states.bind('info.0.newsfeed.val', function (e, newVal, oldVal) {
-            newsPopup.showVisPopup(newVal, widgetID);
-        });
+        if (data && data.oid) {
 
-        setData('info.0.newsfeed.val', widgetID);
+            vis.states.bind(data.oid + '.val', function (e, newVal, oldVal) {
+                newsPopup.showVisPopup(newVal, widgetID);
+            });
+
+            setData(data.oid + '.val', widgetID);
+        }
 
     }
 };
