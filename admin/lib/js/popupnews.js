@@ -1,5 +1,4 @@
 /* global socket, systemLang, io */
-const socket = io.connect();
 
 function startPopupNews() {
     socket.emit('subscribe', 'info.0.newsfeed');
