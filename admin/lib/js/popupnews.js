@@ -74,7 +74,12 @@ const newsPopup = {
                     } else if (showIt && message['date-end'] && new Date(message['date-end']).getTime() < today) {
                         showIt = false;
                     } else if (showIt && message.conditions && Object.keys(message.conditions).length > 0) {
-                        const adapters = instAdapters ? instAdapters : window.top.gMain.tabs.adapters.curInstalled;
+                        let adapters;
+                        if (instAdapters) {
+                            adapters = instAdapters;
+                        } else {
+                            adapters = window.top.gMain.tabs.adapters.curInstalled;
+                        }
                         await asyncForEach(Object.keys(message.conditions), function (key) {
                             const adapter = adapters[key];
                             const condition = message.conditions[key];
@@ -124,7 +129,9 @@ const newsPopup = {
         }
     },
     getAdaptersAndcheckMessages: function (obj, toSetId) {
-        socket = socket || io.connect();
+        if (!socket) {
+            socket = io.connect();
+        }
         socket.emit('getObjectView', 'system', 'host', {startkey: 'system.host.', endkey: 'system.host.\u9999'}, function (err, res) {
             if (!err && res) {
                 const hosts = [];
