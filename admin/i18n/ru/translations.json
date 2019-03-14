@@ -1,4 +1,5 @@
 {
+    "Active instances": "Активные экземпляры",
     "Adapter Requests": "Запросы адаптера",
     "All adapters are up to date!": "Все адаптеры обновлены!",
     "Architecture": "Aрхитектура",
@@ -9,6 +10,8 @@
     "Close after install": "Закрыть после установки",
     "Community": "Сообщество",
     "Development": "Развитие",
+    "Disk free": "Свободного места на диске ",
+    "Disk size": "Размер диска ",
     "Documentation": "Документация",
     "Documentation languages": "Языки документации",
     "Don't close after install": "Не закрывайте после установки",

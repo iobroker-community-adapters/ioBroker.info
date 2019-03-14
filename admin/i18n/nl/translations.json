@@ -1,4 +1,5 @@
 {
+    "Active instances": "Actieve instanties",
     "Adapter Requests": "Adapterverzoeken",
     "All adapters are up to date!": "Alle adapters zijn up-to-date!",
     "Architecture": "Architectuur",
@@ -9,6 +10,8 @@
     "Close after install": "Sluiten na installatie",
     "Community": "Gemeenschap",
     "Development": "Ontwikkeling",
+    "Disk free": "Schijf gratis",
+    "Disk size": "Schijf grootte",
     "Documentation": "Documentatie",
     "Documentation languages": "Documentatietalen",
     "Don't close after install": "Sluit niet na installatie",

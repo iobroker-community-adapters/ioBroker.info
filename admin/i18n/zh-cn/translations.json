@@ -1,4 +1,5 @@
 {
+    "Active instances": "活动实例",
     "Adapter Requests": "适配器请求",
     "All adapters are up to date!": "所有适配器都是最新的！",
     "Architecture": "建筑",
@@ -9,6 +10,8 @@
     "Close after install": "安装后关闭",
     "Community": "社会",
     "Development": "发展",
+    "Disk free": "磁盘",
+    "Disk size": "磁盘大小",
     "Documentation": "文档",
     "Documentation languages": "文档语言",
     "Don't close after install": "安装后请勿关闭",

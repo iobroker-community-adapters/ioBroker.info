@@ -1,4 +1,5 @@
 {
+    "Active instances": "Las instancias activas",
     "Adapter Requests": "Solicitudes de Adaptador",
     "All adapters are up to date!": "¡Todos los adaptadores están actualizados!",
     "Architecture": "Arquitectura",
@@ -9,6 +10,8 @@
     "Close after install": "Cerrar después de instalar",
     "Community": "La comunidad",
     "Development": "Desarrollo",
+    "Disk free": "Libre en el disco",
+    "Disk size": "Tamaño de disco",
     "Documentation": "Documentación",
     "Documentation languages": "Lenguajes de documentacion",
     "Don't close after install": "No cierre después de instalar",

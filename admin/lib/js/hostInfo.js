@@ -182,5 +182,7 @@ const formatInfo = {
     'Uptime': formatSeconds,
     'System uptime': formatSeconds,
     'RAM': formatRam,
-    'Speed': formatSpeed
+    'Speed': formatSpeed,
+    'Disk size': formatRam,
+    'Disk free': formatRam
 };
