@@ -10,7 +10,7 @@ $.get("../adapter/info/words.js", function (script) {
 });
 
 vis.binds["info"] = {
-    version: "0.0.2",
+    version: "0.0.3",
     showVersion: function () {
         if (vis.binds["info"].version) {
             console.log('Version Info-Adapter-Widget: ' + vis.binds["info"].version);
