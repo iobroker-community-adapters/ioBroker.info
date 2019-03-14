@@ -2,15 +2,8 @@
 
 "use strict";
 
-// add translations for edit mode
-$.get("../adapter/info/words.js", function (script) {
-    let translation = script.substring(script.indexOf('{'), script.length);
-    translation = translation.substring(0, translation.lastIndexOf(';'));
-    $.extend(systemDictionary, JSON.parse(translation));
-});
-
 vis.binds["info"] = {
-    version: "0.0.4",
+    version: "0.0.5",
     showVersion: function () {
         if (vis.binds["info"].version) {
             console.log('Version Info-Adapter-Widget: ' + vis.binds["info"].version);
@@ -26,15 +19,12 @@ vis.binds["info"] = {
             }, 1000);
         }
 
-        if (data.oid) {
+        vis.states.bind('info.0.newsfeed', function (e, newVal, oldVal) {
+            newsPopup.showVisPopup(newVal.val, widgetID);
+        });
 
-            vis.states.bind('info.0.newsfeed', function (e, newVal, oldVal) {
-                newsPopup.showVisPopup(newVal.val, widgetID);
-            });
+        setData('info.0.newsfeed', widgetID);
 
-            setData('info.0.newsfeed', widgetID);
-
-        }
     }
 };
 
