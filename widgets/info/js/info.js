@@ -25,20 +25,20 @@ vis.binds["info"] = {
                 newsPopup.showPopup(newVal, widgetID);
             });
 
-            setData(data.oid + '.val', widgetID);
+            setData(data.oid + '.val', widgetID, vis.editMode);
         }
 
     }
 };
 
-function setData(id, widgetID) {
+function setData(id, widgetID, dummy) {
     const value = vis.states.attr(id);
     if (value === undefined) {
         return setTimeout(function () {
-            setData(id, widgetID);
+            setData(id, widgetID, dummy);
         }, 2000);
     } else {
-        newsPopup.showPopup(value, widgetID);
+        newsPopup.showPopup(value, widgetID, dummy);
     }
 }
 
@@ -47,7 +47,7 @@ vis.binds["info"].showVersion();
 $(function () {
 
     $('[data-dismiss="alert"]').on('click', function () {
-        $(this).parent().hide();
+        $(this).parent().remove();
     });
 
 });
