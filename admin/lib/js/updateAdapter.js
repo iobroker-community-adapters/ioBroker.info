@@ -152,6 +152,7 @@ function fillList(type, list, repository, installedList) {
         }
 
         $tmpLiElement.find('.version').text(obj.version);
+        $tmpLiElement.attr("id", "adapter-InstallOrUpdate-" + adapter);
 
         if (isHost) {
             $tmpLiElement.find('.newVersion').text(repository[adapter].version);
@@ -167,7 +168,7 @@ function fillList(type, list, repository, installedList) {
                 uniqueCount.push(adapter);
             }
             counter++;
-            $tmpLiElement.attr("id", "adapter-update-" + adapter);
+            
             $tmpLiElement.find('.adapter-update-submit').attr('data-adapter-name', adapter);
             $tmpLiElement.find('.newVersion').text(repository[adapter].version);
             if (obj.readme) {
@@ -309,7 +310,7 @@ socket.on('cmdExit', function (_id, exitCode) {
                 }
             }, 1500);
             $('#' + _id).remove();
-            $('#adapter-update-' + installMsg[activeCmdId].name).remove();
+            $('#adapter-InstallOrUpdate-' + installMsg[activeCmdId].name).remove();
             const updateCount = window.top.$('#updates-for-adapters').text();
             let number = null;
             if (updateCount) {
