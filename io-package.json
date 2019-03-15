@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "info",
-        "version": "1.2.6",
+        "version": "1.2.7",
         "news": {
             "1.2.6": {
                 "en": "Added important short messages about ioBroker",

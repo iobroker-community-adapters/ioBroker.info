@@ -167,6 +167,7 @@ function fillList(type, list, repository, installedList) {
                 uniqueCount.push(adapter);
             }
             counter++;
+            $tmpLiElement.attr("id", "adapter-update-" + adapter);
             $tmpLiElement.find('.adapter-update-submit').attr('data-adapter-name', adapter);
             $tmpLiElement.find('.newVersion').text(repository[adapter].version);
             if (obj.readme) {
@@ -250,12 +251,13 @@ const cmdExec = function (cmd, callback) {
 
     stdout = '$ ./iobroker ' + cmd;
     $stdout.val(stdout);
-    
+
     activeCmdId = Math.floor(Math.random() * 0xFFFFFFE) + 1;
 
     installMsg[activeCmdId] = {};
     installMsg[activeCmdId].success = msgSuccess;
     installMsg[activeCmdId].error = msgError;
+    installMsg[activeCmdId].name = name;
 
     $('#modal-command').modal();
 
@@ -303,11 +305,17 @@ socket.on('cmdExit', function (_id, exitCode) {
             $('#adapter-install-message-on-end').text(installMsg[_id].success);
             setTimeout(function () {
                 if ($('#adapter-install-close-after').is(':checked')) {
-                    $('#modal-command').modal('hide');                   
+                    $('#modal-command').modal('hide');
                 }
             }, 1500);
             $('#' + _id).remove();
-            window.top.gMain.tabs.adapters.updateCounter();
+            $('#adapter-update-' + installMsg[activeCmdId].name).remove();
+            const updateCount = window.top.$('#updates-for-adapters').text();
+            let number = null;
+            if (updateCount) {
+                number = parseInt(updateCount) - 1;
+            }
+            window.top.gMain.tabs.adapters.updateCounter(number);
         } else {
             $('#adapter-meter').progressbar(90, "error");
             $('#adapter-install-message-on-end').text(installMsg[_id].error);
@@ -320,7 +328,12 @@ socket.on('cmdExit', function (_id, exitCode) {
     } else if (installMsg.hasOwnProperty(_id)) {
         if (!exitCode) {
             $('#' + _id).remove();
-            window.top.gMain.tabs.adapters.updateCounter();
+            const updateCount = window.top.$('#updates-for-adapters').text();
+            let number = null;
+            if (updateCount) {
+                number = parseInt(updateCount) - 1;
+            }
+            window.top.gMain.tabs.adapters.updateCounter(number);
             alert(installMsg[_id].success);
         } else {
             alert(installMsg[_id].error);
