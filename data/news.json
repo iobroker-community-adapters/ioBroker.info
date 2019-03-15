@@ -135,7 +135,7 @@
     {
         "title": {
             "en": "Info Adapter Version 1.2.4 causes problems with the VIS Editor",
-            "de": "Info Adapter Version 1.2.4 verursacht Probleme mit dem VIS Editor",
+            "de": "Info Adapter Version 1.2.4 verursacht Probleme beim VIS Editor",
             "ru": "Info Adapter версии 1.2.4 вызывает проблемы с VIS Editor",
             "pt": "Adaptador de Info Versão 1.2.4 causa problemas com o VIS Editor",
             "nl": "Info Adapter Versie 1.2.4 veroorzaakt problemen met de VIS Editor",
@@ -147,7 +147,7 @@
         },
         "content": {
             "en": "The problem with the VIS editor has been fixed since version 1.2.5. Please install the new version.",
-            "de": "Das Problem mit dem VIS-Editor wurde seit Version 1.2.5 behoben. ",
+            "de": "Das Problem mit dem VIS-Editor wurde mit der Version 1.2.5 behoben. ",
             "ru": "Проблема с редактором VIS была исправлена ​​с версии 1.2.5. ",
             "pt": "O problema com o editor VIS foi corrigido desde a versão 1.2.5. ",
             "nl": "Het probleem met de VIS-editor is verholpen sinds versie 1.2.5. ",
@@ -161,6 +161,39 @@
         "created": "2019-03-15T00:00:00.000Z",
         "conditions": {
             "info": "equals(1.2.4)"
+        }
+    },
+    {
+        "title": {
+            "en": "Test version of Info Adapter installed",
+            "de": "Test-version von Info-Adapter installiert",
+            "ru": "Тестовая версия Информация адаптер установлен",
+            "pt": "Versão de teste da Info Adaptador instalado",
+            "nl": "Test versie van de Info-Adapter is geïnstalleerd",
+            "fr": "Version de Test de l'Info de Carte est installé",
+            "it": "Versione di prova di Info è installata una Scheda di",
+            "es": "Versión de prueba de Info Adaptador instalado",
+            "pl": "Wersja testowa Informacje sieciowa jest zainstalowana",
+            "zh-cn": "试验版本的信息安装适配器"
+        },
+        "content": {
+            "en": "I am currently testing my widget. So do not be surprised about this message. It is ONLY for testing everything here.<p>These are the voyages of the Starship Enterprise. Its continuing mission, to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no one has gone before. We need to neutralize the homing signal. Each unit has total environmental control, gravity, temperature, atmosphere, light, in a protective field. Sensors show energy readings in your area. We had a forced chamber explosion in the resonator coil. Field strength has increased by 3,000 percent.</p><p>Resistance is futile.</p>",
+            "de": "Ich Teste derzeit mein widget. Also nicht überrascht sein über diese Nachricht. Es ist NUR für den Test alles hier.<p>Diese sind die Reisen des Raumschiff Enterprise. Seine fortwährende mission, erkunden Sie seltsame neue Welten zu suchen, neues Leben und neue Zivilisationen, to boldly go where no man has gone before. Müssen wir neutralisieren die homing-signal. Jede Einheit verfügt über insgesamt Umwelt-Kontrolle, Schwerkraft, Temperatur, Atmosphäre, Licht, in ein schützendes Feld. Sensoren zeigen Energie-Messungen in Ihrem Bereich. Wir hatten eine Zwangs-Kammer-explosion in den resonator coil. Die Feldstärke erhöht sich um 3000 Prozent.</p><p>Widerstand ist zwecklos.</p>",
+            "ru": "Я сейчас тестирую мой виджет. Так что не удивляйтесь об этом сообщении. Это только для тестирования все здесь.<П>это путешествия звездолета \"Энтерпрайз\". Его постоянная миссия-исследовать странные новые миры, искать новую жизнь и новые цивилизации, смело идти туда, где еще никто не бывал. Нам нужно нейтрализовать радиомаяк. Каждый блок имеет общую экологического контроля, гравитация, температура, атмосфера, свет, в защитное поле. Датчики показывают показания энергии в вашем районе. Мы были вынуждены взрывной камеры в катушке резонатора. Напряженность поля увеличилась на 3000 процентов.</р><р>сопротивление бесполезно.</п>",
+            "pt": "Atualmente estou testando o meu widget. Então não se surpreenda com esta mensagem. É SÓ para testar tudo aqui.<p>Estas são as viagens da Nave estelar Enterprise. Prosseguindo em sua missão para explorar novos e estranhos mundos, procurar novas formas de vida e novas civilizações, para audaciosamente ir onde ninguém foi antes. Precisamos neutralizar o retorno à posição inicial do sinal. Cada unidade tem total controle ambiental, a gravidade, a temperatura, a atmosfera, a luz, em um campo de proteção. Sensores de mostrar energia leituras em sua área. Tivemos uma forçado câmara de explosão do ressonador bobina. Campo de força aumentou de 3.000%.</p><p>a Resistência é inútil.</p>",
+            "nl": "Ik ben momenteel aan het testen van mijn widget. Dus wees niet verbaasd over dit bericht. Het is ALLEEN voor het testen van alles hier.<p>Dit zijn de reizen van Starship Enterprise. Haar voortdurende missie om te ontdekken vreemde nieuwe werelden, om te zoeken naar een nieuw leven en nieuwe beschavingen, to boldly go where no one has gone before'. We neutraliseren de homing signaal. Elke eenheid heeft de totale milieu-control, zwaartekracht, temperatuur, sfeer, licht, in een beschermend veld. Sensoren geven energie metingen in uw omgeving. We hadden een gedwongen kamer explosie in de resonator spoel. Veldsterkte is toegenomen door een 3.000 procent.</p><p>Resistance is futile.</p>",
+            "fr": "Je suis actuellement en train de tester mon widget. Donc, ne soyez pas surpris de ce message. C'est UNIQUEMENT pour tester tout ici.<p>ce sont les voyages du Vaisseau Enterprise. Sa mission, d'explorer de nouveaux mondes étranges, pour chercher une nouvelle vie et de nouvelles civilisations, pour aller où personne n'est allé avant. Nous avons besoin de neutraliser le signal de ralliement. Chaque unité a un total contrôle de l'environnement, de la gravité, la température, l'atmosphère, la lumière, dans un champ de protection. Les capteurs de montrer de l'énergie lectures dans votre région. Nous avions une contrainte de la chambre d'explosion dans la caisse de résonance de la bobine. Champ de force a augmenté de 3 000%.</p><p>la Résistance est futile.</p>",
+            "it": "Attualmente sto testando il mio widget. Quindi non essere sorpreso di questo messaggio. È SOLO per il test, tutto qui.<p>Questi sono i viaggi dell'Astronave Enterprise. La sua missione permanente, di esplorare strani, nuovi mondi, alla ricerca di nuova vita e di nuove civiltà, per andare là dove nessuno è mai giunto prima. Abbiamo bisogno di neutralizzare il segnale di homing. Ogni unità ha il totale controllo ambientale, la gravità, la temperatura, l'atmosfera, la luce, in un campo di protezione. Sensori mostrano letture di energia nella vostra zona. Abbiamo avuto un forzato camera esplosione nel risonatore bobina. Campo di forza è aumentata da 3.000 per cento.</p><p>la Resistenza è inutile.</p>",
+            "es": "Actualmente estoy probando mi widget. Así que no se sorprenda de este mensaje. Es SOLO para pruebas, todo aquí.<p>Estos son los viajes de la Nave espacial Enterprise. Su misión continua, para explorar extraños nuevos mundos, buscar nuevas formas de vida y nuevas civilizaciones, para ir audazmente a donde nadie ha ido antes. Necesitamos neutralizar la recalada de la señal. Cada unidad tiene total control del medio ambiente, la gravedad, la temperatura, la atmósfera, la luz, en un campo de protección. Los sensores de mostrar lecturas de energía en su área. Tuvimos un forzado de la cámara de explosión en el resonador de la bobina. Campo de fuerza ha aumentado en 3.000 por ciento.</p><p>la Resistencia es fútil.</p>",
+            "pl": "Ja teraz testuję mój widget. Więc nie zdziw się o tym komunikacie. To tylko dla testów, wszystko tu jest.<P>to podróż statku kosmicznego \"Enterprise\". Jego stała misja-odkrywać nowe światy, szukać nowego życia i nowych cywilizacji, śmiało iść tam, gdzie nikt jeszcze nie był. Musimy zneutralizować światłem. Każdy blok ma całkowitej kontroli środowiska, grawitacja, temperatura, klimat, światło, pole ochronne. Czujniki pokazują stan energii w twojej okolicy. Byliśmy zmuszeni wybuchowy kamery w cewce kilometrów. Natężenie pola wzrosła o 3000 procent.</p><p>opór nie ma sensu.</p>",
+            "zh-cn": "我目前正在测试我的部件。 这样做不会感到惊讶，关于这个消息。 它只是用于测试这里的一切。<p>这些是航程的飞船企业。 它继续特派团，以探索陌生的新世界，寻找新的生命和的新文明，大胆地走在没有一个已经之前。 我们需要消除的归航信号。 每个单元都有总的环境控制、重力、温度、大气光，在一个保护领域。 传感器显示的能量读数在你的区域。 我们有一个强迫室爆炸的谐振器的线圈。 领域实力已经增加了3 000名%。</p><抵抗是徒劳的。</p>"
+        },
+        "id": "infoAdapter",
+        "icon": "reddit-alien",
+        "class": "warning",
+        "created": "2019-03-15T00:00:00.000Z",
+        "conditions": {
+            "info": "equals(1.2.6)"
         }
     }
 ]
