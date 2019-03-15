@@ -1,9 +1,9 @@
 {
     "common": {
         "name": "info",
-        "version": "1.2.4",
+        "version": "1.2.5",
         "news": {
-            "1.2.4": {
+            "1.2.5": {
                 "en": "Added important short messages about ioBroker",
                 "de": "Hinzugefügt wichtige Kurznachrichten über ioBroker",
                 "ru": "Добавлены важные короткие сообщения о ioBroker",
