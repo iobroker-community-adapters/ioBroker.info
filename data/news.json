@@ -131,5 +131,36 @@
             "broadlink": "installed",
             "broadlink2": "!installed"
         }
+    },
+    {
+        "title": {
+            "en": "Info Adapter Version 1.2.4 causes problems with the VIS Editor",
+            "de": "Info Adapter Version 1.2.4 verursacht Probleme mit dem VIS Editor",
+            "ru": "Info Adapter версии 1.2.4 вызывает проблемы с VIS Editor",
+            "pt": "Adaptador de Info Versão 1.2.4 causa problemas com o VIS Editor",
+            "nl": "Info Adapter Versie 1.2.4 veroorzaakt problemen met de VIS Editor",
+            "fr": "Info Adapter version 1.2.4 provoque des problèmes avec l'éditeur de vis",
+            "it": "Info Adapter Versione 1.2.4 causa problemi con l'editor VIS",
+            "es": "La versión 1.2.4 del adaptador de información causa problemas con el editor VIS",
+            "pl": "Info Adapter Version 1.2.4 powoduje problemy z edytorem VIS",
+            "zh-cn": "信息适配器版本1.2.4导致VIS编辑器出现问题"
+        },
+        "content": {
+            "en": "The problem with the VIS editor has been fixed since version 1.2.5. Please install the new version.",
+            "de": "Das Problem mit dem VIS-Editor wurde seit Version 1.2.5 behoben. ",
+            "ru": "Проблема с редактором VIS была исправлена ​​с версии 1.2.5. ",
+            "pt": "O problema com o editor VIS foi corrigido desde a versão 1.2.5. ",
+            "nl": "Het probleem met de VIS-editor is verholpen sinds versie 1.2.5. ",
+            "fr": "Le problème avec l'éditeur VIS a été corrigé depuis la version 1.2.5. ",
+            "it": "Il problema con l'editor VIS è stato risolto dalla versione 1.2.5. ",
+            "es": "El problema con el editor VIS se ha solucionado desde la versión 1.2.5. ",
+            "pl": "Problem z edytorem VIS został naprawiony od wersji 1.2.5. ",
+            "zh-cn": "自版本1.2.5起，VIS编辑器的问题已得到修复。"
+        },
+        "id": "infoAdapter",
+        "created": "2019-03-15T00:00:00.000Z",
+        "conditions": {
+            "info": "equals(1.2.4)"
+        }
     }
 ]
