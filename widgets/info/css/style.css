@@ -68,13 +68,11 @@
   float: left;
 }
 .info-adapter-class .col-xs-2 {
-  width: 16.66666667%;
+  width: 10.66666667%;
 }
 .info-adapter-class .col-xs-9 {
-  width: 75%;
-}
-.info-adapter-class .col-xs-offset-1 {
-  margin-left: 8.33333333%;
+  width: 80%;
+  margin-top: -30px;
 }
 .info-adapter-class .alert {
   padding: 15px;
