@@ -122,7 +122,7 @@ const newsPopup = {
             if (type && type !== 'info' && types.indexOf(type) > -1) {
                 $item.find('.alert').removeClass('alert-info').addClass('alert-' + type);
             }
-            if (icon && icon !== 'fa-exclamation-triangle') {
+            if (icon && icon !== 'exclamation-triangle') {
                 $item.find('.fa').removeClass('fa-exclamation-triangle').addClass('fa-' + icon);
             }
             $('#' + (appendId ? appendId : "popupnews")).append($item);
@@ -146,7 +146,7 @@ const newsPopup = {
                     const messages = await newsPopup.checkMessages(obj, curInstalled);
                     if (messages.length > 0) {
                         await asyncForEach(messages, async function (message) {
-                            newsPopup.showDiv(message.id, message.title, message.content, message.class, message.icon, toSetId);
+                            newsPopup.showDiv(message.id, message.title, message.content, message.class, 'exclamation-triangle', toSetId);
                         });
                     }
 

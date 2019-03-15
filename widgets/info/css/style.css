@@ -1,8 +1,127 @@
 /* Style your widget here */
-.info-class {
-    font-style: italic;
+.info-adapter-class button.close {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  overflow: visible;
+  text-transform: none;
+ font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+   -webkit-appearance: none;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+   float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .2;
 }
-.no-margin {
-    margin-top: -40px;
+.info-adapter-class button.close::-moz-focus-inner{
+  padding: 0;
+  border: 0;
 }
-
+.info-adapter-class button.close:hover,
+.info-adapter-class button.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  filter: alpha(opacity=50);
+  opacity: .5;
+}
+.info-adapter-class h2 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+   margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+.info-adapter-class p {
+  margin: 0 0 10px;
+}
+.info-adapter-class .row:before,
+.info-adapter-class .row:after{
+  display: table;
+  content: " ";
+}
+.info-adapter-class .row:after{
+  clear: both;
+}
+.info-adapter-class .row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.info-adapter-class .col-xs-2,.info-adapter-class .col-xs-9 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.info-adapter-class .col-xs-2,.info-adapter-class .col-xs-9 {
+  float: left;
+}
+.info-adapter-class .col-xs-2 {
+  width: 16.66666667%;
+}
+.info-adapter-class .col-xs-9 {
+  width: 75%;
+}
+.info-adapter-class .col-xs-offset-1 {
+  margin-left: 8.33333333%;
+}
+.info-adapter-class .alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.info-adapter-class .alert-dismissible {
+  padding-right: 35px;
+}
+.info-adapter-class .alert-dismissible .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  color: inherit;
+}
+.info-adapter-class .alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.info-adapter-class .alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.info-adapter-class .alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+.info-adapter-class .alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.info-adapter-class .fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.info-adapter-class .fa-5x {
+  font-size: 5em;
+}
+.info-adapter-class .fa-exclamation-triangle:before {
+  content: "\26A0";
+}

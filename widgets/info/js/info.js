@@ -43,3 +43,11 @@ function setData(id, widgetID) {
 }
 
 vis.binds["info"].showVersion();
+
+$(function () {
+
+    $('[data-dismiss="alert"]').on('click', function () {
+        $(this).parent().hide();
+    });
+
+});
