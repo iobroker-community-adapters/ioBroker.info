@@ -138,6 +138,8 @@ $(function () {
             const link = url.match(/([^/]*\/){6}/);
             const html = new showdown.Converter().makeHtml(data).replace(/src="(?!http)/g, 'class="img-responsive" src="' + link[0]);
             $("#" + target).html(html);
+        }).fail(function () {
+            $("#" + target).html("<p><b>" + _("Readme file was not found. No further information available.") + "</b></p>");
         });
     });
 

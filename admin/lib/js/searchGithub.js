@@ -79,8 +79,8 @@ function searchGithubForNewAdapters(by = "name", order = false) {
             $item.find('.titleLink').text(val.name + " - " + _('last update') + ": " + new Date(val.updated_at).toLocaleDateString(systemLang, dateOptions) + " (" + val.owner.login + ")").attr('href', val.html_url);
             $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
             $item.find('.y_content').addClass('spoiler-content').css('display', 'none');            
-            $item.find('.collapse-link').attr("data-md-url", "https://raw.githubusercontent.com/" + val.full_name + "/master/README.md").addClass("loadGithubData").attr('data-md-target', 'git_desc_readme_' + val.name);
-            $item.find('.description').attr('id', 'git_desc_readme_' + val.name);
+            $item.find('.collapse-link').attr("data-md-url", "https://raw.githubusercontent.com/" + val.full_name + "/master/README.md").addClass("loadGithubData").attr('data-md-target', 'git_desc_readme_' + val.id);
+            $item.find('.description').attr('id', 'git_desc_readme_' + val.id);
             $('#githubSearchList').append($item);
         });
         if (adapterConfig.new_adapters_closed) {
