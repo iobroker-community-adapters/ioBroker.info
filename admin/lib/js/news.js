@@ -15,7 +15,10 @@ function writeNewsData(data) {
             $item.find('.tags').remove();
             $item.find('.navbar-right').remove();
             $item.find('.assignDiv').remove();
-            $item.find('.titleLink').text(entry.title).attr('href', entry.link);
+            $item.find('.y_title').addClass('titleRSS');
+            $item.find('.title').addClass('titleRSS');
+            $item.find('.collapse-link').addClass('titleRSS');
+            $item.find('.titleLink').addClass('titleRSS').text(entry.title).attr('href', entry.link);
             $item.find('.description').html(entry.description);
             $item.find('.description a').attr('target', '_blank');
             $item.find('.byline').text(new Date(entry.pubDate).toLocaleDateString(systemLang, dateOptions) + " - " + entry.author);

@@ -463,16 +463,16 @@ ul#cssClock li{
 }
 
 @media (min-width: 992px){
-    .y_title .titleLink {
+    .y_title .titleLink:not(.titleRSS) {
         font-size: 14px;        
     }
-    .y_title {        
+    .y_title:not(.titleRSS) {        
         padding: 0 0 0 10px !important;
     }
-    .y_title .collapse-link{
+    .y_title .collapse-link:not(.titleRSS){
         padding: 5px 10px 0 0;
     }
-    .y_title h2.title{
+    .y_title h2.title:not(.titleRSS){
         margin-top: -5px;
     }
 }

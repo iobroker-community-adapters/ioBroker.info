@@ -33,7 +33,10 @@ function startForum() {
             $item.find('.assignDiv').remove();
             $item.find('.forumClass').text(thread.category);
             $item.find('.tag').attr('href', thread.categoryLink);
-            $item.find('.titleLink').text(feed.title).attr('href', feed.link);
+            $item.find('.y_title').addClass('titleRSS');
+            $item.find('.title').addClass('titleRSS');
+            $item.find('.collapse-link').addClass('titleRSS');
+            $item.find('.titleLink').addClass('titleRSS').text(feed.title).attr('href', feed.link);
 
             let desc = feed.description;
             desc += "<div style='width: 100%; text-align: center;'>&#9711;&nbsp;&#9711;&nbsp;&#9711;</div>";
@@ -101,7 +104,10 @@ function startForum() {
                 $item.find('.navbar-right').remove();
                 $item.find('.assignDiv').remove();
                 $item.find('.forumClass').text(thread.categories.join());
-                $item.find('.titleLink').text(thread.title).attr('href', thread.link);
+                $item.find('.y_title').addClass('titleRSS');
+                $item.find('.title').addClass('titleRSS');
+                $item.find('.collapse-link').addClass('titleRSS');
+                $item.find('.titleLink').addClass('titleRSS').text(thread.title).attr('href', thread.link);
                 $item.find('.description').html(thread.description);
                 $item.find('.description a').attr('target', '_blank');
 
