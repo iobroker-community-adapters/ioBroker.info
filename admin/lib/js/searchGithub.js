@@ -74,10 +74,10 @@ function searchGithubForNewAdapters(by = "name", order = false) {
             const val = data[key];
             const $item = $('#forumEntryTemplate').children().clone(true, true);
             $item.find('.label-success').remove();
-            $item.find('.titleLink').text(val.name).attr('href', val.html_url);
+            $item.find('.assignDiv').remove();
+            $item.find('.titleLink').text(val.name + " - " + _('last update') + ": " + new Date(val.updated_at).toLocaleDateString(systemLang, dateOptions) + " (" + val.owner.login + ")").attr('href', val.html_url);
             $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
             $item.find('.y_content').addClass('spoiler-content').css('display', 'none');
-            $item.find('.byline').text(new Date(val.updated_at).toLocaleDateString(systemLang, dateOptions) + " - " + val.owner.login);
             $('#githubSearchList').append($item);
         });
         if (adapterConfig.new_adapters_closed) {
