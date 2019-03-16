@@ -141,7 +141,7 @@ $(function () {
                 blockCounter.push('#adapterSearchBlock');
                 searchGithubForNewAdapters(adapterConfig.new_adapters_sort, adapterConfig.new_adapters_order);
                 if (!adapterConfig.new_adapters_open) {
-
+                    $('#adapterSearchBlock').find('.x_title a.collapse-link').click();
                 }
             } else {
                 $('#adapterSearchBlock').hide();
@@ -150,9 +150,7 @@ $(function () {
                 blockCounter.push('#adapterRequestBlock');
                 showAdapterRequest();
                 if (!adapterConfig.adapter_request_open) {
-                    $('#adapterRequestBlock').find('.x_panel').css("height", "auto");
-                    $('#adapterRequestBlock').find('.x_content').css("display", "none");
-                    $('#adapterRequestBlock').find('.fa-chevron-up').toggleClass('fa-chevron-up fa-chevron-down');
+                    $('#adapterRequestBlock').find('.x_title a.collapse-link').click();
                 }
             } else {
                 $('#adapterRequestBlock').hide();
@@ -161,9 +159,7 @@ $(function () {
                 blockCounter.push('#knownIssuesBlock');
                 showIssues();
                 if (!adapterConfig.adapter_issue_open) {
-                    $('#knownIssuesBlock').find('.x_panel').css("height", "auto");
-                    $('#knownIssuesBlock').find('.x_content').css("display", "none");
-                    $('#knownIssuesBlock').find('.fa-chevron-up').toggleClass('fa-chevron-up fa-chevron-down');
+                    $('#knownIssuesBlock').find('.x_title a.collapse-link').click();
                 }
             } else {
                 $('#knownIssuesBlock').hide();
