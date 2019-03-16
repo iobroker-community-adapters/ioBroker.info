@@ -19,6 +19,7 @@ function showIssues() {
                     $item.find('.collapse-link').attr("data-adapter", fullNameId).addClass("loadAdapterIssues");
 
                     const ul = $('<ul/>').attr("id", "issue_" + fullNameId).addClass("list-unstyled timeline");
+                    $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
                     $item.find('.y_content').addClass('spoiler-content').css('display', 'none').css('background-color', 'cornsilk').empty().append(ul);
 
                     $('#adapterIssueList').append($item);
