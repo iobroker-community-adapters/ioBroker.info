@@ -454,6 +454,15 @@ ul#cssClock li{
     margin-top: -40px;
 }
 
-h2.span {
+.x_title>h2>span {
     font-size: 25px;
+}
+
+@media (min-width: 992px){
+    .y_title .titleLink {
+        font-size: 14px;
+    }
+    .y_title {
+        padding-left: 10px !important;
+    }
 }

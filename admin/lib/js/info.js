@@ -151,7 +151,7 @@ $(function () {
                 showAdapterRequest();
                 if (!adapterConfig.adapter_request_open) {
                     $('#adapterRequestBlock').find('.x_panel').css("height", "auto");
-                    $('#adapterRequestBlock').find('.x_content').css("diaplay", "none");
+                    $('#adapterRequestBlock').find('.x_content').css("display", "none");
                     $('#adapterRequestBlock').find('.fa-chevron-up').toggleClass('fa-chevron-up fa-chevron-down');
                 }
             } else {
@@ -162,7 +162,7 @@ $(function () {
                 showIssues();
                 if (!adapterConfig.adapter_issue_open) {
                     $('#knownIssuesBlock').find('.x_panel').css("height", "auto");
-                    $('#knownIssuesBlock').find('.x_content').css("diaplay", "none");
+                    $('#knownIssuesBlock').find('.x_content').css("display", "none");
                     $('#knownIssuesBlock').find('.fa-chevron-up').toggleClass('fa-chevron-up fa-chevron-down');
                 }
             } else {
