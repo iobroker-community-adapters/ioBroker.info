@@ -461,8 +461,12 @@ ul#cssClock li{
 @media (min-width: 992px){
     .y_title .titleLink {
         font-size: 14px;
+        margin: -10px 0 0 0;
     }
     .y_title {
-        padding-left: 10px !important;
+        padding: 0 0 0 10px !important;
+    }
+    .y_title .collapse-link{
+        padding: 0 10px 0 0;
     }
 }

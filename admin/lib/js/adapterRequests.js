@@ -1,4 +1,4 @@
-/* global systemLang, dateOptions */
+/* global systemLang, dateOptions, adapterConfig */
 
 async function getAllIssuesFromAdapter(full_name) {
     let allIssues = [];
@@ -10,33 +10,33 @@ async function getAllIssuesFromAdapter(full_name) {
             i = 100;
         }
     }
-    
-    allIssues = await cleanTitle(allIssues); 
 
-    allIssues.sort(function (a, b) {        
+    allIssues = await cleanTitle(allIssues);
+
+    allIssues.sort(function (a, b) {
         return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
     });
 
     return allIssues;
 }
 
-async function cleanTitle(allIssues){
+async function cleanTitle(allIssues) {
     const response = [];
     await asyncForEach(allIssues, async function (issue) {
         let title = issue.title;
-        if(title.toLowerCase().startsWith("adapter for ") || title.toLowerCase().startsWith("adapter für ")){
-            title = title.substring(12, title.length);      
-        }else if(title.toLowerCase().startsWith("adapter ")){
+        if (title.toLowerCase().startsWith("adapter for ") || title.toLowerCase().startsWith("adapter für ")) {
+            title = title.substring(12, title.length);
+        } else if (title.toLowerCase().startsWith("adapter ")) {
             title = title.substring(8, title.length);
-        }    
+        }
         issue.title = title;
         response.push(issue);
-    }); 
+    });
     return response;
 }
 
 async function writeAllIssues(allIssues, id) {
-    if(allIssues.length > 0){
+    if (allIssues.length > 0) {
         await asyncForEach(allIssues, async function (issue) {
             const $item = $('#forumEntryTemplate').children().clone(true, true);
             $item.find('.label-success').remove();
@@ -62,9 +62,8 @@ async function writeAllIssues(allIssues, id) {
 
             $('#' + id).append($item);
         });
-    }else{
-        
-        $('#' + id).parent().empty().html("<h2>" + _('no issues found') + "</h2>")
+    } else {
+        $('#' + id).parent().empty().html("<h2>" + _('no issues found') + "</h2>");
     }
 }
 
@@ -81,6 +80,9 @@ function showAdapterRequest() {
         }
 
         await writeAllIssues(allIssues, "adapterRequestList");
+        if (adapterConfig.adapter_request_closed) {
+            $('#adapterRequestBlock').find('.x_title a.collapse-link').click();
+        }
     }
 
     getIssues();

@@ -140,7 +140,7 @@ $(function () {
             if (adapterConfig.new_adapters) {
                 blockCounter.push('#adapterSearchBlock');
                 searchGithubForNewAdapters(adapterConfig.new_adapters_sort, adapterConfig.new_adapters_order);
-                if (!adapterConfig.new_adapters_open) {
+                if (adapterConfig.new_adapters_closed) {
                     $('#adapterSearchBlock').find('.x_title a.collapse-link').click();
                 }
             } else {
@@ -148,19 +148,13 @@ $(function () {
             }
             if (adapterConfig.adapter_request) {
                 blockCounter.push('#adapterRequestBlock');
-                showAdapterRequest();
-                if (!adapterConfig.adapter_request_open) {
-                    $('#adapterRequestBlock').find('.x_title a.collapse-link').click();
-                }
+                showAdapterRequest();                
             } else {
                 $('#adapterRequestBlock').hide();
             }
             if (adapterConfig.adapter_issue) {
                 blockCounter.push('#knownIssuesBlock');
-                showIssues();
-                if (!adapterConfig.adapter_issue_open) {
-                    $('#knownIssuesBlock').find('.x_title a.collapse-link').click();
-                }
+                showIssues();                
             } else {
                 $('#knownIssuesBlock').hide();
             }
