@@ -166,6 +166,7 @@ ul#cssClock li{
 
 .clock {
     margin-bottom: 10px;
+    z-index: -2;
 }
 
 .specialclock.count{
