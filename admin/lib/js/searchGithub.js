@@ -1,4 +1,4 @@
-/* global systemLang, dateOptions */
+/* global systemLang, dateOptions, adapterConfig */
 
 function searchGithubForNewAdapters(by = "name", order = false) {
 
@@ -67,12 +67,21 @@ function searchGithubForNewAdapters(by = "name", order = false) {
         }
     }
 
-    function write() {
+    async function write() {
         const data = JSON.parse(sessionStorage.getItem('ioBroker.info.foundGit'));
         $('#githubSearchList').empty();
-        Object.keys(data).forEach(function (key) {
+        await asyncForEach(Object.keys(data), function (key) {
             const val = data[key];
-            $('#githubSearchList').append("<li><a href='" + val.html_url + "' target='_blank'>" + val.name + "</a> - (" + val.size + " kb) - " + val.owner.login + " - " + new Date(val.updated_at).toLocaleDateString(systemLang, dateOptions) + " - " + val.description + "</li>");
+            const $item = $('#forumEntryTemplate').children().clone(true, true);
+            $item.find('.label-success').remove();
+            $item.find('.titleLink').text(val.name).attr('href', val.html_url);
+            $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
+            $item.find('.y_content').addClass('spoiler-content').css('display', 'none');
+            $item.find('.byline').text(new Date(val.updated_at).toLocaleDateString(systemLang, dateOptions) + " - " + val.owner.login);
+            $('#githubSearchList').append($item);
         });
+        if (adapterConfig.new_adapters_closed) {
+            $('#adapterSearchBlock').find('.x_title a.collapse-link').click();
+        }
 }
 }

@@ -470,6 +470,9 @@ ul#cssClock li{
         padding: 0 0 0 10px !important;
     }
     .y_title .collapse-link{
-        padding: 0 10px 0 0;
+        padding: 5px 10px 0 0;
+    }
+    .y_title h2.title{
+        margin-top: -5px;
     }
 }

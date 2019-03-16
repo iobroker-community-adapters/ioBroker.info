@@ -139,10 +139,7 @@ $(function () {
             let blockCounter = [];
             if (adapterConfig.new_adapters) {
                 blockCounter.push('#adapterSearchBlock');
-                searchGithubForNewAdapters(adapterConfig.new_adapters_sort, adapterConfig.new_adapters_order);
-                if (adapterConfig.new_adapters_closed) {
-                    $('#adapterSearchBlock').find('.x_title a.collapse-link').click();
-                }
+                searchGithubForNewAdapters(adapterConfig.new_adapters_sort, adapterConfig.new_adapters_order);                
             } else {
                 $('#adapterSearchBlock').hide();
             }
