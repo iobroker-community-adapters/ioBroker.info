@@ -130,6 +130,17 @@ $(function () {
         getAndWriteIssuesFor($(this).attr("data-adapter"));
     });
 
+    $(document.body).on('click', ".loadGithubData", function () {
+        $(this).removeClass("loadGithubData");
+        const url = $(this).data('md-url');
+        const target = $(this).data('md-target');
+        $.get(url, function (data) {
+            const link = url.match(/([^/]*\/){6}/);
+            const html = new showdown.Converter().makeHtml(data).replace(/src="(?!http)/g, 'class="img-responsive" src="' + link[0]);
+            $("#" + target).html(html);
+        });
+    });
+
     $(document.body).on('click', '.show-md', function () {
         const url = $(this).data('md-url');
         $.get(url, function (data) {
