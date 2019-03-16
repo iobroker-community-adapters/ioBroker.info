@@ -155,8 +155,11 @@
         "new_adapters": false,
         "new_adapters_sort": "name",
         "new_adapters_order": false,
+        "new_adapters_open": true,
         "adapter_request": true,
+        "adapter_request_open": true,
         "adapter_issue": true,
+        "adapter_issue_open": true,
         "documentation": true,
         "doc_langs": [],
         "feednami": ""

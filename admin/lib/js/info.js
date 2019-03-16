@@ -135,30 +135,47 @@ $(function () {
                 $('.popupnews').addClass('col-sm-offset-3');
             }
 
+            //adapterRequestIssueBlock
+            let blockCounter = [];
             if (adapterConfig.new_adapters) {
+                blockCounter.push('#adapterSearchBlock');
                 searchGithubForNewAdapters(adapterConfig.new_adapters_sort, adapterConfig.new_adapters_order);
+                if (!adapterConfig.new_adapters_open) {
+
+                }
             } else {
                 $('#adapterSearchBlock').hide();
             }
-
             if (adapterConfig.adapter_request) {
+                blockCounter.push('#adapterRequestBlock');
                 showAdapterRequest();
+                if (!adapterConfig.adapter_request_open) {
+                    $('#adapterRequestBlock').find('.x_panel').css("height", "auto");
+                    $('#adapterRequestBlock').find('.x_content').css("diaplay", "none");
+                    $('#adapterRequestBlock').find('.fa-chevron-up').toggleClass('fa-chevron-up fa-chevron-down');
+                }
             } else {
                 $('#adapterRequestBlock').hide();
-                if (adapterConfig.adapter_issue) {
-                    $('#knownIssuesBlock').removeClass().addClass("col-xs-12 col-sm-12 col-md-12 col-lg-12");
-                }
             }
             if (adapterConfig.adapter_issue) {
+                blockCounter.push('#knownIssuesBlock');
                 showIssues();
+                if (!adapterConfig.adapter_issue_open) {
+                    $('#knownIssuesBlock').find('.x_panel').css("height", "auto");
+                    $('#knownIssuesBlock').find('.x_content').css("diaplay", "none");
+                    $('#knownIssuesBlock').find('.fa-chevron-up').toggleClass('fa-chevron-up fa-chevron-down');
+                }
             } else {
                 $('#knownIssuesBlock').hide();
-                if (adapterConfig.adapter_request) {
-                    $('#adapterRequestBlock').removeClass().addClass("col-xs-12 col-sm-12 col-md-12 col-lg-12");
-                }
             }
-            if (!adapterConfig.adapter_issue && !adapterConfig.adapter_request) {
+
+            if (blockCounter.length === 0) {
                 $('#adapterRequestIssueBlock').hide();
+            } else if (blockCounter.length === 1) {
+                $(blockCounter[0]).removeClass().addClass("col-xs-12 col-sm-12 col-md-12 col-lg-12");
+            } else if (blockCounter.length === 2) {
+                $(blockCounter[0]).removeClass().addClass("col-xs-12 col-sm-12 col-md-6 col-lg-6");
+                $(blockCounter[1]).removeClass().addClass("col-xs-12 col-sm-12 col-md-6 col-lg-6");
             }
 
             if (adapterConfig.documentation) {
@@ -168,12 +185,12 @@ $(function () {
             }
 
             translateAll(systemLang);
-            
+
             startPopupNews();
 
         } else {
             startClock("stop");
         }
-       
+
     });
 });

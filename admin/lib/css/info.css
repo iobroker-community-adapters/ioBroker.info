@@ -453,3 +453,7 @@ ul#cssClock li{
 .popupnews {
     margin-top: -40px;
 }
+
+h2.span {
+    font-size: 25px;
+}
