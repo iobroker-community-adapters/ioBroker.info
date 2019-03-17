@@ -3,6 +3,18 @@
         "name": "info",
         "version": "1.2.7",
         "news": {
+            "1.2.7": {
+                "en": "Some Design changes and fixes - stable candidate",
+                "de": "Einige Designänderungen und Korrekturen - stabiler Kandidat",
+                "ru": "Некоторые изменения и исправления в дизайне - стабильный кандидат",
+                "pt": "Algumas alterações de design e correções - candidato estável",
+                "nl": "Enkele ontwerpwijzigingen en -fixes - stabiele kandidaat",
+                "fr": "Quelques modifications et corrections de conception - candidat stable",
+                "it": "Alcune modifiche di design e correzioni - candidato stabile",
+                "es": "Algunos cambios de diseño y arreglos - candidato estable",
+                "pl": "Niektóre Projektuj zmiany i poprawki - stabilny kandydat",
+                "zh-cn": "一些设计变更和修复 - 稳定的候选人"
+            },
             "1.2.6": {
                 "en": "Added important short messages about ioBroker",
                 "de": "Hinzugefügt wichtige Kurznachrichten über ioBroker",

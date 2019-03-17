@@ -162,38 +162,5 @@
         "conditions": {
             "info": "equals(1.2.4)"
         }
-    },
-    {
-        "title": {
-            "en": "Version 1.2.7 of ioBroke.info not yet released",
-            "de": "Version 1.2.7 von ioBroke.info noch nicht veröffentlicht",
-            "ru": "Версия 1.2.7 от ioBroke.info еще не выпустили",
-            "pt": "Versão 1.2.7 do ioBroke.info ainda não lançado",
-            "nl": "Versie 1.2.7 van ioBroke.info nog niet vrijgegeven",
-            "fr": "La Version 1.2.7 de ioBroke.info n'est pas encore sorti",
-            "it": "Versione 1.2.7 ioBroke.info non è ancora uscito",
-            "es": "La versión 1.2.7 de ioBroke.info aún no se ha publicado",
-            "pl": "Wersja 1.2.7 od ioBroke.info jeszcze nie wydali",
-            "zh-cn": "版本的1.2.7ioBroke.info 尚未发布"
-        },
-        "content": {
-            "en": "Although this version is very stable and will soon be rolled out as a stable, but it is being worked on and could lead to unwanted side effects. More details can be found <a href='https://forum.iobroker.net/topic/9041/adapter-iobroker-info' target='_blank'>here</a>",
-            "de": "Obwohl diese version sehr stabil ist und bald ausgerollt werden soll, wird noch daran gearbeitet und dies könnte zu unerwünschten Nebenwirkungen führen. Weitere details finden Sie <a href='https://forum.iobroker.net/topic/9041/adapter-iobroker-info' target='_blank'>hier</a>",
-            "ru": "Хотя эта версия очень стабильна и в ближайшее время будет развернута как стабильная, но работа в этом направлении ведется и может привести к нежелательным побочным эффектам. Более подробную информацию можно найти <а href='https://forum.iobroker.net/topic/9041/adapter-iobroker-info' цель=значение _blank>здесь</a>",
-            "pt": "Apesar de esta versão é muito estável e em breve será lançado como um quadro estável, mas está sendo trabalhado e pode levar a efeitos colaterais indesejados. Mais detalhes podem ser encontrados <a href='https://forum.iobroker.net/topic/9041/adapter-iobroker-info' target='_blank'>aqui</a>",
-            "nl": "Hoewel deze versie is zeer stabiel en zal binnenkort worden uitgerold als een stabiele, maar het is gewerkt en kan leiden tot ongewenste bijwerkingen. Meer informatie kan gevonden worden <a href='https://forum.iobroker.net/topic/9041/adapter-iobroker-info' target='_blank'>hier</a>",
-            "fr": "Bien que cette version est très stable et sera bientôt lancé comme un pays stable, mais il est en cours d'élaboration et pourrait conduire à des effets secondaires indésirables. Plus de détails peuvent être trouvés <a href='https://forum.iobroker.net/topic/9041/adapter-iobroker-info' target='_blank'>ici</a>",
-            "it": "Anche se questa versione è molto stabile e sarà presto implementato come una stalla, ma è in lavorazione e che potrebbe portare ad effetti collaterali indesiderati. Ulteriori dettagli possono essere trovati <a href='https://forum.iobroker.net/topic/9041/adapter-iobroker-info' target='_blank'>qui</a>",
-            "es": "Aunque esta versión es muy estable y pronto se extenderá como estable, pero se está trabajando y puede causar efectos secundarios no deseados. Más detalles se pueden encontrar <a href='https://forum.iobroker.net/topic/9041/adapter-iobroker-info' target='_blank'>aquí</a>",
-            "pl": "Choć ta wersja jest bardzo stabilny i w najbliższym czasie będzie wdrażany jako stabilny, ale prace w tym kierunku trwają i może prowadzić do niepożądanych skutków ubocznych. Więcej informacji można znaleźć <a href='https://forum.iobroker.net/topic/9041/adapter-iobroker-info' target='_blank'>tutaj</a>",
-            "zh-cn": "虽然这个版本是非常稳定，不久将推出了作为一个稳定的，但它是正在工作，并可能导致不必要副作用。 更多的详细情况可见<a href='https://forum.iobroker.net/topic/9041/adapter-iobroker-info' target='_blank'>在这里</a>。"
-        },
-        "id": "infoAdapter",
-        "fa-icon": "flask",
-        "class": "warning",
-        "created": "2019-03-15T00:00:00.000Z",
-        "conditions": {
-            "info": "equals(1.2.7)"
-        }
     }
 ]
