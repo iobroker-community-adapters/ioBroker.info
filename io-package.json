@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.2.7",
+        "version": "1.3.0",
         "news": {
+            "1.3.0": {
+                "en": "More system infos",
+                "de": "Weitere Systeminfos",
+                "ru": "Больше информации о системе",
+                "pt": "Mais infos do sistema",
+                "nl": "Meer systeeminformatie",
+                "fr": "Plus d'informations sur le système",
+                "it": "Altre informazioni di sistema",
+                "es": "Más información del sistema",
+                "pl": "Więcej informacji o systemie",
+                "zh-cn": "更多系统信息"
+            },
             "1.2.7": {
                 "en": "Some Design changes and fixes - stable candidate",
                 "de": "Einige Designänderungen und Korrekturen - stabiler Kandidat",
@@ -187,6 +199,68 @@
                 "role": "json",
                 "read": true,
                 "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo",
+            "type": "device",
+            "common": {
+                "name": "System Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.system",
+            "type": "device",
+            "common": {
+                "name": "System",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu",
+            "type": "device",
+            "common": {
+                "name": "CPU",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.memory",
+            "type": "device",
+            "common": {
+                "name": "Memory",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.os",
+            "type": "device",
+            "common": {
+                "name": "OS",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.disks",
+            "type": "device",
+            "common": {
+                "name": "Disks",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.network",
+            "type": "device",
+            "common": {
+                "name": "Network",
+                "role": "info"
             },
             "native": {}
         }

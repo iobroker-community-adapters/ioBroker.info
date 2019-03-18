@@ -28,11 +28,15 @@ There is a new widget to display important messages in VIS. These messages are d
 
 ## Changelog
 
+### 1.3.x (2019-04-01)
+* (ldittmar) better system information
+
 ### 1.2.7 (2019-03-17)
 * (ldittmar) little fixes
 * (ldittmar) unknow adapters search new design
 * (ldittmar) better design for PC monitor
 * (ldittmar) unknow adapters show more informations
+* (ldittmar) stable version
 
 ### 1.2.5 (2019-03-14)
 * (ldittmar) show adapter requests

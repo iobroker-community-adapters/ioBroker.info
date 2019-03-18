@@ -5,6 +5,7 @@
 // you have to require the utils module and call adapter function
 const utils = require('@iobroker/adapter-core'); // Get common adapter utils
 const axios = require('axios');
+const sistm = require('systeminformation');
 
 // you have to call the adapter function and pass a options object
 // name has to be set and has to be equal to adapters folder name and main file name excluding extension
@@ -62,16 +63,135 @@ const checkNews = function () {
     const newsLink = 'https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.info/master/data/news.json';
 
     axios(newsLink).then(function (resp) {
-        adapter.log.info("Popup-News readed...");      
+        adapter.log.info("Popup-News readed...");
         adapter.setState('newsfeed', {val: JSON.stringify(resp.data), ack: true});
     }).catch(function (error) {
         adapter.log.error(error);
     });
 };
 
+const setState = function (channel, name, key, type) {
+    adapter.setObjectNotExists('sysinfo.' + channel + '.' + name + '_' + key, {
+        type: "state",
+        common: {
+            name: name + " " + key,
+            type: type,
+            role: "value",
+            read: true,
+            write: false
+        },
+        native: {}
+    });
+};
+
+const updateSysinfo = function () {
+
+    //SYSTEM
+    sistm.system()
+            .then(data => {
+                Object.keys(data).forEach(function (key) {
+                    const val = data[key];
+                    if (data[key].length > 1) {
+                        setState('system', 'system', key, typeof data[key]);
+                    }
+                });
+            })
+            .catch(error => adapter.log.error(error));
+
+    sistm.bios()
+            .then(data => {
+                Object.keys(data).forEach(function (key) {
+                    const val = data[key];
+                    if (data[key].length) {
+                        setState('system', 'bios', key, typeof data[key]);
+                    }
+                });
+            })
+            .catch(error => adapter.log.error(error));
+
+    sistm.baseboard()
+            .then(data => {
+                Object.keys(data).forEach(function (key) {
+                    const val = data[key];
+                    if (data[key].length) {
+                        setState('system', 'baseboard', key, typeof data[key]);
+                    }
+                });
+            })
+            .catch(error => adapter.log.error(error));
+
+    sistm.chassis()
+            .then(data => {
+                Object.keys(data).forEach(function (key) {
+                    const val = data[key];
+                    if (data[key].length) {
+                        setState('system', 'chassis', key, typeof data[key]);
+                    }
+                });
+            })
+            .catch(error => adapter.log.error(error));
+
+    //CPU
+    sistm.cpu()
+            .then(data => {
+                Object.keys(data).forEach(function (key) {
+                    const val = data[key];
+                    if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] === 'number') {
+                        setState('cpu', 'cpu', key, typeof data[key]);
+                    } else {
+                        Object.keys(data[key]).forEach(function (key2) {
+                            setState('cpu', 'cpu', key + "-" + key2, 'number');
+                        });
+                    }
+                });
+            })
+            .catch(error => adapter.log.error(error));
+
+    //OS
+    sistm.osInfo()
+            .then(data => {
+                Object.keys(data).forEach(function (key) {
+                    const val = data[key];
+                    if (data[key].length) {
+                        setState('os', 'info', key, typeof data[key]);
+                    }
+                });
+            })
+            .catch(error => adapter.log.error(error));
+    
+    sistm.versions()
+            .then(data => {
+                Object.keys(data).forEach(function (key) {
+                    const val = data[key];
+                    if (data[key].length) {
+                        setState('os', 'versions', key, typeof data[key]);
+                    }
+                });
+            })
+            .catch(error => adapter.log.error(error));
+};
+
+const updateCurrentInfos = function () {
+
+    //MEMORY
+    sistm.mem()
+            .then(data => {
+                Object.keys(data).forEach(function (key) {
+                    const val = data[key];
+                    if (data[key].length) {
+                        setState('memory', 'mem', key, typeof data[key]);
+                    }
+                });
+            })
+            .catch(error => adapter.log.error(error));
+
+};
+
 function main() {
     checkNews();
     setInterval(checkNews, 30 * 60 * 1000);
+    updateSysinfo();
+    setInterval(updateCurrentInfos, 2000);
 }
 
 // If started as allInOne/compact mode => return function to create instance

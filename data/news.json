@@ -162,5 +162,38 @@
         "conditions": {
             "info": "equals(1.2.4)"
         }
+    },
+    {
+        "title": {
+            "en": "Version 1.3.x of the Info Adapter is currently being developed",
+            "de": "Die Version 1.3.x des Info Adapters wird derzeit entwickelt",
+            "ru": "Версия 1.3.x информационного адаптера в настоящее время разрабатывается",
+            "pt": "A versão 1.3.x do Info Adapter está sendo desenvolvida atualmente",
+            "nl": "Versie 1.3.x van de Info Adapter wordt momenteel ontwikkeld",
+            "fr": "La version 1.3.x de Info Adapter est en cours de développement.",
+            "it": "La versione 1.3.x di Info Adapter è attualmente in fase di sviluppo",
+            "es": "La versión 1.3.x del adaptador de información se está desarrollando actualmente.",
+            "pl": "Obecnie opracowywana jest wersja 1.3.x Info Adapter",
+            "zh-cn": "目前正在开发Info Adapter 1.3.x版"
+        },
+        "content": {
+            "en": "This release may cause ioBroker to explode. No not true! But I take no guarantees.",
+            "de": "Diese Version kann dazu führen, dass ioBroker explodiert. Nein, nicht wirklich! Aber ich übernehme keine Garantien.",
+            "ru": "Этот выпуск может привести к взрыву ioBroker. Нет, не совсем! Но я не беру никаких гарантий.",
+            "pt": "Esta versão pode causar a explosão do ioBroker. Não, na verdade não! Mas não dou garantias.",
+            "nl": "Deze release kan ervoor zorgen dat ioBroker explodeert. Nee, niet echt! Maar ik neem geen garanties.",
+            "fr": "Cette version peut provoquer l'explosion d'ioBroker. Non, pas vraiment! Mais je ne prends aucune garantie.",
+            "it": "Questa versione potrebbe far esplodere ioBroker. No, non proprio! Ma non ho garanzie.",
+            "es": "Esta versión puede causar que ioBroker explote. ¡No, en realidad no! Pero no tengo garantías.",
+            "pl": "To wydanie może spowodować wybuch pliku ioBroker. Nie, naprawdę nie! Ale nie gwarantuję.",
+            "zh-cn": "此版本可能会导致ioBroker爆炸。不，不是真的！ 但我不保证。"
+        },
+        "id": "infoAdapter",
+        "class": "danger",
+        "fa-icon": "cog",
+        "created": "2019-03-18T00:00:00.000Z",
+        "conditions": {
+            "info": "bigger(1.2.7)"
+        }
     }
 ]
