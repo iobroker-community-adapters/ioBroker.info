@@ -212,7 +212,7 @@
         },
         {
             "_id": "sysinfo.system",
-            "type": "device",
+            "type": "channel",
             "common": {
                 "name": "System",
                 "role": "info"
@@ -221,7 +221,7 @@
         },
         {
             "_id": "sysinfo.cpu",
-            "type": "device",
+            "type": "channel",
             "common": {
                 "name": "CPU",
                 "role": "info"
@@ -230,7 +230,7 @@
         },
         {
             "_id": "sysinfo.memory",
-            "type": "device",
+            "type": "channel",
             "common": {
                 "name": "Memory",
                 "role": "info"
@@ -239,7 +239,7 @@
         },
         {
             "_id": "sysinfo.os",
-            "type": "device",
+            "type": "channel",
             "common": {
                 "name": "OS",
                 "role": "info"
@@ -248,7 +248,7 @@
         },
         {
             "_id": "sysinfo.disks",
-            "type": "device",
+            "type": "channel",
             "common": {
                 "name": "Disks",
                 "role": "info"
@@ -257,7 +257,7 @@
         },
         {
             "_id": "sysinfo.network",
-            "type": "device",
+            "type": "channel",
             "common": {
                 "name": "Network",
                 "role": "info"

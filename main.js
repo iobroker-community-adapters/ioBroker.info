@@ -149,18 +149,6 @@ const updateSysinfo = function () {
             })
             .catch(error => adapter.log.error(error));
     
-    //MEMORY
-    sistm.mem()
-            .then(data => {
-                Object.keys(data).forEach(function (key) {
-                    const val = data[key];
-                    if (data[key].length) {
-                        setState('memory', 'mem', key, typeof data[key], data[key]);
-                    }
-                });
-            })
-            .catch(error => adapter.log.error(error));
-
     //OS
     sistm.osInfo()
             .then(data => {
@@ -195,7 +183,7 @@ const updateCurrentInfos = function () {
                 Object.keys(data).forEach(function (key) {
                     const val = data[key];
                     if (data[key].length) {
-                        adapter.setState('sysinfo.memory.mem_' + key, {val: data[key], ack: true});
+                        setState('memory', 'mem', key, typeof data[key], data[key]);
                     }
                 });
             })
