@@ -70,7 +70,7 @@ const checkNews = function () {
     });
 };
 
-const setState = function (channel, name, key, type) {
+const setState = function (channel, name, key, type, value) {
     adapter.setObjectNotExists('sysinfo.' + channel + '.' + name + '_' + key, {
         type: "state",
         common: {
@@ -82,6 +82,8 @@ const setState = function (channel, name, key, type) {
         },
         native: {}
     });
+    
+    adapter.setState('sysinfo.' + channel + '.' + name + '_' + key, {val: value, ack: true});
 };
 
 const updateSysinfo = function () {
@@ -92,7 +94,7 @@ const updateSysinfo = function () {
                 Object.keys(data).forEach(function (key) {
                     const val = data[key];
                     if (data[key].length > 1) {
-                        setState('system', 'system', key, typeof data[key]);
+                        setState('system', 'system', key, typeof data[key], data[key]);
                     }
                 });
             })
@@ -103,7 +105,7 @@ const updateSysinfo = function () {
                 Object.keys(data).forEach(function (key) {
                     const val = data[key];
                     if (data[key].length) {
-                        setState('system', 'bios', key, typeof data[key]);
+                        setState('system', 'bios', key, typeof data[key], data[key]);
                     }
                 });
             })
@@ -114,7 +116,7 @@ const updateSysinfo = function () {
                 Object.keys(data).forEach(function (key) {
                     const val = data[key];
                     if (data[key].length) {
-                        setState('system', 'baseboard', key, typeof data[key]);
+                        setState('system', 'baseboard', key, typeof data[key], data[key]);
                     }
                 });
             })
@@ -125,7 +127,7 @@ const updateSysinfo = function () {
                 Object.keys(data).forEach(function (key) {
                     const val = data[key];
                     if (data[key].length) {
-                        setState('system', 'chassis', key, typeof data[key]);
+                        setState('system', 'chassis', key, typeof data[key], data[key]);
                     }
                 });
             })
@@ -137,11 +139,23 @@ const updateSysinfo = function () {
                 Object.keys(data).forEach(function (key) {
                     const val = data[key];
                     if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] === 'number') {
-                        setState('cpu', 'cpu', key, typeof data[key]);
+                        setState('cpu', 'cpu', key, typeof data[key], data[key]);
                     } else {
                         Object.keys(data[key]).forEach(function (key2) {
-                            setState('cpu', 'cpu', key + "-" + key2, 'number');
+                            setState('cpu', 'cpu', key + "-" + key2, 'number', data[key][key2]);
                         });
+                    }
+                });
+            })
+            .catch(error => adapter.log.error(error));
+    
+    //MEMORY
+    sistm.mem()
+            .then(data => {
+                Object.keys(data).forEach(function (key) {
+                    const val = data[key];
+                    if (data[key].length) {
+                        setState('memory', 'mem', key, typeof data[key], data[key]);
                     }
                 });
             })
@@ -153,7 +167,7 @@ const updateSysinfo = function () {
                 Object.keys(data).forEach(function (key) {
                     const val = data[key];
                     if (data[key].length) {
-                        setState('os', 'info', key, typeof data[key]);
+                        setState('os', 'info', key, typeof data[key], data[key]);
                     }
                 });
             })
@@ -164,11 +178,13 @@ const updateSysinfo = function () {
                 Object.keys(data).forEach(function (key) {
                     const val = data[key];
                     if (data[key].length) {
-                        setState('os', 'versions', key, typeof data[key]);
+                        setState('os', 'versions', key, typeof data[key], data[key]);
                     }
                 });
             })
             .catch(error => adapter.log.error(error));
+    
+    
 };
 
 const updateCurrentInfos = function () {
@@ -179,7 +195,7 @@ const updateCurrentInfos = function () {
                 Object.keys(data).forEach(function (key) {
                     const val = data[key];
                     if (data[key].length) {
-                        setState('memory', 'mem', key, typeof data[key]);
+                        adapter.setState('sysinfo.memory.mem_' + key, {val: data[key], ack: true});
                     }
                 });
             })
