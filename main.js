@@ -243,7 +243,7 @@ const updateSysinfo = function () {
 
 const updateCurrentCPUInfos = function () {
 
-    sistm.mem()
+    sistm.currentLoad()
             .then(data => {
                 adapter.setState('sysinfo.cpu.currentLoad_avgload', {val: data['avgload'], ack: true});
                 adapter.setState('sysinfo.cpu.currentLoad_currentload', {val: data['currentload'], ack: true});
