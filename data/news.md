@@ -19,4 +19,4 @@
   - **bigger(x.x.x)** - Adapter version is bigger as (example: "admin": "bigger(2.2.2)")
   - **smaller(x.x.x)** - Adapter version is smaller than (example: "fronius": "smaller(1.2.2)")
   - **equals(x.x.x)** - Adapter has exactly the same version (example: "cloud": "equals(0.2.2)")
-  - **between(x.x.x,y.y.y)** - The version of the adapter is between x and y or equal to x or y (example: "tankerkoenig": "between(1.0.5,2.0.4)")
+  - **between(x.x.x,y.y.y)** - The version of the adapter is between x and y or equal to x or y (example: "tankerkoenig": "between(1.0.5,2.0.4)") - only when 1.3.x is stable
