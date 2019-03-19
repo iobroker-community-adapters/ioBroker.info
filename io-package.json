@@ -186,7 +186,11 @@
         "adapter_issue_closed": false,
         "documentation": true,
         "doc_langs": [],
-        "feednami": ""
+        "feednami": "",
+        "noCurrentSysData": false,
+        "cpuSpeed": 2,
+        "memSpeed": 2,
+        "diskSpeed": 5
     },
     "objects": [],
     "instanceObjects": [
@@ -261,7 +265,7 @@
             "common": {
                 "name": "CPU load last 60s",
                 "type": "array",
-                "role": "value",                
+                "role": "value",
                 "read": true,
                 "write": false
             },

@@ -155,7 +155,13 @@ const updateSysinfo = function () {
                         setState('cpu', 'currentLoad', key, typeof data[key], data[key]);
                     }
                 });
-                setInterval(updateCurrentCPUInfos, 2000);
+                if (!adapter.config.noCurrentSysData) {
+                    let speed = adapter.config.cpuSpeed;
+                    if (!speed) {
+                        speed = 2;
+                    }
+                    setInterval(updateCurrentCPUInfos, speed * 1000);
+                }
             })
             .catch(error => adapter.log.error(error));
 
@@ -165,7 +171,13 @@ const updateSysinfo = function () {
                 Object.keys(data).forEach(function (key) {
                     setState('memory', 'mem', key, typeof data[key], data[key]);
                 });
-                setInterval(updateCurrentMemoryInfos, 2000);
+                if (!adapter.config.noCurrentSysData) {
+                    let speed = adapter.config.memSpeed;
+                    if (!speed) {
+                        speed = 2;
+                    }
+                    setInterval(updateCurrentMemoryInfos, speed * 1000);
+                }
             })
             .catch(error => adapter.log.error(error));
 
@@ -233,7 +245,13 @@ const updateSysinfo = function () {
                             }
                         });
                     });
-                    setInterval(updateCurrentFilesystemInfos, 5000);
+                    if (!adapter.config.noCurrentSysData) {
+                        let speed = adapter.config.diskSpeed;
+                        if (!speed) {
+                            speed = 5;
+                        }
+                        setInterval(updateCurrentFilesystemInfos, speed * 1000);
+                    }
                 }
             })
             .catch(error => console.error(error));
