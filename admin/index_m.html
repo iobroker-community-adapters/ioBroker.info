@@ -49,6 +49,8 @@
                 });
                 onChange(false);
                 M.updateTextFields();  // function Materialize.updateTextFields(); to reinitialize all the Materialize labels on the page if you are dynamically adding inputs.
+
+                M.Range.init($('input[type=range]'));
             }
 
             // ... and the function save has to exist.
