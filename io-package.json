@@ -229,6 +229,192 @@
             "native": {}
         },
         {
+            "_id": "sysinfo.cpu.currentLoad_avgload",
+            "type": "state",
+            "common": {
+                "name": "CPU average load",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.currentLoad_currentload",
+            "type": "state",
+            "common": {
+                "name": "CPU load in %",
+                "type": "number",
+                "role": "value",
+                "min": "0",
+                "max": "100",
+                "unit": "%",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.currentLoad_currentload_hist",
+            "type": "state",
+            "common": {
+                "name": "CPU load last 60s",
+                "type": "array",
+                "role": "value",                
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.currentLoad_currentload_user",
+            "type": "state",
+            "common": {
+                "name": "CPU load user in %",
+                "type": "number",
+                "role": "value",
+                "min": "0",
+                "max": "100",
+                "unit": "%",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.currentLoad_currentload_sytem",
+            "type": "state",
+            "common": {
+                "name": "CPU load system in %",
+                "type": "number",
+                "role": "value",
+                "min": "0",
+                "max": "100",
+                "unit": "%",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.currentLoad_currentload_nice",
+            "type": "state",
+            "common": {
+                "name": "CPU load nice in %",
+                "type": "number",
+                "role": "value",
+                "min": "0",
+                "max": "100",
+                "unit": "%",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.currentLoad_currentload_idle",
+            "type": "state",
+            "common": {
+                "name": "CPU load idle in %",
+                "type": "number",
+                "role": "value",
+                "min": "0",
+                "max": "100",
+                "unit": "%",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.currentLoad_currentload_irq",
+            "type": "state",
+            "common": {
+                "name": "CPU load irq in %",
+                "type": "number",
+                "role": "value",
+                "min": "0",
+                "max": "100",
+                "unit": "%",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.currentLoad_raw_currentload",
+            "type": "state",
+            "common": {
+                "name": "CPU load raw values",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.currentLoad_raw_currentload_user",
+            "type": "state",
+            "common": {
+                "name": "CPU load user raw values",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.currentLoad_raw_currentload_sytem",
+            "type": "state",
+            "common": {
+                "name": "CPU load system raw values",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.currentLoad_raw_currentload_nice",
+            "type": "state",
+            "common": {
+                "name": "CPU load nice raw values",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.currentLoad_raw_currentload_idle",
+            "type": "state",
+            "common": {
+                "name": "CPU load idle raw values",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.currentLoad_raw_currentload_irq",
+            "type": "state",
+            "common": {
+                "name": "CPU load irq raw values",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
             "_id": "sysinfo.memory",
             "type": "channel",
             "common": {
@@ -262,6 +448,18 @@
             "native": {}
         },
         {
+            "_id": "sysinfo.memory.mem_used_hist",
+            "type": "state",
+            "common": {
+                "name": "Memory used last 60s",
+                "type": "array",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
             "_id": "sysinfo.memory.mem_active",
             "type": "state",
             "common": {
@@ -286,7 +484,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.memory.mem_buffcahce",
+            "_id": "sysinfo.memory.mem_buffcache",
             "type": "state",
             "common": {
                 "name": "Memory buffcache",
