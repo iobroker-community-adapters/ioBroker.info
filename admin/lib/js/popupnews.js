@@ -46,7 +46,7 @@ const newsPopup = {
         }
     },
     checkVersionBetween: function (inst, vers1, vers2) {
-        return inst === vers1 || inst === vers2 || (newsPopup.checkVersion(inst, vers1) && newsPopup.checkVersion(vers2, inst));
+        return inst === vers1 || inst === vers2 || (newsPopup.checkVersion(vers1, inst) && newsPopup.checkVersion(inst, vers2));
     },
     showPopup: async function (obj, id, dummy) {
         let messages;
@@ -98,7 +98,7 @@ const newsPopup = {
                                 showIt = newsPopup.checkVersion(adapter.version, vers);
                             } else if (adapter && condition.startsWith("between")) {
                                 const vers1 = condition.substring(8, condition.indexOf(',')).trim();
-                                const vers2 = condition.substring(condition.indexOf(',') + 1, condition.length() - 1).trim();
+                                const vers2 = condition.substring(condition.indexOf(',') + 1, condition.length - 1).trim();
                                 showIt = newsPopup.checkVersionBetween(adapter.version, vers1, vers2);
                             }
                         });

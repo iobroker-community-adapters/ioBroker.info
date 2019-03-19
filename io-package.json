@@ -238,6 +238,90 @@
             "native": {}
         },
         {
+            "_id": "sysinfo.memory.mem_free",
+            "type": "state",
+            "common": {
+                "name": "Memory free",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.memory.mem_used",
+            "type": "state",
+            "common": {
+                "name": "Memory used",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.memory.mem_active",
+            "type": "state",
+            "common": {
+                "name": "Memory active",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.memory.mem_available",
+            "type": "state",
+            "common": {
+                "name": "Memory available",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.memory.mem_buffcahce",
+            "type": "state",
+            "common": {
+                "name": "Memory buffcache",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.memory.mem_swapused",
+            "type": "state",
+            "common": {
+                "name": "Memory swap used",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.memory.mem_swapfree",
+            "type": "state",
+            "common": {
+                "name": "Memory swap free",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
             "_id": "sysinfo.os",
             "type": "channel",
             "common": {

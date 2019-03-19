@@ -82,7 +82,7 @@ const setState = function (channel, name, key, type, value) {
         },
         native: {}
     });
-    
+
     adapter.setState('sysinfo.' + channel + '.' + name + '_' + key, {val: value, ack: true});
 };
 
@@ -92,7 +92,6 @@ const updateSysinfo = function () {
     sistm.system()
             .then(data => {
                 Object.keys(data).forEach(function (key) {
-                    const val = data[key];
                     if (data[key].length > 1) {
                         setState('system', 'system', key, typeof data[key], data[key]);
                     }
@@ -103,7 +102,6 @@ const updateSysinfo = function () {
     sistm.bios()
             .then(data => {
                 Object.keys(data).forEach(function (key) {
-                    const val = data[key];
                     if (data[key].length) {
                         setState('system', 'bios', key, typeof data[key], data[key]);
                     }
@@ -114,7 +112,6 @@ const updateSysinfo = function () {
     sistm.baseboard()
             .then(data => {
                 Object.keys(data).forEach(function (key) {
-                    const val = data[key];
                     if (data[key].length) {
                         setState('system', 'baseboard', key, typeof data[key], data[key]);
                     }
@@ -125,7 +122,6 @@ const updateSysinfo = function () {
     sistm.chassis()
             .then(data => {
                 Object.keys(data).forEach(function (key) {
-                    const val = data[key];
                     if (data[key].length) {
                         setState('system', 'chassis', key, typeof data[key], data[key]);
                     }
@@ -137,7 +133,6 @@ const updateSysinfo = function () {
     sistm.cpu()
             .then(data => {
                 Object.keys(data).forEach(function (key) {
-                    const val = data[key];
                     if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] === 'number') {
                         setState('cpu', 'cpu', key, typeof data[key], data[key]);
                     } else {
@@ -148,44 +143,52 @@ const updateSysinfo = function () {
                 });
             })
             .catch(error => adapter.log.error(error));
-    
+
+    //MEMORY
+    sistm.mem()
+            .then(data => {
+                Object.keys(data).forEach(function (key) {
+                    setState('memory', 'mem', key, typeof data[key], data[key]);
+                });
+                setInterval(updateCurrentMemoryInfos, 2000);
+            })
+            .catch(error => adapter.log.error(error));
+
     //OS
     sistm.osInfo()
             .then(data => {
                 Object.keys(data).forEach(function (key) {
-                    const val = data[key];
                     if (data[key].length) {
                         setState('os', 'info', key, typeof data[key], data[key]);
                     }
                 });
             })
             .catch(error => adapter.log.error(error));
-    
+
     sistm.versions()
             .then(data => {
                 Object.keys(data).forEach(function (key) {
-                    const val = data[key];
                     if (data[key].length) {
                         setState('os', 'versions', key, typeof data[key], data[key]);
                     }
                 });
             })
             .catch(error => adapter.log.error(error));
-    
-    
+
+
 };
 
-const updateCurrentInfos = function () {
+const updateCurrentMemoryInfos = function () {
 
-    //MEMORY
     sistm.mem()
             .then(data => {
-                Object.keys(data).forEach(function (key) {
-                    const val = data[key];
-                    if (data[key].length) {
-                        setState('memory', 'mem', key, typeof data[key], data[key]);
-                    }
-                });
+                adapter.setState('sysinfo.memory.mem_free', {val: data['free'], ack: true});
+                adapter.setState('sysinfo.memory.mem_used', {val: data['used'], ack: true});
+                adapter.setState('sysinfo.memory.mem_active', {val: data['active'], ack: true});
+                adapter.setState('sysinfo.memory.mem_available', {val: data['available'], ack: true});
+                adapter.setState('sysinfo.memory.mem_buffcache', {val: data['buffcache'], ack: true});
+                adapter.setState('sysinfo.memory.mem_swapused', {val: data['swapused'], ack: true});
+                adapter.setState('sysinfo.memory.mem_swapfree', {val: data['swapfree'], ack: true});
             })
             .catch(error => adapter.log.error(error));
 
@@ -195,7 +198,6 @@ function main() {
     checkNews();
     setInterval(checkNews, 30 * 60 * 1000);
     updateSysinfo();
-    setInterval(updateCurrentInfos, 2000);
 }
 
 // If started as allInOne/compact mode => return function to create instance
