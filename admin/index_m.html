@@ -2,6 +2,7 @@
     <head>
         <!-- these 4 files always have to be included -->
         <link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
+        <link rel="stylesheet" type="text/css" href="lib/js/nouislider.min.css"/>
         <link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
 
         <script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
@@ -10,6 +11,7 @@
         <!-- these files always have to be included -->
         <script type="text/javascript" src="../../js/translate.js"></script>
         <script type="text/javascript" src="../../lib/js/materialize.js"></script>
+        <script type="text/javascript" src="lib/js/nouislider.min.js"></script>
         <script type="text/javascript" src="../../js/adapter-settings.js"></script>
         <script type="text/javascript" src="words.js"></script>
         <style>
@@ -175,25 +177,31 @@
                         <span class="translate"></span>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="input-field col m12 l3">
                         <input class="value" id="noCurrentSysData" type="checkbox" />
                         <label for="noCurrentSysData" class="translate">Don't load current system data</label>
                         <span class="translate"></span>
                     </div>
-                    <div class="input-field col m4 l3 range-field">
-                        <input class="value" id="cpuSpeed" type="range" min="2" max="10" />
+                    <div class="input-field col m4 l3">
+                        <p class="range-field">
+                            <input class="value" id="cpuSpeed" type="range" min="2" max="10" />
+                        </p>
                         <label for="cpuSpeed" class="translate">Load CPU data every x seconds</label>
                         <span class="translate"></span>
                     </div>
                     <div class="input-field col m4 l3 range-field">
-                        <input class="value" id="menSpeed" type="range" min="2" max="10" />
+                        <p class="range-field">
+                            <input class="value" id="menSpeed" type="range" min="2" max="10" />
+                        </p>
                         <label for="menSpeed" class="translate">Load memory data every x seconds</label>
                         <span class="translate"></span>
                     </div>
                     <div class="input-field col m4 l3 range-field">
-                        <input class="value" id="diskSpeed" type="range" min="2" max="10" />
+                        <p class="range-field">
+                            <input class="value" id="diskSpeed" type="range" min="2" max="10" />
+                        </p>
                         <label for="diskSpeed" class="translate">Load disk data every x seconds</label>
                         <span class="translate"></span>
                     </div>
