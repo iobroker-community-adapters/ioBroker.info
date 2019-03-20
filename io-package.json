@@ -202,7 +202,9 @@
         "noCurrentSysData": false,
         "cpuSpeed": 2,
         "memSpeed": 2,
-        "diskSpeed": 5
+        "diskSpeed": 5,
+        "batterySpeed": 5,
+        "networkSpeed": 2
     },
     "objects": [],
     "instanceObjects": [
@@ -331,7 +333,7 @@
             "_id": "sysinfo.cpu.currentLoad.currentload_hist",
             "type": "state",
             "common": {
-                "name": "CPU load last 60s",
+                "name": "CPU load (last 30)",
                 "type": "array",
                 "role": "value",
                 "read": true,
@@ -499,8 +501,21 @@
             "_id": "sysinfo.cpu.temperature.main",
             "type": "state",
             "common": {
-                "name": "CPU main temperature (avg)",
+                "name": "Main temperature (avg)",
                 "type": "number",
+                "role": "value",
+                "unit": "°C",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.temperature.main_hist",
+            "type": "state",
+            "common": {
+                "name": "Temperature (last 30)",
+                "type": "array",
                 "role": "value",
                 "read": true,
                 "write": false
@@ -525,6 +540,7 @@
             "common": {
                 "name": "CPU max temperature",
                 "type": "number",
+                "unit": "°C",
                 "role": "value",
                 "read": true,
                 "write": false
@@ -578,7 +594,7 @@
             "_id": "sysinfo.memory.info.used_hist",
             "type": "state",
             "common": {
-                "name": "Memory used last 60s",
+                "name": "Memory used (last 30)",
                 "type": "array",
                 "role": "value",
                 "read": true,

@@ -8,6 +8,7 @@ const axios = require('axios');
 const sistm = require('systeminformation');
 
 const cpuUsed = [];
+const cpuTemp = [];
 const memUsed = [];
 const fsUsed = {};
 
@@ -88,7 +89,7 @@ const setState = function (channel, channel2, key, type, value) {
         native: {}
     });
 
-    adapter.setState('sysinfo.' + channel + '.' + channel2 + '.' + key, {val: value, ack: true});
+    adapter.setState(link + '.' + key, {val: value, ack: true});
 };
 
 const createChannel = function (channel, channel2, channel3) {
@@ -367,6 +368,11 @@ const updateCurrentCPUTempInfos = function () {
     sistm.cpuTemperature()
             .then(data => {
                 adapter.setState('sysinfo.cpu.temperature.main', {val: data['main'], ack: true});
+                cpuTemp.push(data['currentload']);
+                if (cpuTemp.length > 30) {
+                    cpuTemp.shift();
+                }
+                adapter.setState('sysinfo.cpu.temperature.main_hist', {val: cpuTemp.toString(), ack: true});
                 adapter.setState('sysinfo.cpu.temperature.cores', {val: data['cores'], ack: true});
                 adapter.setState('sysinfo.cpu.temperature.max', {val: data['max'], ack: true});
             })
@@ -429,7 +435,7 @@ const updateCurrentBatteryInfos = function () {
                 adapter.setState('sysinfo.battery.acconnected', {val: data['acconnected'], ack: true});
             })
             .catch(error => adapter.log.error(error));
-    
+
 };
 
 function main() {
