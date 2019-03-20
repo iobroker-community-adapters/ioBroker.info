@@ -169,7 +169,7 @@ const updateSysinfo = function () {
                         setState('cpu', 'currentLoad', key, typeof data[key], data[key]);
                     }
                 });
-                if (!adapter.config.noCurrentSysData) {
+                if (!adapter.config.noCurrentSysData && adapter.config.cpuSpeed !== 0) {
                     let speed = adapter.config.cpuSpeed;
                     if (!speed) {
                         speed = 2;
@@ -188,7 +188,7 @@ const updateSysinfo = function () {
                             setState('cpu', 'temperature', key, typeof data[key], data[key]);
                         }
                     });
-                    if (!adapter.config.noCurrentSysData) {
+                    if (!adapter.config.noCurrentSysData && adapter.config.cpuSpeed !== 0) {
                         let speed = adapter.config.cpuSpeed;
                         if (!speed) {
                             speed = 2;
@@ -206,7 +206,7 @@ const updateSysinfo = function () {
                 Object.keys(data).forEach(function (key) {
                     setState('memory', 'info', key, typeof data[key], data[key]);
                 });
-                if (!adapter.config.noCurrentSysData) {
+                if (!adapter.config.noCurrentSysData && adapter.config.memSpeed !== 0) {
                     let speed = adapter.config.memSpeed;
                     if (!speed) {
                         speed = 2;
@@ -243,7 +243,7 @@ const updateSysinfo = function () {
             .then(data => {
                 if (data.length > 0) {
                     Object.keys(data).forEach(function (key) {
-                        createChannel('disks', 'diskLayout', 'dev' + key);
+                        createChannel('disks', 'blockDevices', 'dev' + key);
                         Object.keys(data[key]).forEach(function (key2) {
                             if ((typeof data[key][key2] === 'string' && data[key][key2].length) || typeof data[key][key2] !== 'string') {
                                 setState('disks', 'blockDevices.dev' + key, key2, typeof data[key][key2], data[key][key2]);
@@ -274,7 +274,7 @@ const updateSysinfo = function () {
                 if (data.length > 0) {
                     Object.keys(data).forEach(function (key) {
                         fsUsed[key] = [];
-                        createChannel('disks', 'diskLayout', 'fs' + key);
+                        createChannel('disks', 'fsSize', 'fs' + key);
                         Object.keys(data[key]).forEach(function (key2) {
                             if ((typeof data[key][key2] === 'string' && data[key][key2].length) || typeof data[key][key2] !== 'string') {
                                 setState('disks', 'fsSize.fs' + key, key2, typeof data[key][key2], data[key][key2]);
@@ -284,7 +284,7 @@ const updateSysinfo = function () {
                             }
                         });
                     });
-                    if (!adapter.config.noCurrentSysData) {
+                    if (!adapter.config.noCurrentSysData && adapter.config.diskSpeed !== 0) {
                         let speed = adapter.config.diskSpeed;
                         if (!speed) {
                             speed = 5;
@@ -321,7 +321,7 @@ const updateSysinfo = function () {
                             setState('battery', null, key, typeof data[key], data[key]);
                         }
                     });
-                    if (!adapter.config.noCurrentSysData) {
+                    if (!adapter.config.noCurrentSysData && adapter.config.batterySpeed !== 0) {
                         let speed = adapter.config.batterySpeed;
                         if (!speed) {
                             speed = 5;
@@ -367,14 +367,14 @@ const updateCurrentCPUTempInfos = function () {
 
     sistm.cpuTemperature()
             .then(data => {
-                adapter.setState('sysinfo.cpu.temperature.main', {val: data['main'], ack: true});
-                cpuTemp.push(data['main']);
+                adapter.setState('sysinfo.cpu.temperature.main', {val: data.main, ack: true});
+                cpuTemp.push(data.main);
                 if (cpuTemp.length > 30) {
                     cpuTemp.shift();
                 }
                 adapter.setState('sysinfo.cpu.temperature.main_hist', {val: cpuTemp.toString(), ack: true});
-                adapter.setState('sysinfo.cpu.temperature.cores', {val: data['cores'], ack: true});
-                adapter.setState('sysinfo.cpu.temperature.max', {val: data['max'], ack: true});
+                adapter.setState('sysinfo.cpu.temperature.cores', {val: data.cores, ack: true});
+                adapter.setState('sysinfo.cpu.temperature.max', {val: data.max, ack: true});
             })
             .catch(error => adapter.log.error(error));
 

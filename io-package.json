@@ -234,7 +234,7 @@
             "common": {
                 "name": "System",
                 "role": "info",
-                "icon": ""
+                "icon": "lib/img/icons/system.png"
             },
             "native": {}
         },
@@ -280,7 +280,7 @@
             "common": {
                 "name": "CPU",
                 "role": "info",
-                "icon": ""
+                "icon": "lib/img/icons/cpu.png"
             },
             "native": {}
         },
@@ -357,7 +357,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad.currentload_sytem",
+            "_id": "sysinfo.cpu.currentLoad.currentload_system",
             "type": "state",
             "common": {
                 "name": "CPU load system in %",
@@ -441,7 +441,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad.raw_currentload_sytem",
+            "_id": "sysinfo.cpu.currentLoad.raw_currentload_system",
             "type": "state",
             "common": {
                 "name": "CPU load system raw values",
@@ -553,7 +553,7 @@
             "common": {
                 "name": "Memory",
                 "role": "info",
-                "icon": ""
+                "icon": "lib/img/icons/memory.png"
             },
             "native": {}
         },
@@ -668,7 +668,7 @@
             "common": {
                 "name": "OS",
                 "role": "info",
-                "icon": ""
+                "icon": "lib/img/icons/os.png"
             },
             "native": {}
         },
@@ -696,7 +696,7 @@
             "common": {
                 "name": "Disks",
                 "role": "info",
-                "icon": ""
+                "icon": "lib/img/icons/disk.png"
             },
             "native": {}
         },
@@ -733,7 +733,7 @@
             "common": {
                 "name": "Network",
                 "role": "info",
-                "icon": ""
+                "icon": "lib/img/icons/network.png"
             },
             "native": {}
         },
@@ -752,7 +752,7 @@
             "common": {
                 "name": "Battery",
                 "role": "info",
-                "icon": ""
+                "icon": "lib/img/icons/battery.png"
             },
             "native": {}
         },
@@ -833,7 +833,7 @@
             "_id": "sysinfo.battery.timeremaining",
             "type": "state",
             "common": {
-                "name": "minutes left (if discharging)",
+                "name": "Minutes left (if discharging)",
                 "type": "number",
                 "role": "value",
                 "read": true,

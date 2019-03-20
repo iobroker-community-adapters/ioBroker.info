@@ -2,7 +2,6 @@
     <head>
         <!-- these 4 files always have to be included -->
         <link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
-        <link rel="stylesheet" type="text/css" href="lib/css/nouislider.min.css"/>
         <link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
 
         <script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
@@ -11,7 +10,6 @@
         <!-- these files always have to be included -->
         <script type="text/javascript" src="../../js/translate.js"></script>
         <script type="text/javascript" src="../../lib/js/materialize.js"></script>
-        <script type="text/javascript" src="lib/js/nouislider.min.js"></script>
         <script type="text/javascript" src="../../js/adapter-settings.js"></script>
         <script type="text/javascript" src="words.js"></script>
         <style>
@@ -130,12 +128,12 @@
                 </div>
 
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col m4">
                         <input class="value" id="documentation" type="checkbox" />
                         <label for="documentation" class="translate">Show documentations</label>
                         <span class="translate"></span>
                     </div>
-                    <div class="input-field col s6">
+                    <div class="input-field col m8">
                         <select class="value" multiple id="doc_langs">
                             <option class="translate" value="" disabled selected>Select the desired languages for the documentations</option>
                             <option class="translate" value="de">German</option>
@@ -186,37 +184,37 @@
                         <label for="noCurrentSysData" class="translate">Don't load current system data</label>
                         <span class="translate"></span>
                     </div>
-                    <div class="input-field col m4 l2">
+                    <div class="col m4 l2">
                         <p class="range-field">
-                            <input class="value" id="cpuSpeed" type="range" min="2" max="10" />
+                            <input class="value" id="cpuSpeed" type="range" min="0" max="10" />
                         </p>
                         <label for="cpuSpeed" class="translate">Load CPU data every x seconds</label>
                         <span class="translate"></span>
                     </div>
-                    <div class="input-field col m4 l2">
+                    <div class="col m4 l2">
                         <p class="range-field">
-                            <input class="value" id="menSpeed" type="range" min="2" max="10" />
+                            <input class="value" id="menSpeed" type="range" min="0" max="10" />
                         </p>
                         <label for="menSpeed" class="translate">Load memory data every x seconds</label>
                         <span class="translate"></span>
                     </div>
-                    <div class="input-field col m4 l2">
+                    <div class="col m4 l2">
                         <p class="range-field">
-                            <input class="value" id="diskSpeed" type="range" min="2" max="10" />
+                            <input class="value" id="diskSpeed" type="range" min="0" max="10" />
                         </p>
                         <label for="diskSpeed" class="translate">Load disk data every x seconds</label>
                         <span class="translate"></span>
                     </div>
-                    <div class="input-field col m4 l2">
+                    <div class="col m4 l2">
                         <p class="range-field">
-                            <input class="value" id="batterySpeed" type="range" min="2" max="10" />
+                            <input class="value" id="batterySpeed" type="range" min="0" max="10" />
                         </p>
                         <label for="batterySpeed" class="translate">Load battery data every x seconds</label>
                         <span class="translate"></span>
                     </div>
-                    <div class="input-field col m4 l2">
+                    <div class="col m4 l2">
                         <p class="range-field">
-                            <input class="value" id="networkSpeed" type="range" min="2" max="10" />
+                            <input class="value" id="networkSpeed" type="range" min="0" max="10" />
                         </p>
                         <label for="networkSpeed" class="translate">Load network data every x seconds</label>
                         <span class="translate"></span>
