@@ -29,7 +29,6 @@
         "class": "danger",
         "fa-icon": "bolt",
         "conditions": {
-            "tankerkoenig": "bigger(1.0.4)",
             "tankerkoenig": "smaller(2.0.5)"
         }
     },

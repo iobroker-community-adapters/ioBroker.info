@@ -3,8 +3,8 @@
   ioBroker.info
 </h1>
 
-[![Number of Installations](http://iobroker.live/badges/info-installed.svg) 
-[![Number of Installations](http://iobroker.live/badges/info-stable.svg) 
+![Number of Installations](http://iobroker.live/badges/info-installed.svg) 
+![Number of Installations](http://iobroker.live/badges/info-stable.svg) 
 [![NPM version](http://img.shields.io/npm/v/iobroker.info.svg)](https://www.npmjs.com/package/iobroker.info)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.info.svg)](https://www.npmjs.com/package/iobroker.info)
 
