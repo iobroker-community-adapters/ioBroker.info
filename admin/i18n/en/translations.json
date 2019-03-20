@@ -1,6 +1,7 @@
 {
     "Active instances": "Active instances",
     "Adapter Requests": "Adapter Requests",
+    "Adapter care team": "Adapter care team",
     "All adapters are up to date!": "All adapters are up to date!",
     "Architecture": "Architecture",
     "Blog": "Blog",
@@ -24,6 +25,7 @@
     "French": "French",
     "German": "German",
     "Hide clock": "Do not show clock",
+    "If links are missing or wrong, please send us an e-mail to": "If links are missing or wrong, please send us an e-mail to",
     "Important information!": "Important information!",
     "Installing adapter %s...": "Installing adapter %s...",
     "Issues & bugs": "Issues & bugs",

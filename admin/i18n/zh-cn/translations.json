@@ -1,6 +1,7 @@
 {
     "Active instances": "活动实例",
     "Adapter Requests": "适配器请求",
+    "Adapter care team": "适配器护理团队",
     "All adapters are up to date!": "所有适配器都是最新的！",
     "Architecture": "建筑",
     "Blog": "博客",
@@ -24,6 +25,7 @@
     "French": "法国",
     "German": "德语",
     "Hide clock": "不要显示时钟",
+    "If links are missing or wrong, please send us an e-mail to": "如果链接丢失或错误，请发送电子邮件至",
     "Important information!": "重要信息！",
     "Installing adapter %s...": "安装适配器%s ...",
     "Issues & bugs": "问题和错误",

@@ -3,15 +3,17 @@
   ioBroker.info
 </h1>
 
-![Number of Installations](http://iobroker.live/badges/info-installed.svg) ![Number of Installations](http://iobroker.live/badges/info-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.info.svg)](https://www.npmjs.com/package/iobroker.info)
+[![Number of Installations](http://iobroker.live/badges/info-installed.svg) 
+[![Number of Installations](http://iobroker.live/badges/info-stable.svg) 
+[![NPM version](http://img.shields.io/npm/v/iobroker.info.svg)](https://www.npmjs.com/package/iobroker.info)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.info.svg)](https://www.npmjs.com/package/iobroker.info)
-[![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.info.svg)](https://david-dm.org/iobroker-community-adapters/iobroker.info)
-[![Known Vulnerabilities](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.info/badge.svg)](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.info)
 
 [![NPM](https://nodei.co/npm/iobroker.info.png?downloads=true)](https://nodei.co/npm/iobroker.info/)
 
-**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.info/master.svg)](https://travis-ci.org/iobroker-community-adapters/ioBroker.info)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/iobroker-community-adapters/ioBroker.info?branch=master&svg=true)](https://ci.appveyor.com/project/iobroker-community-adapters/ioBroker-info/) [![Greenkeeper badge](https://badges.greenkeeper.io/iobroker-community-adapters/ioBroker.info.svg)](https://greenkeeper.io/)
+[![Travis-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.info/master.svg)](https://travis-ci.org/iobroker-community-adapters/ioBroker.info)
+[![Greenkeeper badge](https://badges.greenkeeper.io/iobroker-community-adapters/ioBroker.info.svg)](https://greenkeeper.io/)
+[![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.info.svg)](https://david-dm.org/iobroker-community-adapters/iobroker.info)
+[![Known Vulnerabilities](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.info/badge.svg)](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.info)
 
 ## Information adapter for ioBroker
 

@@ -1,6 +1,7 @@
 {
     "Active instances": "Actieve instanties",
     "Adapter Requests": "Adapterverzoeken",
+    "Adapter care team": "Adapter verzorgingsteam",
     "All adapters are up to date!": "Alle adapters zijn up-to-date!",
     "Architecture": "Architectuur",
     "Blog": "Blog",
@@ -24,6 +25,7 @@
     "French": "Frans",
     "German": "Duitse",
     "Hide clock": "Laat de klok niet zien",
+    "If links are missing or wrong, please send us an e-mail to": "Als links ontbreken of verkeerd zijn, stuur ons dan een e-mail naar",
     "Important information!": "Belangrijke informatie!",
     "Installing adapter %s...": "Adapter %s wordt geïnstalleerd...",
     "Issues & bugs": "Problemen & bugs",

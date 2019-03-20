@@ -154,6 +154,18 @@
             "information"
         ],
         "readme": "https://github.com/iobroker-community-adapters/ioBroker.info/blob/master/README.md",
+        "docs": {
+            "en": "docs/en/info.md",
+            "de": "docs/de/info.md",
+            "ru": "docs/ru/info.md",
+            "pt": "docs/pt/info.md",
+            "nl": "docs/nl/info.md",
+            "fr": "docs/fr/info.md",
+            "it": "docs/it/info.md",
+            "es": "docs/es/info.md",
+            "pl": "docs/pl/info.md",
+            "zh-cn": "docs/zh-cn/info.md"
+        },
         "loglevel": "info",
         "type": "misc-data",
         "license": "MIT",
@@ -219,6 +231,43 @@
             "type": "channel",
             "common": {
                 "name": "System",
+                "role": "info",
+                "icon": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.system.hardware",
+            "type": "channel",
+            "common": {
+                "name": "Hardware info",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.system.bios",
+            "type": "channel",
+            "common": {
+                "name": "BIOS",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.system.baseboard",
+            "type": "channel",
+            "common": {
+                "name": "Baseboard",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.system.chassis",
+            "type": "channel",
+            "common": {
+                "name": "Chassis",
                 "role": "info"
             },
             "native": {}
@@ -228,12 +277,31 @@
             "type": "channel",
             "common": {
                 "name": "CPU",
+                "role": "info",
+                "icon": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.info",
+            "type": "channel",
+            "common": {
+                "name": "CPU information",
                 "role": "info"
             },
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad_avgload",
+            "_id": "sysinfo.cpu.currentLoad",
+            "type": "channel",
+            "common": {
+                "name": "CPU current load",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.currentLoad.avgload",
             "type": "state",
             "common": {
                 "name": "CPU average load",
@@ -245,7 +313,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad_currentload",
+            "_id": "sysinfo.cpu.currentLoad.currentload",
             "type": "state",
             "common": {
                 "name": "CPU load in %",
@@ -260,7 +328,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad_currentload_hist",
+            "_id": "sysinfo.cpu.currentLoad.currentload_hist",
             "type": "state",
             "common": {
                 "name": "CPU load last 60s",
@@ -272,7 +340,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad_currentload_user",
+            "_id": "sysinfo.cpu.currentLoad.currentload_user",
             "type": "state",
             "common": {
                 "name": "CPU load user in %",
@@ -287,7 +355,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad_currentload_sytem",
+            "_id": "sysinfo.cpu.currentLoad.currentload_sytem",
             "type": "state",
             "common": {
                 "name": "CPU load system in %",
@@ -302,7 +370,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad_currentload_nice",
+            "_id": "sysinfo.cpu.currentLoad.currentload_nice",
             "type": "state",
             "common": {
                 "name": "CPU load nice in %",
@@ -317,7 +385,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad_currentload_idle",
+            "_id": "sysinfo.cpu.currentLoad.currentload_idle",
             "type": "state",
             "common": {
                 "name": "CPU load idle in %",
@@ -332,7 +400,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad_currentload_irq",
+            "_id": "sysinfo.cpu.currentLoad.currentload_irq",
             "type": "state",
             "common": {
                 "name": "CPU load irq in %",
@@ -347,7 +415,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad_raw_currentload",
+            "_id": "sysinfo.cpu.currentLoad.raw_currentload",
             "type": "state",
             "common": {
                 "name": "CPU load raw values",
@@ -359,7 +427,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad_raw_currentload_user",
+            "_id": "sysinfo.cpu.currentLoad.raw_currentload_user",
             "type": "state",
             "common": {
                 "name": "CPU load user raw values",
@@ -371,7 +439,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad_raw_currentload_sytem",
+            "_id": "sysinfo.cpu.currentLoad.raw_currentload_sytem",
             "type": "state",
             "common": {
                 "name": "CPU load system raw values",
@@ -383,7 +451,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad_raw_currentload_nice",
+            "_id": "sysinfo.cpu.currentLoad.raw_currentload_nice",
             "type": "state",
             "common": {
                 "name": "CPU load nice raw values",
@@ -395,7 +463,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad_raw_currentload_idle",
+            "_id": "sysinfo.cpu.currentLoad.raw_currentload_idle",
             "type": "state",
             "common": {
                 "name": "CPU load idle raw values",
@@ -407,7 +475,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad_raw_currentload_irq",
+            "_id": "sysinfo.cpu.currentLoad.raw_currentload_irq",
             "type": "state",
             "common": {
                 "name": "CPU load irq raw values",
@@ -423,6 +491,16 @@
             "type": "channel",
             "common": {
                 "name": "Memory",
+                "role": "info",
+                "icon": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.memory.info",
+            "type": "channel",
+            "common": {
+                "name": "Memory information",
                 "role": "info"
             },
             "native": {}
@@ -528,6 +606,25 @@
             "type": "channel",
             "common": {
                 "name": "OS",
+                "role": "info",
+                "icon": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.os.info",
+            "type": "channel",
+            "common": {
+                "name": "OS informations",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.os.versions",
+            "type": "channel",
+            "common": {
+                "name": "Software versions",
                 "role": "info"
             },
             "native": {}
@@ -537,6 +634,34 @@
             "type": "channel",
             "common": {
                 "name": "Disks",
+                "role": "info",
+                "icon": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.disks.blockDevices",
+            "type": "channel",
+            "common": {
+                "name": "Disks data",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.disks.diskLayout",
+            "type": "channel",
+            "common": {
+                "name": "Physical disk layout",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.disks.fsSize",
+            "type": "channel",
+            "common": {
+                "name": "Mounted file systems",
                 "role": "info"
             },
             "native": {}
@@ -546,7 +671,8 @@
             "type": "channel",
             "common": {
                 "name": "Network",
-                "role": "info"
+                "role": "info",
+                "icon": ""
             },
             "native": {}
         }

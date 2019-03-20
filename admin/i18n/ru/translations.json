@@ -1,6 +1,7 @@
 {
     "Active instances": "Активные экземпляры",
     "Adapter Requests": "Запросы адаптера",
+    "Adapter care team": "Команда по уходу за адаптером",
     "All adapters are up to date!": "Все адаптеры обновлены!",
     "Architecture": "Aрхитектура",
     "Blog": "Блог",
@@ -24,6 +25,7 @@
     "French": "Французский",
     "German": "Немецкий",
     "Hide clock": "Не показывать часы",
+    "If links are missing or wrong, please send us an e-mail to": "Если ссылки отсутствуют или неправильны, пожалуйста, отправьте нам письмо по электронной почте",
     "Important information!": "Важная информация!",
     "Installing adapter %s...": "Установка адаптера %s ...",
     "Issues & bugs": "Проблемы и ошибки",

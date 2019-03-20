@@ -1,6 +1,7 @@
 {
     "Active instances": "Les instances actives",
     "Adapter Requests": "Demandes d'adaptateur",
+    "Adapter care team": "Équipe de soins de l'adaptateur",
     "All adapters are up to date!": "Tous les adaptateurs sont à jour!",
     "Architecture": "Architecture",
     "Blog": "Blog",
@@ -24,6 +25,7 @@
     "French": "français",
     "German": "allemand",
     "Hide clock": "Ne pas montrer l'horloge",
+    "If links are missing or wrong, please send us an e-mail to": "Si des liens manquent ou sont incorrects, veuillez nous envoyer un courrier électronique à",
     "Important information!": "Une information important!",
     "Installing adapter %s...": "L'adaptateur %s sera installé...",
     "Issues & bugs": "Problèmes et bugs",
