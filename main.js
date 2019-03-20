@@ -153,7 +153,7 @@ const updateSysinfo = function () {
                 Object.keys(data).forEach(function (key) {
                     if ((typeof data[key] === 'string' && data[key].length) || (typeof data[key] !== 'object' && typeof data[key] !== 'string')) {
                         setState('cpu', 'info', key, typeof data[key], data[key]);
-                    } else {
+                    } else if(typeof data[key] === 'object'){
                         Object.keys(data[key]).forEach(function (key2) {
                             setState('cpu', 'info', key + "-" + key2, 'number', data[key][key2]);
                         });
