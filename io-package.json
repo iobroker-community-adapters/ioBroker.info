@@ -487,6 +487,51 @@
             "native": {}
         },
         {
+            "_id": "sysinfo.cpu.temperature",
+            "type": "channel",
+            "common": {
+                "name": "CPU temperature",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.temperature.main",
+            "type": "state",
+            "common": {
+                "name": "CPU main temperature (avg)",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.temperature.cores",
+            "type": "state",
+            "common": {
+                "name": "CPU temperature/core",
+                "type": "array",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.temperature.max",
+            "type": "state",
+            "common": {
+                "name": "CPU max temperature",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
             "_id": "sysinfo.memory",
             "type": "channel",
             "common": {
@@ -506,7 +551,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.memory.mem_free",
+            "_id": "sysinfo.memory.info.free",
             "type": "state",
             "common": {
                 "name": "Memory free",
@@ -518,7 +563,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.memory.mem_used",
+            "_id": "sysinfo.memory.info.used",
             "type": "state",
             "common": {
                 "name": "Memory used",
@@ -530,7 +575,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.memory.mem_used_hist",
+            "_id": "sysinfo.memory.info.used_hist",
             "type": "state",
             "common": {
                 "name": "Memory used last 60s",
@@ -542,7 +587,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.memory.mem_active",
+            "_id": "sysinfo.memory.info.active",
             "type": "state",
             "common": {
                 "name": "Memory active",
@@ -554,7 +599,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.memory.mem_available",
+            "_id": "sysinfo.memory.info.available",
             "type": "state",
             "common": {
                 "name": "Memory available",
@@ -566,7 +611,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.memory.mem_buffcache",
+            "_id": "sysinfo.memory.info.buffcache",
             "type": "state",
             "common": {
                 "name": "Memory buffcache",
@@ -578,7 +623,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.memory.mem_swapused",
+            "_id": "sysinfo.memory.info.swapused",
             "type": "state",
             "common": {
                 "name": "Memory swap used",
@@ -590,7 +635,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.memory.mem_swapfree",
+            "_id": "sysinfo.memory.info.swapfree",
             "type": "state",
             "common": {
                 "name": "Memory swap free",
@@ -673,6 +718,122 @@
                 "name": "Network",
                 "role": "info",
                 "icon": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.network.interfaces",
+            "type": "channel",
+            "common": {
+                "name": "Network interfaces",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.battery",
+            "type": "channel",
+            "common": {
+                "name": "Battery",
+                "role": "info",
+                "icon": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.battery.hasbattery",
+            "type": "state",
+            "common": {
+                "name": "Battery present",
+                "type": "boolean",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.battery.cyclecount",
+            "type": "state",
+            "common": {
+                "name": "Numbers of recharges",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.battery.ischarging",
+            "type": "state",
+            "common": {
+                "name": "Is charging",
+                "type": "boolean",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.battery.maxcapacity",
+            "type": "state",
+            "common": {
+                "name": "Max capacity",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.battery.currentcapacity",
+            "type": "state",
+            "common": {
+                "name": "Current capacity",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.battery.percent",
+            "type": "state",
+            "common": {
+                "name": "Charging level",
+                "type": "number",
+                "role": "value",
+                "unit": "%",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.battery.timeremaining",
+            "type": "state",
+            "common": {
+                "name": "minutes left (if discharging)",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.battery.acconnected",
+            "type": "state",
+            "common": {
+                "name": "AC connected",
+                "type": "boolean",
+                "role": "value",
+                "read": true,
+                "write": false
             },
             "native": {}
         }

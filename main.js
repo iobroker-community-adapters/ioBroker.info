@@ -75,7 +75,8 @@ const checkNews = function () {
 };
 
 const setState = function (channel, channel2, key, type, value) {
-    adapter.setObjectNotExists('sysinfo.' + channel + '.' + channel2 + '.' + key, {
+    const link = 'sysinfo.' + channel + (channel2 ? '.' + channel2 : '');
+    adapter.setObjectNotExists(link + '.' + key, {
         type: "state",
         common: {
             name: key,
@@ -90,13 +91,25 @@ const setState = function (channel, channel2, key, type, value) {
     adapter.setState('sysinfo.' + channel + '.' + channel2 + '.' + key, {val: value, ack: true});
 };
 
+const createChannel = function (channel, channel2, channel3) {
+    adapter.setObjectNotExists('sysinfo.' + channel + '.' + channel2 + '.' + channel3, {
+        type: "channel",
+        common: {
+            name: channel3,
+            role: "info"
+        },
+        native: {}
+    });
+};
+
+
 const updateSysinfo = function () {
 
     //SYSTEM
     sistm.system()
             .then(data => {
                 Object.keys(data).forEach(function (key) {
-                    if (data[key].length > 1) {
+                    if ((typeof data[key] === 'string' && data[key].length > 1) || typeof data[key] !== 'string') {
                         setState('system', 'hardware', key, typeof data[key], data[key]);
                     }
                 });
@@ -106,7 +119,7 @@ const updateSysinfo = function () {
     sistm.bios()
             .then(data => {
                 Object.keys(data).forEach(function (key) {
-                    if (data[key].length) {
+                    if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] !== 'string') {
                         setState('system', 'bios', key, typeof data[key], data[key]);
                     }
                 });
@@ -116,7 +129,7 @@ const updateSysinfo = function () {
     sistm.baseboard()
             .then(data => {
                 Object.keys(data).forEach(function (key) {
-                    if (data[key].length) {
+                    if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] !== 'string') {
                         setState('system', 'baseboard', key, typeof data[key], data[key]);
                     }
                 });
@@ -126,7 +139,7 @@ const updateSysinfo = function () {
     sistm.chassis()
             .then(data => {
                 Object.keys(data).forEach(function (key) {
-                    if (data[key].length) {
+                    if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] !== 'string') {
                         setState('system', 'chassis', key, typeof data[key], data[key]);
                     }
                 });
@@ -137,7 +150,7 @@ const updateSysinfo = function () {
     sistm.cpu()
             .then(data => {
                 Object.keys(data).forEach(function (key) {
-                    if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] === 'number') {
+                    if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] !== 'number') {
                         setState('cpu', 'info', key, typeof data[key], data[key]);
                     } else {
                         Object.keys(data[key]).forEach(function (key2) {
@@ -166,6 +179,26 @@ const updateSysinfo = function () {
             })
             .catch(error => adapter.log.error(error));
 
+    sistm.cpuTemperature()
+            .then(data => {
+                if (data['main'] > -1) {
+                    Object.keys(data).forEach(function (key) {
+                        if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] !== 'string') {
+                            setState('cpu', 'temperature', key, typeof data[key], data[key]);
+                        }
+                    });
+                    if (!adapter.config.noCurrentSysData) {
+                        let speed = adapter.config.cpuSpeed;
+                        if (!speed) {
+                            speed = 2;
+                        }
+                        adapter.log.info("Reading CPU temp data every " + speed + " seconds.");
+                        setInterval(updateCurrentCPUTempInfos, speed * 1000);
+                    }
+                }
+            })
+            .catch(error => adapter.log.error(error));
+
     //MEMORY
     sistm.mem()
             .then(data => {
@@ -187,7 +220,7 @@ const updateSysinfo = function () {
     sistm.osInfo()
             .then(data => {
                 Object.keys(data).forEach(function (key) {
-                    if (data[key].length) {
+                    if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] !== 'string') {
                         setState('os', 'info', key, typeof data[key], data[key]);
                     }
                 });
@@ -197,7 +230,7 @@ const updateSysinfo = function () {
     sistm.versions()
             .then(data => {
                 Object.keys(data).forEach(function (key) {
-                    if (data[key].length) {
+                    if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] !== 'string') {
                         setState('os', 'versions', key, typeof data[key], data[key]);
                     }
                 });
@@ -207,15 +240,16 @@ const updateSysinfo = function () {
     //DISKS
     sistm.blockDevices()
             .then(data => {
-                Object.keys(data).forEach(function (key) {
-                    if (data.length > 0) {
+                if (data.length > 0) {
+                    Object.keys(data).forEach(function (key) {
+                        createChannel('disks', 'diskLayout', 'dev' + key);
                         Object.keys(data[key]).forEach(function (key2) {
                             if ((typeof data[key][key2] === 'string' && data[key][key2].length) || typeof data[key][key2] !== 'string') {
-                                setState('disks', 'blockDevices', "dev_" + key + "_" + key2, typeof data[key][key2], data[key][key2]);
+                                setState('disks', 'blockDevices.dev' + key, key2, typeof data[key][key2], data[key][key2]);
                             }
                         });
-                    }
-                });
+                    });
+                }
             })
             .catch(error => adapter.log.error(error));
 
@@ -223,9 +257,10 @@ const updateSysinfo = function () {
             .then(data => {
                 if (data.length > 0) {
                     Object.keys(data).forEach(function (key) {
+                        createChannel('disks', 'diskLayout', 'dev' + key);
                         Object.keys(data[key]).forEach(function (key2) {
                             if ((typeof data[key][key2] === 'string' && data[key][key2].length) || typeof data[key][key2] !== 'string') {
-                                setState('disks', 'diskLayout', "dev_" + key + "_" + key2, typeof data[key][key2], data[key][key2]);
+                                setState('disks', 'diskLayout.dev' + key, key2, typeof data[key][key2], data[key][key2]);
                             }
                         });
                     });
@@ -238,12 +273,13 @@ const updateSysinfo = function () {
                 if (data.length > 0) {
                     Object.keys(data).forEach(function (key) {
                         fsUsed[key] = [];
+                        createChannel('disks', 'diskLayout', 'fs' + key);
                         Object.keys(data[key]).forEach(function (key2) {
                             if ((typeof data[key][key2] === 'string' && data[key][key2].length) || typeof data[key][key2] !== 'string') {
-                                setState('disks', 'fsSize', "fs_" + key + "_" + key2, typeof data[key][key2], data[key][key2]);
+                                setState('disks', 'fsSize.fs' + key, key2, typeof data[key][key2], data[key][key2]);
                             }
                             if (key2 === "used") {
-                                setState('disks', 'fsSize', "fs_" + key + "_used_hist", "array", "[]");
+                                setState('disks', 'fsSize.fs' + key, "used_hist", "array", "[]");
                             }
                         });
                     });
@@ -259,7 +295,44 @@ const updateSysinfo = function () {
             })
             .catch(error => adapter.log.error(error));
 
+    //NETWORK
+    sistm.networkInterfaces()
+            .then(data => {
+                if (data.length > 0) {
+                    Object.keys(data).forEach(function (key) {
+                        createChannel('network', 'interfaces', 'iface' + key);
+                        Object.keys(data[key]).forEach(function (key2) {
+                            if ((typeof data[key][key2] === 'string' && data[key][key2].length) || typeof data[key][key2] !== 'string') {
+                                setState('network', 'interfaces.iface' + key, key2, typeof data[key][key2], data[key][key2]);
+                            }
+                        });
+                    });
+                }
+            })
+            .catch(error => adapter.log.error(error));
 
+    //BATTERY
+    sistm.system()
+            .then(data => {
+                if (data.hasbattery) {
+                    Object.keys(data).forEach(function (key) {
+                        if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] !== 'string') {
+                            setState('battery', null, key, typeof data[key], data[key]);
+                        }
+                    });
+                    if (!adapter.config.noCurrentSysData) {
+                        let speed = adapter.config.batterySpeed;
+                        if (!speed) {
+                            speed = 5;
+                        }
+                        adapter.log.info("Reading battery data every " + speed + " seconds.");
+                        setInterval(updateCurrentBatteryInfos, speed * 1000);
+                    }
+                } else {
+                    setState('battery', null, 'hasbattery', 'boolean', false);
+                }
+            })
+            .catch(error => adapter.log.error(error));
 };
 
 const updateCurrentCPUInfos = function () {
@@ -284,6 +357,18 @@ const updateCurrentCPUInfos = function () {
                 adapter.setState('sysinfo.cpu.currentLoad.raw_currentload_nice', {val: data['raw_currentload_nice'], ack: true});
                 adapter.setState('sysinfo.cpu.currentLoad.raw_currentload_idle', {val: data['raw_currentload_idle'], ack: true});
                 adapter.setState('sysinfo.cpu.currentLoad.currentload_irq', {val: data['currentload_irq'], ack: true});
+            })
+            .catch(error => adapter.log.error(error));
+
+};
+
+const updateCurrentCPUTempInfos = function () {
+
+    sistm.cpuTemperature()
+            .then(data => {
+                adapter.setState('sysinfo.cpu.temperature.main', {val: data['main'], ack: true});
+                adapter.setState('sysinfo.cpu.temperature.cores', {val: data['cores'], ack: true});
+                adapter.setState('sysinfo.cpu.temperature.max', {val: data['max'], ack: true});
             })
             .catch(error => adapter.log.error(error));
 
@@ -316,18 +401,35 @@ const updateCurrentFilesystemInfos = function () {
             .then(data => {
                 if (data.length > 0) {
                     Object.keys(data).forEach(function (key) {
-                        adapter.setState('sysinfo.disks.fsSize.fs_' + key + '_used', {val: data[key]['used'], ack: true});
+                        adapter.setState('sysinfo.disks.fsSize.fs' + key + '.used', {val: data[key]['used'], ack: true});
                         fsUsed[key].push(data[key]['used']);
                         if (fsUsed[key].length > 30) {
                             fsUsed[key].shift();
                         }
-                        adapter.setState('sysinfo.disks.fsSize.fs_' + key + '_used_hist', {val: fsUsed[key].toString(), ack: true});
-                        adapter.setState('sysinfo.disks.fsSize.fs_' + key + '_use', {val: data[key]['use'], ack: true});
+                        adapter.setState('sysinfo.disks.fsSize.fs' + key + '.used_hist', {val: fsUsed[key].toString(), ack: true});
+                        adapter.setState('sysinfo.disks.fsSize.fs' + key + '.use', {val: data[key]['use'], ack: true});
                     });
                 }
             })
             .catch(error => adapter.log.error(error));
 
+};
+
+const updateCurrentBatteryInfos = function () {
+
+    sistm.battery()
+            .then(data => {
+                adapter.setState('sysinfo.battery.hasbattery', {val: data['hasbattery'], ack: true});
+                adapter.setState('sysinfo.battery.cyclecount', {val: data['cyclecount'], ack: true});
+                adapter.setState('sysinfo.battery.ischarging', {val: data['ischarging'], ack: true});
+                adapter.setState('sysinfo.battery.maxcapacity', {val: data['maxcapacity'], ack: true});
+                adapter.setState('sysinfo.battery.currentcapacity', {val: data['currentcapacity'], ack: true});
+                adapter.setState('sysinfo.battery.percent', {val: data['percent'], ack: true});
+                adapter.setState('sysinfo.battery.timeremaining', {val: data['timeremaining'], ack: true});
+                adapter.setState('sysinfo.battery.acconnected', {val: data['acconnected'], ack: true});
+            })
+            .catch(error => adapter.log.error(error));
+    
 };
 
 function main() {
