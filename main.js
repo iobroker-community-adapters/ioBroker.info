@@ -368,7 +368,7 @@ const updateCurrentCPUTempInfos = function () {
     sistm.cpuTemperature()
             .then(data => {
                 adapter.setState('sysinfo.cpu.temperature.main', {val: data['main'], ack: true});
-                cpuTemp.push(data['currentload']);
+                cpuTemp.push(data['main']);
                 if (cpuTemp.length > 30) {
                     cpuTemp.shift();
                 }
