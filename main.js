@@ -151,7 +151,7 @@ const updateSysinfo = function () {
     sistm.cpu()
             .then(data => {
                 Object.keys(data).forEach(function (key) {
-                    if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] !== 'number') {
+                    if ((typeof data[key] === 'string' && data[key].length) || (typeof data[key] !== 'object' && typeof data[key] !== 'string')) {
                         setState('cpu', 'info', key, typeof data[key], data[key]);
                     } else {
                         Object.keys(data[key]).forEach(function (key2) {
