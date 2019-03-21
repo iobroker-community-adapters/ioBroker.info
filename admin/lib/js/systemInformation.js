@@ -117,7 +117,7 @@ const systemInformations = {
         });
     },
     writeData: function (obj) {
-        if (obj.device) {
+        if (obj.device && $("#sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device).length == 0) {
             const dl = "<h3>" + obj.device + "</h3><dl class='dl-horizontal' id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "'></dl>";
             $('#sys_info_' + obj.systype + '_' + obj.syssubtype).append($(dl));
         }
