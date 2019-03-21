@@ -142,6 +142,10 @@ $(function () {
             $("#" + target).html("<p><b>" + _("Readme file was not found. No further information available.") + "</b></p>");
         });
     });
+    
+    $(document.body).on('click', '#show-system-details', function(){
+        $('#modal-system').modal();
+    });
 
     $(document.body).on('click', '.show-md', function () {
         const url = $(this).data('md-url');

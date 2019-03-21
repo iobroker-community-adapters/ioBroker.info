@@ -118,7 +118,7 @@ const systemInformations = {
     },
     writeData: function (obj) {
         const row = "<dt>" + _(obj.name) + "</dt><dd>" + obj.value + "</dd>";
-        $('#sys_info_' + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '')).append(row);
+        $('#sys_info_' + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '')).append($(row));
     }
 };
 

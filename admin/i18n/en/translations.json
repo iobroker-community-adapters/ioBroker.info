@@ -38,6 +38,7 @@
     "Load memory data every x seconds": "Load memory data every x seconds",
     "Load network data every x seconds": "Load network data every x seconds",
     "Model": "Model",
+    "Show details": "Show details",
     "NPM": "NPM",
     "New Node version": "There is a newer version:",
     "New adapters": "New adapters",
