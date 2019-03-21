@@ -96,7 +96,11 @@ const systemInformations = {
                         data[key].device = link[5];
                     }
                     data[key].name = link[link.length-1];
-                    data[key].value = res[key].val;
+                    let value = null;
+                    if(res[key]){
+                        value = res[key].val;
+                    }
+                    data[key].value = value;
                 });
                 systemInformations.writeData(data);
             }            
