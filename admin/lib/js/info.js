@@ -1,4 +1,4 @@
-/* global adapterConfig, socket, systemLang, hosts, formatInfo, versionMap, mainHost */
+/* global adapterConfig, socket, systemLang, hosts, formatInfo, versionMap, mainHost, systemInformations */
 
 const uptimeMap = {};
 
@@ -174,6 +174,8 @@ $(function () {
             translateAll(systemLang);
 
             startPopupNews();
+            
+            systemInformations.getData();
 
         } else {
             startClock("stop");
