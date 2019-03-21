@@ -84,25 +84,24 @@ const systemInformations = {
     getData: function () {
         socket.emit('getForeignStates', 'info.0.sysinfo.*', function (err, res) {
             if (!err && res) {
-                const data = {};
                 Object.keys(res).forEach(function (key) {
+                    const obj = {};
                     const link = key.split('.');
-                    data[key] = {};
-                    data[key].systype = link[3];
+                    obj.systype = link[3];
                     if (link.length > 5) {
-                        data[key].syssubtype = link[4];
+                        obj.syssubtype = link[4];
                     }
                     if (link.length > 6) {
-                        data[key].device = link[5];
+                        obj.device = link[5];
                     }
-                    data[key].name = link[link.length-1];
+                    obj.name = link[link.length-1];
                     let value = null;
                     if(res[key]){
                         value = res[key].val;
                     }
-                    data[key].value = value;
+                    obj.value = value;
+                    systemInformations.writeData(obj);
                 });
-                systemInformations.writeData(data);
             }            
         });
     },
