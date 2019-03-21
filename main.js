@@ -153,7 +153,7 @@ const updateSysinfo = function (firstTime) {
                 Object.keys(data).forEach(function (key) {
                     if ((typeof data[key] === 'string' && data[key].length) || (typeof data[key] !== 'object' && typeof data[key] !== 'string')) {
                         setState('cpu', 'info', key, typeof data[key], data[key]);
-                    } else if(typeof data[key] === 'object'){
+                    } else if (typeof data[key] === 'object') {
                         Object.keys(data[key]).forEach(function (key2) {
                             setState('cpu', 'info', key + "-" + key2, 'number', data[key][key2]);
                         });
@@ -443,7 +443,9 @@ function main() {
     setTimeout(checkNews, 5000);
     setInterval(checkNews, 30 * 60 * 1000);
     updateSysinfo(true);
-    setTimeout(updateSysinfo(false), 5000);   
+    setTimeout(function () {
+        updateSysinfo(false);
+    }, 5000);
 }
 
 // If started as allInOne/compact mode => return function to create instance
