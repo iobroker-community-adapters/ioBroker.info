@@ -206,7 +206,17 @@
         "batterySpeed": 5,
         "networkSpeed": 2
     },
-    "objects": [],
+    "objects": [
+        {
+            "_id": "_design/info",
+            "language": "javascript",
+            "views": {
+                "systemdata": {
+                    "map": "function(doc) {\n  if (doc._id.match(/^info\\.[0-9]+\\.sysinfo.\\*?[A-Za-z0-9_-]+(\\.[0-9]+)?$/)) {\n   emit(doc._id, {ADDRESS:(doc.native?doc.native.ADDRESS:''),VERSION:(doc.native?doc.native.VERSION:'')});\n  }\n}"
+                }
+            }
+        }
+    ],
     "instanceObjects": [
         {
             "_id": "newsfeed",

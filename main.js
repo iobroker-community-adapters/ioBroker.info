@@ -357,7 +357,7 @@ const updateCurrentCPUInfos = function () {
                 adapter.setState('sysinfo.cpu.currentLoad.raw_currentload_system', {val: data['raw_currentload_system'], ack: true});
                 adapter.setState('sysinfo.cpu.currentLoad.raw_currentload_nice', {val: data['raw_currentload_nice'], ack: true});
                 adapter.setState('sysinfo.cpu.currentLoad.raw_currentload_idle', {val: data['raw_currentload_idle'], ack: true});
-                adapter.setState('sysinfo.cpu.currentLoad.currentload_irq', {val: data['currentload_irq'], ack: true});
+                adapter.setState('sysinfo.cpu.currentLoad.raw_currentload_irq', {val: data['raw_currentload_irq'], ack: true});
             })
             .catch(error => adapter.log.error(error));
 

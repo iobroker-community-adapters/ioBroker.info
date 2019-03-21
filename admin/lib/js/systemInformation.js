@@ -16,6 +16,7 @@ function startCharts() {
             }
             labelText += adapterConfig.cpuSpeed;
         }
+        cpuLabels.reverse();
     }
     if(memLabels.length === 0){
         let labelText = 0;
@@ -27,6 +28,7 @@ function startCharts() {
             }
             labelText += adapterConfig.memSpeed;
         }
+        memLabels.reverse();
     }
     if(diskLabels.length === 0){
         let labelText = 0;
@@ -38,6 +40,7 @@ function startCharts() {
             }
             labelText += adapterConfig.diskSpeed;
         }
+        diskLabels.reverse();
     }
 
     socket.emit('subscribe', 'info.0.sysinfo.cpu.currentLoad_currentload_hist');
@@ -74,6 +77,16 @@ const infoCharts = {
         };
 
         new Chartist.Line('#cpu-chart', data, options);
+    }
+};
+
+const systemInformations = {
+    getData: function(){
+        socket.emit('getObjectView', 'info', 'systemdata', {startkey: 'info.0.sysinfo.', endkey: 'info.0.sysinfo.\u9999'}, function (err, res) {
+        if (!err && res) {
+           
+        }
+    });
     }
 };
 
