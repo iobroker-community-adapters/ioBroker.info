@@ -4,8 +4,6 @@ const cpuLabels = [];
 const memLabels = [];
 const diskLabels = [];
 
-const allSysData = [];
-
 function startCharts() {
 
     if (cpuLabels.length === 0) {
@@ -84,43 +82,28 @@ const infoCharts = {
 
 const systemInformations = {
     getData: function () {
-        socket.emit('getObjectView', 'system', 'state', {startkey: 'info.0.sysinfo.', endkey: 'info.0.sysinfo.\u9999'}, function (err, res) {
+        socket.emit('getForeignStates', 'info.0.sysinfo.*', function (err, res) {
             if (!err && res) {
-                var _res = {};
-                for (var i = 0; i < res.rows.length; i++) {
-                    const link = res.rows[i].id.split('.');
-                    _res[res.rows[i].id] = {};
-                    _res[res.rows[i].id].systype = link[3];
+                const data = {};
+                Object.keys(res).forEach(function (key) {
+                    const link = key.split('.');
+                    data[key] = {};
+                    data[key].systype = link[3];
                     if (link.length > 5) {
-                        _res[res.rows[i].id].syssubtype = link[4];
+                        data[key].syssubtype = link[4];
                     }
                     if (link.length > 6) {
-                        _res[res.rows[i].id].device = link[5];
+                        data[key].device = link[5];
                     }
-                    _res[res.rows[i].id].name = res.rows[i].value.common.name;
-                    _res[res.rows[i].id].unit = res.rows[i].value.common.unit;
-                    _res[res.rows[i].id].min = res.rows[i].value.common.min;
-                    _res[res.rows[i].id].max = res.rows[i].value.common.max;
-                }
-
-                Object.keys(_res).forEach(function (key) {
-                    socket.emit('getState', key, function (err, data) {
-                        if (!err && data) {
-                            const obj = _res[key];
-                            obj.value = data.val;
-                            allSysData.push(obj);
-                            //systemInformations.writeData(obj);
-                        }
-                    });
+                    data[key].name = link[link.length-1];
+                    data[key].value = res[key].val;
                 });
-
-            } else {
-                console.log(JSON.stringify(err));
-            }
+                systemInformations.writeData(data);
+            }            
         });
     },
     writeData: function (obj) {
-        if (obj.device && $("#sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device).length == 0) {
+        if (obj.device && $("#sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device).length === 0) {
             const dl = "<h3>" + obj.device + "</h3><dl class='dl-horizontal' id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "'></dl>";
             $('#sys_info_' + obj.systype + '_' + obj.syssubtype).append($(dl));
         }
