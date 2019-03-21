@@ -104,7 +104,7 @@ const createChannel = function (channel, channel2, channel3) {
 };
 
 
-const updateSysinfo = function () {
+const updateSysinfo = function (firstTime) {
 
     //SYSTEM
     sistm.system()
@@ -169,7 +169,7 @@ const updateSysinfo = function () {
                         setState('cpu', 'currentLoad', key, typeof data[key], data[key]);
                     }
                 });
-                if (!adapter.config.noCurrentSysData && adapter.config.cpuSpeed !== 0) {
+                if (!adapter.config.noCurrentSysData && adapter.config.cpuSpeed !== 0 && firstTime) {
                     let speed = adapter.config.cpuSpeed;
                     if (!speed) {
                         speed = 2;
@@ -188,7 +188,7 @@ const updateSysinfo = function () {
                             setState('cpu', 'temperature', key, typeof data[key], data[key]);
                         }
                     });
-                    if (!adapter.config.noCurrentSysData && adapter.config.cpuSpeed !== 0) {
+                    if (!adapter.config.noCurrentSysData && adapter.config.cpuSpeed !== 0 && firstTime) {
                         let speed = adapter.config.cpuSpeed;
                         if (!speed) {
                             speed = 2;
@@ -206,7 +206,7 @@ const updateSysinfo = function () {
                 Object.keys(data).forEach(function (key) {
                     setState('memory', 'info', key, typeof data[key], data[key]);
                 });
-                if (!adapter.config.noCurrentSysData && adapter.config.memSpeed !== 0) {
+                if (!adapter.config.noCurrentSysData && adapter.config.memSpeed !== 0 && firstTime) {
                     let speed = adapter.config.memSpeed;
                     if (!speed) {
                         speed = 2;
@@ -284,7 +284,7 @@ const updateSysinfo = function () {
                             }
                         });
                     });
-                    if (!adapter.config.noCurrentSysData && adapter.config.diskSpeed !== 0) {
+                    if (!adapter.config.noCurrentSysData && adapter.config.diskSpeed !== 0 && firstTime) {
                         let speed = adapter.config.diskSpeed;
                         if (!speed) {
                             speed = 5;
@@ -321,7 +321,7 @@ const updateSysinfo = function () {
                             setState('battery', null, key, typeof data[key], data[key]);
                         }
                     });
-                    if (!adapter.config.noCurrentSysData && adapter.config.batterySpeed !== 0) {
+                    if (!adapter.config.noCurrentSysData && adapter.config.batterySpeed !== 0 && firstTime) {
                         let speed = adapter.config.batterySpeed;
                         if (!speed) {
                             speed = 5;
@@ -440,8 +440,10 @@ const updateCurrentBatteryInfos = function () {
 
 function main() {
     checkNews();
+    setTimeout(checkNews, 5000);
     setInterval(checkNews, 30 * 60 * 1000);
-    updateSysinfo();
+    updateSysinfo(true);
+    setTimeout(updateSysinfo(false), 5000);   
 }
 
 // If started as allInOne/compact mode => return function to create instance
