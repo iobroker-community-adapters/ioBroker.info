@@ -440,12 +440,12 @@ const updateCurrentBatteryInfos = function () {
 
 function main() {
     checkNews();
-    setTimeout(checkNews, 5000);
+    setTimeout(checkNews, 15000);
     setInterval(checkNews, 30 * 60 * 1000);
     updateSysinfo(true);
     setTimeout(function () {
         updateSysinfo(false);
-    }, 5000);
+    }, 15000);
 }
 
 // If started as allInOne/compact mode => return function to create instance
