@@ -105,7 +105,7 @@ const systemInformations = {
                     socket.emit('getState', key, function (err, data) {
                         if (!err && data) {
                             const obj = _res[key];
-                            obj.value = data;
+                            obj.value = data.val;
                             systemInformations.writeData(obj);
                         }
                     });
