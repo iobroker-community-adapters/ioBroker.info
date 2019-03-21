@@ -104,7 +104,7 @@ const createChannel = function (channel, channel2, channel3) {
 };
 
 
-const updateSysinfo = function (firstTime) {
+const updateSysinfo = function () {
 
     //SYSTEM
     sistm.system()
@@ -153,7 +153,7 @@ const updateSysinfo = function (firstTime) {
                 Object.keys(data).forEach(function (key) {
                     if ((typeof data[key] === 'string' && data[key].length) || (typeof data[key] !== 'object' && typeof data[key] !== 'string')) {
                         setState('cpu', 'info', key, typeof data[key], data[key]);
-                    } else if (typeof data[key] === 'object') {
+                    } else if(typeof data[key] === 'object'){
                         Object.keys(data[key]).forEach(function (key2) {
                             setState('cpu', 'info', key + "-" + key2, 'number', data[key][key2]);
                         });
@@ -169,7 +169,7 @@ const updateSysinfo = function (firstTime) {
                         setState('cpu', 'currentLoad', key, typeof data[key], data[key]);
                     }
                 });
-                if (!adapter.config.noCurrentSysData && adapter.config.cpuSpeed !== 0 && firstTime) {
+                if (!adapter.config.noCurrentSysData && adapter.config.cpuSpeed !== 0) {
                     let speed = adapter.config.cpuSpeed;
                     if (!speed) {
                         speed = 2;
@@ -188,7 +188,7 @@ const updateSysinfo = function (firstTime) {
                             setState('cpu', 'temperature', key, typeof data[key], data[key]);
                         }
                     });
-                    if (!adapter.config.noCurrentSysData && adapter.config.cpuSpeed !== 0 && firstTime) {
+                    if (!adapter.config.noCurrentSysData && adapter.config.cpuSpeed !== 0) {
                         let speed = adapter.config.cpuSpeed;
                         if (!speed) {
                             speed = 2;
@@ -206,7 +206,7 @@ const updateSysinfo = function (firstTime) {
                 Object.keys(data).forEach(function (key) {
                     setState('memory', 'info', key, typeof data[key], data[key]);
                 });
-                if (!adapter.config.noCurrentSysData && adapter.config.memSpeed !== 0 && firstTime) {
+                if (!adapter.config.noCurrentSysData && adapter.config.memSpeed !== 0) {
                     let speed = adapter.config.memSpeed;
                     if (!speed) {
                         speed = 2;
@@ -284,7 +284,7 @@ const updateSysinfo = function (firstTime) {
                             }
                         });
                     });
-                    if (!adapter.config.noCurrentSysData && adapter.config.diskSpeed !== 0 && firstTime) {
+                    if (!adapter.config.noCurrentSysData && adapter.config.diskSpeed !== 0) {
                         let speed = adapter.config.diskSpeed;
                         if (!speed) {
                             speed = 5;
@@ -321,7 +321,7 @@ const updateSysinfo = function (firstTime) {
                             setState('battery', null, key, typeof data[key], data[key]);
                         }
                     });
-                    if (!adapter.config.noCurrentSysData && adapter.config.batterySpeed !== 0 && firstTime) {
+                    if (!adapter.config.noCurrentSysData && adapter.config.batterySpeed !== 0) {
                         let speed = adapter.config.batterySpeed;
                         if (!speed) {
                             speed = 5;
@@ -440,12 +440,8 @@ const updateCurrentBatteryInfos = function () {
 
 function main() {
     checkNews();
-    setTimeout(checkNews, 15000);
     setInterval(checkNews, 30 * 60 * 1000);
-    updateSysinfo(true);
-    setTimeout(function () {
-        updateSysinfo(false);
-    }, 15000);
+    updateSysinfo();
 }
 
 // If started as allInOne/compact mode => return function to create instance

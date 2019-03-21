@@ -4,6 +4,8 @@ const cpuLabels = [];
 const memLabels = [];
 const diskLabels = [];
 
+const allSysData = [];
+
 function startCharts() {
 
     if (cpuLabels.length === 0) {
@@ -106,7 +108,8 @@ const systemInformations = {
                         if (!err && data) {
                             const obj = _res[key];
                             obj.value = data.val;
-                            systemInformations.writeData(obj);
+                            allSysData.push(obj);
+                            //systemInformations.writeData(obj);
                         }
                     });
                 });
