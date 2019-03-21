@@ -117,8 +117,12 @@ const systemInformations = {
         });
     },
     writeData: function (obj) {
+        if (obj.device) {
+            const dl = "<h3>" + obj.device + "</h3><dl class='dl-horizontal' id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "'></dl>";
+            $('#sys_info_' + obj.systype + '_' + obj.syssubtype).append($(dl));
+        }
         const row = "<dt>" + _(obj.name) + "</dt><dd>" + obj.value + "</dd>";
-        $('#sys_info_' + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '')).append($(row));
+        $('#sys_info_' + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '')).append($(row));
     }
 };
 
