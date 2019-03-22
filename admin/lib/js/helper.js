@@ -1,4 +1,4 @@
-/* global io, systemDictionary, systemLang, bootbox, showdown, socket */
+/* global io, systemDictionary, systemLang, bootbox, showdown, socket, parseFloat */
 
 const dateOptions = {"weekday": "short", "year": "numeric", "month": "long", "day": "2-digit", "hour": "2-digit", "minute": "2-digit", "second": "2-digit"};
 let infoData = {};

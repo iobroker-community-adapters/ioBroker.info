@@ -1,4 +1,4 @@
-/* global adapterConfig, socket, systemLang, hosts, formatInfo, versionMap, mainHost, systemInformations */
+/* global adapterConfig, socket, systemLang, hosts, formatInfo, versionMap, mainHost, systemInformations, formatter */
 
 const uptimeMap = {};
 
@@ -40,7 +40,7 @@ const updateInfoPage = async function () {
                 uptimeMap[key] = $(this).data("start");
             }
             uptimeMap[key] = ++uptimeMap[key];
-            $(this).text(formatSeconds(uptimeMap[key]));
+            $(this).text(formatter.formatSeconds(uptimeMap[key]));
         });
     }, 1000);
 
