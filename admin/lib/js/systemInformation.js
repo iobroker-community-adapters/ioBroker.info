@@ -94,24 +94,30 @@ const systemInformations = {
                     if (link.length > 6) {
                         obj.device = link[5];
                     }
-                    obj.name = link[link.length-1];
+                    obj.name = link[link.length - 1];
                     let value = null;
-                    if(res[key]){
+                    if (res[key]) {
                         value = res[key].val;
                     }
                     obj.value = value;
                     systemInformations.writeData(obj);
                 });
-            }            
+            }
         });
     },
     writeData: function (obj) {
-        if (obj.device && $("#sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device).length === 0) {
-            const dl = "<h3>" + obj.device + "</h3><dl class='dl-horizontal' id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "'></dl>";
-            $('#sys_info_' + obj.systype + '_' + obj.syssubtype).append($(dl));
+        if (obj.systype === "os" && obj.name === "logofile") {
+            $('#sys_info_os_img_logo').attr('src', '/lib/img/logos/' + obj.val + '.png');
+        } else if (obj.name.endsWith('_hist')) {
+
+        } else {
+            if (obj.device && $("#sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device).length === 0) {
+                const dl = "<h3>" + obj.device + "</h3><dl class='dl-horizontal' id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "'></dl>";
+                $('#sys_info_' + obj.systype + '_' + obj.syssubtype).append($(dl));
+            }
+            const row = "<dt>" + _(obj.systype + "." + obj.name) + "</dt><dd>" + obj.value + "</dd>";
+            $('#sys_info_' + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '')).append($(row));
         }
-        const row = "<dt>" + _(obj.systype + "." + obj.name) + "</dt><dd>" + obj.value + "</dd>";
-        $('#sys_info_' + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '')).append($(row));
     }
 };
 
