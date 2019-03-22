@@ -548,6 +548,68 @@
             "native": {}
         },
         {
+            "_id": "sysinfo.cpu.currentspeed",
+            "type": "channel",
+            "common": {
+                "name": "CPU currentspeed",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.currentspeed.avg",
+            "type": "state",
+            "common": {
+                "name": "avg CPU speed (all cores)",
+                "type": "number",
+                "unit": "GHz",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+        ,
+        {
+            "_id": "sysinfo.cpu.currentspeed.max",
+            "type": "state",
+            "common": {
+                "name": "max CPU speed (all cores)",
+                "type": "number",
+                "unit": "GHz",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+        ,
+        {
+            "_id": "sysinfo.cpu.currentspeed.min",
+            "type": "state",
+            "common": {
+                "name": "min CPU speed (all cores)",
+                "type": "number",
+                "unit": "GHz",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.cpu.currentspeed.cores",
+            "type": "state",
+            "common": {
+                "name": "CPU speed per core",
+                "type": "array",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
             "_id": "sysinfo.memory",
             "type": "channel",
             "common": {

@@ -153,7 +153,7 @@ const updateSysinfo = function () {
                 Object.keys(data).forEach(function (key) {
                     if ((typeof data[key] === 'string' && data[key].length) || (typeof data[key] !== 'object' && typeof data[key] !== 'string')) {
                         setState('cpu', 'info', key, typeof data[key], data[key]);
-                    } else if(typeof data[key] === 'object'){
+                    } else if (typeof data[key] === 'object') {
                         Object.keys(data[key]).forEach(function (key2) {
                             setState('cpu', 'info', key + "-" + key2, 'number', data[key][key2]);
                         });
@@ -199,6 +199,26 @@ const updateSysinfo = function () {
                 }
             })
             .catch(error => adapter.log.error(error));
+    
+    sistm.cpuCurrentspeed()
+            .then(data => {
+                if (data['main'] > -1) {
+                    Object.keys(data).forEach(function (key) {
+                        if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] !== 'string') {
+                            setState('cpu', 'currentspeed', key, typeof data[key], data[key]);
+                        }
+                    });
+                    if (!adapter.config.noCurrentSysData && adapter.config.cpuSpeed !== 0) {
+                        let speed = adapter.config.cpuSpeed;
+                        if (!speed) {
+                            speed = 2;
+                        }
+                        adapter.log.info("Reading CPU current speed every " + speed + " seconds.");
+                        setInterval(updateCurrentCPUSpeed, speed * 1000);
+                    }
+                }
+            })
+            .catch(error => adapter.log.error(error));
 
     //MEMORY
     sistm.mem()
@@ -213,6 +233,21 @@ const updateSysinfo = function () {
                     }
                     adapter.log.info("Reading memory data every " + speed + " seconds.");
                     setInterval(updateCurrentMemoryInfos, speed * 1000);
+                }
+            })
+            .catch(error => adapter.log.error(error));
+    
+    sistm.memLayout()
+            .then(data => {
+                if (data.length > 0) {
+                    Object.keys(data).forEach(function (key) {
+                        createChannel('memory', 'memLayout', 'ram' + key);
+                        Object.keys(data[key]).forEach(function (key2) {
+                            if ((typeof data[key][key2] === 'string' && data[key][key2].length) || typeof data[key][key2] !== 'string') {
+                                setState('disks', 'memLayout.ram' + key, key2, typeof data[key][key2], data[key][key2]);
+                            }
+                        });
+                    });
                 }
             })
             .catch(error => adapter.log.error(error));
@@ -378,6 +413,18 @@ const updateCurrentCPUTempInfos = function () {
             })
             .catch(error => adapter.log.error(error));
 
+};
+
+const updateCurrentCPUSpeed = function () {
+
+    sistm.cpuCurrentspeed()
+            .then(data => {
+                adapter.setState('sysinfo.cpu.currentspeed.avg', {val: data.avg, ack: true});
+                adapter.setState('sysinfo.cpu.currentspeed.min', {val: data.min, ack: true});
+                adapter.setState('sysinfo.cpu.currentspeed.max', {val: data.max, ack: true});
+                adapter.setState('sysinfo.cpu.currentspeed.cores', {val: data.cores, ack: true});
+            })
+            .catch(error => adapter.log.error(error));
 };
 
 const updateCurrentMemoryInfos = function () {
