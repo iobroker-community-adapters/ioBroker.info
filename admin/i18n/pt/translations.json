@@ -185,6 +185,8 @@
     "documentation": "documentação",
     "for my adapters": "para meus adaptadores",
     "for new adapters": "para novos adaptadores",
+    "full": "full duplex",
+    "half": "meio duplex",
     "hostname": "Nome do host",
     "information adapter settings": "Configurações do adaptador de informações",
     "ioBroker Adapters on Github": "Adaptadores ioBroker no Github",
@@ -263,5 +265,7 @@
     "system.type": "Tipo do chassi",
     "system.uuid": "UUID",
     "system.vendor": "Fornecedor",
-    "system.version": "Versão"
+    "system.version": "Versão",
+    "wired": "com fio",
+    "wireless": "sem fio"
 }

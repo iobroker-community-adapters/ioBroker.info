@@ -1,8 +1,103 @@
-/* global adapterConfig, Chartist, socket */
+/* global adapterConfig, Chartist, socket, parseFloat */
 
 const cpuLabels = [];
 const memLabels = [];
 const diskLabels = [];
+
+/** 
+ * FormatObject for host informations
+ * @type type
+ */
+const formatInfo = {
+    'Uptime': formatter.formatSeconds,
+    'System uptime': formatter.formatSeconds,
+    'RAM': formatter.formatByte,
+    'Speed': formatter.formatSpeedMhz,
+    'Disk size': formatter.formatByte,
+    'Disk free': formatter.formatByte,
+    'cpu.speed': formatter.formatSpeedGhz,
+    'cpu.speedmax': formatter.formatSpeedGhz,
+    'cpu.speedmin': formatter.formatSpeedGhz,
+    'cpu.cache-l1d': formatter.formatByte,
+    'cpu.cache-l1i': formatter.formatByte,
+    'cpu.cache-l2': formatter.formatByte,
+    'cpu.cache-l3': formatter.formatByte,
+    'cpu.currentload': formatter.formatPercent2Digits,
+    'cpu.currentload_idle': formatter.formatPercent2Digits,
+    'cpu.currentload_irq': formatter.formatPercent2Digits,
+    'cpu.currentload_nice': formatter.formatPercent2Digits,
+    'cpu.currentload_system': formatter.formatPercent2Digits,
+    'cpu.currentload_user': formatter.formatPercent2Digits,
+    'cpu.avgload': formatter.formatDecimalPercent2Digits,
+    'cpu.main': formatter.formatTemperature,
+    'cpu.max': formatter.formatTemperature,
+    'memory.total': formatter.formatByte,
+    'memory.free': formatter.formatByte,
+    'memory.used': formatter.formatByte,
+    'memory.active': formatter.formatByte,
+    'memory.buffcache': formatter.formatByte,
+    'memory.available': formatter.formatByte,
+    'memory.swaptotal': formatter.formatByte,
+    'memory.swapused': formatter.formatByte,
+    'memory.swapfree': formatter.formatByte,
+    'disks.size': formatter.formatByte,
+    'disks.used': formatter.formatByte,
+    'disks.use': formatter.formatPercent2Digits,
+    'network.speed': formatter.formatMhzSec,
+    'network.type': formatter.translateValue,
+    'network.duplex': formatter.translateValue
+};
+
+const formatter = {
+    formatSeconds: function (seconds) {
+        const days = Math.floor(seconds / (3600 * 24));
+        seconds %= 3600 * 24;
+        let hours = Math.floor(seconds / 3600);
+        if (hours < 10) {
+            hours = '0' + hours;
+        }
+        seconds %= 3600;
+        let minutes = Math.floor(seconds / 60);
+        if (minutes < 10) {
+            minutes = '0' + minutes;
+        }
+        seconds %= 60;
+        seconds = Math.floor(seconds);
+        if (seconds < 10) {
+            seconds = '0' + seconds;
+        }
+        let text = '';
+        if (days) {
+            text += days + " " + _("daysShortText") + ' ';
+        }
+        text += hours + ':' + minutes + ':' + seconds;
+
+        return text;
+    },
+    formatByte: function (bytes) {
+        if (bytes === 0)
+            return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }, formatSpeedMhz: function (mhz) {
+        return mhz + " MHz";
+    }, formatSpeedGhz: function (ghz) {
+        return ghz + " GHz";
+    }, formatPercent2Digits: function (number) {
+        return parseFloat(Math.round(number * 100) / 100).toFixed(2) + " %";
+    }, formatDecimalPercent2Digits: function (number) {
+        number *= 100;
+        return parseFloat(Math.round(number * 100) / 100).toFixed(2) + " %";
+    }, formatTemperature: function (temp) {
+        return temp + " °C";
+    }, formatMhzSec: function (speed) {
+        return speed + " Mbit/s";
+    }, translateValue: function(text){
+        return _(text);
+    }
+};
 
 function startCharts() {
 
@@ -115,7 +210,7 @@ const systemInformations = {
                 const dl = "<h3>" + obj.device + "</h3><dl class='dl-horizontal' id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "'></dl>";
                 $('#sys_info_' + obj.systype + '_' + obj.syssubtype).append($(dl));
             }
-            const row = "<dt>" + _(obj.systype + "." + obj.name) + "</dt><dd>" + obj.value + "</dd>";
+            const row = "<dt>" + _(obj.systype + "." + obj.name) + "</dt><dd>" + (formatInfo[obj.systype + "." + obj.name] ? formatInfo[obj.systype + "." + obj.name](obj.value) : obj.value) + "</dd>";
             $('#sys_info_' + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '')).append($(row));
         }
     }

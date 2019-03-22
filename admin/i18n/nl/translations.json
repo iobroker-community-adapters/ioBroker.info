@@ -185,6 +185,8 @@
     "documentation": "documentatie",
     "for my adapters": "voor mijn adapters",
     "for new adapters": "voor nieuwe adapters",
+    "full": "full duplex",
+    "half": "half duplex",
     "hostname": "Hostnaam",
     "information adapter settings": "Informatie adapter instellingen",
     "ioBroker Adapters on Github": "ioBroker Adapters op Github",
@@ -263,5 +265,7 @@
     "system.type": "Chassis type",
     "system.uuid": "UUID",
     "system.vendor": "Verkoper",
-    "system.version": "Versie"
+    "system.version": "Versie",
+    "wired": "bedrade",
+    "wireless": "draadloze"
 }

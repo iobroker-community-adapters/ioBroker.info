@@ -185,6 +185,8 @@
     "documentation": "文件",
     "for my adapters": "为我的适配器",
     "for new adapters": "用于新适配器",
+    "full": "全双工",
+    "half": "半双工",
     "hostname": "主机名",
     "information adapter settings": "信息适配器设置",
     "ioBroker Adapters on Github": "Github上的ioBroker适配器",
@@ -263,5 +265,7 @@
     "system.type": "箱型的",
     "system.uuid": ":",
     "system.vendor": "供应商",
-    "system.version": "版本"
+    "system.version": "版本",
+    "wired": "有线",
+    "wireless": "无线"
 }

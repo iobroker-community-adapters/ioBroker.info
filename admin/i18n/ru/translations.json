@@ -185,6 +185,8 @@
     "documentation": "документация",
     "for my adapters": "для моих адаптеров",
     "for new adapters": "для новых адаптеров",
+    "full": "полный дуплекс",
+    "half": "полудуплекс",
     "hostname": "имя хоста",
     "information adapter settings": "Настройки адаптера информации",
     "ioBroker Adapters on Github": "Адаптеры ioBroker на Github",
@@ -263,5 +265,7 @@
     "system.type": "Тип шасси ",
     "system.uuid": "Идентификатор UUID",
     "system.vendor": "Поставщик",
-    "system.version": "Версия"
+    "system.version": "Версия",
+    "wired": "проводная",
+    "wireless": "беспроводной"
 }

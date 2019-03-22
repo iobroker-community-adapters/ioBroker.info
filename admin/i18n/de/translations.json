@@ -185,6 +185,8 @@
     "documentation": "Dokumentation",
     "for my adapters": "für meine Adapter",
     "for new adapters": "für neue Adapter",
+    "full": "Vollduplex",
+    "half": "Halbduplex",
     "hostname": "Hostname",
     "information adapter settings": "Informationsadapter Einstellungen",
     "ioBroker Adapters on Github": "ioBroker-Adapter auf Github",
@@ -263,5 +265,7 @@
     "system.type": "Fahrgestell-Typ",
     "system.uuid": "UUID",
     "system.vendor": "Anbieter",
-    "system.version": "Version"
+    "system.version": "Version",
+    "wired": "verdrahtet",
+    "wireless": "kabellos"
 }
