@@ -1,13 +1,9 @@
-/* global adapterConfig, Chartist, socket, parseFloat */
+/* global adapterConfig, Chartist, socket, parseFloat, formatter */
 
 const cpuLabels = [];
 const memLabels = [];
 const diskLabels = [];
 
-/** 
- * FormatObject for host informations
- * @type type
- */
 const formatInfo = {
     'Uptime': formatter.formatSeconds,
     'System uptime': formatter.formatSeconds,
@@ -46,57 +42,6 @@ const formatInfo = {
     'network.speed': formatter.formatMhzSec,
     'network.type': formatter.translateValue,
     'network.duplex': formatter.translateValue
-};
-
-const formatter = {
-    formatSeconds: function (seconds) {
-        const days = Math.floor(seconds / (3600 * 24));
-        seconds %= 3600 * 24;
-        let hours = Math.floor(seconds / 3600);
-        if (hours < 10) {
-            hours = '0' + hours;
-        }
-        seconds %= 3600;
-        let minutes = Math.floor(seconds / 60);
-        if (minutes < 10) {
-            minutes = '0' + minutes;
-        }
-        seconds %= 60;
-        seconds = Math.floor(seconds);
-        if (seconds < 10) {
-            seconds = '0' + seconds;
-        }
-        let text = '';
-        if (days) {
-            text += days + " " + _("daysShortText") + ' ';
-        }
-        text += hours + ':' + minutes + ':' + seconds;
-
-        return text;
-    },
-    formatByte: function (bytes) {
-        if (bytes === 0)
-            return '0 Bytes';
-        const k = 1024;
-        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-        const i = Math.floor(Math.log(bytes) / Math.log(k));
-        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-    }, formatSpeedMhz: function (mhz) {
-        return mhz + " MHz";
-    }, formatSpeedGhz: function (ghz) {
-        return ghz + " GHz";
-    }, formatPercent2Digits: function (number) {
-        return parseFloat(Math.round(number * 100) / 100).toFixed(2) + " %";
-    }, formatDecimalPercent2Digits: function (number) {
-        number *= 100;
-        return parseFloat(Math.round(number * 100) / 100).toFixed(2) + " %";
-    }, formatTemperature: function (temp) {
-        return temp + " °C";
-    }, formatMhzSec: function (speed) {
-        return speed + " Mbit/s";
-    }, translateValue: function(text){
-        return _(text);
-    }
 };
 
 function startCharts() {
