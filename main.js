@@ -244,7 +244,7 @@ const updateSysinfo = function () {
                         createChannel('memory', 'memLayout', 'ram' + key);
                         Object.keys(data[key]).forEach(function (key2) {
                             if ((typeof data[key][key2] === 'string' && data[key][key2].length) || typeof data[key][key2] !== 'string') {
-                                setState('disks', 'memLayout.ram' + key, key2, typeof data[key][key2], data[key][key2]);
+                                setState('memory', 'memLayout.ram' + key, key2, typeof data[key][key2], data[key][key2]);
                             }
                         });
                     });
