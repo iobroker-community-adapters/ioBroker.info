@@ -107,7 +107,7 @@ const systemInformations = {
     },
     writeData: function (obj) {
         if (obj.systype === "os" && obj.name === "logofile") {
-            $('#sys_info_os_img_logo').attr('src', '/lib/img/logos/' + obj.val + '.png');
+            $('#sys_info_os_img_logo').attr('src', 'lib/img/logos/' + obj.value + '.png');
         } else if (obj.name.endsWith('_hist')) {
 
         } else {

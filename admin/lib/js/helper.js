@@ -142,8 +142,8 @@ $(function () {
             $("#" + target).html("<p><b>" + _("Readme file was not found. No further information available.") + "</b></p>");
         });
     });
-    
-    $(document.body).on('click', '#show-system-details', function(){
+
+    $(document.body).on('click', '#show-system-details', function () {
         $('#modal-system').modal();
     });
 
@@ -158,6 +158,10 @@ $(function () {
                 message: html
             }).off("shown.bs.modal");
         });
+    });
+
+    $(document.body).on("error", "img", function () {        
+        $(this).hide();
     });
 
     $(document.body).on('click', '.host-update', function () {
