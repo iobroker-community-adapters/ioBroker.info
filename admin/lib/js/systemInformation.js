@@ -110,7 +110,7 @@ const systemInformations = {
             const dl = "<h3>" + obj.device + "</h3><dl class='dl-horizontal' id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "'></dl>";
             $('#sys_info_' + obj.systype + '_' + obj.syssubtype).append($(dl));
         }
-        const row = "<dt>" + _(obj.name) + "</dt><dd>" + obj.value + "</dd>";
+        const row = "<dt>" + _(obj.systype + "." + obj.name) + "</dt><dd>" + obj.value + "</dd>";
         $('#sys_info_' + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '')).append($(row));
     }
 };
