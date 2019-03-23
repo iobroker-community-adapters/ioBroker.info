@@ -33,8 +33,12 @@ const formatter = {
         return text;
     },
     formatByte: function (bytes) {
-        if (bytes === 0)
+        if (bytes === null || bytes === undefined) {
+            return "-";
+        }
+        if (bytes === 0) {
             return '0 Bytes';
+        }
         const k = 1024;
         const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
         const i = Math.floor(Math.log(bytes) / Math.log(k));
@@ -43,6 +47,8 @@ const formatter = {
         return mhz + " MHz";
     }, formatSpeedGhz: function (ghz) {
         return ghz + " GHz";
+    }, formatSpeedV: function (v) {
+        return v + " V";
     }, formatPercent2Digits: function (number) {
         return parseFloat(Math.round(number * 100) / 100).toFixed(2) + " %";
     }, formatDecimalPercent2Digits: function (number) {
@@ -52,7 +58,7 @@ const formatter = {
         return temp + " °C";
     }, formatMhzSec: function (speed) {
         return speed + " Mbit/s";
-    }, translateValue: function(text){
+    }, formatTraslate: function (text) {
         return _(text);
     }
 };
@@ -211,7 +217,7 @@ $(function () {
         });
     });
 
-    $(document.body).on("error", "img", function () {        
+    $(document.body).on("error", "img", function () {
         $(this).hide();
     });
 

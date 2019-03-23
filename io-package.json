@@ -568,8 +568,7 @@
                 "write": false
             },
             "native": {}
-        }
-        ,
+        },
         {
             "_id": "sysinfo.cpu.currentspeed.max",
             "type": "state",
@@ -582,8 +581,7 @@
                 "write": false
             },
             "native": {}
-        }
-        ,
+        },
         {
             "_id": "sysinfo.cpu.currentspeed.min",
             "type": "state",

@@ -14,6 +14,7 @@ const formatInfo = {
     'cpu.speed': formatter.formatSpeedGhz,
     'cpu.speedmax': formatter.formatSpeedGhz,
     'cpu.speedmin': formatter.formatSpeedGhz,
+    'cpu.avgSpeed': formatter.formatSpeedGhz,
     'cpu.cache-l1d': formatter.formatByte,
     'cpu.cache-l1i': formatter.formatByte,
     'cpu.cache-l2': formatter.formatByte,
@@ -31,17 +32,23 @@ const formatInfo = {
     'memory.free': formatter.formatByte,
     'memory.used': formatter.formatByte,
     'memory.active': formatter.formatByte,
+    'memory.size': formatter.formatByte,
+    'memory.clockSpeed': formatter.formatSpeedMhz,
     'memory.buffcache': formatter.formatByte,
     'memory.available': formatter.formatByte,
+    'memory.type': formatter.formatTraslate,
     'memory.swaptotal': formatter.formatByte,
     'memory.swapused': formatter.formatByte,
     'memory.swapfree': formatter.formatByte,
+    'memory.voltageConfigured': formatter.formatSpeedV,
+    'memory.voltageMin': formatter.formatSpeedV,
+    'memory.voltageMax': formatter.formatSpeedV,
     'disks.size': formatter.formatByte,
     'disks.used': formatter.formatByte,
     'disks.use': formatter.formatPercent2Digits,
     'network.speed': formatter.formatMhzSec,
-    'network.type': formatter.translateValue,
-    'network.duplex': formatter.translateValue
+    'network.type': formatter.formatTraslate,
+    'network.duplex': formatter.formatTraslate
 };
 
 function startCharts() {

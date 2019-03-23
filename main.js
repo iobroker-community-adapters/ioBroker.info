@@ -202,10 +202,10 @@ const updateSysinfo = function () {
     
     sistm.cpuCurrentspeed()
             .then(data => {
-                if (data['main'] > -1) {
+                if (data['avg']) {
                     Object.keys(data).forEach(function (key) {
                         if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] !== 'string') {
-                            setState('cpu', 'currentspeed', key, typeof data[key], data[key]);
+                            setState('cpu', 'currentspeed', key + "Speed", typeof data[key], data[key]);
                         }
                     });
                     if (!adapter.config.noCurrentSysData && adapter.config.cpuSpeed !== 0) {
@@ -419,10 +419,10 @@ const updateCurrentCPUSpeed = function () {
 
     sistm.cpuCurrentspeed()
             .then(data => {
-                adapter.setState('sysinfo.cpu.currentspeed.avg', {val: data.avg, ack: true});
-                adapter.setState('sysinfo.cpu.currentspeed.min', {val: data.min, ack: true});
-                adapter.setState('sysinfo.cpu.currentspeed.max', {val: data.max, ack: true});
-                adapter.setState('sysinfo.cpu.currentspeed.cores', {val: data.cores, ack: true});
+                adapter.setState('sysinfo.cpu.currentspeed.avgSpeed', {val: data.avg, ack: true});
+                adapter.setState('sysinfo.cpu.currentspeed.minSpeed', {val: data.min, ack: true});
+                adapter.setState('sysinfo.cpu.currentspeed.maxSpeed', {val: data.max, ack: true});
+                adapter.setState('sysinfo.cpu.currentspeed.coresSpeed', {val: data.cores, ack: true});
             })
             .catch(error => adapter.log.error(error));
 };
