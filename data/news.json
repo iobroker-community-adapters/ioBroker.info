@@ -195,5 +195,37 @@
         "conditions": {
             "info": "bigger(1.2.7)"
         }
+    },
+    {
+        "title": {
+            "en": "Adapter 'Radar' will not be further developed!",
+            "de": "Radar wird nicht weiterentwickelt!",
+            "ru": "Адаптер 'Radar' больше не будет развиваться!",
+            "pt": "O Adaptador 'Radar' não será mais desenvolvido!",
+            "nl": "Adapter 'Radar' wordt niet verder ontwikkeld!",
+            "fr": "L'adaptateur 'Radar' ne sera plus développé!",
+            "it": "L'adattatore 'Radar' non sarà ulteriormente sviluppato!",
+            "es": "¡El adaptador 'Radar' no se desarrollará más!",
+            "pl": "Adapter 'Radar' nie będzie dalej rozwijany!",
+            "zh-cn": "适配器'Radar'将不再进一步开发！"
+        },
+        "content": {
+            "en": "Due to the development of the ioBroker.radar2 adapter, the further development of the ioBroker.radar adapter has been discontinued. Please install the new adapter to get more features.",
+            "de": "Aufgrund der Entwicklung des ioBroker.radar2 Adapters, wurde die Weiterentwicklung des ioBroker.radar-Adapters eingestellt. Bitte installieren Sie den neuen Adapter um weitere Funktionen zu bekommen.",
+            "ru": "В связи с разработкой адаптера ioBroker.radar2 дальнейшая разработка адаптера ioBroker.radar была прекращена. Пожалуйста, установите новый адаптер, чтобы получить больше возможностей.",
+            "pt": "Devido ao desenvolvimento do adaptador ioBroker.radar2, o desenvolvimento adicional do adaptador ioBroker.radar foi descontinuado. Por favor, instale o novo adaptador para obter mais recursos.",
+            "nl": "Vanwege de ontwikkeling van de ioBroker.radar2-adapter is de verdere ontwikkeling van de ioBroker.radar-adapter stopgezet. Installeer de nieuwe adapter om meer functies te krijgen.",
+            "fr": "En raison du développement de l'adaptateur ioBroker.radar2, le développement de l'adaptateur ioBroker.radar a été arrêté. Veuillez installer le nouvel adaptateur pour obtenir plus de fonctionnalités.",
+            "it": "A causa dello sviluppo dell'adattatore ioBroker.radar2, l'ulteriore sviluppo dell'adattatore ioBroker.radar è stato interrotto. Si prega di installare il nuovo adattatore per ottenere più funzionalità.",
+            "es": "Debido al desarrollo del adaptador ioBroker.radar2, el desarrollo adicional del adaptador ioBroker.radar se ha interrumpido. Instale el nuevo adaptador para obtener más características.",
+            "pl": "Dzięki rozwojowi adaptera ioBroker.radar2, dalszy rozwój adaptera ioBroker.radar został przerwany. Zainstaluj nowy adapter, aby uzyskać więcej funkcji.",
+            "zh-cn": "由于ioBroker.radar2适配器的开发，ioBroker.radar适配器的进一步开发已经停止。 请安装新适配器以获得更多功能。"
+        },
+        "id": "radar",
+        "created": "2019-03-22T00:00:00.000Z",
+        "conditions": {
+            "radar": "installed",
+            "radar2": "!installed"
+        }
     }
 ]
