@@ -227,5 +227,37 @@
             "radar": "installed",
             "radar2": "!installed"
         }
+    },
+    {
+        "title": {
+            "en": "Please update ioBroker.weatherunderground",
+            "de": "Bitte updaten Sie ioBroker.weatherunderground",
+            "ru": "Пожалуйста, обновление ioBroker.weatherunderground",
+            "pt": "Por favor, atualize ioBroker.weatherunderground",
+            "nl": "Update ioBroker.weatherunderground",
+            "fr": "Veuillez mettre à jour ioBroker.weatherunderground",
+            "it": "Si prega di aggiornare ioBroker.weatherunderground",
+            "es": "Por favor, actualice ioBroker.weatherunderground",
+            "pl": "Proszę aktualizacja ioBroker.weatherunderground",
+            "zh-cn": "请更新的ioBroker。weatherunderground"
+        },
+        "content": {
+            "en": "Due to changes to the API, versions below 3.0.0 no longer work. Please update your version of ioBroker.weatherunderground.",
+            "de": "Wegen Änderungen der API, funktionieren Versionen unter 3.0.0 nicht mehr. Bitte aktualisieren Sie Ihre Version von ioBroker.weatherunderground.",
+            "ru": "Из-за изменений в API, версий ниже 3.0.0 больше не работают. Пожалуйста, обновите вашу версию ioBroker.weatherunderground.",
+            "pt": "Devido a alterações para a API, versões abaixo 3.0.0 não funcionam mais. Por favor, atualize sua versão do ioBroker.weatherunderground.",
+            "nl": "Door veranderingen aan de API versies hieronder 3.0.0 niet meer werken. Update uw versie van ioBroker.weatherunderground.",
+            "fr": "En raison des changements de l'API, les versions ci-dessous 3.0.0 ne fonctionnent plus. Veuillez mettre à jour votre version de ioBroker.weatherunderground.",
+            "it": "A causa di modifiche alle API, versioni di seguito 3.0.0 non funzionano più. Si prega di aggiornare la tua versione di ioBroker.weatherunderground.",
+            "es": "Debido a cambios en el API, las versiones a continuación 3.0.0 ya no funcionan. Por favor, actualice su versión de ioBroker.weatherunderground.",
+            "pl": "Ze względu na zmiany w API w wersji poniżej 3.0.0 już nie pracują. Proszę zaktualizować swoją wersję ioBroker.weatherunderground.",
+            "zh-cn": "由于变化的API，下文版本为3.0.0不再工作。 请更新版本的的ioBroker。weatherunderground的。"
+        },
+        "id": "weatherundergroundAdapter",
+        "fa-icon": "sun-o",
+        "created": "2019-03-24T00:00:00.000Z",
+        "conditions": {
+            "weatherunderground": "smaller(1.3.0)"
+        }
     }
 ]
