@@ -557,7 +557,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentspeed.avg",
+            "_id": "sysinfo.cpu.currentspeed.avgSpeed",
             "type": "state",
             "common": {
                 "name": "avg CPU speed (all cores)",
@@ -570,7 +570,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentspeed.max",
+            "_id": "sysinfo.cpu.currentspeed.maxSpeed",
             "type": "state",
             "common": {
                 "name": "max CPU speed (all cores)",
@@ -583,7 +583,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentspeed.min",
+            "_id": "sysinfo.cpu.currentspeed.minSpeed",
             "type": "state",
             "common": {
                 "name": "min CPU speed (all cores)",
@@ -596,7 +596,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentspeed.cores",
+            "_id": "sysinfo.cpu.currentspeed.coresSpeed",
             "type": "state",
             "common": {
                 "name": "CPU speed per core",
