@@ -204,7 +204,8 @@
         "memSpeed": 2,
         "diskSpeed": 5,
         "batterySpeed": 5,
-        "networkSpeed": 2
+        "networkSpeed": 2,
+        "allProcessesUsers": 5
     },
     "objects": [],
     "instanceObjects": [
@@ -747,6 +748,99 @@
             "common": {
                 "name": "Software versions",
                 "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.os.users",
+            "type": "state",
+            "common": {
+                "name": "Users online",
+                "type": "string",
+                "role": "json",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.os.processes",
+            "type": "channel",
+            "common": {
+                "name": "Running processes",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.os.processes.all",
+            "type": "state",
+            "common": {
+                "name": "# running processes",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.os.processes.running",
+            "type": "state",
+            "common": {
+                "name": "# of all processes running",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.os.processes.blocked",
+            "type": "state",
+            "common": {
+                "name": "# of all processes blocked",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.os.processes.sleeping",
+            "type": "state",
+            "common": {
+                "name": "# of all processes sleeping",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.os.processes.unknown",
+            "type": "state",
+            "common": {
+                "name": "# of all processes unknown status",
+                "type": "number",
+                "role": "value",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.os.processes.list",
+            "type": "state",
+            "common": {
+                "name": "All processes incl. details",
+                "type": "string",
+                "role": "json",
+                "read": true,
+                "write": false
             },
             "native": {}
         },

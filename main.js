@@ -273,6 +273,39 @@ const updateSysinfo = function () {
             })
             .catch(error => adapter.log.error(error));
 
+    sistm.users()
+            .then(data => {
+                setState('os', null, 'users', 'string', JSON.stringify(data));
+                if (!adapter.config.noCurrentSysData && adapter.config.allProcessesUsers !== 0) {
+                    let speed = adapter.config.allProcessesUsers;
+                    if (!speed) {
+                        speed = 5;
+                    }
+                    adapter.log.info("Reading user data every " + speed + " seconds.");
+                    setInterval(updateCurrentUsersInfos, speed * 1000);
+                }
+            })
+            .catch(error => adapter.log.error(error));
+
+    sistm.processes()
+            .then(data => {
+                setState('os', 'processes', 'all', 'number', data.all);
+                setState('os', 'processes', 'running', 'number', data.running);
+                setState('os', 'processes', 'blocked', 'number', data.blocked);
+                setState('os', 'processes', 'sleeping', 'number', data.sleeping);
+                setState('os', 'processes', 'unknown', 'number', data.unknown);
+                setState('os', 'processes', 'list', 'string', JSON.stringify(data['list']));
+                if (!adapter.config.noCurrentSysData && adapter.config.allProcessesUsers !== 0) {
+                    let speed = adapter.config.allProcessesUsers;
+                    if (!speed) {
+                        speed = 5;
+                    }
+                    adapter.log.info("Reading process data every " + speed + " seconds.");
+                    setInterval(updateCurrentProcessInfos(), speed * 1000);
+                }
+            })
+            .catch(error => adapter.log.error(error));
+
     //DISKS
     sistm.blockDevices()
             .then(data => {
@@ -508,6 +541,31 @@ const updateCurrentBatteryInfos = function () {
                 adapter.setState('sysinfo.battery.percent', {val: data['percent'], ack: true});
                 adapter.setState('sysinfo.battery.timeremaining', {val: data['timeremaining'], ack: true});
                 adapter.setState('sysinfo.battery.acconnected', {val: data['acconnected'], ack: true});
+            })
+            .catch(error => adapter.log.error(error));
+
+};
+
+const updateCurrentProcessInfos = function () {
+
+    sistm.processes()
+            .then(data => {
+                adapter.setState('sysinfo.os.processes.all', {val: data['all'], ack: true});
+                adapter.setState('sysinfo.os.processes.running', {val: data['running'], ack: true});
+                adapter.setState('sysinfo.os.processes.blocked', {val: data['blocked'], ack: true});
+                adapter.setState('sysinfo.os.processes.sleeping', {val: data['sleeping'], ack: true});
+                adapter.setState('sysinfo.os.processes.unknown', {val: data['unknown'], ack: true});
+                adapter.setState('sysinfo.os.processes.list', {val: JSON.stringify(data['list']), ack: true});
+            })
+            .catch(error => adapter.log.error(error));
+
+};
+
+const updateCurrentUsersInfos = function () {
+
+    sistm.users()
+            .then(data => {
+                adapter.setState('sysinfo.os.users', {val: JSON.stringify(data), ack: true});
             })
             .catch(error => adapter.log.error(error));
 
