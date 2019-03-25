@@ -172,7 +172,35 @@ const systemInformations = {
         if (obj.systype === "os" && obj.name === "logofile") {
             $('#sys_info_os_img_logo').attr('src', 'lib/img/logos/' + obj.value + '.png');
         } else if (obj.name.endsWith('_hist')) {
+            // For Charts
+        } else if (obj.syssubtype === "processes") {
+            if (obj.name === "list") {
+                const list = JSON.parse(obj.value);
+                list.forEach(function (data) {
+                    let row = "<tr>";
+                    row += "<td>" + data.pid + "</td>";
+                    row += "<td>" + data.parentPid + "</td>";
+                    row += "<td>" + data.name + "</td>";
+                    row += "<td>" + formatter.formatPercent2Digits(data.pcpu) + "</td>";
+                    row += "<td>" + formatter.formatPercent2Digits(data.pcpuu) + "</td>";
+                    row += "<td>" + formatter.formatPercent2Digits(data.pcpus) + "</td>";
+                    row += "<td>" + formatter.formatPercent2Digits(data.pmem) + "</td>";
+                    row += "<td>" + data.priority + "</td>";
+                    row += "<td>" + formatter.formatByte(data.mem_vsz) + "</td>";
+                    row += "<td>" + formatter.formatByte(data.mem_rss) + "</td>";
+                    row += "<td>" + data.nice + "</td>";
+                    row += "<td>" + data.started + "</td>";
+                    row += "<td>" + _(data.state) + "</td>";
+                    row += "<td>" + data.tty + "</td>";
+                    row += "<td>" + data.user + "</td>";
+                    row += "<td>" + data.command + "</td>";
+                    row += "</tr>";
+                    $('#info_0_sysinfo_os_processes_list_data').append($(row));
+                });
 
+            } else {
+                $('#info_0_sysinfo_os_processes_' + obj.name + '_data').text(obj.value);
+            }
         } else {
             if (obj.device && $("#sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device).length === 0) {
                 const dl = "<h3 id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "_devicename'>" + obj.device + "</h3><dl class='dl-horizontal' id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "'></dl>";

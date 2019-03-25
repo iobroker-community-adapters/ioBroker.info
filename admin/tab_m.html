@@ -566,6 +566,7 @@
                             <li><a data-toggle="tab" class="translate" href="#sys_info_tab_cpu">CPU</a></li>
                             <li><a data-toggle="tab" class="translate" href="#sys_info_tab_memory">Memory</a></li>
                             <li><a data-toggle="tab" class="translate" href="#sys_info_tab_disks">Disks</a></li>
+                            <li><a data-toggle="tab" class="translate" href="#sys_info_tab_graphics">Graphics</a></li>
                             <li><a data-toggle="tab" class="translate" href="#sys_info_tab_network">Network</a></li>
                             <li><a data-toggle="tab" class="translate" href="#sys_info_tab_battery">Battery</a></li>
                         </ul>
@@ -626,11 +627,57 @@
                                         <dl class="dl-horizontal" id="sys_info_os_versions"></dl>
                                     </div>
                                 </div>
-                                
+
                                 <div class="panel panel-default">
                                     <div class="panel-heading translate">Running processes</div>
                                     <div class="panel-body">
-                                        <div id="sys_info_os_processes"></div>
+                                        <div id="sys_info_os_processes">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-6">
+                                                    <dl class="dl-horizontal">
+                                                        <dt class="translate">os.all</dt>
+                                                        <dd id="info_0_sysinfo_os_processes_all_data"></dd>
+                                                        <dt class="translate">os.sleeping</dt>
+                                                        <dd id="info_0_sysinfo_os_processes_sleeping_data"></dd>
+                                                        <dt class="translate">os.unknown</dt>
+                                                        <dd id="info_0_sysinfo_os_processes_unknown_data"></dd>
+                                                    </dl>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-6">
+                                                    <dl class="dl-horizontal">
+                                                        <dt class="translate">os.running</dt>
+                                                        <dd id="info_0_sysinfo_os_processes_running_data"></dd>
+                                                        <dt class="translate">os.blocked</dt>
+                                                        <dd id="info_0_sysinfo_os_processes_blocked_data"></dd>                                                   
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="translate">os.pid</th>
+                                                            <th class="translate">os.parentPid</th>
+                                                            <th class="translate">os.name</th>
+                                                            <th class="translate">os.pcpu</th>
+                                                            <th class="translate">os.pcpuu</th>
+                                                            <th class="translate">os.pcpus</th>
+                                                            <th class="translate">os.pmem</th>
+                                                            <th class="translate">os.priority</th>
+                                                            <th class="translate">os.mem_vsz</th>
+                                                            <th class="translate">os.mem_rss</th>
+                                                            <th class="translate">os.nice</th>
+                                                            <th class="translate">os.started</th>
+                                                            <th class="translate">os.state</th>
+                                                            <th class="translate">os.tty</th>
+                                                            <th class="translate">os.user</th>
+                                                            <th class="translate">os.command</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="info_0_sysinfo_os_processes_list_data"></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 

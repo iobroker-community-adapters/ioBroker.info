@@ -301,7 +301,7 @@ const updateSysinfo = function () {
                         speed = 5;
                     }
                     adapter.log.info("Reading process data every " + speed + " seconds.");
-                    setInterval(updateCurrentProcessInfos(), speed * 1000);
+                    setInterval(updateCurrentProcessInfos, speed * 1000);
                 }
             })
             .catch(error => adapter.log.error(error));
