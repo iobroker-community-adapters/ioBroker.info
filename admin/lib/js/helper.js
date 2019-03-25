@@ -76,9 +76,8 @@ const formatter = {
         }
         return bool;
     }, formatArrayGhz: function(array){
-        const items = array.split(',');
         let result = "";
-        items.forEach(function(item){
+        array.forEach(function(item){
             result += "[" + item + " GHz] ";
         });
         return result;

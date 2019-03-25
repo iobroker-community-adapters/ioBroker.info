@@ -463,6 +463,10 @@ ul#cssClock li{
     float: right;
 }
 
+.table-responsive {
+    max-height: 500px;
+}
+
 @media (min-width: 992px){
     .y_title .titleLink:not(.titleRSS) {
         font-size: 14px;        

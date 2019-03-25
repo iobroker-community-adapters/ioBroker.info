@@ -181,7 +181,7 @@ const systemInformations = {
             if (obj.name === "list") {
                 const list = JSON.parse(obj.value);
                 list.forEach(function (data) {
-                    let row = "<tr>";
+                    let row = "<tr id='tr_process_" + data.pid + "'>";
                     row += "<td>" + data.pid + "</td>";
                     row += "<td>" + data.parentPid + "</td>";
                     row += "<td>" + data.name + "</td>";
@@ -208,7 +208,7 @@ const systemInformations = {
         } else if (obj.systype === "os" && obj.name === "users") {
             const list = JSON.parse(obj.value);
             list.forEach(function (data) {
-                let row = "<tr>";
+                let row = "<tr id='tr_user_" + data.user + "'>";
                 row += "<td>" + data.user + "</td>";
                 row += "<td>" + data.tty + "</td>";
                 row += "<td>" + data.date + "</td>";
