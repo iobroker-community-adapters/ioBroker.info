@@ -29,6 +29,8 @@ const formatInfo = {
     'cpu.currentload_user': formatter.formatPercent2Digits,
     'cpu.avgload': formatter.formatDecimalPercent2Digits,
     'cpu.main': formatter.formatTemperature,
+    'cpu.socket': formatter.formatTranslate,
+    'cpu.coresSpeed': formatter.formatArrayGhz,
     'cpu.max': formatter.formatTemperature,
     'memory.total': formatter.formatByte,
     'memory.free': formatter.formatByte,
@@ -62,6 +64,8 @@ const formatInfo = {
     'graphics.sizex': formatter.formatMm,
     'graphics.sizey': formatter.formatMm,
     'graphics.vram': formatter.formatMb,
+    'graphics.main': formatter.formatBoolean,
+    'graphics.builtin': formatter.formatBoolean,
     'battery.hasbattery': formatter.formatBoolean,
     'battery.acconnected': formatter.formatBoolean,
     'battery.ischarging': formatter.formatBoolean

@@ -383,22 +383,18 @@ const updateSysinfo = function () {
     //BATTERY
     sistm.system()
             .then(data => {
-                if (data.hasbattery) {
-                    Object.keys(data).forEach(function (key) {
-                        if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] !== 'string') {
-                            setState('battery', null, key, typeof data[key], data[key]);
-                        }
-                    });
-                    if (!adapter.config.noCurrentSysData && adapter.config.batterySpeed !== 0) {
-                        let speed = adapter.config.batterySpeed;
-                        if (!speed) {
-                            speed = 5;
-                        }
-                        adapter.log.info("Reading battery data every " + speed + " seconds.");
-                        setInterval(updateCurrentBatteryInfos, speed * 1000);
+                Object.keys(data).forEach(function (key) {
+                    if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] !== 'string') {
+                        setState('battery', null, key, typeof data[key], data[key]);
                     }
-                } else {
-                    setState('battery', null, 'hasbattery', 'boolean', false);
+                });
+                if (!adapter.config.noCurrentSysData && adapter.config.batterySpeed !== 0) {
+                    let speed = adapter.config.batterySpeed;
+                    if (!speed) {
+                        speed = 5;
+                    }
+                    adapter.log.info("Reading battery data every " + speed + " seconds.");
+                    setInterval(updateCurrentBatteryInfos, speed * 1000);
                 }
             })
             .catch(error => adapter.log.error(error));
@@ -422,7 +418,7 @@ const updateSysinfo = function () {
                             createChannel('graphics', 'displays', 'dspl' + key);
                             Object.keys(data.displays[key]).forEach(function (key2) {
                                 if ((typeof data.displays[key][key2] === 'string' && data.displays[key][key2].length) || typeof data.displays[key][key2] !== 'string') {
-                                    setState('graphics', 'controllers.dspl' + key, key2, typeof data.displays[key][key2], data.displays[key][key2]);
+                                    setState('graphics', 'displays.dspl' + key, key2, typeof data.displays[key][key2], data.displays[key][key2]);
                                 }
                             });
                         });

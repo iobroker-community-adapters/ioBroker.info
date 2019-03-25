@@ -75,6 +75,13 @@ const formatter = {
             return "<i class='fa fa-times text-danger' aria-hidden='true'></i>";
         }
         return bool;
+    }, formatArrayGhz: function(array){
+        const items = array.split(',');
+        let result = "";
+        items.forEach(function(item){
+            result += "[" + item + " GHz] ";
+        });
+        return result;
     }
 };
 
