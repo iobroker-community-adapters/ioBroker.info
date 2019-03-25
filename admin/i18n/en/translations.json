@@ -127,6 +127,7 @@
     "battery.serial": "Serial number",
     "battery.timeremaining": "Minutes left (if discharging)",
     "battery.type": "Battery type",
+    "blocked": "blocked",
     "can be done here": "can be done here",
     "close": "close window",
     "cpu.avgSpeed": "Average CPU speed (all cores)",
@@ -319,6 +320,8 @@
     "release Date": "Release date",
     "replied on": "replied on",
     "reverse order": "reverse order",
+    "running": "running",
+    "sleeping": "sleeping",
     "system.assetTag": "Asset tag",
     "system.manufacturer": "Manufacturer",
     "system.model": "Model/Product name",
@@ -334,5 +337,6 @@
     "up": "up",
     "virtual": "virtual",
     "wired": "wired",
-    "wireless": "wireless"
+    "wireless": "wireless",
+    "zombie": "zombie"
 }

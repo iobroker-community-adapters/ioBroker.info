@@ -201,6 +201,19 @@ const systemInformations = {
             } else {
                 $('#info_0_sysinfo_os_processes_' + obj.name + '_data').text(obj.value);
             }
+        } else if (obj.systype === "os" && obj.name === "users") {
+            const list = JSON.parse(obj.value);
+            list.forEach(function (data) {
+                let row = "<tr>";
+                row += "<td>" + data.user + "</td>";
+                row += "<td>" + data.tty + "</td>";
+                row += "<td>" + data.date + "</td>";
+                row += "<td>" + data.time + "</td>";
+                row += "<td>" + data.ip + "</td>";
+                row += "<td>" + data.command + "</td>";
+                row += "</tr>";
+                $('#info_0_sysinfo_os_users_data').append($(row));
+            });
         } else {
             if (obj.device && $("#sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device).length === 0) {
                 const dl = "<h3 id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "_devicename'>" + obj.device + "</h3><dl class='dl-horizontal' id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "'></dl>";

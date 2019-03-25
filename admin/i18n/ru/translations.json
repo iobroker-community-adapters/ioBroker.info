@@ -127,6 +127,7 @@
     "battery.serial": "Серийный номер",
     "battery.timeremaining": "Минут (при выполнении)",
     "battery.type": "Тип батареи ",
+    "blocked": "блокированный",
     "can be done here": "можно сделать здесь",
     "close": "закрыть окно",
     "cpu.avgSpeed": "Средняя скорость процессора (всех ядер)",
@@ -319,6 +320,8 @@
     "release Date": "Дата выхода ",
     "replied on": "ответил на",
     "reverse order": "обратном порядке",
+    "running": "Бег",
+    "sleeping": "спать",
     "system.assetTag": "Тег актива ",
     "system.manufacturer": "Производитель",
     "system.model": "Модель/наименование товара ",
@@ -334,5 +337,6 @@
     "up": "вверх",
     "virtual": "виртуальный",
     "wired": "проводная",
-    "wireless": "беспроводной"
+    "wireless": "беспроводной",
+    "zombie": "живой мертвец"
 }

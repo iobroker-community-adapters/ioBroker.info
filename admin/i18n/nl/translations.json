@@ -127,6 +127,7 @@
     "battery.serial": "Serienummer",
     "battery.timeremaining": "Minuten (indien leeg laten lopen)",
     "battery.type": "Accu type",
+    "blocked": "geblokkeerd",
     "can be done here": "kan hier gedaan worden",
     "close": "venster sluiten",
     "cpu.avgSpeed": "Gemiddelde CPU-snelheid (alle kernen)",
@@ -319,6 +320,8 @@
     "release Date": "Release datum",
     "replied on": "antwoordde op",
     "reverse order": "omgekeerde volgorde",
+    "running": "lopend",
+    "sleeping": "slapen",
     "system.assetTag": "Asset-tag",
     "system.manufacturer": "Fabrikant",
     "system.model": "Model/naam van het Product",
@@ -334,5 +337,6 @@
     "up": "tot",
     "virtual": "virtuele",
     "wired": "bedrade",
-    "wireless": "draadloze"
+    "wireless": "draadloze",
+    "zombie": "zombie"
 }

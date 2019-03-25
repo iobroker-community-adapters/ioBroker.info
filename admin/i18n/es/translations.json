@@ -127,6 +127,7 @@
     "battery.serial": "Número de serie",
     "battery.timeremaining": "Minutos a la izquierda (si la descarga)",
     "battery.type": "Tipo de batería",
+    "blocked": "obstruido",
     "can be done here": "se puede hacer aquí",
     "close": "cerrar ventana",
     "cpu.avgSpeed": "El promedio de la velocidad de la CPU (todos los núcleos)",
@@ -319,6 +320,8 @@
     "release Date": "Fecha de lanzamiento",
     "replied on": "respondió en",
     "reverse order": "orden inverso",
+    "running": "corriendo",
+    "sleeping": "dormido",
     "system.assetTag": "Etiqueta de activo",
     "system.manufacturer": "Fabricante",
     "system.model": "Modelo/nombre del Producto",
@@ -334,5 +337,6 @@
     "up": "hasta",
     "virtual": "virtual",
     "wired": "cableado",
-    "wireless": "inalámbrico"
+    "wireless": "inalámbrico",
+    "zombie": "zombi"
 }

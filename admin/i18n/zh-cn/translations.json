@@ -127,6 +127,7 @@
     "battery.serial": "序列号",
     "battery.timeremaining": "几分钟左(如果排放)",
     "battery.type": "电池类型",
+    "blocked": "受阻",
     "can be done here": "可以在这里完成",
     "close": "靠近窗户",
     "cpu.avgSpeed": "CPU平均速度(所有核心)",
@@ -272,9 +273,9 @@
     "os.git": "Git版本",
     "os.grunt": "咕噜的版本",
     "os.gulp": "吞版本",
-    "os.hostname": "Hostname",
+    "os.hostname": "主机名",
     "os.ip": "IP地址",
-    "os.java": "Java version",
+    "os.java": "Java版本",
     "os.kernel": "核释放",
     "os.mem_rss": "存储器的居民设置的尺寸",
     "os.mem_vsz": "虚拟存储器的尺寸",
@@ -319,6 +320,8 @@
     "release Date": "释放日期",
     "replied on": "回复",
     "reverse order": "相反的顺序",
+    "running": "赛跑",
+    "sleeping": "睡眠",
     "system.assetTag": "资产标签",
     "system.manufacturer": "制造商",
     "system.model": "模型产品的名称",
@@ -334,5 +337,6 @@
     "up": "起来",
     "virtual": "虚拟",
     "wired": "有线",
-    "wireless": "无线"
+    "wireless": "无线",
+    "zombie": "僵尸"
 }
