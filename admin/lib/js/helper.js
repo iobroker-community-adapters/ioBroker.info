@@ -33,7 +33,7 @@ const formatter = {
         return text;
     },
     formatByte: function (bytes) {
-        if (bytes === null || bytes === undefined) {
+        if (bytes === null || isNaN(bytes)) {
             return "-";
         }
         if (bytes === 0) {
@@ -58,8 +58,23 @@ const formatter = {
         return temp + " °C";
     }, formatMhzSec: function (speed) {
         return speed + " Mbit/s";
-    }, formatTraslate: function (text) {
+    }, formatTranslate: function (text) {
         return _(text);
+    }, formatPixel: function (pixel) {
+        return pixel + " pixel";
+    }, formatBits: function (bits) {
+        return bits + " bits";
+    }, formatMm: function (mm) {
+        return mm + " mm";
+    }, formatMb: function (mb) {
+        return mb + " MB";
+    }, formatBoolean: function (bool){
+        if(true === bool || "true" === bool){
+            return "<i class='fa fa-check text-success' aria-hidden='true'></i>";
+        }else if(false === bool || "false" === bool){
+            return "<i class='fa fa-times text-danger' aria-hidden='true'></i>";
+        }
+        return bool;
     }
 };
 

@@ -912,6 +912,34 @@
                 "write": false
             },
             "native": {}
+        },
+        {
+            "_id": "sysinfo.graphics",
+            "type": "channel",
+            "common": {
+                "name": "Graphics",
+                "role": "info",
+                "icon": "lib/img/icons/graphics.png"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.graphics.controllers",
+            "type": "channel",
+            "common": {
+                "name": "Graphics controllers",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.graphics.displays",
+            "type": "channel",
+            "common": {
+                "name": "Monitor/display",
+                "role": "info"
+            },
+            "native": {}
         }
     ]
 }

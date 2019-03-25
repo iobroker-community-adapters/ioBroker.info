@@ -199,7 +199,7 @@ const updateSysinfo = function () {
                 }
             })
             .catch(error => adapter.log.error(error));
-    
+
     sistm.cpuCurrentspeed()
             .then(data => {
                 if (data['avg']) {
@@ -236,7 +236,7 @@ const updateSysinfo = function () {
                 }
             })
             .catch(error => adapter.log.error(error));
-    
+
     sistm.memLayout()
             .then(data => {
                 if (data.length > 0) {
@@ -366,6 +366,34 @@ const updateSysinfo = function () {
                     }
                 } else {
                     setState('battery', null, 'hasbattery', 'boolean', false);
+                }
+            })
+            .catch(error => adapter.log.error(error));
+
+    //GRAPHICS
+    sistm.graphics()
+            .then(data => {
+                if (data && Object.getOwnPropertyNames(data).length !== 0) {
+                    if (data.controller && data.controller.length > 0) {
+                        Object.keys(data.controller).forEach(function (key) {
+                            createChannel('graphics', 'controllers', 'ctrl' + key);
+                            Object.keys(data.controller[key]).forEach(function (key2) {
+                                if ((typeof data.controller[key][key2] === 'string' && data.controller[key][key2].length) || typeof data.controller[key][key2] !== 'string') {
+                                    setState('graphics', 'controllers.ctrl' + key, key2, typeof data.controller[key][key2], data.controller[key][key2]);
+                                }
+                            });
+                        });
+                    }
+                    if (data.displays && data.displays.length > 0) {
+                        Object.keys(data.displays).forEach(function (key) {
+                            createChannel('graphics', 'displays', 'dspl' + key);
+                            Object.keys(data.displays[key]).forEach(function (key2) {
+                                if ((typeof data.displays[key][key2] === 'string' && data.displays[key][key2].length) || typeof data.displays[key][key2] !== 'string') {
+                                    setState('graphics', 'controllers.dspl' + key, key2, typeof data.displays[key][key2], data.displays[key][key2]);
+                                }
+                            });
+                        });
+                    }
                 }
             })
             .catch(error => adapter.log.error(error));

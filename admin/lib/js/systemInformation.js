@@ -15,6 +15,8 @@ const formatInfo = {
     'cpu.speedmax': formatter.formatSpeedGhz,
     'cpu.speedmin': formatter.formatSpeedGhz,
     'cpu.avgSpeed': formatter.formatSpeedGhz,
+    'cpu.maxSpeed': formatter.formatSpeedGhz,
+    'cpu.minSpeed': formatter.formatSpeedGhz,
     'cpu.cache-l1d': formatter.formatByte,
     'cpu.cache-l1i': formatter.formatByte,
     'cpu.cache-l2': formatter.formatByte,
@@ -36,7 +38,7 @@ const formatInfo = {
     'memory.clockSpeed': formatter.formatSpeedMhz,
     'memory.buffcache': formatter.formatByte,
     'memory.available': formatter.formatByte,
-    'memory.type': formatter.formatTraslate,
+    'memory.type': formatter.formatTranslate,
     'memory.swaptotal': formatter.formatByte,
     'memory.swapused': formatter.formatByte,
     'memory.swapfree': formatter.formatByte,
@@ -46,9 +48,23 @@ const formatInfo = {
     'disks.size': formatter.formatByte,
     'disks.used': formatter.formatByte,
     'disks.use': formatter.formatPercent2Digits,
+    'disks.removable': formatter.formatBoolean,
+    'disks.smartStatus': formatter.formatTranslate,
     'network.speed': formatter.formatMhzSec,
-    'network.type': formatter.formatTraslate,
-    'network.duplex': formatter.formatTraslate
+    'network.type': formatter.formatTranslate,
+    'network.duplex': formatter.formatTranslate,
+    'network.internal': formatter.formatBoolean,
+    'network.operstate': formatter.formatTranslate,
+    'network.mtu': formatter.formatByte,
+    'graphics.resolutiony': formatter.formatPixel,
+    'graphics.resolutionx': formatter.formatPixel,
+    'graphics.pixeldepth': formatter.formatBits,
+    'graphics.sizex': formatter.formatMm,
+    'graphics.sizey': formatter.formatMm,
+    'graphics.vram': formatter.formatMb,
+    'battery.hasbattery': formatter.formatBoolean,
+    'battery.acconnected': formatter.formatBoolean,
+    'battery.ischarging': formatter.formatBoolean
 };
 
 function startCharts() {
@@ -159,10 +175,10 @@ const systemInformations = {
 
         } else {
             if (obj.device && $("#sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device).length === 0) {
-                const dl = "<h3>" + obj.device + "</h3><dl class='dl-horizontal' id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "'></dl>";
+                const dl = "<h3 id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "_devicename'>" + obj.device + "</h3><dl class='dl-horizontal' id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "'></dl>";
                 $('#sys_info_' + obj.systype + '_' + obj.syssubtype).append($(dl));
             }
-            const row = "<dt>" + _(obj.systype + "." + obj.name) + "</dt><dd>" + (formatInfo[obj.systype + "." + obj.name] ? formatInfo[obj.systype + "." + obj.name](obj.value) : obj.value) + "</dd>";
+            const row = "<dt>" + _(obj.systype + "." + obj.name) + "</dt><dd id='info_0_sysinfo_" + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '') + "_" + obj.name + "_data'>" + (formatInfo[obj.systype + "." + obj.name] ? formatInfo[obj.systype + "." + obj.name](obj.value) : obj.value) + "</dd>";
             $('#sys_info_' + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '')).append($(row));
         }
     }
