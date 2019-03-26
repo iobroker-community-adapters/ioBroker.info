@@ -35,6 +35,8 @@ Per visualizzare la finestra informativa nella scheda Scheda, è necessario prim
 
 ## orologio
 
+![clock](img/clock.png)
+
 ## messaggi
 
 ## documentazione

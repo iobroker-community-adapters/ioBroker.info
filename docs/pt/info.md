@@ -35,6 +35,8 @@ Para ver a janela de informações na guia Guia, você deve primeiro verificar c
 
 ## clock
 
+![clock](img/clock.png)
+
 ## messages
 
 ## documentation

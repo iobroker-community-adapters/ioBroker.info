@@ -35,6 +35,8 @@ Pour voir la fenêtre d’informations dans l’onglet Onglet, vous devez d’ab
 
 ## horloge
 
+![clock](img/clock.png)
+
 ## messages
 
 ## documentation

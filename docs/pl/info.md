@@ -35,6 +35,8 @@ Aby zobaczyć okno informacyjne w zakładce Tab, musisz najpierw sprawdzić, czy
 
 ## zegar
 
+![clock](img/clock.png)
+
 ## wiadomości
 
 ## dokumentacja

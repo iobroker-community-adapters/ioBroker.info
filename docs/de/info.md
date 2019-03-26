@@ -35,6 +35,8 @@ Um das Info Fenster im Tab-Reiter zu sehen, müssen Sie nach der Installation es
 
 ## Uhr
 
+![clock](img/clock.png) Die Uhr hat keine besondere Funktion und kann jederzeit in der Konfiguration ausgeschaltete werden.
+
 ## Meldungen
 
 ## Dokumentation

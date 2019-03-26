@@ -35,6 +35,8 @@ Para ver la ventana de información en la pestaña Tab, primero debe verificarla
 
 ## reloj
 
+![clock](img/clock.png)
+
 ## mensajes
 
 ## documentación

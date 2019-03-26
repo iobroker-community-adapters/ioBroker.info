@@ -27,30 +27,61 @@ In order to see the info window in the Tab tab, you must first check it as Visib
     * New adapters closed at startup - The panel with the unknown adapters is closed when starting the info window.
 
 * Do not load current system data - The current system data is not loaded cyclically.
-    * Load CPU data every x seconds - The CPU data is cyclically loaded every 2 to 10 seconds. 0 is off.
-    * Load memory data every x seconds - The memory data are loaded cyclically every 2 to 10 seconds. 0 is off.
-    * Load hard disk data every x seconds - The memory data are loaded cyclically every 2 to 10 seconds. 0 is off.
+    * Load CPU data every x seconds - The CPU data is cyclically loaded every 1 to 10 seconds. 0 is off.
+    * Load memory data every x seconds - The memory data are loaded cyclically every 1 to 10 seconds. 0 is off.
+    * Load disk data every x seconds - The hard disk data are loaded cyclically every 1 to 10 seconds. 0 is off.
+    * Load battery data every x seconds - Load the battery data cyclically every 1 to 10 seconds. 0 is off.
+    * Load network data every x seconds - Load network data cyclically every 1 to 10 seconds. 0 is off.
+    * Load process and user data every x seconds - Process and user data are loaded cyclically every 1 to 10 seconds. 0 is off.
 
 # Info Tab
 
+The information tab shows various information about your system and ioBroker. The tab is divided into different parts, which can be customized individually.
+
 ## Clock
 
-## messages
+![clock](img/clock.png) The clock has no special function and can be switched off at any time in the configuration.
 
-## documentation
+## Messages
 
-## updates
+![messages](img/messages.png)
+
+### Messages (VIS-Widget)
+
+## Documentation
+
+![documentation](img/documentation.png)
+
+## Updates
+
+![updates](img/updates.png)
 
 ## New adapters
 
+![new_adapters](img/new_adapters.png)
+
 ## System information
+
+![systeminfo](img/systeminfo.png)
+
+### System information (details)
 
 ## Adapter requests
 
-## problems and mistakes
+![adapters_requests](img/adapters_requests.png)
+
+## Issues and bugs
+
+![issues_bugs](img/issues_bugs.png)
 
 ## ioBroker adapter on Github
 
-## news
+![adapter_search](img/adapter_search.png)
+
+## News
+
+![news](img/news.png)
 
 ## Forum
+
+![forum](img/forum.png)
