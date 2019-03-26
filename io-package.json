@@ -200,12 +200,12 @@
         "doc_langs": [],
         "feednami": "",
         "noCurrentSysData": false,
-        "cpuSpeed": 2,
-        "memSpeed": 2,
-        "diskSpeed": 5,
-        "batterySpeed": 5,
-        "networkSpeed": 2,
-        "allProcessesUsers": 5
+        "cpuSpeed": 3,
+        "memSpeed": 3,
+        "diskSpeed": 8,
+        "batterySpeed": 8,
+        "networkSpeed": 3,
+        "allProcessesUsers": 8
     },
     "objects": [],
     "instanceObjects": [

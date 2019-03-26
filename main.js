@@ -169,10 +169,10 @@ const updateSysinfo = function () {
                         setState('cpu', 'currentLoad', key, typeof data[key], data[key]);
                     }
                 });
-                if (!adapter.config.noCurrentSysData && adapter.config.cpuSpeed !== 0) {
+                if (adapter.config.noCurrentSysData != true && adapter.config.cpuSpeed != 0) {
                     let speed = adapter.config.cpuSpeed;
                     if (!speed) {
-                        speed = 2;
+                        speed = 3;
                     }
                     adapter.log.info("Reading CPU data every " + speed + " seconds.");
                     setInterval(updateCurrentCPUInfos, speed * 1000);
@@ -188,10 +188,10 @@ const updateSysinfo = function () {
                             setState('cpu', 'temperature', key, typeof data[key], data[key]);
                         }
                     });
-                    if (!adapter.config.noCurrentSysData && adapter.config.cpuSpeed !== 0) {
+                    if (adapter.config.noCurrentSysData != true && adapter.config.cpuSpeed != 0) {
                         let speed = adapter.config.cpuSpeed;
                         if (!speed) {
-                            speed = 2;
+                            speed = 3;
                         }
                         adapter.log.info("Reading CPU temp data every " + speed + " seconds.");
                         setInterval(updateCurrentCPUTempInfos, speed * 1000);
@@ -208,10 +208,10 @@ const updateSysinfo = function () {
                             setState('cpu', 'currentspeed', key + "Speed", typeof data[key], data[key]);
                         }
                     });
-                    if (!adapter.config.noCurrentSysData && adapter.config.cpuSpeed !== 0) {
+                    if (adapter.config.noCurrentSysData != true && adapter.config.cpuSpeed != 0) {
                         let speed = adapter.config.cpuSpeed;
                         if (!speed) {
-                            speed = 2;
+                            speed = 3;
                         }
                         adapter.log.info("Reading CPU current speed every " + speed + " seconds.");
                         setInterval(updateCurrentCPUSpeed, speed * 1000);
@@ -226,10 +226,10 @@ const updateSysinfo = function () {
                 Object.keys(data).forEach(function (key) {
                     setState('memory', 'info', key, typeof data[key], data[key]);
                 });
-                if (!adapter.config.noCurrentSysData && adapter.config.memSpeed !== 0) {
+                if (adapter.config.noCurrentSysData != true && adapter.config.memSpeed != 0) {
                     let speed = adapter.config.memSpeed;
                     if (!speed) {
-                        speed = 2;
+                        speed = 3;
                     }
                     adapter.log.info("Reading memory data every " + speed + " seconds.");
                     setInterval(updateCurrentMemoryInfos, speed * 1000);
@@ -276,10 +276,10 @@ const updateSysinfo = function () {
     sistm.users()
             .then(data => {
                 setState('os', null, 'users', 'string', JSON.stringify(data));
-                if (!adapter.config.noCurrentSysData && adapter.config.allProcessesUsers !== 0) {
+                if (adapter.config.noCurrentSysData != true && adapter.config.allProcessesUsers != 0) {
                     let speed = adapter.config.allProcessesUsers;
                     if (!speed) {
-                        speed = 5;
+                        speed = 8;
                     }
                     adapter.log.info("Reading user data every " + speed + " seconds.");
                     setInterval(updateCurrentUsersInfos, speed * 1000);
@@ -295,10 +295,10 @@ const updateSysinfo = function () {
                 setState('os', 'processes', 'sleeping', 'number', data.sleeping);
                 setState('os', 'processes', 'unknown', 'number', data.unknown);
                 setState('os', 'processes', 'list', 'string', JSON.stringify(data['list']));
-                if (!adapter.config.noCurrentSysData && adapter.config.allProcessesUsers !== 0) {
+                if (adapter.config.noCurrentSysData != true && adapter.config.allProcessesUsers != 0) {
                     let speed = adapter.config.allProcessesUsers;
                     if (!speed) {
-                        speed = 5;
+                        speed = 8;
                     }
                     adapter.log.info("Reading process data every " + speed + " seconds.");
                     setInterval(updateCurrentProcessInfos, speed * 1000);
@@ -352,10 +352,10 @@ const updateSysinfo = function () {
                             }
                         });
                     });
-                    if (!adapter.config.noCurrentSysData && adapter.config.diskSpeed !== 0) {
+                    if (adapter.config.noCurrentSysData != true && adapter.config.diskSpeed != 0) {
                         let speed = adapter.config.diskSpeed;
                         if (!speed) {
-                            speed = 5;
+                            speed = 8;
                         }
                         adapter.log.info("Reading disk data every " + speed + " seconds.");
                         setInterval(updateCurrentFilesystemInfos, speed * 1000);
@@ -388,10 +388,10 @@ const updateSysinfo = function () {
                         setState('battery', null, key, typeof data[key], data[key]);
                     }
                 });
-                if (!adapter.config.noCurrentSysData && adapter.config.batterySpeed !== 0) {
+                if (adapter.config.noCurrentSysData != true && adapter.config.batterySpeed != 0) {
                     let speed = adapter.config.batterySpeed;
                     if (!speed) {
-                        speed = 5;
+                        speed = 8;
                     }
                     adapter.log.info("Reading battery data every " + speed + " seconds.");
                     setInterval(updateCurrentBatteryInfos, speed * 1000);
