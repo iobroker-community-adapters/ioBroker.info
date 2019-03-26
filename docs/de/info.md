@@ -64,7 +64,7 @@ Die Uhr hat keine besondere Funktion und kann jederzeit in der Konfiguration aus
 
 ## Adapteranfragen
 
-<img height="200" src="img/adapters_requests.png">
+<img height="200" src="img/adapter_requests.png">
 
 ## Probleme und Fehler
 
