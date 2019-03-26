@@ -35,52 +35,49 @@ Um das Info Fenster im Tab-Reiter zu sehen, müssen Sie nach der Installation es
 
 ## Uhr
 
-<p>
-<img align="left" height="200" src="img/clock.png">
 Die Uhr hat keine besondere Funktion und kann jederzeit in der Konfiguration ausgeschaltete werden.
-</p>
+<img height="200" src="img/clock.png">
 
 ## Meldungen
-<p>
-<img align="left" height="200" src="img/messages.png">
-</p>
+
+<img height="200" src="img/messages.png">
+
 ### Meldungen (VIS-Widget)
----
+
 ## Dokumentation
-<p>
-<img align="left" height="200" src="img/documentation.png">
-</p>
+
+<img height="200" src="img/documentation.png">
+
 ## Aktualisierungen
-<p>
-<img align="left" height="200" src="img/updates.png">
-</p>
+
+<img height="200" src="img/updates.png">
+
 ## Neue Adapter
-<p>
-<img align="left" height="200" src="img/new_adapters.png">
-</p>
+
+<img height="200" src="img/new_adapters.png">
+
 ## Systeminformationen
-<p>
-<img align="left" height="200" src="img/systeminfo.png">
-</p>
+
+<img height="200" src="img/systeminfo.png">
+
 ### Systeminformationen (Detailansicht)
 
 ## Adapteranfragen
-<p>
-<img align="left" height="200" src="img/adapters_requests.png">
-</p>
+
+<img height="200" src="img/adapters_requests.png">
+
 ## Probleme und Fehler
-<p>
-<img align="left" height="200" src="img/issues_bugs.png">
-</p>
+
+<img height="200" src="img/issues_bugs.png">
+
 ## ioBroker-Adapter auf Github
-<p>
-<img align="left" height="200" src="img/adapter_search.png">
-</p>
+
+<img height="200" src="img/adapter_search.png">
+
 ## News
-<p>
-<img align="left" height="200" src="img/news.png">
-</p>
+
+<img height="200" src="img/news.png">
+
 ## Forum
-<p>
-<img align="left" height="200" src="img/forum.png">
-</p>
+
+<img height="200" src="img/forum.png">
