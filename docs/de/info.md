@@ -35,24 +35,49 @@ Um das Info Fenster im Tab-Reiter zu sehen, müssen Sie nach der Installation es
 
 ## Uhr
 
-![clock](img/clock.png) Die Uhr hat keine besondere Funktion und kann jederzeit in der Konfiguration ausgeschaltete werden.
+<img align="left" height="200" src="img/clock.png">
+Die Uhr hat keine besondere Funktion und kann jederzeit in der Konfiguration ausgeschaltete werden.
 
 ## Meldungen
 
+<img align="left" height="200" src="img/messages.png">
+
+### Meldungen (VIS-Widget)
+
 ## Dokumentation
+
+<img align="left" height="200" src="img/documentation.png">
 
 ## Aktualisierungen
 
+<img align="left" height="200" src="img/updates.png">
+
 ## Neue Adapter
+
+<img align="left" height="200" src="img/new_adapters.png">
 
 ## Systeminformationen
 
+<img align="left" height="200" src="img/systeminfo.png">
+
+### Systeminformationen (Detailansicht)
+
 ## Adapteranfragen
+
+<img align="left" height="200" src="img/adapters_requests.png">
 
 ## Probleme und Fehler
 
+<img align="left" height="200" src="img/issues_bugs.png">
+
 ## ioBroker-Adapter auf Github
+
+<img align="left" height="200" src="img/adapter_search.png">
 
 ## News
 
+<img align="left" height="200" src="img/news.png">
+
 ## Forum
+
+<img align="left" height="200" src="img/forum.png">
