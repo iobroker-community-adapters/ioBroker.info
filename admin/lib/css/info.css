@@ -576,10 +576,10 @@ ul#cssClock li{
 }
 
 @media (min-width: 768px){
-    .dl-horizontal-lg dt {
+    .dl-lg dt {
         width: 260px;    
     }
-    .dl-horizontal-lg dd {
+    .dl-lg dd {
         margin-left: 280px;
     }
 }
