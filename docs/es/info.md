@@ -35,24 +35,44 @@ Para ver la ventana de información en la pestaña Tab, primero debe verificarla
 
 ## reloj
 
-![clock](img/clock.png)
+<img height="200" src="img/clock.png">
 
 ## mensajes
 
+<img height="200" src="img/messages.png">
+
 ## documentación
+
+<img height="200" src="img/documentation.png">
 
 ## actualizaciones
 
+<img height="200" src="img/updates.png">
+
 ## Nuevos adaptadores
+
+<img height="200" src="img/new_adapters.png">
 
 ## Información del sistema
 
+<img height="200" src="img/systeminfo.png">
+
 ## solicitudes de adaptador
+
+<img height="200" src="img/adapter_requests.png">
 
 ## problemas y errores
 
+<img height="200" src="img/issues_bugs.png">
+
 ## adaptador ioBroker en Github
+
+<img height="200" src="img/adapter_search.png">
 
 ## noticias
 
+<img height="200" src="img/news.png">
+
 ## foro
+
+<img height="200" src="img/forum.png">

@@ -35,24 +35,44 @@ Pour voir la fenêtre d’informations dans l’onglet Onglet, vous devez d’ab
 
 ## horloge
 
-![clock](img/clock.png)
+<img height="200" src="img/clock.png">
 
 ## messages
+<img height="200" src="img/messages.png">
+
 
 ## documentation
 
+<img height="200" src="img/documentation.png">
+
 ## mises à jour
+
+<img height="200" src="img/updates.png">
 
 ## Nouveaux adaptateurs
 
+<img height="200" src="img/new_adapters.png">
+
 ## Informations système
+
+<img height="200" src="img/systeminfo.png">
 
 ## demandes d'adaptateur
 
+<img height="200" src="img/adapter_requests.png">
+
 ## problèmes et erreurs
 
-Adaptateur ## ioBroker sur Github
+<img height="200" src="img/issues_bugs.png">
+
+## Adaptateur ioBroker sur Github
+
+<img height="200" src="img/adapter_search.png">
 
 ## nouvelles
 
+<img height="200" src="img/news.png">
+
 ## forum
+
+<img height="200" src="img/forum.png">

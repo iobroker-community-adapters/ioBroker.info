@@ -35,24 +35,44 @@
 
 ## 时钟
 
-![clock](img/clock.png)
+<img height="200" src="img/clock.png">
 
 ## 消息
 
+<img height="200" src="img/messages.png">
+
 ## 文档
+
+<img height="200" src="img/documentation.png">
 
 ## 更新
 
+<img height="200" src="img/updates.png">
+
 ## 新适配器
+
+<img height="200" src="img/new_adapters.png">
 
 ## 系统信息
 
+<img height="200" src="img/systeminfo.png">
+
 ## 适配器请求
+
+<img height="200" src="img/adapter_requests.png">
 
 ## 问题和错误
 
+<img height="200" src="img/issues_bugs.png">
+
 ## ioBroker适配器Github上的
+
+<img height="200" src="img/adapter_search.png">
 
 ## 新闻
 
+<img height="200" src="img/news.png">
+
 ## 论坛
+
+<img height="200" src="img/forum.png">

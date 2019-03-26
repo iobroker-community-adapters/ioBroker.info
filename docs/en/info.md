@@ -40,48 +40,49 @@ The information tab shows various information about your system and ioBroker. Th
 
 ## Clock
 
-![clock](img/clock.png) The clock has no special function and can be switched off at any time in the configuration.
+The clock has no special function and can be switched off at any time in the configuration.
+<img height="200" src="img/clock.png">
 
 ## Messages
 
-![messages](img/messages.png)
+<img height="200" src="img/messages.png">
 
 ### Messages (VIS-Widget)
 
 ## Documentation
 
-![documentation](img/documentation.png)
+<img height="200" src="img/documentation.png">
 
 ## Updates
 
-![updates](img/updates.png)
+<img height="200" src="img/updates.png">
 
 ## New adapters
 
-![new_adapters](img/new_adapters.png)
+<img height="200" src="img/new_adapters.png">
 
 ## System information
 
-![systeminfo](img/systeminfo.png)
+<img height="200" src="img/systeminfo.png">
 
 ### System information (details)
 
 ## Adapter requests
 
-![adapters_requests](img/adapters_requests.png)
+<img height="200" src="img/adapter_requests.png">
 
 ## Issues and bugs
 
-![issues_bugs](img/issues_bugs.png)
+<img height="200" src="img/issues_bugs.png">
 
 ## ioBroker adapter on Github
 
-![adapter_search](img/adapter_search.png)
+<img height="200" src="img/adapter_search.png">
 
 ## News
 
-![news](img/news.png)
+<img height="200" src="img/news.png">
 
 ## Forum
 
-![forum](img/forum.png)
+<img height="200" src="img/forum.png">
