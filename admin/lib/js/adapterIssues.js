@@ -5,6 +5,8 @@ function showIssues() {
     async function getIssues() {
         const adapters = window.top.gMain.tabs.adapters.curInstalled;
         if (adapters && typeof adapters === "object") {
+            $('#adapterIssueList').empty();
+            $('#adapterIssueListLoader').remove();            
             await asyncForEach(Object.keys(adapters), async function (key) {
                 if (key !== "hosts") {
                     const adapter = adapters[key];

@@ -6,6 +6,7 @@ const uptimeMap = {};
 
 const updateInfoPage = async function () {
     $('#systemInfoList').empty();
+    $('#systemInfoListLoader').remove();
     for (let currentHost in hosts) {
         getHostInfo(hosts[currentHost], function (data) {
             let text = '';

@@ -10,6 +10,7 @@ function writeNewsData(data) {
         $('#news-link').attr("href", "http://www.iobroker.net/docu/?lang=" + newsLang);
 
         $('#newsList').empty();
+        $('#newsListLoader').remove();
         feed.entries.forEach(function (entry) {
             const $item = $('#forumEntryTemplate').children().clone(true, true);
             $item.find('.tags').remove();

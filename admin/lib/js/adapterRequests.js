@@ -79,6 +79,8 @@ function showAdapterRequest() {
             sessionStorage.setItem('ioBroker.info.adapterRequest', JSON.stringify(allIssues));
         }
 
+        $('#adapterRequestList').empty();
+        $('#adapterRequestListLoader').remove();
         await writeAllIssues(allIssues, "adapterRequestList");
         if (adapterConfig.adapter_request_closed) {
             $('#adapterRequestBlock').find('.x_title a.collapse-link').click();

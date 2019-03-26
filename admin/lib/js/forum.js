@@ -26,6 +26,7 @@ function startForum() {
                 $('#forumTime').text(new Date(thread.pubDate).toLocaleDateString(systemLang, dateOptions));
                 $('#forum-link').attr("href", forumRss[lang].link);
                 $('#forumList').empty();
+                $('#forumListLoader').remove();
             }
             const feed = await getDescription(thread);
             const $item = $('#forumEntryTemplate').children().clone(true, true);
@@ -99,6 +100,7 @@ function startForum() {
                     $('#forumTime').text(new Date(thread.pubDate).toLocaleDateString(systemLang, dateOptions));
                     $('#forum-link').attr("href", forumRss[lang].link);
                     $('#forumList').empty();
+                    $('#forumListLoader').remove();
                 }
                 const $item = $('#forumEntryTemplate').children().clone(true, true);
                 $item.find('.navbar-right').remove();

@@ -70,6 +70,7 @@ function searchGithubForNewAdapters(by = "name", order = false) {
     async function write() {
         const data = JSON.parse(sessionStorage.getItem('ioBroker.info.foundGit'));
         $('#githubSearchList').empty();
+        $('#githubSearchListLoader').remove();
         await asyncForEach(Object.keys(data), function (key) {
             const val = data[key];
             const $item = $('#forumEntryTemplate').children().clone(true, true);

@@ -132,6 +132,7 @@ const upToDate = function (_new, old) {
 function fillList(type, list, repository, installedList) {
     const $ul = $('#' + type + 'HomeList');
     $ul.empty();
+    $('#' + type + 'HomeListLoader').remove();
 
     const isInstalled = type === 'update';
     const isHost = type === 'hostUpdate';
