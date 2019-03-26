@@ -42,5 +42,11 @@ async function readAndWriteNewsData() {
     if (adapterConfig.feednami) {
         feednami.setPublicApiKey(adapterConfig.feednami);
     }
-    writeNewsData(await feednami.load('http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang));
+    try {
+        const rss = await feednami.load('http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang);
+        writeNewsData(rss);
+    } catch (e) {        
+        $('#newsListLoader').remove();
+        $('#newsList').append($("<li>" + e + "</li>"));
+    }
 }

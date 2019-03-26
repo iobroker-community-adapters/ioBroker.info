@@ -56,22 +56,28 @@ function startForum() {
 
     async function getGermanFeedData(lang) {
         let rssFeedUnordered = [];
-        await asyncForEach(forumRss[lang].feeds, async function (link) {
-            if (adapterConfig.feednami) {
-                feednami.setPublicApiKey(adapterConfig.feednami);
-            }
-            const data = await feednami.load(link);
-            if (data && data.entries) {
-                await asyncForEach(data.entries, function (feed) {
-                    feed.category = $("<div/>").html(data.meta.title).text();
-                    feed.categoryLink = data.meta.link;
-                    rssFeedUnordered.push(feed);
-                });
-            }
-        });
-        return rssFeedUnordered.sort(function (a, b) {
-            return new Date(b.pubDate) - new Date(a.pubDate);
-        });
+        try {
+            await asyncForEach(forumRss[lang].feeds, async function (link) {
+                if (adapterConfig.feednami) {
+                    feednami.setPublicApiKey(adapterConfig.feednami);
+                }
+                const data = await feednami.load(link);
+                if (data && data.entries) {
+                    await asyncForEach(data.entries, function (feed) {
+                        feed.category = $("<div/>").html(data.meta.title).text();
+                        feed.categoryLink = data.meta.link;
+                        rssFeedUnordered.push(feed);
+                    });
+                }
+            });
+            return rssFeedUnordered.sort(function (a, b) {
+                return new Date(b.pubDate) - new Date(a.pubDate);
+            });
+        } catch (e) {
+            $('#forumListLoader').remove();
+            $('#forumList').append($('<li>' + e + '</li>'));
+            return rssFeedUnordered;
+        }
     }
 
     async function getDescription(thread) {
@@ -92,30 +98,36 @@ function startForum() {
         if (adapterConfig.feednami) {
             feednami.setPublicApiKey(adapterConfig.feednami);
         }
-        const data = await feednami.load(forumRss[lang].feeds[0]);
-        if (data && data.entries) {
-            for (let i = 0; i < data.entries.length; i++) {
-                const thread = data.entries[i];
-                if (i === 0) {
-                    $('#forumTime').text(new Date(thread.pubDate).toLocaleDateString(systemLang, dateOptions));
-                    $('#forum-link').attr("href", forumRss[lang].link);
-                    $('#forumList').empty();
-                    $('#forumListLoader').remove();
-                }
-                const $item = $('#forumEntryTemplate').children().clone(true, true);
-                $item.find('.navbar-right').remove();
-                $item.find('.assignDiv').remove();
-                $item.find('.forumClass').text(thread.categories.join());
-                $item.find('.y_title').addClass('titleRSS');
-                $item.find('.title').addClass('titleRSS');
-                $item.find('.collapse-link').addClass('titleRSS');
-                $item.find('.titleLink').addClass('titleRSS').text(thread.title).attr('href', thread.link);
-                $item.find('.description').html(thread.description);
-                $item.find('.description a').attr('target', '_blank');
 
-                $item.find('.byline').text(new Date(thread.pubDate).toLocaleDateString(systemLang, dateOptions) + " - " + thread.author);
-                $('#forumList').append($item);
+        try {
+            const data = await feednami.load(forumRss[lang].feeds[0]);
+            if (data && data.entries) {
+                for (let i = 0; i < data.entries.length; i++) {
+                    const thread = data.entries[i];
+                    if (i === 0) {
+                        $('#forumTime').text(new Date(thread.pubDate).toLocaleDateString(systemLang, dateOptions));
+                        $('#forum-link').attr("href", forumRss[lang].link);
+                        $('#forumList').empty();
+                        $('#forumListLoader').remove();
+                    }
+                    const $item = $('#forumEntryTemplate').children().clone(true, true);
+                    $item.find('.navbar-right').remove();
+                    $item.find('.assignDiv').remove();
+                    $item.find('.forumClass').text(thread.categories.join());
+                    $item.find('.y_title').addClass('titleRSS');
+                    $item.find('.title').addClass('titleRSS');
+                    $item.find('.collapse-link').addClass('titleRSS');
+                    $item.find('.titleLink').addClass('titleRSS').text(thread.title).attr('href', thread.link);
+                    $item.find('.description').html(thread.description);
+                    $item.find('.description a').attr('target', '_blank');
+
+                    $item.find('.byline').text(new Date(thread.pubDate).toLocaleDateString(systemLang, dateOptions) + " - " + thread.author);
+                    $('#forumList').append($item);
+                }
             }
+        } catch (e) {
+            $('#forumListLoader').remove();
+            $('#forumList').append($('<li>' + e + '</li>'));
         }
     }
 

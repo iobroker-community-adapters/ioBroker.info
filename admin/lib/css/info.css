@@ -1,8 +1,3 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
 /* 
     Created on : 23.11.2017, 17:16:08
     Author     : ldittmar
@@ -329,12 +324,6 @@ ul#cssClock li{
 }
 /* / Progressbar */
 
-@media (max-width: 767px) {
-    .modal-dialog{
-        margin-left: 80px;
-    }    
-}
-
 .allOk {
     background: url(../img/thumb.png) no-repeat center;
 }
@@ -587,10 +576,16 @@ ul#cssClock li{
 }
 
 @media (min-width: 768px){
-    .dl-horizontal dt {
+    .dl-horizontal-lg dt {
         width: 260px;    
     }
-    .dl-horizontal dd {
+    .dl-horizontal-lg dd {
         margin-left: 280px;
     }
+}
+
+@media (max-width: 767px) {
+    .modal-dialog{
+        margin-left: 80px;
+    }    
 }
