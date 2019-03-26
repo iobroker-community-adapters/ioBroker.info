@@ -45,8 +45,12 @@ async function readAndWriteNewsData() {
     try {
         const rss = await feednami.load('http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang);
         writeNewsData(rss);
-    } catch (e) {        
+    } catch (e) {
         $('#newsListLoader').remove();
-        $('#newsList').append($("<li>" + e + "</li>"));
+        if (e == "Error: Hostname in referer header is not registered") {
+            $('#newsList').append($('<li>' + _("To read news or forum, you need a free API Key if your ioBroker installation can be reached via a hostname, such as iobroker: 8081 or something similar. For IP access it is not needed.") + '</li>'));
+        } else {
+            $('#newsList').append($('<li>' + e + '</li>'));
+        }
     }
 }
