@@ -1,58 +1,88 @@
-# Administrator
+# Admin
 
-Adapter informacyjny został opracowany w celu dostarczenia użytkownikowi różnych informacji o systemie, o ioBroker i odpowiednich tematach. Użytkownik powinien uzyskać przegląd wszystkich interesujących i ważnych danych, a zespół ioBroker będzie miał możliwość szybszego skontaktowania się z użytkownikiem, jeśli dostępne będą ważne informacje.
+The Info Adapter was developed to provide various information about the system, about ioBroker and relevant topics to the user. The user should get an overview of all interesting and important data and the ioBroker team will be given the opportunity to contact the user even faster, if important information is available.
 
-# Instalacja
+# Installation
 
-Aby zobaczyć okno informacyjne w zakładce Tab, musisz najpierw sprawdzić, czy jest widoczne w Adminie po instalacji. Aby to zrobić, kliknij lewy trójkąt w lewym górnym rogu okna administratora i wybierz „Info” w menu.
+In order to see the info window in the Tab tab, you must first check it as Visible in the Admin after installation. To do this, click on the left-hand triangle in the upper left corner of the Admin window and select "Info" in the menu.
 
-# Konfiguracja
+# Configuration
 
-* Nie pokazuj zegara - Aby ukryć zegar w lewym górnym rogu.
-* Pokaż żądania adaptera - wyświetla panel z żądaniami adaptera.
-    * Żądania adaptera zamknięte podczas uruchamiania - Panel z żądaniami adaptera jest zamykany, gdy rozpoczyna się okno informacyjne.
-* Zobacz znane błędy - wyświetla panel ze znanymi błędami i żądaniami zainstalowanych kart.
-    * Znane błędy przy zamkniętym starcie - Panel ze znanymi błędami jest zamykany podczas uruchamiania okna informacyjnego.
+* Do not show clock - To hide the clock on the top left.
+* Show adapter requests - Displays the panel with the adapter requests.
+    * Adapter requests closed at startup - The panel with the adapter requests is closed when the Info window starts.
+* View known errors - Displays the panel with known errors and requests for installed adapters.
+    * Known errors at startup closed - The panel with the known errors is closed when starting the info window.
 
-* Pokaż wiadomości z iobroker.net - Wyświetla panel z oficjalnymi wiadomościami ioBroker.
-* Pokaż najnowsze wpisy na forum - Wyświetla panel z ostatnimi wpisami na forum.
-* Klucz API Feednami - jeśli zadzwonisz do ioBroker przy użyciu nazwy hosta, takiej jak iobroker: 8081 lub coś w tym stylu, musisz zarejestrować się za darmo w Feednami, aby uzyskać odpowiedni klucz API. Nie jest to konieczne do uzyskania dostępu przez adres IP.
+* Show News from iobroker.net - Displays the panel with the official ioBroker news.
+* Show the latest forum entries - Displays the panel with the last forum entries.
+* Feednami API Key - If you call ioBroker using a host name, such as iobroker: 8081 or something like that, you need to sign up for free at Feednami to get an appropriate API key. This is not necessary for access via an IP address.
 
-* Pokaż dokumentację - Wyświetla przycisk do dokumentacji.
-    * Wybierz wymagane języki dla dokumentacji - Wybór języków do uwzględnienia w dokumentacji.
+* Show documentation - Displays the button for the documentation.
+    * Select the required languages ​​for the documentation - Selection of the languages ​​to be included in the documentation.
 
-* Wyszukaj Github dla nieznanych adapterów (Eksperci) - wyświetla panel wyszukiwania niezatwierdzonych adapterów w githubie.
-    * Sortuj adapter według - Sortuje wynik wyszukiwania według nazwy, daty utworzenia lub ostatniej aktualizacji.
-    * odwrotna kolejność - odwraca kolejność wyników.
-    * Nowe adaptery zamknięte podczas uruchamiania - Panel z nieznanymi kartami jest zamykany podczas uruchamiania okna informacyjnego.
+* Search Github for Unknown Adapters (Experts) - Displays the panel searching for unapproved adapters in the github.
+    * Sort Adapter by - Sorts the result of the search by name, creation date or last update.
+    * reverse order - reverses the order of the results.
+    * New adapters closed at startup - The panel with the unknown adapters is closed when starting the info window.
 
-* Nie ładuj bieżących danych systemowych - Aktualne dane systemowe nie są ładowane cyklicznie.
-    * Ładuj dane procesora co x sekund - Dane procesora są ładowane cyklicznie co 2 do 10 sekund. 0 jest wyłączone.
-    * Ładuj dane pamięci co x sekund - Dane pamięci są ładowane cyklicznie co 2 do 10 sekund. 0 jest wyłączone.
-    * Ładuj dane dysku twardego co x sekund - Dane pamięci są ładowane cyklicznie co 2 do 10 sekund. 0 jest wyłączone.
+* Do not load current system data - The current system data is not loaded cyclically.
+    * Load CPU data every x seconds - The CPU data is cyclically loaded every 1 to 10 seconds. 0 is off.
+    * Load memory data every x seconds - The memory data are loaded cyclically every 1 to 10 seconds. 0 is off.
+    * Load disk data every x seconds - The hard disk data are loaded cyclically every 1 to 10 seconds. 0 is off.
+    * Load battery data every x seconds - Load the battery data cyclically every 1 to 10 seconds. 0 is off.
+    * Load network data every x seconds - Load network data cyclically every 1 to 10 seconds. 0 is off.
+    * Load process and user data every x seconds - Process and user data are loaded cyclically every 1 to 10 seconds. 0 is off.
 
-# Zakładka Info
+# Info Tab
 
-## zegar
+The information tab shows various information about your system and ioBroker. The tab is divided into different parts, which can be customized individually.
 
-![clock](img/clock.png)
+## Clock
 
-## wiadomości
+The clock has no special function and can be switched off at any time in the configuration.
+<img height="200" src="img/clock.png">
 
-## dokumentacja
+## Messages
 
-## aktualizacje
+<img height="200" src="img/messages.png">
 
-## Nowe adaptery
+### Messages (VIS-Widget)
 
-## Informacje o systemie
+## Documentation
 
-## Żądania adaptera
+<img height="200" src="img/documentation.png">
 
-## problemy i błędy
+## Updates
 
-## adapter ioBroker na Github
+<img height="200" src="img/updates.png">
 
-## news
+## New adapters
 
-## forum
+<img height="200" src="img/new_adapters.png">
+
+## System information
+
+<img height="200" src="img/systeminfo.png">
+
+### System information (details)
+
+## Adapter requests
+
+<img height="200" src="img/adapter_requests.png">
+
+## Issues and bugs
+
+<img height="200" src="img/issues_bugs.png">
+
+## ioBroker adapter on Github
+
+<img height="200" src="img/adapter_search.png">
+
+## News
+
+<img height="200" src="img/news.png">
+
+## Forum
+
+<img height="200" src="img/forum.png">

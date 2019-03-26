@@ -35,24 +35,44 @@ Per visualizzare la finestra informativa nella scheda Scheda, è necessario prim
 
 ## orologio
 
-![clock](img/clock.png)
+<img height="200" src="img/clock.png">
 
 ## messaggi
 
+<img height="200" src="img/messages.png">
+
 ## documentazione
+
+<img height="200" src="img/documentation.png">
 
 ## aggiornamenti
 
+<img height="200" src="img/updates.png">
+
 ## Nuovi adattatori
+
+<img height="200" src="img/new_adapters.png">
 
 ## Informazioni di sistema
 
+<img height="200" src="img/systeminfo.png">
+
 ## Richieste di adattatori
+
+<img height="200" src="img/adapter_requests.png">
 
 ## problemi ed errori
 
+<img height="200" src="img/issues_bugs.png">
+
 ## adattatore ioBroker su Github
+
+<img height="200" src="img/adapter_search.png">
 
 ## notizie
 
+<img height="200" src="img/news.png">
+
 ## forum
+
+<img height="200" src="img/forum.png">

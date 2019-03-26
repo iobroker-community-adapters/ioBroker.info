@@ -1,58 +1,88 @@
 # Admin
 
-Информационный адаптер был разработан для предоставления пользователю различной информации о системе, ioBroker и соответствующих темах. Пользователь должен получить обзор всех интересных и важных данных, и команда ioBroker получит возможность связаться с пользователем еще быстрее, если будет доступна важная информация.
+The Info Adapter was developed to provide various information about the system, about ioBroker and relevant topics to the user. The user should get an overview of all interesting and important data and the ioBroker team will be given the opportunity to contact the user even faster, if important information is available.
 
-# Установка
+# Installation
 
-Чтобы увидеть информационное окно на вкладке «Вкладка», необходимо сначала установить его как «Видимый» в Admin после установки. Для этого нажмите на левый треугольник в верхнем левом углу окна администратора и выберите «Информация» в меню.
+In order to see the info window in the Tab tab, you must first check it as Visible in the Admin after installation. To do this, click on the left-hand triangle in the upper left corner of the Admin window and select "Info" in the menu.
 
-# Конфигурация
+# Configuration
 
-* Не показывать часы - чтобы скрыть часы в левом верхнем углу.
-* Показать запросы адаптера - отображает панель с запросами адаптера.
-    * Запросы адаптера закрываются при запуске - Панель с запросами адаптера закрывается при запуске информационного окна.
-* Просмотр известных ошибок - отображает панель с известными ошибками и запросами на установленные адаптеры.
-    * Известные ошибки при запуске закрыты - Панель с известными ошибками закрывается при запуске информационного окна.
+* Do not show clock - To hide the clock on the top left.
+* Show adapter requests - Displays the panel with the adapter requests.
+    * Adapter requests closed at startup - The panel with the adapter requests is closed when the Info window starts.
+* View known errors - Displays the panel with known errors and requests for installed adapters.
+    * Known errors at startup closed - The panel with the known errors is closed when starting the info window.
 
-* Показать новости от iobroker.net - Отображает панель с официальными новостями ioBroker.
-* Показать последние записи форума - Отображает панель с последними записями форума.
-* Feednami API Key - если вы вызываете ioBroker, используя имя хоста, например iobroker: 8081 или что-то в этом роде, вам нужно бесплатно зарегистрироваться в Feednami, чтобы получить соответствующий ключ API. Это не обязательно для доступа через IP-адрес.
+* Show News from iobroker.net - Displays the panel with the official ioBroker news.
+* Show the latest forum entries - Displays the panel with the last forum entries.
+* Feednami API Key - If you call ioBroker using a host name, such as iobroker: 8081 or something like that, you need to sign up for free at Feednami to get an appropriate API key. This is not necessary for access via an IP address.
 
-* Показать документацию - отображает кнопку для документации.
-    * Выберите требуемые языки для документации - Выбор языков, которые будут включены в документацию.
+* Show documentation - Displays the button for the documentation.
+    * Select the required languages ​​for the documentation - Selection of the languages ​​to be included in the documentation.
 
-* Поиск Github для неизвестных адаптеров (Эксперты) - отображает панель поиска неутвержденных адаптеров в Github.
-    * Sort Adapter by - сортирует результаты поиска по имени, дате создания или последнему обновлению.
-    * обратный порядок - меняет порядок результатов.
-    * Новые адаптеры закрыты при запуске - Панель с неизвестными адаптерами закрывается при запуске информационного окна.
+* Search Github for Unknown Adapters (Experts) - Displays the panel searching for unapproved adapters in the github.
+    * Sort Adapter by - Sorts the result of the search by name, creation date or last update.
+    * reverse order - reverses the order of the results.
+    * New adapters closed at startup - The panel with the unknown adapters is closed when starting the info window.
 
-* Не загружать текущие системные данные - текущие системные данные не загружаются циклически.
-    * Загрузка данных ЦП каждые х секунд - данные ЦП циклически загружаются каждые 2–10 секунд. 0 выключен.
-    * Загружать данные памяти каждые x секунд - данные памяти загружаются циклически каждые 2-10 секунд. 0 выключен.
-    * Загрузка данных на жестком диске каждые x секунд. Данные памяти загружаются циклически каждые 2–10 секунд. 0 выключен.
+* Do not load current system data - The current system data is not loaded cyclically.
+    * Load CPU data every x seconds - The CPU data is cyclically loaded every 1 to 10 seconds. 0 is off.
+    * Load memory data every x seconds - The memory data are loaded cyclically every 1 to 10 seconds. 0 is off.
+    * Load disk data every x seconds - The hard disk data are loaded cyclically every 1 to 10 seconds. 0 is off.
+    * Load battery data every x seconds - Load the battery data cyclically every 1 to 10 seconds. 0 is off.
+    * Load network data every x seconds - Load network data cyclically every 1 to 10 seconds. 0 is off.
+    * Load process and user data every x seconds - Process and user data are loaded cyclically every 1 to 10 seconds. 0 is off.
 
-# Информация вкладка
+# Info Tab
 
-## часы
+The information tab shows various information about your system and ioBroker. The tab is divided into different parts, which can be customized individually.
 
-![clock](img/clock.png)
+## Clock
 
-## сообщения
+The clock has no special function and can be switched off at any time in the configuration.
+<img height="200" src="img/clock.png">
 
-## документация
+## Messages
 
-## обновления
+<img height="200" src="img/messages.png">
 
-## Новые адаптеры
+### Messages (VIS-Widget)
 
-## Системная информация
+## Documentation
 
-## Запросы адаптера
+<img height="200" src="img/documentation.png">
 
-## проблемы и ошибки
+## Updates
 
-## Адаптер ioBroker на Github
+<img height="200" src="img/updates.png">
 
-## новости
+## New adapters
 
-## форум
+<img height="200" src="img/new_adapters.png">
+
+## System information
+
+<img height="200" src="img/systeminfo.png">
+
+### System information (details)
+
+## Adapter requests
+
+<img height="200" src="img/adapter_requests.png">
+
+## Issues and bugs
+
+<img height="200" src="img/issues_bugs.png">
+
+## ioBroker adapter on Github
+
+<img height="200" src="img/adapter_search.png">
+
+## News
+
+<img height="200" src="img/news.png">
+
+## Forum
+
+<img height="200" src="img/forum.png">
