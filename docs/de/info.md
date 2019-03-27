@@ -47,7 +47,7 @@ Um das Info Fenster im Tab-Reiter zu sehen, müssen Sie nach der Installation es
 <img height="50" align="left" src="img/clock.png">
 Die Uhr hat keine besondere Funktion und kann jederzeit in der Konfiguration ausgeschaltete werden.
 
-<br>
+<br><br>
 
 ## Meldungen
 
@@ -79,10 +79,11 @@ Von hier aus kann mit einem Klick auf ![Update Button](img/update_button.png) di
 Wenn Sie mit der Maus über ![Changelog Icon](img/changelog.png) fahren, sehen Sie die wichtigsten Neuerungen seit Ihrer Version. 
 Mit einem Klick auf ![Dokumentation](img/readme.png), wird die komplette Beschreibung des Adapters angezeigt.
 
+<br>
 
 ## Neue Adapter
 
-<img height="200" align="left" src="img/new_adapters.png">
+<img height="200" align="right" src="img/new_adapters.png">
 Hier werden alle neue und offiziell freigegebene Adapter der letzten 60 Tage angezeigt.
 
 Von hier aus kann mit einem Klick auf ![Install Button](img/install_button.png) den neuen Adapter direkt installiert werden.
