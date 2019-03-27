@@ -96,6 +96,10 @@ Als Info werden folgenden Daten (pro Host) bereitgestellt:
 - Aktive Instanzen (Wieviele Adapter-Instanzen laufen gerade auf diesen Host)
 - Hostname (Name des Hosts)
 
+```
+Sollten Informationen fehlen, dann sollte eine aktuelle Version des js-controllers installiert werden. Das ist der Datenbestand des js-controllers v1.5.7.
+```
+
 Mit einem Klick auf ![Systeminfo Detailansicht](img/sysinfo_detail_button.png), werden detaillierte Informationen zum Hauptsystem angezeigt.
 
 ### Systeminformationen (Detailansicht)
