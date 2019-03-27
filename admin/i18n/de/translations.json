@@ -51,7 +51,7 @@
     "Load battery data every x seconds": "Batteriedaten alle x Sekunden laden",
     "Load disk data every x seconds": "Festplattendaten alle x Sekunden laden",
     "Load memory data every x seconds": "Speicherdaten alle x Sekunden laden",
-    "Load network data every x seconds": "Laden Sie alle x Sekunden Netzwerkdaten",
+    "Load network data every x seconds": "Netzwerkdaten alle x Sekunden laden",
     "Load process and user data every x seconds": "Laden von Prozess-und user-Daten alle x Sekunden",
     "Memory": "Hauptspeicher",
     "Memory information": "Speicherinformationen",
