@@ -28,6 +28,19 @@ After that just enter the API Key in the configuration of the adapter.
 ### Popup Messages (VIS Widget)
 There is a new widget to display important messages in VIS. These messages are displayed ONLY if certain conditions are met. Either from date x to date y or even if you have a specific adapter installed. If nothing is displayed then everything is ok.
 
+### Detailed informations
+
+* [Click here for the detailed documentation (en)](docs/en/info.md)
+* [Klicken Sie hier für die ausführliche Dokumentation (de)](docs/de/info.md)
+* [Нажмите здесь для подробной документации (ru)](docs/ru/info.md)
+* [Clique aqui para a documentação detalhada (pt)](docs/pt/info.md)
+* [Klik hier voor de gedetailleerde documentatie (nl)](docs/nl/info.md)
+* [Cliquez ici pour la documentation détaillée (fr)](docs/fr/info.md)
+* [Clicca qui per la documentazione dettagliata (it)](docs/it/info.md)
+* [Haga clic aquí para la documentación detallada (es)](docs/es/info.md)
+* [Kliknij tutaj, aby uzyskać szczegółową dokumentację (pl)](docs/pl/info.md)
+* [单击此处获取详细文档 (zh-cn)](docs/zh-cn/info.md)
+
 ## Changelog
 
 ### 1.3.x (2019-04-01)

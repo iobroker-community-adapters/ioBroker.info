@@ -52,7 +52,7 @@
     "Load disk data every x seconds": "Festplattendaten alle x Sekunden laden",
     "Load memory data every x seconds": "Speicherdaten alle x Sekunden laden",
     "Load network data every x seconds": "Netzwerkdaten alle x Sekunden laden",
-    "Load process and user data every x seconds": "Laden von Prozess-und user-Daten alle x Sekunden",
+    "Load process and user data every x seconds": "Laden von Prozess- und Nutzerdaten alle x Sekunden",
     "Memory": "Hauptspeicher",
     "Memory information": "Speicherinformationen",
     "Memory layout": "Speicher-layout",
