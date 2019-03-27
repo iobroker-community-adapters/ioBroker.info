@@ -4,12 +4,16 @@ Der Info Adapter wurde entwickelt um verschiedene Informationen zum System, übe
 
 # Installation
 
+<img height="100" align="left" src="img/install.png">
 Um das Info Fenster im Tab-Reiter zu sehen, müssen Sie nach der Installation es zuerst im Admin als Sichtbar anhaken. Dazu klicken Sie in der Admin-Fenster oben Links auf dem nach unten zeigenden Dreieck und wählen im Menü "Info" aus.
-<img height="100" src="img/install.png">
+
 
 # Konfiguration
 
-<img height="300" align="right" src="img/config.png">
+<p align="center">
+    <img height="300" align="right" src="img/config.png">
+</p>
+
 * **Uhr nicht anzeigen** - Um die Uhr oben Links auszublenden.
 * **Adapteranfragen anzeigen** - Zeigt den Panel mit den Adapteranfragen an.
     * **Adapteranfragen beim Start geschlossen** - Das Panel mit der Adapteranfragen, ist beim Start des Info Fensters geschlossen.
@@ -45,8 +49,9 @@ Die Uhr hat keine besondere Funktion und kann jederzeit in der Konfiguration aus
 
 ## Meldungen
 
+<img height="200" align="left" src="img/messages.png">
 Um wichtige Meldungen bezüglich ioBroker, schnell an den User zu senden, wurde die Möglichkeit erschaffen Meldungen zu erstellen. Diese Meldungen erscheinen NUR, wenn bestimmte Voraussetzungen zutreffen. Es werden also keine Meldungen über einem Adapter angezeigt, wenn dieser nicht installiert ist. So wird sichergestellt, dass NUR die User gewarnt werden, die auch vom Problem betrofen sind.
-<img height="200" src="img/messages.png">
+
 
 ### Meldungen (VIS-Widget)
 
@@ -55,30 +60,35 @@ Für die Meldungen wurde extra ein VIS Widget erstellt, der ebenfalls nur ersche
 
 ## Dokumentation
 
+<img height="200" align="left" src="img/documentation.png">
 Wir haben eine Liste mit wichtigen Links zusammengestellt. Diese findet ihr als aufklapbare Liste, indem ihr auf dem Button oben rechts "Dokumentation" klickt. Sollte der Button nicht sichtbar sein, stellen Sie sicher, dass der entsprechende Punkt in der Konfiguration angehakt ist.
 Für die Richtigkeit und Vollständigkeit externer Links kann keine Garantie übernommen werden. Wenn Links fehlen oder falsch sind, senden Sie uns bitte eine E-Mail an uns.
-<img height="200" src="img/documentation.png">
+
 
 ## Aktualisierungen
 
+<img height="200" align="left" src="img/updates.png">
 Wenn es neue Versionen eines Adapters veröffentlicht wird und Sie diesen auch installiert haben, wird es in dieser Liste erscheinen. 
 Von hier aus kann mit einem Klick auf ![Update Button](img/update_button.png) direkt aktualisiert werden. 
 Wenn Sie mit der Maus über ![Changelog Icon](img/changelog.png) fahren, sehen Sie die wichtigsten Neuerungen seit Ihrer Version. 
 Mit einem Klick auf ![Dokumentation](img/readme.png), wird die komplette Beschreibung des Adapters angezeigt.
-<img height="200" src="img/updates.png">
+
 
 ## Neue Adapter
 
+<img height="200" align="left" src="img/new_adapters.png">
 Hier werden alle neue und offiziell freigegebene Adapter der letzten 60 Tage angezeigt.
 Von hier aus kann mit einem Klick auf ![Install Button](img/install_button.png) den neuen Adapter direkt installiert werden.
 Mit einem Klick auf ![Dokumentation](img/readme.png), wird die komplette Beschreibung des Adapters angezeigt.
-<img height="200" src="img/new_adapters.png">
+
 
 ## Systeminformationen
 
 <img height="200" align="left" src="img/systeminfo.png">
 Hier werden die Systeminformationen des ioBroker-Systems angezeigt. Bei Multihost-Systeme werden natürlich auch die Informationen der anderen Hosts angezeigt. Diese Daten kommen aus dem js-controller. 
+
 Als Info werden folgenden Daten (pro Host) bereitgestellt:
+
 
 - Betriebssystem (linux, win32, darwin, android, aix, freebsd, openbsd oder sunos)
 - Architektur (arm, arm64, ia32, mips, mipsel, ppc, ppc64, s390, s90x, x32 und x64)
@@ -97,7 +107,9 @@ Als Info werden folgenden Daten (pro Host) bereitgestellt:
 - Hostname (Name des Hosts)
 
 ```
-Sollten Informationen fehlen, dann sollte eine aktuelle Version des js-controllers installiert werden. Das ist der Datenbestand des js-controllers v1.5.7.
+Sollten Informationen fehlen, dann sollte eine aktuelle Version 
+des js-controllers installiert werden. Das ist der Datenbestand 
+des js-controllers v1.5.7.
 ```
 
 Mit einem Klick auf ![Systeminfo Detailansicht](img/sysinfo_detail_button.png), werden detaillierte Informationen zum Hauptsystem angezeigt.
