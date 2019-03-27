@@ -4,7 +4,7 @@ Der Info Adapter wurde entwickelt um verschiedene Informationen zum System, übe
 
 # Installation
 
-<img height="100" align="left" src="img/install.png">
+<img height="80" align="left" src="img/install.png">
 Um das Info Fenster im Tab-Reiter zu sehen, müssen Sie nach der Installation es zuerst im Admin als Sichtbar anhaken. Dazu klicken Sie in der Admin-Fenster oben Links auf dem nach unten zeigenden Dreieck und wählen im Menü "Info" aus.
 
 
@@ -44,8 +44,10 @@ Um das Info Fenster im Tab-Reiter zu sehen, müssen Sie nach der Installation es
 
 ## Uhr
 
+<img height="50" align="left" src="img/clock.png">
 Die Uhr hat keine besondere Funktion und kann jederzeit in der Konfiguration ausgeschaltete werden.
-<img height="200" src="img/clock.png">
+
+<br>
 
 ## Meldungen
 
@@ -55,20 +57,24 @@ Um wichtige Meldungen bezüglich ioBroker, schnell an den User zu senden, wurde 
 
 ### Meldungen (VIS-Widget)
 
+<img height="50" align="left" src="img/vis.png">
 Für die Meldungen wurde extra ein VIS Widget erstellt, der ebenfalls nur erscheint, wenn die Meldungen den User betreffen.
-<img height="200" src="img/vis.png">
+
 
 ## Dokumentation
 
-<img height="200" align="left" src="img/documentation.png">
+<img height="150" align="left" src="img/documentation.png">
 Wir haben eine Liste mit wichtigen Links zusammengestellt. Diese findet ihr als aufklapbare Liste, indem ihr auf dem Button oben rechts "Dokumentation" klickt. Sollte der Button nicht sichtbar sein, stellen Sie sicher, dass der entsprechende Punkt in der Konfiguration angehakt ist.
+
 Für die Richtigkeit und Vollständigkeit externer Links kann keine Garantie übernommen werden. Wenn Links fehlen oder falsch sind, senden Sie uns bitte eine E-Mail an uns.
 
+<br>
 
 ## Aktualisierungen
 
 <img height="200" align="left" src="img/updates.png">
-Wenn es neue Versionen eines Adapters veröffentlicht wird und Sie diesen auch installiert haben, wird es in dieser Liste erscheinen. 
+Wenn es neue Versionen eines Adapters veröffentlicht wird und Sie diesen auch installiert haben, wird es in dieser Liste erscheinen.
+
 Von hier aus kann mit einem Klick auf ![Update Button](img/update_button.png) direkt aktualisiert werden. 
 Wenn Sie mit der Maus über ![Changelog Icon](img/changelog.png) fahren, sehen Sie die wichtigsten Neuerungen seit Ihrer Version. 
 Mit einem Klick auf ![Dokumentation](img/readme.png), wird die komplette Beschreibung des Adapters angezeigt.
@@ -78,6 +84,7 @@ Mit einem Klick auf ![Dokumentation](img/readme.png), wird die komplette Beschre
 
 <img height="200" align="left" src="img/new_adapters.png">
 Hier werden alle neue und offiziell freigegebene Adapter der letzten 60 Tage angezeigt.
+
 Von hier aus kann mit einem Klick auf ![Install Button](img/install_button.png) den neuen Adapter direkt installiert werden.
 Mit einem Klick auf ![Dokumentation](img/readme.png), wird die komplette Beschreibung des Adapters angezeigt.
 
