@@ -7,6 +7,8 @@
 <img height="80" align="left" src="img/install.png">
 要在“选项卡”选项卡中查看信息窗口，必须先在安装后在Admin中将其检查为“可见”。 要执行此操作，请单击“管理”窗口左上角的左侧三角形，然后在菜单中选择“信息”。
 
+<br><br>
+
 # 配置
 
 <p align="center">
@@ -50,6 +52,8 @@
 <img height="50" align="left" src="img/clock.png">
 时钟没有特殊功能（但我已经付出了努力），并且可以在配置中随时关闭。
 
+<br><br>
+
 ## 消息
 
 <img height="200" align="left" src="img/messages.png">
@@ -61,6 +65,8 @@
 
 <img height="100" align="left" src="img/vis.png">
 对于消息，创建了VIS窗口小部件，仅当消息涉及用户时才会显示该窗口小部件。 如果没有消息，则不显示任何消息，因此您不需要在VIS表面上为消息添加额外空间，而只需要它。 在屏幕中间。
+
+<br><br>
 
 ## 文档
 
@@ -81,6 +87,8 @@
 单击 ![Documentation](img/readme.png) 显示适配器的完整描述。
 
 如果主机（即JS控制器）已过时，则会在“新适配器”下方显示一个额外的框，其中包含您应更新主机的消息。
+
+<br><br>
 
 ## 新适配器
 
@@ -225,6 +233,8 @@ ioBroker的官方适配器数量已经相当可观。 当然，网上还有更�
 点击 ![链接](img/link.png) 直接进入官方ioBroker页面。
 
 当通过IP或localhost：8081访问ioBroker时，新闻显示没有任何问题。但是如果你使用像meinhaus.de:8081这样的主机名，你必须在Feednami获得一个免费的API密钥。 要注册，请单击 [此处](https://toolkit.sekando.com/docs/en/setup/hostnames) 并按照说明进行操作。
+
+<br><br>
 
 ## 论坛
 
