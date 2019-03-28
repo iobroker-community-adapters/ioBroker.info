@@ -1,88 +1,236 @@
-# Admin
+# Beheerder
 
-The Info Adapter was developed to provide various information about the system, about ioBroker and relevant topics to the user. The user should get an overview of all interesting and important data and the ioBroker team will be given the opportunity to contact the user even faster, if important information is available.
+De Info Adapter is ontwikkeld om verschillende informatie over het systeem, over ioBroker en relevante onderwerpen aan de gebruiker te verstrekken. De gebruiker moet een overzicht krijgen van alle interessante en belangrijke gegevens en het ioBroker-team krijgt de mogelijkheid om nog sneller contact op te nemen met de gebruiker, indien belangrijke informatie beschikbaar is.
 
-# Installation
+# Installatie
 
-In order to see the info window in the Tab tab, you must first check it as Visible in the Admin after installation. To do this, click on the left-hand triangle in the upper left corner of the Admin window and select "Info" in the menu.
+<img height="80" align="left" src="img/install.png">
+Om het informatievenster op het tabblad Tabblad te zien, moet u het na installatie eerst controleren als Zichtbaar in de beheerder. Om dit te doen, klikt u op het driehoekje links in de linkerbovenhoek van het Admin-venster en selecteert u 'Info' in het menu.
 
-# Configuration
+# Configuratie
 
-* Do not show clock - To hide the clock on the top left.
-* Show adapter requests - Displays the panel with the adapter requests.
-    * Adapter requests closed at startup - The panel with the adapter requests is closed when the Info window starts.
-* View known errors - Displays the panel with known errors and requests for installed adapters.
-    * Known errors at startup closed - The panel with the known errors is closed when starting the info window.
+<p align="center">
+    <img height="300" align="right" src="img/config.png">
+</p>
 
-* Show News from iobroker.net - Displays the panel with the official ioBroker news.
-* Show the latest forum entries - Displays the panel with the last forum entries.
-* Feednami API Key - If you call ioBroker using a host name, such as iobroker: 8081 or something like that, you need to sign up for free at Feednami to get an appropriate API key. This is not necessary for access via an IP address.
+* **Laat de klok niet zien** - om de klok bovenaan links te verbergen.
+* **Adapteraanvragen weergeven** - Geeft het paneel weer met de adapteraanvragen.
+    * **Adapterverzoeken gesloten bij opstarten** - Het paneel met de adapteraanvragen wordt gesloten wanneer het Info-venster wordt gestart.
+* **Bekijk bekende fouten** - Geeft het paneel met bekende fouten en verzoeken voor geïnstalleerde adapters weer.
+    * **Bekende fouten bij het opstarten gesloten** - Het paneel met de bekende fouten is gesloten bij het starten van het informatievenster.
 
-* Show documentation - Displays the button for the documentation.
-    * Select the required languages ​​for the documentation - Selection of the languages ​​to be included in the documentation.
+* **Nieuws tonen van iobroker.net** - Geeft het paneel met het officiële nieuws van ioBroker weer.
+* **Toon de laatste forumbijdragen** - Geeft het paneel met de laatste forumvermeldingen weer.
+* **Feednami API Key** - Als u ioBroker belt met een hostnaam, zoals iobroker: 8081 of iets dergelijks, moet u zich gratis aanmelden bij Feednami om een ​​geschikte API-sleutel te krijgen. Dit is niet nodig voor toegang via een IP-adres.
 
-* Search Github for Unknown Adapters (Experts) - Displays the panel searching for unapproved adapters in the github.
-    * Sort Adapter by - Sorts the result of the search by name, creation date or last update.
-    * reverse order - reverses the order of the results.
-    * New adapters closed at startup - The panel with the unknown adapters is closed when starting the info window.
+* **Documentatie weergeven** - Geeft de knop voor de documentatie weer.
+    * **Selecteer de gewenste talen voor de documentatie** - Selectie van de talen die in de documentatie moeten worden opgenomen. (Mogelijk moet u op de naam rechts klikken om te selecteren wat - standaard -> taal instellen + engels)
 
-* Do not load current system data - The current system data is not loaded cyclically.
-    * Load CPU data every x seconds - The CPU data is cyclically loaded every 1 to 10 seconds. 0 is off.
-    * Load memory data every x seconds - The memory data are loaded cyclically every 1 to 10 seconds. 0 is off.
-    * Load disk data every x seconds - The hard disk data are loaded cyclically every 1 to 10 seconds. 0 is off.
-    * Load battery data every x seconds - Load the battery data cyclically every 1 to 10 seconds. 0 is off.
-    * Load network data every x seconds - Load network data cyclically every 1 to 10 seconds. 0 is off.
-    * Load process and user data every x seconds - Process and user data are loaded cyclically every 1 to 10 seconds. 0 is off.
+* **Github zoeken naar onbekende adapters (Experts)** - Geeft het paneel weer dat naar niet-goedgekeurde adapters zoekt in de github.
+    * **Sorteeradapter op** - Sorteert het resultaat van de zoekopdracht op naam, aanmaakdatum of laatste update.
+    * **omgekeerde volgorde** - keert de volgorde van de resultaten om.
+    * **Nieuwe adapters gesloten bij opstarten** - Het paneel met de onbekende adapters is gesloten bij het starten van het informatievenster.
 
-# Info Tab
+* **Laad geen systeemgegevens** - de huidige systeemgegevens zijn niet cyclisch geladen.
+    * **Laad CPU-gegevens elke x seconden** - De CPU-gegevens worden cyclisch elke 1 tot 10 seconden geladen. (0 is uitgeschakeld - standaard 3)
+    * **Geheugengegevens elke x seconden laden** - De geheugengegevens worden cyclisch elke 1 tot 10 seconden geladen. (0 is uitgeschakeld - standaard 3)
+    * **Schijfgegevens elke x seconden laden** - De gegevens op de harde schijf worden cyclisch elke 1 tot 10 seconden geladen. (0 is uitgeschakeld - standaard 8)
+    * **Laad de batterij elke x seconden in** - laad de batterijgegevens cyclisch elke 1 tot 10 seconden. (0 is uitgeschakeld - standaard 8)
+    * **Laad netwerkgegevens elke x seconden** - Laad netwerkgegevens cyclisch elke 1 tot 10 seconden. (0 is uitgeschakeld - standaard 3)
+    * **Laadproces en gebruikersgegevens elke x seconden** - Proces- en gebruikersgegevens worden cyclisch elke 1 tot 10 seconden geladen. (0 is uitgeschakeld - standaard 8)
 
-The information tab shows various information about your system and ioBroker. The tab is divided into different parts, which can be customized individually.
+Bij een Windows-systeem zou het cyclisch laden van de systeemgegevens niet te snel moeten gebeuren, omdat dit een aanzienlijke belasting van het systeem veroorzaakt. De standaardwaarden zijn geselecteerd om zonder problemen op de meeste systemen te worden uitgevoerd.
 
-## Clock
+# Info-tabblad
 
-The clock has no special function and can be switched off at any time in the configuration.
-<img height="200" src="img/clock.png">
+Het tabblad Info bevat verschillende informatie over uw systeem en de ioBroker. Het tabblad is onderverdeeld in verschillende blokken die kunnen worden aangepast. Bijna alle blokken kunnen worden geopend of geopend met één klik ![Expand / Expand Blocks](img/expand.png).
 
-## Messages
+## Klok
 
-<img height="200" src="img/messages.png">
+<img height="50" align="left" src="img/clock.png">
+De klok heeft geen speciale functie (maar ik heb me ingespannen) en kan op elk moment in de configuratie worden uitgeschakeld.
 
-### Messages (VIS-Widget)
+## Berichten
 
-## Documentation
+<img height="200" align="left" src="img/messages.png">
+Om snel belangrijke berichten over ioBroker naar de gebruiker te verzenden, is de mogelijkheid gecreëerd om berichten te maken. Deze berichten verschijnen ALLEEN als bepaalde voorwaarden van toepassing zijn. Er worden dus geen berichten weergegeven over een adapter als deze niet is geïnstalleerd. Dit zorgt ervoor dat ALLEEN de gebruikers worden gewaarschuwd, die ook door het probleem worden getroffen.
 
-<img height="200" src="img/documentation.png">
+De berichten kunnen met één klik worden gesloten, in de rechterbovenhoek van ![Bericht sluiten](img/close_message.png), maar ze verschijnen opnieuw zodra de infotab opnieuw is geladen, zolang het probleem aanhoudt.
+
+### Berichten (VIS-Widget)
+
+<img height="100" align="left" src="img/vis.png">
+Voor de berichten is een VIS-widget gemaakt, die ook alleen wordt weergegeven als de berichten betrekking hebben op de gebruiker. Als er geen berichten zijn, wordt er niets weergegeven, dus u hoeft geen extra ruimte op het VIS-oppervlak te hebben voor de berichten, maar eenvoudigweg. in het midden van het scherm.
+
+## Documentatie
+
+<img height="150" align="left" src="img/documentation.png">
+We hebben een lijst met belangrijke links samengesteld. Je kunt dit als een vervolgkeuzelijst vinden door op de knop rechtsboven "Documentatie" te klikken. Als de knop niet zichtbaar is, controleer dan of het overeenkomstige item in de configuratie is geselecteerd.
+
+De individuele links worden opgeslagen in verschillende categorieën: Community, Documentatie, Nieuws, Blog, Videoplaylist, Ontwikkeling en Overige
+
+Voor de juistheid en volledigheid van externe links kan geen garantie worden gegeven. Als links ontbreken of niet kloppen, stuur ons dan een e-mail.
 
 ## Updates
 
-<img height="200" src="img/updates.png">
+<img height="200" align="left" src="img/updates.png">
+Als er nieuwe versies van een adapter worden uitgebracht en u deze ook hebt geïnstalleerd, verschijnt deze in deze lijst.
 
-## New adapters
+Vanaf hier kunt u direct updaten met een klik op ![Update Button](img/update_button.png).
+Wanneer u met de muisaanwijzer ![Changelog-pictogram](img/changelog.png) gaat, ziet u de belangrijkste wijzigingen sinds uw release.
+Klik op ![Documentation](img/readme.png) om de volledige beschrijving van de adapter weer te geven.
 
-<img height="200" src="img/new_adapters.png">
+Als de host, oftewel JS-controller, is verouderd, verschijnt er een extra vak onder 'Nieuwe adapters' met het bericht dat u de host moet bijwerken.
 
-## System information
+## Nieuwe adapters
 
-<img height="200" src="img/systeminfo.png">
+<img height="200" align="right" src="img/new_adapters.png">
+Hier worden alle nieuwe en officieel vrijgegeven adapters van de afgelopen 60 dagen weergegeven.
 
-### System information (details)
+Vanaf hier kunt u de nieuwe adapter direct installeren door op ![Install Button](img/install_button.png) te klikken.
+Klik op ![Documentation](img/readme.png) om de volledige beschrijving van de adapter weer te geven.
 
-## Adapter requests
+<br>
 
-<img height="200" src="img/adapter_requests.png">
+## Systeem informatie
 
-## Issues and bugs
+<img height="200" align="left" src="img/systeminfo.png">
+De systeeminformatie van het ioBroker-systeem wordt hier weergegeven. In het geval van multi-host-systemen wordt natuurlijk ook de informatie van de andere hosts weergegeven. Deze gegevens komen van de js-controller.
 
-<img height="200" src="img/issues_bugs.png">
+De volgende informatie (per host) wordt gegeven als info:
 
-## ioBroker adapter on Github
+- Besturingssysteem (linux, win32, darwin, android, aix, freebsd, openbsd of sunos)
+- Architectuur (arm, arm64, ia32, mips, mipsel, ppc, ppc64, s390, s90x, x32 en x64)
+- CPU's (aantal kernen)
+- Snelheid (processorsnelheid)
+- Model (processormodel)
+- RAM (bij benadering totaal geheugen)
+- Werkingstijd systeem (hoe lang heeft het systeem gedraaid)
+- Node.js (De Node.js-versie - als deze nieuwer is of uw versie is verouderd, deze informatie staat hier ook)
+- NPM (NPM-versie)
+- Hardeschijfgrootte (grootte van de harde schijf waar ioBroker zich bevindt)
+- Vaste schijf vrij (hoeveel ruimte is nog beschikbaar)
+- aantal adapters (hoeveel adapters zijn tot nu toe vrijgegeven voor ioBroker)
+- Gebruikstijd (hoelang duurt de ioBroker zonder een herstart)
+- Actieve exemplaren (hoeveel adapter-instanties worden momenteel uitgevoerd op deze host)
+- hostnaam (naam van de host)
 
-<img height="200" src="img/adapter_search.png">
+```
+Als er informatie ontbreekt, moet een recente versie van de JS-controller worden geïnstalleerd.
+Dit is de dataset van de JS-Controller v1.5.7.
+```
 
-## News
+Als u op klikt ![Details systeemdetails](img/sysinfo_detail_button.png), wordt gedetailleerde informatie over het hoofdsysteem weergegeven.
 
-<img height="200" src="img/news.png">
+### Systeeminformatie (gedetailleerde weergave)
+
+Hier wordt veel informatie over het huissysteem weergegeven en opgeslagen als een object. Deze kunnen dan door u heel comfortabel worden gebruikt. De meeste gegevens worden alleen gelezen en opgeslagen wanneer de adapter voor het eerst wordt opgeladen, omdat deze niet zo gemakkelijk veranderen.
+
+Sommige gegevens worden ook cyclisch bijgewerkt. Hoe vaak dit gebeurt, kan worden ingesteld in de configuratie.
+
+Houd er rekening mee dat niet alle informatie beschikbaar is in elk besturingssysteem, wat ertoe kan leiden dat bepaalde informatie niet wordt weergegeven.
+
+#### Systeem
+
+Hier worden de hardwaregegevens weergegeven - moederbord, bios, case enz ...
+
+#### Software
+
+Software bevat gegevens over het besturingssysteem, geïnstalleerde software, actieve processen en ingelogde gebruikers.
+
+#### Centrale processor
+
+Hier kunt u gegevens vinden over de CPU, zoals snelheid, belasting en temperatuur.
+
+**Problemen met Windows:** wmic wordt gebruikt om de temperatuur van een Windows-systeem te detecteren. In sommige gevallen moet wmic worden uitgevoerd met beheerdersbevoegdheden. Dus als u geen waarden krijgt, probeer het dan opnieuw met de juiste rechten. Als u nog steeds geen waarden ontvangt, ondersteunt uw systeem deze functie mogelijk niet.
+
+**Problemen met Linux:** In sommige gevallen moet u het Linux-sensorpakket installeren om de temperatuur te meten, bijvoorbeeld op DEBIAN-gebaseerde systemen door te draaien:
+
+```
+$ sudo apt-get install lm-sensors
+```
+
+#### Hoofd geheugen
+
+Hier zijn alle gegevens naar het hoofdgeheugen zoals gratis geheugen of gegevens naar de RAM-balk.
+
+#### Harde schijven
+
+Alle gegevens op harde schijven, partities, raids en ROM's.
+
+**Problemen met Linux:** Om de S.M.A.R.T. te kunnen gebruiken. Om de Linux-status te zien, moet je de smartmontools installeren. Op DEBIAN-gebaseerde Linux-distributies, kunt u het als volgt installeren:
+
+```
+$ sudo apt-get install smartmontools
+```
+
+#### Grafisch
+
+Gegevens over de controller of monitor worden hier weergegeven, indien beschikbaar / ondersteund.
+
+#### Netwerk
+
+Alle gegevens over de netwerkverbindingen.
+
+#### Accu
+
+Alle gegevens over de batterij, indien aanwezig.
+
+**Problemen met Windows:** wmic wordt gebruikt om de batterijstatus van een Windows-systeem te detecteren. In sommige gevallen moet wmic worden uitgevoerd met beheerdersbevoegdheden. Dus als u geen waarden krijgt, probeer het dan opnieuw met de juiste rechten. Als u nog steeds geen waarden ontvangt, ondersteunt uw systeem deze functie mogelijk niet.
+
+## Adapterverzoeken
+
+<img height="200" align="left" src="img/adapter_requests.png">
+Alle adapterverzoeken waren als een probleem opgenomen in de github. Iedereen die iets wil, kan zijn wens hier invoeren en iedereen kan zich ontwikkelen, kan dan een probleem kiezen en er een adapter uit ontwikkelen.
+
+In deze lijst wordt een titel weergegeven en door te klikken op ![Uitvouwen / Uitvouwen blokken](img/expand.png), is meer gedetailleerde informatie zichtbaar. Bovenstaande links wanneer de wens is gemaakt, rechts de huidige status en hieronder een gedetailleerde beschrijving. Als een ontwikkelaar het verzoek heeft gekozen, wordt dit hier weergegeven als 'assined to'.
+
+Door te klikken op ![Link Button](img/link.png), kom je rechtstreeks bij Github en kun je daar je eigen wensen toevoegen.
+Als je op de titel van een wens klikt, beland je rechtstreeks op verzoek van Github en stem je ervoor. Wensen met veel stemmen hebben natuurlijk de voorkeur.
+
+Het paneel "Adapteraanvragen" kan tijdens het laden worden verborgen in de configuratie of worden weergegeven in de gesloten toestand.
+
+## Problemen en bugs
+
+<img height="200" align="left" src="img/issues_bugs.png">
+Natuurlijk zijn geen adapters foutloos en sommige gebruikers hebben ook ideeën voor uitbreiding. Alles wat bekend is over de geïnstalleerde adapters wordt hier verzameld. Je kunt deze lijst ook gebruiken om te achterhalen of een bug die je net hebt gevonden ook bekend is bij de ontwikkelaar, omdat alleen bekende bugs kunnen worden opgelost.
+
+Klik op ![Expand / Expand Blocks](img/expand.png), rechts van de naam van de adapter, opent de lijst met bekende problemen / verzoeken. Deze kunnen ook worden geopend, waar u dan een gedetailleerde beschrijving zult vinden.
+
+Als u op de naam van de adapter klikt, kunt u rechtstreeks naar de lijst met problemen op Github gaan en mogelijk een nieuwe fout invoeren of uitbreiden.
+Als u op de titel van een probleem klikt, komt u rechtstreeks met het bericht op Github en kunt u de ontwikkelaar desgewenst meer informatie geven, als commentaar achterlaten.
+
+Het venster "Problemen en fouten" kan worden verborgen in de configuratie of in gesloten toestand worden weergegeven tijdens het laden.
+
+## ioBroker-adapter op Github
+
+<img height="200" align="left" src="img/adapter_search.png">
+Het aantal officiële adapters voor ioBroker is al aanzienlijk. Natuurlijk zijn er veel meer adapters beschikbaar op het net. Deze worden hier doorzocht en weergegeven.
+
+Als u het paneel opent met een klik op ![Expand / expand blocks](img/expand.png), wordt hier de volledige beschrijving van de adapter weergegeven.
+
+Het "ioBroker-adapter op Github" -paneel kan worden verborgen in de configuratie of in gesloten toestand worden weergegeven tijdens het laden. U kunt ook de volgorde van sorteren aanpassen.
+
+```
+KIJK UIT!!! Deze adapters bevinden zich mogelijk nog in een zeer vroeg stadium van ontwikkeling.
+Deze mogen niet op een productiesysteem worden geïnstalleerd.
+Elke installatie is op eigen risico!
+```
+
+## Nieuws
+
+<img height="200" align="left" src="img/news.png">
+Af en toe wordt officieel nieuws van het ioBroker-team gepubliceerd. Hier worden ze weergegeven.
+
+Klik op ![Link](img/link.png) om direct naar de officiële ioBroker-pagina te gaan.
+
+Het nieuws wordt zonder problemen weergegeven bij toegang tot ioBroker via IP of localhost:8081. Maar als u een hostnaam zoals meinhaus.de:8081 gebruikt, moet u een gratis API-sleutel krijgen bij Feednami. Om te registreren, klik [hier](https://toolkit.sekando.com/docs/en/setup/hostnames) en volg de instructies.
 
 ## Forum
 
-<img height="200" src="img/forum.png">
+<img height="200" align="right" src="img/forum.png">
+Hier worden de laatste vermeldingen van het forum in de geselecteerde taal weergegeven. Als er geen forum in de taal is, worden de gegevens weergegeven op het Engelse forum.
+
+Klik op ![Link](img/link.png) om direct naar het forum te gaan.
+
+Forum-vermeldingen worden zonder problemen weergegeven wanneer ioBroker wordt benaderd via IP of localhost:8081. Maar als u een hostnaam zoals meinhaus.de:8081 gebruikt, moet u een gratis API-sleutel krijgen bij Feednami. Om te registreren, klik [hier](https://toolkit.sekando.com/docs/en/setup/hostnames) en volg de instructies.

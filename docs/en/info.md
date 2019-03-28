@@ -233,4 +233,4 @@ Here the latest entries of the forum are displayed in the selected language. If 
 
 Click on ![Link](img/link.png) to get directly to the forum.
 
-Forum entries will be displayed without problems when accessing ioBroker via IP or localhost: 8081. But if you use a hostname like meinhaus.de:8081, you have to get a free API key at Feednami. To register, click [here](https://toolkit.sekando.com/docs/en/setup/hostnames) and follow the instructions.
+Forum entries will be displayed without problems when accessing ioBroker via IP or localhost:8081. But if you use a hostname like meinhaus.de:8081, you have to get a free API key at Feednami. To register, click [here](https://toolkit.sekando.com/docs/en/setup/hostnames) and follow the instructions.
