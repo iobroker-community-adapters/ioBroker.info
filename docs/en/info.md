@@ -80,7 +80,7 @@ From here you can directly update with a click on ![Update Button](img/update_bu
 When you mouse over ![Changelog Icon] (img/changelog.png), you'll see the most important changes since your release.
 Click on ![Documentation](img/readme.png) to display the complete description of the adapter.
 
-If the host - ie JS controller - is outdated, then an extra box appears below "New adapters" with the message that you should update the host.
+If the host - ie JS-Controller - is outdated, then an extra box appears below "New adapters" with the message that you should update the host.
 
 ## New adapters
 
@@ -117,7 +117,7 @@ The following information (per host) is provided as info:
 
 ```
 If any information is missing, then a recent version of the JS controller should be installed.
-This is the dataset of the JS controller v1.5.7.
+This is the dataset of the JS-Controller v1.5.7.
 ```
 
 Clicking on ![System Details Detail View](img/sysinfo_detail_button.png) displays detailed information about the main system.
@@ -224,7 +224,7 @@ Every now and then, official news from the ioBroker team will be published. Here
 
 Click on ![Link](img/link.png) to get directly to the official ioBroker page.
 
-The news is displayed without any problems when accessing ioBroker via IP or localhost: 8081. But if you use a hostname like meinhaus.de:8081, you have to get a free API key at Feednami. To register, click [here](https://toolkit.sekando.com/docs/en/setup/hostnames) and follow the instructions.
+The news is displayed without any problems when accessing ioBroker via IP or localhost:8081. But if you use a hostname like meinhaus.de:8081, you have to get a free API key at Feednami. To register, click [here](https://toolkit.sekando.com/docs/en/setup/hostnames) and follow the instructions.
 
 ## Forum
 
