@@ -100,7 +100,7 @@ The system information of the ioBroker system is displayed here. In the case of 
 The following information (per host) is provided as info:
 
 - Operating system (linux, win32, darwin, android, aix, freebsd, openbsd or sunos)
-- Architecture (poor, arm64, ia32, mips, mipsel, ppc, ppc64, s390, s90x, x32 and x64)
+- Architecture (arm, arm64, ia32, mips, mipsel, ppc, ppc64, s390, s90x, x32 and x64)
 - CPUs (number of cores)
 - Speed (processor speed)
 - Model (processor model)
