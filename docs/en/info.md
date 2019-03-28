@@ -95,7 +95,7 @@ Click on ![Documentation](img/readme.png) to display the complete description of
 ## System information
 
 <img height="200" align="left" src="img/systeminfo.png">
-The system information of the ioBroker system is displayed here. In the case of multi-host systems, of course, the information of the other hosts is also displayed. These data come from the js controller.
+The system information of the ioBroker system is displayed here. In the case of multi-host systems, of course, the information of the other hosts is also displayed. These data come from the JS-Controller.
 
 The following information (per host) is provided as info:
 
@@ -116,7 +116,7 @@ The following information (per host) is provided as info:
 - host name (name of the host)
 
 ```
-If any information is missing, then a recent version of the JS controller should be installed.
+If any information is missing, then a recent version of the JS-Controller should be installed.
 This is the dataset of the JS-Controller v1.5.7.
 ```
 

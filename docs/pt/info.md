@@ -1,88 +1,236 @@
 # Admin
 
-The Info Adapter was developed to provide various information about the system, about ioBroker and relevant topics to the user. The user should get an overview of all interesting and important data and the ioBroker team will be given the opportunity to contact the user even faster, if important information is available.
+O Info Adapter foi desenvolvido para fornecer várias informações sobre o sistema, sobre o ioBroker e tópicos relevantes para o usuário. O usuário deve obter uma visão geral de todos os dados interessantes e importantes, e a equipe do ioBroker terá a oportunidade de entrar em contato com o usuário ainda mais rapidamente, se houver informações importantes disponíveis.
 
-# Installation
+# Instalação
 
-In order to see the info window in the Tab tab, you must first check it as Visible in the Admin after installation. To do this, click on the left-hand triangle in the upper left corner of the Admin window and select "Info" in the menu.
+<img height="80" align="left" src="img/install.png">
+Para ver a janela de informações na guia Guia, você deve primeiro verificar como Visível no Admin após a instalação. Para fazer isso, clique no triângulo à esquerda no canto superior esquerdo da janela Admin e selecione "Info" no menu.
 
 # Configuration
 
-* Do not show clock - To hide the clock on the top left.
-* Show adapter requests - Displays the panel with the adapter requests.
-    * Adapter requests closed at startup - The panel with the adapter requests is closed when the Info window starts.
-* View known errors - Displays the panel with known errors and requests for installed adapters.
-    * Known errors at startup closed - The panel with the known errors is closed when starting the info window.
+<p align="center">
+    <img height="300" align="right" src="img/config.png">
+</p>
 
-* Show News from iobroker.net - Displays the panel with the official ioBroker news.
-* Show the latest forum entries - Displays the panel with the last forum entries.
-* Feednami API Key - If you call ioBroker using a host name, such as iobroker: 8081 or something like that, you need to sign up for free at Feednami to get an appropriate API key. This is not necessary for access via an IP address.
+* **Não mostrar relógio** - Para ocultar o relógio no canto superior esquerdo.
+* **Mostrar solicitações do adaptador** - Exibe o painel com as solicitações do adaptador.
+    * **Solicitações de adaptador fechadas na inicialização** - O painel com as solicitações do adaptador é fechado quando a janela Informações é iniciada.
+* **Exibir erros conhecidos** - Exibe o painel com erros conhecidos e solicitações de adaptadores instalados.
+    * **Erros conhecidos na inicialização fechados** - O painel com os erros conhecidos é fechado ao iniciar a janela de informações.
 
-* Show documentation - Displays the button for the documentation.
-    * Select the required languages ​​for the documentation - Selection of the languages ​​to be included in the documentation.
+* **Show News from iobroker.net** - Exibe o painel com as notícias oficiais do ioBroker.
+* **Mostrar as entradas mais recentes do fórum** - Exibe o painel com as últimas entradas do fórum.
+* **Feednami API Key** - Se você chamar o ioBroker usando um nome de host, como o iobroker:8081 ou algo assim, você precisa se cadastrar gratuitamente no Feednami para obter uma chave de API apropriada. Isso não é necessário para o acesso por meio de um endereço IP.
 
-* Search Github for Unknown Adapters (Experts) - Displays the panel searching for unapproved adapters in the github.
-    * Sort Adapter by - Sorts the result of the search by name, creation date or last update.
-    * reverse order - reverses the order of the results.
-    * New adapters closed at startup - The panel with the unknown adapters is closed when starting the info window.
+* **Mostrar documentação** - Exibe o botão da documentação.
+    * **Selecione os idiomas necessários para a documentação** - Seleção dos idiomas a serem incluídos na documentação. (Você pode ter que clicar no nome à direita para selecionar what - default -> set language + inglês)
 
-* Do not load current system data - The current system data is not loaded cyclically.
-    * Load CPU data every x seconds - The CPU data is cyclically loaded every 1 to 10 seconds. 0 is off.
-    * Load memory data every x seconds - The memory data are loaded cyclically every 1 to 10 seconds. 0 is off.
-    * Load disk data every x seconds - The hard disk data are loaded cyclically every 1 to 10 seconds. 0 is off.
-    * Load battery data every x seconds - Load the battery data cyclically every 1 to 10 seconds. 0 is off.
-    * Load network data every x seconds - Load network data cyclically every 1 to 10 seconds. 0 is off.
-    * Load process and user data every x seconds - Process and user data are loaded cyclically every 1 to 10 seconds. 0 is off.
+* **Search Github for Unknown Adapters (Experts)** - Exibe o painel procurando por adaptadores não aprovados no github.
+    * **Sort Adapter by** - Ordena o resultado da pesquisa por nome, data de criação ou última atualização.
+    * **ordem inversa** - inverte a ordem dos resultados.
+    * **Novos adaptadores fechados na inicialização** - O painel com os adaptadores desconhecidos é fechado ao iniciar a janela de informações.
 
-# Info Tab
+* **Não carrega dados atuais do sistema** - Os dados atuais do sistema não são carregados ciclicamente.
+    * **Carregar dados da CPU a cada x segundos** - Os dados da CPU são carregados ciclicamente a cada 1 a 10 segundos. (0 está desativado - padrão 3)
+    * **Carregar dados de memória a cada x segundos** - Os dados da memória são carregados ciclicamente a cada 1 a 10 segundos. (0 está desativado - padrão 3)
+    * **Carregar dados do disco a cada x segundos** - Os dados do disco rígido são carregados ciclicamente a cada 1 a 10 segundos. (0 está desativado - padrão 8)
+    * **Carregue os dados da bateria a cada x segundos** - Carregue os dados da bateria ciclicamente a cada 1 a 10 segundos. (0 está desativado - padrão 8)
+    * **Carregue os dados da rede a cada x segundos** - Carregue os dados da rede ciclicamente a cada 1 a 10 segundos. (0 está desativado - padrão 3)
+    * **Carregar dados do processo e do usuário a cada x segundos** - Os dados do processo e do usuário são carregados ciclicamente a cada 1 a 10 segundos. (0 está desativado - padrão 8)
 
-The information tab shows various information about your system and ioBroker. The tab is divided into different parts, which can be customized individually.
+Com o sistema Windows, o carregamento cíclico dos dados do sistema não deve acontecer muito rápido, porque isso causa uma carga considerável no sistema. Os valores padrão foram selecionados para serem executados sem problemas na maioria dos sistemas.
 
-## Clock
+# Guia de informações
 
-The clock has no special function and can be switched off at any time in the configuration.
-<img height="200" src="img/clock.png">
+A guia Informações contém várias informações sobre o seu sistema e o ioBroker. A guia é dividida em diferentes blocos que podem ser personalizados. Quase todos os blocos podem ser abertos ou abertos com um clique ![Expandir / Expandir Blocos](img/expand.png).
+
+## Relógio
+
+<img height="50" align="left" src="img/clock.png">
+O relógio não tem função especial (mas fiz um esforço) e pode ser desligado a qualquer momento na configuração.
 
 ## Messages
 
-<img height="200" src="img/messages.png">
+<img height="200" align="left" src="img/messages.png">
+Para enviar rapidamente mensagens importantes relativas ao ioBroker para o usuário, a possibilidade foi criada para criar mensagens. Essas mensagens aparecem APENAS se certas condições se aplicarem. Portanto, nenhuma mensagem é exibida sobre um adaptador, se ele não estiver instalado. Isso garante que SOMENTE os usuários sejam avisados, que também são afetados pelo problema.
+
+As mensagens podem ser fechadas com um clique, no canto superior direito de ![Fechar mensagem](img/close_message.png), mas elas aparecem novamente assim que a guia de informações é recarregada, contanto que o problema persista.
 
 ### Messages (VIS-Widget)
 
+<img height="100" align="left" src="img/vis.png">
+Para as mensagens, foi criado um widget VIS, que também aparece apenas se as mensagens forem do usuário. Se não houver mensagens, nada será exibido, portanto, você não precisa de espaço extra na superfície VIS para as mensagens, mas simplesmente isso. no meio da tela.
+
 ## Documentation
 
-<img height="200" src="img/documentation.png">
+<img height="150" align="left" src="img/documentation.png">
+Reunimos uma lista de links importantes. Você pode encontrá-lo como uma lista suspensa clicando no botão no canto superior direito "Documentação". Se o botão não estiver visível, verifique se o item correspondente na configuração está marcado.
 
-## Updates
+Os links individuais são armazenados em diferentes categorias: Comunidade, Documentação, Notícias, Blog, Playlist de Vídeo, Desenvolvimento e Outros.
 
-<img height="200" src="img/updates.png">
+Para a correção e integridade dos links externos, nenhuma garantia pode ser dada. Se os links estiverem faltando ou incorretos, envie-nos um e-mail.
 
-## New adapters
+## Atualizações
 
-<img height="200" src="img/new_adapters.png">
+<img height="200" align="left" src="img/updates.png">
+Se novas versões de um adaptador forem lançadas e você também o tiver instalado, ele aparecerá nesta lista.
 
-## System information
+A partir daqui você pode atualizar diretamente com um clique ![Botão Update](img/update_button.png).
+Quando você passar o mouse sobre ![Ícone do Changelog](img/changelog.png), você verá as mudanças mais importantes desde o seu lançamento.
+Clique em ![Documentação](img/readme.png) para exibir a descrição completa do adaptador.
 
-<img height="200" src="img/systeminfo.png">
+Se o host - ou seja, o JS-Controller - estiver desatualizado, uma caixa extra aparecerá abaixo de "Novos adaptadores" com a mensagem de que você deve atualizar o host.
 
-### System information (details)
+## Novos adaptadores
 
-## Adapter requests
+<img height="200" align="right" src="img/new_adapters.png">
+Aqui todos os adaptadores novos e oficialmente liberados dos últimos 60 dias são exibidos.
 
-<img height="200" src="img/adapter_requests.png">
+A partir daqui você pode instalar diretamente o novo adaptador clicando em ![Install Button](img/install_button.png).
+Clique em ![Documentação](img/readme.png) para exibir a descrição completa do adaptador.
 
-## Issues and bugs
+<br>
 
-<img height="200" src="img/issues_bugs.png">
+## Informação do sistema
 
-## ioBroker adapter on Github
+<img height="200" align="left" src="img/systeminfo.png">
+As informações do sistema do sistema ioBroker são exibidas aqui. No caso de sistemas multi-host, é claro, as informações dos outros hosts também são exibidas. Esses dados vêm do JS-Controller.
 
-<img height="200" src="img/adapter_search.png">
+As seguintes informações (por host) são fornecidas como informações:
 
-## News
+- Sistema operacional (linux, win32, darwin, android, aix, freebsd, openbsd ou sunos)
+- Arquitetura (arm, arm64, ia32, mips, mipsel, ppc, ppc64, s390, s90x, x32 e x64)
+- CPUs (número de núcleos)
+- Velocidade (velocidade do processador)
+- Modelo (modelo do processador)
+- RAM (memória total aproximada)
+- Tempo de operação do sistema (há quanto tempo o sistema está em execução)
+- Node.js (A versão do Node.js - se é mais recente ou a sua versão está desatualizada, esta informação também está aqui)
+- NPM (versão NPM)
+- Tamanho do disco rígido (tamanho do disco rígido onde o ioBroker está localizado)
+- Disco rígido livre (quanto espaço ainda está disponível)
+- número de adaptadores (quantos adaptadores foram lançados para o ioBroker até agora)
+- Tempo de operação (quanto tempo o ioBroker roda sem reiniciar)?
+- Instâncias ativas (quantas instâncias do adaptador estão atualmente em execução neste host)
+- nome do host (nome do host)
 
-<img height="200" src="img/news.png">
+```
+Se alguma informação estiver faltando, uma versão recente do JS-Controller deverá ser instalada.
+Este é o conjunto de dados do JS-Controller v1.5.7.
+```
 
-## Forum
+Clicar em ![Visualização Detalhada de Detalhes do Sistema](img/sysinfo_detail_button.png) exibe informações detalhadas sobre o sistema principal.
 
-<img height="200" src="img/forum.png">
+### Informações do sistema (visão detalhada)
+
+Aqui, muitas informações sobre o sistema da casa são exibidas e armazenadas como um objeto. Estes podem então ser usados ​​por você confortavelmente. A maioria dos dados é somente lida e salva quando o adaptador é carregado pela primeira vez, já que eles não são alterados tão facilmente.
+
+Alguns dados também são atualizados ciclicamente. Quantas vezes isso acontece pode ser definido na configuração.
+
+Tenha em mente que nem todas as informações estão disponíveis em todos os sistemas operacionais, o que pode resultar em algumas informações não sendo exibidas.
+
+#### Sistema
+
+Aqui os dados do hardware são exibidos - motherboard, bios, case etc ...
+
+#### Programas
+
+O software inclui dados sobre o sistema operacional, software instalado, processos em execução e usuários conectados.
+
+#### Processador central
+
+Aqui você pode encontrar dados sobre a CPU, como velocidade, carga e temperatura.
+
+**Problemas com o Windows:** wmic é usado para detectar a temperatura de um sistema Windows. Em alguns casos, o wmic precisa ser executado com privilégios de administrador. Portanto, se você não obtiver nenhum valor, tente executá-lo novamente com as permissões apropriadas. Se você ainda não obtiver nenhum valor, seu sistema pode não suportar esse recurso.
+
+**Problemas com o Linux:** Em alguns casos, você precisa instalar o pacote do sensor Linux para medir a temperatura, por exemplo, em sistemas baseados em DEBIAN executando:
+
+```
+$ sudo apt-get install lm-sensors
+```
+
+#### Memória principal
+
+Aqui estão todos os dados para a memória principal, como memória livre ou dados para a barra de RAM.
+
+#### Discos rígidos
+
+Todos os dados em discos rígidos, partições, invasões e ROMs.
+
+**Problemas com o Linux:** Para poder usar o S.M.A.R.T. Para ver o status do Linux, você precisa instalar o smartmontools. Em distribuições Linux baseadas em DEBIAN, você pode instalá-lo fazendo o seguinte:
+
+```
+$ sudo apt-get install smartmontools
+```
+
+#### Graphic
+
+Os dados sobre o controlador ou monitor são exibidos aqui, se disponíveis / suportados.
+
+#### Network
+
+Todos os dados sobre as conexões de rede.
+
+#### Battery
+
+Todos os dados sobre a bateria, se houver.
+
+**Problemas com o Windows:** O wmic é usado para detectar o status da bateria de um sistema Windows. Em alguns casos, o wmic precisa ser executado com privilégios de administrador. Portanto, se você não obtiver nenhum valor, tente executá-lo novamente com as permissões apropriadas. Se você ainda não obtiver nenhum valor, seu sistema pode não suportar esse recurso.
+
+## Solicitações de adaptadores
+
+<img height="200" align="left" src="img/adapter_requests.png">
+Todas as solicitações do adaptador foram incluídas no github como um problema. Qualquer um que deseje algo, pode inserir seu desejo aqui e qualquer um pode desenvolver, pode então escolher um problema e desenvolver um adaptador a partir dele.
+
+Nesta listagem, um título será exibido e clicando em ![Expandir / Expandir Blocos](img/expand.png), informações mais detalhadas ficarão visíveis. Acima links quando o desejo foi criado, certo o status atual e abaixo uma descrição detalhada. Se um desenvolvedor tiver escolhido a solicitação, ela será listada aqui como "definida para".
+
+Ao clicar em ![Button Link](img/link.png), você vem diretamente para o Github e pode adicionar seus próprios desejos lá.
+Se você clicar no título de um desejo, você pode entrar diretamente no pedido do Github e pode votar nele. Desejos com muitos votos são obviamente preferidos.
+
+O painel "Solicitações do adaptador" pode estar oculto na configuração ou exibido no estado fechado durante o carregamento.
+
+## Problemas e erros
+
+<img height="200" align="left" src="img/issues_bugs.png">
+Naturalmente, nenhum adaptador é livre de erros e alguns usuários também podem ter ideias de expansão. Tudo o que é conhecido sobre os adaptadores instalados é coletado aqui. Você também pode usar essa lista para descobrir se um bug que você acabou de encontrar também é conhecido pelo desenvolvedor, porque somente erros conhecidos podem ser corrigidos.
+
+Clique em ![Expand / Expand Blocks](img/expand.png), à direita do nome do adaptador, será aberta a lista de problemas / solicitações conhecidos. Estes também podem ser abertos, onde você encontrará uma descrição detalhada.
+
+Se você clicar no nome do adaptador, poderá ir diretamente para a lista de problemas no Github e possivelmente inserir um novo erro ou desejar expandir.
+Se você clicar no título de um problema, acabará diretamente com a mensagem no Github e poderá fornecer ao desenvolvedor mais informações, deixe como comentário.
+
+O painel "Problemas e erros" pode estar oculto na configuração ou exibido no estado fechado durante o carregamento.
+
+## Adaptador ioBroker no Github
+
+<img height="200" align="left" src="img/adapter_search.png">
+O número de adaptadores oficiais para o ioBroker já é considerável. Claro, existem muitos mais adaptadores disponíveis na rede. Estes são pesquisados ​​e exibidos aqui.
+
+Se você abrir o painel com um clique ![Expandir / expandir blocos](img/expand.png), a descrição completa do adaptador será exibida aqui.
+
+O painel "Adaptador ioBroker no Github" pode estar oculto na configuração ou exibido no estado fechado durante o carregamento. Você também pode ajustar a ordem de classificação.
+
+```
+CUIDADO!!! Esses adaptadores podem estar em um estágio muito inicial de desenvolvimento.
+Estes não devem ser instalados em um sistema de produção.
+Cada instalação é por sua conta e risco!
+```
+
+## Notícia
+
+<img height="200" align="left" src="img/news.png">
+De vez em quando, as notícias oficiais da equipe do ioBroker serão publicadas. Aqui eles serão exibidos.
+
+Clique em ![Link](img/link.png) para ir diretamente para a página oficial do ioBroker.
+
+A notícia é exibida sem problemas ao acessar o ioBroker via IP ou localhost:8081. Mas se você usar um nome de host como meinhaus.de:8081, você precisa obter uma chave de API gratuita na Feednami. Para se registrar, clique [aqui](https://toolkit.sekando.com/docs/en/setup/hostnames) e siga as instruções.
+
+## Fórum
+
+<img height="200" align="right" src="img/forum.png">
+Aqui, as entradas mais recentes do fórum são exibidas no idioma selecionado. Se não houver fórum no idioma, os dados serão exibidos no fórum em inglês.
+
+Clique em ![Link](img/link.png) para ir diretamente ao fórum.
+
+As entradas do fórum serão exibidas sem problemas ao acessar o ioBroker via IP ou localhost:8081. Mas se você usar um nome de host como meinhaus.de:8081, você precisa obter uma chave de API gratuita na Feednami. Para se registrar, clique [aqui](https://toolkit.sekando.com/docs/en/setup/hostnames) e siga as instruções.
