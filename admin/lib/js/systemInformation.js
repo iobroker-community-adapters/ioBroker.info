@@ -148,21 +148,7 @@ const infoCharts = {
 };
 
 function startSysinfo() {
-    socket.on('stateChange', function (id, obj) {
-        if (id === "info.0.sysinfo.os.users") {
-            const list = JSON.parse(obj.val);
-            processUsersList(list);
-        } else if (id === "info.0.sysinfo.os.processes.list") {
-            const list = JSON.parse(obj.val);
-            processProcessesList(list);
-        } else {
-            const loadID = id.replace(/./g, '_') + "_data";
-            const toReplace = $('#' + loadID);
-            if (toReplace.length > 0) {
-                toReplace.text(obj.val);
-            }
-        }
-    });
+
 }
 
 const systemInformations = {
@@ -189,6 +175,7 @@ const systemInformations = {
                 });
             }
         });
+        systemInformations.startListening();
     },
     writeData: function (obj) {
         if (obj.systype === "os" && obj.name === "logofile") {
@@ -213,6 +200,23 @@ const systemInformations = {
             const row = "<dt>" + _(obj.systype + "." + obj.name) + "</dt><dd id='info_0_sysinfo_" + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '') + "_" + obj.name + "_data'>" + (formatInfo[obj.systype + "." + obj.name] ? formatInfo[obj.systype + "." + obj.name](obj.value) : obj.value) + "</dd>";
             $('#sys_info_' + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '')).append($(row));
         }
+    },
+    startListening: function () {
+        socket.on('stateChange', function (id, obj) {
+            if (id === "info.0.sysinfo.os.users") {
+                const list = JSON.parse(obj.val);
+                processUsersList(list);
+            } else if (id === "info.0.sysinfo.os.processes.list") {
+                const list = JSON.parse(obj.val);
+                processProcessesList(list);
+            } else {
+                const loadID = id.replace(/./g, '_') + "_data";
+                const toReplace = $('#' + loadID);
+                if (toReplace.length > 0) {
+                    toReplace.text(obj.val);
+                }
+            }
+        });
     }
 };
 
