@@ -179,6 +179,7 @@ $(function () {
             systemInformations.getData();
 
         } else {
+            socket.emit('unsubscribe', 'info.0.*');
             startClock("stop");
         }
 

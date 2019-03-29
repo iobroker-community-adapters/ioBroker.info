@@ -147,6 +147,24 @@ const infoCharts = {
     }
 };
 
+function startSysinfo() {
+    socket.on('stateChange', function (id, obj) {
+        if (id === "info.0.sysinfo.os.users") {
+            const list = JSON.parse(obj.val);
+            processUsersList(list);
+        } else if (id === "info.0.sysinfo.os.processes.list") {
+            const list = JSON.parse(obj.val);
+            processProcessesList(list);
+        } else {
+            const loadID = id.replace(/./g, '_') + "_data";
+            const toReplace = $('#' + loadID);
+            if (toReplace.length > 0) {
+                toReplace.text(obj.val);
+            }
+        }
+    });
+}
+
 const systemInformations = {
     getData: function () {
         socket.emit('getForeignStates', 'info.0.sysinfo.*', function (err, res) {
@@ -180,44 +198,13 @@ const systemInformations = {
         } else if (obj.syssubtype === "processes") {
             if (obj.name === "list") {
                 const list = JSON.parse(obj.value);
-                list.forEach(function (data) {
-                    let row = "<tr id='tr_process_" + data.pid + "'>";
-                    row += "<td>" + data.pid + "</td>";
-                    row += "<td>" + data.parentPid + "</td>";
-                    row += "<td>" + data.name + "</td>";
-                    row += "<td>" + formatter.formatPercent2Digits(data.pcpu) + "</td>";
-                    row += "<td>" + formatter.formatPercent2Digits(data.pcpuu) + "</td>";
-                    row += "<td>" + formatter.formatPercent2Digits(data.pcpus) + "</td>";
-                    row += "<td>" + formatter.formatPercent2Digits(data.pmem) + "</td>";
-                    row += "<td>" + data.priority + "</td>";
-                    row += "<td>" + formatter.formatByte(data.mem_vsz) + "</td>";
-                    row += "<td>" + formatter.formatByte(data.mem_rss) + "</td>";
-                    row += "<td>" + data.nice + "</td>";
-                    row += "<td>" + data.started + "</td>";
-                    row += "<td>" + _(data.state) + "</td>";
-                    row += "<td>" + data.tty + "</td>";
-                    row += "<td>" + data.user + "</td>";
-                    row += "<td>" + data.command + "</td>";
-                    row += "</tr>";
-                    $('#info_0_sysinfo_os_processes_list_data').append($(row));
-                });
-
+                processProcessesList(list);
             } else {
                 $('#info_0_sysinfo_os_processes_' + obj.name + '_data').text(obj.value);
             }
         } else if (obj.systype === "os" && obj.name === "users") {
             const list = JSON.parse(obj.value);
-            list.forEach(function (data) {
-                let row = "<tr id='tr_user_" + data.user + "'>";
-                row += "<td>" + data.user + "</td>";
-                row += "<td>" + data.tty + "</td>";
-                row += "<td>" + data.date + "</td>";
-                row += "<td>" + data.time + "</td>";
-                row += "<td>" + data.ip + "</td>";
-                row += "<td>" + data.command + "</td>";
-                row += "</tr>";
-                $('#info_0_sysinfo_os_users_data').append($(row));
-            });
+            processUsersList(list);
         } else {
             if (obj.device && $("#sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device).length === 0) {
                 const dl = "<h3 id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "_devicename'>" + obj.device + "</h3><dl class='dl-horizontal dl-lg' id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "'></dl>";
@@ -228,4 +215,42 @@ const systemInformations = {
         }
     }
 };
+
+function processProcessesList(list) {
+    list.forEach(function (data) {
+        let row = "<tr id='tr_process_" + data.pid + "'>";
+        row += "<td>" + data.pid + "</td>";
+        row += "<td>" + data.parentPid + "</td>";
+        row += "<td>" + data.name + "</td>";
+        row += "<td>" + formatter.formatPercent2Digits(data.pcpu) + "</td>";
+        row += "<td>" + formatter.formatPercent2Digits(data.pcpuu) + "</td>";
+        row += "<td>" + formatter.formatPercent2Digits(data.pcpus) + "</td>";
+        row += "<td>" + formatter.formatPercent2Digits(data.pmem) + "</td>";
+        row += "<td>" + data.priority + "</td>";
+        row += "<td>" + formatter.formatByte(data.mem_vsz) + "</td>";
+        row += "<td>" + formatter.formatByte(data.mem_rss) + "</td>";
+        row += "<td>" + data.nice + "</td>";
+        row += "<td>" + data.started + "</td>";
+        row += "<td>" + _(data.state) + "</td>";
+        row += "<td>" + data.tty + "</td>";
+        row += "<td>" + data.user + "</td>";
+        row += "<td>" + data.command + "</td>";
+        row += "</tr>";
+        $('#info_0_sysinfo_os_processes_list_datas').append($(row));
+    });
+}
+
+function processUsersList(list) {
+    list.forEach(function (data) {
+        let row = "<tr id='tr_user_" + data.user + "'>";
+        row += "<td>" + data.user + "</td>";
+        row += "<td>" + data.tty + "</td>";
+        row += "<td>" + data.date + "</td>";
+        row += "<td>" + data.time + "</td>";
+        row += "<td>" + data.ip + "</td>";
+        row += "<td>" + data.command + "</td>";
+        row += "</tr>";
+        $('#info_0_sysinfo_os_users_datas').append($(row));
+    });
+}
 

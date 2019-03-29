@@ -68,16 +68,16 @@ const formatter = {
         return mm + " mm";
     }, formatMb: function (mb) {
         return mb + " MB";
-    }, formatBoolean: function (bool){
-        if(true === bool || "true" === bool){
+    }, formatBoolean: function (bool) {
+        if (true === bool || "true" === bool) {
             return "<i class='fa fa-check text-success' aria-hidden='true'></i>";
-        }else if(false === bool || "false" === bool){
+        } else if (false === bool || "false" === bool) {
             return "<i class='fa fa-times text-danger' aria-hidden='true'></i>";
         }
         return bool;
-    }, formatArrayGhz: function(array){
+    }, formatArrayGhz: function (array) {
         let result = "";
-        array.forEach(function(item){
+        array.forEach(function (item) {
             result += "[" + item + " GHz] ";
         });
         return result;
@@ -221,9 +221,44 @@ $(function () {
         });
     });
 
+
     $(document.body).on('click', '#show-system-details', function () {
         $('#modal-system').modal();
     });
+    $('a[href="#sys_info_tab_os"]').on('show.bs.tab', function (e) {
+        socket.emit('subscribe', 'info.0.sysinfo.os.*');
+    });
+    $('a[href="#sys_info_tab_os"]').on('hide.bs.tab', function (e) {
+        socket.emit('unsubscribe', 'info.0.sysinfo.os.*');
+    });
+    $('a[href="#sys_info_tab_cpu"]').on('show.bs.tab', function (e) {
+        socket.emit('subscribe', 'info.0.sysinfo.cpu.*');
+    });
+    $('a[href="#sys_info_tab_cpu"]').on('hide.bs.tab', function (e) {
+        socket.emit('unsubscribe', 'info.0.sysinfo.cpu.*');
+    });
+    $('a[href="#sys_info_tab_memory"]').on('show.bs.tab', function (e) {
+        socket.emit('subscribe', 'info.0.sysinfo.memory.*');
+    });
+    $('a[href="#sys_info_tab_memory"]').on('hide.bs.tab', function (e) {
+        socket.emit('unsubscribe', 'info.0.sysinfo.memory.*');
+    });
+    $('a[href="#sys_info_tab_disks"]').on('show.bs.tab', function (e) {
+        socket.emit('subscribe', 'info.0.sysinfo.disks.*');
+    });
+    $('a[href="#sys_info_tab_disks"]').on('hide.bs.tab', function (e) {
+        socket.emit('unsubscribe', 'info.0.sysinfo.disks.*');
+    });
+    $('a[href="#sys_info_tab_battery"]').on('show.bs.tab', function (e) {
+        socket.emit('subscribe', 'info.0.sysinfo.battery.*');
+    });
+    $('a[href="#sys_info_tab_battery"]').on('hide.bs.tab', function (e) {
+        socket.emit('unsubscribe', 'info.0.sysinfo.battery.*');
+    });
+    $('#modal-system').on('hidden.bs.modal', function (e) {
+        socket.emit('unsubscribe', 'info.0.sysinfo.*');
+    });
+
 
     $(document.body).on('click', '.show-md', function () {
         const url = $(this).data('md-url');
