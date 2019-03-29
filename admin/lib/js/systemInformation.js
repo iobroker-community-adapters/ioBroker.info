@@ -206,10 +206,11 @@ const systemInformations = {
                 const list = JSON.parse(obj.val);
                 processProcessesList(list);
             } else {
+                const types = id.split['.'];
                 const loadID = id.replace(/\./g, '_') + "_data";
                 const toReplace = $('#' + loadID);
                 if (toReplace.length > 0) {
-                    toReplace.text(obj.val);
+                    toReplace.text((formatInfo[types[3] + "." + types[types.length - 1]] ? formatInfo[types[3] + "." + types[types.length - 1]](obj.val) : obj.val));
                 }
             }
         });
@@ -217,6 +218,7 @@ const systemInformations = {
 };
 
 function processProcessesList(list) {
+    $('#info_0_sysinfo_os_processes_list_datas').empty();
     list.forEach(function (data) {
         let row = "<tr id='tr_process_" + data.pid + "'>";
         row += "<td>" + data.pid + "</td>";
@@ -241,6 +243,7 @@ function processProcessesList(list) {
 }
 
 function processUsersList(list) {
+    $('#info_0_sysinfo_os_users_datas').empty();
     list.forEach(function (data) {
         let row = "<tr id='tr_user_" + data.user + "'>";
         row += "<td>" + data.user + "</td>";
