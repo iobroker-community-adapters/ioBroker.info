@@ -210,7 +210,7 @@ const systemInformations = {
                 const loadID = id.replace(/\./g, '_') + "_data";
                 const toReplace = $('#' + loadID);
                 if (toReplace.length > 0) {
-                    toReplace.text((formatInfo[types[3] + "." + types[types.length - 1]] ? formatInfo[types[3] + "." + types[types.length - 1]](obj.val) : obj.val));
+                    toReplace.html((formatInfo[types[3] + "." + types[types.length - 1]] ? formatInfo[types[3] + "." + types[types.length - 1]](obj.val) : obj.val));
                 }
             }
         });
