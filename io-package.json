@@ -4,16 +4,16 @@
         "version": "1.3.0",
         "news": {
             "1.3.0": {
-                "en": "More system infos",
-                "de": "Weitere Systeminfos",
-                "ru": "Больше информации о системе",
-                "pt": "Mais infos do sistema",
-                "nl": "Meer systeeminformatie",
-                "fr": "Plus d'informations sur le système",
-                "it": "Altre informazioni di sistema",
-                "es": "Más información del sistema",
-                "pl": "Więcej informacji o systemie",
-                "zh-cn": "更多系统信息"
+                "en": "More system infos and better documentation",
+                "de": "Weitere Systeminfos und bessere Dokumentation",
+                "ru": "Больше информации о системе и лучшая документация",
+                "pt": "Mais infos do sistema e melhor documentação",
+                "nl": "Meer systeeminformatie en betere documentatie",
+                "fr": "Plus d'informations système et une meilleure documentation",
+                "it": "Maggiori informazioni di sistema e documentazione migliore",
+                "es": "Más información del sistema y mejor documentación.",
+                "pl": "Więcej informacji o systemie i lepsza dokumentacja",
+                "zh-cn": "更多系统信息和更好的文档"
             },
             "1.2.7": {
                 "en": "Some Design changes and fixes - stable candidate",

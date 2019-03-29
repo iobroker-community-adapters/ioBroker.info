@@ -183,6 +183,14 @@ ul#cssClock li{
     width: 100%;
 }
 
+.notesVersion {
+    cursor: help;
+}
+
+.show-md {
+    cursor: pointer;
+}
+
 /* Progressbar */
 .meter {
     height: 30px;  /* Can be anything */

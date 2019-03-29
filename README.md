@@ -43,8 +43,10 @@ There is a new widget to display important messages in VIS. These messages are d
 
 ## Changelog
 
-### 1.3.x (2019-04-01)
+### 1.3.0 (2019-03-29)
 * (ldittmar) better system information
+* (ldittmar) documentation in all languages
+* (ldittmar) some fixes
 
 ### 1.2.7 (2019-03-17)
 * (ldittmar) little fixes
