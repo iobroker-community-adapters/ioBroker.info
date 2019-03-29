@@ -206,7 +206,7 @@ const systemInformations = {
                 const list = JSON.parse(obj.val);
                 processProcessesList(list);
             } else {
-                const types = id.split['.'];
+                const types = id.split('.');
                 const loadID = id.replace(/\./g, '_') + "_data";
                 const toReplace = $('#' + loadID);
                 if (toReplace.length > 0) {
