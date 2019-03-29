@@ -124,6 +124,8 @@ Cliquez sur ![Vue détaillée des détails du système](img/sysinfo_detail_butto
 
 ### Informations système (vue détaillée)
 
+![Informations système](img/systeminfo_detail.png)
+
 Ici, de nombreuses informations sur le système de la maison sont affichées et stockées en tant qu'objet. Ceux-ci peuvent alors être utilisés par vous assez confortablement. La plupart des données ne sont lues et sauvegardées que lorsque l'adaptateur est chargé, car elles ne changent pas aussi facilement.
 
 Certaines données sont également mises à jour de manière cyclique. La fréquence à laquelle cela se produit peut être définie dans la configuration.

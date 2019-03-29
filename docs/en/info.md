@@ -124,6 +124,8 @@ Clicking on ![System Details Detail View](img/sysinfo_detail_button.png) display
 
 ### System information (detailed view)
 
+![System information](img/systeminfo_detail.png)
+
 Here a lot of information about the house system is displayed and stored as an object. These can then be used by you quite comfortably. Most of the data is only read and saved when the adapter is first charged, as these do not change so easily.
 
 Some data is also updated cyclically. How often this happens can be set in the configuration.

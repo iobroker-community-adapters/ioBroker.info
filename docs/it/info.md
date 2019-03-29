@@ -124,6 +124,8 @@ Facendo clic su ![Dettagli dettagli del sistema](img/sysinfo_detail_button.png) 
 
 ### Informazioni di sistema (vista dettagliata)
 
+![Informazioni di sistema](img/systeminfo_detail.png)
+
 Qui un sacco di informazioni sul sistema di casa viene visualizzato e memorizzato come un oggetto. Questi possono quindi essere utilizzati da te abbastanza comodamente. La maggior parte dei dati viene solo letta e salvata quando l'adattatore viene caricato per la prima volta, poiché questi non cambiano così facilmente.
 
 Alcuni dati vengono aggiornati anche ciclicamente. Quante volte succede questo può essere impostato nella configurazione.

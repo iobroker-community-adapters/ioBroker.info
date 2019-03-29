@@ -124,6 +124,8 @@ Als u op klikt ![Details systeemdetails](img/sysinfo_detail_button.png), wordt g
 
 ### Systeeminformatie (gedetailleerde weergave)
 
+![Systeeminformatie](img/systeminfo_detail.png)
+
 Hier wordt veel informatie over het huissysteem weergegeven en opgeslagen als een object. Deze kunnen dan door u heel comfortabel worden gebruikt. De meeste gegevens worden alleen gelezen en opgeslagen wanneer de adapter voor het eerst wordt opgeladen, omdat deze niet zo gemakkelijk veranderen.
 
 Sommige gegevens worden ook cyclisch bijgewerkt. Hoe vaak dit gebeurt, kan worden ingesteld in de configuratie.

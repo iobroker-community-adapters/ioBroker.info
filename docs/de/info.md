@@ -124,6 +124,8 @@ Mit einem Klick auf ![Systeminfo Detailansicht](img/sysinfo_detail_button.png), 
 
 ### Systeminformationen (Detailansicht)
 
+![Systeminformationen](img/systeminfo_detail.png)
+
 Hier werden sehr viele Informationen über das Hausptsystems angezeigt und als Objekt gespeichert. Diese können dann auch ganz bequem von Ihnen verwendet werden. Die meisten Daten werden nur beim ersten Laden des Adapters gelesen und gespeichert, denn diese ändern sich nicht so ohne weiteres.
 
 Einige Daten werden aber auch zyklisch aktualisiert. Wie oft das passiert, kann in der Konfiguration eingestellt werden.

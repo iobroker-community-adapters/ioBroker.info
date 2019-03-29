@@ -124,6 +124,8 @@ Clicar em ![Visualização Detalhada de Detalhes do Sistema](img/sysinfo_detail_
 
 ### Informações do sistema (visão detalhada)
 
+![Informações do sistema](img/systeminfo_detail.png)
+
 Aqui, muitas informações sobre o sistema da casa são exibidas e armazenadas como um objeto. Estes podem então ser usados ​​por você confortavelmente. A maioria dos dados é somente lida e salva quando o adaptador é carregado pela primeira vez, já que eles não são alterados tão facilmente.
 
 Alguns dados também são atualizados ciclicamente. Quantas vezes isso acontece pode ser definido na configuração.

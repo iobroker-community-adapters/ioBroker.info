@@ -124,6 +124,8 @@ Kliknięcie ![Widok szczegółów systemu](img/sysinfo_detail_button.png) wyświ
 
 ### Informacje o systemie (widok szczegółowy)
 
+![Informacje o systemie](img/systeminfo_detail.png)
+
 Tutaj wiele informacji o systemie domu jest wyświetlanych i zapisywanych jako obiekt. Mogą one być używane przez ciebie całkiem wygodnie. Większość danych jest odczytywana i zapisywana tylko wtedy, gdy adapter jest ładowany po raz pierwszy, ponieważ nie zmieniają się one tak łatwo.
 
 Niektóre dane są również aktualizowane cyklicznie. Jak często to się zdarza, można ustawić w konfiguracji.
