@@ -147,10 +147,6 @@ const infoCharts = {
     }
 };
 
-function startSysinfo() {
-
-}
-
 const systemInformations = {
     getData: function () {
         socket.emit('getForeignStates', 'info.0.sysinfo.*', function (err, res) {
@@ -210,7 +206,7 @@ const systemInformations = {
                 const list = JSON.parse(obj.val);
                 processProcessesList(list);
             } else {
-                const loadID = id.replace(/./g, '_') + "_data";
+                const loadID = id.replace(/\./g, '_') + "_data";
                 const toReplace = $('#' + loadID);
                 if (toReplace.length > 0) {
                     toReplace.text(obj.val);
