@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "info",
-        "version": "1.3.0",
+        "version": "1.3.1",
         "news": {
             "1.3.0": {
                 "en": "More system infos and better documentation",
@@ -214,6 +214,18 @@
             "type": "state",
             "common": {
                 "name": "Last Newsfeed",
+                "type": "string",
+                "role": "json",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "newsfeed_filtered",
+            "type": "state",
+            "common": {
+                "name": "Last Newsfeed - filtered",
                 "type": "string",
                 "role": "json",
                 "read": true,

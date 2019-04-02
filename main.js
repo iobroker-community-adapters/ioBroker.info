@@ -70,10 +70,121 @@ const checkNews = function () {
     axios(newsLink).then(function (resp) {
         adapter.log.info("Popup-News readed...");
         adapter.setState('newsfeed', {val: JSON.stringify(resp.data), ack: true});
+        adapter.getForeignObject('system.config', (err, obj) => {
+            if (!err && obj) {
+                adapter.log.debug("Language: " + obj.common.language);
+                procedeNewsfeed(resp.data, obj.common.language);
+            }
+        });
     }).catch(function (error) {
         adapter.log.error(error);
     });
 };
+
+function procedeNewsfeed(messages, systemLang) {
+    adapter.log.debug("Messages: " + messages.length);
+    if (messages.length > 0) {
+        const filtered = [];
+        const today = new Date().getTime();
+        getInstances(instances => {
+            adapter.log.debug("Found " + instances.length + " instances");
+            if (instances.length > 0) {
+                messages.forEach(message => {
+                    adapter.log.debug("Checking: " + message.title[systemLang]);
+                    let showIt = true;
+                    if (showIt && message['date-start'] && new Date(message['date-start']).getTime() > today) {
+                        adapter.log.debug("Date start ok");
+                        showIt = false;
+                    } else if (showIt && message['date-end'] && new Date(message['date-end']).getTime() < today) {
+                        adapter.log.debug("Date end ok");
+                        showIt = false;
+                    } else if (showIt && message.conditions && Object.keys(message.conditions).length > 0) {
+                        adapter.log.debug("Checking conditions...");
+                        Object.keys(message.conditions).forEach(key => {
+                            const adapter = instances[key];
+                            const condition = message.conditions[key];
+                            if (!adapter && condition !== "!installed") {
+                                adapter.log.debug("Adapter shoud be installed");
+                                showIt = false;
+                            } else if (adapter && condition === "!installed") {
+                                adapter.log.debug("Adapter shoud not be installed");
+                                showIt = false;
+                            } else if (adapter && condition.startsWith("equals")) {
+                                const vers = condition.substring(7, condition.length - 1).trim();
+                                adapter.log.debug("Adapter same version: " + adapter.version + " equals " + vers + " -> " + (adapter.version === vers));
+                                showIt = (adapter.version === vers);
+                            } else if (adapter && condition.startsWith("bigger")) {
+                                const vers = condition.substring(7, condition.length - 1).trim();
+                                const checked = checkVersion(vers, adapter.version);
+                                adapter.log.debug("Adapter bigger version: " + adapter.version + " bigger " + vers + " -> " + checked);
+                                showIt = checked;
+                            } else if (adapter && condition.startsWith("smaller")) {
+                                const vers = condition.substring(8, condition.length - 1).trim();
+                                const checked = checkVersion(adapter.version, vers);
+                                adapter.log.debug("Adapter smaller version: " + adapter.version + " smaller " + vers + " -> " + checked);
+                                showIt = checked;
+                            } else if (adapter && condition.startsWith("between")) {
+                                const vers1 = condition.substring(8, condition.indexOf(',')).trim();
+                                const vers2 = condition.substring(condition.indexOf(',') + 1, condition.length - 1).trim();
+                                const checked = checkVersionBetween(adapter.version, vers1, vers2);
+                                adapter.log.debug("Adapter between version: " + adapter.version + " between " + vers1 + " and " + vers2 + " -> " + checked);
+                                showIt = checked;
+                            }
+                        });
+                    }
+
+                    if (showIt) {
+                        adapter.log.debug("Message added: " + message.title[systemLang]);
+                        filtered.push({"title": message.title[systemLang], "content": message.content[systemLang], "class": message.class});
+                    }
+
+                });
+                adapter.setState('newsfeed_filtered', {val: JSON.stringify(filtered), ack: true});
+            }
+        });
+    }
+}
+
+const checkVersion = function (smaller, bigger) {
+    smaller = smaller.split('.');
+    bigger = bigger.split('.');
+    smaller[0] = parseInt(smaller[0], 10);
+    bigger[0] = parseInt(bigger[0], 10);
+
+    if (smaller[0] > bigger[0]) {
+        return false;
+    } else if (smaller[0] === bigger[0]) {
+        smaller[1] = parseInt(smaller[1], 10);
+        bigger[1] = parseInt(bigger[1], 10);
+        if (smaller[1] > bigger[1]) {
+            return false;
+        } else if (smaller[1] === bigger[1]) {
+            smaller[2] = parseInt(smaller[2], 10);
+            bigger[2] = parseInt(bigger[2], 10);
+            return (smaller[2] < bigger[2]);
+        } else {
+            return true;
+        }
+    } else {
+        return true;
+    }
+};
+
+const checkVersionBetween = function (inst, vers1, vers2) {
+    return inst === vers1 || inst === vers2 || (checkVersion(vers1, inst) && checkVersion(inst, vers2));
+};
+
+function getInstances(callback) {
+    adapter.log.debug("Getting instances...");
+    adapter.objects.getObjectView('system', 'instance', {startkey: 'system.adapter.', endkey: 'system.adapter.\u9999'}, (err, doc) => {
+        if (err || !doc || !doc.rows || !doc.rows.length) {
+            return callback && callback([]);
+        }
+        const res = [];
+        doc.rows.forEach(row => res.push(row.value));
+        callback && callback(res);
+    });
+}
 
 const setState = function (channel, channel2, key, type, value) {
     const link = 'sysinfo.' + channel + (channel2 ? '.' + channel2 : '');
