@@ -199,7 +199,7 @@
     "disks.used": "使用",
     "disks.uuid": "UUID",
     "disks.vendor": "供应商/制片人",
-    "documentation": "文件",
+    "documentation": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;文件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
     "down": "下",
     "full": "全双工",
     "graphics.builtin": "内部监视器",
