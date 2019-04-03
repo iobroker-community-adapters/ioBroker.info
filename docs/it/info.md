@@ -57,6 +57,8 @@ Per inviare rapidamente messaggi importanti riguardanti ioBroker all'utente, è 
 
 I messaggi possono essere chiusi con un clic, nell'angolo in alto a destra di ![Chiudi messaggio](img/close_message.png), ma vengono visualizzati nuovamente non appena la scheda di informazioni viene ricaricata, finché il problema persiste.
 
+Per l'uso di messaggi con altri adattatori come Javascript, Telegram, Alexa, ecc., Sono già filtrati nell'oggetto "newsfeed_filtered", memorizzato come una matrice di oggetti.
+
 ### Messaggi (VIS-Widget)
 
 <img height="100" align="left" src="img/vis.png">

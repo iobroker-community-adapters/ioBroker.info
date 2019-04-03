@@ -61,6 +61,8 @@
 
 可以在 ![关闭消息](img/close_message.png) 的右上角单击关闭消息，但只要问题仍然存在，它们会在重新加载信息选项卡后再次出现。
 
+对于使用其他适配器（如Javascript，Telegram，Alexa等）的消息，它们已经在对象“newsfeed_filtered”中过滤，存储为对象数组。
+
 ### 消息（VIS-Widget）
 
 <img height="100" align="left" src="img/vis.png">

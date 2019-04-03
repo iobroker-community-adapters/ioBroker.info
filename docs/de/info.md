@@ -57,6 +57,8 @@ Um wichtige Meldungen bezüglich ioBroker, schnell an den User zu senden, wurde 
 
 Die Meldungen können mit einem Klick, rechts oben auf ![Meldung schließen](img/close_message.png) geschlossen werden, erscheienen aber wieder sobald der Info-Tab wieder neu geladen wird, solange das Problem noch besteht.
 
+Für die Nutzung der Meldungen mit andere Adaptern z.B Javascript, Telegramm, Alexa usw., werden diese schon gefiltert im Objekt "newsfeed_filtered", als ein Array von Objekten gespeichert.
+
 ### Meldungen (VIS-Widget)
 
 <img height="100" align="left" src="img/vis.png">

@@ -57,6 +57,8 @@ In order to quickly send important messages concerning ioBroker to the user, the
 
 The messages can be closed with one click, in the top right corner of ![Close message](img/close_message.png), but they appear again as soon as the info-tab is reloaded, as long as the problem persists.
 
+For the use of messages with other adapters such as Javascript, Telegram, Alexa, etc., they are already filtered in the object "newsfeed_filtered", stored as an array of objects.
+
 ### Messages (VIS-Widget)
 
 <img height="100" align="left" src="img/vis.png">

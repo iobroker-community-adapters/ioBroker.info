@@ -57,6 +57,8 @@ Aby szybko wysłać ważne wiadomości dotyczące ioBroker do użytkownika, stwo
 
 Wiadomości można zamknąć jednym kliknięciem, w prawym górnym rogu ![Zamknij wiadomość](img/close_message.png), ale pojawiają się one ponownie, gdy tylko karta informacyjna zostanie ponownie załadowana, o ile problem będzie się powtarzał.
 
+Do korzystania z wiadomości z innymi adapterami, takimi jak Javascript, Telegram, Alexa itp., Są one już filtrowane w obiekcie „newsfeed_filtered”, przechowywanym jako tablica obiektów.
+
 ### Wiadomości (VIS-Widget)
 
 <img height="100" align="left" src="img/vis.png">

@@ -87,8 +87,8 @@ function procedeNewsfeed(messages, systemLang) {
         const filtered = [];
         const today = new Date().getTime();
         getInstances(instances => {
-            adapter.log.debug("Found " + instances.length + " instances");
-            if (instances.length > 0) {
+            adapter.log.debug("Found " + Object.keys(instances).length + " instances");
+            if (Object.keys(instances).length > 0) {
                 messages.forEach(message => {
                     adapter.log.debug("Checking: " + message.title[systemLang]);
                     let showIt = true;

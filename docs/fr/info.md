@@ -57,6 +57,8 @@ Afin d'envoyer rapidement à l'utilisateur des messages importants concernant io
 
 Les messages peuvent être fermés en un clic, dans le coin supérieur droit de ![Fermer le message](img/close_message.png), mais ils réapparaissent dès le rechargement de l'onglet info, tant que le problème persiste.
 
+Pour l'utilisation de messages avec d'autres adaptateurs tels que Javascript, Telegram, Alexa, etc., ils sont déjà filtrés dans l'objet "newsfeed_filtered", stocké sous la forme d'un tableau d'objets.
+
 ### Messages (VIS-Widget)
 
 <img height="100" align="left" src="img/vis.png">

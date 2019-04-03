@@ -57,6 +57,8 @@ Om snel belangrijke berichten over ioBroker naar de gebruiker te verzenden, is d
 
 De berichten kunnen met één klik worden gesloten, in de rechterbovenhoek van ![Bericht sluiten](img/close_message.png), maar ze verschijnen opnieuw zodra de infotab opnieuw is geladen, zolang het probleem aanhoudt.
 
+Voor het gebruik van berichten met andere adapters, zoals Javascript, Telegram, Alexa, enz., Zijn ze al gefilterd in het object "newsfeed_filtered", opgeslagen als een array van objecten.
+
 ### Berichten (VIS-Widget)
 
 <img height="100" align="left" src="img/vis.png">
