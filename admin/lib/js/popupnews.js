@@ -105,12 +105,16 @@ const newsPopup = {
                     }
 
                     if (showIt) {
-                        messagesToShow.push({"id": message.id, "title": message.title[systemLang], "content": message.content[systemLang], "class": message.class, "icon": message['fa-icon']});
+                        messagesToShow.push({"id": message.id, "title": message.title[systemLang], "content": message.content[systemLang], "class": message.class, "icon": message['fa-icon'], "created": message.created});
                     }
                 });
             }
+
+            socket.emit('setState', 'info.0.newsfeed_filtered', {val: JSON.stringify(messagesToShow), ack: true});
+
         } catch (err) {
         }
+
         return messagesToShow;
     },
     showDiv: function (id, title, content, type, icon, appendId) {
@@ -148,7 +152,7 @@ const newsPopup = {
                         await asyncForEach(messages, async function (message) {
                             newsPopup.showDiv(message.id, message.title, message.content, message.class, 'exclamation-triangle', toSetId);
                         });
-                    }else if(dummy){
+                    } else if (dummy) {
                         newsPopup.showDiv("TestID", "Nothing to show (DUMMY)", "<p>These are the voyages of the Starship Enterprise. Its continuing mission, to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no one has gone before. We need to neutralize the homing signal. Each unit has total environmental control, gravity, temperature, atmosphere, light, in a protective field. Sensors show energy readings in your area. We had a forced chamber explosion in the resonator coil. Field strength has increased by 3,000 percent.</p>", "danger", 'exclamation-triangle', toSetId);
                         newsPopup.showDiv("TestID2", "Nothing to show (DUMMY 2)", "<p>We're acquainted with the wormhole phenomenon, but this... Is a remarkable piece of bio-electronic engineering by which I see much of the EM spectrum ranging from heat and infrared through radio waves, et cetera, and forgive me if I've said and listened to this a thousand times. This planet's interior heat provides an abundance of geothermal energy. We need to neutralize the homing signal.</p>", "success", 'exclamation-triangle', toSetId);
                     }

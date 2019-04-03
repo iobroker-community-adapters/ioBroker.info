@@ -101,33 +101,33 @@ function procedeNewsfeed(messages, systemLang) {
                     } else if (showIt && message.conditions && Object.keys(message.conditions).length > 0) {
                         adapter.log.debug("Checking conditions...");
                         Object.keys(message.conditions).forEach(key => {
-                            const adapter = instances[key];
+                            const adapt = instances[key];
                             const condition = message.conditions[key];
-                            if (!adapter && condition !== "!installed") {
+                            if (!adapt && condition !== "!installed") {
                                 adapter.log.debug("Adapter shoud be installed");
                                 showIt = false;
-                            } else if (adapter && condition === "!installed") {
+                            } else if (adapt && condition === "!installed") {
                                 adapter.log.debug("Adapter shoud not be installed");
                                 showIt = false;
-                            } else if (adapter && condition.startsWith("equals")) {
+                            } else if (adapt && condition.startsWith("equals")) {
                                 const vers = condition.substring(7, condition.length - 1).trim();
-                                adapter.log.debug("Adapter same version: " + adapter.version + " equals " + vers + " -> " + (adapter.version === vers));
-                                showIt = (adapter.version === vers);
-                            } else if (adapter && condition.startsWith("bigger")) {
+                                adapter.log.debug("Adapter same version: " + adapt.version + " equals " + vers + " -> " + (adapt.version === vers));
+                                showIt = (adapt.version === vers);
+                            } else if (adapt && condition.startsWith("bigger")) {
                                 const vers = condition.substring(7, condition.length - 1).trim();
-                                const checked = checkVersion(vers, adapter.version);
-                                adapter.log.debug("Adapter bigger version: " + adapter.version + " bigger " + vers + " -> " + checked);
+                                const checked = checkVersion(vers, adapt.version);
+                                adapter.log.debug("Adapter bigger version: " + adapt.version + " bigger " + vers + " -> " + checked);
                                 showIt = checked;
-                            } else if (adapter && condition.startsWith("smaller")) {
+                            } else if (adapt && condition.startsWith("smaller")) {
                                 const vers = condition.substring(8, condition.length - 1).trim();
-                                const checked = checkVersion(adapter.version, vers);
-                                adapter.log.debug("Adapter smaller version: " + adapter.version + " smaller " + vers + " -> " + checked);
+                                const checked = checkVersion(adapt.version, vers);
+                                adapter.log.debug("Adapter smaller version: " + adapt.version + " smaller " + vers + " -> " + checked);
                                 showIt = checked;
-                            } else if (adapter && condition.startsWith("between")) {
+                            } else if (adapt && condition.startsWith("between")) {
                                 const vers1 = condition.substring(8, condition.indexOf(',')).trim();
                                 const vers2 = condition.substring(condition.indexOf(',') + 1, condition.length - 1).trim();
-                                const checked = checkVersionBetween(adapter.version, vers1, vers2);
-                                adapter.log.debug("Adapter between version: " + adapter.version + " between " + vers1 + " and " + vers2 + " -> " + checked);
+                                const checked = checkVersionBetween(adapt.version, vers1, vers2);
+                                adapter.log.debug("Adapter between version: " + adapt.version + " between " + vers1 + " and " + vers2 + " -> " + checked);
                                 showIt = checked;
                             }
                         });
@@ -135,7 +135,7 @@ function procedeNewsfeed(messages, systemLang) {
 
                     if (showIt) {
                         adapter.log.debug("Message added: " + message.title[systemLang]);
-                        filtered.push({"title": message.title[systemLang], "content": message.content[systemLang], "class": message.class});
+                        filtered.push({"id": message.id, "title": message.title[systemLang], "content": message.content[systemLang], "class": message.class, "icon": message['fa-icon'], "created": message.created});
                     }
 
                 });
@@ -182,7 +182,12 @@ function getInstances(callback) {
         }
         const res = [];
         doc.rows.forEach(row => res.push(row.value));
-        callback && callback(res);
+        const instances = {};
+        res.forEach(instance => {
+            instances[instance.common.name] = {};
+            instances[instance.common.name].version = instance.common.version;
+        });
+        callback && callback(instances);
     });
 }
 
