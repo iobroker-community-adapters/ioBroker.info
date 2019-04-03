@@ -121,7 +121,7 @@ const infoCharts = {
             high: 100,
             low: 0,
             width: '400px',
-            height: '200px',
+            height: '300px',
             showPoint: false
         };
 
@@ -160,7 +160,7 @@ const systemInformations = {
             $('#sys_info_os_img_logo').attr('src', 'lib/img/logos/' + obj.value + '.png');
         } else if (obj.name.endsWith('_hist')) {
             if (obj.name === "currentload_hist") {
-                infoCharts.showCPU(obj.val.split(','));
+                infoCharts.showCPU(obj.value.split(','));
             }
         } else if (obj.syssubtype === "processes") {
             if (obj.name === "list") {
