@@ -568,6 +568,10 @@ ul#cssClock li{
     height:auto;
 }
 
+#cpu-chart{
+    height: 320px;
+}
+
 @media (min-width: 992px){
     .y_title .titleLink:not(.titleRSS) {
         font-size: 14px;        

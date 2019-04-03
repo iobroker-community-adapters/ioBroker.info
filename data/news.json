@@ -254,6 +254,7 @@
         },
         "id": "infoAdapter",
         "fa-icon": "line-chart",
+        "class": "warning",
         "created": "2019-04-03T00:00:00.000Z",
         "conditions": {
             "info": "bigger(1.3.0)"
