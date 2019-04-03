@@ -43,6 +43,10 @@ There is a new widget to display important messages in VIS. These messages are d
 
 ## Changelog
 
+### 1.3.1 (2019-04-03)
+* (ldittmar) charts for cpu and memory
+* (ldittmar) filtered news object added
+
 ### 1.3.0 (2019-03-29)
 * (ldittmar) better system information
 * (ldittmar) documentation in all languages
