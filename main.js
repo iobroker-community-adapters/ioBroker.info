@@ -607,12 +607,12 @@ const updateCurrentMemoryInfos = function () {
             .then(data => {
                 adapter.setState('sysinfo.memory.info.free', {val: data['free'], ack: true});
                 adapter.setState('sysinfo.memory.info.used', {val: data['used'], ack: true});
-                memUsed.push(data['used'] / 1000000000);
+                adapter.setState('sysinfo.memory.info.active', {val: data['active'], ack: true});
+                memUsed.push(data['active'] / 1000000000);
                 if (memUsed.length > 30) {
                     memUsed.shift();
                 }
-                adapter.setState('sysinfo.memory.info.used_hist', {val: memUsed.toString(), ack: true});
-                adapter.setState('sysinfo.memory.info.active', {val: data['active'], ack: true});
+                adapter.setState('sysinfo.memory.info.used_hist', {val: memUsed.toString(), ack: true});                
                 adapter.setState('sysinfo.memory.info.available', {val: data['available'], ack: true});
                 adapter.setState('sysinfo.memory.info.buffcache', {val: data['buffcache'], ack: true});
                 adapter.setState('sysinfo.memory.info.swapused', {val: data['swapused'], ack: true});

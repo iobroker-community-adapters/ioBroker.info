@@ -569,7 +569,7 @@ ul#cssClock li{
 }
 
 #cpu-chart{
-    height: 320px;
+    height: 300px;
 }
 
 @media (min-width: 992px){

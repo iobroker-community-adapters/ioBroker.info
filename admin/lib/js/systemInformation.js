@@ -121,11 +121,26 @@ const infoCharts = {
             high: 100,
             low: 0,
             width: '400px',
-            height: '300px',
+            height: '280px',
             showPoint: false
         };
 
         new Chartist.Line('#cpu-chart', data, options);
+    },
+    showMemory: function (data) {
+
+        var data = {
+            labels: memLabels,
+            series: [data]
+        };
+
+        var options = {
+            width: '400px',
+            height: '280px',
+            showPoint: false
+        };
+
+        new Chartist.Line('#memory-chart', data, options);
     }
 };
 
@@ -161,6 +176,8 @@ const systemInformations = {
         } else if (obj.name.endsWith('_hist')) {
             if (obj.name === "currentload_hist") {
                 infoCharts.showCPU(obj.value.split(','));
+            }else if (obj.name === "used_hist") {
+                infoCharts.showMemory(obj.value.split(','));
             }
         } else if (obj.syssubtype === "processes") {
             if (obj.name === "list") {
@@ -193,7 +210,9 @@ const systemInformations = {
                 processProcessesList(list);
             } else if (id === "info.0.sysinfo.cpu.currentLoad.currentload_hist") {
                 infoCharts.showCPU(obj.val.split(','));
-            } else {
+            }  else if (id === "info.0.sysinfo.memory.info.used_hist") {
+                infoCharts.showMemory(obj.val.split(','));
+            }else {
                 const types = id.split('.');
                 const loadID = id.replace(/\./g, '_') + "_data";
                 const toReplace = $('#' + loadID);
