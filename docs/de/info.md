@@ -59,6 +59,17 @@ Die Meldungen können mit einem Klick, rechts oben auf ![Meldung schließen](img
 
 Für die Nutzung der Meldungen mit andere Adaptern z.B Javascript, Telegramm, Alexa usw., werden diese schon gefiltert im Objekt "newsfeed_filtered", als ein Array von Objekten gespeichert.
 
+Beispiel:
+```javascript
+const messages = JSON.parse(getState('info.0.newsfeed_filtered').val);
+messages.forEach(message => {
+    const title = message.title;
+    const text = message.content;
+    const created = new Date(message.created);
+    console.log(created + " " + title + " " + text);
+});
+```
+
 ### Meldungen (VIS-Widget)
 
 <img height="100" align="left" src="img/vis.png">

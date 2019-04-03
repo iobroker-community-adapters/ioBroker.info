@@ -59,6 +59,17 @@ Wiadomości można zamknąć jednym kliknięciem, w prawym górnym rogu ![Zamkni
 
 Do korzystania z wiadomości z innymi adapterami, takimi jak Javascript, Telegram, Alexa itp., Są one już filtrowane w obiekcie „newsfeed_filtered”, przechowywanym jako tablica obiektów.
 
+Przykład:
+```javascript
+const messages = JSON.parse(getState('info.0.newsfeed_filtered').val);
+messages.forEach(message => {
+    const title = message.title;
+    const text = message.content;
+    const created = new Date(message.created);
+    console.log(created + " " + title + " " + text);
+});
+```
+
 ### Wiadomości (VIS-Widget)
 
 <img height="100" align="left" src="img/vis.png">

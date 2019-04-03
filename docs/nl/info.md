@@ -59,6 +59,17 @@ De berichten kunnen met één klik worden gesloten, in de rechterbovenhoek van !
 
 Voor het gebruik van berichten met andere adapters, zoals Javascript, Telegram, Alexa, enz., Zijn ze al gefilterd in het object "newsfeed_filtered", opgeslagen als een array van objecten.
 
+Voorbeeld:
+```javascript
+const messages = JSON.parse(getState('info.0.newsfeed_filtered').val);
+messages.forEach(message => {
+    const title = message.title;
+    const text = message.content;
+    const created = new Date(message.created);
+    console.log(created + " " + title + " " + text);
+});
+```
+
 ### Berichten (VIS-Widget)
 
 <img height="100" align="left" src="img/vis.png">

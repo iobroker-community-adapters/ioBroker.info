@@ -101,6 +101,7 @@ function procedeNewsfeed(messages, systemLang) {
                     } else if (showIt && message.conditions && Object.keys(message.conditions).length > 0) {
                         adapter.log.debug("Checking conditions...");
                         Object.keys(message.conditions).forEach(key => {
+                            adapter.log.debug("Conditions for " + key + " adapter");
                             const adapt = instances[key];
                             const condition = message.conditions[key];
                             if (!adapt && condition !== "!installed") {
@@ -185,7 +186,7 @@ function getInstances(callback) {
         const instances = {};
         res.forEach(instance => {
             instances[instance.common.name] = {};
-            instances[instance.common.name].version = instance.common.version;
+            instances[instance.common.name].version = instance.common.installedVersion;
         });
         callback && callback(instances);
     });

@@ -59,6 +59,17 @@ Los mensajes se pueden cerrar con un clic, en la esquina superior derecha de ![C
 
 Para el uso de mensajes con otros adaptadores como Javascript, Telegram, Alexa, etc., ya están filtrados en el objeto "newsfeed_filtered", almacenado como una matriz de objetos.
 
+Ejemplo:
+```javascript
+const messages = JSON.parse(getState('info.0.newsfeed_filtered').val);
+messages.forEach(message => {
+    const title = message.title;
+    const text = message.content;
+    const created = new Date(message.created);
+    console.log(created + " " + title + " " + text);
+});
+```
+
 ### Mensajes (VIS-Widget)
 
 <img height="100" align="left" src="img/vis.png">

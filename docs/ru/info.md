@@ -59,6 +59,17 @@
 
 Для использования сообщений с другими адаптерами, такими как Javascript, Telegram, Alexa и т. Д., Они уже фильтруются в объекте «newsfeed_filtered», хранящемся в виде массива объектов.
 
+пример:
+```javascript
+const messages = JSON.parse(getState('info.0.newsfeed_filtered').val);
+messages.forEach(message => {
+    const title = message.title;
+    const text = message.content;
+    const created = new Date(message.created);
+    console.log(created + " " + title + " " + text);
+});
+```
+
 ### Сообщения (VIS-Виджет)
 
 <img height="100" align="left" src="img/vis.png">

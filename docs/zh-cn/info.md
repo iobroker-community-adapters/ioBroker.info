@@ -63,6 +63,17 @@
 
 对于使用其他适配器（如Javascript，Telegram，Alexa等）的消息，它们已经在对象“newsfeed_filtered”中过滤，存储为对象数组。
 
+例:
+```javascript
+const messages = JSON.parse(getState('info.0.newsfeed_filtered').val);
+messages.forEach(message => {
+    const title = message.title;
+    const text = message.content;
+    const created = new Date(message.created);
+    console.log(created + " " + title + " " + text);
+});
+```
+
 ### 消息（VIS-Widget）
 
 <img height="100" align="left" src="img/vis.png">
