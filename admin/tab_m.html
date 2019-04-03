@@ -691,22 +691,15 @@
                                                 <table class="table table-striped">
                                                     <thead>
                                                         <tr>
-                                                            <th class="translate">os.pid</th>
-                                                            <th class="translate">os.parentPid</th>
                                                             <th class="translate">os.name</th>
                                                             <th class="translate">os.pcpu</th>
-                                                            <th class="translate">os.pcpuu</th>
-                                                            <th class="translate">os.pcpus</th>
                                                             <th class="translate">os.pmem</th>
                                                             <th class="translate">os.priority</th>
                                                             <th class="translate">os.mem_vsz</th>
                                                             <th class="translate">os.mem_rss</th>
-                                                            <th class="translate">os.nice</th>
                                                             <th class="translate">os.started</th>
                                                             <th class="translate">os.state</th>
-                                                            <th class="translate">os.tty</th>
                                                             <th class="translate">os.user</th>
-                                                            <th class="translate">os.command</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="info_0_sysinfo_os_processes_list_datas"></tbody>
@@ -730,117 +723,123 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading translate">CPU-Load</div>
                                     <div class="panel-body">
-                                        <dl class="dl-horizontal dl-lg" id="sys_info_cpu_currentLoad"></dl>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-8">
+                                                <dl class="dl-horizontal dl-lg" id="sys_info_cpu_currentLoad"></dl>
+                                            </div>
+                                            <div class="hidden-xs col-sm-4">
+                                                <div id="cpu-chart"></div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="panel panel-default">
-                                    <div class="panel-heading translate">CPU temperature</div>
-                                    <div class="panel-body">
-                                        <dl class="dl-horizontal dl-lg" id="sys_info_cpu_temperature"></dl>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading translate">CPU temperature</div>
+                                        <div class="panel-body">
+                                            <dl class="dl-horizontal dl-lg" id="sys_info_cpu_temperature"></dl>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="panel panel-default">
-                                    <div class="panel-heading translate">CPU current speed</div>
-                                    <div class="panel-body">
-                                        <dl class="dl-horizontal dl-lg" id="sys_info_cpu_currentspeed"></dl>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading translate">CPU current speed</div>
+                                        <div class="panel-body">
+                                            <dl class="dl-horizontal dl-lg" id="sys_info_cpu_currentspeed"></dl>
+                                        </div>
                                     </div>
-                                </div>
 
+                                </div>
+                                <div id="sys_info_tab_memory" class="tab-pane fade">
+                                    <h3 class="translate">Memory</h3>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading translate">Memory information</div>
+                                        <div class="panel-body">
+                                            <dl class="dl-horizontal dl-lg" id="sys_info_memory_info"></dl>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading translate">Memory layout</div>
+                                        <div class="panel-body">
+                                            <dl class="dl-horizontal dl-lg" id="sys_info_memory_memLayout"></dl>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div id="sys_info_tab_disks" class="tab-pane fade">
+                                    <h3 class="translate">Disks</h3>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading translate">Disks, partitions, raids and roms</div>
+                                        <div class="panel-body">
+                                            <div id="sys_info_disks_blockDevices"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading translate">Physical disk layout</div>
+                                        <div class="panel-body">
+                                            <div id="sys_info_disks_diskLayout"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading translate">Mounted file systems</div>
+                                        <div class="panel-body">
+                                            <div id="sys_info_disks_fsSize"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div id="sys_info_tab_graphics" class="tab-pane fade">
+                                    <h3 class="translate">Graphics</h3>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading translate">Graphics controllers</div>
+                                        <div class="panel-body">
+                                            <div id="sys_info_graphics_controllers"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading translate">Monitor/display</div>
+                                        <div class="panel-body">
+                                            <div id="sys_info_graphics_displays"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div id="sys_info_tab_network" class="tab-pane fade">
+                                    <h3 class="translate">Network</h3>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading translate">Network interfaces</div>
+                                        <div class="panel-body">
+                                            <div id="sys_info_network_interfaces"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div id="sys_info_tab_battery" class="tab-pane fade">
+                                    <h3 class="translate">Battery</h3>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading translate">Battery information</div>
+                                        <div class="panel-body">
+                                            <dl class="dl-horizontal dl-lg" id="sys_info_battery"></dl>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
-                            <div id="sys_info_tab_memory" class="tab-pane fade">
-                                <h3 class="translate">Memory</h3>
 
-                                <div class="panel panel-default">
-                                    <div class="panel-heading translate">Memory information</div>
-                                    <div class="panel-body">
-                                        <dl class="dl-horizontal dl-lg" id="sys_info_memory_info"></dl>
-                                    </div>
-                                </div>
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading translate">Memory layout</div>
-                                    <div class="panel-body">
-                                        <dl class="dl-horizontal dl-lg" id="sys_info_memory_memLayout"></dl>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div id="sys_info_tab_disks" class="tab-pane fade">
-                                <h3 class="translate">Disks</h3>
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading translate">Disks, partitions, raids and roms</div>
-                                    <div class="panel-body">
-                                        <div id="sys_info_disks_blockDevices"></div>
-                                    </div>
-                                </div>
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading translate">Physical disk layout</div>
-                                    <div class="panel-body">
-                                        <div id="sys_info_disks_diskLayout"></div>
-                                    </div>
-                                </div>
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading translate">Mounted file systems</div>
-                                    <div class="panel-body">
-                                        <div id="sys_info_disks_fsSize"></div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div id="sys_info_tab_graphics" class="tab-pane fade">
-                                <h3 class="translate">Graphics</h3>
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading translate">Graphics controllers</div>
-                                    <div class="panel-body">
-                                        <div id="sys_info_graphics_controllers"></div>
-                                    </div>
-                                </div>
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading translate">Monitor/display</div>
-                                    <div class="panel-body">
-                                        <div id="sys_info_graphics_displays"></div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div id="sys_info_tab_network" class="tab-pane fade">
-                                <h3 class="translate">Network</h3>
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading translate">Network interfaces</div>
-                                    <div class="panel-body">
-                                        <div id="sys_info_network_interfaces"></div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div id="sys_info_tab_battery" class="tab-pane fade">
-                                <h3 class="translate">Battery</h3>
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading translate">Battery information</div>
-                                    <div class="panel-body">
-                                        <dl class="dl-horizontal dl-lg" id="sys_info_battery"></dl>
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
-
-                    </div>
-                    <div class="modal-footer">                       
-                        <button type="button" class="btn btn-default translate" data-dismiss="modal">close</button>
+                        <div class="modal-footer">                       
+                            <button type="button" class="btn btn-default translate" data-dismiss="modal">close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- / Systemdetails -->
+            <!-- / Systemdetails -->
     </body>
 </html>

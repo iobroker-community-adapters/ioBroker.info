@@ -1,4 +1,4 @@
-/* global io, systemDictionary, systemLang, bootbox, showdown, socket, parseFloat */
+/* global io, systemDictionary, systemLang, bootbox, showdown, socket, parseFloat, infoCharts */
 
 const dateOptions = {"weekday": "short", "year": "numeric", "month": "long", "day": "2-digit", "hour": "2-digit", "minute": "2-digit", "second": "2-digit"};
 let infoData = {};
@@ -223,6 +223,7 @@ $(function () {
 
 
     $(document.body).on('click', '#show-system-details', function () {
+        infoCharts.startCharts;
         $('#modal-system').modal();
     });
     $('a[href="#sys_info_tab_os"]').on('show.bs.tab', function (e) {

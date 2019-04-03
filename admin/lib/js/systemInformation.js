@@ -71,63 +71,45 @@ const formatInfo = {
     'battery.ischarging': formatter.formatBoolean
 };
 
-function startCharts() {
-
-    if (cpuLabels.length === 0) {
-        let labelText = 0;
-        for (let i = 0; i < 31; i++) {
-            if (labelText % 5 === 0) {
-                cpuLabels.push(labelText + "s");
-            } else {
-                cpuLabels.push(" ");
-            }
-            labelText += adapterConfig.cpuSpeed;
-        }
-        cpuLabels.reverse();
-    }
-    if (memLabels.length === 0) {
-        let labelText = 0;
-        for (let i = 0; i < 31; i++) {
-            if (labelText % 5 === 0) {
-                memLabels.push(labelText + "s");
-            } else {
-                memLabels.push(" ");
-            }
-            labelText += adapterConfig.memSpeed;
-        }
-        memLabels.reverse();
-    }
-    if (diskLabels.length === 0) {
-        let labelText = 0;
-        for (let i = 0; i < 31; i++) {
-            if (labelText % 5 === 0) {
-                diskLabels.push(labelText + "s");
-            } else {
-                diskLabels.push(" ");
-            }
-            labelText += adapterConfig.diskSpeed;
-        }
-        diskLabels.reverse();
-    }
-
-    socket.emit('subscribe', 'info.0.sysinfo.cpu.currentLoad_currentload_hist');
-    socket.emit('subscribe', 'info.0.sysinfo.memory.mem_used_hist');
-
-    socket.on('stateChange', function (id, obj) {
-        if (id === "info.0.sysinfo.cpu.currentLoad_currentload_hist") {
-            infoCharts.showCPU(obj.val.split(','));
-        }
-    });
-
-    socket.emit('getState', 'info.0.sysinfo.cpu.currentLoad_currentload_hist', function (err, data) {
-        if (!err && data) {
-            infoCharts.showCPU(data.val.split(','));
-        }
-    });
-
-}
-
 const infoCharts = {
+    startCharts: function () {
+        if (cpuLabels.length === 0) {
+            let labelText = 0;
+            for (let i = 0; i < 31; i++) {
+                if (labelText % 5 === 0) {
+                    cpuLabels.push(labelText + "s");
+                } else {
+                    cpuLabels.push(" ");
+                }
+                labelText += adapterConfig.cpuSpeed;
+            }
+            cpuLabels.reverse();
+        }
+        if (memLabels.length === 0) {
+            let labelText = 0;
+            for (let i = 0; i < 31; i++) {
+                if (labelText % 5 === 0) {
+                    memLabels.push(labelText + "s");
+                } else {
+                    memLabels.push(" ");
+                }
+                labelText += adapterConfig.memSpeed;
+            }
+            memLabels.reverse();
+        }
+        if (diskLabels.length === 0) {
+            let labelText = 0;
+            for (let i = 0; i < 31; i++) {
+                if (labelText % 5 === 0) {
+                    diskLabels.push(labelText + "s");
+                } else {
+                    diskLabels.push(" ");
+                }
+                labelText += adapterConfig.diskSpeed;
+            }
+            diskLabels.reverse();
+        }
+    },
     showCPU: function (data) {
 
         var data = {
@@ -177,7 +159,9 @@ const systemInformations = {
         if (obj.systype === "os" && obj.name === "logofile") {
             $('#sys_info_os_img_logo').attr('src', 'lib/img/logos/' + obj.value + '.png');
         } else if (obj.name.endsWith('_hist')) {
-            // For Charts
+            if (obj.name === "currentload_hist") {
+                infoCharts.showCPU(obj.val.split(','));
+            }
         } else if (obj.syssubtype === "processes") {
             if (obj.name === "list") {
                 const list = JSON.parse(obj.value);
@@ -189,12 +173,14 @@ const systemInformations = {
             const list = JSON.parse(obj.value);
             processUsersList(list);
         } else {
-            if (obj.device && $("#sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device).length === 0) {
-                const dl = "<h3 id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "_devicename'>" + obj.device + "</h3><dl class='dl-horizontal dl-lg' id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "'></dl>";
-                $('#sys_info_' + obj.systype + '_' + obj.syssubtype).append($(dl));
+            if (obj.value != -1) {
+                if (obj.device && $("#sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device).length === 0) {
+                    const dl = "<h3 id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "_devicename'>" + obj.device + "</h3><dl class='dl-horizontal dl-lg' id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "'></dl>";
+                    $('#sys_info_' + obj.systype + '_' + obj.syssubtype).append($(dl));
+                }
+                const row = "<dt>" + _(obj.systype + "." + obj.name) + "</dt><dd id='info_0_sysinfo_" + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '') + "_" + obj.name + "_data'>" + (formatInfo[obj.systype + "." + obj.name] ? formatInfo[obj.systype + "." + obj.name](obj.value) : obj.value) + "</dd>";
+                $('#sys_info_' + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '')).append($(row));
             }
-            const row = "<dt>" + _(obj.systype + "." + obj.name) + "</dt><dd id='info_0_sysinfo_" + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '') + "_" + obj.name + "_data'>" + (formatInfo[obj.systype + "." + obj.name] ? formatInfo[obj.systype + "." + obj.name](obj.value) : obj.value) + "</dd>";
-            $('#sys_info_' + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '')).append($(row));
         }
     },
     startListening: function () {
@@ -205,6 +191,8 @@ const systemInformations = {
             } else if (id === "info.0.sysinfo.os.processes.list") {
                 const list = JSON.parse(obj.val);
                 processProcessesList(list);
+            } else if (id === "info.0.sysinfo.cpu.currentLoad.currentload_hist") {
+                infoCharts.showCPU(obj.val.split(','));
             } else {
                 const types = id.split('.');
                 const loadID = id.replace(/\./g, '_') + "_data";
@@ -221,22 +209,15 @@ function processProcessesList(list) {
     $('#info_0_sysinfo_os_processes_list_datas').empty();
     list.forEach(function (data) {
         let row = "<tr id='tr_process_" + data.pid + "'>";
-        row += "<td>" + data.pid + "</td>";
-        row += "<td>" + data.parentPid + "</td>";
         row += "<td>" + data.name + "</td>";
         row += "<td>" + formatter.formatPercent2Digits(data.pcpu) + "</td>";
-        row += "<td>" + formatter.formatPercent2Digits(data.pcpuu) + "</td>";
-        row += "<td>" + formatter.formatPercent2Digits(data.pcpus) + "</td>";
         row += "<td>" + formatter.formatPercent2Digits(data.pmem) + "</td>";
         row += "<td>" + data.priority + "</td>";
         row += "<td>" + formatter.formatByte(data.mem_vsz) + "</td>";
         row += "<td>" + formatter.formatByte(data.mem_rss) + "</td>";
-        row += "<td>" + data.nice + "</td>";
         row += "<td>" + data.started + "</td>";
         row += "<td>" + _(data.state) + "</td>";
-        row += "<td>" + data.tty + "</td>";
         row += "<td>" + data.user + "</td>";
-        row += "<td>" + data.command + "</td>";
         row += "</tr>";
         $('#info_0_sysinfo_os_processes_list_datas').append($(row));
     });
