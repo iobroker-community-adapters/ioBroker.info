@@ -569,14 +569,14 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">
-                            <i class="fa fa-window-minimize"></i>
+                            <i class="fa fa-close"></i>
                         </button>
                         <h4 class="modal-title translate">Create new issue on GitHub</h4>
                     </div>
                     <div class="modal-body">
                         <div id="githubChooseButtons" class="text-center">
-                            <button type="button" class="btn btn-primary translate">Add feature request</button>
-                            <button type="button" class="btn btn-danger translate">Add bug report</button>
+                            <button type="button" id="addRequestBtn" class="btn btn-primary translate">Add feature request</button>
+                            <button type="button" id="addBugBtn" class="btn btn-danger translate">Add bug report</button>
                         </div>
                         <div id="githubIssueCreator" class="hidden">
                             <p class="h4 alert alert-info translate">Ideally, inquiries should be made in English because some developers come from abroad and are not proficient in the local language.</p>
@@ -597,9 +597,11 @@
                     </div>
                     <div class="modal-footer">
                         <div class="btn-group pull-left">
-                            <button type="button" class="btn btn-default translate disabled">Open on GitHub</button>
+                            <button type="button" class="btn btn-default disabled">
+                                <span class='glyphicon glyphicon-globe' aria-hidden='true'></span> <span class="translate">Open on GitHub</span>
+                            </button>
                         </div>
-                        <button type="button" class="btn btn-success translate">Submit new issue</button>
+                        <button type="button" class="btn btn-success translate disabled">Submit new issue</button>
                         <button type="button" class="btn btn-default translate" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
@@ -613,7 +615,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">
-                            <i class="fa fa-window-minimize"></i>
+                            <i class="fa fa-close"></i>
                         </button>
                         <h4 class="modal-title translate">System informations</h4>
                     </div>
