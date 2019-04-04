@@ -262,8 +262,8 @@ $(function () {
         socket.emit('unsubscribe', 'info.0.sysinfo.*');
     });
 
-    $(document.body).on('click', '#new-adapter-request', function () {
-        $('#githubSystemInformationForRequest').html(systemInfoForGithub.replace(/\\r\\n/g, "<br>"));
+    $(document.body).on('click', '#new-adapter-request:not(.disabled)', function () {
+        $('#githubSystemInformationForRequest').html(systemInfoForGithub.replace(/(?:\r\n|\r|\n)/g, ", "));
         $('#modal-github').modal();
     });
 

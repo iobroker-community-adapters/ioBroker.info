@@ -93,6 +93,7 @@ function showAdapterRequest() {
     
     if(adapterConfig.github_token){
        $("#new-adapter-request-li").removeClass("disabled");
+       $("#new-adapter-request").removeClass("disabled");
     }
 
     getIssues();
