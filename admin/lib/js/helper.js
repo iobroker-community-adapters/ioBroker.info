@@ -261,18 +261,18 @@ $(function () {
     $('#modal-system').on('hidden.bs.modal', function (e) {
         socket.emit('unsubscribe', 'info.0.sysinfo.*');
     });
-    
-    function isBugReport(){
+
+    function isBugReport() {
         $('#githubChooseButtons').addClass('hidden');
         $('#githubIssueCreator').removeClass('hidden');
-        $('#githubSystemInformationForRequest').html(systemInfoForGithub.replace(/(?:\r\n|\r|\n)/g, ", ")).removeClass('hidden');
-    }    
-    function isFeatureRequest(){
+        $('#githubSystemInformationForRequest').removeClass('hidden').html(systemInfoForGithub.replace(/(?:\r\n|\r|\n)/g, ", "));
+    }
+    function isFeatureRequest() {
         $('#githubChooseButtons').addClass('hidden');
         $('#githubIssueCreator').removeClass('hidden');
         $('#githubSystemInformationForRequest').addClass('hidden');
     }
-    function backToBasic(){
+    function backToBasic() {
         $('#githubChooseButtons').removeClass('hidden');
         $('#githubIssueCreator').addClass('hidden');
         $('#githubSystemInformationForRequest').addClass('hidden');
@@ -283,11 +283,16 @@ $(function () {
         $('#modal-github').modal();
     });
     $(document.body).on('click', '.create-issue-adapter-button:not(.disabled)', function () {
-        isBugReport();
         $('#modal-github').modal();
     });
-     $('#modal-github').on('hidden.bs.modal', function (e) {
+    $('#modal-github').on('hidden.bs.modal', function (e) {
         backToBasic();
+    });
+    $('#addRequestBtn').on('click', function () {
+        isFeatureRequest();
+    });
+    $('#addBugBtn').on('click', function () {
+        isBugReport();
     });
 
     $(document.body).on('click', '.show-md', function () {
