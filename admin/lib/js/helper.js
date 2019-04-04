@@ -262,6 +262,10 @@ $(function () {
         socket.emit('unsubscribe', 'info.0.sysinfo.*');
     });
 
+    $(document.body).on('click', '#new-adapter-request', function () {
+        $('#githubSystemInformationForRequest').html(systemInfoForGithub.replace(/\\r\\n/g, "<br>"));
+        $('#modal-github').modal();
+    });
 
     $(document.body).on('click', '.show-md', function () {
         const url = $(this).data('md-url');

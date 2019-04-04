@@ -24,6 +24,8 @@ const updateInfoPage = async function () {
                                 systemInfoForGithub += "NPM: " + data[item] + "\r\n";
                             }else if(item === "Model"){
                                 systemInfoForGithub += "Model: " + data[item] + "\r\n";
+                            }else if(item === "RAM"){
+                                systemInfoForGithub += "RAM: " + formatInfo[item](data[item]) + "\r\n";
                             }
                             text += '<dd' + ((item === 'Uptime' || item === 'System uptime') ? (" id='" + data.hostname + item + "' class='timeCounter' data-start='" + data[item] + "'") : "") + '>' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</dd>';
                         }                        
