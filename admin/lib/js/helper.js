@@ -263,6 +263,10 @@ $(function () {
     });
 
     $(document.body).on('click', '#new-adapter-request:not(.disabled)', function () {
+        $('#modal-github').modal();
+    });
+    
+    $(document.body).on('click', '.create-issue-adapter-button:not(.disabled)', function () {
         $('#githubSystemInformationForRequest').html(systemInfoForGithub.replace(/(?:\r\n|\r|\n)/g, ", "));
         $('#modal-github').modal();
     });

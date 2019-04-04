@@ -20,12 +20,14 @@ function showIssues() {
                     $item.find('.titleLink').text(adapter.title).attr('href', "https://github.com/" + full_name + "/issues");
                     $item.find('.collapse-link').attr("data-adapter", fullNameId).addClass("loadAdapterIssues");
 
-                    let button = "<button type='button' class='btn btn-primary" + (adapterConfig.github_token ? "" : " disabled") + "'>";
+                    let button = "<div class='text-center'>";
+                    button += "<button type='button' data-href='https://api.github.com/repos/" + full_name + "/issues' class='btn btn-primary create-issue-adapter-button" + (adapterConfig.github_token ? "" : " disabled") + "'>";
                     button += "<span class='glyphicon glyphicon-plus' aria-hidden='true'></span> ";
                     button += _("add new request");
                     button += "</button>";
+                    button += "</div>";
 
-                    const ul = $('<ul/>').attr("id", "issue_" + fullNameId).addClass("list-unstyled timeline");
+                    const ul = $('<ul/>').attr("id", "issue_" + fullNameId).addClass("list-unstyled timeline").attr('style', "margin-bottom: 3px;");
                     $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
                     $item.find('.y_content').addClass('spoiler-content').css('display', 'none').css('background-color', 'cornsilk').empty().append($(button)).append(ul).append($(button));
 

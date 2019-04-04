@@ -73,7 +73,7 @@ const updateInfoPage = async function () {
                     continue;
                 }
                 
-                if(obj.name === "admin"){
+                if(adapter === "admin"){
                     systemInfoForGithub += "Admin: " + obj.version +"\r\n";
                 }else if(obj.controller){
                     i++;

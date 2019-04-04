@@ -574,11 +574,11 @@
                         <h4 class="modal-title translate">Create new issue on GitHub</h4>
                     </div>
                     <div class="modal-body">
-                        <div id="githubChooseButtons">
+                        <div id="githubChooseButtons" class="text-center">
                             <button type="button" class="btn btn-primary translate">Add feature request</button>
                             <button type="button" class="btn btn-danger translate">Add bug report</button>
                         </div>
-                        <div id="githubIssueCreator">
+                        <div id="githubIssueCreator" class="hidden">
                             <p class="h4 alert alert-info translate">Ideally, inquiries should be made in English because some developers come from abroad and are not proficient in the local language.</p>
                             <form>
                                 <div class="form-group">
@@ -589,13 +589,16 @@
                                     <textarea class="form-control translateP" id="githubContent" rows="10" placeholder="Describe your problem..."></textarea>
                                 </div>
                             </form>
-                            <figure id="githubSystemInformationForRequestFigure">
+                            <figure id="githubSystemInformationForRequestFigure" class="hidden">
                                 <h4 class="translate">To better investigate the problem, the following data will be provided to the developer.</h4>
                                 <p id="githubSystemInformationForRequest"></p>
                             </figure>
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <div class="btn-group pull-left">
+                            <button type="button" class="btn btn-default translate disabled">Open on GitHub</button>
+                        </div>
                         <button type="button" class="btn btn-success translate">Submit new issue</button>
                         <button type="button" class="btn btn-default translate" data-dismiss="modal">Cancel</button>
                     </div>
