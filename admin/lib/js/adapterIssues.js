@@ -20,7 +20,7 @@ function showIssues() {
                     $item.find('.titleLink').text(adapter.title).attr('href', "https://github.com/" + full_name + "/issues");
                     $item.find('.collapse-link').attr("data-adapter", fullNameId).addClass("loadAdapterIssues");
 
-                    const button = "<button type='button' class='btn btn-primary" + (adapterConfig.github_token ? "" : " disabled") + "'>";
+                    let button = "<button type='button' class='btn btn-primary" + (adapterConfig.github_token ? "" : " disabled") + "'>";
                     button += "<span class='glyphicon glyphicon-plus' aria-hidden='true'></span> ";
                     button += _("add new request");
                     button += "</button>";
