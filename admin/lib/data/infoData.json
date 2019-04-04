@@ -41,10 +41,6 @@
                     "link": "http://www.iobroker.net/docu/?lang=de"
                 },
                 {
-                    "title": "Willkommen bei ioBroker",
-                    "link": "https://iobroker.github.io/ioBroker.docs/#/README"
-                },
-                {
                     "title": "smarthome-tricks.de - Tricks und Tipps rund um Dein Smarthome",
                     "link": "https://www.smarthome-tricks.de/software-iobroker/"
                 },
@@ -229,10 +225,6 @@
                 {
                     "title": "ioBroker Homepage",
                     "link": "http://www.iobroker.net/docu/?lang=en"
-                },
-                {
-                    "title": "Welcome to ioBroker",
-                    "link": "https://iobroker.github.io/ioBroker.docs/#/_en/"
                 }
             ],
             "development": [
@@ -294,10 +286,6 @@
                 {
                     "title": "Домашняя страница ioBroker",
                     "link": "http://www.iobroker.net/docu/?lang=ru"
-                },
-                {
-                    "title": "Добро пожаловать в ioBroker",
-                    "link": "https://iobroker.github.io/ioBroker.docs/#/_ru/"
                 },
                 {
                     "title": "ioBroker - Визуализация",
