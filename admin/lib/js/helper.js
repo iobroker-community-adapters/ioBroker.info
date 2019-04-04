@@ -265,17 +265,18 @@ $(function () {
     function isBugReport() {
         $('#githubChooseButtons').addClass('hidden');
         $('#githubIssueCreator').removeClass('hidden');
-        $('#githubSystemInformationForRequest').removeClass('hidden').html(systemInfoForGithub.replace(/(?:\r\n|\r|\n)/g, ", "));
+        $('#githubSystemInformationForRequest').html(systemInfoForGithub.replace(/(?:\r\n|\r|\n)/g, ", "));
+        $('#githubSystemInformationForRequestFigure').addClass('hidden');
     }
     function isFeatureRequest() {
         $('#githubChooseButtons').addClass('hidden');
         $('#githubIssueCreator').removeClass('hidden');
-        $('#githubSystemInformationForRequest').addClass('hidden');
+        $('#githubSystemInformationForRequestFigure').addClass('hidden');
     }
     function backToBasic() {
         $('#githubChooseButtons').removeClass('hidden');
         $('#githubIssueCreator').addClass('hidden');
-        $('#githubSystemInformationForRequest').addClass('hidden');
+        $('#githubSystemInformationForRequestFigure').addClass('hidden');
     }
 
     $(document.body).on('click', '#new-adapter-request:not(.disabled)', function () {
