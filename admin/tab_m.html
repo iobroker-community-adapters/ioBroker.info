@@ -171,10 +171,13 @@
                                 <div class="x_title">
                                     <h2><span class="translate">Adapter Requests</span></h2>
                                     <ul class="nav navbar-nav navbar-right panel_toolbox">
-                                        <li>
-                                            <a href="https://github.com/ioBroker/AdapterRequests" target="_blank"><i class="fa fa-globe"></i></a>
+                                        <li id="new-adapter-request-li" class="disabled">
+                                            <a class="new-adapter-request"><i class="fa fa-plus"></i></a>
                                         </li>
                                         <li>
+                                            <a href="https://github.com/ioBroker/AdapterRequests" target="_blank"><i class="fa fa-globe"></i></a>
+                                        </li>                                        
+                                        <li>                                            
                                             <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>                                        
                                     </ul>
@@ -559,6 +562,47 @@
             </div>
         </div>
         <!-- / Install/Update -->
+
+        <!-- Create GitHub Issue -->
+        <div id="modal-github" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-command" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <i class="fa fa-window-minimize"></i>
+                        </button>
+                        <h4 class="modal-title translate">Create new issue on GitHub</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="githubChooseButtons">
+                            <button type="button" class="btn btn-primary translate">Add feature request</button>
+                            <button type="button" class="btn btn-danger translate">Add bug report</button>
+                        </div>
+                        <div id="githubIssueCreator">
+                            <p class="translate">Ideally, inquiries should be made in English because some developers come from abroad and are not proficient in the local language.</p>
+                            <form>
+                                <div class="form-group">
+                                    <label for="githubTitle" class="translate">Title</label>
+                                    <input type="text" class="form-control translateP" id="githubTitle" placeholder="Title">
+                                </div>                            
+                                <div class="form-group">
+                                    <textarea class="form-control translateP" id="githubContent" rows="10" placeholder="Describe your problem..."></textarea>
+                                </div>
+                            </form>
+                            <figure id="githubSystemInformationForRequestFigure">
+                                <h4 class="translate">To better investigate the problem, the following data will be provided to the developer.</h4>
+                                <p id="githubSystemInformationForRequest"></p>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success translate">Submit new issue</button>
+                        <button type="button" class="btn btn-default translate" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- / Create GitHub Issue -->
 
         <!-- Systemdetails -->
         <div id="modal-system" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-command" aria-hidden="true">

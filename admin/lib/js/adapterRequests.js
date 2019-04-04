@@ -1,5 +1,7 @@
 /* global systemLang, dateOptions, adapterConfig */
 
+const allTitles = [];
+
 async function getAllIssuesFromAdapter(full_name) {
     let allIssues = [];
 
@@ -30,6 +32,8 @@ async function cleanTitle(allIssues) {
             title = title.substring(8, title.length);
         }
         issue.title = title;
+        allTitles.push(title);
+        
         response.push(issue);
     });
     return response;
@@ -85,6 +89,10 @@ function showAdapterRequest() {
         if (adapterConfig.adapter_request_closed) {
             $('#adapterRequestBlock').find('.x_title a.collapse-link').click();
         }
+    }
+    
+    if(adapterConfig.github_token){
+       $("#new-adapter-request-li").removeClass("disabled");
     }
 
     getIssues();

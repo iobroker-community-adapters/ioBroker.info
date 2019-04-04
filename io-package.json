@@ -217,7 +217,8 @@
         "diskSpeed": 8,
         "batterySpeed": 8,
         "networkSpeed": 3,
-        "allProcessesUsers": 8
+        "allProcessesUsers": 8,
+        "github_token": ""
     },
     "objects": [],
     "instanceObjects": [

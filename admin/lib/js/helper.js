@@ -6,6 +6,8 @@ let infoData = {};
 let systemConfig = {};
 let adapterConfig = {};
 
+let systemInfoForGithub = "";
+
 const formatter = {
     formatSeconds: function (seconds) {
         const days = Math.floor(seconds / (3600 * 24));

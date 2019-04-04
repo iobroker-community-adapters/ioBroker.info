@@ -6,7 +6,7 @@ function showIssues() {
         const adapters = window.top.gMain.tabs.adapters.curInstalled;
         if (adapters && typeof adapters === "object") {
             $('#adapterIssueList').empty();
-            $('#adapterIssueListLoader').remove();            
+            $('#adapterIssueListLoader').remove();
             await asyncForEach(Object.keys(adapters), async function (key) {
                 if (key !== "hosts") {
                     const adapter = adapters[key];
@@ -20,9 +20,14 @@ function showIssues() {
                     $item.find('.titleLink').text(adapter.title).attr('href', "https://github.com/" + full_name + "/issues");
                     $item.find('.collapse-link').attr("data-adapter", fullNameId).addClass("loadAdapterIssues");
 
+                    const button = "<button type='button' class='btn btn-primary" + (adapterConfig.github_token ? "" : " disabled") + "'>";
+                    button += "<span class='glyphicon glyphicon-plus' aria-hidden='true'></span> ";
+                    button += _("add new request");
+                    button += "</button>";
+
                     const ul = $('<ul/>').attr("id", "issue_" + fullNameId).addClass("list-unstyled timeline");
                     $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
-                    $item.find('.y_content').addClass('spoiler-content').css('display', 'none').css('background-color', 'cornsilk').empty().append(ul);
+                    $item.find('.y_content').addClass('spoiler-content').css('display', 'none').css('background-color', 'cornsilk').empty().append($(button)).append(ul).append($(button));
 
                     $('#adapterIssueList').append($item);
                 }

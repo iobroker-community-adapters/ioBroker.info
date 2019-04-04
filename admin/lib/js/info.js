@@ -1,4 +1,4 @@
-/* global adapterConfig, socket, systemLang, hosts, formatInfo, versionMap, mainHost, systemInformations, formatter */
+/* global adapterConfig, socket, systemLang, hosts, formatInfo, versionMap, mainHost, systemInformations, formatter, systemInfoForGithub */
 
 const uptimeMap = {};
 
@@ -17,10 +17,16 @@ const updateInfoPage = async function () {
                     if (data.hasOwnProperty(item)) {
                         text += '<dt>' + _(item) + '</dt>';
                         if (item === 'Node.js') {
+                            systemInfoForGithub += "Node.js: " + data[item] + "\r\n";
                             text += '<dd><span id="aktNodeVersion' + data.hostname + '">' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</span><span id="nodeExtraInfo' + data.hostname + '"></span></dd>';
                         } else {
+                            if(item === 'NPM'){
+                                systemInfoForGithub += "NPM: " + data[item] + "\r\n";
+                            }else if(item === "Model"){
+                                systemInfoForGithub += "Model: " + data[item] + "\r\n";
+                            }
                             text += '<dd' + ((item === 'Uptime' || item === 'System uptime') ? (" id='" + data.hostname + item + "' class='timeCounter' data-start='" + data[item] + "'") : "") + '>' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</dd>';
-                        }
+                        }                        
                     }
                 }
                 text += "</dl>";
@@ -52,8 +58,9 @@ const updateInfoPage = async function () {
         const listNew = [];
         const listHost = [];
         let adapter, obj;
-
+        
         if (installedList) {
+            let i = 0;
             for (adapter in installedList) {
                 if (!installedList.hasOwnProperty(adapter)) {
                     continue;
@@ -62,6 +69,13 @@ const updateInfoPage = async function () {
 
                 if (!obj || !obj.version || adapter === "hosts") {
                     continue;
+                }
+                
+                if(adapter.name === "admin"){
+                    systemInfoForGithub += "Admin: " + obj.version +"\r\n";
+                }else if(obj.controller){
+                    i++;
+                    systemInfoForGithub += "JS-Controller (" + i + "): " + obj.version +"\r\n";
                 }
 
                 let version = '';

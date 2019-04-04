@@ -1,4 +1,4 @@
-/* global adapterConfig, Chartist, socket, parseFloat, formatter */
+/* global adapterConfig, Chartist, socket, parseFloat, formatter, systemInfoForGithub */
 
 const cpuLabels = [];
 const memLabels = [];
@@ -176,7 +176,7 @@ const systemInformations = {
         } else if (obj.name.endsWith('_hist')) {
             if (obj.name === "currentload_hist") {
                 infoCharts.showCPU(obj.value.split(','));
-            }else if (obj.name === "used_hist") {
+            } else if (obj.name === "used_hist") {
                 infoCharts.showMemory(obj.value.split(','));
             }
         } else if (obj.syssubtype === "processes") {
@@ -190,6 +190,15 @@ const systemInformations = {
             const list = JSON.parse(obj.value);
             processUsersList(list);
         } else {
+            if (obj.systype === "os") {
+                if (obj.name === "arch") {
+                    systemInfoForGithub += "Architecture: " + obj.value +"\r\n";
+                }else if (obj.name === "distro") {
+                    systemInfoForGithub += "Distribution: " + obj.value +"\r\n";
+                }else if (obj.name === "platform") {
+                    systemInfoForGithub += "Platform: " + obj.value +"\r\n";
+                }
+            }
             if (obj.value != -1) {
                 if (obj.device && $("#sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device).length === 0) {
                     const dl = "<h3 id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "_devicename'>" + obj.device + "</h3><dl class='dl-horizontal dl-lg' id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "'></dl>";
@@ -210,9 +219,9 @@ const systemInformations = {
                 processProcessesList(list);
             } else if (id === "info.0.sysinfo.cpu.currentLoad.currentload_hist") {
                 infoCharts.showCPU(obj.val.split(','));
-            }  else if (id === "info.0.sysinfo.memory.info.used_hist") {
+            } else if (id === "info.0.sysinfo.memory.info.used_hist") {
                 infoCharts.showMemory(obj.val.split(','));
-            }else {
+            } else {
                 const types = id.split('.');
                 const loadID = id.replace(/\./g, '_') + "_data";
                 const toReplace = $('#' + loadID);
