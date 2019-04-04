@@ -266,7 +266,7 @@ $(function () {
         $('#githubChooseButtons').addClass('hidden');
         $('#githubIssueCreator').removeClass('hidden');
         $('#githubSystemInformationForRequest').html(systemInfoForGithub.replace(/(?:\r\n|\r|\n)/g, ", "));
-        $('#githubSystemInformationForRequestFigure').addClass('hidden');
+        $('#githubSystemInformationForRequestFigure').removeClass('hidden');
     }
     function isFeatureRequest() {
         $('#githubChooseButtons').addClass('hidden');
