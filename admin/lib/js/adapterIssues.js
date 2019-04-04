@@ -22,7 +22,7 @@ function showIssues() {
 
                     let button = "<div class='text-center'>";
                     button += "<button type='button' data-href='https://api.github.com/repos/" + full_name + "/issues' class='btn btn-primary create-issue-adapter-button" + (adapterConfig.github_token ? "" : " disabled") + "'>";
-                    button += "<span class='glyphicon glyphicon-plus' aria-hidden='true'></span> ";
+                    button += "<i class='fa fa-plus fa-lg'></i> ";
                     button += _("add new request");
                     button += "</button>";
                     button += "</div>";
