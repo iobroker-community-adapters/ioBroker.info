@@ -3,6 +3,18 @@
         "name": "info",
         "version": "1.3.2",
         "news": {
+            "1.3.2": {
+                "en": "Create Github issues",
+                "de": "Erstellen Sie Github-Probleme",
+                "ru": "Создание вопросов Github",
+                "pt": "Criar problemas no Github",
+                "nl": "Maak Github-problemen",
+                "fr": "Créer des problèmes Github",
+                "it": "Crea problemi con Github",
+                "es": "Crear problemas Github",
+                "pl": "Utwórz problemy z Githubem",
+                "zh-cn": "创建Github问题"
+            },
             "1.3.1": {
                 "en": "Charts added",
                 "de": "Charts hinzugefügt",

@@ -272,7 +272,7 @@ $(function () {
         const adapterdata = $(this).data('adapter');
         $('#adapterVersionForBug').val(adapterdata);
         $('#issueLinkForGithubApi').val($(this).data('href'));        
-        $('#adapterNameForGithub').html($("<p><b>" + adapterdata + "</b></p>")).removeClass('hidden');
+        $('#adapterNameForGithub').text(adapterdata).removeClass('hidden');
         $('#modal-github').modal();
     });
     $('#modal-github').on('hidden.bs.modal', function (e) {

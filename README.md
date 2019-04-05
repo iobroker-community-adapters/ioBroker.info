@@ -45,6 +45,8 @@ There is a new widget to display important messages in VIS. These messages are d
 
 ### 1.3.2 (2019-05-01)
 * (SchumyHao) Update Chinese translation
+* (ldittmar) create Github issues
+* (ldittmar) create new adapter requests
 
 ### 1.3.1 (2019-04-03)
 * (ldittmar) charts for cpu and memory
