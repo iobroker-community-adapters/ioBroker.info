@@ -263,7 +263,7 @@ $(function () {
     });
 
     $(document.body).on('click', '#new-adapter-request:not(.disabled)', function () {
-        githubHelper.isFeatureRequest;
+        githubHelper.isFeatureRequest();
         $('#issueLinkForGithubApi').val('https://api.github.com/repos/ioBroker/AdapterRequests/issues');
         $('#modal-github').modal();
     });
@@ -273,21 +273,21 @@ $(function () {
         $('#modal-github').modal();
     });
     $('#modal-github').on('hidden.bs.modal', function (e) {
-        githubHelper.backToBasic;
+        githubHelper.backToBasic();
     });
     $('#addRequestBtn').on('click', function () {
-        githubHelper.isFeatureRequest;
+        githubHelper.isFeatureRequest();
     });
     $('#addBugBtn').on('click', function () {
-        githubHelper.isBugReport;
+        githubHelper.isBugReport();
     });
     $(document.body).on('keypress', '', function () {
-        githubHelper.checkSendButton;
+        githubHelper.checkSendButton();
     });
-    $('#submitGithubIssue').on('click', function () {
+    $('#submitGithubIssue:not(.disabled)').on('click', function () {
         githubHelper.createIssue();
     });
-    $('#openIssueOnGihub').on('click', function () {
+    $('#openIssueOnGihub:not(.disabled)').on('click', function () {
         window.open($(this).attr("data-href"), '_blank');
     });
 
