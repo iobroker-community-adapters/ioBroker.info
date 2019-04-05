@@ -49,7 +49,7 @@ const githubHelper = {
 
         if (issueTitle.length > 0 && issueBody.length > 0 && url.length > 0) {
 
-            const isBug = $('#isBug').val();
+            const isBug = $('#isBug').val() == "true";
 
             if (isBug) {
                 issueBody += "\r\n\r\n---\r\n\r\n**System data:**\r\n\r\n";
