@@ -7,6 +7,7 @@ let systemConfig = {};
 let adapterConfig = {};
 
 let systemInfoForGithub = "";
+let githubMarkdownArea;
 
 const formatter = {
     formatSeconds: function (seconds) {
@@ -268,8 +269,10 @@ $(function () {
         $('#modal-github').modal();
     });
     $(document.body).on('click', '.create-issue-adapter-button:not(.disabled)', function () {
-        $('#adapterVersionForBug').val($(this).data('adapter'));
-        $('#issueLinkForGithubApi').val($(this).data('href'));
+        const adapterdata = $(this).data('adapter');
+        $('#adapterVersionForBug').val(adapterdata);
+        $('#issueLinkForGithubApi').val($(this).data('href'));        
+        $('#adapterNameForGithub').html($("<p><b>" + adapterdata + "</b></p>")).removeClass('hidden');
         $('#modal-github').modal();
     });
     $('#modal-github').on('hidden.bs.modal', function (e) {
@@ -281,7 +284,7 @@ $(function () {
     $('#addBugBtn').on('click', function () {
         githubHelper.isBugReport();
     });
-    $(document.body).on('keypress', '', function () {
+    $(document.body).on('keypress', '#githubTitle', function () {
         githubHelper.checkSendButton();
     });
     $('#submitGithubIssue').on('click', function () {
@@ -293,6 +296,10 @@ $(function () {
         if (!$(this).hasClass('disabled')) {
             window.open($(this).attr("data-href"), '_blank');
         }
+    });    
+    githubMarkdownArea = new SimpleMDE({ element: $("#githubContent")[0] });
+    githubMarkdownArea.codemirror.on('change', function(){
+        githubHelper.checkSendButton();
     });
 
     $(document.body).on('click', '.show-md', function () {

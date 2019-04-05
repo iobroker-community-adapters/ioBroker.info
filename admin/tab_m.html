@@ -5,6 +5,7 @@
         <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css"/>
         <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.min.css"/>
         <link rel="stylesheet" type="text/css" href="lib/css/chartist.min.css"/>
+        <link rel="stylesheet" type="text/css" href="lib/css/simplemde.min.css"/>
         <link rel="stylesheet" type="text/css" href="lib/css/info.css"/>
 
         <script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
@@ -15,6 +16,7 @@
         <script type="text/javascript" src="lib/js/showdown.min.js"></script>
         <script type="text/javascript" src="lib/js/feednami.min.js"></script>
         <script type="text/javascript" src="lib/js/chartist.min.js"></script>
+        <script type="text/javascript" src="lib/js/simplemde.min.js"></script>
 
         <script type="text/javascript" src="../../lib/js/translate.js"></script>
         <script type="text/javascript" src="../../lib/js/selectID.js"></script>
@@ -592,12 +594,15 @@
                                 <input type="hidden" id="isBug" value="false"/>
                                 <input type="hidden" id="adapterVersionForBug" value=""/>
                                 <input type="hidden" id="issueLinkForGithubApi" value=""/>
+                                <h4 class="text-center">
+                                    <span class="label label-primary hidden" id="adapterNameForGithub"></span>
+                                </h4>
                                 <div class="form-group">
                                     <label for="githubTitle" class="translate">Title</label>
-                                    <input type="text" class="form-control translateP" id="githubTitle" placeholder="Title">
+                                    <input type="text" class="form-control" id="githubTitle">
                                 </div>                            
                                 <div class="form-group">
-                                    <textarea class="form-control translateP" id="githubContent" rows="10" placeholder="Describe your problem..."></textarea>
+                                    <textarea class="form-control" id="githubContent" rows="10"></textarea>
                                 </div>
                             </form>
                             <figure id="githubSystemInformationForRequestFigure" class="hidden">
@@ -616,7 +621,7 @@
                             <i class="fa fa-check fa-lg"></i> <span class="translate">Submit new issue</span>
                         </button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">
-                            <i class="fa fa-close fa-lg"></i> <span class="translate">Cancel</span>
+                            <i class="fa fa-close fa-lg"></i> <span class="translate" id="githubCloseButtonText">Cancel</span>
                         </button>
                     </div>
                 </div>

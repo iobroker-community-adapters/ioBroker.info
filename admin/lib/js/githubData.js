@@ -1,4 +1,4 @@
-/* global systemInfoForGithub, adapterConfig */
+/* global systemInfoForGithub, adapterConfig, githubMarkdownArea */
 
 const githubHelper = {
     isBugReport: function () {
@@ -26,19 +26,25 @@ const githubHelper = {
         $('#githubErrorList').empty().parent().addClass('hidden');
         $('#openIssueOnGihub').addClass('disabled btn-default').removeClass('btn-info').attr('data-href', '');
         $('#submitGithubIssue').addClass('disabled');
+        $('#adapterNameForGithub').addClass('hidden');
+        $('#githubCloseButtonText').text(_('Cancel'));
     },
     checkSendButton: function () {
         const title = $('#githubTitle').val();
-        const body = $('#githubContent').val();
+        const body = githubMarkdownArea.value();
         if (title.length > 0 && body.length > 0) {
             $('#submitGithubIssue').removeClass('disabled');
+            if ($('#openIssueOnGihub').hasClass('btn-info')) {
+                $('#openIssueOnGihub').addClass('disabled btn-default').removeClass('btn-info').attr('data-href', '');
+                $('#githubCloseButtonText').text(_('Cancel'));
+            }
         } else {
             $('#submitGithubIssue').addClass('disabled');
         }
     },
     createIssue: function () {
         const issueTitle = $('#githubTitle').val();
-        let issueBody = $('#githubContent').val();
+        let issueBody = githubMarkdownArea.value();
         const url = $('#issueLinkForGithubApi').val();
 
         if (issueTitle.length > 0 && issueBody.length > 0 && url.length > 0) {
@@ -50,6 +56,8 @@ const githubHelper = {
                 issueBody += systemInfoForGithub;
                 issueBody += $('#adapterVersionForBug').val();
             }
+            
+            issueBody += "\r\n\r\n> *created by ioBroker.info*";
 
             $.ajax({
                 url: url,
@@ -59,15 +67,16 @@ const githubHelper = {
                 },
                 error: function (xhr, status, error) {
                     var err = JSON.parse(xhr.responseText);
-                    $('#githubErrorList').append($("<li>" + err + "</li>"));
+                    $('#githubErrorList').append($("<li>" + err.message + "</li>"));
                     $('#githubErrorList').parent().removeClass('hidden');
                 },
                 success: function (issue) {
                     $('#githubTitle').val('');
-                    $('#githubContent').val('');
+                    githubMarkdownArea.value('');
                     $('#githubErrorList').parent().addClass('hidden');
                     $('#submitGithubIssue').addClass('disabled');
                     $('#openIssueOnGihub').removeClass('disabled btn-default').addClass('btn-info').attr('data-href', issue['html_url']);
+                    $('#githubCloseButtonText').text(_('Close'));
                 },
                 data: JSON.stringify({
                     title: issueTitle,
@@ -85,7 +94,7 @@ const githubHelper = {
             if (!issueBody.length > 0) {
                 $('#githubContent').parent().addClass('has-error');
                 $('#githubErrorList').append($("<li>" + _('A description is required!') + "</li>"));
-                $('#githubContent').one('focus', function () {
+                githubMarkdownArea.codemirror.one('focus', function () {
                     $('#githubContent').parent().removeClass('has-error');
                 });
             }

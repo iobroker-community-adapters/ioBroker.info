@@ -110,4 +110,8 @@ function showDocumentation() {
     }
 
     getDocuments();
+    
+    if(adapterConfig.clock){
+        $('.documentationButton').parent().removeClass('rotate-button');
+    }
 }
