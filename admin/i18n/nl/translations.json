@@ -1,4 +1,5 @@
 {
+    "A description is required!": "Een beschrijving is verplicht!",
     "Active instances": "Actieve instanties",
     "Adapter Requests": "Adapterverzoeken",
     "Adapter care team": "Adapter verzorgingsteam",
@@ -103,6 +104,7 @@
     "Show known errors": "Toon bekende fouten",
     "Software": "Software",
     "Software versions": "Software versies",
+    "Something went wrong. Please close the window and open again.": "Er is iets fout gegaan. ",
     "Sort adapters by": "Soort adapters door",
     "Spanish": "Spaans",
     "Speed": "Snelheid",
@@ -113,6 +115,7 @@
     "The adapter %s has been successfully installed!": "De adapter %s is succesvol geïnstalleerd!",
     "The adpter %s has been successfully updated!": "Adapter %s wordt bijgewerkt...",
     "Title": "Titel",
+    "Title is a required field!": "Titel is een verplicht veld!",
     "To better investigate the problem, the following data will be provided to the developer.": "Om het probleem beter te onderzoeken, worden de volgende gegevens aan de ontwikkelaar verstrekt.",
     "To read news or forum, you need a free API Key if your ioBroker installation can be reached via a hostname, such as iobroker: 8081 or something similar. For IP access it is not needed.": "Lezen van nieuws of het forum, moet u een gratis API-Sleutel als uw ioBroker installatie kan worden bereikt via een hostname, zoals iobroker: 8081 of iets dergelijks. Voor IP-toegang is niet nodig.",
     "Unknown": "Onbekend",

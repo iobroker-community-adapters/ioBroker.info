@@ -1,4 +1,5 @@
 {
+    "A description is required!": "A description is required!",
     "Active instances": "Active instances",
     "Adapter Requests": "Adapter Requests",
     "Adapter care team": "Adapter care team",
@@ -103,6 +104,7 @@
     "Show known errors": "Show known errors",
     "Software": "Software",
     "Software versions": "Software versions",
+    "Something went wrong. Please close the window and open again.": "Something went wrong. Please close the window and open again.",
     "Sort adapters by": "Sort adapters by",
     "Spanish": "Spanish",
     "Speed": "Speed",
@@ -113,6 +115,7 @@
     "The adapter %s has been successfully installed!": "The adapter %s has been successfully installed!",
     "The adpter %s has been successfully updated!": "The adapter %s has been successfully updated!",
     "Title": "Title",
+    "Title is a required field!": "Title is a required field!",
     "To better investigate the problem, the following data will be provided to the developer.": "To better investigate the problem, the following data will be provided to the developer.",
     "To read news or forum, you need a free API Key if your ioBroker installation can be reached via a hostname, such as iobroker: 8081 or something similar. For IP access it is not needed.": "To read news or forum, you need a free API Key if your ioBroker installation can be reached via a hostname, such as iobroker: 8081 or something similar. For IP access it is not needed.",
     "Unknown": "Unknown",

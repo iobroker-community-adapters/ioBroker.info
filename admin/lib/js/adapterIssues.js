@@ -21,7 +21,7 @@ function showIssues() {
                     $item.find('.collapse-link').attr("data-adapter", fullNameId).addClass("loadAdapterIssues");
 
                     let button = "<div class='text-center'>";
-                    button += "<button type='button' data-href='https://api.github.com/repos/" + full_name + "/issues' class='btn btn-primary create-issue-adapter-button" + (adapterConfig.github_token ? "" : " disabled") + "'>";
+                    button += "<button type='button' data-adapter='" + adapter.title + ": " + adapter.version + "' data-href='https://api.github.com/repos/" + full_name + "/issues' class='btn btn-primary create-issue-adapter-button" + (adapterConfig.github_token ? "" : " disabled") + "'>";
                     button += "<i class='fa fa-plus fa-lg'></i> ";
                     button += _("add new request");
                     button += "</button>";

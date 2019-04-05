@@ -1,4 +1,5 @@
 {
+    "A description is required!": "Eine Beschreibung ist erforderlich!",
     "Active instances": "Aktive Instanzen",
     "Adapter Requests": "Adapteranfragen",
     "Adapter care team": "Adapter-Entwicklerteam",
@@ -103,6 +104,7 @@
     "Show known errors": "Bekannte Fehler anzeigen",
     "Software": "Software",
     "Software versions": "Softwareversionen",
+    "Something went wrong. Please close the window and open again.": "Etwas ist schief gelaufen. ",
     "Sort adapters by": "Adapter sortieren nach",
     "Spanish": "Spanisch",
     "Speed": "Geschwindigkeit",
@@ -113,6 +115,7 @@
     "The adapter %s has been successfully installed!": "Der Adapter %s wurde erfolgreich installiert!",
     "The adpter %s has been successfully updated!": "Der Adapter %s wurde erfolgreich aktualisiert!",
     "Title": "Titel",
+    "Title is a required field!": "Titel ist ein Pflichtfeld!",
     "To better investigate the problem, the following data will be provided to the developer.": "Zur besseren Untersuchung des Problems werden dem Entwickler folgenden Daten zur Verfügung gestellt.",
     "To read news or forum, you need a free API Key if your ioBroker installation can be reached via a hostname, such as iobroker: 8081 or something similar. For IP access it is not needed.": "Um News- oder Forumeinträge zu Lesen, benötigen Sie einen kostenlosen API-Key, wenn Sie ioBroker über einen Hostnamen aufrufen, wie z.B. iobroker:8081 oder so ähnliches. Für den IP-Zugriff ist keine Key erforderlich.",
     "Unknown": "unbekannte",

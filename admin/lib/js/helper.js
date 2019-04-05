@@ -1,4 +1,4 @@
-/* global io, systemDictionary, systemLang, bootbox, showdown, socket, parseFloat, infoCharts */
+/* global io, systemDictionary, systemLang, bootbox, showdown, socket, parseFloat, infoCharts, githubHelper */
 
 const dateOptions = {"weekday": "short", "year": "numeric", "month": "long", "day": "2-digit", "hour": "2-digit", "minute": "2-digit", "second": "2-digit"};
 let infoData = {};
@@ -262,38 +262,33 @@ $(function () {
         socket.emit('unsubscribe', 'info.0.sysinfo.*');
     });
 
-    function isBugReport() {
-        $('#githubChooseButtons').addClass('hidden');
-        $('#githubIssueCreator').removeClass('hidden');
-        $('#githubSystemInformationForRequest').html(systemInfoForGithub.replace(/(?:\r\n|\r|\n)/g, ", "));
-        $('#githubSystemInformationForRequestFigure').removeClass('hidden');
-    }
-    function isFeatureRequest() {
-        $('#githubChooseButtons').addClass('hidden');
-        $('#githubIssueCreator').removeClass('hidden');
-        $('#githubSystemInformationForRequestFigure').addClass('hidden');
-    }
-    function backToBasic() {
-        $('#githubChooseButtons').removeClass('hidden');
-        $('#githubIssueCreator').addClass('hidden');
-        $('#githubSystemInformationForRequestFigure').addClass('hidden');
-    }
-
     $(document.body).on('click', '#new-adapter-request:not(.disabled)', function () {
-        isFeatureRequest();
+        githubHelper.isFeatureRequest;
+        $('#issueLinkForGithubApi').val('https://api.github.com/repos/ioBroker/AdapterRequests/issues');
         $('#modal-github').modal();
     });
     $(document.body).on('click', '.create-issue-adapter-button:not(.disabled)', function () {
+        $('#adapterVersionForBug').val($(this).data('adapter'));
+        $('#issueLinkForGithubApi').val($(this).data('href'));
         $('#modal-github').modal();
     });
     $('#modal-github').on('hidden.bs.modal', function (e) {
-        backToBasic();
+        githubHelper.backToBasic;
     });
     $('#addRequestBtn').on('click', function () {
-        isFeatureRequest();
+        githubHelper.isFeatureRequest;
     });
     $('#addBugBtn').on('click', function () {
-        isBugReport();
+        githubHelper.isBugReport;
+    });
+    $(document.body).on('keypress', '', function () {
+        githubHelper.checkSendButton;
+    });
+    $('#submitGithubIssue').on('click', function () {
+        githubHelper.createIssue();
+    });
+    $('#openIssueOnGihub').on('click', function () {
+        window.open($(this).attr("data-href"), '_blank');
     });
 
     $(document.body).on('click', '.show-md', function () {

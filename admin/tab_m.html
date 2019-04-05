@@ -29,6 +29,7 @@
         <script type="text/javascript" src="lib/js/forum.js"></script>
         <script type="text/javascript" src="lib/js/news.js"></script>
         <script type="text/javascript" src="lib/js/clock.js"></script>
+        <script type="text/javascript" src="lib/js/githubData.js"></script>
         <script type="text/javascript" src="lib/js/adapterIssues.js"></script>
         <script type="text/javascript" src="lib/js/adapterRequests.js"></script>
         <script type="text/javascript" src="lib/js/popupnews.js"></script>
@@ -583,8 +584,14 @@
                             </button>
                         </div>
                         <div id="githubIssueCreator" class="hidden">
-                            <p class="h4 alert alert-info translate">Ideally, inquiries should be made in English because some developers come from abroad and are not proficient in the local language.</p>
+                            <div class="h4 alert alert-danger hidden"  role="alert">
+                                <ul id="githubErrorList"></ul>
+                            </div>
+                            <div class="h4 alert alert-info translate" role="alert">Ideally, inquiries should be made in English because some developers come from abroad and are not proficient in the local language.</div>
                             <form>
+                                <input type="hidden" id="isBug" value="false"/>
+                                <input type="hidden" id="adapterVersionForBug" value=""/>
+                                <input type="hidden" id="issueLinkForGithubApi" value=""/>
                                 <div class="form-group">
                                     <label for="githubTitle" class="translate">Title</label>
                                     <input type="text" class="form-control translateP" id="githubTitle" placeholder="Title">
@@ -601,11 +608,11 @@
                     </div>
                     <div class="modal-footer">
                         <div class="btn-group pull-left">
-                            <button type="button" class="btn btn-default disabled">
+                            <button type="button" data-href="" class="btn btn-default disabled" id="openIssueOnGihub">
                                 <i class="fa fa-github fa-lg"></i> <span class="translate">Open on GitHub</span>
                             </button>
                         </div>
-                        <button type="button" class="btn btn-success disabled">
+                        <button type="button" class="btn btn-success disabled" id="submitGithubIssue">
                             <i class="fa fa-check fa-lg"></i> <span class="translate">Submit new issue</span>
                         </button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">
@@ -781,10 +788,10 @@
                                     <div class="panel-heading translate">CPU-Load</div>
                                     <div class="panel-body">
                                         <div class="row">
-                                            <div class="col-xs-12 col-sm-6">
+                                            <div class="col-sm-12 col-md-6">
                                                 <dl class="dl-horizontal dl-lg" id="sys_info_cpu_currentLoad"></dl>
                                             </div>
-                                            <div class="hidden-xs col-sm-6">
+                                            <div class="hidden-sm col-md-6">
                                                 <h4 class="translate" style="text-align: center;">cpu.currentload</h4>
                                                 <div id="cpu-chart"></div>
                                             </div>
@@ -814,10 +821,10 @@
                                     <div class="panel-heading translate">Memory information</div>
                                     <div class="panel-body">
                                         <div class="row">
-                                            <div class="col-xs-12 col-sm-6">
+                                            <div class="col-sm-12 col-md-6">
                                                 <dl class="dl-horizontal dl-lg" id="sys_info_memory_info"></dl>
                                             </div>
-                                            <div class="hidden-xs col-sm-6">
+                                            <div class="hidden-sm col-md-6">
                                                 <h4 class="translate" style="text-align: center;">memory.active</h4>
                                                 <div id="memory-chart"></div>
                                             </div>      

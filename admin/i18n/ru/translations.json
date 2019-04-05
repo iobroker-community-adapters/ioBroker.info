@@ -1,4 +1,5 @@
 {
+    "A description is required!": "Описание обязательно!",
     "Active instances": "Активные экземпляры",
     "Adapter Requests": "Запросы адаптера",
     "Adapter care team": "Команда по уходу за адаптером",
@@ -103,6 +104,7 @@
     "Show known errors": "Показать известные ошибки",
     "Software": "Программного обеспечения",
     "Software versions": "Версии программного обеспечения",
+    "Something went wrong. Please close the window and open again.": "Что-то пошло не так. ",
     "Sort adapters by": "Вроде адаптеров",
     "Spanish": "испанский",
     "Speed": "Cкорость",
@@ -113,6 +115,7 @@
     "The adapter %s has been successfully installed!": "Адаптер %s успешно установлен!",
     "The adpter %s has been successfully updated!": "Адаптер %s успешно обновлен!",
     "Title": "заглавие",
+    "Title is a required field!": "Название - обязательное поле!",
     "To better investigate the problem, the following data will be provided to the developer.": "Чтобы лучше изучить проблему, следующие данные будут предоставлены разработчику.",
     "To read news or forum, you need a free API Key if your ioBroker installation can be reached via a hostname, such as iobroker: 8081 or something similar. For IP access it is not needed.": "Читать новости или форум, вам нужен бесплатный API-ключ, если при установке ioBroker можно добраться через имя хоста, таких как iobroker: 8081 или что-то подобное. Для IP-доступ к нему не нужен.",
     "Unknown": "неизвестный",
