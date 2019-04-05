@@ -284,11 +284,15 @@ $(function () {
     $(document.body).on('keypress', '', function () {
         githubHelper.checkSendButton();
     });
-    $('#submitGithubIssue:not(.disabled)').on('click', function () {
-        githubHelper.createIssue();
+    $('#submitGithubIssue').on('click', function () {
+        if (!$(this).hasClass('disabled')) {
+            githubHelper.createIssue();
+        }
     });
-    $('#openIssueOnGihub:not(.disabled)').on('click', function () {
-        window.open($(this).attr("data-href"), '_blank');
+    $('#openIssueOnGihub').on('click', function () {
+        if (!$(this).hasClass('disabled')) {
+            window.open($(this).attr("data-href"), '_blank');
+        }
     });
 
     $(document.body).on('click', '.show-md', function () {

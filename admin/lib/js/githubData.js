@@ -8,6 +8,7 @@ const githubHelper = {
         $('#isBug').val(true);
         const showInfo = systemInfoForGithub.replace(/(?:\r\n|\r|\n)/g, ", ") + $('#adapterVersionForBug').val();
         $('#githubSystemInformationForRequest').html(showInfo);
+        githubHelper.checkSendButton();
     },
     isFeatureRequest: function () {
         $('#githubChooseButtons').addClass('hidden');
@@ -15,6 +16,7 @@ const githubHelper = {
         $('#isBug').val(false);
         $('#adapterVersionForBug').val('');
         $('#githubSystemInformationForRequestFigure').addClass('hidden');
+        githubHelper.checkSendButton();
     },
     backToBasic: function () {
         $('#adapterVersionForBug').val('');
