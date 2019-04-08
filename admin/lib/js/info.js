@@ -1,4 +1,4 @@
-/* global adapterConfig, socket, systemLang, hosts, formatInfo, versionMap, mainHost, systemInformations, formatter, systemInfoForGithub */
+/* global adapterConfig, socket, systemLang, hosts, formatInfo, versionMap, mainHost, systemInformations, formatter, systemInfoForGithub, githubHelper */
 
 const uptimeMap = {};
 
@@ -20,15 +20,15 @@ const updateInfoPage = async function () {
                             systemInfoForGithub += "Node.js: " + data[item] + "\r\n";
                             text += '<dd><span id="aktNodeVersion' + data.hostname + '">' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</span><span id="nodeExtraInfo' + data.hostname + '"></span></dd>';
                         } else {
-                            if(item === 'NPM'){
+                            if (item === 'NPM') {
                                 systemInfoForGithub += "NPM: " + data[item] + "\r\n";
-                            }else if(item === "Model"){
+                            } else if (item === "Model") {
                                 systemInfoForGithub += "Model: " + data[item] + "\r\n";
-                            }else if(item === "RAM"){
+                            } else if (item === "RAM") {
                                 systemInfoForGithub += "RAM: " + formatInfo[item](data[item]) + "\r\n";
                             }
                             text += '<dd' + ((item === 'Uptime' || item === 'System uptime') ? (" id='" + data.hostname + item + "' class='timeCounter' data-start='" + data[item] + "'") : "") + '>' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</dd>';
-                        }                        
+                        }
                     }
                 }
                 text += "</dl>";
@@ -60,7 +60,7 @@ const updateInfoPage = async function () {
         const listNew = [];
         const listHost = [];
         let adapter, obj;
-        
+
         if (installedList) {
             let i = 0;
             for (adapter in installedList) {
@@ -72,12 +72,12 @@ const updateInfoPage = async function () {
                 if (!obj || !obj.version || adapter === "hosts") {
                     continue;
                 }
-                
-                if(adapter === "admin"){
-                    systemInfoForGithub += "Admin: " + obj.version +"\r\n";
-                }else if(obj.controller){
+
+                if (adapter === "admin") {
+                    systemInfoForGithub += "Admin: " + obj.version + "\r\n";
+                } else if (obj.controller) {
                     i++;
-                    systemInfoForGithub += "JS-Controller (" + i + "): " + obj.version +"\r\n";
+                    systemInfoForGithub += "JS-Controller (" + i + "): " + obj.version + "\r\n";
                 }
 
                 let version = '';
@@ -156,21 +156,21 @@ $(function () {
             let blockCounter = [];
             if (adapterConfig.new_adapters) {
                 blockCounter.push('#adapterSearchBlock');
-                searchGithubForNewAdapters(adapterConfig.new_adapters_sort, adapterConfig.new_adapters_order);                
+                searchGithubForNewAdapters(adapterConfig.new_adapters_sort, adapterConfig.new_adapters_order);
             } else {
                 $('#adapterSearchBlock').hide();
             }
             if (adapterConfig.adapter_request) {
                 blockCounter.push('#adapterRequestBlock');
-                showAdapterRequest();                
+                showAdapterRequest();
             } else {
                 $('#adapterRequestBlock').hide();
             }
             if (adapterConfig.adapter_issue) {
                 blockCounter.push('#knownIssuesBlock');
-                showIssues();                
+                showIssues();
             } else {
-                $('#knownIssuesBlock').hide();                
+                $('#knownIssuesBlock').hide();
             }
 
             if (blockCounter.length === 0) {
@@ -187,17 +187,18 @@ $(function () {
             } else {
                 $('.rotate-button').hide();
             }
-            
-            if(adapterConfig.github_token){
+
+            if (adapterConfig.github_token) {
+                githubHelper.getUserdata;
                 $('#githubbuttonslist').removeClass('hidden');
-            }else{
+            } else {
                 $('#popupnews').css('margin-top', '-40px');
             }
 
             translateAll(systemLang);
 
             startPopupNews();
-            
+
             systemInformations.getData();
 
         } else {

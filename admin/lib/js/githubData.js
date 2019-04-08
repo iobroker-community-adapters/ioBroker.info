@@ -2,15 +2,14 @@
 
 let githubuser = {};
 
-if (adapterConfig.github_token) {
-    githubuser = githubHelper.getData("https://api.github.com/user", "GET");
-    if(!githubuser){
-        githubuser = {};
-        githubuser.login = "";
-    }
-}
-
 const githubHelper = {
+    getUserdata: function () {
+        githubuser = githubHelper.getData("https://api.github.com/user", "GET");
+        if (!githubuser) {
+            githubuser = {};
+            githubuser.login = "";
+        }
+    },
     isBugReport: function () {
         $('#githubChooseButtons').addClass('hidden');
         $('#githubIssueCreator').removeClass('hidden');
@@ -170,6 +169,8 @@ async function writeAllRepos(allRepos, id) {
 
         $item.find('.titleLink').text(repo.name).attr('href', repo.html_url);
         $item.find('.collapse-link').remove();
+        $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
+        $item.find('.y_content').remove();
 
         $('#' + id).append($item);
 
