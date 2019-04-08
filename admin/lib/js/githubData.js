@@ -1,5 +1,15 @@
 /* global systemInfoForGithub, adapterConfig, githubMarkdownArea */
 
+let githubuser = {};
+
+if (adapterConfig.github_token) {
+    githubuser = githubHelper.getData("https://api.github.com/user", "GET");
+    if(!githubuser){
+        githubuser = {};
+        githubuser.login = "";
+    }
+}
+
 const githubHelper = {
     isBugReport: function () {
         $('#githubChooseButtons').addClass('hidden');
@@ -106,9 +116,10 @@ const githubHelper = {
     },
     loadIssues: async function () {
         $('#modal-githublist-title').text(_('My issues list'));
-        const issues = await githubHelper.getData("https://api.github.com/user/issues", "GET");
+
+        const issues = await githubHelper.getData("https://api.github.com/search/issues?q=is:open+is:issue+archived:false+author:" + githubuser.login + "&per_page=100", "GET");
         $('#githublistLoader').hide();
-        if(issues){
+        if (issues) {
             await writeAllIssues(issues, "githublistbody");
         }
     },
@@ -116,16 +127,16 @@ const githubHelper = {
         $('#modal-githublist-title').text(_('Watched repositories'));
         const watched = await githubHelper.getData("https://api.github.com/user/subscriptions", "GET");
         $('#githublistLoader').hide();
-        if(watched){
-            await writeAllIssues(watched, "githublistbody");
+        if (watched) {
+            await writeAllRepos(watched, "githublistbody");
         }
     },
     loadStarred: async function () {
         $('#modal-githublist-title').text(_('Starred repositories'));
         const starred = await githubHelper.getData("https://api.github.com/user/starred", "GET");
         $('#githublistLoader').hide();
-        if(starred){
-            await writeAllIssues(starred, "githublistbody");
+        if (starred) {
+            await writeAllRepos(starred, "githublistbody");
         }
     },
     backToBasicList: async function () {
@@ -147,3 +158,20 @@ const githubHelper = {
     }
 };
 
+async function writeAllRepos(allRepos, id) {
+    await asyncForEach(allRepos, async function (repo) {
+
+        const $item = $('#forumEntryTemplate').children().clone(true, true);
+        $item.find('.label-success').remove();
+
+        const full_name = repo.full_name;
+
+        const fullNameId = full_name.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE");
+
+        $item.find('.titleLink').text(repo.name).attr('href', repo.html_url);
+        $item.find('.collapse-link').remove();
+
+        $('#' + id).append($item);
+
+    });
+}
