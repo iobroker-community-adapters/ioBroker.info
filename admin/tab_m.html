@@ -81,13 +81,13 @@
                             <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 popandgit">
                                 <div class="row">
                                     <div class="col-xs-12 text-center hidden" id="githubbuttonslist">
-                                        <button type="button" data-href="" class="btn btn-default disabled" id="myIssuesListOnGithub">
+                                        <button type="button" data-href="" class="btn btn-default" id="myIssuesListOnGithub">
                                             <i class="fa fa-list fa-lg"></i> <span class="translate">My issues list</span>
                                         </button>
-                                        <button type="button" data-href="" class="btn btn-default disabled" id="myWatchedListOnGithub">
+                                        <button type="button" data-href="" class="btn btn-default" id="myWatchedListOnGithub">
                                             <i class="fa fa-eye fa-lg"></i> <span class="translate">Watched repositories</span>
                                         </button>
-                                        <button type="button" data-href="" class="btn btn-default disabled" id="myStarredListOnGithub">
+                                        <button type="button" data-href="" class="btn btn-default" id="myStarredListOnGithub">
                                             <i class="fa fa-star fa-lg"></i> <span class="translate">Starred repositories</span>
                                         </button>
                                     </div>
@@ -646,6 +646,34 @@
             </div>
         </div>
         <!-- / Create GitHub Issue -->
+
+        <!-- Create GitHub List -->
+        <div id="modal-githublist" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-command" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <i class="fa fa-close"></i>
+                        </button>
+                        <h4 class="modal-title" id="modal-githublist-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="x_content y_content height_520">
+                            <div class="adjust" id="githublistLoader">
+                                <div class="loader3"></div>
+                            </div>
+                            <ul class="list-unstyled timeline" id="githublistbody"></ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">                        
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <i class="fa fa-close fa-lg"></i> <span class="translate">Close</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- / Create GitHub List -->
 
         <!-- Systemdetails -->
         <div id="modal-system" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-command" aria-hidden="true">

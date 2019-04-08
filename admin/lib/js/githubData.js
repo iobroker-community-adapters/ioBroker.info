@@ -56,7 +56,7 @@ const githubHelper = {
                 issueBody += systemInfoForGithub;
                 issueBody += $('#adapterVersionForBug').val();
             }
-            
+
             issueBody += "\r\n\r\n> *created by ioBroker.info*";
 
             $.ajax({
@@ -102,6 +102,47 @@ const githubHelper = {
                 $('#githubErrorList').append($("<li>" + _('Something went wrong. Please close the window and open again.') + "</li>"));
             }
             $('#githubErrorList').parent().removeClass('hidden');
+        }
+    },
+    loadIssues: async function () {
+        $('#modal-githublist-title').text(_('My issues list'));
+        const issues = await githubHelper.getData("https://api.github.com/user/issues", "GET");
+        $('#githublistLoader').hide();
+        if(issues){
+            await writeAllIssues(issues, "githublistbody");
+        }
+    },
+    loadWatched: async function () {
+        $('#modal-githublist-title').text(_('Watched repositories'));
+        const watched = await githubHelper.getData("https://api.github.com/user/subscriptions", "GET");
+        $('#githublistLoader').hide();
+        if(watched){
+            await writeAllIssues(watched, "githublistbody");
+        }
+    },
+    loadStarred: async function () {
+        $('#modal-githublist-title').text(_('Starred repositories'));
+        const starred = await githubHelper.getData("https://api.github.com/user/starred", "GET");
+        $('#githublistLoader').hide();
+        if(starred){
+            await writeAllIssues(starred, "githublistbody");
+        }
+    },
+    backToBasicList: async function () {
+        $('#modal-githublist-title').empty();
+        $('#githublistLoader').show();
+        $('#githublistbody').empty();
+    },
+    getData: async function (url, methode) {
+        try {
+            return await (await fetch(url, {
+                method: methode,
+                headers: new Headers({
+                    "Authorization": "token " + adapterConfig.github_token
+                })
+            })).json();
+        } catch (e) {
+            return false;
         }
     }
 };
