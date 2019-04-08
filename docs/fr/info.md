@@ -31,6 +31,10 @@ Pour voir la fenêtre d’informations dans l’onglet Onglet, vous devez d’ab
     * **ordre inverse** - inverse l'ordre des résultats.
     * **Nouveaux adaptateurs fermés au démarrage** - Le panneau contenant les adaptateurs inconnus est fermé lors du démarrage de la fenêtre d'informations.
 
+* **Jeton d'accès personnel GitHub** - Pour pouvoir créer de nouveaux problèmes ou de nouvelles demandes d’adaptateur sur Github directement à partir de ioBroker, vous avez besoin d’un jeton pouvant être généré ici. Cela nécessite un compte Github.
+Pour obtenir le jeton, connectez-vous à Github, cliquez sur l'icône de l'utilisateur dans le coin supérieur droit, allez à "Settings", puis "Developer settings"> "Personal access tokens". Là, cliquez sur "Generate new token", tapez n'importe quel nom sous "Token description" et sélectionnez comme "Scope", "repo". Ensuite, vous obtenez un jeton et entrez-le dans ioBroker. Vous trouverez des instructions plus détaillées en anglais [ici](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
+![Creating token](img/gittoken.png)
+
 * **Ne pas charger les données système actuelles** - Les données système actuelles ne sont pas chargées de manière cyclique.
     * **Charger les données de la CPU toutes les x secondes** - Les données de la CPU sont chargées cycliquement toutes les 1 à 10 secondes. (0 est désactivé - 3 par défaut)
     * **Charger les données de la mémoire toutes les x secondes** - Les données de la mémoire sont chargées de manière cyclique toutes les 1 à 10 secondes. (0 est désactivé - 3 par défaut)

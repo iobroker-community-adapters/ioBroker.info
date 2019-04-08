@@ -33,6 +33,10 @@
     * **逆序** - 反转结果的顺序。
     * **启动时关闭新适配器** - 启动信息窗口时，关闭具有未知适配器的面板。
 
+* **GitHub个人访问令牌** - 为了能够直接从ioBroker在Github上创建新问题或适配器请求，您需要一个可以在那里生成的令牌。 这需要一个Github帐户。
+要获取令牌，请登录Github，单击右上角的用户图标，转到“Settings”，然后转到“Developer setting”>“Personal access tokens”。 在那里，点击“Generate new token”，在“Token description”下键入任何名称，然后选择“Scope”，“repo”。 然后你得到一个令牌并在ioBroker中输入它。 您可以在英语 [这里](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line) 中找到更详细的说明。
+![Creating token](img/gittoken.png)
+
 * **不加载当前系统数据** - 不会循环加载当前系统数据。
     * **每x秒加载CPU数据** -  CPU数据每1至10秒循环加载一次。 （0关 - 默认3）
     * **每x秒加载内存数据** - 内存数据每1至10秒循环加载一次。 （0关 - 默认3）

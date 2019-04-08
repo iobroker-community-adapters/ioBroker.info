@@ -31,6 +31,10 @@ Per visualizzare la finestra informativa nella scheda Scheda, è necessario prim
     * **ordine inverso** - inverte l'ordine dei risultati.
     * **Nuovi adattatori chiusi all'avvio** - Il pannello con gli adattatori sconosciuti viene chiuso all'avvio della finestra informativa.
 
+* **GitHub token di accesso personale** - Per essere in grado di creare nuovi problemi o richieste di adattatori su Github direttamente da ioBroker, è necessario un token che può essere generato lì. Questo richiede un account Github.
+Per ottenere il token, accedi a Github, fai clic sull'icona utente nell'angolo in alto a destra, vai su "Settings", quindi "Developer settings"> "Personal access tokens". Qui, fai clic su "Generate new token", digita un nome sotto "Token description" e seleziona "Scope", "repo". Quindi ottieni un token e inseriscilo in ioBroker. Puoi trovare istruzioni più dettagliate in inglese [qui](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
+![Creating token](img/gittoken.png)
+
 * **Non caricare i dati di sistema attuali** - I dati di sistema attuali non vengono caricati ciclicamente.
     * **Carica dati CPU ogni x secondi** - I dati della CPU vengono caricati ciclicamente ogni 1 - 10 secondi. (0 è disattivato - predefinito 3)
     * **Carica i dati della memoria ogni x secondi** - I dati della memoria vengono caricati ciclicamente ogni 1 - 10 secondi. (0 è disattivato - predefinito 3)

@@ -31,6 +31,10 @@ In order to see the info window in the Tab tab, you must first check it as Visib
     * **reverse order** - reverses the order of the results.
     * **New adapters closed at startup** - The panel with the unknown adapters is closed when starting the info window.
 
+* **GitHub personal access token** - To be able to create new issues or adapter requests on Github directly from ioBroker, you need a token that can be generated there. This requires a Github account.
+To get the token, log in to Github, click on the user icon in the top right corner, go to "Settings", then "Developer settings"> "Personal access tokens". There, click on "Generate new token", type any name under "Token description" and select as "Scope", "repo". Then you get a token and enter it in the ioBroker. You can find more detailed instructions in English [here](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
+![Creating token](img/gittoken.png) 
+
 * **Do not load current system data** - The current system data is not loaded cyclically.
     * **Load CPU data every x seconds** - The CPU data is cyclically loaded every 1 to 10 seconds. (0 is off - default 3)
     * **Load memory data every x seconds** - The memory data are loaded cyclically every 1 to 10 seconds. (0 is off - default 3)

@@ -31,6 +31,10 @@ Om het informatievenster op het tabblad Tabblad te zien, moet u het na installat
     * **omgekeerde volgorde** - keert de volgorde van de resultaten om.
     * **Nieuwe adapters gesloten bij opstarten** - Het paneel met de onbekende adapters is gesloten bij het starten van het informatievenster.
 
+* **GitHub persoonlijke toegangstoken** - Om rechtstreeks vanuit ioBroker nieuwe problemen of adapterverzoeken op Github te kunnen maken, hebt u een token nodig dat daar kan worden gegenereerd. Dit vereist een Github-account.
+Om het token te krijgen, meldt u zich aan bij Github, klik op het gebruikerspictogram in de rechterbovenhoek, ga naar "Settings" en vervolgens "Developer settings"> "Personal access tokens". Daar, klik op "Generate new token", typ een willekeurige naam onder "Token description" en selecteer als "Scope", "repo". Vervolgens krijg je een token en voer je het in in de ioBroker. U vindt meer gedetailleerde instructies in het Engels [hier](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
+![Creating token](img/gittoken.png)
+
 * **Laad geen systeemgegevens** - de huidige systeemgegevens zijn niet cyclisch geladen.
     * **Laad CPU-gegevens elke x seconden** - De CPU-gegevens worden cyclisch elke 1 tot 10 seconden geladen. (0 is uitgeschakeld - standaard 3)
     * **Geheugengegevens elke x seconden laden** - De geheugengegevens worden cyclisch elke 1 tot 10 seconden geladen. (0 is uitgeschakeld - standaard 3)

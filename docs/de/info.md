@@ -31,6 +31,10 @@ Um das Info Fenster im Tab-Reiter zu sehen, müssen Sie nach der Installation es
     * **umgekehrter Reihenfolge** - Kehrt die Reihenfolge der Ergebnisse um.
     * **Neue Adapter beim Start geschlossen** - Das Panel mit den unbekannten Adapter, ist beim Start des Info Fensters geschlossen.
 
+* **GitHub persönliches Zugriffstoken** - Um direkt aus ioBroker neue Issues oder Adapteranfragen im Github anlegen zu können, benötigt man ein Token, der im Github jederzeit generiert werden kann. Dafür wird ein Github Account benötigt.
+Um den Token zu bekommen, melden Sie sich auf Github an, klicken oben rechts auf den Benutzer-Icon, gehen auf "Settings", dann auf "Developer settings" > "Personal access tokens". Dort klickt man auf "Generate new token", gibt ein beliebigen Namen unter "Token description" und wählt als "Scope", "repo" aus. Danach bekommt man ein Token und trägt diesen im ioBroker ein. Eine genauere Anleitung auf englisch findet ihr [hier](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
+![Creating token](img/gittoken.png) 
+
 * **Aktuelle Systemdaten nicht laden** - Die aktuellen Daten zum System werden nicht zyklisch geladen.
     * **CPU-Daten alle x Sekunden laden** - Die CPU Daten werden zyklisch alle 1 bis 10 Sekunden geladen. (0 ist aus - Standard 3)
     * **Speicherdaten alle x Sekunden laden** - Die Speicherdaten werden zyklisch alle 1 bis 10 Sekunden geladen. (0 ist aus - Standard 3)

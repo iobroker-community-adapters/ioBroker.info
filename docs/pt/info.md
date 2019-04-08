@@ -31,6 +31,10 @@ Para ver a janela de informações na guia Guia, você deve primeiro verificar c
     * **ordem inversa** - inverte a ordem dos resultados.
     * **Novos adaptadores fechados na inicialização** - O painel com os adaptadores desconhecidos é fechado ao iniciar a janela de informações.
 
+* **Token de acesso pessoal do GitHub** - Para poder criar novos problemas ou solicitações de adaptadores no Github diretamente do ioBroker, você precisa de um token que possa ser gerado lá. Isso requer uma conta do Github.
+Para obter o token, faça o login no Github, clique no ícone do usuário no canto superior direito, vá para "Settings", depois "Developer settings"> "Personal access tokens". Lá, clique em "Generate new token", digite qualquer nome em "Token description" e selecione "Scope", "repo". Então você obtém um token e o insere no ioBroker. Você pode encontrar instruções mais detalhadas em inglês [aqui](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
+![Creating token](img/gittoken.png) 
+
 * **Não carrega dados atuais do sistema** - Os dados atuais do sistema não são carregados ciclicamente.
     * **Carregar dados da CPU a cada x segundos** - Os dados da CPU são carregados ciclicamente a cada 1 a 10 segundos. (0 está desativado - padrão 3)
     * **Carregar dados de memória a cada x segundos** - Os dados da memória são carregados ciclicamente a cada 1 a 10 segundos. (0 está desativado - padrão 3)

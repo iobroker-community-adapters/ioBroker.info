@@ -31,6 +31,10 @@ Para ver la ventana de información en la pestaña Tab, primero debe verificarla
     * **orden inverso** - invierte el orden de los resultados.
     * **Nuevos adaptadores cerrados al inicio **: el panel con los adaptadores desconocidos se cierra al iniciar la ventana de información.
 
+* **Token de acceso personal GitHub** - Para poder crear nuevos problemas o solicitudes de adaptadores en Github directamente desde ioBroker, necesita un token que se pueda generar allí. Esto requiere una cuenta Github.
+Para obtener el token, inicie sesión en Github, haga clic en el icono del usuario en la esquina superior derecha, vaya a "Settings", luego a "Developer settings"> "Personal access tokens". Allí, haga clic en "Generate new token", escriba cualquier nombre en "Token description" y seleccione "Scope", "repo". Luego obtienes un token y lo ingresas en el ioBroker. Puede encontrar instrucciones más detalladas en inglés [aquí](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
+![Creating token](img/gittoken.png)
+
 * **No cargar los datos actuales del sistema** - Los datos actuales del sistema no se cargan cíclicamente.
     * **Cargar datos de la CPU cada x segundos** - Los datos de la CPU se cargan cíclicamente cada 1 a 10 segundos. (0 está desactivado - por defecto 3)
     * **Cargar datos de la memoria cada x segundos** - Los datos de la memoria se cargan cíclicamente cada 1 a 10 segundos. (0 está desactivado - por defecto 3)

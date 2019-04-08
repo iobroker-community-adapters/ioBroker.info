@@ -31,6 +31,10 @@ Aby zobaczyć okno informacyjne w zakładce Tab, musisz najpierw sprawdzić, czy
     * **odwrotna kolejność** - odwraca kolejność wyników.
     * **Nowe adaptery zamknięte przy starcie** - Panel z nieznanymi kartami jest zamknięty podczas uruchamiania okna informacyjnego.
 
+* **Token osobistego dostępu GitHub** - Aby móc tworzyć nowe problemy lub żądania adapterów w Github bezpośrednio z ioBroker, potrzebujesz tokena, który można tam wygenerować. Wymaga to konta Github.
+Aby zdobyć token, zaloguj się do Github, kliknij ikonę użytkownika w prawym górnym rogu, przejdź do „Settings”, a następnie „Developer settings”> „Personal access tokens”. Kliknij „Generate new token”, wpisz dowolną nazwę pod „Token description” i wybierz „Scope”, „repo”. Następnie otrzymujesz token i wpisujesz go w ioBroker. Bardziej szczegółowe instrukcje można znaleźć w języku angielskim [tutaj](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-commandline).
+![Creating token](img/gittoken.png) 
+
 * **Nie ładuj bieżących danych systemowych** - Aktualne dane systemowe nie są ładowane cyklicznie.
     * **Ładuj dane procesora co x sekund** - Dane procesora są ładowane cyklicznie co 1 do 10 sekund. (0 jest wyłączone - domyślnie 3)
     * **Dane pamięci ładowania co x sekund** - Dane pamięci są ładowane cyklicznie co 1 do 10 sekund. (0 jest wyłączone - domyślnie 3)
