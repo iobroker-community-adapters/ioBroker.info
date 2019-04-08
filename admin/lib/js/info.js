@@ -149,7 +149,7 @@ $(function () {
                 startClock("start");
             } else {
                 $('.clock').hide();
-                $('.popupnews').addClass('col-sm-offset-3');
+                $('.popandgit').addClass('col-sm-offset-3');
             }
 
             //adapterRequestIssueBlock
@@ -170,7 +170,7 @@ $(function () {
                 blockCounter.push('#knownIssuesBlock');
                 showIssues();                
             } else {
-                $('#knownIssuesBlock').hide();
+                $('#knownIssuesBlock').hide();                
             }
 
             if (blockCounter.length === 0) {
@@ -190,6 +190,8 @@ $(function () {
             
             if(adapterConfig.github_token){
                 $('#githubbuttonslist').removeClass('hidden');
+            }else{
+                $('#popupnews').css('margin-top', '-40px');
             }
 
             translateAll(systemLang);

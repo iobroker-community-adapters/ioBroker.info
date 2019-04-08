@@ -448,10 +448,6 @@ ul#cssClock li{
     margin-top: 0;
 }
 
-.popupnews {
-    margin-top: -40px;
-}
-
 .x_title>h2>span {
     font-size: 25px;
 }
@@ -570,6 +566,10 @@ ul#cssClock li{
 
 #cpu-chart{
     height: 300px;
+}
+
+#githubbuttonslist {
+    margin-top: -50px;
 }
 
 @media (min-width: 992px){
