@@ -189,7 +189,7 @@ $(function () {
             }
 
             if (adapterConfig.github_token) {
-                githubHelper.getUserdata;
+                githubHelper.getUserdata();
                 $('#githubbuttonslist').removeClass('hidden');
             } else {
                 $('#popupnews').css('margin-top', '-40px');

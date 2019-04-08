@@ -33,7 +33,7 @@ async function cleanTitle(allIssues) {
         }
         issue.title = title;
         allTitles.push(title);
-        
+
         response.push(issue);
     });
     return response;
@@ -67,7 +67,9 @@ async function writeAllIssues(allIssues, id) {
             $('#' + id).append($item);
         });
     } else {
-        $('#' + id).parent().empty().html("<h2>" + _('no issues found') + "</h2>");
+        if (id !== "githublistbody") {
+            $('#' + id).parent().empty().html("<h2>" + _('no issues found') + "</h2>");
+        }
     }
 }
 
@@ -90,10 +92,10 @@ function showAdapterRequest() {
             $('#adapterRequestBlock').find('.x_title a.collapse-link').click();
         }
     }
-    
-    if(adapterConfig.github_token){
-       $("#new-adapter-request-li").removeClass("disabled");
-       $("#new-adapter-request").removeClass("disabled");
+
+    if (adapterConfig.github_token) {
+        $("#new-adapter-request-li").removeClass("disabled");
+        $("#new-adapter-request").removeClass("disabled");
     }
 
     getIssues();
