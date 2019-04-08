@@ -209,6 +209,20 @@ If you click on the title of a wish, you land directly on the request of Github 
 
 The "Adapter requests" panel can be hidden in the configuration or displayed in the closed state when loading.
 
+### Create new adapter request
+
+To create a new request, you first need a Github account and must specify a token in the configuration. For more information, see under [Configuration description](#Configuration) > "GitHub Personal Access Token".
+
+<img height="200" align="left" src="img/githubAdapterRequest.png">
+If you click on ![Add issue](img/addAdapterRequest.png), a window appears where you have the possibility to create a title and a description of the adapter request.
+
+As a title, always select a clear and short term such as "Panasonic TV". Then describe your wishes as accurately as possible.
+If already known APIs exist for the product, you should also write this.
+Any information that might help the developer increases the likelihood that the corresponding adapter will be developed quickly. If possible, please write everything in English,
+because some developers come from abroad and probably they don't speek your language.
+
+By clicking on "Submit New Issue", an issue will be created on Github. Now you can click on the blue button on the left to go directly to the issue or just close the window.
+
 ## Issues and bugs
 
 <img height="200" align="left" src="img/issues_bugs.png">
@@ -220,6 +234,19 @@ If you click on the name of the adapter, you can go directly to the Issues list 
 If you click on the title of an issue, you end up directly with the message on Github and can optionally provide the developer more information, leave as a comment.
 
 The "Problems and errors" panel can be hidden in the configuration or displayed in the closed state when loading.
+
+### Report wishes or errors
+
+If you open up an adapter, you have the option to report a new error or make suggestions for improvements by clicking on ![Add new issue](img/addNewIssue.png). This requires a Github account and a token in the configuration. Further details can be found under [Configuration Description](#Configuration) > "GitHub Personal Access Token".
+
+<img height="100" align="left" src="img/addIssue1.png">
+When clicking you get the opportunity to make an improvement proposal (blue) or report a bug (red). Both options allow you to enter a title and a description.
+
+<img height="200" align="right" src="img/addIssue2.png">
+The title should give you a clear and concise description of the problem. When describing, you should not be frugal with information. Every detail can help the developer to implement the problem or desire faster. If possible, please write everything in English,
+because some developers come from abroad and probably they don't speak your language.
+
+By clicking on "Submit New Issue", an issue will be created on Github. Now you can click on the blue button on the left to go directly to the issue or just close the window.
 
 ## ioBroker adapter on Github
 

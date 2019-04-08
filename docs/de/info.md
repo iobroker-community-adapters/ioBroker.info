@@ -209,6 +209,20 @@ Wenn man auf dem Titel eine Wunsches klickt, landet man direkt auf dem Wunsch be
 
 Das Panel "Adapteranfragen" kann in der Konfiguration ausgeblendet werden oder beim Laden im zugeklappten Zustand angezeigt werden.
 
+### Neue Adapteranfragen stellen
+
+Um eine neue Anfrage zu erstellen, braucht man erst ein Github Account und muss ein Token in der Konfiguration angeben. Weitere Informationen dazu, finden Sie in der [Konfigurationsberscheibung](#konfiguration), unter "GitHub persönliches Zugriffstoken".
+
+<img height="200" align="left" src="img/githubAdapterRequest.png">
+Wenn man auf ![Add issue](img/addAdapterRequest.png) klickt, erscheint ein Fenster wo man die Möglichkeit hat einem Titel und eine Beschreibung zum Adapterwunsch zu erstellen. 
+
+Wählen Sie als Titel stets ein klaren und kurzen Begriff wie zum Beispiel "Panasonic TV". Dann beschreiben Sie Ihre wünsche so genau wie möglich. 
+Sollten schon bekannten APIs zum Produkt existieren, schreiben Sie diese auch dazu. 
+Jede Information, die dem Entwickler hilfreich sein könnte, erhöht die Wahrscheinlichkeit, dass der entsprechende Adapter schnell entwickelt wird. Wenn möglich, bitte alles auf englisch zu schreiben, 
+denn einige Entwickler kommen aus dem Ausland und sind eure Landessprache wahrscheinlich nicht mächtig.
+
+Mit einem Klick auf "Neue Anfrage einreichen", wird ein Issue auf Github angelegt. Nun können Sie links auf dem blauen Button klicken, um direkt zum Issue zu gelangen oder das fenster einfach schließen.
+
 ## Probleme und Fehler
 
 <img height="200" align="left" src="img/issues_bugs.png">
@@ -220,6 +234,19 @@ Wenn man auf dem Namen des Adapters klickt, lanndet man direkt auf der Issues-Li
 Klickt man auf den Titel eines Issues, landet man direkt bei der Meldung auf Github und kann ggf. dem entwickler weitere Informationen dazu, als Kommentar hinterlegen.
 
 Das Panel "Probleme und Fehler" kann in der Konfiguration ausgeblendet werden oder beim Laden im zugeklappten Zustand angezeigt werden.
+
+### Wünsche oder Fehler melden
+
+Wenn man ein Adapter aufklappt, hat man die Möglichkeit mit einem Klick auf ![Add new issue](img/addNewIssue.png) einem neuen Fehler zu melden oder Verbesserungsvorschlag zu machen. Voraussetzung dafür ist ein Github Account und ein eigetragenen Token in der Konfiguration. Weitere Details diesbezüglich findet ihr unter [Konfigurationsbeschreibung](#Konfiguration) > "GitHub persönliches Zugriffstoken".
+
+<img height="100" align="left" src="img/addIssue1.png">
+Beim Klick bekommt man die Möglichkeit ein Verbesserungsvorschlag (blau) oder einem Fehler/Bug (rot) zu erstellen. Bei beide Möglichkeiten könnt ihr ein Titel und eine Beschreibung eingeben.
+
+<img height="200" align="right" src="img/addIssue2.png">
+Beim Titel solltet ihr eine klare und kurze Beschreibung des Problems geben. Bei der BEschreibung sollte ihr nicht mit Informationen sparsam sein. Jedes Detail kann dem Entwickler helfen das Problem oder Wunsch schneller umzusetzen. Wenn möglich, bitte alles auf englisch zu schreiben, 
+denn einige Entwickler kommen aus dem Ausland und sind eure Landessprache wahrscheinlich nicht mächtig.
+
+Mit einem Klick auf "Neue Anfrage einreichen", wird ein Issue auf Github angelegt. Nun können Sie links auf dem blauen Button klicken, um direkt zum Issue zu gelangen oder das fenster einfach schließen.
 
 ## ioBroker-Adapter auf Github
 

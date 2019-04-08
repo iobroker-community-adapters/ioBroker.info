@@ -209,6 +209,20 @@ Se fai clic sul titolo di un desiderio, atterri direttamente alla richiesta di G
 
 Il pannello "Richieste adattatori" può essere nascosto nella configurazione o visualizzato nello stato chiuso durante il caricamento.
 
+### Crea una nuova richiesta di adattatore
+
+Per creare una nuova richiesta, è necessario innanzitutto un account Github e si deve specificare un token nella configurazione. Per ulteriori informazioni, vedere in [Descrizione configurazione](#Configurazione) > "GitHub Personal Access Token".
+
+<img height="200" align="left" src="img/githubAdapterRequest.png">
+Se si fa clic su ![Aggiungi problema](img/addAdapterRequest.png), viene visualizzata una finestra in cui è possibile creare un titolo e una descrizione della richiesta dell'adattatore.
+
+Come titolo, seleziona sempre un chiaro e breve termine come "Panasonic TV". Quindi descrivi i tuoi desideri nel modo più accurato possibile.
+Se esistono già API conosciute per il prodotto, dovresti scrivere anche questo.
+Qualsiasi informazione che possa aiutare lo sviluppatore aumenta la probabilità che l'adattatore corrispondente venga sviluppato rapidamente. Se possibile, si prega di scrivere tutto in inglese,
+perché alcuni sviluppatori vengono dall'estero e probabilmente non parlano la tua lingua.
+
+Cliccando su "Invia un nuovo problema", verrà creato un problema su Github. Ora puoi fare clic sul pulsante blu a sinistra per andare direttamente al problema o semplicemente chiudere la finestra.
+
 ## Problemi e bug
 
 <img height="200" align="left" src="img/issues_bugs.png">
@@ -220,6 +234,18 @@ Se fai clic sul nome dell'adattatore, puoi andare direttamente alla lista Proble
 Se fai clic sul titolo di un problema, finisci direttamente con il messaggio su Github e puoi facoltativamente fornire allo sviluppatore maggiori informazioni, lasciare un commento.
 
 Il pannello "Problemi ed errori" può essere nascosto nella configurazione o visualizzato nello stato chiuso durante il caricamento.
+
+### Segnala desideri o errori
+
+Se apri un adattatore, hai la possibilità di segnalare un nuovo errore o dare suggerimenti per miglioramenti facendo clic su ![Aggiungi nuovo problema](img/addNewIssue.png). Ciò richiede un account Github e un token nella configurazione. Ulteriori dettagli sono disponibili in [Descrizione configurazione](#Configurazione) > "GitHub Personal Access Token".
+
+<img height="100" align="left" src="img/addIssue1.png">
+Quando si fa clic si ottiene l'opportunità di presentare una proposta di miglioramento (blu) o segnalare un errore (rosso). Entrambe le opzioni ti consentono di inserire un titolo e una descrizione.
+
+<img height="200" align="right" src="img/addIssue2.png">
+Il titolo dovrebbe darti una descrizione chiara e concisa del problema. Quando descrivi, non dovresti essere frugale con le informazioni. Ogni dettaglio può aiutare lo sviluppatore ad implementare il problema o desiderare più velocemente. Se possibile, si prega di scrivere tutto in inglese, perché alcuni sviluppatori vengono dall'estero e probabilmente non parlano la tua lingua.
+
+Facendo clic su "Invia nuovo numero", verrà creato un problema su Github. Ora puoi fare clic sul pulsante blu a sinistra per andare direttamente al problema o semplicemente chiudere la finestra.
 
 ## adattatore ioBroker su Github
 

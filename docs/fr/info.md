@@ -197,7 +197,7 @@ Toutes les données sur la batterie, s'il en existe une.
 
 **Problèmes avec Windows:** wmic est utilisé pour détecter l'état de la batterie d'un système Windows. Dans certains cas, wmic doit être exécuté avec des privilèges d'administrateur. Donc, si vous n'obtenez aucune valeur, essayez de l'exécuter à nouveau avec les autorisations appropriées. Si vous n'obtenez toujours aucune valeur, votre système peut ne pas prendre en charge cette fonctionnalité.
 
-## demandes d'adaptateur
+## Demandes d'adaptateur
 
 <img height="200" align="left" src="img/adapter_requests.png">
 Toutes les demandes d'adaptateurs ont été incluses dans le github en tant que problème. Toute personne qui souhaite quelque chose peut écrire ici son souhait et tout le monde peut développer, puis choisir un problème et en développer un adaptateur.
@@ -208,6 +208,20 @@ En cliquant sur ![Link Button](img/link.png), vous arrivez directement sur Githu
 Si vous cliquez sur le titre d'un souhait, vous arrivez directement à la demande de Github et vous pouvez voter pour. Les souhaits avec beaucoup de votes sont bien sûr préférés.
 
 Le panneau "Requêtes de l'adaptateur" peut être masqué dans la configuration ou affiché à l'état fermé lors du chargement.
+
+### Créer une nouvelle demande d'adaptateur
+
+Pour créer une nouvelle demande, vous devez d'abord disposer d'un compte Github et spécifier un jeton dans la configuration. Pour plus d'informations, voir [Description de la configuration](#Configuration) > "Jeton d'accès personnel GitHub".
+
+<img height="200" align="left" src="img/githubAdapterRequest.png">
+Si vous cliquez sur ![Ajouter un problème](img/addAdapterRequest.png), une fenêtre apparaît dans laquelle vous avez la possibilité de créer un titre et une description de la demande d'adaptateur.
+
+En tant que titre, sélectionnez toujours un terme clair et court, tel que "Panasonic TV". Ensuite, décrivez vos souhaits aussi précisément que possible.
+Si des API déjà connues existent pour le produit, vous devez également écrire ceci.
+Toute information susceptible d'aider le développeur augmente les chances que l'adaptateur correspondant soit développé rapidement. Si possible, écrivez tout en anglais,
+parce que certains développeurs viennent de l'étranger et qu'ils ne parlent probablement pas votre langue.
+
+En cliquant sur "Soumettre un nouveau numéro", un problème sera créé sur Github. Maintenant, vous pouvez cliquer sur le bouton bleu à gauche pour accéder directement au problème ou simplement fermer la fenêtre.
 
 ## Problèmes et bugs
 
@@ -220,6 +234,19 @@ Si vous cliquez sur le nom de l'adaptateur, vous pouvez accéder directement à 
 Si vous cliquez sur le titre d'un problème, vous vous retrouvez directement avec le message sur Github et pouvez éventuellement fournir plus d'informations au développeur, laissez-le comme un commentaire.
 
 Le panneau "Problèmes et erreurs" peut être masqué dans la configuration ou affiché à l'état fermé lors du chargement.
+
+### Signaler des souhaits ou des erreurs
+
+Si vous ouvrez un adaptateur, vous avez la possibilité de signaler une nouvelle erreur ou de suggérer des améliorations en cliquant sur ![Ajouter un nouveau problème](img/addNewIssue.png). Cela nécessite un compte Github et un jeton dans la configuration. Vous trouverez plus de détails sous [Description de la configuration](#Configuration) > "Jeton d’accès personnel GitHub".
+
+<img height="100" align="left" src="img/addIssue1.png">
+En cliquant, vous avez la possibilité de faire une proposition d'amélioration (en bleu) ou de signaler un bogue (en rouge). Les deux options vous permettent de saisir un titre et une description.
+
+<img height="200" align="right" src="img/addIssue2.png">
+Le titre devrait vous donner une description claire et concise du problème. En décrivant, vous ne devriez pas être économe en informations. Chaque détail peut aider le développeur à mettre en œuvre le problème ou à désirer plus rapidement. Si possible, écrivez tout en anglais,
+parce que certains développeurs viennent de l'étranger et qu'ils ne parlent probablement pas votre langue.
+
+En cliquant sur "Soumettre un nouveau numéro", un numéro sera créé sur Github. Maintenant, vous pouvez cliquer sur le bouton bleu à gauche pour accéder directement au problème ou simplement fermer la fenêtre.
 
 Adaptateur ## ioBroker sur Github
 

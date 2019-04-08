@@ -7,7 +7,7 @@ O Info Adapter foi desenvolvido para fornecer várias informações sobre o sist
 <img height="80" align="left" src="img/install.png">
 Para ver a janela de informações na guia Guia, você deve primeiro verificar como Visível no Admin após a instalação. Para fazer isso, clique no triângulo à esquerda no canto superior esquerdo da janela Admin e selecione "Info" no menu.
 
-# Configuration
+# Configuração
 
 <p align="center">
     <img height="300" align="right" src="img/config.png">
@@ -209,6 +209,20 @@ Se você clicar no título de um desejo, você pode entrar diretamente no pedido
 
 O painel "Solicitações do adaptador" pode estar oculto na configuração ou exibido no estado fechado durante o carregamento.
 
+### Criar novo pedido de adaptador
+
+Para criar uma nova solicitação, primeiro você precisa de uma conta do Github e deve especificar um token na configuração. Para mais informações, consulte em [Descrição do Configuração](#Configuração) > "Token do GitHub Personal Access".
+
+<img height="200" align="left" src="img/githubAdapterRequest.png">
+Se você clicar em ![Add issue](img/addAdapterRequest.png), aparecerá uma janela onde você terá a possibilidade de criar um título e uma descrição da solicitação do adaptador.
+
+Como título, selecione sempre um claro e curto prazo como "Panasonic TV". Em seguida, descreva seus desejos com a maior precisão possível.
+Se já existem APIs conhecidas para o produto, você também deve escrever isso.
+Qualquer informação que possa ajudar o desenvolvedor aumenta a probabilidade de que o adaptador correspondente seja desenvolvido rapidamente. Se possível, por favor escreva tudo em inglês,
+porque alguns desenvolvedores vêm do exterior e provavelmente não falam seu idioma.
+
+Ao clicar em "Enviar novo problema", um problema será criado no Github. Agora você pode clicar no botão azul à esquerda para ir diretamente para o problema ou apenas fechar a janela.
+
 ## Problemas e erros
 
 <img height="200" align="left" src="img/issues_bugs.png">
@@ -220,6 +234,19 @@ Se você clicar no nome do adaptador, poderá ir diretamente para a lista de pro
 Se você clicar no título de um problema, acabará diretamente com a mensagem no Github e poderá fornecer ao desenvolvedor mais informações, deixe como comentário.
 
 O painel "Problemas e erros" pode estar oculto na configuração ou exibido no estado fechado durante o carregamento.
+
+### Comunicar desejos ou erros
+
+Se você abrir um adaptador, terá a opção de relatar um novo erro ou fazer sugestões de melhorias clicando em ![Add new issue](img/addNewIssue.png). Isso requer uma conta do Github e um token na configuração. Mais detalhes podem ser encontrados em [Descrição da configuração](#Configuração) > "Token do GitHub Personal Access".
+
+<img height="100" align="left" src="img/addIssue1.png">
+Ao clicar, você terá a oportunidade de fazer uma proposta de melhoria (azul) ou relatar um bug (vermelho). Ambas as opções permitem inserir um título e uma descrição.
+
+<img height="200" align="right" src="img/addIssue2.png">
+O título deve fornecer uma descrição clara e concisa do problema. Ao descrever, você não deve ser frugal com informações. Cada detalhe pode ajudar o desenvolvedor a implementar o problema ou o desejo mais rapidamente. Se possível, por favor escreva tudo em inglês,
+porque alguns desenvolvedores vêm do exterior e provavelmente não falam sua língua.
+
+Ao clicar em "Enviar novo problema", um problema será criado no Github. Agora você pode clicar no botão azul à esquerda para ir diretamente para o problema ou apenas fechar a janela.
 
 ## Adaptador ioBroker no Github
 

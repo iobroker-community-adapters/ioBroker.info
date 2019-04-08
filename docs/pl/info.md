@@ -209,6 +209,20 @@ Jeśli klikniesz tytuł życzenia, wylądujesz bezpośrednio na prośbę Github 
 
 Panel „Żądania adaptera” może być ukryty w konfiguracji lub wyświetlany w stanie zamkniętym podczas ładowania.
 
+### Utwórz nowe żądanie adaptera
+
+Aby utworzyć nowe żądanie, najpierw potrzebujesz konta Github i musisz określić token w konfiguracji. Aby uzyskać więcej informacji, zobacz [Opis konfiguracji](#Konfiguracja) > „Token osobistego dostępu GitHub”.
+
+<img height="200" align="left" src="img/githubAdapterRequest.png">
+Jeśli klikniesz ![Dodaj problem](img/addAdapterRequest.png), pojawi się okno, w którym możesz utworzyć tytuł i opis żądania adaptera.
+
+Jako tytuł zawsze wybieraj wyraźny i krótki termin, taki jak „Panasonic TV”. Następnie opisz swoje życzenia tak dokładnie, jak to możliwe.
+Jeśli dla produktu istnieją już znane interfejsy API, należy również napisać to.
+Wszelkie informacje, które mogą pomóc deweloperowi zwiększyć prawdopodobieństwo, że odpowiedni adapter zostanie szybko opracowany. Jeśli to możliwe, napisz wszystko po angielsku,
+ponieważ niektórzy deweloperzy pochodzą z zagranicy i prawdopodobnie nie mówią w twoim języku.
+
+Klikając „Prześlij nowe wydanie”, zostanie utworzony problem w Github. Teraz możesz kliknąć niebieski przycisk po lewej stronie, aby przejść bezpośrednio do problemu lub po prostu zamknąć okno.
+
 ## Problemy i błędy
 
 <img height="200" align="left" src="img/issues_bugs.png">
@@ -221,7 +235,20 @@ Jeśli klikniesz tytuł problemu, trafisz bezpośrednio na wiadomość na Github
 
 Panel „Problemy i błędy” może być ukryty w konfiguracji lub wyświetlany w stanie zamkniętym podczas ładowania.
 
-## adapter ioBroker na Github
+### Zgłoś życzenia lub błędy
+
+Jeśli otworzysz kartę, możesz zgłosić nowy błąd lub zasugerować ulepszenia, klikając ![Dodaj nowy problem](img/addNewIssue.png). Wymaga to konta Github i tokena w konfiguracji. Dalsze szczegóły można znaleźć w [Opis konfiguracji](#Konfiguracja) > „Token osobistego dostępu GitHub”.
+
+<img height="100" align="left" src="img/addIssue1.png">
+Po kliknięciu otrzymasz możliwość złożenia propozycji ulepszenia (niebieski) lub zgłosić błąd (czerwony). Obie opcje umożliwiają wprowadzenie tytułu i opisu.
+
+<img height="200" align="right" src="img/addIssue2.png">
+Tytuł powinien dać ci jasny i zwięzły opis problemu. Opisując nie powinieneś być oszczędny z informacją. Każdy szczegół może pomóc deweloperowi w szybszym wdrożeniu problemu lub pożądaniu. Jeśli to możliwe, napisz wszystko po angielsku,
+ponieważ niektórzy programiści pochodzą z zagranicy i prawdopodobnie nie mówią w twoim języku.
+
+Klikając „Prześlij nowe wydanie”, zostanie utworzony problem w Github. Teraz możesz kliknąć niebieski przycisk po lewej stronie, aby przejść bezpośrednio do problemu lub po prostu zamknąć okno.
+
+## Adapter ioBroker na Github
 
 <img height="200" align="left" src="img/adapter_search.png">
 Liczba oficjalnych adapterów dla ioBroker jest już znaczna. Oczywiście w sieci dostępnych jest znacznie więcej adapterów. Są one wyszukiwane i wyświetlane tutaj.

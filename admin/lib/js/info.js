@@ -187,6 +187,10 @@ $(function () {
             } else {
                 $('.rotate-button').hide();
             }
+            
+            if(adapterConfig.github_token){
+                $('#githubbuttonslist').removeClass('hidden');
+            }
 
             translateAll(systemLang);
 

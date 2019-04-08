@@ -209,6 +209,20 @@ Als je op de titel van een wens klikt, beland je rechtstreeks op verzoek van Git
 
 Het paneel "Adapteraanvragen" kan tijdens het laden worden verborgen in de configuratie of worden weergegeven in de gesloten toestand.
 
+### Nieuwe adapteraanvraag maken
+
+Om een ​​nieuw verzoek aan te maken, hebt u eerst een Github-account nodig en moet u een token in de configuratie opgeven. Zie voor meer informatie onder [Configuratiebeschrijving] (# Configuratie)> "GitHub Personal Access Token".
+
+<img height="200" align="left" src="img/githubAdapterRequest.png">
+Als u op ![Voeg probleem toe](img/addAdapterRequest.png) klikt, verschijnt een venster waarin u de mogelijkheid hebt om een ​​titel en een beschrijving van de adapteraanvraag te maken.
+
+Kies als titel altijd een duidelijke en korte termijn zoals "Panasonic TV". Beschrijf vervolgens uw wensen zo nauwkeurig mogelijk.
+Als er al bekende API's voor het product bestaan, moet u dit ook schrijven.
+Alle informatie die de ontwikkelaar kan helpen, vergroot de kans dat de bijbehorende adapter snel wordt ontwikkeld. Schrijf indien mogelijk alles in het Engels,
+omdat sommige ontwikkelaars uit het buitenland komen en waarschijnlijk niet jouw taal spreken.
+
+Door op "Dien een nieuw probleem in" te klikken, wordt er een probleem aangemaakt op Github. Nu kunt u op de blauwe knop aan de linkerkant klikken om direct naar het probleem te gaan of gewoon het venster sluiten.
+
 ## Problemen en bugs
 
 <img height="200" align="left" src="img/issues_bugs.png">
@@ -220,6 +234,19 @@ Als u op de naam van de adapter klikt, kunt u rechtstreeks naar de lijst met pro
 Als u op de titel van een probleem klikt, komt u rechtstreeks met het bericht op Github en kunt u de ontwikkelaar desgewenst meer informatie geven, als commentaar achterlaten.
 
 Het venster "Problemen en fouten" kan worden verborgen in de configuratie of in gesloten toestand worden weergegeven tijdens het laden.
+
+### Meld wensen of fouten
+
+Als u een adapter opent, kunt u een nieuwe fout melden of suggesties doen voor verbeteringen door te klikken op ![Nieuw probleem toevoegen](img/addNewIssue.png). Dit vereist een Github-account en een token in de configuratie. Verdere details vindt u onder [Configuratiebeschrijving](#Configuratie) > "GitHub Personal Access Token".
+
+<img height="100" align="left" src="img/addIssue1.png">
+Wanneer u klikt, krijgt u de mogelijkheid om een ​​verbeteringsvoorstel in te dienen (blauw) of een fout te melden (rood). Met beide opties kunt u een titel en een beschrijving invoeren.
+
+<img height="200" align="right" src="img/addIssue2.png">
+De titel zou u een duidelijke en beknopte beschrijving van het probleem moeten geven. Beschrijf bij het beschrijven niet zuinig met informatie. Elk detail kan de ontwikkelaar helpen het probleem of de wens sneller uit te voeren. Schrijf indien mogelijk alles in het Engels,
+omdat sommige ontwikkelaars uit het buitenland komen en waarschijnlijk uw taal niet spreken.
+
+Door op "Nieuw probleem verzenden" te klikken, wordt er een probleem aangemaakt op Github. Nu kunt u op de blauwe knop aan de linkerkant klikken om direct naar het probleem te gaan of gewoon het venster sluiten.
 
 ## ioBroker-adapter op Github
 

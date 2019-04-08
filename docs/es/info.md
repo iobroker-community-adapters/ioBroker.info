@@ -54,7 +54,7 @@ La pestaña Información contiene información diversa sobre su sistema y el ioB
 <img height="50" align="left" src="img/clock.png">
 El reloj no tiene una función especial (pero he hecho un esfuerzo) y se puede apagar en cualquier momento en la configuración.
 
-## mensajes
+## Mensajes
 
 <img height="200" align="left" src="img/messages.png">
 Para enviar rápidamente mensajes importantes relacionados con ioBroker al usuario, se creó la posibilidad de crear mensajes. Estos mensajes aparecen SOLAMENTE si se aplican ciertas condiciones. Por lo tanto, no se muestran mensajes sobre un adaptador si no está instalado. Esto garantiza que SOLO se advierta a los usuarios, que también se ven afectados por el problema.
@@ -197,7 +197,7 @@ Todos los datos sobre la batería, si existe.
 
 **Problemas con Windows:** wmic se usa para detectar el estado de la batería de un sistema Windows. En algunos casos, wmic debe ejecutarse con privilegios de administrador. Por lo tanto, si no obtiene ningún valor, intente ejecutarlo nuevamente con los permisos apropiados. Si aún no obtiene ningún valor, es posible que su sistema no admita esta función.
 
-## solicitudes de adaptador
+## Solicitudes de adaptador
 
 <img height="200" align="left" src="img/adapter_requests.png">
 Todas las solicitudes de adaptadores se incluyeron en el github como un problema. Cualquiera que desee algo, puede ingresar su deseo aquí y cualquiera puede desarrollarlo, luego puede elegir un problema y desarrollar un adaptador a partir de él.
@@ -208,6 +208,20 @@ Al hacer clic en ![Botón de enlace](img/link.png), vienes directamente a Github
 Si hace clic en el título de un deseo, aterriza directamente en la solicitud de Github y puede votar por él. Los deseos con muchos votos son por supuesto preferidos.
 
 El panel "Solicitudes del adaptador" se puede ocultar en la configuración o mostrar en el estado cerrado cuando se carga.
+
+### Crear nueva solicitud de adaptador
+
+Para crear una nueva solicitud, primero necesita una cuenta de Github y debe especificar un token en la configuración. Para obtener más información, consulte [Descripción de la configuración](#Configuración) > "Ficha de acceso personal de GitHub".
+
+<img height="200" align="left" src="img/githubAdapterRequest.png">
+Si hace clic en ![Agregar problema](img/addAdapterRequest.png), aparece una ventana donde tiene la posibilidad de crear un título y una descripción de la solicitud del adaptador.
+
+Como título, seleccione siempre un término claro y corto, como "Panasonic TV". Luego describe tus deseos con la mayor precisión posible.
+Si ya existen API conocidas para el producto, también debe escribir esto.
+Cualquier información que pueda ayudar al desarrollador aumenta la probabilidad de que el adaptador correspondiente se desarrolle rápidamente. Si es posible, por favor escriba todo en inglés,
+porque algunos desarrolladores vienen del extranjero y probablemente no hablen tu idioma.
+
+Al hacer clic en "Enviar nuevo número", se creará un problema en Github. Ahora puede hacer clic en el botón azul de la izquierda para ir directamente al problema o simplemente cerrar la ventana.
 
 ## Problemas y bugs
 
@@ -220,6 +234,18 @@ Si hace clic en el nombre del adaptador, puede ir directamente a la lista de Pro
 Si hace clic en el título de un problema, termina directamente con el mensaje en Github y, opcionalmente, puede proporcionarle al desarrollador más información, y dejar un comentario.
 
 El panel "Problemas y errores" se puede ocultar en la configuración o mostrar en el estado cerrado cuando se carga.
+
+### Informar deseos o errores
+
+Si abre un adaptador, tiene la opción de informar un nuevo error o hacer sugerencias para mejorarlo haciendo clic en ![Agregar nuevo problema](img/addNewIssue.png). Esto requiere una cuenta Github y un token en la configuración. Se pueden encontrar más detalles en [Descripción de la configuración](#Configuración) > "Ficha de acceso personal de GitHub".
+
+<img height="100" align="left" src="img/addIssue1.png">
+Al hacer clic, tiene la oportunidad de realizar una propuesta de mejora (azul) o informar un error (rojo). Ambas opciones le permiten ingresar un título y una descripción.
+
+<img height="200" align="right" src="img/addIssue2.png">
+El título debe darle una descripción clara y concisa del problema. Al describir, no debes ser frugal con la información. Cada detalle puede ayudar al desarrollador a implementar el problema o deseo más rápido. Si es posible, por favor escriba todo en inglés, porque algunos desarrolladores vienen del extranjero y probablemente no hablan tu idioma.
+
+Al hacer clic en "Enviar nuevo número", se creará un problema en Github. Ahora puede hacer clic en el botón azul de la izquierda para ir directamente al problema o simplemente cerrar la ventana.
 
 ## adaptador ioBroker en Github
 
