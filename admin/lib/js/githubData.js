@@ -119,7 +119,7 @@ const githubHelper = {
         const issues = await githubHelper.getData("https://api.github.com/search/issues?q=is:open+is:issue+archived:false+author:" + githubuser.login + "&per_page=100", "GET");
         $('#githublistLoader').hide();
         if (issues) {
-            await writeAllIssues(issues, "githublistbody");
+            await writeAllIssues(issues.items, "githublistbody");
         }
     },
     loadWatched: async function () {
