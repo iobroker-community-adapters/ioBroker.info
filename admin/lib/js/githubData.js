@@ -3,8 +3,8 @@
 let githubuser = {};
 
 const githubHelper = {
-    getUserdata: function () {
-        githubuser = githubHelper.getData("https://api.github.com/user", "GET");
+    getUserdata: async function () {
+        githubuser = await githubHelper.getData("https://api.github.com/user", "GET");
         if (!githubuser) {
             githubuser = {};
             githubuser.login = "";
