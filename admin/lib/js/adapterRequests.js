@@ -39,9 +39,9 @@ async function cleanTitle(allIssues) {
     return response;
 }
 
-async function writeAllIssues(allIssues, id) {
+function writeAllIssues(allIssues, id) {
     if (allIssues.length > 0) {
-        await asyncForEach(allIssues, async function (issue) {
+        allIssues.forEach(function (issue) {
             const $item = $('#forumEntryTemplate').children().clone(true, true);
             $item.find('.label-success').remove();
             $item.find('.titleLink').text(issue.title).attr('href', issue.html_url);
