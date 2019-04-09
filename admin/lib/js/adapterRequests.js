@@ -11,7 +11,7 @@ async function getAllIssuesFromAdapterV4(owner, name, login) {
 
     if (issues && issues.data && issues.data.repository && issues.data.repository.issues) {
         if (isAdapterRequest) {
-            $('#adapterRequestBlockTitle').append($("&nbsp;<span>(" + issues.data.repository.issues.totalCount + ")</span>"));
+            $('#adapterRequestBlockTitle').append($("<span>(" + issues.data.repository.issues.totalCount + ")</span>"));
         }
         allIssues = allIssues.concat(issues.data.repository.issues.edges);
         let hasNext = issues.data.repository.issues.pageInfo.hasNextPage;
