@@ -117,7 +117,7 @@ const githubHelper = {
         $('#modal-githublist-title').text(_('My issues list'));
 
         const issues = await githubHelper.getData("https://api.github.com/search/issues?q=is:open+is:issue+archived:false+author:" + githubuser.login + "&per_page=100", "GET");
-        $('#githublistLoader').hide();
+        $('#githublistLoader').addClass("hidden");
         if (issues) {
             await writeAllIssues(issues.items, "githublistbody");
         }
@@ -125,7 +125,7 @@ const githubHelper = {
     loadWatched: async function () {
         $('#modal-githublist-title').text(_('Watched repositories'));
         const watched = await githubHelper.getData("https://api.github.com/user/subscriptions", "GET");
-        $('#githublistLoader').hide();
+        $('#githublistLoader').addClass("hidden");
         if (watched) {
             await writeAllRepos(watched, "githublistbody");
         }
@@ -133,14 +133,14 @@ const githubHelper = {
     loadStarred: async function () {
         $('#modal-githublist-title').text(_('Starred repositories'));
         const starred = await githubHelper.getData("https://api.github.com/user/starred", "GET");
-        $('#githublistLoader').hide();
+        $('#githublistLoader').addClass("hidden");
         if (starred) {
             await writeAllRepos(starred, "githublistbody");
         }
     },
     backToBasicList: async function () {
         $('#modal-githublist-title').empty();
-        $('#githublistLoader').show();
+        $('#githublistLoader').removeClass("hidden");
         $('#githublistbody').empty();
     },
     getData: async function (url, methode) {
