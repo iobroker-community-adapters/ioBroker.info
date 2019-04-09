@@ -11,14 +11,18 @@ async function getAllIssuesFromAdapterV4(owner, name, login) {
 
     if (issues && issues.data && issues.data.repository && issues.data.repository.issues) {
         if (isAdapterRequest) {
-            $('#adapterRequestBlockTitle').append($(" <span>(" + issues.data.repository.issues.totalCount + ")</span>"));
+            $('#adapterRequestBlockTitle').append($("&nbsp;<span>(" + issues.data.repository.issues.totalCount + ")</span>"));
         }
         allIssues = allIssues.concat(issues.data.repository.issues.edges);
-        while (issues.data.repository.issues.pageInfo.hasNextPage) {
+        let hasNext = issues.data.repository.issues.pageInfo.hasNextPage;
+        while (hasNext) {
             const nextQL = githubHelper.getQueryForIssues(getIssuesDataAfterQL, owner, name, login, isAdapterRequest);
             issues = await githubHelper.getDataV4(nextQL);
             if (issues && issues.data && issues.data.repository && issues.data.repository.issues) {
                 allIssues = allIssues.concat(issues.data.repository.issues.edges);
+                hasNext = issues.data.repository.issues.pageInfo.hasNextPage;
+            }else{
+                hasNext = false;
             }
         }
     }
