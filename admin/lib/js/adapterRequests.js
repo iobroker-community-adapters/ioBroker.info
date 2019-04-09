@@ -173,11 +173,11 @@ function showAdapterRequest() {
     async function getIssues() {
 
         let allIssues;
-        if (sessionStorage.getItem('ioBroker.info.adapterRequest')) {
-            allIssues = JSON.parse(sessionStorage.getItem('ioBroker.info.adapterRequest'));
+        if (sessionStorage.getItem('ioBroker.info.adapterRequestV4')) {
+            allIssues = JSON.parse(sessionStorage.getItem('ioBroker.info.adapterRequestV4'));
         } else {
             allIssues = await getAllIssuesFromAdapterV4("ioBroker", "AdapterRequests");
-            sessionStorage.setItem('ioBroker.info.adapterRequest', JSON.stringify(allIssues));
+            sessionStorage.setItem('ioBroker.info.adapterRequestV4', JSON.stringify(allIssues));
         }
 
         $('#adapterRequestList').empty();
