@@ -237,7 +237,7 @@ query{
                         login
                     }
                     createdAt
-                    $reaction
+                    $reactions
                 }
                 cursor
             }
