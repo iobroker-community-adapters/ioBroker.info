@@ -50,7 +50,7 @@ function writeAllIssues(allIssues, id) {
             $item.find('.byline').text(new Date(issue.created_at).toLocaleDateString('en', dateOptions) + " - " + issue.user.login);
             
             const link = issue.html_url.match(/([^/]*\/){6}/);
-            const html = new showdown.Converter().makeHtml(issue.body).replace(/src="(?!http)/g, 'class="img-responsive" src="' + link[0]);
+            const html = new showdown.Converter().makeHtml(issue.body).replace(/src="(?!http)/g, 'src="' + link[0]).replace(/<img/g, '<img class="img-responsive"');
             
             $item.find('.description').html(html);
 

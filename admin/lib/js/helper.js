@@ -328,7 +328,7 @@ $(function () {
         const url = $(this).data('md-url');
         $.get(url, function (data) {
             const link = url.match(/([^/]*\/){6}/);
-            const html = new showdown.Converter().makeHtml(data).replace(/src="(?!http)/g, 'class="img-responsive" src="' + link[0]);
+            const html = new showdown.Converter().makeHtml(data).replace(/src="(?!http)/g, 'src="' + link[0]).replace(/<img/g, '<img class="img-responsive"');
             bootbox.alert({
                 size: 'large',
                 backdrop: true,
