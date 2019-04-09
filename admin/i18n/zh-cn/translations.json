@@ -121,6 +121,7 @@
     "To better investigate the problem, the following data will be provided to the developer.": "为了更好地调查此问题，将向开发人员提供以下数据。",
     "To create messages about adapters or adapter requests, you need a Github account and a token with repo access.": "要创建有关适配器或适配器请求的消息，您需要一个Github帐户和一个具有repo访问权限的令牌。",
     "To read news or forum, you need a free API Key if your ioBroker installation can be reached via a hostname, such as iobroker: 8081 or something similar. For IP access it is not needed.": "看新闻或论坛，你需要一个免费的API Key，如果你ioBroker可以通过域名访问到。对于IP的访问它是不是需要的。",
+    "Total votes": "总票数",
     "Unknown": "未知",
     "Updates": "更新",
     "Updating adapter %s...": "更新适配器%s ...",

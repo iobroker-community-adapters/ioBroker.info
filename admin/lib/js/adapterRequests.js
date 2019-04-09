@@ -138,6 +138,8 @@ function writeAllIssuesV4(allIssues, id) {
             $item.find('.label-success').remove();
             if (id === "adapterRequestList") {
                 $item.find('.title').prepend($("<span class='badge'>" + issue.reactions.totalCount + "</span>"));
+                const votes = "<strong class='text-primary'>" + _("Total votes") + ": " + issue.reactions.totalCount + "</strong>";
+                $item.find('.y_content').append($(votes));
             }
             $item.find('.titleLink').text(issue.title).attr('href', issue.url);
             $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');

@@ -121,6 +121,7 @@
     "To better investigate the problem, the following data will be provided to the developer.": "Om het probleem beter te onderzoeken, worden de volgende gegevens aan de ontwikkelaar verstrekt.",
     "To create messages about adapters or adapter requests, you need a Github account and a token with repo access.": "Voor het maken van berichten over adapters of adapterverzoeken hebt u een Github-account en een token met repo-toegang nodig.",
     "To read news or forum, you need a free API Key if your ioBroker installation can be reached via a hostname, such as iobroker: 8081 or something similar. For IP access it is not needed.": "Lezen van nieuws of het forum, moet u een gratis API-Sleutel als uw ioBroker installatie kan worden bereikt via een hostname, zoals iobroker: 8081 of iets dergelijks. Voor IP-toegang is niet nodig.",
+    "Total votes": "Totaal aantal stemmen",
     "Unknown": "Onbekend",
     "Updates": "Updates",
     "Updating adapter %s...": "Adapter %s bijwerken...",
