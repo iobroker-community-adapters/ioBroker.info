@@ -1,6 +1,53 @@
-/* global systemLang, dateOptions, adapterConfig, showdown */
+/* global systemLang, dateOptions, adapterConfig, showdown, getIssuesDataFirstQL, getIssuesDataAfterQL */
 
 const allTitles = [];
+
+async function getAllIssuesFromAdapterV4(owner, name) {
+    let allIssues = [];
+
+    const isAdapterRequest = (owner + "/" + name) === "ioBroker/AdapterRequests";
+
+    const firstQL = getIssuesDataFirstQL.replace("$owner", owner).replace("$name", name);
+    let issues = await (await fetch('https://api.github.com/graphql', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': "bearer " + adapterConfig.github_token
+        },
+        body: JSON.stringify({query: firstQL})
+    })).json();
+
+    if (issues && issues.data && issues.data.repository && issues.data.repository.issues) {
+        if (isAdapterRequest) {
+            $('#adapterRequestBlockTitle').append(" (" + issues.data.repository.issues.totalCount + ")");
+        }
+        allIssues = allIssues.concat(issues.data.repository.issues.edges);
+        while (issues.data.repository.issues.pageInfo.hasNextPage) {
+            const nextQL = getIssuesDataAfterQL.replace("$owner", owner).replace("$name", name).replace("$cursor", issues.data.repository.issues.pageInfo.endCursor);
+            issues = await (await fetch('https://api.github.com/graphql', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': "bearer " + adapterConfig.github_token
+                },
+                body: JSON.stringify({query: firstQL})
+            })).json();
+            if (issues && issues.data && issues.data.repository && issues.data.repository.issues) {
+                allIssues = allIssues.concat(issues.data.repository.issues.edges);
+            }
+        }
+    }
+
+    if (isAdapterRequest) {
+        allIssues = await cleanTitle(allIssues);
+
+        allIssues.sort(function (a, b) {
+            return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
+        });
+    }
+
+    return allIssues;
+}
 
 async function getAllIssuesFromAdapter(full_name) {
     let allIssues = [];
@@ -48,10 +95,10 @@ function writeAllIssues(allIssues, id) {
             $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
             $item.find('.y_content').addClass('spoiler-content').css('display', 'none');
             $item.find('.byline').text(new Date(issue.created_at).toLocaleDateString('en', dateOptions) + " - " + issue.user.login);
-            
+
             const link = issue.html_url.match(/([^/]*\/){6}/);
             const html = new showdown.Converter().makeHtml(issue.body).replace(/src="(?!http)/g, 'src="' + link[0]).replace(/<img/g, '<img class="img-responsive"');
-            
+
             $item.find('.description').html(html);
 
             if (issue.assignee) {

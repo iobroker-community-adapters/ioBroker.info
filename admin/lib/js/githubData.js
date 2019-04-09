@@ -176,3 +176,81 @@ async function writeAllRepos(allRepos, id) {
 
     });
 }
+
+const getIssuesDataFirstQL = `query{ repository(owner: "$owner", name: "$name") {
+    issues(first: 100, states: OPEN) {
+      totalCount
+      edges {
+        node {
+          title
+          body
+          url
+          comments{totalCount}          
+          assignees(first: 20) {
+            nodes {
+              avatarUrl
+              login
+            }
+          }
+          labels(first: 20) {
+            nodes {
+              color
+              name
+            }
+          }
+          author {
+            login
+          }
+          createdAt
+          reactions(first: 100) {
+            totalCount
+          }
+        }
+        cursor
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+    }
+  }
+}`;
+
+const getIssuesDataAfterQL = `query {  repository(owner: "$owner", name: "$name") {
+    issues(first: 100, states: OPEN, after: "$cursor") {
+      totalCount
+      edges {
+        node {
+          title
+          body
+          url
+          comments{totalCount}          
+          assignees(first: 20) {
+            nodes {
+              avatarUrl
+              login
+            }
+          }
+          labels(first: 20) {
+            nodes {
+              color
+              name
+            }
+          }
+          author {
+            login
+          }
+          createdAt
+          reactions(first: 100) {
+            totalCount
+          }
+        }
+        cursor
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+    }
+  }
+}`;
