@@ -30,7 +30,7 @@ async function getAllIssuesFromAdapterV4(owner, name) {
                     'Content-Type': 'application/json',
                     'Authorization': "bearer " + adapterConfig.github_token
                 },
-                body: JSON.stringify({query: firstQL})
+                body: JSON.stringify({query: nextQL})
             })).json();
             if (issues && issues.data && issues.data.repository && issues.data.repository.issues) {
                 allIssues = allIssues.concat(issues.data.repository.issues.edges);
