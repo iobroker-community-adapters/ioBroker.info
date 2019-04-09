@@ -131,7 +131,7 @@ $(function () {
         if (parent.window.location.hash === "#tab-info") {
 
             getHosts(await getNodeVersionList());
-
+            
             if (adapterConfig.forum) {
                 startForum();
             } else {

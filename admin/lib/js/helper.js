@@ -174,6 +174,7 @@ async function readInstanceConfig(callback) {
         socket.emit('getObject', 'system.adapter.info.0', function (err, res) {
             if (!err && res && res.native) {
                 adapterConfig = res.native;
+                githubHelper.setGithubHeader();
             }
             if (typeof callback === 'function') {
                 callback();

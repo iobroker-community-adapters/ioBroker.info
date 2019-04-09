@@ -1,8 +1,21 @@
 /* global systemInfoForGithub, adapterConfig, githubMarkdownArea */
 
 let githubuser = {};
+let githubHeaders;
 
 const githubHelper = {
+    setGithubHeader: function () {
+        if (adapterConfig.github_token) {
+            githubHeaders = new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': 'bearer ' + adapterConfig.github_token
+            });
+        } else {
+            githubHeaders = new Headers({
+                'Content-Type': 'application/json'
+            });
+        }
+    },
     getUserdata: async function () {
         githubuser = await githubHelper.getData("https://api.github.com/user", "GET");
         if (!githubuser) {
@@ -154,6 +167,26 @@ const githubHelper = {
         } catch (e) {
             return false;
         }
+    },
+    getDataV4: async function (query) {
+        return await (await fetch('https://api.github.com/graphql', {
+            method: 'POST',
+            headers: githubHeaders,
+            body: JSON.stringify({query: query})
+        })).json();
+    },
+    getQueryForIssues: function (query, owner, name, login, isAdapterRequest) {
+        if (login) {
+            query = query.replace("$repoORuser", 'user(login: "' + login + '"){"').replace("$reactions", "");
+        } else {
+            query = query.replace("$repoORuser", 'repository(owner: "' + owner + '", name: "' + name + '") {');
+            if (isAdapterRequest) {
+                query = query.replace("$reactions", "reactions(first: 100){totalCount}");
+            } else {
+                query = query.replace("$reactions", "").replace("$orderby", ", orderBy:{field: CREATED_AT, direction: DESC}");
+            }
+        }
+        return query;
     }
 };
 
@@ -177,80 +210,80 @@ async function writeAllRepos(allRepos, id) {
     });
 }
 
-const getIssuesDataFirstQL = `query{ repository(owner: "$owner", name: "$name") {
-    issues(first: 100, states: OPEN) {
-      totalCount
-      edges {
-        node {
-          title
-          body
-          url
-          comments{totalCount}          
-          assignees(first: 20) {
-            nodes {
-              avatarUrl
-              login
-            }
-          }
-          labels(first: 20) {
-            nodes {
-              color
-              name
-            }
-          }
-          author {
-            login
-          }
-          createdAt
-          reactions(first: 100) {
+const getIssuesDataFirstQL = `
+query{
+    $repoORuser    
+        issues(first: 100, states: OPEN$orderby) {
             totalCount
-          }
+            edges {
+                node {
+                    title
+                    body
+                    url
+                    comments{totalCount}          
+                    assignees(first: 20) {
+                        nodes {
+                            avatarUrl
+                            login
+                        }
+                    } 
+                    labels(first: 20) {
+                        nodes {
+                            color
+                            name
+                        }
+                    }
+                    author {
+                        login
+                    }
+                    createdAt
+                    $reaction
+                }
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+            }
         }
-        cursor
-      }
-      pageInfo {
-        endCursor
-        hasNextPage
-      }
     }
-  }
 }`;
 
-const getIssuesDataAfterQL = `query {  repository(owner: "$owner", name: "$name") {
-    issues(first: 100, states: OPEN, after: "$cursor") {
-      totalCount
-      edges {
-        node {
-          title
-          body
-          url
-          comments{totalCount}          
-          assignees(first: 20) {
-            nodes {
-              avatarUrl
-              login
-            }
-          }
-          labels(first: 20) {
-            nodes {
-              color
-              name
-            }
-          }
-          author {
-            login
-          }
-          createdAt
-          reactions(first: 100) {
+const getIssuesDataAfterQL = `
+query {  
+    $repoORuser
+        issues(first: 100, states: OPEN, after: "$cursor"$orderby) {
             totalCount
-          }
+            edges {
+                node {
+                    title
+                    body
+                    url
+                    comments{totalCount}          
+                    assignees(first: 20) {
+                        nodes {
+                            avatarUrl
+                            login
+                        }
+                    }
+                    labels(first: 20) {
+                        nodes {
+                            color
+                            name
+                        }
+                    }
+                    author {
+                        login
+                    }
+                    createdAt
+                    $reactions
+                }
+                cursor
+            }
+            pageInfo {
+                endCursor
+                hasNextPage
+            }
         }
-        cursor
-      }
-      pageInfo {
-        endCursor
-        hasNextPage
-      }
     }
-  }
 }`;
