@@ -43,7 +43,10 @@ There is a new widget to display important messages in VIS. These messages are d
 
 ## Changelog
 
-### 1.3.2 (2019-05-01)
+### 1.3.3 (2019-05-01)
+* (ldittmar) my issues and my repos
+
+### 1.3.2 (2019-04-06)
 * (SchumyHao) Update Chinese translation
 * (ldittmar) create Github issues
 * (ldittmar) create new adapter requests
