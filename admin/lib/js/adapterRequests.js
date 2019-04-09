@@ -1,4 +1,4 @@
-/* global systemLang, dateOptions, adapterConfig */
+/* global systemLang, dateOptions, adapterConfig, showdown */
 
 const allTitles = [];
 
@@ -48,7 +48,11 @@ function writeAllIssues(allIssues, id) {
             $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
             $item.find('.y_content').addClass('spoiler-content').css('display', 'none');
             $item.find('.byline').text(new Date(issue.created_at).toLocaleDateString('en', dateOptions) + " - " + issue.user.login);
-            $item.find('.description').html(issue.body);
+            
+            const link = issue.html_url.match(/([^/]*\/){6}/);
+            const html = new showdown.Converter().makeHtml(issue.body).replace(/src="(?!http)/g, 'class="img-responsive" src="' + link[0]);
+            
+            $item.find('.description').html(html);
 
             if (issue.assignee) {
                 $item.find('.assigner_img').attr('src', issue.assignee.avatar_url);
