@@ -19,7 +19,7 @@ async function getAllIssuesFromAdapterV4(owner, name) {
 
     if (issues && issues.data && issues.data.repository && issues.data.repository.issues) {
         if (isAdapterRequest) {
-            $('#adapterRequestBlockTitle').append(" (" + issues.data.repository.issues.totalCount + ")");
+            $('#adapterRequestBlockTitle').append($(" <span>(" + issues.data.repository.issues.totalCount + ")</span>"));
         }
         allIssues = allIssues.concat(issues.data.repository.issues.edges);
         while (issues.data.repository.issues.pageInfo.hasNextPage) {
@@ -39,10 +39,10 @@ async function getAllIssuesFromAdapterV4(owner, name) {
     }
 
     if (isAdapterRequest) {
-        allIssues = await cleanTitle(allIssues);
+        allIssues = await cleanTitleV4(allIssues);
 
         allIssues.sort(function (a, b) {
-            return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
+            return a.node.title.toLowerCase().localeCompare(b.node.title.toLowerCase());
         });
     }
 
@@ -67,6 +67,23 @@ async function getAllIssuesFromAdapter(full_name) {
     });
 
     return allIssues;
+}
+
+async function cleanTitleV4(allIssues) {
+    const response = [];
+    await asyncForEach(allIssues, async function (issue) {
+        let title = issue.node.title;
+        if (title.toLowerCase().startsWith("adapter for ") || title.toLowerCase().startsWith("adapter für ")) {
+            title = title.substring(12, title.length);
+        } else if (title.toLowerCase().startsWith("adapter ")) {
+            title = title.substring(8, title.length);
+        }
+        issue.node.title = title;
+        allTitles.push(title);
+
+        response.push(issue);
+    });
+    return response;
 }
 
 async function cleanTitle(allIssues) {
