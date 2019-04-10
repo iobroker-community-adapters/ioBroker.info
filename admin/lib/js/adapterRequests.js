@@ -10,10 +10,7 @@ async function getAllIssues(owner, name, login) {
     let issues = await githubHelper.getDataV4(firstQL);
 
     if (issues && issues.data && (issues.data.repository || issues.data.user)) {
-        let data = login ? issues.data.user : issues.data.repository;
-        if (isAdapterRequest) {
-            $('#adapterRequestBlockTitle').append($("<span>(" + data.issues.totalCount + ")</span>"));
-        }
+        let data = login ? issues.data.user : issues.data.repository;       
         allIssues = allIssues.concat(data.issues.edges);
         let hasNext = data.issues.pageInfo.hasNextPage;
         let cursor = data.issues.pageInfo.endCursor;
@@ -99,21 +96,29 @@ async function cleanTitleV4(allIssues) {
 
 function writeAllIssuesV4(allIssues, id) {
     if (allIssues.length > 0) {
+        $('#adapterRequestBlockTitle').append($("<span>(" + allIssues.length + ")</span>"));
+        const now = new Date();
         allIssues.forEach(function (issueNode) {
             const issue = issueNode.node;
             const $item = $('#forumEntryTemplate').children().clone(true, true);
             $item.find('.label-success').remove();
+            const createdAt = new Date(issue.createdAt);
             if (id === "adapterRequestList") {
                 $item.find('.title').prepend($("<span class='badge' id='reactionARBadge" + issue.number + "'>" + issue.reactions.totalCount + "</span>"));
                 const votes = "<strong class='text-primary'>" + _("Total votes") + ": <span id='reactionARNumber" + issue.number + "'>" + issue.reactions.totalCount + "</span></strong>";
                 const thumb = "<div class='pull-right marginHoch'><button type='button'  id='reactionAR" + issue.number + "' class='adapterRequestReaction btn btn-" + (issue.reactions.viewerHasReacted ? 'success' : 'default') + "'><i class='fa fa-thumbs-up fa-lg'></i></button></div>";
                 $item.find('.y_content').append($(thumb)).append($(votes));
+                if(issue.reactions.viewerHasReacted){
+                    $item.find('.y_title').css("background-color", "#dff0d8");
+                }else if((now - createdAt) < (3600000 * 24 * 30)){
+                    $item.find('.y_title').css("background-color", "#d9edf7");
+                }
             }
             $item.find('.titleLink').text(issue.title).attr('href', issue.url);
             $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
-            $item.find('.y_content').addClass('spoiler-content').css('display', 'none');
-            $item.find('.byline').text(new Date(issue.createdAt).toLocaleDateString('en', dateOptions) + " - " + issue.author.login);
-
+            $item.find('.y_content').addClass('spoiler-content').css('display', 'none');            
+            $item.find('.byline').text(createdAt.toLocaleDateString('en', dateOptions) + " - " + issue.author.login);
+                        
             const link = issue.url.match(/([^/]*\/){6}/);
             const html = new showdown.Converter().makeHtml(issue.body).replace(/src="(?!http)/g, 'src="' + link[0]).replace(/<img/g, '<img class="img-responsive"');
 
@@ -144,6 +149,7 @@ function writeAllIssuesV4(allIssues, id) {
 
 function writeAllIssues(allIssues, id) {
     if (allIssues.length > 0) {
+        $('#adapterRequestBlockTitle').append($("<span>(" + allIssues.length + ")</span>"));
         allIssues.forEach(function (issue) {
             const $item = $('#forumEntryTemplate').children().clone(true, true);
             $item.find('.label-success').remove();
