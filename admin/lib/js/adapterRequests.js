@@ -10,18 +10,18 @@ async function getAllIssues(owner, name, login, search) {
     let issues = await githubHelper.getDataV4(firstQL);
 
     if (issues && issues.data && (issues.data.repository || issues.data.user || issues.data.search)) {
-        let data = login ? (search ? issues.data.search : issues.data.user) : issues.data.repository;
-        allIssues = allIssues.concat(data.issues.edges);
-        let hasNext = data.issues.pageInfo.hasNextPage;
-        let cursor = data.issues.pageInfo.endCursor;
+        let data = login ? (search ? issues.data.search : issues.data.user.issues) : issues.data.repository.issues;
+        allIssues = allIssues.concat(data.edges);
+        let hasNext = data.pageInfo.hasNextPage;
+        let cursor = data.pageInfo.endCursor;
         while (hasNext) {
             const nextQL = githubHelper.getQueryForIssues(owner, name, login, isAdapterRequest, cursor, search);
             issues = await githubHelper.getDataV4(nextQL);
             if (issues && issues.data && (issues.data.repository || issues.data.user || issues.data.search)) {
-                data = login ? (search ? issues.data.search : issues.data.user) : issues.data.repository;
-                allIssues = allIssues.concat(data.issues.edges);
-                hasNext = data.issues.pageInfo.hasNextPage;
-                cursor = data.issues.pageInfo.endCursor;
+                data = login ? (search ? issues.data.search : issues.data.user.issues) : issues.data.repository.issues;
+                allIssues = allIssues.concat(data.edges);
+                hasNext = data.pageInfo.hasNextPage;
+                cursor = data.pageInfo.endCursor;
             } else {
                 hasNext = false;
                 cursor = "";
