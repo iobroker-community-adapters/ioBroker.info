@@ -54,6 +54,13 @@ A guia Informações contém várias informações sobre o seu sistema e o ioBro
 <img height="50" align="left" src="img/clock.png">
 O relógio não tem função especial (mas fiz um esforço) e pode ser desligado a qualquer momento na configuração.
 
+## Barra do Github
+
+![Barra do Github](img/githubButtons.png)
+Para ver essa barra, primeiro você precisa de uma conta do Github e deve especificar um token na configuração. Para mais informações, consulte em [Descrição do Configuração](#Configuração) > "Token do GitHub Personal Access".
+
+No momento, você tem a possibilidade de ver problemas e repositórios criados por si mesmo e que são observados ou marcados com uma estrela.
+
 ## Messages
 
 <img height="200" align="left" src="img/messages.png">
@@ -222,6 +229,10 @@ Qualquer informação que possa ajudar o desenvolvedor aumenta a probabilidade d
 porque alguns desenvolvedores vêm do exterior e provavelmente não falam seu idioma.
 
 Ao clicar em "Enviar novo problema", um problema será criado no Github. Agora você pode clicar no botão azul à esquerda para ir diretamente para o problema ou apenas fechar a janela.
+
+### Votar nas solicitações do adaptador
+
+Com uma conta do Github, você também pode votar diretamente nas solicitações do adaptador clicando em ![Botão Vote](img/votes.png). Se funcionar, o botão fica verde. Todos podem votar apenas um voto. O número total de vozes é exibido no objeto na frente do título.
 
 ## Problemas e erros
 

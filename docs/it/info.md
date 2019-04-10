@@ -54,6 +54,13 @@ La scheda Informazioni contiene varie informazioni sul sistema e su ioBroker. La
 <img height="50" align="left" src="img/clock.png">
 L'orologio non ha una funzione speciale (ma ho fatto uno sforzo) e può essere disattivato in qualsiasi momento nella configurazione.
 
+## Barra Github
+
+![Github bar](img/githubButtons.png)
+Per vedere questa barra, è necessario prima un account Github e devi specificare un token nella configurazione. Per ulteriori informazioni, vedere in [Descrizione configurazione](#Configurazione) > "GitHub Personal Access Token".
+
+Al momento hai la possibilità di vedere i problemi e i repository auto-creati che sono osservati o contrassegnati con una stella.
+
 ## Messaggi
 
 <img height="200" align="left" src="img/messages.png">
@@ -222,6 +229,10 @@ Qualsiasi informazione che possa aiutare lo sviluppatore aumenta la probabilità
 perché alcuni sviluppatori vengono dall'estero e probabilmente non parlano la tua lingua.
 
 Cliccando su "Invia un nuovo problema", verrà creato un problema su Github. Ora puoi fare clic sul pulsante blu a sinistra per andare direttamente al problema o semplicemente chiudere la finestra.
+
+### Vota per le richieste dell'adattatore
+
+Con un account Github, puoi anche votare direttamente per le richieste dell'adattatore facendo clic ![Pulsante Vota](img/votes.png). Se funziona, il pulsante diventa verde. Tutti possono votare solo un voto. Il numero totale di voci è visualizzato nell'oggetto davanti al titolo.
 
 ## Problemi e bug
 

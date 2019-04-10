@@ -54,6 +54,13 @@ La pestaña Información contiene información diversa sobre su sistema y el ioB
 <img height="50" align="left" src="img/clock.png">
 El reloj no tiene una función especial (pero he hecho un esfuerzo) y se puede apagar en cualquier momento en la configuración.
 
+## Barra de Github
+
+![Github bar](img/githubButtons.png)
+Para ver esta barra, primero necesita una cuenta de Github y debe especificar un token en la configuración. Para obtener más información, consulte [Descripción de la configuración](#Configuración) > "Ficha de acceso personal de GitHub".
+
+En este momento, tiene la posibilidad de ver los problemas creados por usted y los repositorios que se observan o marcan con una estrella.
+
 ## Mensajes
 
 <img height="200" align="left" src="img/messages.png">
@@ -222,6 +229,10 @@ Cualquier información que pueda ayudar al desarrollador aumenta la probabilidad
 porque algunos desarrolladores vienen del extranjero y probablemente no hablen tu idioma.
 
 Al hacer clic en "Enviar nuevo número", se creará un problema en Github. Ahora puede hacer clic en el botón azul de la izquierda para ir directamente al problema o simplemente cerrar la ventana.
+
+### Votar por solicitudes de adaptadores
+
+Con una cuenta de Github, también puede votar directamente por solicitudes de adaptadores haciendo clic ![Botón de voto](img/votes.png). Si funciona, el botón se vuelve verde. Todos solo pueden votar un voto. El número total de voces se muestra en el objeto delante del título.
 
 ## Problemas y bugs
 

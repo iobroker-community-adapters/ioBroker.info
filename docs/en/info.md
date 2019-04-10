@@ -54,6 +54,13 @@ The Info tab contains various information about your system and the ioBroker. Th
 <img height="50" align="left" src="img/clock.png">
 The clock has no special function (but I have made an effort) and can be turned off at any time in the configuration.
 
+## Github bar
+
+![Github bar](img/githubButtons.png)
+In order to see this bar, you first need a Github account and must specify a token in the configuration. For more information, see under [Configuration description](#Configuration) > "GitHub Personal Access Token".
+
+At the moment you have the possibility to see self-created issues and repositories that are either observed or marked with a star.
+
 ## Messages
 
 <img height="200" align="left" src="img/messages.png">
@@ -222,6 +229,10 @@ Any information that might help the developer increases the likelihood that the 
 because some developers come from abroad and probably they don't speek your language.
 
 By clicking on "Submit New Issue", an issue will be created on Github. Now you can click on the blue button on the left to go directly to the issue or just close the window.
+
+### Vote for adapter requests
+
+With a Github account, you can also vote directly for adapter requests by clicking ![Vote button](img/votes.png). If it works, the button turns green. Everyone can only vote one vote. The total number of voices is displayed in the object in front of the title.
 
 ## Issues and bugs
 

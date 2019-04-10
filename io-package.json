@@ -3,6 +3,18 @@
         "name": "info",
         "version": "1.3.3",
         "news": {
+            "1.3.3": {
+                "en": "Github buttons and vote for adapter requests",
+                "de": "Schaltflächen und stimme für Adapteranfragen",
+                "ru": "Кнопки Github и голосование за запросы адаптера",
+                "pt": "Botões do Github e vote nas solicitações do adaptador",
+                "nl": "Github-knoppen en stem voor adapterverzoeken",
+                "fr": "Boutons Github et vote pour les demandes d'adaptateur",
+                "it": "Pulsanti Github e vota per le richieste dell'adattatore",
+                "es": "Botones Github y voto para solicitudes de adaptadores.",
+                "pl": "Przyciski Github i głosuj na żądania adaptera",
+                "zh-cn": "Github按钮并为适配器请求投票"
+            },
             "1.3.2": {
                 "en": "Create Github issues",
                 "de": "Erstellen Sie Github-Probleme",

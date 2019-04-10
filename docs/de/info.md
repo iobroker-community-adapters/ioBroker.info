@@ -54,6 +54,13 @@ Der Info Tab enthält verschiedene Informationen zu Ihrem System und zum ioBroke
 <img height="50" align="left" src="img/clock.png">
 Die Uhr hat keine besondere Funktion (ich habe mir aber Mühe gegeben) und kann jederzeit in der Konfiguration ausgeschaltete werden.
 
+## Github-Leiste
+
+![Github-Leiste](img/githubButtons.png)
+Um diese Leiste sehen zu können, braucht man erst ein Github Account und muss ein Token in der Konfiguration angeben. Weitere Informationen dazu, finden Sie in der [Konfigurationsberscheibung](#konfiguration), unter "GitHub persönliches Zugriffstoken".
+
+Zur Zeit hat man die Möglichkeit selbst erstellte Issues und Repositories die entweder beobachtet werden oder mit einem Stern markiert wurden zu sehen.
+
 ## Meldungen
 
 <img height="200" align="left" src="img/messages.png">
@@ -222,6 +229,10 @@ Jede Information, die dem Entwickler hilfreich sein könnte, erhöht die Wahrsch
 denn einige Entwickler kommen aus dem Ausland und sind eure Landessprache wahrscheinlich nicht mächtig.
 
 Mit einem Klick auf "Neue Anfrage einreichen", wird ein Issue auf Github angelegt. Nun können Sie links auf dem blauen Button klicken, um direkt zum Issue zu gelangen oder das fenster einfach schließen.
+
+### Für Adapteranfragen abstimmen
+
+Mit einem Github Account kann man auch direkt für Adapteranfragen abstimmen, indem man auf ![vote button](img/votes.png) klickt. Wenn es funktioniert hat, wird der Button grün. Jeder kann nur eine Stimme abgeben. Die Gesamtanzahl der Stimmen wird im Objekt vor dem Titel dargestellt.
 
 ## Probleme und Fehler
 

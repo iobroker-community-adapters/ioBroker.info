@@ -54,6 +54,13 @@ Het tabblad Info bevat verschillende informatie over uw systeem en de ioBroker. 
 <img height="50" align="left" src="img/clock.png">
 De klok heeft geen speciale functie (maar ik heb me ingespannen) en kan op elk moment in de configuratie worden uitgeschakeld.
 
+## Github-balk
+
+![Github bar](img/githubButtons.png)
+Om deze balk te zien, hebt u eerst een Github-account nodig en moet u een token in de configuratie opgeven. Zie voor meer informatie onder [Configuratiebeschrijving](#Configuratie) > "GitHub Personal Access Token".
+
+Op dit moment heb je de mogelijkheid om zelf gecreëerde problemen en repositories te zien die worden waargenomen of gemarkeerd met een ster.
+
 ## Berichten
 
 <img height="200" align="left" src="img/messages.png">
@@ -222,6 +229,10 @@ Alle informatie die de ontwikkelaar kan helpen, vergroot de kans dat de bijbehor
 omdat sommige ontwikkelaars uit het buitenland komen en waarschijnlijk niet jouw taal spreken.
 
 Door op "Dien een nieuw probleem in" te klikken, wordt er een probleem aangemaakt op Github. Nu kunt u op de blauwe knop aan de linkerkant klikken om direct naar het probleem te gaan of gewoon het venster sluiten.
+
+### Stem op adapterverzoeken
+
+Met een Github-account kunt u ook direct op adapterverzoeken stemmen door te klikken ![Stemknop](img/votes.png). Als het werkt, wordt de knop groen. Iedereen kan maar één stem uitbrengen. Het totale aantal stemmen wordt weergegeven in het object vóór de titel.
 
 ## Problemen en bugs
 

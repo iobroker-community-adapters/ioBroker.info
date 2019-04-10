@@ -54,6 +54,13 @@ Zakładka Info zawiera różne informacje o systemie i ioBroker. Karta jest podz
 <img height="50" align="left" src="img/clock.png">
 Zegar nie ma specjalnej funkcji (ale zrobiłem wysiłek) i można go wyłączyć w dowolnym momencie konfiguracji.
 
+## Pasek Github
+
+![Pasek Github](img/githubButtons.png)
+Aby zobaczyć ten pasek, najpierw potrzebujesz konta Github i musisz określić token w konfiguracji. Aby uzyskać więcej informacji, zobacz [Opis konfiguracji](#Konfiguracja) > „Token osobistego dostępu GitHub”.
+
+W tej chwili masz możliwość zobaczenia samodzielnie utworzonych problemów i repozytoriów, które są obserwowane lub oznaczone gwiazdką.
+
 ## Wiadomości
 
 <img height="200" align="left" src="img/messages.png">
@@ -222,6 +229,10 @@ Wszelkie informacje, które mogą pomóc deweloperowi zwiększyć prawdopodobie�
 ponieważ niektórzy deweloperzy pochodzą z zagranicy i prawdopodobnie nie mówią w twoim języku.
 
 Klikając „Prześlij nowe wydanie”, zostanie utworzony problem w Github. Teraz możesz kliknąć niebieski przycisk po lewej stronie, aby przejść bezpośrednio do problemu lub po prostu zamknąć okno.
+
+### Głosuj na żądania adaptera
+
+Z kontem Github możesz także głosować bezpośrednio na żądania adaptera, klikając ![Przycisk głosowania](img/votes.png). Jeśli to zadziała, przycisk zmieni kolor na zielony. Każdy może głosować tylko jeden głos. Całkowita liczba głosów jest wyświetlana w obiekcie przed tytułem.
 
 ## Problemy i błędy
 

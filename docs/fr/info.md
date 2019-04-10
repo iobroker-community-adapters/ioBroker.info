@@ -54,6 +54,13 @@ L'onglet Info contient diverses informations sur votre système et ioBroker. L'o
 <img height="50" align="left" src="img/clock.png">
 L'horloge n'a pas de fonction particulière (mais j'ai fait un effort) et peut être désactivée à tout moment dans la configuration.
 
+## Barre Github
+
+![Barre Github](img/githubButtons.png)
+Pour voir cette barre, vous devez d'abord disposer d'un compte Github et spécifier un jeton dans la configuration. Pour plus d'informations, voir [Description de la configuration](#Configuration) > "Jeton d'accès personnel GitHub".
+
+Pour le moment, vous avez la possibilité de voir les problèmes créés par vous-même et les référentiels observés ou marqués d'une étoile.
+
 ## Messages
 
 <img height="200" align="left" src="img/messages.png">
@@ -222,6 +229,10 @@ Toute information susceptible d'aider le développeur augmente les chances que l
 parce que certains développeurs viennent de l'étranger et qu'ils ne parlent probablement pas votre langue.
 
 En cliquant sur "Soumettre un nouveau numéro", un problème sera créé sur Github. Maintenant, vous pouvez cliquer sur le bouton bleu à gauche pour accéder directement au problème ou simplement fermer la fenêtre.
+
+### Votez pour les demandes d'adaptateur
+
+Avec un compte Github, vous pouvez également voter directement pour les demandes d'adaptateurs en cliquant ![Bouton de vote](img/votes.png). Si cela fonctionne, le bouton devient vert. Tout le monde ne peut voter qu'une voix. Le nombre total de voix est affiché dans l'objet devant le titre.
 
 ## Problèmes et bugs
 
