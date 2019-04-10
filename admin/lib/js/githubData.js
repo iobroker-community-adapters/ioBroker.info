@@ -119,7 +119,7 @@ const githubHelper = {
         const issues = await getAllIssues(null, null, githubuser.login);
         $('#githublistLoader').addClass("hidden");
         if (issues) {
-            await writeAllIssues(issues, "githublistbody");
+            await writeAllIssuesV4(issues, "githublistbody");
         }
     },
     loadWatched: async function () {
