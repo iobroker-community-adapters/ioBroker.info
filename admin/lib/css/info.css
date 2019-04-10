@@ -584,19 +584,23 @@ ul#cssClock li{
     margin-top: -30px;
 }
 
+.comments-counter{
+    position: relative;
+    font-size: large;
+}
+
 .comments-counter[data-count]:after{
     position:absolute;
-    right:32%;
-    top:35%;
+    right:5%;
+    top:24%;
     content: attr(data-count);
-    font-size:40%;
+    font-size:45%;
     padding:.2em;
     border-radius:50%;
     line-height:1em;
     color: white;
     text-align:center;
-    min-width: 1em;
-    font-weight:bold;
+    min-width: 1em;    
 }
 
 @media (min-width: 992px){

@@ -123,7 +123,7 @@ function writeAllIssuesV4(allIssues, id) {
                     }else if(number < 99){
                         number += "&nbsp;";
                     }
-                    const comment = "<span class='comments-counter fa-stack fa-2x has-badge' data-count='" + number + "'><i class='p3 fa fa-comment fa-stack-1x xfa-inverse'></i></span>";
+                    const comment = "<span class='comments-counter has-badge' data-count='" + number + "'><i class='fa fa-comment xfa-inverse'></i></span>";
                     $item.find('.title').prepend($(comment));
                 }
                 $item.find('.titleLink').attr('title', issue.repository.nameWithOwner);
