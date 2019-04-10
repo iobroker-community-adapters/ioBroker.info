@@ -114,7 +114,7 @@ const githubHelper = {
         }
     },
     loadAssigned: async function () {
-        $('#modal-githublist-title').text(_('Issues assigned to me') );
+        $('#modal-githublist-title').html(_('Issues assigned to me') + "&nbsp;");
 
         const issues = await getAllIssues(null, null, githubuser.login, true);
         $('#githublistLoader').addClass("hidden");
@@ -123,7 +123,7 @@ const githubHelper = {
         }
     },
     loadIssues: async function () {
-        $('#modal-githublist-title').text(_('My issues list') );
+        $('#modal-githublist-title').html(_('My issues list') +  + "&nbsp;");
 
         const issues = await getAllIssues(null, null, githubuser.login);
         $('#githublistLoader').addClass("hidden");
@@ -132,7 +132,7 @@ const githubHelper = {
         }
     },
     loadWatched: async function () {
-        $('#modal-githublist-title').text(_('Watched repositories') );
+        $('#modal-githublist-title').html(_('Watched repositories') + "&nbsp;");
         const watched = await githubHelper.getData("https://api.github.com/user/subscriptions", "GET");
         $('#githublistLoader').addClass("hidden");
         if (watched) {
@@ -140,7 +140,7 @@ const githubHelper = {
         }
     },
     loadStarred: async function () {
-        $('#modal-githublist-title').text(_('Starred repositories') );
+        $('#modal-githublist-title').html(_('Starred repositories') + "&nbsp;");
         const starred = await githubHelper.getData("https://api.github.com/user/starred", "GET");
         $('#githublistLoader').addClass("hidden");
         if (starred) {
