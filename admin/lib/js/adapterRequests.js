@@ -9,20 +9,22 @@ async function getAllIssues(owner, name, login) {
 
     let issues = await githubHelper.getDataV4(firstQL);
 
-    if (issues && issues.data && issues.data.repository && issues.data.repository.issues) {
+    if (issues && issues.data && (issues.data.repository || issues.data.user)) {
+        let data = login ? issues.data.user : issues.data.repository;
         if (isAdapterRequest) {
-            $('#adapterRequestBlockTitle').append($("<span>(" + issues.data.repository.issues.totalCount + ")</span>"));
+            $('#adapterRequestBlockTitle').append($("<span>(" + data.issues.totalCount + ")</span>"));
         }
-        allIssues = allIssues.concat(issues.data.repository.issues.edges);
-        let hasNext = issues.data.repository.issues.pageInfo.hasNextPage;
-        let cursor = issues.data.repository.issues.pageInfo.endCursor;
+        allIssues = allIssues.concat(data.issues.edges);
+        let hasNext = data.issues.pageInfo.hasNextPage;
+        let cursor = data.issues.pageInfo.endCursor;
         while (hasNext) {
             const nextQL = githubHelper.getQueryForIssues(owner, name, login, isAdapterRequest, cursor);
             issues = await githubHelper.getDataV4(nextQL);
-            if (issues && issues.data && issues.data.repository && issues.data.repository.issues) {
-                allIssues = allIssues.concat(issues.data.repository.issues.edges);
-                hasNext = issues.data.repository.issues.pageInfo.hasNextPage;
-                cursor = issues.data.repository.issues.pageInfo.endCursor;
+            if (issues && issues.data && (issues.data.repository || issues.data.user)) {
+                data = login ? issues.data.user : issues.data.repository;
+                allIssues = allIssues.concat(data.issues.edges);
+                hasNext = data.issues.pageInfo.hasNextPage;
+                cursor = data.issues.pageInfo.endCursor;
             } else {
                 hasNext = false;
                 cursor = "";
