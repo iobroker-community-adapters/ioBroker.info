@@ -248,7 +248,11 @@
         "batterySpeed": 8,
         "networkSpeed": 3,
         "allProcessesUsers": 8,
-        "github_token": ""
+        "github_token": "",
+        "hide_github_myIssues": false,
+        "hide_github_myWatched": false,
+        "hide_github_myStarred": false,
+        "hide_github_myAssigned": false
     },
     "objects": [],
     "instanceObjects": [

@@ -131,7 +131,7 @@ $(function () {
         if (parent.window.location.hash === "#tab-info") {
 
             getHosts(await getNodeVersionList());
-            
+
             if (adapterConfig.forum) {
                 startForum();
             } else {
@@ -189,6 +189,18 @@ $(function () {
             }
 
             if (adapterConfig.github_token) {
+                if (adapterConfig.hide_github_myIssues) {
+                    $('#myIssuesListOnGithub').remove();
+                }
+                if (adapterConfig.hide_github_myWatched) {
+                    $('#myWatchedListOnGithub').remove();
+                }
+                if (adapterConfig.hide_github_myStarred) {
+                    $('#myStarredListOnGithub').remove();
+                }
+                if (adapterConfig.hide_github_myAssigned) {
+                    $('#myAssignedListOnGithub').remove();
+                }
                 githubHelper.getUserdata();
                 $('#githubbuttonslist').removeClass('hidden');
             } else {
