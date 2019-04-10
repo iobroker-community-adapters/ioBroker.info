@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "info",
-        "version": "1.3.4",
+        "version": "1.3.5",
         "news": {
             "1.3.4": {
                 "en": "Github buttons and vote for adapter requests",

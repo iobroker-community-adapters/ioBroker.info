@@ -229,6 +229,7 @@ query{
             totalCount
             edges {
                 node {
+                    repository {nameWithOwner}
                     number
                     title
                     body

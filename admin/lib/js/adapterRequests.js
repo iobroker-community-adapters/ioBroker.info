@@ -115,6 +115,18 @@ function writeAllIssuesV4(allIssues, id) {
                 } else if ((now - createdAt) < (3600000 * 24 * 30)) {
                     $item.find('.y_title').css("background-color", "#d9edf7");
                 }
+            } else if (id === "githublistbody") {
+                if(issue.comments.totalCount > 0){
+                    let number = issue.comments.totalCount;
+                    if(number < 9){
+                        number += "&nbsp;&nbsp;";
+                    }else if(number < 99){
+                        number += "&nbsp;";
+                    }
+                    const comment = "<span class='comments-counter fa-stack fa-2x has-badge' data-count='" + number + "'><i class='p3 fa fa-comment fa-stack-1x xfa-inverse'></i></span>";
+                    $item.find('.title').prepend($(comment));
+                }
+                $item.find('.titleLink').attr('title', issue.repository.nameWithOwner);
             }
             $item.find('.titleLink').text(issue.title).attr('href', issue.url);
             $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
