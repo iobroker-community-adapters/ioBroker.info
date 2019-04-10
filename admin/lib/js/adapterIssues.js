@@ -46,12 +46,14 @@ function showIssues() {
 async function getAndWriteIssuesFor(id) {
     const full_name = id.replace("ISSUE-ISSUE", "/").replace("ISSUE-PUNKT-ISSUE", ".").split("/");
     let allIssues;
+    $("<div class='loader3 loader-small' id='loader_" + id +"'></div>").insertBefore("#issue_" + id);
     if (adapterConfig.github_token) {
-        allIssues = await getAllIssues(full_name[0], full_name[1]);
+        allIssues = await getAllIssues(full_name[0], full_name[1]);        
         await writeAllIssuesV4(allIssues, "issue_" + id);
     } else {
         allIssues = await getAllIssuesFromAdapter(full_name);
         await writeAllIssues(allIssues, "issue_" + id);
     }
-    
+    $("#loader_" + id).remove();
+
 }

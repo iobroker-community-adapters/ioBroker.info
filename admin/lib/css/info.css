@@ -603,6 +603,10 @@ ul#cssClock li{
     min-width: 1em;    
 }
 
+.loader-small{
+  font-size: 6px !important;
+}
+
 @media (min-width: 992px){
     .y_title .titleLink:not(.titleRSS) {
         font-size: 14px;        

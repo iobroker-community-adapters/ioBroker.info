@@ -123,7 +123,7 @@ const githubHelper = {
         }
     },
     loadIssues: async function () {
-        $('#modal-githublist-title').html(_('My issues list') +  + "&nbsp;");
+        $('#modal-githublist-title').html(_('My issues list') + "&nbsp;");
 
         const issues = await getAllIssues(null, null, githubuser.login);
         $('#githublistLoader').addClass("hidden");
