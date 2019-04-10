@@ -23,7 +23,7 @@ async function getAllIssues(owner, name, login) {
                 allIssues = allIssues.concat(issues.data.repository.issues.edges);
                 hasNext = issues.data.repository.issues.pageInfo.hasNextPage;
                 cursor = issues.data.repository.issues.pageInfo.endCursor;
-            }else{
+            } else {
                 hasNext = false;
                 cursor = "";
             }
@@ -67,7 +67,8 @@ function writeAllIssues(allIssues, id) {
             if (id === "adapterRequestList") {
                 $item.find('.title').prepend($("<span class='badge'>" + issue.reactions.totalCount + "</span>"));
                 const votes = "<strong class='text-primary'>" + _("Total votes") + ": " + issue.reactions.totalCount + "</strong>";
-                $item.find('.y_content').append($(votes));
+                const thumb = "<div class='pull-right marginHoch'><button type='button' class='btn btn-" + (issue.reactions.viewerHasReacted ? 'success' : 'default') + " " + (adapterConfig.github_token ? "" : "disabled") + "'><i class='fa fa-thumbs-up fa-lg'></i></button></div>";
+                $item.find('.y_content').append($(thumb)).append($(votes));
             }
             $item.find('.titleLink').text(issue.title).attr('href', issue.url);
             $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');

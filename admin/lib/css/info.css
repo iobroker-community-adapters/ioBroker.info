@@ -576,6 +576,10 @@ ul#cssClock li{
     margin-top: 5px;
 }
 
+.marginHoch{
+    margin-top: -10px;
+}
+
 @media (min-width: 992px){
     .y_title .titleLink:not(.titleRSS) {
         font-size: 14px;        

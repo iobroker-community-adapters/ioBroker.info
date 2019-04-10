@@ -178,7 +178,7 @@ const githubHelper = {
     getQueryForIssues: function (owner, name, login, isAdapterRequest, cursor) {
         let query = getIssuesDataQL;
         if (login) {
-            query = query.replace("$repoORuser", 'user(login: "' + login + '"){"').replace("$reactions", "").replace("$orderby", ", orderBy:{field: CREATED_AT, direction: DESC}");
+            query = query.replace("$repoORuser", 'user(login: "' + login + '"){').replace("$reactions", "").replace("$orderby", ", orderBy:{field: CREATED_AT, direction: DESC}");
         } else {
             query = query.replace("$repoORuser", 'repository(owner: "' + owner + '", name: "' + name + '") {');
             if (isAdapterRequest) {
