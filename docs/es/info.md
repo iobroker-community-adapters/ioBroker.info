@@ -234,6 +234,8 @@ Al hacer clic en "Enviar nuevo número", se creará un problema en Github. Ahora
 
 Con una cuenta de Github, también puede votar directamente por solicitudes de adaptadores haciendo clic ![Botón de voto](img/votes.png). Si funciona, el botón se vuelve verde. Todos solo pueden votar un voto. El número total de voces se muestra en el objeto delante del título.
 
+En la descripción general, las solicitudes de adaptador por las que ha votado se muestran en verde y las solicitudes de menos de 1 mes aparecen en azul.
+
 ## Problemas y bugs
 
 <img height="200" align="left" src="img/issues_bugs.png">

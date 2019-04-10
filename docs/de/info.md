@@ -234,6 +234,8 @@ Mit einem Klick auf "Neue Anfrage einreichen", wird ein Issue auf Github angeleg
 
 Mit einem Github Account kann man auch direkt für Adapteranfragen abstimmen, indem man auf ![vote button](img/votes.png) klickt. Wenn es funktioniert hat, wird der Button grün. Jeder kann nur eine Stimme abgeben. Die Gesamtanzahl der Stimmen wird im Objekt vor dem Titel dargestellt.
 
+In der Übersicht werden Adapteranfragen, für die Sie abgestimmt haben, grün dargestellt und Anfragen die jünger als 1 Monat sind blau.
+
 ## Probleme und Fehler
 
 <img height="200" align="left" src="img/issues_bugs.png">

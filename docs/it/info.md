@@ -234,6 +234,8 @@ Cliccando su "Invia un nuovo problema", verrà creato un problema su Github. Ora
 
 Con un account Github, puoi anche votare direttamente per le richieste dell'adattatore facendo clic ![Pulsante Vota](img/votes.png). Se funziona, il pulsante diventa verde. Tutti possono votare solo un voto. Il numero totale di voci è visualizzato nell'oggetto davanti al titolo.
 
+Nella panoramica, le richieste dell'adattatore che hai votato sono visualizzate in verde e le richieste inferiori a 1 mese sono blu.
+
 ## Problemi e bug
 
 <img height="200" align="left" src="img/issues_bugs.png">

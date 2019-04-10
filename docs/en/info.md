@@ -234,6 +234,8 @@ By clicking on "Submit New Issue", an issue will be created on Github. Now you c
 
 With a Github account, you can also vote directly for adapter requests by clicking ![Vote button](img/votes.png). If it works, the button turns green. Everyone can only vote one vote. The total number of voices is displayed in the object in front of the title.
 
+In the overview, adapter requests that you have voted for are displayed in green and requests younger than 1 month are blue.
+
 ## Issues and bugs
 
 <img height="200" align="left" src="img/issues_bugs.png">

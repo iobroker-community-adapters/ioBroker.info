@@ -234,6 +234,8 @@ Klikając „Prześlij nowe wydanie”, zostanie utworzony problem w Github. Ter
 
 Z kontem Github możesz także głosować bezpośrednio na żądania adaptera, klikając ![Przycisk głosowania](img/votes.png). Jeśli to zadziała, przycisk zmieni kolor na zielony. Każdy może głosować tylko jeden głos. Całkowita liczba głosów jest wyświetlana w obiekcie przed tytułem.
 
+W przeglądzie żądania adaptera, na które głosowałeś, są wyświetlane na zielono, a prośby młodsze niż 1 miesiąc są niebieskie.
+
 ## Problemy i błędy
 
 <img height="200" align="left" src="img/issues_bugs.png">

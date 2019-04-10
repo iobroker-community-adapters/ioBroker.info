@@ -234,6 +234,8 @@ Door op "Dien een nieuw probleem in" te klikken, wordt er een probleem aangemaak
 
 Met een Github-account kunt u ook direct op adapterverzoeken stemmen door te klikken ![Stemknop](img/votes.png). Als het werkt, wordt de knop groen. Iedereen kan maar één stem uitbrengen. Het totale aantal stemmen wordt weergegeven in het object vóór de titel.
 
+In het overzicht worden adapterverzoeken waarvoor u hebt gestemd in groen weergegeven en aanvragen die jonger zijn dan 1 maand zijn blauw.
+
 ## Problemen en bugs
 
 <img height="200" align="left" src="img/issues_bugs.png">

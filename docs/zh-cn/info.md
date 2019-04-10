@@ -242,6 +242,8 @@ $ sudo apt-get install smartmontools
 
 使用Github帐户，您还可以通过单击直接投票以获取适配器请求 ![投票按钮](img/votes.png)。 如果有效，按钮变为绿色。 每个人只能投一票。 语音总数显示在标题前面的对象中。
 
+在概述中，您投票的适配器请求以绿色显示，而小于1个月的请求为蓝色。
+
 ## 问题和错误
 
 <img height="200" align="left" src="img/issues_bugs.png">

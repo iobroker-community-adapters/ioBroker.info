@@ -234,6 +234,8 @@ Ao clicar em "Enviar novo problema", um problema será criado no Github. Agora v
 
 Com uma conta do Github, você também pode votar diretamente nas solicitações do adaptador clicando em ![Botão Vote](img/votes.png). Se funcionar, o botão fica verde. Todos podem votar apenas um voto. O número total de vozes é exibido no objeto na frente do título.
 
+Na visão geral, os pedidos de adaptador votados são exibidos em verde e os pedidos menores que 1 mês são azuis.
+
 ## Problemas e erros
 
 <img height="200" align="left" src="img/issues_bugs.png">

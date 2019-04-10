@@ -234,6 +234,8 @@ En cliquant sur "Soumettre un nouveau numéro", un problème sera créé sur Git
 
 Avec un compte Github, vous pouvez également voter directement pour les demandes d'adaptateurs en cliquant ![Bouton de vote](img/votes.png). Si cela fonctionne, le bouton devient vert. Tout le monde ne peut voter qu'une voix. Le nombre total de voix est affiché dans l'objet devant le titre.
 
+Dans la vue d'ensemble, les demandes d'adaptateur pour lesquelles vous avez voté s'affichent en vert et les demandes de moins d'un mois en bleu.
+
 ## Problèmes et bugs
 
 <img height="200" align="left" src="img/issues_bugs.png">

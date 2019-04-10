@@ -96,7 +96,9 @@ async function cleanTitleV4(allIssues) {
 
 function writeAllIssuesV4(allIssues, id) {
     if (allIssues.length > 0) {
-        $('#adapterRequestBlockTitle').append($("<span>(" + allIssues.length + ")</span>"));
+        if (id === "adapterRequestList") {
+            $('#adapterRequestBlockTitle').append($("<span>(" + allIssues.length + ")</span>"));
+        }
         const now = new Date();
         allIssues.forEach(function (issueNode) {
             const issue = issueNode.node;
@@ -149,7 +151,9 @@ function writeAllIssuesV4(allIssues, id) {
 
 function writeAllIssues(allIssues, id) {
     if (allIssues.length > 0) {
-        $('#adapterRequestBlockTitle').append($("<span>(" + allIssues.length + ")</span>"));
+        if (id === "adapterRequestList") {
+            $('#adapterRequestBlockTitle').append($("<span>(" + allIssues.length + ")</span>"));
+        }
         const now = new Date();
         allIssues.forEach(function (issue) {
             const $item = $('#forumEntryTemplate').children().clone(true, true);
