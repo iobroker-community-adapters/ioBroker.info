@@ -129,10 +129,10 @@ const githubHelper = {
     loadIssues: async function () {
         $('#modal-githublist-title').text(_('My issues list'));
 
-        const issues = await githubHelper.getData("https://api.github.com/search/issues?q=is:open+is:issue+archived:false+author:" + githubuser.login + "&per_page=100", "GET");
+        const issues = await getAllIssues(null, null, githubuser.login);
         $('#githublistLoader').addClass("hidden");
         if (issues) {
-            await writeAllIssues(issues.items, "githublistbody");
+            await writeAllIssues(issues, "githublistbody");
         }
     },
     loadWatched: async function () {
@@ -175,16 +175,22 @@ const githubHelper = {
             body: JSON.stringify({query: query})
         })).json();
     },
-    getQueryForIssues: function (query, owner, name, login, isAdapterRequest) {
+    getQueryForIssues: function (owner, name, login, isAdapterRequest, cursor) {
+        let query = getIssuesDataQL;
         if (login) {
             query = query.replace("$repoORuser", 'user(login: "' + login + '"){"').replace("$reactions", "").replace("$orderby", ", orderBy:{field: CREATED_AT, direction: DESC}");
         } else {
             query = query.replace("$repoORuser", 'repository(owner: "' + owner + '", name: "' + name + '") {');
             if (isAdapterRequest) {
-                query = query.replace("$reactions", "reactions(first: 100){totalCount}").replace("$orderby","");
+                query = query.replace("$reactions", "reactions(first: 100) {totalCount viewerHasReacted}").replace("$orderby","");
             } else {
                 query = query.replace("$reactions", "").replace("$orderby", ", orderBy:{field: CREATED_AT, direction: DESC}");
             }
+        }
+        if(cursor){
+            query = query.replace("$cursor", ', cursor: "' + cursor + '"');
+        }else{
+             query = query.replace("$cursor", "");
         }
         return query;
     }
@@ -210,10 +216,10 @@ async function writeAllRepos(allRepos, id) {
     });
 }
 
-const getIssuesDataFirstQL = `
+const getIssuesDataQL = `
 query{
     $repoORuser    
-        issues(first: 100, states: OPEN$orderby) {
+        issues(first: 100, states: OPEN$cursor$orderby) {
             totalCount
             edges {
                 node {
@@ -227,45 +233,6 @@ query{
                             login
                         }
                     } 
-                    labels(first: 20) {
-                        nodes {
-                            color
-                            name
-                        }
-                    }
-                    author {
-                        login
-                    }
-                    createdAt
-                    $reactions
-                }
-                cursor
-            }
-            pageInfo {
-                endCursor
-                hasNextPage
-            }
-        }
-    }
-}`;
-
-const getIssuesDataAfterQL = `
-query {  
-    $repoORuser
-        issues(first: 100, states: OPEN, after: "$cursor"$orderby) {
-            totalCount
-            edges {
-                node {
-                    title
-                    body
-                    url
-                    comments{totalCount}          
-                    assignees(first: 20) {
-                        nodes {
-                            avatarUrl
-                            login
-                        }
-                    }
                     labels(first: 20) {
                         nodes {
                             color
