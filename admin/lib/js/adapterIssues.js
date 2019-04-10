@@ -55,5 +55,4 @@ async function getAndWriteIssuesFor(id) {
         await writeAllIssues(allIssues, "issue_" + id);
     }
     $("#loader_" + id).remove();
-
 }

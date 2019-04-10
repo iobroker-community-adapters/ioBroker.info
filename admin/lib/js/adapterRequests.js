@@ -158,7 +158,7 @@ function writeAllIssuesV4(allIssues, id) {
         });
     } else {
         if (id !== "githublistbody") {
-            $('#' + id).parent().empty().html("<h2>" + _('no issues found') + "</h2>");
+            $('#' + id).replaceWith("<h2>" + _('no issues found') + "</h2>");
         }
     }
 }
@@ -206,7 +206,7 @@ function writeAllIssues(allIssues, id) {
         });
     } else {
         if (id !== "githublistbody") {
-            $('#' + id).parent().empty().html("<h2>" + _('no issues found') + "</h2>");
+            $('#' + id).replaceWith("<h2>" + _('no issues found') + "</h2>");
         }
     }
 }
