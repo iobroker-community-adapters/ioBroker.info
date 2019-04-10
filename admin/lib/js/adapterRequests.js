@@ -2,23 +2,23 @@
 
 const allTitles = [];
 
-async function getAllIssues(owner, name, login) {
+async function getAllIssues(owner, name, login, search) {
     let allIssues = [];
     const isAdapterRequest = (owner + "/" + name) === "ioBroker/AdapterRequests";
-    const firstQL = githubHelper.getQueryForIssues(owner, name, login, isAdapterRequest);
+    const firstQL = githubHelper.getQueryForIssues(owner, name, login, isAdapterRequest, null, search);
 
     let issues = await githubHelper.getDataV4(firstQL);
 
-    if (issues && issues.data && (issues.data.repository || issues.data.user)) {
-        let data = login ? issues.data.user : issues.data.repository;
+    if (issues && issues.data && (issues.data.repository || issues.data.user || issues.data.search)) {
+        let data = login ? (search ? issues.data.search : issues.data.user) : issues.data.repository;
         allIssues = allIssues.concat(data.issues.edges);
         let hasNext = data.issues.pageInfo.hasNextPage;
         let cursor = data.issues.pageInfo.endCursor;
         while (hasNext) {
-            const nextQL = githubHelper.getQueryForIssues(owner, name, login, isAdapterRequest, cursor);
+            const nextQL = githubHelper.getQueryForIssues(owner, name, login, isAdapterRequest, cursor, search);
             issues = await githubHelper.getDataV4(nextQL);
-            if (issues && issues.data && (issues.data.repository || issues.data.user)) {
-                data = login ? issues.data.user : issues.data.repository;
+            if (issues && issues.data && (issues.data.repository || issues.data.user || issues.data.search)) {
+                data = login ? (search ? issues.data.search : issues.data.user) : issues.data.repository;
                 allIssues = allIssues.concat(data.issues.edges);
                 hasNext = data.issues.pageInfo.hasNextPage;
                 cursor = data.issues.pageInfo.endCursor;
@@ -98,6 +98,8 @@ function writeAllIssuesV4(allIssues, id) {
     if (allIssues.length > 0) {
         if (id === "adapterRequestList") {
             $('#adapterRequestBlockTitle').append($("<span>(" + allIssues.length + ")</span>"));
+        } else if (id === "githublistbody") {
+            $('#modal-githublist-title').append($("<span>(" + allIssues.length + ")</span>"));
         }
         const now = new Date();
         allIssues.forEach(function (issueNode) {
@@ -116,11 +118,11 @@ function writeAllIssuesV4(allIssues, id) {
                     $item.find('.y_title').css("background-color", "#d9edf7");
                 }
             } else if (id === "githublistbody") {
-                if(issue.comments.totalCount > 0){
+                if (issue.comments.totalCount > 0) {
                     let number = issue.comments.totalCount;
-                    if(number < 9){
+                    if (number < 9) {
                         number += "&nbsp;&nbsp;";
-                    }else if(number < 99){
+                    } else if (number < 99) {
                         number += "&nbsp;";
                     }
                     const comment = "<span class='comments-counter has-badge' data-count='" + number + "'><i class='fa fa-comment xfa-inverse'></i></span>";

@@ -113,8 +113,17 @@ const githubHelper = {
             $('#githubErrorList').parent().removeClass('hidden');
         }
     },
+    loadAssigned: async function () {
+        $('#modal-githublist-title').text(_('Issues assigned to me') );
+
+        const issues = await getAllIssues(null, null, githubuser.login, true);
+        $('#githublistLoader').addClass("hidden");
+        if (issues) {
+            await writeAllIssuesV4(issues, "githublistbody");
+        }
+    },
     loadIssues: async function () {
-        $('#modal-githublist-title').text(_('My issues list'));
+        $('#modal-githublist-title').text(_('My issues list') );
 
         const issues = await getAllIssues(null, null, githubuser.login);
         $('#githublistLoader').addClass("hidden");
@@ -123,7 +132,7 @@ const githubHelper = {
         }
     },
     loadWatched: async function () {
-        $('#modal-githublist-title').text(_('Watched repositories'));
+        $('#modal-githublist-title').text(_('Watched repositories') );
         const watched = await githubHelper.getData("https://api.github.com/user/subscriptions", "GET");
         $('#githublistLoader').addClass("hidden");
         if (watched) {
@@ -131,7 +140,7 @@ const githubHelper = {
         }
     },
     loadStarred: async function () {
-        $('#modal-githublist-title').text(_('Starred repositories'));
+        $('#modal-githublist-title').text(_('Starred repositories') );
         const starred = await githubHelper.getData("https://api.github.com/user/starred", "GET");
         $('#githublistLoader').addClass("hidden");
         if (starred) {
@@ -144,7 +153,7 @@ const githubHelper = {
         $('#githublistbody').empty();
     },
     getData: async function (url, methode, body) {
-        if(body){
+        if (body) {
             body = JSON.stringify(body);
         }
         try {
@@ -170,18 +179,24 @@ const githubHelper = {
             body: JSON.stringify({query: query})
         })).json();
     },
-    getQueryForIssues: function (owner, name, login, isAdapterRequest, cursor) {
-        let query = getIssuesDataQL;
-        if (login) {
-            query = query.replace("$repoORuser", 'user(login: "' + login + '"){').replace("$reactions", "").replace("$orderby", ", orderBy:{field: CREATED_AT, direction: DESC}");
+    getQueryForIssues: function (owner, name, login, isAdapterRequest, cursor, search) {
+        let query = search ? getIssuesSearchQL : getIssuesDataQL;
+
+        if (search) {
+            query = query.replace("$assignee", login);
         } else {
-            query = query.replace("$repoORuser", 'repository(owner: "' + owner + '", name: "' + name + '") {');
-            if (isAdapterRequest) {
-                query = query.replace("$reactions", "reactions(first: 100) {totalCount viewerHasReacted}").replace("$orderby", "");
+            if (login) {
+                query = query.replace("$repoORuser", 'user(login: "' + login + '"){').replace("$reactions", "").replace("$orderby", ", orderBy:{field: CREATED_AT, direction: DESC}");
             } else {
-                query = query.replace("$reactions", "").replace("$orderby", ", orderBy:{field: CREATED_AT, direction: DESC}");
+                query = query.replace("$repoORuser", 'repository(owner: "' + owner + '", name: "' + name + '") {');
+                if (isAdapterRequest) {
+                    query = query.replace("$reactions", "reactions(first: 100) {totalCount viewerHasReacted}").replace("$orderby", "");
+                } else {
+                    query = query.replace("$reactions", "").replace("$orderby", ", orderBy:{field: CREATED_AT, direction: DESC}");
+                }
             }
         }
+
         if (cursor) {
             query = query.replace("$cursor", ', after: "' + cursor + '"');
         } else {
@@ -262,3 +277,44 @@ query{
         }
     }
 }`;
+
+const getIssuesSearchQL = `
+query {
+    search(first: 100, type: ISSUE, query: "assignee:$assignee state:open"$cursor) {
+        issueCount
+        edges {
+            node {
+                ... on Issue {
+                    repository {nameWithOwner}
+                    number
+                    title
+                    body
+                    url
+                    comments{totalCount}          
+                    assignees(first: 20) {
+                        nodes {
+                            avatarUrl
+                            login
+                        }
+                    } 
+                    labels(first: 20) {
+                        nodes {
+                            color
+                            name
+                        }
+                    }
+                    author {
+                        login
+                    }
+                    createdAt
+                }
+            }
+            cursor
+        }
+        pageInfo {
+            hasNextPage
+            endCursor
+        }
+    }
+}
+`;

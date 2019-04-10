@@ -326,6 +326,12 @@ $(function () {
             $('#modal-githublist').modal();
         }
     });
+    $('#myAssignedListOnGithub').on('click', function () {
+        if (!$(this).hasClass('disabled')) {
+            githubHelper.loadAssigned();
+            $('#modal-githublist').modal();
+        }
+    });
     $('#modal-githublist').on('hidden.bs.modal', function (e) {
         githubHelper.backToBasicList();
     });
