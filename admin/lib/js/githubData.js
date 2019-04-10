@@ -144,6 +144,9 @@ const githubHelper = {
         $('#githublistbody').empty();
     },
     getData: async function (url, methode, body) {
+        if(body){
+            body = JSON.stringify(body);
+        }
         try {
             return await (await fetch(url, {
                 method: methode,
