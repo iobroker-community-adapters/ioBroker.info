@@ -183,7 +183,7 @@ const githubHelper = {
             }
         }
         if (cursor) {
-            query = query.replace("$cursor", ', cursor: "' + cursor + '"');
+            query = query.replace("$cursor", ', after: "' + cursor + '"');
         } else {
             query = query.replace("$cursor", "");
         }
