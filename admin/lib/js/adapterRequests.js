@@ -149,7 +149,7 @@ function writeAllIssues(allIssues, id) {
             $item.find('.label-success').remove();
             $item.find('.titleLink').text(issue.title).attr('href', issue.html_url);
             $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
-            const thumb = "<div class='pull-right marginHoch'><button type='button' class='btn btn-default disabled'><i class='fa fa-thumbs-up fa-lg'></i></button></div>";
+            const thumb = "<div class='pull-right marginHoch2'><button type='button' class='btn btn-default disabled'><i class='fa fa-thumbs-up fa-lg'></i></button></div>";
             $item.find('.y_content').append($(thumb)).addClass('spoiler-content').css('display', 'none');
             $item.find('.byline').text(new Date(issue.created_at).toLocaleDateString('en', dateOptions) + " - " + issue.user.login);
 
