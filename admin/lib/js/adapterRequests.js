@@ -104,9 +104,9 @@ function writeAllIssuesV4(allIssues, id) {
             const $item = $('#forumEntryTemplate').children().clone(true, true);
             $item.find('.label-success').remove();
             if (id === "adapterRequestList") {
-                $item.find('.title').prepend($("<span class='badge'>" + issue.reactions.totalCount + "</span>"));
-                const votes = "<strong class='text-primary'>" + _("Total votes") + ": " + issue.reactions.totalCount + "</strong>";
-                const thumb = "<div class='pull-right marginHoch'><button type='button' class='btn btn-" + (issue.reactions.viewerHasReacted ? 'success' : 'default') + "'><i class='fa fa-thumbs-up fa-lg'></i></button></div>";
+                $item.find('.title').prepend($("<span class='badge' id='reactionARBadge" + issue.number + "'>" + issue.reactions.totalCount + "</span>"));
+                const votes = "<strong class='text-primary'>" + _("Total votes") + ": <span id='reactionARNumber" + issue.number + "'>" + issue.reactions.totalCount + "</span></strong>";
+                const thumb = "<div class='pull-right marginHoch'><button type='button'  id='reactionAR" + issue.number + "' class='adapterRequestReaction btn btn-" + (issue.reactions.viewerHasReacted ? 'success' : 'default') + "'><i class='fa fa-thumbs-up fa-lg'></i></button></div>";
                 $item.find('.y_content').append($(thumb)).append($(votes));
             }
             $item.find('.titleLink').text(issue.title).attr('href', issue.url);

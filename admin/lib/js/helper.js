@@ -263,6 +263,13 @@ $(function () {
         socket.emit('unsubscribe', 'info.0.sysinfo.*');
     });
 
+    $(document.body).on('click', '.adapterRequestReaction', function () {
+        const $button = $(this);
+        if (!$button.hasClass('btn-success')) {
+            githubHelper.setReaction($button.attr("id"));
+        }
+    });
+
     $(document.body).on('click', '#new-adapter-request:not(.disabled)', function () {
         githubHelper.isFeatureRequest();
         $('#issueLinkForGithubApi').val('https://api.github.com/repos/ioBroker/AdapterRequests/issues');

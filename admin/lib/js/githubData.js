@@ -143,13 +143,15 @@ const githubHelper = {
         $('#githublistLoader').removeClass("hidden");
         $('#githublistbody').empty();
     },
-    getData: async function (url, methode) {
+    getData: async function (url, methode, body) {
         try {
             return await (await fetch(url, {
                 method: methode,
                 headers: new Headers({
-                    "Authorization": "token " + adapterConfig.github_token
-                })
+                    "Authorization": "token " + adapterConfig.github_token,
+                    "Accept": "application/vnd.github.squirrel-girl-preview+json"
+                }),
+                body: body
             })).json();
         } catch (e) {
             return false;
@@ -183,6 +185,17 @@ const githubHelper = {
             query = query.replace("$cursor", "");
         }
         return query;
+    },
+    setReaction: async function (id) {
+        const issueNumber = id.substring(10, id.length);
+        const response = await githubHelper.getData("https://api.github.com/repos/ioBroker/AdapterRequests/issues/" + issueNumber + "/reactions", "POST", {'content': '+1'});
+        if (response && response.id) {
+            $("#" + id).removeClass("btn-default").addClass("btn-success");
+            let count = parseInt($('#reactionARBadge' + issueNumber).text()) + 1;
+            $('#reactionARBadge' + issueNumber).text(count);
+            $('#reactionARNumber' + issueNumber).text(count);
+            sessionStorage.removeItem('ioBroker.info.adapterRequestV4');
+        }
     }
 };
 
@@ -213,6 +226,7 @@ query{
             totalCount
             edges {
                 node {
+                    number
                     title
                     body
                     url
