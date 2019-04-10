@@ -1,21 +1,8 @@
 /* global systemInfoForGithub, adapterConfig, githubMarkdownArea */
 
 let githubuser = {};
-let githubHeaders;
 
 const githubHelper = {
-    setGithubHeader: function () {
-        if (adapterConfig.github_token) {
-            githubHeaders = new Headers({
-                'Content-Type': 'application/json',
-                'Authorization': 'bearer ' + adapterConfig.github_token
-            });
-        } else {
-            githubHeaders = new Headers({
-                'Content-Type': 'application/json'
-            });
-        }
-    },
     getUserdata: async function () {
         githubuser = await githubHelper.getData("https://api.github.com/user", "GET");
         if (!githubuser) {
@@ -171,7 +158,10 @@ const githubHelper = {
     getDataV4: async function (query) {
         return await (await fetch('https://api.github.com/graphql', {
             method: 'POST',
-            headers: githubHeaders,
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': 'bearer ' + adapterConfig.github_token
+            }),
             body: JSON.stringify({query: query})
         })).json();
     },
@@ -182,15 +172,15 @@ const githubHelper = {
         } else {
             query = query.replace("$repoORuser", 'repository(owner: "' + owner + '", name: "' + name + '") {');
             if (isAdapterRequest) {
-                query = query.replace("$reactions", "reactions(first: 100) {totalCount viewerHasReacted}").replace("$orderby","");
+                query = query.replace("$reactions", "reactions(first: 100) {totalCount viewerHasReacted}").replace("$orderby", "");
             } else {
                 query = query.replace("$reactions", "").replace("$orderby", ", orderBy:{field: CREATED_AT, direction: DESC}");
             }
         }
-        if(cursor){
+        if (cursor) {
             query = query.replace("$cursor", ', cursor: "' + cursor + '"');
-        }else{
-             query = query.replace("$cursor", "");
+        } else {
+            query = query.replace("$cursor", "");
         }
         return query;
     }

@@ -45,6 +45,13 @@ function showIssues() {
 
 async function getAndWriteIssuesFor(id) {
     const full_name = id.replace("ISSUE-ISSUE", "/").replace("ISSUE-PUNKT-ISSUE", ".").split("/");
-    const allIssues = await getAllIssues(full_name[0], full_name[1]);
-    await writeAllIssues(allIssues, "issue_" + id);
+    let allIssues;
+    if (adapterConfig.github_token) {
+        allIssues = await getAllIssues(full_name[0], full_name[1]);
+        await writeAllIssuesV4(allIssues, "issue_" + id);
+    } else {
+        allIssues = await getAllIssuesFromAdapter(full_name);
+        await writeAllIssues(allIssues, "issue_" + id);
+    }
+    
 }
