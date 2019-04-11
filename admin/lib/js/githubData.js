@@ -227,13 +227,14 @@ const githubHelper = {
     },
     setStarred: async function (id) {
         const idSuffix = id.substring(10, id.length);
-        const full_name = idSuffix.replace("ISSUE-ISSUE", "/").replace("ISSUE-PUNKT-ISSUE", ".").split("/");
-
-        const response = await githubHelper.getData("https://api.github.com/user/starred/" + full_name[0] + "/" + full_name[1], "POST");
-        $("#" + id).removeClass("btn-default").addClass("btn-success");
-        let count = parseInt($('#starsCounter' + idSuffix).text()) + 1;
-        $('#starsCounter' + idSuffix).addClass('badge-success').text(count).parent().parent().css("background-color", "#dff0d8");
-
+        const full_name = $("#" + id).data('fullname');
+        
+        const response = await githubHelper.getData("https://api.github.com/user/starred/" + full_name, "POST");
+        if (response) {
+            $("#" + id).removeClass("btn-default").addClass("btn-success");
+            let count = parseInt($('#starsCounter' + idSuffix).text()) + 1;
+            $('#starsCounter' + idSuffix).addClass('badge-success').text(count).parent().parent().css("background-color", "#dff0d8");
+        }
     }
 };
 
