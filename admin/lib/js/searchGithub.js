@@ -1,6 +1,6 @@
 /* global systemLang, dateOptions, adapterConfig, githubHelper */
 
-const stargazers = {};
+let stargazers = {};
 
 function searchGithubForNewAdapters(by = "name", order = false, allRepos) {
 
@@ -80,14 +80,18 @@ function searchGithubForNewAdapters(by = "name", order = false, allRepos) {
 
             sessionStorage.setItem('ioBroker.info.foundGit', JSON.stringify(foundSorted));
 
-            write();
+            write(foundSorted);
         } catch (e) {
             console.log(e);
         }
     }
 
-    async function write() {
-        const data = JSON.parse(sessionStorage.getItem('ioBroker.info.foundGit'));
+    async function write(data) {
+
+        if (!data) {
+            data = JSON.parse(sessionStorage.getItem('ioBroker.info.foundGit'));
+        }
+
         $('#githubSearchList').empty();
         $('#githubSearchListLoader').remove();
         await asyncForEach(Object.keys(data), function (key) {
@@ -115,6 +119,9 @@ async function searchAdaptersOnGithub() {
     if (adapterConfig.new_adapters && sessionStorage.getItem('ioBroker.info.foundGit')) {
         searchGithubForNewAdapters(adapterConfig.new_adapters_sort, adapterConfig.new_adapters_order);
     }
+    if (sessionStorage.getItem('ioBroker.info.stargazers')) {
+        stargazers = JSON.parse(sessionStorage.getItem('ioBroker.info.foundGit'));
+    }
 
     let allRepos = [];
     if (adapterConfig.github_token) {
@@ -124,6 +131,7 @@ async function searchAdaptersOnGithub() {
         if (issues && issues.data && issues.data.search) {
             let data = issues.data.search;
             allRepos = allRepos.concat(data.edges);
+            stargazers = {};
             issues.data.search.edges.forEach(function (repoNode) {
                 const repo = repoNode.node;
                 const id = repo.nameWithOwner.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE").toUpperCase();
@@ -155,6 +163,7 @@ async function searchAdaptersOnGithub() {
             }
         }
 
+        sessionStorage.setItem('ioBroker.info.stargazers', JSON.stringify(stargazers));
         addStarsToAdapterIssues();
     }
 
