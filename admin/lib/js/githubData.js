@@ -228,7 +228,7 @@ const githubHelper = {
     setStarred: async function (id) {
         const idSuffix = id.substring(10, id.length);
         const full_name = $("#" + id).data('fullname');
-        
+
         const response = await githubHelper.getData("https://api.github.com/user/starred/" + full_name, "PUT");
         if (!response) {
             $("#" + id).removeClass("btn-default").addClass("btn-success");
@@ -260,23 +260,24 @@ async function writeAllRepos(allRepos, id) {
 
 const getIssuesDataQL = `
 query{
-    $repoORuser    
+    $repoORuser
         issues(first: 100, states: OPEN$cursor$orderby) {
             totalCount
             edges {
                 node {
+                    id
                     repository {nameWithOwner}
                     number
                     title
                     body
                     url
-                    comments{totalCount}          
+                    comments{totalCount}
                     assignees(first: 20) {
                         nodes {
                             avatarUrl
                             login
                         }
-                    } 
+                    }
                     labels(first: 20) {
                         nodes {
                             color
@@ -306,18 +307,19 @@ query {
         edges {
             node {
                 ... on Issue {
+                    id
                     repository {nameWithOwner}
                     number
                     title
                     body
                     url
-                    comments{totalCount}          
+                    comments{totalCount}
                     assignees(first: 20) {
                         nodes {
                             avatarUrl
                             login
                         }
-                    } 
+                    }
                     labels(first: 20) {
                         nodes {
                             color
@@ -337,6 +339,27 @@ query {
             endCursor
         }
     }
+}`;
+
+const getIssueCommentsQL = `
+query{
+  node(id: "$issueID") {
+    ... on Issue {
+      comments(first: 100) {
+        edges {
+          node {
+            author {
+              login
+              avatarUrl
+            }
+            url
+            bodyText
+            createdAt
+          }
+        }
+      }
+    }
+  }
 }
 `;
 
@@ -347,6 +370,7 @@ query {
         edges {
             node {
             	... on Repository{
+                    databaseId
                     nameWithOwner
                     name
                     url
@@ -358,7 +382,7 @@ query {
                     }
                     viewerHasStarred
                     shortDescriptionHTML
-                    diskUsage                                
+                    diskUsage
                 }
             }
             cursor
@@ -368,5 +392,4 @@ query {
             endCursor
         }
     }
-}
-`;
+}`;

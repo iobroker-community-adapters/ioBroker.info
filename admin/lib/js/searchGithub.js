@@ -25,26 +25,43 @@ function searchGithubForNewAdapters(by = "name", order = false, allRepos) {
             adapters = adapters.concat(data.noIoPackage);
 
             const found = {};
-            for (let i = 1; i < 20; i++) {
-                data = await (await fetch("https://api.github.com/search/repositories?q=iobroker+in:name&sort=updated&page=" + i + "&per_page=100")).json();
-                if (data && data.items) {
-                    if (data.total_count < i * 100) {
-                        i = 100;
-                    }
-                    await asyncForEach(data.items, async function (val) {
-                        const full_name = val.full_name;
-                        if ($.inArrayIn(full_name, adapters) === -1) {
-                            if (by === "create") {
-                                found[val.created_at] = val;
-                            } else if (by === "update") {
-                                found[val.updated_at] = val;
-                            } else {
-                                found[val.name] = val;
-                            }
+            if (repos && repos.length > 0) {
+                await asyncForEach(repos, async function (val) {
+                    const adapter = val.node;
+                    const full_name = adapter.nameWithOwner;
+                    if ($.inArrayIn(full_name, adapters) === -1) {
+                        if (by === "create") {
+                            found[adapter.createdAt] = adapter;
+                        } else if (by === "update") {
+                            found[adapters.updatedAt] = adapter;
+                        } else {
+                            found[adapters.name] = adapter;
                         }
-                    });
+                    }
+                });
+            } else {
+                for (let i = 1; i < 20; i++) {
+                    data = await (await fetch("https://api.github.com/search/repositories?q=iobroker+in:name&sort=updated&page=" + i + "&per_page=100")).json();
+                    if (data && data.items) {
+                        if (data.total_count < i * 100) {
+                            i = 100;
+                        }
+                        await asyncForEach(data.items, async function (val) {
+                            const full_name = val.full_name;
+                            if ($.inArrayIn(full_name, adapters) === -1) {
+                                if (by === "create") {
+                                    found[val.created_at] = val;
+                                } else if (by === "update") {
+                                    found[val.updated_at] = val;
+                                } else {
+                                    found[val.name] = val;
+                                }
+                            }
+                        });
+                    }
                 }
             }
+
             const foundSorted = {};
 
             if ((by === "name" && !order) || (by !== "name" && order)) {
@@ -79,11 +96,12 @@ function searchGithubForNewAdapters(by = "name", order = false, allRepos) {
             $item.find('.label-success').remove();
             $item.find('.assignDiv').remove();
             $item.find('.byline').remove();
-            $item.find('.titleLink').text(val.name + " - " + _('last update') + ": " + new Date(val.updated_at).toLocaleDateString(systemLang, dateOptions) + " (" + val.owner.login + ")").attr('href', val.html_url);
+            $item.find('.titleLink').text(val.name + " - " + _('last update') + ": " + new Date(val.updated_at ? val.updated_at : val.updatedAt).toLocaleDateString(systemLang, dateOptions) + " (" + val.owner.login + ")").attr('href', (val.html_url ? val.html_url : val.url));
             $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
             $item.find('.y_content').addClass('spoiler-content').css('display', 'none');
-            $item.find('.collapse-link').attr("data-md-url", "https://raw.githubusercontent.com/" + val.full_name + "/master/README.md").addClass("loadGithubData").attr('data-md-target', 'git_desc_readme_' + val.id);
-            $item.find('.description').attr('id', 'git_desc_readme_' + val.id);
+            const repoID = val.id ? val.id : val.databaseId;
+            $item.find('.collapse-link').attr("data-md-url", "https://raw.githubusercontent.com/" + (val.full_name ? val.full_name : val.nameWithOwner) + "/master/README.md").addClass("loadGithubData").attr('data-md-target', 'git_desc_readme_' + repoID);
+            $item.find('.description').attr('id', 'git_desc_readme_' + repoID);
             $('#githubSearchList').append($item);
         });
         if (adapterConfig.new_adapters_closed) {
@@ -99,7 +117,7 @@ async function searchAdaptersOnGithub() {
     }
 
     let allRepos = [];
-    if (adapterConfig.github_token) {        
+    if (adapterConfig.github_token) {
         const firstQL = githubHelper.getQueryForRepos();
 
         let issues = await githubHelper.getDataV4(firstQL);
