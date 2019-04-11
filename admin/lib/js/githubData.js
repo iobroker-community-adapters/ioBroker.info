@@ -331,7 +331,7 @@ query {
 
 const getRepoSearchQL = `
 query {
-    search(first: 100, type: REPOSITORY, query: "iobroker in:name sort:updated"$cursor) {
+    search(first: 100, type: REPOSITORY, query: "iobroker"$cursor) {
         repositoryCount
         edges {
             node {
