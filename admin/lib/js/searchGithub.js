@@ -99,44 +99,46 @@ async function searchAdaptersOnGithub() {
     }
 
     let allRepos = [];
-    const firstQL = githubHelper.getQueryForIssues();
+    if (adapterConfig.github_token) {        
+        const firstQL = githubHelper.getQueryForIssues();
 
-    let issues = await githubHelper.getDataV4(firstQL);
-    if (issues && issues.data && issues.data.search) {
-        let data = issues.data.search;
-        allRepos = allRepos.concat(data.edges);
-        issues.data.search.edges.forEach(function (repoNode) {
-            const repo = repoNode.node;
-            const id = repo.nameWithOwner.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE");
-            stargazers[id] = {};
-            stargazers[id].count = repo.stargazers.totalCount;
-            stargazers[id].starred = repo.viewerHasStarred;
-        });
-        let hasNext = data.pageInfo.hasNextPage;
-        let cursor = data.pageInfo.endCursor;
-        while (hasNext) {
-            const nextQL = githubHelper.getQueryForIssues(cursor);
-            issues = await githubHelper.getDataV4(nextQL);
-            if (issues && issues.data && issues.data.search) {
-                data = issues.data.search;
-                allRepos = allRepos.concat(data.edges);
-                issues.data.search.edges.forEach(function (repoNode) {
-                    const repo = repoNode.node;
-                    const id = repo.nameWithOwner.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE");
-                    stargazers[id] = {};
-                    stargazers[id].count = repo.stargazers.totalCount;
-                    stargazers[id].starred = repo.viewerHasStarred;
-                });
-                hasNext = data.pageInfo.hasNextPage;
-                cursor = data.pageInfo.endCursor;
-            } else {
-                hasNext = false;
-                cursor = "";
+        let issues = await githubHelper.getDataV4(firstQL);
+        if (issues && issues.data && issues.data.search) {
+            let data = issues.data.search;
+            allRepos = allRepos.concat(data.edges);
+            issues.data.search.edges.forEach(function (repoNode) {
+                const repo = repoNode.node;
+                const id = repo.nameWithOwner.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE");
+                stargazers[id] = {};
+                stargazers[id].count = repo.stargazers.totalCount;
+                stargazers[id].starred = repo.viewerHasStarred;
+            });
+            let hasNext = data.pageInfo.hasNextPage;
+            let cursor = data.pageInfo.endCursor;
+            while (hasNext) {
+                const nextQL = githubHelper.getQueryForIssues(cursor);
+                issues = await githubHelper.getDataV4(nextQL);
+                if (issues && issues.data && issues.data.search) {
+                    data = issues.data.search;
+                    allRepos = allRepos.concat(data.edges);
+                    issues.data.search.edges.forEach(function (repoNode) {
+                        const repo = repoNode.node;
+                        const id = repo.nameWithOwner.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE");
+                        stargazers[id] = {};
+                        stargazers[id].count = repo.stargazers.totalCount;
+                        stargazers[id].starred = repo.viewerHasStarred;
+                    });
+                    hasNext = data.pageInfo.hasNextPage;
+                    cursor = data.pageInfo.endCursor;
+                } else {
+                    hasNext = false;
+                    cursor = "";
+                }
             }
         }
-    }
 
-    addStarsToAdapterIssues();
+        addStarsToAdapterIssues();
+    }
 
     if (adapterConfig.new_adapters && !sessionStorage.getItem('ioBroker.info.foundGit')) {
         searchGithubForNewAdapters(adapterConfig.new_adapters_sort, adapterConfig.new_adapters_order, allRepos);
