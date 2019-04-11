@@ -33,9 +33,9 @@ function searchGithubForNewAdapters(by = "name", order = false, allRepos) {
                         if (by === "create") {
                             found[adapter.createdAt] = adapter;
                         } else if (by === "update") {
-                            found[adapters.updatedAt] = adapter;
+                            found[adapter.updatedAt] = adapter;
                         } else {
-                            found[adapters.name] = adapter;
+                            found[adapter.name] = adapter;
                         }
                     }
                 });
