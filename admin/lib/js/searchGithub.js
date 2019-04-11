@@ -100,7 +100,7 @@ async function searchAdaptersOnGithub() {
 
     let allRepos = [];
     if (adapterConfig.github_token) {        
-        const firstQL = githubHelper.getQueryForIssues();
+        const firstQL = githubHelper.getQueryForRepos();
 
         let issues = await githubHelper.getDataV4(firstQL);
         if (issues && issues.data && issues.data.search) {
@@ -116,7 +116,7 @@ async function searchAdaptersOnGithub() {
             let hasNext = data.pageInfo.hasNextPage;
             let cursor = data.pageInfo.endCursor;
             while (hasNext) {
-                const nextQL = githubHelper.getQueryForIssues(cursor);
+                const nextQL = githubHelper.getQueryForRepos(cursor);
                 issues = await githubHelper.getDataV4(nextQL);
                 if (issues && issues.data && issues.data.search) {
                     data = issues.data.search;
