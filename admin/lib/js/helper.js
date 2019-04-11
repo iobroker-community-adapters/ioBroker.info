@@ -269,6 +269,12 @@ $(function () {
             githubHelper.setReaction($button.attr("id"));
         }
     });
+    $(document.body).on('click', '.adaptersInstalledReaction', function () {
+        const $button = $(this);
+        if (!$button.hasClass('btn-success')) {
+            githubHelper.setStarred($button.attr("id"));
+        }
+    });
 
     $(document.body).on('click', '#new-adapter-request:not(.disabled)', function () {
         githubHelper.isFeatureRequest();

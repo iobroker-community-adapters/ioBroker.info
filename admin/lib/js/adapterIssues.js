@@ -55,13 +55,15 @@ function addStarsToAdapterIssues() {
                 const fullNameId = full_name.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE").toUpperCase();
                 const stars = stargazers[fullNameId];
                 if (stars) {
+                    const button = "<div class='pull-right'><button type='button' id='reactionBI" + fullNameId + "' class='adaptersInstalledReaction btn btn-" + (stars.starred?"success":"default") + "'><i class='fa fa-thumbs-up fa-lg'></i></button></div>";
                     const starCounter = "<span class='badge" + (stars.starred ? ' badge-success' : '') + "' id='starsCounter" + fullNameId + "'>" + stars.count + "</span>";
                     $('#adapterTitleIssueList' + fullNameId).prepend($(starCounter));
+                    const $content = $('#adapterTitleIssueList' + fullNameId).parent().parent().find(".y_content");
+                    $content.prepend($(button));
+                    $content.find('.create-issue-adapter-button')[0].css('margin-left', '44px');
                     if (stars.starred) {
                         $('#adapterTitleIssueList' + fullNameId).parent().css("background-color", "#dff0d8");
                     }
-                } else {
-                    console.log(fullNameId + "not found");
                 }
             }
         });
