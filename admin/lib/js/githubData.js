@@ -229,7 +229,7 @@ const githubHelper = {
         const idSuffix = id.substring(10, id.length);
         const full_name = $("#" + id).data('fullname');
         
-        const response = await githubHelper.getData("https://api.github.com/user/starred/" + full_name, "POST");
+        const response = await githubHelper.getData("https://api.github.com/user/starred/" + full_name, "PUT");
         if (response) {
             $("#" + id).removeClass("btn-default").addClass("btn-success");
             let count = parseInt($('#starsCounter' + idSuffix).text()) + 1;
