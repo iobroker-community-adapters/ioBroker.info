@@ -108,7 +108,7 @@ async function searchAdaptersOnGithub() {
             allRepos = allRepos.concat(data.edges);
             issues.data.search.edges.forEach(function (repoNode) {
                 const repo = repoNode.node;
-                const id = repo.nameWithOwner.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE");
+                const id = repo.nameWithOwner.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE").toUpperCase();
                 stargazers[id] = {};
                 stargazers[id].count = repo.stargazers.totalCount;
                 stargazers[id].starred = repo.viewerHasStarred;
@@ -123,7 +123,7 @@ async function searchAdaptersOnGithub() {
                     allRepos = allRepos.concat(data.edges);
                     issues.data.search.edges.forEach(function (repoNode) {
                         const repo = repoNode.node;
-                        const id = repo.nameWithOwner.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE");
+                        const id = repo.nameWithOwner.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE").toUpperCase();
                         stargazers[id] = {};
                         stargazers[id].count = repo.stargazers.totalCount;
                         stargazers[id].starred = repo.viewerHasStarred;

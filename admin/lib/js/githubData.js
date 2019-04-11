@@ -235,7 +235,7 @@ async function writeAllRepos(allRepos, id) {
 
         const full_name = repo.full_name;
 
-        const fullNameId = full_name.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE");
+        const fullNameId = full_name.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE").toUpperCase();
 
         $item.find('.titleLink').text(repo.name).attr('href', repo.html_url);
         $item.find('.collapse-link').remove();
