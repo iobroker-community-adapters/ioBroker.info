@@ -7,10 +7,8 @@ function showIssues() {
         if (adapters && typeof adapters === "object") {
             $('#adapterIssueList').empty();
             $('#adapterIssueListLoader').remove();
-            let counter = 0;
             await asyncForEach(Object.keys(adapters), async function (key) {
                 if (key !== "hosts") {
-                    counter++;
                     const adapter = adapters[key];
                     const $item = $('#forumEntryTemplate').children().clone(true, true);
                     $item.find('.label-success').remove();
@@ -19,6 +17,7 @@ function showIssues() {
 
                     const fullNameId = full_name.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE");
 
+                    $item.find('.title').attr('id', 'adapterTitleIssueList' + fullNameId);
                     $item.find('.titleLink').text(adapter.title).attr('href', "https://github.com/" + full_name + "/issues");
                     $item.find('.collapse-link').attr("data-adapter", fullNameId).addClass("loadAdapterIssues");
 
@@ -56,14 +55,8 @@ function addStarsToAdapterIssues() {
                 const fullNameId = full_name.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE");
                 const stars = stargazers[fullNameId];
                 if (stars) {
-                    let number = stars.count;
-                    if (number < 9) {
-                        number += "&nbsp;&nbsp;";
-                    } else if (number < 99) {
-                        number += "&nbsp;";
-                    }
-                    const starCounter = "<span class='badge" + (stars.starred ? ' badge-success' : '') + "' id='starsCounter" + fullNameId + "'>" + number + "</span>";
-                    $('*[data-adapter="' + fullNameId + '"]').insertBefore(starCounter);
+                    const starCounter = "<span class='badge" + (stars.starred ? ' badge-success' : '') + "' id='starsCounter" + fullNameId + "'>" + stars.count + "</span>";
+                    $('#adapterTitleIssueList' + fullNameId).prepend($(starCounter));
                 }
             }
         });
