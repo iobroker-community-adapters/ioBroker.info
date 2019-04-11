@@ -18,7 +18,7 @@ function showIssues() {
                     const fullNameId = full_name.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE").toUpperCase();
 
                     $item.find('.title').attr('id', 'adapterTitleIssueList' + fullNameId);
-                    $item.find('.titleLink').text(adapter.title).attr('href', "https://github.com/" + full_name + "/issues");
+                    $item.find('.titleLink').text(adapter.title).attr('href', "https://github.com/" + full_name + "/issues").attr('title', full_name);
                     $item.find('.collapse-link').attr("data-adapter", fullNameId).addClass("loadAdapterIssues");
 
                     let button = "<div class='text-center'>";

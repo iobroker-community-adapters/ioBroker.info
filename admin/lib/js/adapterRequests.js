@@ -108,7 +108,7 @@ function writeAllIssuesV4(allIssues, id) {
             $item.find('.label-success').remove();
             const createdAt = new Date(issue.createdAt);
             if (id === "adapterRequestList") {
-                $item.find('.title').prepend($("<span class='badge" + (issue.reactions.viewerHasReacted?" badge-success":"") + "' id='reactionARBadge" + issue.number + "'>" + issue.reactions.totalCount + "</span>"));
+                $item.find('.title').prepend($("<span class='badge" + (issue.reactions.viewerHasReacted ? " badge-success" : "") + "' id='reactionARBadge" + issue.number + "'>" + issue.reactions.totalCount + "</span>"));
                 const votes = "<strong class='text-primary'>" + _("Total votes") + ": <span id='reactionARNumber" + issue.number + "'>" + issue.reactions.totalCount + "</span></strong>";
                 const thumb = "<div class='pull-right marginHoch'><button type='button'  id='reactionAR" + issue.number + "' class='adapterRequestReaction btn btn-" + (issue.reactions.viewerHasReacted ? 'success' : 'default') + "'><i class='fa fa-thumbs-up fa-lg'></i></button></div>";
                 $item.find('.y_content').append($(thumb)).append($(votes));
