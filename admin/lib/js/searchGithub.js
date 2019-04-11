@@ -1,10 +1,12 @@
-/* global systemLang, dateOptions, adapterConfig */
+/* global systemLang, dateOptions, adapterConfig, githubHelper */
 
-function searchGithubForNewAdapters(by = "name", order = false) {
+const stargazers = {};
 
-    sessionStorage.getItem('ioBroker.info.foundGit') ? write() : search();
+function searchGithubForNewAdapters(by = "name", order = false, allRepos) {
 
-    async function search() {
+    sessionStorage.getItem('ioBroker.info.foundGit') ? write() : search(allRepos);
+
+    async function search(repos) {
 
         let adapters = [];
 
@@ -79,7 +81,7 @@ function searchGithubForNewAdapters(by = "name", order = false) {
             $item.find('.byline').remove();
             $item.find('.titleLink').text(val.name + " - " + _('last update') + ": " + new Date(val.updated_at).toLocaleDateString(systemLang, dateOptions) + " (" + val.owner.login + ")").attr('href', val.html_url);
             $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
-            $item.find('.y_content').addClass('spoiler-content').css('display', 'none');            
+            $item.find('.y_content').addClass('spoiler-content').css('display', 'none');
             $item.find('.collapse-link').attr("data-md-url", "https://raw.githubusercontent.com/" + val.full_name + "/master/README.md").addClass("loadGithubData").attr('data-md-target', 'git_desc_readme_' + val.id);
             $item.find('.description').attr('id', 'git_desc_readme_' + val.id);
             $('#githubSearchList').append($item);
@@ -88,4 +90,55 @@ function searchGithubForNewAdapters(by = "name", order = false) {
             $('#adapterSearchBlock').find('.x_title a.collapse-link').click();
         }
 }
+}
+
+async function searchAdaptersOnGithub() {
+
+    if (adapterConfig.new_adapters && sessionStorage.getItem('ioBroker.info.foundGit')) {
+        searchGithubForNewAdapters(adapterConfig.new_adapters_sort, adapterConfig.new_adapters_order);
+    }
+
+    let allRepos = [];
+    const firstQL = githubHelper.getQueryForIssues();
+
+    let issues = await githubHelper.getDataV4(firstQL);
+    if (issues && issues.data && issues.data.search) {
+        let data = issues.data.search;
+        allRepos = allRepos.concat(data.edges);
+        issues.data.search.edges.forEach(function (repoNode) {
+            const repo = repoNode.node;
+            const id = repo.nameWithOwner.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE");
+            stargazers[id] = {};
+            stargazers[id].count = repo.stargazers.totalCount;
+            stargazers[id].starred = repo.viewerHasStarred;
+        });
+        let hasNext = data.pageInfo.hasNextPage;
+        let cursor = data.pageInfo.endCursor;
+        while (hasNext) {
+            const nextQL = githubHelper.getQueryForIssues(cursor);
+            issues = await githubHelper.getDataV4(nextQL);
+            if (issues && issues.data && issues.data.search) {
+                data = issues.data.search;
+                allRepos = allRepos.concat(data.edges);
+                issues.data.search.edges.forEach(function (repoNode) {
+                    const repo = repoNode.node;
+                    const id = repo.nameWithOwner.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE");
+                    stargazers[id] = {};
+                    stargazers[id].count = repo.stargazers.totalCount;
+                    stargazers[id].starred = repo.viewerHasStarred;
+                });
+                hasNext = data.pageInfo.hasNextPage;
+                cursor = data.pageInfo.endCursor;
+            } else {
+                hasNext = false;
+                cursor = "";
+            }
+        }
+    }
+
+    addStarsToAdapterIssues();
+
+    if (adapterConfig.new_adapters && !sessionStorage.getItem('ioBroker.info.foundGit')) {
+        searchGithubForNewAdapters(adapterConfig.new_adapters_sort, adapterConfig.new_adapters_order, allRepos);
+    }
 }

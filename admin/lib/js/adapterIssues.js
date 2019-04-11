@@ -1,4 +1,4 @@
-/* global systemLang, dateOptions, adapterConfig */
+/* global systemLang, dateOptions, adapterConfig, stargazers */
 
 function showIssues() {
 
@@ -7,8 +7,10 @@ function showIssues() {
         if (adapters && typeof adapters === "object") {
             $('#adapterIssueList').empty();
             $('#adapterIssueListLoader').remove();
+            let counter = 0;
             await asyncForEach(Object.keys(adapters), async function (key) {
                 if (key !== "hosts") {
+                    counter++;
                     const adapter = adapters[key];
                     const $item = $('#forumEntryTemplate').children().clone(true, true);
                     $item.find('.label-success').remove();
@@ -34,6 +36,7 @@ function showIssues() {
                     $('#adapterIssueList').append($item);
                 }
             });
+
         }
         if (adapterConfig.adapter_issue_closed) {
             $('#knownIssuesBlock').find('.x_title a.collapse-link').click();
@@ -43,12 +46,34 @@ function showIssues() {
     getIssues();
 }
 
+function addStarsToAdapterIssues() {
+    const adapters = window.top.gMain.tabs.adapters.curInstalled;
+    adapters.forEach(function (key) {
+        if (key !== "hosts") {
+            const adapter = adapters[key];
+            const full_name = adapter.readme.substring(adapter.readme.indexOf(".com/") + 5, adapter.readme.indexOf("/blob/"));
+            const fullNameId = full_name.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE");
+            const stars = stargazers[fullNameId];
+            if (stars) {
+                let number = stars.count;
+                if (number < 9) {
+                    number += "&nbsp;&nbsp;";
+                } else if (number < 99) {
+                    number += "&nbsp;";
+                }
+                const starCounter = "<span class='badge" + (stars.starred ? ' badge-success' : '') + "' id='starsCounter" + fullNameId + "'>" + number + "</span>";
+                $('*[data-adapter="' + fullNameId + '"]').insertBefore(starCounter);
+            }
+        }
+    });
+}
+
 async function getAndWriteIssuesFor(id) {
     const full_name = id.replace("ISSUE-ISSUE", "/").replace("ISSUE-PUNKT-ISSUE", ".").split("/");
     let allIssues;
-    $("<div class='loader3 loader-small' id='loader_" + id +"'></div>").insertBefore("#issue_" + id);
+    $("<div class='loader3 loader-small' id='loader_" + id + "'></div>").insertBefore("#issue_" + id);
     if (adapterConfig.github_token) {
-        allIssues = await getAllIssues(full_name[0], full_name[1]);        
+        allIssues = await getAllIssues(full_name[0], full_name[1]);
         await writeAllIssuesV4(allIssues, "issue_" + id);
     } else {
         allIssues = await getAllIssuesFromAdapter(full_name);

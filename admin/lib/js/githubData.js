@@ -204,6 +204,16 @@ const githubHelper = {
         }
         return query;
     },
+    getQueryForRepos: function (cursor) {
+        let query = getRepoSearchQL;
+
+        if (cursor) {
+            query = query.replace("$cursor", ', after: "' + cursor + '"');
+        } else {
+            query = query.replace("$cursor", "");
+        }
+        return query;
+    },
     setReaction: async function (id) {
         const issueNumber = id.substring(10, id.length);
         const response = await githubHelper.getData("https://api.github.com/repos/ioBroker/AdapterRequests/issues/" + issueNumber + "/reactions", "POST", {'content': '+1'});
@@ -307,6 +317,37 @@ query {
                         login
                     }
                     createdAt
+                }
+            }
+            cursor
+        }
+        pageInfo {
+            hasNextPage
+            endCursor
+        }
+    }
+}
+`;
+
+const getRepoSearchQL = `
+query {
+    search(first: 100, type: REPOSITORY, query: "iobroker in:name sort:updated"$cursor) {
+        repositoryCount
+        edges {
+            node {
+            	... on Repository{
+                    nameWithOwner
+                    name
+                    url
+                    owner{login}
+                    updatedAt
+                    createdAt
+                    stargazers{
+                        totalCount
+                    }
+                    viewerHasStarred
+                    shortDescriptionHTML
+                    diskUsage                                
                 }
             }
             cursor

@@ -603,8 +603,12 @@ ul#cssClock li{
     min-width: 1em;    
 }
 
+.badge-success {
+    background-color: #468847;
+}
+
 .loader-small{
-  font-size: 6px !important;
+    font-size: 6px !important;
 }
 
 @media (min-width: 992px){
