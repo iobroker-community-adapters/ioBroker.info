@@ -60,7 +60,7 @@ function addStarsToAdapterIssues() {
                     $('#adapterTitleIssueList' + fullNameId).prepend($(starCounter));
                     const $content = $('#adapterTitleIssueList' + fullNameId).parent().parent().find(".y_content");
                     $content.prepend($(button));
-                    $content.find('.create-issue-adapter-button')[0].css('margin-left', '44px');
+                    $($content.find('.create-issue-adapter-button')[0]).css('margin-left', '44px');
                     if (stars.starred) {
                         $('#adapterTitleIssueList' + fullNameId).parent().css("background-color", "#dff0d8");
                     }
