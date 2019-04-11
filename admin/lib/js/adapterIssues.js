@@ -57,6 +57,9 @@ function addStarsToAdapterIssues() {
                 if (stars) {
                     const starCounter = "<span class='badge" + (stars.starred ? ' badge-success' : '') + "' id='starsCounter" + fullNameId + "'>" + stars.count + "</span>";
                     $('#adapterTitleIssueList' + fullNameId).prepend($(starCounter));
+                    $('#adapterTitleIssueList' + fullNameId).parent().css("background-color", "#dff0d8");
+                }else{
+                    console.log(fullNameId + "not found");
                 }
             }
         });

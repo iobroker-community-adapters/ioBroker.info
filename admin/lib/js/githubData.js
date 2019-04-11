@@ -220,7 +220,7 @@ const githubHelper = {
         if (response && response.id) {
             $("#" + id).removeClass("btn-default").addClass("btn-success");
             let count = parseInt($('#reactionARBadge' + issueNumber).text()) + 1;
-            $('#reactionARBadge' + issueNumber).text(count).parent().parent().css("background-color", "#dff0d8");
+            $('#reactionARBadge' + issueNumber).addClass('badge-success').text(count).parent().parent().css("background-color", "#dff0d8");
             $('#reactionARNumber' + issueNumber).text(count);
             sessionStorage.removeItem('ioBroker.info.adapterRequestV4');
         }

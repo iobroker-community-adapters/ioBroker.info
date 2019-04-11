@@ -137,6 +137,7 @@ async function searchAdaptersOnGithub() {
             }
         }
 
+        console.log(stargazers);
         addStarsToAdapterIssues();
     }
 
