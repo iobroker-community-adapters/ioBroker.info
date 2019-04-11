@@ -230,7 +230,7 @@ const githubHelper = {
         const full_name = $("#" + id).data('fullname');
         
         const response = await githubHelper.getData("https://api.github.com/user/starred/" + full_name, "PUT");
-        if (response) {
+        if (!response) {
             $("#" + id).removeClass("btn-default").addClass("btn-success");
             let count = parseInt($('#starsCounter' + idSuffix).text()) + 1;
             $('#starsCounter' + idSuffix).addClass('badge-success').text(count).parent().parent().css("background-color", "#dff0d8");
