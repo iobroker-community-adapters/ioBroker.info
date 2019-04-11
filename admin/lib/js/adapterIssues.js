@@ -48,24 +48,26 @@ function showIssues() {
 
 function addStarsToAdapterIssues() {
     const adapters = window.top.gMain.tabs.adapters.curInstalled;
-    adapters.forEach(function (key) {
-        if (key !== "hosts") {
-            const adapter = adapters[key];
-            const full_name = adapter.readme.substring(adapter.readme.indexOf(".com/") + 5, adapter.readme.indexOf("/blob/"));
-            const fullNameId = full_name.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE");
-            const stars = stargazers[fullNameId];
-            if (stars) {
-                let number = stars.count;
-                if (number < 9) {
-                    number += "&nbsp;&nbsp;";
-                } else if (number < 99) {
-                    number += "&nbsp;";
+    if (adapters && typeof adapters === "object") {
+        Object.keys(adapters).forEach(function (key) {
+            if (key !== "hosts") {
+                const adapter = adapters[key];
+                const full_name = adapter.readme.substring(adapter.readme.indexOf(".com/") + 5, adapter.readme.indexOf("/blob/"));
+                const fullNameId = full_name.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE");
+                const stars = stargazers[fullNameId];
+                if (stars) {
+                    let number = stars.count;
+                    if (number < 9) {
+                        number += "&nbsp;&nbsp;";
+                    } else if (number < 99) {
+                        number += "&nbsp;";
+                    }
+                    const starCounter = "<span class='badge" + (stars.starred ? ' badge-success' : '') + "' id='starsCounter" + fullNameId + "'>" + number + "</span>";
+                    $('*[data-adapter="' + fullNameId + '"]').insertBefore(starCounter);
                 }
-                const starCounter = "<span class='badge" + (stars.starred ? ' badge-success' : '') + "' id='starsCounter" + fullNameId + "'>" + number + "</span>";
-                $('*[data-adapter="' + fullNameId + '"]').insertBefore(starCounter);
             }
-        }
-    });
+        });
+    }
 }
 
 async function getAndWriteIssuesFor(id) {
