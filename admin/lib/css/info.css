@@ -576,6 +576,10 @@ ul#cssClock li{
     margin-top: 5px;
 }
 
+.marginRunter{
+    margin-top: 10px;
+}
+
 .marginHoch{
     margin-top: -10px;
 }
