@@ -40,7 +40,7 @@ function checkNewsLang() {
 
 async function readAndWriteNewsData() {
     if (adapterConfig.feednami) {
-        feednami.setPublicApiKey(adapterConfig.feednami);
+        feednami.setPublicApiKey(decrypt(adapterConfig.feednami));
     }
     try {
         const rss = await feednami.load('http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang);

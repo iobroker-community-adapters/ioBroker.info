@@ -23,9 +23,25 @@
         <!-- you have to define 2 functions in the global scope: -->
         <script type="text/javascript">
 
-            // the function loadSettings has to exist ...
-            function load(settings, onChange) {
-                // example: select elements with id=key and class=value and insert value
+            // Create secrect for encrypted password storage
+            var secret;
+            function encrypt(key, value) {
+                var result = '';
+                for (var i = 0; i < value.length; ++i) {
+                    result += String.fromCharCode(key[i % key.length].charCodeAt(0) ^ value.charCodeAt(i));
+                }
+                return result;
+            }
+            function decrypt(key, value) {
+                var result = '';
+                for (var i = 0; i < value.length; ++i) {
+                    result += String.fromCharCode(key[i % key.length].charCodeAt(0) ^ value.charCodeAt(i));
+                }
+                return result;
+            }
+
+
+            function loadHelper(settings, onChange) {
                 if (!settings)
                     return;
                 $('.value').each(function () {
@@ -36,6 +52,8 @@
                         $key.prop('checked', settings[id]).on('change', function () {
                             onChange();
                         });
+                    } else if ($key.attr('type') === 'checkbox') {
+                        settings[id] = decrypt(secret, settings[id]);
                     } else {
                         // do not call onChange direct, because onChange could expect some arguments
                         $key.val(settings[id]).on('change', function () {
@@ -51,6 +69,19 @@
                 M.Range.init($('input[type=range]'));
             }
 
+            // the function loadSettings has to exist ...
+            // This will be called by the admin adapter when the settings page loads
+            function load(settings, onChange) {
+                // example: select elements with id=key and class=value and insert value
+                if (!settings)
+                    return;
+                socket.emit('getObject', 'system.config', function (err, obj) {
+                    secret = (obj.native ? obj.native.secret : '') || 'ZAgr56F5e87jJoM';
+                    loadHelper(settings, onChange);
+                });
+                onChange(false);
+            }
+
             // ... and the function save has to exist.
             // you have to make sure the callback is called with the settings object as first param!
             function save(callback) {
@@ -60,6 +91,8 @@
                     var $this = $(this);
                     if ($this.attr('type') === 'checkbox') {
                         obj[$this.attr('id')] = $this.prop('checked');
+                    } else if ($this.attr('type') === 'password') {
+                        value = encrypt(secret, value);
                     } else {
                         obj[$this.attr('id')] = $this.val();
                     }
@@ -177,7 +210,7 @@
                         <span class="translate"></span>
                     </div>
                 </div>
-                
+
                 <div class="row">                    
                     <div class="input-field col s12 l4">
                         <input class="value" id="github_token" type="password" />
@@ -248,7 +281,7 @@
                         <label for="networkSpeed" class="translate">Load network data every x seconds</label>
                         <span class="translate"></span>
                     </div>
-                     <div class="col m4 l2">
+                    <div class="col m4 l2">
                         <p class="range-field">
                             <input class="value" id="allProcessesUsers" type="range" min="0" max="10" />
                         </p>

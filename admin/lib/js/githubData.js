@@ -72,7 +72,7 @@ const githubHelper = {
                 url: url,
                 type: "POST",
                 beforeSend: function (xhr) {
-                    xhr.setRequestHeader("Authorization", "token " + adapterConfig.github_token);
+                    xhr.setRequestHeader("Authorization", "token " + decrypt(adapterConfig.github_token));
                 },
                 error: function (xhr, status, error) {
                     var err = JSON.parse(xhr.responseText);
@@ -160,7 +160,7 @@ const githubHelper = {
             return await (await fetch(url, {
                 method: methode,
                 headers: new Headers({
-                    "Authorization": "token " + adapterConfig.github_token,
+                    "Authorization": "token " + decrypt(adapterConfig.github_token),
                     "Accept": "application/vnd.github.squirrel-girl-preview+json"
                 }),
                 body: body
@@ -174,7 +174,7 @@ const githubHelper = {
             method: 'POST',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': 'bearer ' + adapterConfig.github_token
+                'Authorization': 'bearer ' + decrypt(adapterConfig.github_token)
             }),
             body: JSON.stringify({query: query})
         })).json();

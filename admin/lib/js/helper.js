@@ -9,6 +9,8 @@ let adapterConfig = {};
 let systemInfoForGithub = "";
 let githubMarkdownArea;
 
+let secret;
+
 const formatter = {
     formatSeconds: function (seconds) {
         const days = Math.floor(seconds / (3600 * 24));
@@ -147,6 +149,14 @@ jQuery.fn.progressbar = function (a, b) {
     return this;
 };
 
+function decrypt(value) {
+    var result = '';
+    for (var i = 0; i < value.length; ++i) {
+        result += String.fromCharCode(secret[i % secret.length].charCodeAt(0) ^ value.charCodeAt(i));
+    }
+    return result;
+}
+
 async function readInstanceConfig(callback) {
 
     if (sessionStorage.getItem('ioBroker.info.infoData')) {
@@ -161,6 +171,7 @@ async function readInstanceConfig(callback) {
     }
 
     socket.emit('getObject', 'system.config', function (err, data) {
+        secret = (data.native ? data.native.secret : '') || 'ZAgr56F5e87jJoM';
         systemConfig = data;
         if (!err && systemConfig && systemConfig.common) {
             systemLang = systemConfig.common.language;
