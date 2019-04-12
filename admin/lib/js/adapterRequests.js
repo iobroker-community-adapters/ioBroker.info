@@ -128,8 +128,8 @@ function writeAllIssuesV4(allIssues, id) {
                     const comment = "<span class='comments-counter has-badge' data-count='" + number + "'><i class='fa fa-comment xfa-inverse'></i></span>";
                     $item.find('.title').prepend($(comment));
                     const commentsCount = "<strong class='text-primary'>" + _("Total comments") + ": <span>" + issue.comments.totalCount + "</span></strong>";
-                    const allComments = "<div class='pull-right marginHoch'><button type='button' id='issueComments" + issue.id + "' class='openIssueComments btn btn-default'><i class='fa fa-commenting fa-lg'></i></button></div>";
-                    $item.find('.y_content').append($(commentsCount)).append($(allComments)).append($("<div id='allCommentsDiv" + issue.id + "'></div>"));
+                    const allComments = "<div class='pull-right marginHoch'><button type='button' data-issue-id='" + issue.id + "' id='issueComments" + issue.databaseId + "' class='openIssueComments btn btn-default'><i class='fa fa-commenting fa-lg'></i></button></div>";
+                    $item.find('.y_content').append($(commentsCount)).append($(allComments)).append($("<div id='allCommentsDiv" + issue.databaseId + "'></div>"));
                 }
                 $item.find('.titleLink').attr('title', issue.repository.nameWithOwner);
             }

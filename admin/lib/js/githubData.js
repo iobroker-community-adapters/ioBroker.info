@@ -237,13 +237,13 @@ const githubHelper = {
             sessionStorage.removeItem('ioBroker.info.stargazers');
         }
     },
-    loadAllComments: async function (id) {
-        const issueId = id.substring(13, id.length);
+    loadAllComments: async function (id, issueId) {
+        const dataId = id.substring(13, id.length);
         const query = getIssueCommentsQL.replace("$issueID", issueId);
 
         const comments = await githubHelper.getDataV4(query);
         if (comments && comments.data && comments.data.node) {
-            githubHelper.writeComments(issueId, comments.data.node.comments.edges);
+            githubHelper.writeComments(dataId, comments.data.node.comments.edges);
         }
     },
     writeComments: function (issueId, comments) {
@@ -288,6 +288,7 @@ query{
             edges {
                 node {
                     id
+                    databaseId
                     repository {nameWithOwner}
                     number
                     title
@@ -330,6 +331,7 @@ query {
             node {
                 ... on Issue {
                     id
+                    databaseId
                     repository {nameWithOwner}
                     number
                     title

@@ -277,8 +277,9 @@ $(function () {
     });
 
     $(document.body).on('click', '.openIssueComments', function () {
-        $(this).removeClass("openIssueComments").addClass("toggleIssueComments");
-        githubHelper.loadAllComments($(this).attr("id"));
+        const $button = $(this);
+        $button.removeClass("openIssueComments").addClass("toggleIssueComments");
+        githubHelper.loadAllComments($button.attr("id"), $button.attr("data-issue-id"));
     });
     $(document.body).on('click', '.toggleIssueComments', function () {
         const buttonId = $(this).attr("id");
