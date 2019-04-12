@@ -72,7 +72,7 @@ const githubHelper = {
                 url: url,
                 type: "POST",
                 beforeSend: function (xhr) {
-                    xhr.setRequestHeader("Authorization", "token " + decryptForInfo(adapterConfig.github_token));
+                    xhr.setRequestHeader("Authorization", "token " + adapterConfig.github_token);
                 },
                 error: function (xhr, status, error) {
                     var err = JSON.parse(xhr.responseText);
@@ -157,11 +157,10 @@ const githubHelper = {
             body = JSON.stringify(body);
         }
         try {
-            const token = decryptForInfo(adapterConfig.github_token);
             return await (await fetch(url, {
                 method: methode,
                 headers: new Headers({
-                    "Authorization": "token " + token,
+                    "Authorization": "token " + adapterConfig.github_token,
                     "Accept": "application/vnd.github.squirrel-girl-preview+json"
                 }),
                 body: body
@@ -171,12 +170,11 @@ const githubHelper = {
         }
     },
     getDataV4: async function (query) {
-        const token = decryptForInfo(adapterConfig.github_token);
         return await (await fetch('https://api.github.com/graphql', {
             method: 'POST',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': 'bearer ' + token
+                'Authorization': 'bearer ' + adapterConfig.github_token
             }),
             body: JSON.stringify({query: query})
         })).json();
