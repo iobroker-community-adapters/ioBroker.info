@@ -61,7 +61,7 @@ function startForum() {
         try {
             await asyncForEach(forumRss[lang].feeds, async function (link) {
                 if (adapterConfig.feednami) {
-                    feednami.setPublicApiKey(decrypt(adapterConfig.feednami));
+                    feednami.setPublicApiKey(decryptForInfo(adapterConfig.feednami));
                 }
                 const data = await feednami.load(link);
                 if (data && data.entries) {
@@ -90,7 +90,7 @@ function startForum() {
         const link = thread.link;
         const topic = link.substring(0, link.lastIndexOf('/')) + ".rss";
         if (adapterConfig.feednami) {
-            feednami.setPublicApiKey(decrypt(adapterConfig.feednami));
+            feednami.setPublicApiKey(decryptForInfo(adapterConfig.feednami));
         }
         const data = await feednami.load(topic);
         if (data && data.entries) {
@@ -102,7 +102,7 @@ function startForum() {
 
     async function getChinaForumData(lang) {
         if (adapterConfig.feednami) {
-            feednami.setPublicApiKey(decrypt(adapterConfig.feednami));
+            feednami.setPublicApiKey(decryptForInfo(adapterConfig.feednami));
         }
 
         try {

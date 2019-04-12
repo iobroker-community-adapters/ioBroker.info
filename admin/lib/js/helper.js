@@ -149,7 +149,7 @@ jQuery.fn.progressbar = function (a, b) {
     return this;
 };
 
-function decrypt(value) {
+function decryptForInfo(value) {
     var result = '';
     for (var i = 0; i < value.length; ++i) {
         result += String.fromCharCode(secret[i % secret.length].charCodeAt(0) ^ value.charCodeAt(i));
