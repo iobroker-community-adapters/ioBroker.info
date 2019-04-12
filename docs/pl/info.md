@@ -61,6 +61,8 @@ Aby zobaczyć ten pasek, najpierw potrzebujesz konta Github i musisz określić 
 
 W tej chwili masz możliwość zobaczenia samodzielnie utworzonych problemów i repozytoriów, które są obserwowane lub oznaczone gwiazdką.
 
+Klikając ![Pokaż komentarze](img/showComments.png), można wyświetlić wszystkie komentarze dotyczące problemu. Przycisk pojawia się tylko wtedy, gdy dostępne są komentarze. Łączna liczba komentarzy jest wyświetlana w dymku przed tytułem problemu.
+
 ## Wiadomości
 
 <img height="200" align="left" src="img/messages.png">
@@ -245,6 +247,7 @@ Kliknij ![Rozwiń / Rozwiń bloki](img/expand.png), po prawej stronie nazwy adap
 
 Jeśli klikniesz nazwę adaptera, możesz przejść bezpośrednio do listy problemów w Github i ewentualnie wprowadzić nowy błąd lub chcesz rozwinąć.
 Jeśli klikniesz tytuł problemu, trafisz bezpośrednio na wiadomość na Github i możesz opcjonalnie dostarczyć deweloperowi więcej informacji, zostaw jako komentarz.
+Klikając ![Pokaż komentarze](img/showComments.png), można wyświetlić wszystkie komentarze dotyczące problemu. Przycisk pojawia się tylko wtedy, gdy dostępne są komentarze. Łączna liczba komentarzy jest wyświetlana w dymku przed tytułem problemu.
 
 Panel „Problemy i błędy” może być ukryty w konfiguracji lub wyświetlany w stanie zamkniętym podczas ładowania.
 
@@ -260,6 +263,12 @@ Tytuł powinien dać ci jasny i zwięzły opis problemu. Opisując nie powiniene
 ponieważ niektórzy programiści pochodzą z zagranicy i prawdopodobnie nie mówią w twoim języku.
 
 Klikając „Prześlij nowe wydanie”, zostanie utworzony problem w Github. Teraz możesz kliknąć niebieski przycisk po lewej stronie, aby przejść bezpośrednio do problemu lub po prostu zamknąć okno.
+
+### Oznacz adapter jako ulubiony
+
+Deweloperzy poświęcają wiele wolnego czasu na tworzenie adapterów dla Ciebie. Oto Twoja szansa, pod warunkiem, że wprowadzono Token Guthub, klikając ![Przycisk głosowania](img/votes.png), aby podziękować twórcom za ich pracę. Każdy może głosować tylko jeden głos. Całkowita liczba głosów zostanie wyświetlona w obiekcie przed tytułem.
+
+W przeglądzie zalecane przez Ciebie adaptery są wyświetlane na zielono.
 
 ## Adapter ioBroker na Github
 

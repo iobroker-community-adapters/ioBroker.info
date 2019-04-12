@@ -61,6 +61,8 @@ Per vedere questa barra, è necessario prima un account Github e devi specificar
 
 Al momento hai la possibilità di vedere i problemi e i repository auto-creati che sono osservati o contrassegnati con una stella.
 
+Facendo clic su ![Mostra commenti](img/showComments.png), è possibile visualizzare tutti i commenti sul problema. Il pulsante appare solo se i commenti sono disponibili. Il numero totale di commenti è mostrato nel fumetto prima del titolo del problema.
+
 ## Messaggi
 
 <img height="200" align="left" src="img/messages.png">
@@ -245,6 +247,7 @@ Fare clic su ![Espandi / Espandi blocchi](img/expand.png), a destra del nome del
 
 Se fai clic sul nome dell'adattatore, puoi andare direttamente alla lista Problemi su Github e puoi eventualmente inserire un nuovo errore o desideri espandere.
 Se fai clic sul titolo di un problema, finisci direttamente con il messaggio su Github e puoi facoltativamente fornire allo sviluppatore maggiori informazioni, lasciare un commento.
+Facendo clic su ![Mostra commenti](img/showComments.png), è possibile visualizzare tutti i commenti sul problema. Il pulsante appare solo se i commenti sono disponibili. Il numero totale di commenti è mostrato nel fumetto prima del titolo del problema.
 
 Il pannello "Problemi ed errori" può essere nascosto nella configurazione o visualizzato nello stato chiuso durante il caricamento.
 
@@ -259,6 +262,12 @@ Quando si fa clic si ottiene l'opportunità di presentare una proposta di miglio
 Il titolo dovrebbe darti una descrizione chiara e concisa del problema. Quando descrivi, non dovresti essere frugale con le informazioni. Ogni dettaglio può aiutare lo sviluppatore ad implementare il problema o desiderare più velocemente. Se possibile, si prega di scrivere tutto in inglese, perché alcuni sviluppatori vengono dall'estero e probabilmente non parlano la tua lingua.
 
 Facendo clic su "Invia nuovo numero", verrà creato un problema su Github. Ora puoi fare clic sul pulsante blu a sinistra per andare direttamente al problema o semplicemente chiudere la finestra.
+
+### Contrassegna l'adattatore come preferito
+
+Gli sviluppatori sacrificano molto tempo libero per sviluppare adattatori per te. Ecco la tua occasione, a condizione che sia stato inserito un Guthub Token, cliccando su ![Pulsante Vota](img/votes.png) per ringraziare gli sviluppatori per il loro lavoro. Tutti possono votare solo un voto. Il numero totale di voti sarà mostrato nell'oggetto prima del titolo.
+
+Nella panoramica, gli adattatori che sono stati preferiti da te sono visualizzati in verde.
 
 ## adattatore ioBroker su Github
 

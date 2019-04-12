@@ -59,7 +59,9 @@ Die Uhr hat keine besondere Funktion (ich habe mir aber Mühe gegeben) und kann 
 ![Github-Leiste](img/githubButtons.png)
 Um diese Leiste sehen zu können, braucht man erst ein Github Account und muss ein Token in der Konfiguration angeben. Weitere Informationen dazu, finden Sie in der [Konfigurationsberscheibung](#konfiguration), unter "GitHub persönliches Zugriffstoken".
 
-Zur Zeit hat man die Möglichkeit selbst erstellte Issues und Repositories die entweder beobachtet werden oder mit einem Stern markiert wurden zu sehen.
+Zur Zeit hat man die Möglichkeit selbst erstellte Issues, zugewiesene Issues und Repositories die entweder beobachtet werden oder mit einem Stern markiert wurden zu sehen.
+
+Mit einem Klick auf ![Kommentare anzeigen](img/showComments.png), können eventuell vorhandene Kommentare zum Issue angezeigt werden. Der button erscheint nur, wenn Kommentare vohanden sind. Die Gesamtanzahl der Kommentare werden in der Sprechblase vor dem Titel des Issues dargestellt.
 
 ## Meldungen
 
@@ -245,6 +247,7 @@ Mit einem Klick auf ![Blöcke zu/aufklappen](img/expand.png), rechts vom Adapter
 
 Wenn man auf dem Namen des Adapters klickt, lanndet man direkt auf der Issues-Liste auf Github und kann ggf. ein neuen Fehler oder Erweiterungswunsch eintragen.
 Klickt man auf den Titel eines Issues, landet man direkt bei der Meldung auf Github und kann ggf. dem entwickler weitere Informationen dazu, als Kommentar hinterlegen.
+Mit einem Klick auf ![Kommentare anzeigen](img/showComments.png), können eventuell vorhandene Kommentare zum Issue angezeigt werden. Der button erscheint nur, wenn Kommentare vohanden sind. Die Gesamtanzahl der Kommentare werden in der Sprechblase vor dem Titel des Issues dargestellt.
 
 Das Panel "Probleme und Fehler" kann in der Konfiguration ausgeblendet werden oder beim Laden im zugeklappten Zustand angezeigt werden.
 
@@ -260,6 +263,12 @@ Beim Titel solltet ihr eine klare und kurze Beschreibung des Problems geben. Bei
 denn einige Entwickler kommen aus dem Ausland und sind eure Landessprache wahrscheinlich nicht mächtig.
 
 Mit einem Klick auf "Neue Anfrage einreichen", wird ein Issue auf Github angelegt. Nun können Sie links auf dem blauen Button klicken, um direkt zum Issue zu gelangen oder das fenster einfach schließen.
+
+### Adapter als Favourit markieren
+
+Entwickler opfern sehr viel Freizeit, um Adaptern für euch zu entwickeln. Hier habt ihr die Möglichkeit, vorausgesetzt ein Guthub Token wurde eingegeben, mit einem Klick auf ![vote button](img/votes.png), sich für die Arbeit kurz zu bedanken. Jeder kann nur eine Stimme abgeben. Die Gesamtanzahl der Stimmen werden im Objekt vor dem Titel dargestellt.
+
+In der Übersicht werden Adapter, für die Sie abgestimmt haben, grün dargestellt.
 
 ## ioBroker-Adapter auf Github
 

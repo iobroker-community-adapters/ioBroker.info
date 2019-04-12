@@ -61,6 +61,8 @@ Om deze balk te zien, hebt u eerst een Github-account nodig en moet u een token 
 
 Op dit moment heb je de mogelijkheid om zelf gecreëerde problemen en repositories te zien die worden waargenomen of gemarkeerd met een ster.
 
+Door te klikken op ![Show comments](img/showComments.png), kunnen alle opmerkingen over het probleem worden getoond. De knop verschijnt alleen als er opmerkingen beschikbaar zijn. Het totale aantal opmerkingen wordt weergegeven in de ballon vóór de titel van het probleem.
+
 ## Berichten
 
 <img height="200" align="left" src="img/messages.png">
@@ -245,6 +247,7 @@ Klik op ![Expand / Expand Blocks](img/expand.png), rechts van de naam van de ada
 
 Als u op de naam van de adapter klikt, kunt u rechtstreeks naar de lijst met problemen op Github gaan en mogelijk een nieuwe fout invoeren of uitbreiden.
 Als u op de titel van een probleem klikt, komt u rechtstreeks met het bericht op Github en kunt u de ontwikkelaar desgewenst meer informatie geven, als commentaar achterlaten.
+Door te klikken op ![Show comments](img/showComments.png), kunnen alle opmerkingen over het probleem worden getoond. De knop verschijnt alleen als er opmerkingen beschikbaar zijn. Het totale aantal opmerkingen wordt weergegeven in de ballon vóór de titel van het probleem.
 
 Het venster "Problemen en fouten" kan worden verborgen in de configuratie of in gesloten toestand worden weergegeven tijdens het laden.
 
@@ -260,6 +263,12 @@ De titel zou u een duidelijke en beknopte beschrijving van het probleem moeten g
 omdat sommige ontwikkelaars uit het buitenland komen en waarschijnlijk uw taal niet spreken.
 
 Door op "Nieuw probleem verzenden" te klikken, wordt er een probleem aangemaakt op Github. Nu kunt u op de blauwe knop aan de linkerkant klikken om direct naar het probleem te gaan of gewoon het venster sluiten.
+
+### Markeer adapter als favoriet
+
+Ontwikkelaars offeren veel vrije tijd op om adapters voor u te ontwikkelen. Dit is je kans, op voorwaarde dat je een Guthub-token hebt ingevoerd, door op te klikken ![Stemknop](img/votes.png) om de ontwikkelaars te bedanken voor hun werk. Iedereen kan maar één stem uitbrengen. Het totale aantal stemmen wordt weergegeven in het object vóór de titel.
+
+In het overzicht worden adapters die door u zijn begunstigd in het groen weergegeven.
 
 ## ioBroker-adapter op Github
 

@@ -59,7 +59,9 @@ El reloj no tiene una función especial (pero he hecho un esfuerzo) y se puede a
 ![Github bar](img/githubButtons.png)
 Para ver esta barra, primero necesita una cuenta de Github y debe especificar un token en la configuración. Para obtener más información, consulte [Descripción de la configuración](#Configuración) > "Ficha de acceso personal de GitHub".
 
-En este momento, tiene la posibilidad de ver los problemas creados por usted y los repositorios que se observan o marcan con una estrella.
+En este momento, tiene la posibilidad de ver los problemas creados por usted, problemas asignados y los repositorios que se observan o marcan con una estrella.
+
+Al hacer clic en ![Mostrar comentarios](img/showComments.png), se pueden mostrar todos los comentarios sobre el problema. El botón solo aparece si hay comentarios disponibles. El número total de comentarios se muestra en el globo antes del título del problema.
 
 ## Mensajes
 
@@ -190,7 +192,7 @@ Todos los datos en discos duros, particiones, raids y ROMs.
 $ sudo apt-get install smartmontools
 ```
 
-#### gráfico
+#### Gráfico
 
 Los datos sobre el controlador o monitor se muestran aquí, si están disponibles / son compatibles.
 
@@ -245,6 +247,7 @@ Haga clic en ![Expandir / Expandir Bloques](img/expand.png), a la derecha del no
 
 Si hace clic en el nombre del adaptador, puede ir directamente a la lista de Problemas en Github y posiblemente puede ingresar un nuevo error o desea expandirse.
 Si hace clic en el título de un problema, termina directamente con el mensaje en Github y, opcionalmente, puede proporcionarle al desarrollador más información, y dejar un comentario.
+Al hacer clic en ![Mostrar comentarios](img/showComments.png), se pueden mostrar todos los comentarios sobre el problema. El botón solo aparece si hay comentarios disponibles. El número total de comentarios se muestra en el globo antes del título del problema.
 
 El panel "Problemas y errores" se puede ocultar en la configuración o mostrar en el estado cerrado cuando se carga.
 
@@ -259,6 +262,12 @@ Al hacer clic, tiene la oportunidad de realizar una propuesta de mejora (azul) o
 El título debe darle una descripción clara y concisa del problema. Al describir, no debes ser frugal con la información. Cada detalle puede ayudar al desarrollador a implementar el problema o deseo más rápido. Si es posible, por favor escriba todo en inglés, porque algunos desarrolladores vienen del extranjero y probablemente no hablan tu idioma.
 
 Al hacer clic en "Enviar nuevo número", se creará un problema en Github. Ahora puede hacer clic en el botón azul de la izquierda para ir directamente al problema o simplemente cerrar la ventana.
+
+### Marca el adaptador como favorito
+
+Los desarrolladores sacrifican mucho tiempo libre para desarrollar adaptadores para ti. Esta es tu oportunidad, siempre que se haya ingresado un token de Guthub, haciendo clic en ![Botón de voto](img/votes.png) para agradecer a los desarrolladores por su trabajo. Todos solo pueden votar un voto. El número total de votos se mostrará en el objeto antes del título.
+
+En la descripción general, los adaptadores que han sido favorecidos por usted se muestran en verde.
 
 ## adaptador ioBroker en Github
 

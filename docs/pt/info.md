@@ -61,6 +61,8 @@ Para ver essa barra, primeiro você precisa de uma conta do Github e deve especi
 
 No momento, você tem a possibilidade de ver problemas e repositórios criados por si mesmo e que são observados ou marcados com uma estrela.
 
+Ao clicar em ![Mostrar comentários](img/showComments.png), todos os comentários sobre o problema podem ser exibidos. O botão só aparece se houver comentários disponíveis. O número total de comentários é mostrado no balão antes do título do problema.
+
 ## Messages
 
 <img height="200" align="left" src="img/messages.png">
@@ -245,6 +247,7 @@ Clique em ![Expand / Expand Blocks](img/expand.png), à direita do nome do adapt
 
 Se você clicar no nome do adaptador, poderá ir diretamente para a lista de problemas no Github e possivelmente inserir um novo erro ou desejar expandir.
 Se você clicar no título de um problema, acabará diretamente com a mensagem no Github e poderá fornecer ao desenvolvedor mais informações, deixe como comentário.
+Ao clicar em ![Mostrar comentários](img/showComments.png), todos os comentários sobre o problema podem ser exibidos. O botão só aparece se houver comentários disponíveis. O número total de comentários é mostrado no balão antes do título do problema.
 
 O painel "Problemas e erros" pode estar oculto na configuração ou exibido no estado fechado durante o carregamento.
 
@@ -260,6 +263,12 @@ O título deve fornecer uma descrição clara e concisa do problema. Ao descreve
 porque alguns desenvolvedores vêm do exterior e provavelmente não falam sua língua.
 
 Ao clicar em "Enviar novo problema", um problema será criado no Github. Agora você pode clicar no botão azul à esquerda para ir diretamente para o problema ou apenas fechar a janela.
+
+### Marcar adaptador como favorito
+
+Os desenvolvedores sacrificam muito tempo livre para desenvolver adaptadores para você. Aqui está sua chance, desde que um Token Guthub tenha sido inserido, clicando em ![Botão Vote](img/votes.png) para agradecer aos desenvolvedores pelo seu trabalho. Todos podem votar apenas um voto. O número total de votos será mostrado no objeto antes do título.
+
+Na visão geral, os adaptadores que foram favorecidos por você são exibidos em verde.
 
 ## Adaptador ioBroker no Github
 

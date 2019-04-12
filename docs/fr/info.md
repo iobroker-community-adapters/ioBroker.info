@@ -59,7 +59,9 @@ L'horloge n'a pas de fonction particulière (mais j'ai fait un effort) et peut �
 ![Barre Github](img/githubButtons.png)
 Pour voir cette barre, vous devez d'abord disposer d'un compte Github et spécifier un jeton dans la configuration. Pour plus d'informations, voir [Description de la configuration](#Configuration) > "Jeton d'accès personnel GitHub".
 
-Pour le moment, vous avez la possibilité de voir les problèmes créés par vous-même et les référentiels observés ou marqués d'une étoile.
+Pour le moment, vous avez la possibilité de voir les problèmes créés par vous-même, questions assignées et les référentiels observés ou marqués d'une étoile.
+
+En cliquant sur ![Afficher les commentaires](img/showComments.png), tous les commentaires sur le problème peuvent être affichés. Le bouton n'apparaît que si des commentaires sont disponibles. Le nombre total de commentaires est indiqué dans la bulle avant le titre de la publication.
 
 ## Messages
 
@@ -245,6 +247,7 @@ Cliquez sur ![Expand / Expand Blocks](img/expand.png), à droite du nom de l'ada
 
 Si vous cliquez sur le nom de l'adaptateur, vous pouvez accéder directement à la liste des problèmes de Github et éventuellement entrer une nouvelle erreur ou souhaiter le développer.
 Si vous cliquez sur le titre d'un problème, vous vous retrouvez directement avec le message sur Github et pouvez éventuellement fournir plus d'informations au développeur, laissez-le comme un commentaire.
+En cliquant sur ![Afficher les commentaires](img/showComments.png), tous les commentaires sur le problème peuvent être affichés. Le bouton n'apparaît que si des commentaires sont disponibles. Le nombre total de commentaires est indiqué dans la bulle avant le titre de la publication.
 
 Le panneau "Problèmes et erreurs" peut être masqué dans la configuration ou affiché à l'état fermé lors du chargement.
 
@@ -261,7 +264,13 @@ parce que certains développeurs viennent de l'étranger et qu'ils ne parlent pr
 
 En cliquant sur "Soumettre un nouveau numéro", un numéro sera créé sur Github. Maintenant, vous pouvez cliquer sur le bouton bleu à gauche pour accéder directement au problème ou simplement fermer la fenêtre.
 
-Adaptateur ## ioBroker sur Github
+### Marquer l'adaptateur comme favori
+
+Les développeurs sacrifient beaucoup de temps libre pour développer des adaptateurs pour vous. Voici votre chance, à condition qu'un Guthub soit entré, en cliquant sur ![Bouton de vote](img/votes.png) pour remercier les développeurs pour leur travail. Tout le monde ne peut voter qu'une voix. Le nombre total de votes sera affiché dans l'objet avant le titre.
+
+Dans la vue d'ensemble, les adaptateurs que vous avez préférés sont affichés en vert.
+
+## Adaptateur ioBroker sur Github
 
 <img height="200" align="left" src="img/adapter_search.png">
 Le nombre d'adaptateurs officiels pour ioBroker est déjà considérable. Bien sûr, il existe de nombreux autres adaptateurs disponibles sur le net. Ceux-ci sont recherchés et affichés ici.
