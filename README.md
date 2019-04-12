@@ -44,6 +44,8 @@ There is a new widget to display important messages in VIS. These messages are d
 ## Changelog
 
 ### 1.3.5 (2019-05-01)
+* (ldittmar) add likes for Adapters
+* (ldittmar) show comments for issues
 
 ### 1.3.4 (2019-04-10)
 * (ldittmar) my issues and my repos

@@ -126,6 +126,7 @@
     "To better investigate the problem, the following data will be provided to the developer.": "Aby lepiej zbadać problem, następujące dane zostaną dostarczone do programisty.",
     "To create messages about adapters or adapter requests, you need a Github account and a token with repo access.": "Aby utworzyć wiadomości o adapterach lub żądaniach adaptera, potrzebujesz konta Github i tokena z dostępem repo.",
     "To read news or forum, you need a free API Key if your ioBroker installation can be reached via a hostname, such as iobroker: 8081 or something similar. For IP access it is not needed.": "Czytać wiadomości lub forum, potrzebny jest bezpłatny klucz API, jeśli podczas instalacji ioBroker można dostać się za pomocą nazwy hosta, takich jak iobroker: 8081 lub coś podobnego. Dla IP-dostęp do niego nie jest potrzebny.",
+    "Total comments": "Wszystkie komentarze",
     "Total votes": "Suma głosów",
     "Unknown": "Nieznany",
     "Updates": "Aktualizacje",

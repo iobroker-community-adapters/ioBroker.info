@@ -276,6 +276,21 @@ $(function () {
         }
     });
 
+    $(document.body).on('click', '.openIssueComments', function () {
+        $(this).removeClass("openIssueComments").addClass("toggleIssueComments");
+        githubHelper.loadAllComments($(this).attr("id"));
+    });
+    $(document.body).on('click', '.toggleIssueComments', function () {
+        const buttonId = $(this).attr("id");
+        const issueId = buttonId.substring(13, buttonId.length);
+        const commentsBox = $('#allCommentsDiv' + issueId);
+        if (commentsBox.is(":hidden")) {
+            commentsBox.show(500);
+        } else {
+            commentsBox.hide(500);
+        }
+    });
+
     $(document.body).on('click', '#new-adapter-request:not(.disabled)', function () {
         githubHelper.isFeatureRequest();
         $('#issueLinkForGithubApi').val('https://api.github.com/repos/ioBroker/AdapterRequests/issues');

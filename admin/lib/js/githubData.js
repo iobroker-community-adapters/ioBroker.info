@@ -1,4 +1,4 @@
-/* global systemInfoForGithub, adapterConfig, githubMarkdownArea */
+/* global systemInfoForGithub, adapterConfig, githubMarkdownArea, dateOptions, showdown */
 
 let githubuser = {};
 
@@ -234,7 +234,27 @@ const githubHelper = {
             $("#" + id).removeClass("btn-default").addClass("btn-success");
             let count = parseInt($('#starsCounter' + idSuffix).text()) + 1;
             $('#starsCounter' + idSuffix).addClass('badge-success').text(count).parent().parent().css("background-color", "#dff0d8");
+            sessionStorage.removeItem('ioBroker.info.stargazers');
         }
+    },
+    loadAllComments: async function (id) {
+        const issueId = id.substring(13, id.length);
+        const query = getIssueCommentsQL.replace("$issueID", issueId);
+
+        const comments = await githubHelper.getDataV4(query);
+        if (comments && comments.data && comments.data.node) {
+            githubHelper.writeComments(issueId, comments.data.node.comments.edges);
+        }
+    },
+    writeComments: function (issueId, comments) {
+        const $item = $('#commentsTemplate').children().clone(true, true);
+        $item.find('.byline').text(new Date(comments.createdAt).toLocaleDateString('en', dateOptions) + " - " + comments.author.login);
+
+        const link = comments.url.match(/([^/]*\/){6}/);
+        const html = new showdown.Converter().makeHtml(comments.body).replace(/src="(?!http)/g, 'src="' + link[0]).replace(/<img/g, '<img class="img-responsive"');
+        $item.find('.description').html(html);
+
+        $('#allCommentsDiv' + issueId).append($item);
     }
 };
 
@@ -343,23 +363,22 @@ query {
 
 const getIssueCommentsQL = `
 query{
-  node(id: "$issueID") {
-    ... on Issue {
-      comments(first: 100) {
-        edges {
-          node {
-            author {
-              login
-              avatarUrl
+    node(id: "$issueID") {
+        ... on Issue {
+            comments(first: 100) {
+                edges {
+                    node {
+                        author {
+                            login
+                        }
+                        url
+                        body
+                        createdAt
+                    }
+                }
             }
-            url
-            bodyText
-            createdAt
-          }
         }
-      }
     }
-  }
 }
 `;
 

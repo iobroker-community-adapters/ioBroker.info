@@ -3,6 +3,18 @@
         "name": "info",
         "version": "1.3.5",
         "news": {
+            "1.3.5": {
+                "en": "Vote for adapters and show comments",
+                "de": "Stimmen Sie für Adapter und zeigen Sie Kommentare",
+                "ru": "Голосуйте за адаптеры и показывайте комментарии",
+                "pt": "Vote em adaptadores e mostre comentários",
+                "nl": "Stem op adapters en toon reacties",
+                "fr": "Votez pour les adaptateurs et affichez les commentaires",
+                "it": "Vota gli adattatori e mostra i commenti",
+                "es": "Vota por adaptadores y muestra comentarios.",
+                "pl": "Głosuj na adaptery i pokaż komentarze",
+                "zh-cn": "投票适配器和显示评论"
+            },
             "1.3.4": {
                 "en": "Github buttons and vote for adapter requests",
                 "de": "Schaltflächen und stimme für Adapteranfragen",
@@ -62,42 +74,6 @@
                 "es": "Algunos cambios de diseño y arreglos - candidato estable",
                 "pl": "Niektóre Projektuj zmiany i poprawki - stabilny kandydat",
                 "zh-cn": "一些设计变更和修复 - 稳定的候选人"
-            },
-            "1.2.6": {
-                "en": "Added important short messages about ioBroker",
-                "de": "Hinzugefügt wichtige Kurznachrichten über ioBroker",
-                "ru": "Добавлены важные короткие сообщения о ioBroker",
-                "pt": "Adicionado importantes mensagens curtas sobre ioBroker",
-                "nl": "Toegevoegd belangrijk korte berichten over ioBroker",
-                "fr": "Ajouté important de courts messages sur ioBroker",
-                "it": "Aggiunto importante brevi messaggi su ioBroker",
-                "es": "Añadido importante a corto mensajes sobre ioBroker",
-                "pl": "Dodane ważne krótkie wiadomości o ioBroker",
-                "zh-cn": "加入重要的短消息有关ioBroker"
-            },
-            "1.2.3": {
-                "en": "Added important links (documentation)",
-                "de": "Wichtige Links (Dokumentation) hinzugefügt",
-                "ru": "Добавлены важные ссылки (документация)",
-                "pt": "Adicionado links importantes (documentação)",
-                "nl": "Belangrijke links toegevoegd (documentatie)",
-                "fr": "Ajout de liens importants (documentation)",
-                "it": "Aggiunti collegamenti importanti (documentazione)",
-                "es": "Agregados enlaces importantes (documentación)",
-                "pl": "Dodano ważne linki (dokumentacja)",
-                "zh-cn": "添加了重要链接（文档）"
-            },
-            "1.2.0": {
-                "en": "Added adapter request and known bugs list",
-                "de": "Adapteranfrage und bekannte Fehlerliste hinzugefügt",
-                "ru": "Добавлен запрос адаптера и список известных ошибок",
-                "pt": "Adicionado pedido de adaptador e lista de bugs conhecidos",
-                "nl": "Toegevoegd adapter verzoek en bekende bugs lijst",
-                "fr": "Ajout de la demande d'adaptateur et de la liste des bogues connus",
-                "it": "Aggiunta la richiesta dell'adattatore e l'elenco dei bug noti",
-                "es": "Solicitud de adaptador agregado y lista de errores conocidos",
-                "pl": "Dodano żądanie adaptera i listę znanych błędów",
-                "zh-cn": "添加了适配器请求和已知错误列表"
             },
             "1.1.0": {
                 "en": "Added new forum and fixed news",

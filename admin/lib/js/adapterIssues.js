@@ -35,7 +35,10 @@ function showIssues() {
                     $('#adapterIssueList').append($item);
                 }
             });
-
+            if (sessionStorage.getItem('ioBroker.info.stargazers')) {
+                stargazers = JSON.parse(sessionStorage.getItem('ioBroker.info.stargazers'));
+                addStarsToAdapterIssues();
+            }
         }
         if (adapterConfig.adapter_issue_closed) {
             $('#knownIssuesBlock').find('.x_title a.collapse-link').click();
@@ -54,8 +57,8 @@ function addStarsToAdapterIssues() {
                 const full_name = adapter.readme.substring(adapter.readme.indexOf(".com/") + 5, adapter.readme.indexOf("/blob/"));
                 const fullNameId = full_name.replace("/", "ISSUE-ISSUE").replace(".", "ISSUE-PUNKT-ISSUE").toUpperCase();
                 const stars = stargazers[fullNameId];
-                if (stars) {
-                    const button = "<div class='pull-right'><button type='button' data-fullname='" + full_name + "' id='reactionBI" + fullNameId + "' class='adaptersInstalledReaction btn btn-" + (stars.starred?"success":"default") + "'><i class='fa fa-thumbs-up fa-lg'></i></button></div>";
+                if (stars && $('#starsCounter' + fullNameId).length === 0) {
+                    const button = "<div class='pull-right'><button type='button' data-fullname='" + full_name + "' id='reactionBI" + fullNameId + "' class='adaptersInstalledReaction btn btn-" + (stars.starred ? "success" : "default") + "'><i class='fa fa-thumbs-up fa-lg'></i></button></div>";
                     const starCounter = "<span class='badge" + (stars.starred ? ' badge-success' : '') + "' id='starsCounter" + fullNameId + "'>" + stars.count + "</span>";
                     $('#adapterTitleIssueList' + fullNameId).prepend($(starCounter));
                     const $content = $('#adapterTitleIssueList' + fullNameId).parent().parent().find(".y_content");
@@ -64,6 +67,17 @@ function addStarsToAdapterIssues() {
                     if (stars.starred) {
                         $('#adapterTitleIssueList' + fullNameId).parent().css("background-color", "#dff0d8");
                     }
+                } else if (stars) {
+                    if (stars.starred) {
+                        $('#reactionBI' + fullNameId).addClass('btn-success').removeClass('btn-default');
+                        $('#starsCounter' + fullNameId).addClass('badge-success');
+                        $('#adapterTitleIssueList' + fullNameId).parent().css("background-color", "#dff0d8");
+                    } else {
+                        $('#reactionBI' + fullNameId).removeClass('btn-success').addClass('btn-default');
+                        $('#starsCounter' + fullNameId).removeClass('badge-success');
+                        $('#adapterTitleIssueList' + fullNameId).parent().css("background-color", "");
+                    }
+                    $('#starsCounter' + fullNameId).text(stars.count);
                 }
             }
         });

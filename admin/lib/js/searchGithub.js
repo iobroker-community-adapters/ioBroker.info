@@ -119,9 +119,6 @@ async function searchAdaptersOnGithub() {
     if (adapterConfig.new_adapters && sessionStorage.getItem('ioBroker.info.foundGit')) {
         searchGithubForNewAdapters(adapterConfig.new_adapters_sort, adapterConfig.new_adapters_order);
     }
-    if (sessionStorage.getItem('ioBroker.info.stargazers')) {
-        stargazers = JSON.parse(sessionStorage.getItem('ioBroker.info.stargazers'));
-    }
 
     let allRepos = [];
     if (adapterConfig.github_token) {

@@ -110,14 +110,14 @@ function writeAllIssuesV4(allIssues, id) {
             if (id === "adapterRequestList") {
                 $item.find('.title').prepend($("<span class='badge" + (issue.reactions.viewerHasReacted ? " badge-success" : "") + "' id='reactionARBadge" + issue.number + "'>" + issue.reactions.totalCount + "</span>"));
                 const votes = "<strong class='text-primary'>" + _("Total votes") + ": <span id='reactionARNumber" + issue.number + "'>" + issue.reactions.totalCount + "</span></strong>";
-                const thumb = "<div class='pull-right marginHoch'><button type='button'  id='reactionAR" + issue.number + "' class='adapterRequestReaction btn btn-" + (issue.reactions.viewerHasReacted ? 'success' : 'default') + "'><i class='fa fa-thumbs-up fa-lg'></i></button></div>";
+                const thumb = "<div class='pull-right marginHoch'><button type='button' id='reactionAR" + issue.number + "' class='adapterRequestReaction btn btn-" + (issue.reactions.viewerHasReacted ? 'success' : 'default') + "'><i class='fa fa-thumbs-up fa-lg'></i></button></div>";
                 $item.find('.y_content').append($(thumb)).append($(votes));
                 if (issue.reactions.viewerHasReacted) {
                     $item.find('.y_title').css("background-color", "#dff0d8");
                 } else if ((now - createdAt) < (3600000 * 24 * 30)) {
                     $item.find('.y_title').css("background-color", "#d9edf7");
                 }
-            } else if (id === "githublistbody") {
+            } else {
                 if (issue.comments.totalCount > 0) {
                     let number = issue.comments.totalCount;
                     if (number < 9) {
@@ -127,6 +127,9 @@ function writeAllIssuesV4(allIssues, id) {
                     }
                     const comment = "<span class='comments-counter has-badge' data-count='" + number + "'><i class='fa fa-comment xfa-inverse'></i></span>";
                     $item.find('.title').prepend($(comment));
+                    const commentsCount = "<strong class='text-primary'>" + _("Total comments") + ": <span>" + issue.comments.totalCount + "</span></strong>";
+                    const allComments = "<div class='pull-right marginHoch'><button type='button' id='issueComments" + issue.id + "' class='openIssueComments btn btn-default'><i class='fa fa-commenting fa-lg'></i></button></div>";
+                    $item.find('.y_content').append($(commentsCount)).append($(allComments)).append($("<div id='allCommentsDiv" + issue.id + "'></div>"));
                 }
                 $item.find('.titleLink').attr('title', issue.repository.nameWithOwner);
             }
