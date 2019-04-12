@@ -247,20 +247,21 @@ const githubHelper = {
         }
     },
     writeComments: function (issueId, comments) {
-        const $item = $('#commentsTemplate').children().clone(true, true);
-        $item.find('.byline').text(new Date(comments.createdAt).toLocaleDateString('en', dateOptions) + " - " + comments.author.login);
+        comments.forEach(function (comment) {
+            const $item = $('#commentsTemplate').children().clone(true, true);
+            $item.find('.byline').text(new Date(comment.createdAt).toLocaleDateString('en', dateOptions) + " - " + comment.author.login);
 
-        const link = comments.url.match(/([^/]*\/){6}/);
-        const html = new showdown.Converter().makeHtml(comments.body).replace(/src="(?!http)/g, 'src="' + link[0]).replace(/<img/g, '<img class="img-responsive"');
-        $item.find('.description').html(html);
+            const link = comment.url.match(/([^/]*\/){6}/);
+            const html = new showdown.Converter().makeHtml(comment.body).replace(/src="(?!http)/g, 'src="' + link[0]).replace(/<img/g, '<img class="img-responsive"');
+            $item.find('.description').html(html);
 
-        $('#allCommentsDiv' + issueId).append($item);
+            $('#allCommentsDiv' + issueId).append($item);
+        });
     }
 };
 
 async function writeAllRepos(allRepos, id) {
     await asyncForEach(allRepos, async function (repo) {
-
         const $item = $('#forumEntryTemplate').children().clone(true, true);
         $item.find('.label-success').remove();
 
