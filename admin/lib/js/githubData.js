@@ -247,7 +247,8 @@ const githubHelper = {
         }
     },
     writeComments: function (issueId, comments) {
-        comments.forEach(function (comment) {
+        comments.forEach(function (commentNode) {
+            const comment = commentNode.node;
             const $item = $('#commentsTemplate').children().clone(true, true);
             $item.find('.byline').text(new Date(comment.createdAt).toLocaleDateString('en', dateOptions) + " - " + comment.author.login);
 
