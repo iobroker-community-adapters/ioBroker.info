@@ -3,6 +3,8 @@
 const dateOptions = {"weekday": "short", "year": "numeric", "month": "long", "day": "2-digit", "hour": "2-digit", "minute": "2-digit", "second": "2-digit"};
 let infoData = {};
 
+let documentationData = {};
+
 let systemConfig = {};
 let adapterConfig = {};
 
@@ -158,6 +160,17 @@ async function readInstanceConfig(callback) {
             infoData = await (await fetch("../data/infoData.json")).json();
         }
         sessionStorage.setItem('ioBroker.info.infoData', JSON.stringify(infoData));
+    }
+
+    if (sessionStorage.getItem('ioBroker.info.documentationData')) {
+        documentationData = JSON.parse(sessionStorage.getItem('ioBroker.info.documentationData'));
+    } else {
+        try {
+            documentationData = await (await fetch("https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/info/documentation.json")).json();
+            sessionStorage.setItem('ioBroker.info.documentationData', JSON.stringify(documentationData));
+        } catch (e) {
+
+        }
     }
 
     socket.emit('getObject', 'system.config', function (err, data) {

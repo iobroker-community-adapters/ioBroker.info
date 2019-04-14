@@ -65,7 +65,7 @@ function startAdapter(options) {
 
 const checkNews = function () {
 
-    const newsLink = 'https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.info/master/data/news.json';
+    const newsLink = 'https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/info/news.json';
 
     axios(newsLink).then(function (resp) {
         adapter.log.info("Popup-News readed...");
@@ -612,7 +612,7 @@ const updateCurrentMemoryInfos = function () {
                 if (memUsed.length > 30) {
                     memUsed.shift();
                 }
-                adapter.setState('sysinfo.memory.info.used_hist', {val: memUsed.toString(), ack: true});                
+                adapter.setState('sysinfo.memory.info.used_hist', {val: memUsed.toString(), ack: true});
                 adapter.setState('sysinfo.memory.info.available', {val: data['available'], ack: true});
                 adapter.setState('sysinfo.memory.info.buffcache', {val: data['buffcache'], ack: true});
                 adapter.setState('sysinfo.memory.info.swapused', {val: data['swapused'], ack: true});

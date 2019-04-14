@@ -1,4 +1,6 @@
-/* global adapterConfig, systemLang, infoData */
+/* global adapterConfig, systemLang, documentationData */
+
+
 
 function showDocumentation() {
 
@@ -36,25 +38,25 @@ function showDocumentation() {
 
         const newsObject = [];
         await asyncForEach(langs, function (lang) {
-            infoData.docs[lang].community.forEach(function (data) {
+            documentationData.docs[lang].community.forEach(function (data) {
                 $('#doc_community').append(createLi(data, lang, false));
             });
-            infoData.docs[lang].documentation.forEach(function (data) {
+            documentationData.docs[lang].documentation.forEach(function (data) {
                 $('#doc_documentation').append(createLi(data, lang, false));
             });
-            infoData.docs[lang].news.forEach(function (data) {
+            documentationData.docs[lang].news.forEach(function (data) {
                 newsObject.push(data);
             });
-            infoData.docs[lang].blog.forEach(function (data) {
+            documentationData.docs[lang].blog.forEach(function (data) {
                 $('#doc_blog').append(createLi(data, lang, false));
             });
-            infoData.docs[lang].video.forEach(function (data) {
+            documentationData.docs[lang].video.forEach(function (data) {
                 $('#doc_video').append(createLi(data, lang, false));
             });
-            infoData.docs[lang].development.forEach(function (data) {
+            documentationData.docs[lang].development.forEach(function (data) {
                 $('#doc_development').append(createLi(data, lang, false));
             });
-            infoData.docs[lang].other.forEach(function (data) {
+            documentationData.docs[lang].other.forEach(function (data) {
                 $('#doc_other').append(createLi(data, lang, false));
             });
         });
@@ -110,8 +112,8 @@ function showDocumentation() {
     }
 
     getDocuments();
-    
-    if(adapterConfig.clock){
+
+    if (adapterConfig.clock) {
         $('.documentationButton').parent().removeClass('rotate-button');
     }
 }

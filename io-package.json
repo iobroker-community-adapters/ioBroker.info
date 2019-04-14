@@ -1,9 +1,9 @@
 {
     "common": {
         "name": "info",
-        "version": "1.3.5",
+        "version": "1.3.6",
         "news": {
-            "1.3.5": {
+            "1.3.6": {
                 "en": "Vote for adapters and show comments",
                 "de": "Stimmen Sie für Adapter und zeigen Sie Kommentare",
                 "ru": "Голосуйте за адаптеры и показывайте комментарии",
