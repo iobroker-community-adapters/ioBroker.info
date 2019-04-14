@@ -218,7 +218,7 @@ const githubHelper = {
         const issueNumber = id.substring(10, id.length);
         const response = await githubHelper.getData("https://api.github.com/repos/ioBroker/AdapterRequests/issues/" + issueNumber + "/reactions", "POST", {'content': '+1'});
         if (response && response.id) {
-            $("#" + id).removeClass("btn-default").addClass("btn-success");
+            $("#" + id).removeClass("btn-default").addClass("btn-success").attr("title", "I voted!");
             let count = parseInt($('#reactionARBadge' + issueNumber).text()) + 1;
             $('#reactionARBadge' + issueNumber).addClass('badge-success').text(count).parent().parent().css("background-color", "#dff0d8");
             $('#reactionARNumber' + issueNumber).text(count);
@@ -231,7 +231,7 @@ const githubHelper = {
 
         const response = await githubHelper.getData("https://api.github.com/user/starred/" + full_name, "PUT");
         if (!response) {
-            $("#" + id).removeClass("btn-default").addClass("btn-success");
+            $("#" + id).removeClass("btn-default").addClass("btn-success").attr('title', _("Thanks for the adapter!"));
             let count = parseInt($('#starsCounter' + idSuffix).text()) + 1;
             $('#starsCounter' + idSuffix).addClass('badge-success').text(count).parent().parent().css("background-color", "#dff0d8");
             sessionStorage.removeItem('ioBroker.info.stargazers');
