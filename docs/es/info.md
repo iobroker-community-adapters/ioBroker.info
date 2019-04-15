@@ -238,7 +238,7 @@ Con una cuenta de Github, también puede votar directamente por solicitudes de a
 
 En la descripción general, las solicitudes de adaptador por las que ha votado se muestran en verde y las solicitudes de menos de 1 mes aparecen en azul.
 
-## Problemas y bugs
+## Mis adaptadores
 
 <img height="200" align="left" src="img/issues_bugs.png">
 Por supuesto, ningún adaptador está libre de errores y algunos usuarios también pueden tener ideas de expansión. Todo lo que se sabe sobre los adaptadores instalados se recoge aquí. También puede utilizar esta lista para averiguar si el desarrollador también conoce un error que acaba de encontrar, porque solo se pueden corregir los errores conocidos.

@@ -238,7 +238,7 @@ Con un account Github, puoi anche votare direttamente per le richieste dell'adat
 
 Nella panoramica, le richieste dell'adattatore che hai votato sono visualizzate in verde e le richieste inferiori a 1 mese sono blu.
 
-## Problemi e bug
+## I miei adattatori
 
 <img height="200" align="left" src="img/issues_bugs.png">
 Ovviamente, nessun adattatore è privo di errori e alcuni utenti potrebbero avere anche idee di espansione. Tutto ciò che è noto sugli adattatori installati è raccolto qui. Puoi anche usare questo elenco per scoprire se un bug appena trovato è noto anche allo sviluppatore, perché solo i bug conosciuti possono essere corretti.

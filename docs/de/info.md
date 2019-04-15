@@ -238,7 +238,7 @@ Mit einem Github Account kann man auch direkt für Adapteranfragen abstimmen, in
 
 In der Übersicht werden Adapteranfragen, für die Sie abgestimmt haben, grün dargestellt und Anfragen die jünger als 1 Monat sind blau.
 
-## Probleme und Fehler
+## Meine Adapter
 
 <img height="200" align="left" src="img/issues_bugs.png">
 Natürlich sind keine Adapter Fehlerfrei und manche Anwender haben vielleicht auch Erweiterungsideen dazu. Hier wird alles gesammelt, was zu den installierten Adapter bekannt ist. Man kann diese Liste auch nutzen, um zu erfahren ob ein Fehler dass man eben gefunden hat, auch dem Entwickler bekannt ist, denn nur bekannte Fehler können auch behoben werden.

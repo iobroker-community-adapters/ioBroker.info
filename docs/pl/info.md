@@ -238,7 +238,7 @@ Z kontem Github możesz także głosować bezpośrednio na żądania adaptera, k
 
 W przeglądzie żądania adaptera, na które głosowałeś, są wyświetlane na zielono, a prośby młodsze niż 1 miesiąc są niebieskie.
 
-## Problemy i błędy
+## Moje adaptery
 
 <img height="200" align="left" src="img/issues_bugs.png">
 Oczywiście żadne adaptery nie są wolne od błędów, a niektórzy użytkownicy mogą również mieć pomysły na rozszerzenie. Tutaj zebrano wszystko, co wiadomo o zainstalowanych adapterach. Możesz także użyć tej listy, aby dowiedzieć się, czy znaleziony błąd jest również znany deweloperowi, ponieważ naprawione mogą być tylko znane błędy.

@@ -59,7 +59,7 @@ function addStarsToAdapterIssues() {
                 const stars = stargazers[fullNameId];
                 if (stars && $('#starsCounter' + fullNameId).length === 0) {
                     const button = "<div class='pull-right'><button type='button' title='" + (stars.starred ? _("Thanks for the adapter!") : _("I want to thank the developer...")) + "' data-fullname='" + full_name + "' id='reactionBI" + fullNameId + "' class='adaptersInstalledReaction btn btn-" + (stars.starred ? "success" : "default") + "'><i class='fa fa-thumbs-up fa-lg'></i></button></div>";
-                    const starCounter = "<span class='badge" + (stars.starred ? ' badge-success' : '') + "' id='starsCounter" + fullNameId + "'>" + stars.count + "</span>";
+                    const starCounter = "<span title='" + _("Total votes") + "' class='badge" + (stars.starred ? ' badge-success' : '') + "' id='starsCounter" + fullNameId + "'>" + stars.count + "</span>";
                     $('#adapterTitleIssueList' + fullNameId).prepend($(starCounter));
                     const $content = $('#adapterTitleIssueList' + fullNameId).parent().parent().find(".y_content");
                     $content.prepend($(button));

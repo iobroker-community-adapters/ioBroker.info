@@ -238,7 +238,7 @@ Avec un compte Github, vous pouvez également voter directement pour les demande
 
 Dans la vue d'ensemble, les demandes d'adaptateur pour lesquelles vous avez voté s'affichent en vert et les demandes de moins d'un mois en bleu.
 
-## Problèmes et bugs
+## Mes adaptateurs
 
 <img height="200" align="left" src="img/issues_bugs.png">
 Bien entendu, aucun adaptateur n'est exempt d'erreur et certains utilisateurs peuvent également avoir des idées d'extension. Tout ce qui est connu sur les adaptateurs installés est rassemblé ici. Vous pouvez également utiliser cette liste pour savoir si un bogue que vous venez de trouver est également connu du développeur, car seuls les bogues connus peuvent être corrigés.

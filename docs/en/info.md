@@ -238,7 +238,7 @@ With a Github account, you can also vote directly for adapter requests by clicki
 
 In the overview, adapter requests that you have voted for are displayed in green and requests younger than 1 month are blue.
 
-## Issues and bugs
+## My adapters
 
 <img height="200" align="left" src="img/issues_bugs.png">
 Of course, no adapters are error-free and some users may also have expansion ideas. Everything that is known about the installed adapters is collected here. You can also use this list to find out if a bug you just found is also known to the developer, because only known bugs can be fixed.

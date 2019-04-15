@@ -238,7 +238,7 @@ Met een Github-account kunt u ook direct op adapterverzoeken stemmen door te kli
 
 In het overzicht worden adapterverzoeken waarvoor u hebt gestemd in groen weergegeven en aanvragen die jonger zijn dan 1 maand zijn blauw.
 
-## Problemen en bugs
+## Mijn adapters
 
 <img height="200" align="left" src="img/issues_bugs.png">
 Natuurlijk zijn geen adapters foutloos en sommige gebruikers hebben ook ideeën voor uitbreiding. Alles wat bekend is over de geïnstalleerde adapters wordt hier verzameld. Je kunt deze lijst ook gebruiken om te achterhalen of een bug die je net hebt gevonden ook bekend is bij de ontwikkelaar, omdat alleen bekende bugs kunnen worden opgelost.

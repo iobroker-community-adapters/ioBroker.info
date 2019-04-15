@@ -404,8 +404,6 @@ query {
                         totalCount
                     }
                     viewerHasStarred
-                    shortDescriptionHTML
-                    diskUsage
                 }
             }
             cursor
