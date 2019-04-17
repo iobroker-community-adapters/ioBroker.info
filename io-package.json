@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.3.6",
+        "version": "1.3.7",
         "news": {
+            "1.3.7": {
+                "en": "Better integration to admin adapter",
+                "de": "Bessere Integration in den Admin-Adapter",
+                "ru": "Лучшая интеграция с адаптером администратора",
+                "pt": "Melhor integração ao adaptador de administração",
+                "nl": "Betere integratie met de Admin-adapter",
+                "fr": "Meilleure intégration à l'adaptateur administrateur",
+                "it": "Migliore integrazione con l'adattatore di amministrazione",
+                "es": "Mejor integración al adaptador de administración.",
+                "pl": "Lepsza integracja z adapterem administratora",
+                "zh-cn": "更好地集成到管理适配器"
+            },
             "1.3.6": {
                 "en": "Vote for adapters and show comments",
                 "de": "Stimmen Sie für Adapter und zeigen Sie Kommentare",
@@ -86,42 +98,6 @@
                 "es": "Agregado nuevo foro y noticias fijas.",
                 "pl": "Dodano nowe forum i stałe wiadomości",
                 "zh-cn": "添加了新论坛和固定新闻"
-            },
-            "1.0.2": {
-                "en": "Minor fixes",
-                "de": "Kleine Korrekturen",
-                "ru": "Незначительные исправления",
-                "pt": "Pequenas correções",
-                "fr": "Corrections mineures",
-                "nl": "Kleine fixes",
-                "it": "Correzioni minori",
-                "es": "Correcciones menores",
-                "pl": "Drobne poprawki",
-                "zh-cn": "小修正"
-            },
-            "1.0.1": {
-                "en": "Search for new adapters on Github",
-                "de": "Suche nach neuen Adaptern auf Github",
-                "ru": "Поиск новых адаптеров на Github",
-                "pt": "Procurar por novos adaptadores no Github",
-                "fr": "Recherche de nouveaux adaptateurs sur Github",
-                "nl": "Zoeken naar nieuwe adapters op Github",
-                "it": "Cerca nuovi adattatori su Github",
-                "es": "Buscar nuevos adaptadores en Github",
-                "pl": "Wyszukaj nowe adaptery na Github",
-                "zh-cn": "在Github上搜索新的适配器"
-            },
-            "1.0.0": {
-                "en": "Full compatibility to Admin 3.x.",
-                "de": "Volle Kompatibilität zu Admin 3.x",
-                "ru": "Полная совместимость с Admin 3.x.",
-                "pt": "Compatibilidade completa com Admin 3.x.",
-                "fr": "Compatibilité complète avec Admin 3.x.",
-                "nl": "Volledige compatibiliteit met Admin 3.x.",
-                "it": "Completa compatibilità con Admin 3.x.",
-                "es": "Compatibilidad completa con Admin 3.x.",
-                "pl": "Pełna zgodność z Adminem 3.x.",
-                "zh-cn": "与Admin 3.x完全兼容。"
             }
         },
         "title": "Information tab",
@@ -239,6 +215,18 @@
                 "name": "Last Newsfeed",
                 "type": "string",
                 "role": "json",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "last_popup",
+            "type": "state",
+            "common": {
+                "name": "Last accepted popup",
+                "type": "string",
+                "role": "date",
                 "read": true,
                 "write": false
             },

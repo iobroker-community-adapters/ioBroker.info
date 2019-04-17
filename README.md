@@ -43,6 +43,9 @@ There is a new widget to display important messages in VIS. These messages are d
 
 ## Changelog
 
+### 1.3.7 (2019-04-17)
+* (ldittmar) better integration to admin adapter
+
 ### 1.3.5 (2019-04-12)
 * (ldittmar) add likes for Adapters
 * (ldittmar) show comments for issues
