@@ -685,6 +685,11 @@ const updateCurrentUsersInfos = function () {
 };
 
 function main() {
+    adapter.getState('last_popup', function(err, obj){
+        if(!err && (!obj || !obj.val)){
+            adapter.setState('last_popup', {val: '2019-01-01T00:00:00.000Z', ack: true});
+        }
+    });    
     checkNews();
     setInterval(checkNews, 30 * 60 * 1000);
     updateSysinfo();
