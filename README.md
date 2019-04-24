@@ -28,6 +28,9 @@ After that just enter the API Key in the configuration of the adapter.
 ### Popup Messages (VIS Widget)
 There is a new widget to display important messages in VIS. These messages are displayed ONLY if certain conditions are met. Either from date x to date y or even if you have a specific adapter installed. If nothing is displayed then everything is ok.
 
+### Systeminformation
+Many thanks to sebhildebrandt for the great work on the package [systeminformation](https://github.com/sebhildebrandt/systeminformation), because without his work, we would not have all the great information about the system.
+
 ### Detailed informations
 
 * [Click here for the detailed documentation (en)](docs/en/info.md)
