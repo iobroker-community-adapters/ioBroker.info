@@ -31,6 +31,7 @@ const formatInfo = {
     'cpu.main': formatter.formatTemperature,
     'cpu.socket': formatter.formatTranslate,
     'cpu.coresSpeed': formatter.formatArrayGhz,
+    'cpu.cores': formatter.formatArrayTemperature,
     'cpu.max': formatter.formatTemperature,
     'memory.total': formatter.formatByte,
     'memory.free': formatter.formatByte,

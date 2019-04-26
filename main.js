@@ -299,20 +299,18 @@ const updateSysinfo = function () {
 
     sistm.cpuTemperature()
             .then(data => {
-                if (data['main'] > -1) {
-                    Object.keys(data).forEach(function (key) {
-                        if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] !== 'string') {
-                            setState('cpu', 'temperature', key, typeof data[key], data[key]);
-                        }
-                    });
-                    if (adapter.config.noCurrentSysData != true && adapter.config.cpuSpeed != 0) {
-                        let speed = adapter.config.cpuSpeed;
-                        if (!speed) {
-                            speed = 3;
-                        }
-                        adapter.log.info("Reading CPU temp data every " + speed + " seconds.");
-                        setInterval(updateCurrentCPUTempInfos, speed * 1000);
+                Object.keys(data).forEach(function (key) {
+                    if ((typeof data[key] === 'string' && data[key].length) || typeof data[key] !== 'string') {
+                        setState('cpu', 'temperature', key, typeof data[key], data[key]);
                     }
+                });
+                if (adapter.config.noCurrentSysData != true && adapter.config.cpuSpeed != 0) {
+                    let speed = adapter.config.cpuSpeed;
+                    if (!speed) {
+                        speed = 3;
+                    }
+                    adapter.log.info("Reading CPU temp data every " + speed + " seconds.");
+                    setInterval(updateCurrentCPUTempInfos, speed * 1000);
                 }
             })
             .catch(error => adapter.log.error(error));
@@ -685,11 +683,11 @@ const updateCurrentUsersInfos = function () {
 };
 
 function main() {
-    adapter.getState('last_popup', function(err, obj){
-        if(!err && (!obj || !obj.val)){
+    adapter.getState('last_popup', function (err, obj) {
+        if (!err && (!obj || !obj.val)) {
             adapter.setState('last_popup', {val: '2019-01-01T00:00:00.000Z', ack: true});
         }
-    });    
+    });
     checkNews();
     setInterval(checkNews, 30 * 60 * 1000);
     updateSysinfo();

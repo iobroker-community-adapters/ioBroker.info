@@ -86,6 +86,12 @@ const formatter = {
             result += "[" + item + " GHz] ";
         });
         return result;
+    }, formatArrayTemperature: function (array) {
+        let result = "";
+        array.forEach(function (item) {
+            result += "[" + item + " °C] ";
+        });
+        return result;
     }
 };
 
