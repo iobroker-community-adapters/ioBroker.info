@@ -1,6 +1,6 @@
 /* global systemLang, systemDictionary, io */
 
-const socket = io.connect();
+// const socket = io.connect();
 
 (function ($) {
     $.extend({
