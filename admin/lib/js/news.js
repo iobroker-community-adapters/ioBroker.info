@@ -43,7 +43,7 @@ async function readAndWriteNewsData() {
         feednami.setPublicApiKey(adapterConfig.feednami);
     }
     try {
-        const rss = await feednami.load('http://www.iobroker.net/docu/?feed=rss2&lang=' + newsLang);
+        const rss = await feednami.load('http://www.iobroker.net/blog_' + newsLang + '.xml');
         writeNewsData(rss);
     } catch (e) {
         $('#newsListLoader').remove();
