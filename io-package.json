@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.4.1",
+        "version": "1.4.2",
         "news": {
+            "1.4.2": {
+                "en": "News bug fixed",
+                "de": "News Bug behoben",
+                "ru": "Исправлена ​​ошибка новостей",
+                "pt": "Bug de notícias corrigido",
+                "nl": "Nieuws bug opgelost",
+                "fr": "Bogue de nouvelles corrigé",
+                "it": "Bug delle notizie corretto",
+                "es": "Error de noticias corregido",
+                "pl": "Naprawiono błąd wiadomości",
+                "zh-cn": "新闻错误已修复"
+            },
             "1.4.1": {
                 "en": "Removed default socket.io",
                 "de": "Standard Socket.io entfernt",
