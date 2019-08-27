@@ -290,7 +290,7 @@
         "class": "warning",
         "created": "2019-08-01T00:00:00.000Z",
         "conditions": {
-            "iot": "bigger(0.6.0)"
+            "iot": "between(1.0.0,1.0.3)"
         }
     }
 ]
