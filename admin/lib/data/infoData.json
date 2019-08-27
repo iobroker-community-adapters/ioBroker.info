@@ -21,7 +21,7 @@
             "feeds": ["https://bbs.iobroker.cn/?mod=rss"]
         }
     },
-    "supportedNewsLang": ["de", "en", "ru"],
+    "supportedNewsLang": ["de", "en", "ru", "zh-cn"],
     "languages": ["de", "en", "ru", "pt", "nl", "fr", "it", "es", "pl", "zh-cn"],
     "nodeOld": ["v0", "v4", "v5", "v7", "v9"],
     "nodeNew": ["v11", "v12"],
