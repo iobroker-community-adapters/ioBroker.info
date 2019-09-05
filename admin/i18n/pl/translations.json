@@ -18,6 +18,7 @@
     "CPU temperature": "Temperatura procesora ",
     "CPU-Load": "Użycie PROCESORA",
     "CPUs": "Procesory",
+    "Calling up current system data at too short intervals can lead to very high CPU consumption, especially under Windows. To switch off individual queries, set the slider to 0.": "Wyzwanie obecnym systemie dane na zbyt krótkich odstępach czasu może spowodować bardzo wysokie zużycie procesora, szczególnie pod Windows. W celu wyłączenia poszczególnych żądań, ustaw suwak na 0.",
     "Cancel": "Anuluj",
     "Chassis": "Podwozia",
     "Chinese": "chiński",

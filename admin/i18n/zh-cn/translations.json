@@ -18,6 +18,7 @@
     "CPU temperature": "CPU温度",
     "CPU-Load": "CPU负载",
     "CPUs": "CPUs",
+    "Calling up current system data at too short intervals can lead to very high CPU consumption, especially under Windows. To switch off individual queries, set the slider to 0.": "打电话了当前系统的数据在太短的时间间隔可能会导致非常高的中央处理消费，特别是在窗口。 关个人查询，设置滑到0。",
     "Cancel": "取消",
     "Chassis": "底盘",
     "Chinese": "中文",

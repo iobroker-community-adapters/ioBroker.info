@@ -18,6 +18,7 @@
     "CPU temperature": "La temperatura de la CPU",
     "CPU-Load": "La CPU de la Carga",
     "CPUs": "CPUs",
+    "Calling up current system data at too short intervals can lead to very high CPU consumption, especially under Windows. To switch off individual queries, set the slider to 0.": "El llamado sistema de la corriente de datos en intervalos cortos de tiempo puede conducir a muy alto consumo de CPU, especialmente bajo Windows. Para apagar las consultas individuales, ajuste el regulador a 0.",
     "Cancel": "Cancelar",
     "Chassis": "Chasis",
     "Chinese": "chino",

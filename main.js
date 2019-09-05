@@ -68,7 +68,7 @@ const checkNews = function () {
     const newsLink = 'https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/info/news.json';
 
     axios(newsLink).then(function (resp) {
-        adapter.log.info("Popup-News read...");
+        adapter.log.info("Popup-News readed...");
         adapter.setState('newsfeed', {val: JSON.stringify(resp.data), ack: true});
         adapter.getForeignObject('system.config', (err, obj) => {
             if (!err && obj) {

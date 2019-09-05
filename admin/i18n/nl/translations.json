@@ -18,6 +18,7 @@
     "CPU temperature": "CPU-temperatuur",
     "CPU-Load": "CPU-belasting",
     "CPUs": "CPU's",
+    "Calling up current system data at too short intervals can lead to very high CPU consumption, especially under Windows. To switch off individual queries, set the slider to 0.": "Het opvragen van actuele gegevens van het systeem bij een te korte tussenpozen kan leiden tot zeer hoge CPU verbruik, vooral onder Windows. Uitschakelen van individuele vragen, stel de schuifbalk in op 0.",
     "Cancel": "annuleren",
     "Chassis": "Chassis",
     "Chinese": "Chinese",

@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "info",
-        "version": "1.4.2",
+        "version": "1.4.3",
         "news": {
             "1.4.2": {
                 "en": "News bug fixed",
@@ -218,12 +218,12 @@
         "doc_langs": [],
         "feednami": "",
         "noCurrentSysData": false,
-        "cpuSpeed": 3,
-        "memSpeed": 3,
-        "diskSpeed": 8,
-        "batterySpeed": 8,
-        "networkSpeed": 3,
-        "allProcessesUsers": 8,
+        "cpuSpeed": 6,
+        "memSpeed": 6,
+        "diskSpeed": 10,
+        "batterySpeed": 10,
+        "networkSpeed": 6,
+        "allProcessesUsers": 10,
         "github_token": "",
         "hide_github_myIssues": false,
         "hide_github_myWatched": false,
