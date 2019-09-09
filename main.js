@@ -68,7 +68,7 @@ const checkNews = function () {
     const newsLink = 'https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/info/news.json';
 
     axios(newsLink).then(function (resp) {
-        adapter.log.info("Popup-News readed...");
+        adapter.log.info("Popup news was read...");
         adapter.setState('newsfeed', {val: JSON.stringify(resp.data), ack: true});
         adapter.getForeignObject('system.config', (err, obj) => {
             if (!err && obj) {
@@ -289,7 +289,7 @@ const updateSysinfo = function () {
                 if (adapter.config.noCurrentSysData != true && adapter.config.cpuSpeed != 0) {
                     let speed = adapter.config.cpuSpeed;
                     if (!speed) {
-                        speed = 3;
+                        speed = 60;
                     }
                     adapter.log.info("Reading CPU data every " + speed + " seconds.");
                     setInterval(updateCurrentCPUInfos, speed * 1000);
@@ -307,7 +307,7 @@ const updateSysinfo = function () {
                 if (adapter.config.noCurrentSysData != true && adapter.config.cpuSpeed != 0) {
                     let speed = adapter.config.cpuSpeed;
                     if (!speed) {
-                        speed = 3;
+                        speed = 60;
                     }
                     adapter.log.info("Reading CPU temp data every " + speed + " seconds.");
                     setInterval(updateCurrentCPUTempInfos, speed * 1000);
@@ -326,7 +326,7 @@ const updateSysinfo = function () {
                     if (adapter.config.noCurrentSysData != true && adapter.config.cpuSpeed != 0) {
                         let speed = adapter.config.cpuSpeed;
                         if (!speed) {
-                            speed = 3;
+                            speed = 60;
                         }
                         adapter.log.info("Reading CPU current speed every " + speed + " seconds.");
                         setInterval(updateCurrentCPUSpeed, speed * 1000);
@@ -344,7 +344,7 @@ const updateSysinfo = function () {
                 if (adapter.config.noCurrentSysData != true && adapter.config.memSpeed != 0) {
                     let speed = adapter.config.memSpeed;
                     if (!speed) {
-                        speed = 3;
+                        speed = 60;
                     }
                     adapter.log.info("Reading memory data every " + speed + " seconds.");
                     setInterval(updateCurrentMemoryInfos, speed * 1000);
@@ -394,7 +394,7 @@ const updateSysinfo = function () {
                 if (adapter.config.noCurrentSysData != true && adapter.config.allProcessesUsers != 0) {
                     let speed = adapter.config.allProcessesUsers;
                     if (!speed) {
-                        speed = 8;
+                        speed = 120;
                     }
                     adapter.log.info("Reading user data every " + speed + " seconds.");
                     setInterval(updateCurrentUsersInfos, speed * 1000);
@@ -413,7 +413,7 @@ const updateSysinfo = function () {
                 if (adapter.config.noCurrentSysData != true && adapter.config.allProcessesUsers != 0) {
                     let speed = adapter.config.allProcessesUsers;
                     if (!speed) {
-                        speed = 8;
+                        speed = 120;
                     }
                     adapter.log.info("Reading process data every " + speed + " seconds.");
                     setInterval(updateCurrentProcessInfos, speed * 1000);
@@ -470,7 +470,7 @@ const updateSysinfo = function () {
                     if (adapter.config.noCurrentSysData != true && adapter.config.diskSpeed != 0) {
                         let speed = adapter.config.diskSpeed;
                         if (!speed) {
-                            speed = 8;
+                            speed = 120;
                         }
                         adapter.log.info("Reading disk data every " + speed + " seconds.");
                         setInterval(updateCurrentFilesystemInfos, speed * 1000);
@@ -506,7 +506,7 @@ const updateSysinfo = function () {
                 if (adapter.config.noCurrentSysData != true && adapter.config.batterySpeed != 0) {
                     let speed = adapter.config.batterySpeed;
                     if (!speed) {
-                        speed = 8;
+                        speed = 120;
                     }
                     adapter.log.info("Reading battery data every " + speed + " seconds.");
                     setInterval(updateCurrentBatteryInfos, speed * 1000);
