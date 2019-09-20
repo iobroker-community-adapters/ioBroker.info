@@ -116,7 +116,7 @@ const githubHelper = {
     loadAssigned: async function () {
         $('#modal-githublist-title').html(_('Issues assigned to me') + "&nbsp;");
 
-        const issues = await getAllIssues(null, null, githubuser.login, true);
+        const issues = await getAllIssues(null, null, githubuser.login, true, true);
         $('#githublistLoader').addClass("hidden");
         if (issues) {
             await writeAllIssuesV4(issues, "githublistbody");
@@ -125,7 +125,7 @@ const githubHelper = {
     loadIssues: async function () {
         $('#modal-githublist-title').html(_('My issues list') + "&nbsp;");
 
-        const issues = await getAllIssues(null, null, githubuser.login);
+        const issues = await getAllIssues(null, null, githubuser.login, false, true);
         $('#githublistLoader').addClass("hidden");
         if (issues) {
             await writeAllIssuesV4(issues, "githublistbody");
@@ -179,12 +179,17 @@ const githubHelper = {
             body: JSON.stringify({query: query})
         })).json();
     },
-    getQueryForIssues: function (owner, name, login, isAdapterRequest, cursor, search) {
+    getQueryForIssues: function (owner, name, login, isAdapterRequest, cursor, search, onlyOpen = true) {
         let query = search ? getIssuesSearchQL : getIssuesDataQL;
 
         if (search) {
             query = query.replace("$assignee", login);
         } else {
+            if(onlyOpen){
+                query = query.replace("$states", ', states: OPEN');
+            }else{
+                query = query.replace("$states", '');
+            }
             if (login) {
                 query = query.replace("$repoORuser", 'user(login: "' + login + '"){').replace("$reactions", "").replace("$orderby", ", orderBy:{field: CREATED_AT, direction: DESC}");
             } else {
@@ -283,7 +288,7 @@ async function writeAllRepos(allRepos, id) {
 const getIssuesDataQL = `
 query{
     $repoORuser
-        issues(first: 100, states: OPEN$cursor$orderby) {
+        issues(first: 100$states$cursor$orderby) {
             totalCount
             edges {
                 node {
@@ -310,6 +315,7 @@ query{
                     author {
                         login
                     }
+                    state
                     createdAt
                     $reactions
                 }

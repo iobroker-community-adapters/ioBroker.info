@@ -38,7 +38,8 @@ function startForum() {
                 $item.find('.y_title').addClass('titleRSS');
                 $item.find('.title').addClass('titleRSS');
                 $item.find('.collapse-link').addClass('titleRSS');
-                $item.find('.titleLink').addClass('titleRSS').text(feed.title).attr('href', feed.link);
+                const title = feed.title.replace("Reply to ", "");
+                $item.find('.titleLink').addClass('titleRSS').text(title).attr('href', feed.link);
 
                 let desc = feed.description;
                 desc += "<div style='width: 100%; text-align: center;'>&#9711;&nbsp;&#9711;&nbsp;&#9711;</div>";

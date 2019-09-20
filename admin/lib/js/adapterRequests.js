@@ -2,10 +2,10 @@
 
 const allTitles = [];
 
-async function getAllIssues(owner, name, login, search) {
+async function getAllIssues(owner, name, login, search, onlyOpen) {
     let allIssues = [];
     const isAdapterRequest = (owner + "/" + name) === "ioBroker/AdapterRequests";
-    const firstQL = githubHelper.getQueryForIssues(owner, name, login, isAdapterRequest, null, search);
+    const firstQL = githubHelper.getQueryForIssues(owner, name, login, isAdapterRequest, null, search, onlyOpen);
 
     let issues = await githubHelper.getDataV4(firstQL);
 
@@ -15,7 +15,7 @@ async function getAllIssues(owner, name, login, search) {
         let hasNext = data.pageInfo.hasNextPage;
         let cursor = data.pageInfo.endCursor;
         while (hasNext) {
-            const nextQL = githubHelper.getQueryForIssues(owner, name, login, isAdapterRequest, cursor, search);
+            const nextQL = githubHelper.getQueryForIssues(owner, name, login, isAdapterRequest, cursor, search, onlyOpen);
             issues = await githubHelper.getDataV4(nextQL);
             if (issues && issues.data && (issues.data.repository || issues.data.user || issues.data.search)) {
                 data = login ? (search ? issues.data.search : issues.data.user.issues) : issues.data.repository.issues;
@@ -110,13 +110,29 @@ function writeAllIssuesV4(allIssues, id) {
             if (id === "adapterRequestList") {
                 $item.find('.title').prepend($("<span title='" + _("Total votes") + "' class='badge" + (issue.reactions.viewerHasReacted ? " badge-success" : "") + "' id='reactionARBadge" + issue.number + "'>" + issue.reactions.totalCount + "</span>"));
                 const votes = "<strong class='text-primary'>" + _("Total votes") + ": <span id='reactionARNumber" + issue.number + "'>" + issue.reactions.totalCount + "</span></strong>";
-                const thumb = "<div class='pull-right marginHoch'><button type='button' title='" + (issue.reactions.viewerHasReacted ? _("I voted!") : _("Vote for this adapter request!")) + "' id='reactionAR" + issue.number + "' class='adapterRequestReaction btn btn-" + (issue.reactions.viewerHasReacted ? 'success' : 'default') + "'><i class='fa fa-thumbs-up fa-lg'></i></button></div>";
-                $item.find('.y_content').append($(thumb)).append($(votes));
-                if (issue.reactions.viewerHasReacted) {
-                    $item.find('.y_title').css("background-color", "#dff0d8");
-                } else if ((now - createdAt) < (3600000 * 24 * 30)) {
-                    $item.find('.y_title').css("background-color", "#d9edf7");
+                let buttons = "<div class='pull-right marginHoch'>";
+                if (issue.comments.totalCount > 0) {
+                    buttons += "<button type='button' data-issue-id='" + issue.id + "' id='issueComments" + issue.databaseId + "' class='openIssueComments btn btn-default'><i class='fa fa-commenting fa-lg'></i></button>"
                 }
+                buttons += "<button type='button' title='" + (issue.reactions.viewerHasReacted ? _("I voted!") : _("Vote for this adapter request!")) + "' id='reactionAR" + issue.number + "' class='adapterRequestReaction btn btn-" + (issue.reactions.viewerHasReacted ? 'success' : 'default') + "'><i class='fa fa-thumbs-up fa-lg'></i></button>";
+                buttons += "</div>";
+                $item.find('.y_content').append($(buttons));
+                if (issue.state === "OPEN") {
+                    if (issue.reactions.viewerHasReacted) {
+                        $item.find('.y_title').css("background-color", "#dff0d8");
+                    } else if ((now - createdAt) < (3600000 * 24 * 30)) {
+                        $item.find('.y_title').css("background-color", "#d9edf7");
+                    }
+                } else {
+                    const lock = "<i class='fa fa-lock fa-2x text-warning'>&nbsp;</i>";
+                    $item.find('.y_content').append($(lock)).css("background-color", "#f2f2f2");
+                    if (issue.reactions.viewerHasReacted) {
+                        $item.find('.y_title').css("background-color", "#ccd8cc");
+                    } else {
+                        $item.find('.y_title').css("background-color", "#cccccc");
+                    }
+                }
+                $item.find('y_content').append($(votes));
             } else {
                 if (issue.comments.totalCount > 0) {
                     let number = issue.comments.totalCount;
@@ -224,7 +240,7 @@ function showAdapterRequest() {
             allIssues = JSON.parse(sessionStorage.getItem(storagePoint));
         } else {
             if (adapterConfig.github_token) {
-                allIssues = await getAllIssues("ioBroker", "AdapterRequests");
+                allIssues = await getAllIssues("ioBroker", "AdapterRequests", null, false, false);
             } else {
                 allIssues = await getAllIssuesFromAdapter("ioBroker/AdapterRequests");
             }

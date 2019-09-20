@@ -89,7 +89,7 @@ async function getAndWriteIssuesFor(id) {
     let allIssues;
     $("<div class='loader3 loader-small' id='loader_" + id + "'></div>").insertBefore("#issue_" + id);
     if (adapterConfig.github_token) {
-        allIssues = await getAllIssues(full_name[0], full_name[1]);
+        allIssues = await getAllIssues(full_name[0], full_name[1], null, false, true);
         await writeAllIssuesV4(allIssues, "issue_" + id);
     } else {
         allIssues = await getAllIssuesFromAdapter(full_name);

@@ -1,8 +1,11 @@
 {
     "common": {
         "name": "info",
-        "version": "1.4.3",
+        "version": "1.5.0",
         "news": {
+            "1.5.0": {
+                "en": "I don't know"
+            },
             "1.4.3": {
                 "en": "News bug fixed",
                 "de": "News Bug behoben",
@@ -98,30 +101,6 @@
                 "es": "Más información del sistema y mejor documentación.",
                 "pl": "Więcej informacji o systemie i lepsza dokumentacja",
                 "zh-cn": "更多系统信息和更好的文档"
-            },
-            "1.2.7": {
-                "en": "Some Design changes and fixes - stable candidate",
-                "de": "Einige Designänderungen und Korrekturen - stabiler Kandidat",
-                "ru": "Некоторые изменения и исправления в дизайне - стабильный кандидат",
-                "pt": "Algumas alterações de design e correções - candidato estável",
-                "nl": "Enkele ontwerpwijzigingen en -fixes - stabiele kandidaat",
-                "fr": "Quelques modifications et corrections de conception - candidat stable",
-                "it": "Alcune modifiche di design e correzioni - candidato stabile",
-                "es": "Algunos cambios de diseño y arreglos - candidato estable",
-                "pl": "Niektóre Projektuj zmiany i poprawki - stabilny kandydat",
-                "zh-cn": "一些设计变更和修复 - 稳定的候选人"
-            },
-            "1.1.0": {
-                "en": "Added new forum and fixed news",
-                "de": "Neues Forum und feste Nachrichten hinzugefügt",
-                "ru": "Добавлен новый форум и исправлены новости",
-                "pt": "Adicionado novo fórum e notícias fixas",
-                "nl": "Nieuw forum en vast nieuws toegevoegd",
-                "fr": "Ajout d'un nouveau forum et nouvelles fixes",
-                "it": "Aggiunto nuovo forum e notizie fisse",
-                "es": "Agregado nuevo foro y noticias fijas.",
-                "pl": "Dodano nowe forum i stałe wiadomości",
-                "zh-cn": "添加了新论坛和固定新闻"
             }
         },
         "title": "Information tab",
