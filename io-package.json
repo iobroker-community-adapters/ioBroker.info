@@ -4,7 +4,16 @@
         "version": "1.5.0",
         "news": {
             "1.5.0": {
-                "en": "I don't know"
+                "en": "New features for adapter request",
+                "de": "Neue Funktionen für die Adapteranforderung",
+                "ru": "Новые функции для запроса адаптера",
+                "pt": "Novos recursos para solicitação de adaptador",
+                "nl": "Nieuwe functies voor adapteraanvraag",
+                "fr": "Nouvelles fonctionnalités pour la demande d'adaptateur",
+                "it": "Nuove funzionalità per la richiesta dell'adattatore",
+                "es": "Nuevas características para solicitud de adaptador",
+                "pl": "Nowe funkcje żądania adaptera",
+                "zh-cn": "适配器请求的新功能"
             },
             "1.4.3": {
                 "en": "News bug fixed",
@@ -190,6 +199,7 @@
         "new_adapters_order": false,
         "new_adapters_closed": false,
         "adapter_request": true,
+        "adapter_request_close_hidden": false,
         "adapter_request_closed": false,
         "adapter_issue": true,
         "adapter_issue_closed": false,

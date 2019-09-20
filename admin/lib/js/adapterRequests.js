@@ -112,7 +112,7 @@ function writeAllIssuesV4(allIssues, id) {
                 const votes = "<strong class='text-primary'>" + _("Total votes") + ": <span id='reactionARNumber" + issue.number + "'>" + issue.reactions.totalCount + "</span></strong>";
                 let buttons = "<div class='pull-right marginHoch'>";
                 if (issue.comments.totalCount > 0) {
-                    buttons += "<button type='button' data-issue-id='" + issue.id + "' id='issueComments" + issue.databaseId + "' class='openIssueComments btn btn-default'><i class='fa fa-commenting fa-lg'></i></button>"
+                    buttons += "<button type='button' data-issue-id='" + issue.id + "' id='issueComments" + issue.databaseId + "' class='openIssueComments btn btn-default'><i class='fa fa-commenting fa-lg'></i></button>&nbsp;";
                 }
                 buttons += "<button type='button' title='" + (issue.reactions.viewerHasReacted ? _("I voted!") : _("Vote for this adapter request!")) + "' id='reactionAR" + issue.number + "' class='adapterRequestReaction btn btn-" + (issue.reactions.viewerHasReacted ? 'success' : 'default') + "'><i class='fa fa-thumbs-up fa-lg'></i></button>";
                 buttons += "</div>";
@@ -132,7 +132,7 @@ function writeAllIssuesV4(allIssues, id) {
                         $item.find('.y_title').css("background-color", "#cccccc");
                     }
                 }
-                $item.find('y_content').append($(votes));
+                $item.find('.y_content').append($(votes)).append($("<div class='marginRunter' id='allCommentsDiv" + issue.databaseId + "'></div>"));
             } else {
                 if (issue.comments.totalCount > 0) {
                     let number = issue.comments.totalCount;
@@ -240,7 +240,7 @@ function showAdapterRequest() {
             allIssues = JSON.parse(sessionStorage.getItem(storagePoint));
         } else {
             if (adapterConfig.github_token) {
-                allIssues = await getAllIssues("ioBroker", "AdapterRequests", null, false, false);
+                allIssues = await getAllIssues("ioBroker", "AdapterRequests", null, false, adapterConfig.adapter_request_close_hidden ? true : false);
             } else {
                 allIssues = await getAllIssuesFromAdapter("ioBroker/AdapterRequests");
             }
