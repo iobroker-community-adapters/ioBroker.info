@@ -114,7 +114,11 @@ function writeAllIssuesV4(allIssues, id) {
                 if (issue.comments.totalCount > 0) {
                     buttons += "<button type='button' data-issue-id='" + issue.id + "' id='issueComments" + issue.databaseId + "' class='openIssueComments btn btn-default'><i class='fa fa-commenting fa-lg'></i></button>&nbsp;";
                 }
-                buttons += "<button type='button' title='" + (issue.reactions.viewerHasReacted ? _("I voted!") : _("Vote for this adapter request!")) + "' id='reactionAR" + issue.number + "' class='adapterRequestReaction btn btn-" + (issue.reactions.viewerHasReacted ? 'success' : 'default') + "'><i class='fa fa-thumbs-up fa-lg'></i></button>";
+                if (issue.state === "OPEN") {
+                    buttons += "<button type='button' title='" + (issue.reactions.viewerHasReacted ? _("I voted!") : _("Vote for this adapter request!")) + "' id='reactionAR" + issue.number + "' class='adapterRequestReaction btn btn-" + (issue.reactions.viewerHasReacted ? 'success' : 'default') + "'><i class='fa fa-thumbs-up fa-lg'></i></button>";
+                }else if(issue.reactions.viewerHasReacted){
+                    buttons += "<button type='button' title='I voted!' class='btn btn-success'><i class='fa fa-thumbs-up fa-lg'></i></button>";
+                }
                 buttons += "</div>";
                 $item.find('.y_content').append($(buttons));
                 if (issue.state === "OPEN") {
