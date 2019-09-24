@@ -48,6 +48,7 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 ### 1.5.0 (xxxx-xx-xx)
 * (ldittmar) show comments for adapter requests
 * (ldittmar) show closed adapter requests
+* (ldittmar) check node version for messages
 
 ### 1.4.3 (2019-09-09)
 * (ldittmar) change systeminformation call interval

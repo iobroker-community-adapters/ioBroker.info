@@ -104,7 +104,19 @@ function procedeNewsfeed(messages, systemLang) {
                             adapter.log.debug("Conditions for " + key + " adapter");
                             const adapt = instances[key];
                             const condition = message.conditions[key];
-                            if (!adapt && condition !== "!installed") {
+                            let nodeVersion = process.version;
+                            nodeVersion = nodeVersion.substring(1, nodeVersion.length);
+                            if (condition.startsWith("node-smaller")) {
+                                const vers = condition.substring(13, condition.length - 1).trim();
+                                const checked = checkVersion(nodeVersion, vers);
+                                adapter.log.debug("Node version smaller: " + nodeVersion + " smaller " + vers + " -> " + checked);
+                                showIt = checked;
+                            } else if (condition.startsWith("node-bigger")) {
+                                const vers = condition.substring(12, condition.length - 1).trim();
+                                const checked = checkVersion(vers, nodeVersion);
+                                adapter.log.debug("Node version bigger: " + nodeVersion + " bigger " + vers + " -> " + checked);
+                                showIt = checked;
+                            } else if (!adapt && condition !== "!installed") {
                                 adapter.log.debug("Adapter shoud be installed");
                                 showIt = false;
                             } else if (adapt && condition === "!installed") {
