@@ -637,6 +637,9 @@ ul#cssClock li{
     .dl-lg dd {
         margin-left: 280px;
     }
+    .events {
+        top: -60px;
+    }
 }
 
 @media (max-width: 767px) {

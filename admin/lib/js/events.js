@@ -14,7 +14,7 @@ formatGoogleCalendar.init({
     recurringEvents: true,
     upcomingHeading: '<h4>' + _('Upcoming events') + '</h4>',
     pastHeading: '<h4>' + _('Past events') + '</h4>',
-    format: ['*date*', ': ', '*summary*', ' — ', '*description*', ' in ', '*location*'],
+    format: ['<div>', '*date*', ': ', '*summary*', '</div><div>', '*description*', ' in ', '*location*', '</div>'],
     timeMin: '2019-09-03T10:00:00-07:00',
     timeMax: '2021-06-03T10:00:00-07:00'
 });
