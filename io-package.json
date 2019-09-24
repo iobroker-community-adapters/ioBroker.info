@@ -3,17 +3,17 @@
         "name": "info",
         "version": "1.5.2",
         "news": {
-            "1.5.1": {
-                "en": "New features for adapter request",
-                "de": "Neue Funktionen für die Adapteranforderung",
-                "ru": "Новые функции для запроса адаптера",
-                "pt": "Novos recursos para solicitação de adaptador",
-                "nl": "Nieuwe functies voor adapteraanvraag",
-                "fr": "Nouvelles fonctionnalités pour la demande d'adaptateur",
-                "it": "Nuove funzionalità per la richiesta dell'adattatore",
-                "es": "Nuevas características para solicitud de adaptador",
-                "pl": "Nowe funkcje żądania adaptera",
-                "zh-cn": "适配器请求的新功能"
+            "1.5.2": {
+                "en": "New features for adapter request and little fixes",
+                "de": "Neue Funktionen für Adapteranfragen und kleine Korrekturen",
+                "ru": "Новые функции для запроса адаптера и небольшие исправления",
+                "pt": "Novos recursos para solicitação de adaptador e pequenas correções",
+                "nl": "Nieuwe functies voor adapteraanvraag en kleine oplossingen",
+                "fr": "Nouvelles fonctionnalités pour la demande d'adaptateur et de petites corrections",
+                "it": "Nuove funzionalità per la richiesta dell'adattatore e piccole correzioni",
+                "es": "Nuevas características para solicitud de adaptador y pequeñas correcciones",
+                "pl": "Nowe funkcje żądania adaptera i małe poprawki",
+                "zh-cn": "适配器请求的新功能和少量修复"
             },
             "1.4.3": {
                 "en": "News bug fixed",
