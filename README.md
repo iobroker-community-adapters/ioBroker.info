@@ -45,7 +45,7 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 * [单击此处获取详细文档 (zh-cn)](docs/zh-cn/info.md)
 
 ## Changelog
-### 1.5.0 (2019-09-24)
+### 1.5.1 (2019-09-24)
 * (ldittmar) show comments for adapter requests
 * (ldittmar) show closed adapter requests
 * (ldittmar) check node version for messages

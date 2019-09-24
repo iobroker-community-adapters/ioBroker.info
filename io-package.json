@@ -1,9 +1,9 @@
 {
     "common": {
         "name": "info",
-        "version": "1.5.0",
+        "version": "1.5.1",
         "news": {
-            "1.5.0": {
+            "1.5.1": {
                 "en": "New features for adapter request",
                 "de": "Neue Funktionen für die Adapteranforderung",
                 "ru": "Новые функции для запроса адаптера",
