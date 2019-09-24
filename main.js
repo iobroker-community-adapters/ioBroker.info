@@ -92,6 +92,36 @@ function procedeNewsfeed(messages, systemLang) {
                 messages.forEach(message => {
                     adapter.log.debug("Checking: " + message.title[systemLang]);
                     let showIt = true;
+
+                    if (showIt && message['node-version']) {
+                        let installedVersion = process.version;
+                        installedVersion = installedVersion.substring(1, installedVersion.length);
+
+                        const condition = message['node-version'];
+
+                        if (condition.startsWith("equals")) {
+                            const vers = condition.substring(7, condition.length - 1).trim();
+                            showIt = (installedVersion === vers);
+                            adapter.log.debug("NodeJS same version: " + installedVersion + " equals " + vers + " -> " + (installedVersion === vers));
+                        } else if (condition.startsWith("bigger")) {
+                            const vers = condition.substring(7, condition.length - 1).trim();
+                            const checked = checkVersion(vers, installedVersion);
+                            showIt = checked;
+                            adapter.log.debug("NodeJS bigger version: " + installedVersion + " bigger " + vers + " -> " + checked);
+                        } else if (condition.startsWith("smaller")) {
+                            const vers = condition.substring(8, condition.length - 1).trim();
+                            const checked = checkVersion(installedVersion, vers);
+                            showIt = checked;
+                            adapter.log.debug("NodeJS smaller version: " + installedVersion + " smaller " + vers + " -> " + checked);
+                        } else if (condition.startsWith("between")) {
+                            const vers1 = condition.substring(8, condition.indexOf(',')).trim();
+                            const vers2 = condition.substring(condition.indexOf(',') + 1, condition.length - 1).trim();
+                            const checked = checkVersionBetween(installedVersion, vers1, vers2);
+                            showIt = checked;
+                            adapter.log.debug("NodeJS between version: " + installedVersion + " between " + vers1 + " and " + vers2 + " -> " + checked);
+                        }
+                    }
+
                     if (showIt && message['date-start'] && new Date(message['date-start']).getTime() > today) {
                         adapter.log.debug("Date start ok");
                         showIt = false;
@@ -101,22 +131,12 @@ function procedeNewsfeed(messages, systemLang) {
                     } else if (showIt && message.conditions && Object.keys(message.conditions).length > 0) {
                         adapter.log.debug("Checking conditions...");
                         Object.keys(message.conditions).forEach(key => {
+                            
                             adapter.log.debug("Conditions for " + key + " adapter");
                             const adapt = instances[key];
                             const condition = message.conditions[key];
-                            let nodeVersion = process.version;
-                            nodeVersion = nodeVersion.substring(1, nodeVersion.length);
-                            if (condition.startsWith("node-smaller")) {
-                                const vers = condition.substring(13, condition.length - 1).trim();
-                                const checked = checkVersion(nodeVersion, vers);
-                                adapter.log.debug("Node version smaller: " + nodeVersion + " smaller " + vers + " -> " + checked);
-                                showIt = checked;
-                            } else if (condition.startsWith("node-bigger")) {
-                                const vers = condition.substring(12, condition.length - 1).trim();
-                                const checked = checkVersion(vers, nodeVersion);
-                                adapter.log.debug("Node version bigger: " + nodeVersion + " bigger " + vers + " -> " + checked);
-                                showIt = checked;
-                            } else if (!adapt && condition !== "!installed") {
+
+                            if (!adapt && condition !== "!installed") {
                                 adapter.log.debug("Adapter shoud be installed");
                                 showIt = false;
                             } else if (adapt && condition === "!installed") {
