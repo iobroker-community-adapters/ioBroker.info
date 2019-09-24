@@ -82,15 +82,23 @@ const formatter = {
         return bool;
     }, formatArrayGhz: function (array) {
         let result = "";
-        array.forEach(function (item) {
-            result += "[" + item + " GHz] ";
-        });
+        if (Array.isArray(array)) {
+            array.forEach(function (item) {
+                result += "[" + item + " GHz] ";
+            });
+        } else {
+            result += "[" + array + " GHz] ";
+        }
         return result;
     }, formatArrayTemperature: function (array) {
         let result = "";
-        array.forEach(function (item) {
-            result += "[" + item + " °C] ";
-        });
+        if (Array.isArray(array)) {
+            array.forEach(function (item) {
+                result += "[" + item + " °C] ";
+            });
+        } else {
+            result += "[" + array + " °C] ";
+        }
         return result;
     }
 };
