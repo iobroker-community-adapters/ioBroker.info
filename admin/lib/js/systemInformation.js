@@ -59,6 +59,7 @@ const formatInfo = {
     'network.internal': formatter.formatBoolean,
     'network.operstate': formatter.formatTranslate,
     'network.mtu': formatter.formatByte,
+    'network.virtual': formatter.formatBoolean,
     'graphics.resolutiony': formatter.formatPixel,
     'graphics.resolutionx': formatter.formatPixel,
     'graphics.pixeldepth': formatter.formatBits,

@@ -286,6 +286,7 @@
     "network.operstate": "Stan pracy",
     "network.speed": "Prędkość",
     "network.type": "Typ",
+    "network.virtual": "interfejs wirtualny",
     "no issues found": "Nie są znane żadne błędy, problemy ani żądania dotyczące wybranego adaptera.",
     "on save adapter restarts with new config immediately": "na karcie save natychmiast uruchamia się z nową konfiguracją",
     "only for experts": "Uwaga!! Adaptery te mogą znajdować się na bardzo wczesnym etapie i nie zaleca się instalowania ich w systemie produkcyjnym.",

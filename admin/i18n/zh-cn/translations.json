@@ -286,6 +286,7 @@
     "network.operstate": "操作状态",
     "network.speed": "速度",
     "network.type": "类型",
+    "network.virtual": "虚拟界面",
     "no issues found": "所选适配器没有已知的错误，问题或提交请求。",
     "on save adapter restarts with new config immediately": "保存适配器立即重新启动新配置",
     "only for experts": "注意!!这些适配器可能处于非常早期阶段，建议不要将它们安装在生产系统中。",

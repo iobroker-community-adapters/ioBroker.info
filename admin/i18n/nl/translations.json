@@ -286,6 +286,7 @@
     "network.operstate": "Operationele status",
     "network.speed": "Snelheid",
     "network.type": "Type",
+    "network.virtual": "virtuele interface",
     "no issues found": "Er zijn geen bekende bugs, problemen of verzoeken voor de geselecteerde adapter.",
     "on save adapter restarts with new config immediately": "on save-adapter wordt onmiddellijk opnieuw opgestart met nieuwe config",
     "only for experts": "Aandacht!! Deze adapters bevinden zich mogelijk in een zeer vroeg stadium en worden niet aanbevolen voor installatie in een productiesysteem.",
