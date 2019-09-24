@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "info",
-        "version": "1.5.2",
+        "version": "1.5.3",
         "news": {
             "1.5.2": {
                 "en": "New features for adapter request and little fixes",
@@ -194,6 +194,7 @@
         "news": true,
         "forum": true,
         "clock": false,
+        "events": true,
         "new_adapters": false,
         "new_adapters_sort": "name",
         "new_adapters_order": false,
