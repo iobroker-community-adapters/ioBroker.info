@@ -207,7 +207,7 @@ $(function () {
                 $('#popupnews').css('margin-top', '-40px');
             }
             
-             if (adapterConfig.events) {
+             if (adapterConfig.hide_events) {
                 $('.events').hide();
             } else {
                 formatGoogleCalendar.init({
