@@ -297,13 +297,13 @@ window.formatGoogleCalendar = function () {
     var getMonthName = function getMonthName(month) {
         var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-        return monthNames[month];
+        return _(monthNames[month]);
     };
 
     var getDayName = function getDayName(day) {
         var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-        return dayNames[day];
+        return _(dayNames[day]);
     };
 
     var calculateDate = function calculateDate(dateInfo, amount) {
@@ -350,7 +350,7 @@ window.formatGoogleCalendar = function () {
         }
 
         if (config.sameDayTimes && !moreDaysEvent && !isAllDayEvent) {
-            formattedTime = ' from ' + getFormattedTime(dateStart) + ' - ' + getFormattedTime(dateEnd);
+            formattedTime = ' ' + _('from') + ' ' + getFormattedTime(dateStart) + ' - ' + getFormattedTime(dateEnd);
         }
 
         //month day, year time-time
@@ -450,29 +450,17 @@ window.formatGoogleCalendar = function () {
 
     var getFormattedTime = function getFormattedTime(date) {
         var formattedTime = '',
-            period = 'AM',
             hour = date[3],
             minute = date[4];
 
-        // Handle afternoon.
-        if (hour >= 12) {
-            period = 'PM';
-
-            if (hour >= 13) {
-                hour -= 12;
-            }
-        }
-
-        // Handle midnight.
-        if (hour === 0) {
-            hour = 12;
-        }
+        // Ensure 2-digit minute value.
+        hour = (hour < 10 ? '0' : '') + hour;
 
         // Ensure 2-digit minute value.
         minute = (minute < 10 ? '0' : '') + minute;
 
         // Format time.
-        formattedTime = hour + ':' + minute + period;
+        formattedTime = hour + ':' + minute;
         return formattedTime;
     };
 
