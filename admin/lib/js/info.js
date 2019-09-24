@@ -217,7 +217,7 @@ $(function () {
                     sameDayTimes: true,
                     dayNames: false,
                     pastTopN: 0,
-                    upcomingTopN: 3,
+                    upcomingTopN: 2,
                     itemsTagName: 'li',
                     upcomingSelector: '#events-upcoming',
                     pastSelector: '#events-past',
