@@ -211,7 +211,7 @@ $(function () {
                 $('.events').hide();
             } else {
                 formatGoogleCalendar.init({
-                    calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/mh14bh7m2bdva7pb7tkirsbcsg@group.calendar.google.com/events?key=AIzaSyA4GWhsN21aMARuc6uyl45zdq8Ue5dJu10',
+                    calendarUrl: 'https://cors-anywhere.herokuapp.com/https://www.googleapis.com/calendar/v3/calendars/mh14bh7m2bdva7pb7tkirsbcsg@group.calendar.google.com/events?key=AIzaSyA4GWhsN21aMARuc6uyl45zdq8Ue5dJu10',
                     past: false,
                     upcoming: true,
                     sameDayTimes: true,
