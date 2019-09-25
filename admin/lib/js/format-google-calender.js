@@ -173,23 +173,26 @@ window.formatGoogleCalendar = function () {
         };
 
         //Get JSON, parse it, transform into list items and append it to past or upcoming events list
-        var request = new XMLHttpRequest();
-        request.open('GET', finalURL, true);
-
-        request.onload = function () {
-            if (request.status >= 200 && request.status < 400) {
-                var data = JSON.parse(request.responseText);
-                renderList(data, settings);
-            } else {
+        if (sessionStorage.getItem('ioBroker.info.events')) {
+            var data = JSON.parse(sessionStorage.getItem('ioBroker.info.events'));
+            renderList(data, settings);
+        } else {
+            var request = new XMLHttpRequest();
+            request.open('GET', finalURL, true);
+            request.onload = function () {
+                if (request.status >= 200 && request.status < 400) {
+                    sessionStorage.setItem('ioBroker.info.events', request.responseText);
+                    var data = JSON.parse(request.responseText);                   
+                    renderList(data, settings);
+                } else {
+                    console.error(request.statusText);
+                }
+            };
+            request.onerror = function () {
                 console.error(request.statusText);
-            }
-        };
-
-        request.onerror = function () {
-            console.error(request.statusText);
-        };
-
-        request.send();
+            };
+            request.send();
+        }
     };
 
     //Overwrites defaultSettings values with overrideSettings and adds overrideSettings if non existent in defaultSettings
