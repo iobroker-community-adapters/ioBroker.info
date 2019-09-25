@@ -357,7 +357,7 @@ window.formatGoogleCalendar = function () {
         }
 
         //month day, year time-time
-        return dayNameStart + getMonthName(dateStart[1]) + ' ' + dateStart[0] + ', ' + dateStart[2] + formattedTime;
+        return dayNameStart + dateStart[0] + ' ' + getMonthName(dateStart[1]) + ' ' + dateStart[2] + formattedTime;
     };
 
     var formatDateOneDay = function formatDateOneDay(dateStart, dayNames) {
