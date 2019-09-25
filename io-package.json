@@ -3,6 +3,18 @@
         "name": "info",
         "version": "1.5.3",
         "news": {
+            "1.5.3": {
+                "en": "Event calendar",
+                "de": "Veranstaltungskalender",
+                "ru": "Календарь событий",
+                "pt": "Calendário de eventos",
+                "nl": "Evenementen kalender",
+                "fr": "Calendrier de l'événement",
+                "it": "Calendario degli eventi",
+                "es": "Calendario de eventos",
+                "pl": "Kalendarz wydarzeń",
+                "zh-cn": "活动日历"
+            },
             "1.5.2": {
                 "en": "New features for adapter request and little fixes",
                 "de": "Neue Funktionen für Adapteranfragen und kleine Korrekturen",

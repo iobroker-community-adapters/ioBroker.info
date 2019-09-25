@@ -181,12 +181,12 @@ window.formatGoogleCalendar = function () {
                 var data = JSON.parse(request.responseText);
                 renderList(data, settings);
             } else {
-                console.error(err);
+                console.error(request.statusText);
             }
         };
 
         request.onerror = function () {
-            console.error(err);
+            console.error(request.statusText);
         };
 
         request.send();
@@ -346,7 +346,7 @@ window.formatGoogleCalendar = function () {
             dayNameStart = '';
 
         if (dayNames) {
-            dayNameStart = getDayNameFormatted(dateStart);
+            dayNameStart = getDayNameFormatted(dateStart) + ", ";
         }
 
         if (config.sameDayTimes && !moreDaysEvent && !isAllDayEvent) {
@@ -361,10 +361,10 @@ window.formatGoogleCalendar = function () {
         var dayName = '';
 
         if (dayNames) {
-            dayName = getDayNameFormatted(dateStart);
+            dayName = getDayNameFormatted(dateStart) + ", ";
         }
         //month day, year
-        return dayName + getMonthName(dateStart[1]) + ' ' + dateStart[0] + ', ' + dateStart[2];
+        return dayName + dateStart[0] + ' ' + getMonthName(dateStart[1]) + ' ' + dateStart[2];
     };
 
     var formatDateDifferentDay = function formatDateDifferentDay(dateStart, dateEnd, dayNames) {
@@ -372,11 +372,11 @@ window.formatGoogleCalendar = function () {
             dayNameEnd = '';
 
         if (dayNames) {
-            dayNameStart = getDayNameFormatted(dateStart);
-            dayNameEnd = getDayNameFormatted(dateEnd);
+            dayNameStart = getDayNameFormatted(dateStart) + ", ";
+            dayNameEnd = getDayNameFormatted(dateEnd) + ", ";
         }
         //month day-day, year
-        return dayNameStart + getMonthName(dateStart[1]) + ' ' + dateStart[0] + '-' + dayNameEnd + dateEnd[0] + ', ' + dateStart[2];
+        return dayNameStart + dateStart[0] + ' ' + getMonthName(dateStart[1]) + '-' + dayNameEnd + dateEnd[0] + ', ' + dateStart[2];
     };
 
     var formatDateDifferentMonth = function formatDateDifferentMonth(dateStart, dateEnd, dayNames) {
@@ -384,11 +384,11 @@ window.formatGoogleCalendar = function () {
             dayNameEnd = '';
 
         if (dayNames) {
-            dayNameStart = getDayNameFormatted(dateStart);
-            dayNameEnd = getDayNameFormatted(dateEnd);
+            dayNameStart = getDayNameFormatted(dateStart) + ", ";
+            dayNameEnd = getDayNameFormatted(dateEnd) + ", ";
         }
         //month day - month day, year
-        return dayNameStart + getMonthName(dateStart[1]) + ' ' + dateStart[0] + '-' + dayNameEnd + getMonthName(dateEnd[1]) + ' ' + dateEnd[0] + ', ' + dateStart[2];
+        return dayNameStart + dateStart[0] + ' ' + getMonthName(dateStart[1]) + '-' + dayNameEnd + dateEnd[0] + ' ' + getMonthName(dateEnd[1]) + ' ' + dateStart[2];
     };
 
     var formatDateDifferentYear = function formatDateDifferentYear(dateStart, dateEnd, dayNames) {
@@ -396,11 +396,11 @@ window.formatGoogleCalendar = function () {
             dayNameEnd = '';
 
         if (dayNames) {
-            dayNameStart = getDayNameFormatted(dateStart);
-            dayNameEnd = getDayNameFormatted(dateEnd);
+            dayNameStart = getDayNameFormatted(dateStart) + ", ";
+            dayNameEnd = getDayNameFormatted(dateEnd) + ", ";
         }
         //month day, year - month day, year
-        return dayNameStart + getMonthName(dateStart[1]) + ' ' + dateStart[0] + ', ' + dateStart[2] + '-' + dayNameEnd + getMonthName(dateEnd[1]) + ' ' + dateEnd[0] + ', ' + dateEnd[2];
+        return dayNameStart + dateStart[0] + ' ' + getMonthName(dateStart[1]) + ' ' + dateStart[2] + '-' + dayNameEnd + dateEnd[0] + ' ' + getMonthName(dateEnd[1]) + ' ' + dateEnd[2];
     };
 
     //Check differences between dates and format them
