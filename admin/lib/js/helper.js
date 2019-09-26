@@ -209,15 +209,6 @@ async function readInstanceConfig(callback) {
     });
 }
 
-function openCalendar() {
-    $('#modal-calendar').on('shown.bs.modal', function () {
-        $(this).find('iframe').attr('src', 'https://calendar.google.com/calendar/embed?src=mh14bh7m2bdva7pb7tkirsbcsg%40group.calendar.google.com&ctz=Europe%2FBerlin&mode=AGENDA');
-    });
-    $('#modal-calendar').modal({show: true});
-
-    $('iframe').load();
-}
-
 //-------------------------------------------------------- USABILITY FUNCTIONS -------------------------------------------------------------
 $(function () {
 

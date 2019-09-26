@@ -227,7 +227,7 @@ $(function () {
                     upcomingSelector: '#events-upcoming',
                     pastSelector: '#events-past',
                     recurringEvents: true,
-                    upcomingHeading: '<h4>' + _('Upcoming events') + ' <a href="javascript:;" onclick="openCalendar();"><i class="fa fa-calendar" aria-hidden="true"></i></a></h4>',
+                    upcomingHeading: '<h4>' + _('Upcoming events') + ' <a href="javascript:;" onclick="$("#modal-calendar").modal({show: true});"><i class="fa fa-calendar" aria-hidden="true"></i></a></h4>',
                     pastHeading: '<h4>' + _('Past events') + '</h4>',
                     format: ['<div class="block"><div class="block_content"><div class="y_title spoiler-content" style="padding-left: 20px;"><ul class="nav navbar-right panel_toolbox"><li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li></ul><span>', '*date*', ': ', '*summary*', '</span></div><div class="y_content spoiler-content" style="display: none;"><p class="description">', '*description*', ' in ', '*location*', '</p></div></div></div>']
                 });
