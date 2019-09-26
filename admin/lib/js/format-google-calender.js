@@ -257,7 +257,7 @@ window.formatGoogleCalendar = function () {
             description = result.description || '',
             location = result.location || '',
             i;
-
+    
         for (i = 0; i < format.length; i++) {
             format[i] = format[i].toString();
 
@@ -266,7 +266,7 @@ window.formatGoogleCalendar = function () {
             } else if (format[i] === '*date*') {
                 output = output.concat('<span class="date">' + dateFormatted + '</span>');
             } else if (format[i] === '*description*') {
-                output = output.concat('<span class="description">' + new showdown.Converter().makeHtml(description) + '</span>');
+                output = output.concat('<span class="description">' + new showdown.Converter({simplifiedAutoLink: true, openLinksInNewWindow: true}).makeHtml(description) + '</span>');
             } else if (format[i] === '*location*') {
                 output = output.concat('<span class="location">' + location + '</span>');
             } else {
