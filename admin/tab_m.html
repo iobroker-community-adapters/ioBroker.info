@@ -42,7 +42,7 @@
         <script type="text/javascript" src="lib/js/documentation.js"></script>
         <script type="text/javascript" src="lib/js/systemInformation.js"></script>        
         <script type="text/javascript" src="lib/js/info.js"></script>
-  
+
     </head>
     <body>
 
@@ -70,7 +70,7 @@
 
                         <div class="row justify-content-start">
 
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 clock">
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 clock">
                                 <div class="tile-stats">                            
                                     <ul id="cssClock">
                                         <li id="cssSec"></li>
@@ -82,7 +82,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12 popandgit">
+                            <div class="col-lg-5 col-md-4 col-sm-5 col-xs-5 popandgit">
                                 <div class="row">
                                     <div class="col-xs-12 text-center hidden" id="githubbuttonslist">
                                         <button type="button" data-href="" class="btn btn-default" id="myIssuesListOnGithub">
@@ -104,7 +104,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 events">
+                            <div class="col-lg-3 col-md-3 col-sm-11 col-xs-11 events">
                                 <ul class="list-unstyled timeline" id="events-upcoming"></ul>
                                 <ul class="list-unstyled timeline" id="events-past"></ul>
                             </div>
@@ -603,7 +603,7 @@
         <!-- / Install/Update -->
 
         <!-- Create GitHub Issue -->
-        <div id="modal-github" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-command" aria-hidden="true">
+        <div id="modal-github" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-github" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -669,7 +669,7 @@
         <!-- / Create GitHub Issue -->
 
         <!-- Create GitHub List -->
-        <div id="modal-githublist" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-command" aria-hidden="true">
+        <div id="modal-githublist" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-githublist" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -697,7 +697,7 @@
         <!-- / Create GitHub List -->
 
         <!-- Systemdetails -->
-        <div id="modal-system" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-command" aria-hidden="true">
+        <div id="modal-system" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-system" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -987,5 +987,16 @@
             </div>
         </div>
         <!-- / Systemdetails -->
+
+        <!-- Calendar -->
+         <div id="modal-calendar" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-calendar" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <iframe style="width: 100%;" src="" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+        <!-- / Calendar -->
+        
     </body>
 </html>

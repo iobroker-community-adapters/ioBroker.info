@@ -628,6 +628,9 @@ ul#cssClock li{
     .y_title h2.title:not(.titleRSS){
         margin-top: -5px;
     }
+    .events {
+        top: -60px;
+    }
 }
 
 @media (min-width: 768px){
@@ -636,10 +639,7 @@ ul#cssClock li{
     }
     .dl-lg dd {
         margin-left: 280px;
-    }
-    .events {
-        top: -60px;
-    }
+    }    
 }
 
 @media (max-width: 767px) {

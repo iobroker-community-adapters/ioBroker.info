@@ -113,7 +113,7 @@ function showDocumentation() {
 
     getDocuments();
 
-    if (adapterConfig.clock) {
+    if (adapterConfig.clock && adapterConfig.hide_events) {
         $('.documentationButton').parent().removeClass('rotate-button');
     }
 }
