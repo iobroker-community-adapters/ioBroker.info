@@ -1,4 +1,6 @@
-/******/ (function(modules) { // webpackBootstrap
+/******/ /* global showdown */
+
+(function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -264,7 +266,7 @@ window.formatGoogleCalendar = function () {
             } else if (format[i] === '*date*') {
                 output = output.concat('<span class="date">' + dateFormatted + '</span>');
             } else if (format[i] === '*description*') {
-                output = output.concat('<span class="description">' + description + '</span>');
+                output = output.concat('<span class="description">' + new showdown.Converter().makeHtml(description) + '</span>');
             } else if (format[i] === '*location*') {
                 output = output.concat('<span class="location">' + location + '</span>');
             } else {
