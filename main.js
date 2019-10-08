@@ -6,6 +6,9 @@
 const utils = require('@iobroker/adapter-core'); // Get common adapter utils
 const axios = require('axios');
 const sistm = require('systeminformation');
+const path = require('path');
+const child_process = require('child_process');
+const semver = require('semver');
 
 const cpuUsed = [];
 const cpuTemp = [];
@@ -63,6 +66,43 @@ function startAdapter(options) {
     return adapter;
 }
 
+const versions = getSystemVersions();
+function getSystemVersions() {
+    // Run npm -v and extract the version string
+    const ret = {
+        npm: undefined,
+        node: undefined
+    };
+    try {
+        let npmVersion;
+        ret.node = semver.valid(process.version);
+        try {
+            // remove local node_modules\.bin dir from path
+            // or we potentially get a wrong npm version
+            const newEnv = Object.assign({}, process.env);
+            newEnv.PATH = (newEnv.PATH || newEnv.Path || newEnv.path)
+                    .split(path.delimiter)
+                    .filter(dir => {
+                        dir = dir.toLowerCase();
+                        return !(dir.indexOf('iobroker') > -1 && dir.indexOf(path.join('node_modules', '.bin')) > -1);
+                    })
+                    .join(path.delimiter);
+
+            npmVersion = child_process.execSync('npm -v', {encoding: 'utf8', env: newEnv});
+            if (npmVersion) {
+                npmVersion = semver.valid(npmVersion.trim());
+            }
+            ret.npm = npmVersion;
+        } catch (e) {
+            adapter.log.error('Error trying to check npm version: ' + e);
+        }
+    } catch (e) {
+        adapter.log.error('Could not check npm version: ' + e);
+        adapter.log.error('Assuming that correct version is installed.');
+    }
+    return ret;
+}
+
 const checkNews = function () {
 
     const newsLink = 'https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/info/news.json';
@@ -81,6 +121,32 @@ const checkNews = function () {
     });
 };
 
+function checkConditions(condition, installedVersion) {
+    if (condition.startsWith("equals")) {
+        const vers = condition.substring(7, condition.length - 1).trim();
+        adapter.log.debug("NodeJS same version: " + installedVersion + " equals " + vers + " -> " + (installedVersion === vers));
+        return (installedVersion === vers);
+    } else if (condition.startsWith("bigger")) {
+        const vers = condition.substring(7, condition.length - 1).trim();
+        const checked = checkVersion(vers, installedVersion);
+        adapter.log.debug("NodeJS bigger version: " + installedVersion + " bigger " + vers + " -> " + checked);
+        return checked;
+    } else if (condition.startsWith("smaller")) {
+        const vers = condition.substring(8, condition.length - 1).trim();
+        const checked = checkVersion(installedVersion, vers);
+        adapter.log.debug("NodeJS smaller version: " + installedVersion + " smaller " + vers + " -> " + checked);
+        return checked;
+    } else if (condition.startsWith("between")) {
+        const vers1 = condition.substring(8, condition.indexOf(',')).trim();
+        const vers2 = condition.substring(condition.indexOf(',') + 1, condition.length - 1).trim();
+        const checked = checkVersionBetween(installedVersion, vers1, vers2);
+        adapter.log.debug("NodeJS between version: " + installedVersion + " between " + vers1 + " and " + vers2 + " -> " + checked);
+        return checked;
+    } else {
+        return true;
+    }
+}
+
 function procedeNewsfeed(messages, systemLang) {
     adapter.log.debug("Messages: " + messages.length);
     if (messages.length > 0) {
@@ -93,35 +159,6 @@ function procedeNewsfeed(messages, systemLang) {
                     adapter.log.debug("Checking: " + message.title[systemLang]);
                     let showIt = true;
 
-                    if (showIt && message['node-version']) {
-                        let installedVersion = process.version;
-                        installedVersion = installedVersion.substring(1, installedVersion.length);
-
-                        const condition = message['node-version'];
-
-                        if (condition.startsWith("equals")) {
-                            const vers = condition.substring(7, condition.length - 1).trim();
-                            showIt = (installedVersion === vers);
-                            adapter.log.debug("NodeJS same version: " + installedVersion + " equals " + vers + " -> " + (installedVersion === vers));
-                        } else if (condition.startsWith("bigger")) {
-                            const vers = condition.substring(7, condition.length - 1).trim();
-                            const checked = checkVersion(vers, installedVersion);
-                            showIt = checked;
-                            adapter.log.debug("NodeJS bigger version: " + installedVersion + " bigger " + vers + " -> " + checked);
-                        } else if (condition.startsWith("smaller")) {
-                            const vers = condition.substring(8, condition.length - 1).trim();
-                            const checked = checkVersion(installedVersion, vers);
-                            showIt = checked;
-                            adapter.log.debug("NodeJS smaller version: " + installedVersion + " smaller " + vers + " -> " + checked);
-                        } else if (condition.startsWith("between")) {
-                            const vers1 = condition.substring(8, condition.indexOf(',')).trim();
-                            const vers2 = condition.substring(condition.indexOf(',') + 1, condition.length - 1).trim();
-                            const checked = checkVersionBetween(installedVersion, vers1, vers2);
-                            showIt = checked;
-                            adapter.log.debug("NodeJS between version: " + installedVersion + " between " + vers1 + " and " + vers2 + " -> " + checked);
-                        }
-                    }
-
                     if (showIt && message['date-start'] && new Date(message['date-start']).getTime() > today) {
                         adapter.log.debug("Date start ok");
                         showIt = false;
@@ -131,7 +168,7 @@ function procedeNewsfeed(messages, systemLang) {
                     } else if (showIt && message.conditions && Object.keys(message.conditions).length > 0) {
                         adapter.log.debug("Checking conditions...");
                         Object.keys(message.conditions).forEach(key => {
-                            
+
                             adapter.log.debug("Conditions for " + key + " adapter");
                             const adapt = instances[key];
                             const condition = message.conditions[key];
@@ -142,28 +179,26 @@ function procedeNewsfeed(messages, systemLang) {
                             } else if (adapt && condition === "!installed") {
                                 adapter.log.debug("Adapter shoud not be installed");
                                 showIt = false;
-                            } else if (adapt && condition.startsWith("equals")) {
-                                const vers = condition.substring(7, condition.length - 1).trim();
-                                adapter.log.debug("Adapter same version: " + adapt.version + " equals " + vers + " -> " + (adapt.version === vers));
-                                showIt = (adapt.version === vers);
-                            } else if (adapt && condition.startsWith("bigger")) {
-                                const vers = condition.substring(7, condition.length - 1).trim();
-                                const checked = checkVersion(vers, adapt.version);
-                                adapter.log.debug("Adapter bigger version: " + adapt.version + " bigger " + vers + " -> " + checked);
-                                showIt = checked;
-                            } else if (adapt && condition.startsWith("smaller")) {
-                                const vers = condition.substring(8, condition.length - 1).trim();
-                                const checked = checkVersion(adapt.version, vers);
-                                adapter.log.debug("Adapter smaller version: " + adapt.version + " smaller " + vers + " -> " + checked);
-                                showIt = checked;
-                            } else if (adapt && condition.startsWith("between")) {
-                                const vers1 = condition.substring(8, condition.indexOf(',')).trim();
-                                const vers2 = condition.substring(condition.indexOf(',') + 1, condition.length - 1).trim();
-                                const checked = checkVersionBetween(adapt.version, vers1, vers2);
-                                adapter.log.debug("Adapter between version: " + adapt.version + " between " + vers1 + " and " + vers2 + " -> " + checked);
-                                showIt = checked;
+                            } else if (adapt) {
+                                showIt = checkConditions(condition, adapt.version);
                             }
+
                         });
+                    }
+
+                    if (showIt && message['node-version']) {
+                        const condition = message['node-version'];
+                        showIt = checkConditions(condition, versions.node);
+                    }
+                    if (showIt && message['npm-version']) {
+                        if (versions.npm != null) {
+                            const condition = message['npm-version'];
+                            showIt = checkConditions(condition, versions.npm);
+                        }
+                    }
+                    if (showIt && messages['os']) {
+                        const condition = message['os'];
+                        showIt = process.platform === condition;
                     }
 
                     if (showIt) {

@@ -1,9 +1,21 @@
 {
     "common": {
         "name": "info",
-        "version": "1.5.4",
+        "version": "1.5.5",
         "news": {
-            "1.5.3": {
+            "1.5.5": {
+                "en": "Add NPM and OS check for popup",
+                "de": "NPM- und Betriebssystemprüfung für Popup hinzufügen",
+                "ru": "Добавить проверку NPM и ОС для всплывающих окон",
+                "pt": "Adicionar NPM e verificação do SO para pop-up",
+                "nl": "NPM en OS-controle voor pop-up toevoegen",
+                "fr": "Ajouter NPM et vérification du système d'exploitation pour les fenêtres contextuelles",
+                "it": "Aggiungi NPM e controllo OS per popup",
+                "es": "Agregar NPM y verificación del sistema operativo para ventana emergente",
+                "pl": "Dodaj narzędzie NPM i OS do wyskakującego okienka",
+                "zh-cn": "添加NPM和OS检查弹出窗口"
+            },
+            "1.5.4": {
                 "en": "Event calendar",
                 "de": "Veranstaltungskalender",
                 "ru": "Календарь событий",

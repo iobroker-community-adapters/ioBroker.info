@@ -45,7 +45,10 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 * [单击此处获取详细文档 (zh-cn)](docs/zh-cn/info.md)
 
 ## Changelog
-### 1.5.3 (2019-09-25)
+### 1.5.5
+* (ldittmar) Add NPM and OS check for popup
+
+### 1.5.4 (2019-09-25)
 * (ldittmar) add event calendar
 
 ### 1.5.2 (2019-09-24)

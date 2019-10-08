@@ -1,4 +1,4 @@
-/* global socket, systemLang, io */
+/* global socket, systemLang, io, sytemData */
 
 function startPopupNews() {
     socket.emit('subscribe', 'info.0.newsfeed');
@@ -61,6 +61,24 @@ const newsPopup = {
             messages = await newsPopup.getAdaptersAndcheckMessages(obj, id, dummy);
         }
     },
+    checkConditions: function (condition, installedVersion) {
+        if (condition.startsWith("equals")) {
+            const vers = condition.substring(7, condition.length - 1).trim();
+            return (installedVersion === vers);
+        } else if (condition.startsWith("bigger")) {
+            const vers = condition.substring(7, condition.length - 1).trim();
+            return newsPopup.checkVersion(vers, installedVersion);
+        } else if (condition.startsWith("smaller")) {
+            const vers = condition.substring(8, condition.length - 1).trim();
+            return newsPopup.checkVersion(installedVersion, vers);
+        } else if (condition.startsWith("between")) {
+            const vers1 = condition.substring(8, condition.indexOf(',')).trim();
+            const vers2 = condition.substring(condition.indexOf(',') + 1, condition.length - 1).trim();
+            return newsPopup.checkVersionBetween(installedVersion, vers1, vers2);
+        } else {
+            return true;
+        }
+    },
     checkMessages: async function (obj, instAdapters) {
         const messagesToShow = [];
         try {
@@ -69,28 +87,6 @@ const newsPopup = {
             if (messages.length > 0) {
                 await asyncForEach(messages, async function (message) {
                     let showIt = true;
-
-                    if (showIt && message['node-version']) {
-                        let installedVersion = process.version;
-                        installedVersion = installedVersion.substring(1, installedVersion.length);
-
-                        const condition = message['node-version'];
-
-                        if (condition.startsWith("equals")) {
-                            const vers = condition.substring(7, condition.length - 1).trim();
-                            showIt = (installedVersion === vers);
-                        } else if (condition.startsWith("bigger")) {
-                            const vers = condition.substring(7, condition.length - 1).trim();
-                            showIt = newsPopup.checkVersion(vers, installedVersion);
-                        } else if (condition.startsWith("smaller")) {
-                            const vers = condition.substring(8, condition.length - 1).trim();
-                            showIt = newsPopup.checkVersion(installedVersion, vers);
-                        } else if (condition.startsWith("between")) {
-                            const vers1 = condition.substring(8, condition.indexOf(',')).trim();
-                            const vers2 = condition.substring(condition.indexOf(',') + 1, condition.length - 1).trim();
-                            showIt = newsPopup.checkVersionBetween(installedVersion, vers1, vers2);
-                        }
-                    }
 
                     if (showIt && message['date-start'] && new Date(message['date-start']).getTime() > today) {
                         showIt = false;
@@ -112,21 +108,22 @@ const newsPopup = {
                                 showIt = false;
                             } else if (adapter && condition === "!installed") {
                                 showIt = false;
-                            } else if (adapter && condition.startsWith("equals")) {
-                                const vers = condition.substring(7, condition.length - 1).trim();
-                                showIt = (adapter.version === vers);
-                            } else if (adapter && condition.startsWith("bigger")) {
-                                const vers = condition.substring(7, condition.length - 1).trim();
-                                showIt = newsPopup.checkVersion(vers, adapter.version);
-                            } else if (adapter && condition.startsWith("smaller")) {
-                                const vers = condition.substring(8, condition.length - 1).trim();
-                                showIt = newsPopup.checkVersion(adapter.version, vers);
-                            } else if (adapter && condition.startsWith("between")) {
-                                const vers1 = condition.substring(8, condition.indexOf(',')).trim();
-                                const vers2 = condition.substring(condition.indexOf(',') + 1, condition.length - 1).trim();
-                                showIt = newsPopup.checkVersionBetween(adapter.version, vers1, vers2);
+                            } else if (adapter) {
+                                showIt = newsPopup.checkConditions(condition, adapter.version);
                             }
                         });
+                    }
+
+                    if (showIt && message['node-version']) {
+                        const condition = message['node-version'];
+                        showIt = newsPopup.checkConditions(condition, sytemData.node);
+                    }
+                    if (showIt && message['npm-version']) {
+                        const condition = message['npm-version'];
+                        showIt = newsPopup.checkConditions(condition, sytemData.npm);
+                    }
+                    if (showIt && message['os']) {
+                        showIt = sytemData.os === message['os'];
                     }
 
                     if (showIt) {

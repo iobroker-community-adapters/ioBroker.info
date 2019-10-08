@@ -8,6 +8,8 @@ let documentationData = {};
 let systemConfig = {};
 let adapterConfig = {};
 
+const systemData = {};
+
 let systemInfoForGithub = "";
 let githubMarkdownArea;
 
@@ -186,6 +188,22 @@ async function readInstanceConfig(callback) {
 
         }
     }
+
+    socket.emit('getState', 'info.0.sysinfo.os.versions.node', function (err, data) {
+        if (!err && data) {
+            systemData['node'] = data.val;
+        }
+    });
+    socket.emit('getState', 'info.0.sysinfo.os.versions.npm', function (err, data) {
+        if (!err && data) {
+            systemData['npm'] = data.val;
+        }
+    });
+    socket.emit('getState', 'info.0.sysinfo.os.info.platform', function (err, data) {
+        if (!err && data) {
+            systemData['os'] = data.val;
+        }
+    });
 
     socket.emit('getObject', 'system.config', function (err, data) {
         systemConfig = data;
