@@ -128,121 +128,114 @@ $(function () {
     //------------------------------------------------------- FILL DATA -----------------------------------------------------------------------   
     readInstanceConfig(async function () {
 
-        if (parent.window.location.hash === "#tab-info") {
+        getHosts(await getNodeVersionList());
 
-            getHosts(await getNodeVersionList());
-
-            if (adapterConfig.forum) {
-                startForum();
-            } else {
-                $('#forumBlock').hide();
-            }
-
-            if (adapterConfig.news) {
-                checkNewsLang();
-                readAndWriteNewsData();
-            } else {
-                $('#newsBlock').hide();
-            }
-
-            if (!adapterConfig.clock) {
-                startClock("start");
-            } else {
-                $('.clock').hide();
-            }
-
-            //adapterRequestIssueBlock
-            searchAdaptersOnGithub();
-            let blockCounter = [];
-            if (adapterConfig.new_adapters) {
-                blockCounter.push('#adapterSearchBlock');
-            } else {
-                $('#adapterSearchBlock').hide();
-            }
-            if (adapterConfig.adapter_request) {
-                blockCounter.push('#adapterRequestBlock');
-                showAdapterRequest();
-            } else {
-                $('#adapterRequestBlock').hide();
-            }
-            if (adapterConfig.adapter_issue) {
-                blockCounter.push('#knownIssuesBlock');
-                showIssues();
-            } else {
-                $('#knownIssuesBlock').hide();
-            }
-
-            if (blockCounter.length === 0) {
-                $('#adapterRequestIssueBlock').hide();
-            } else if (blockCounter.length === 1) {
-                $(blockCounter[0]).removeClass().addClass("col-xs-12 col-sm-12 col-md-12 col-lg-12");
-            } else if (blockCounter.length === 2) {
-                $(blockCounter[0]).removeClass().addClass("col-xs-12 col-sm-12 col-md-6 col-lg-6");
-                $(blockCounter[1]).removeClass().addClass("col-xs-12 col-sm-12 col-md-6 col-lg-6");
-            }
-
-            if (adapterConfig.documentation) {
-                showDocumentation();
-            } else {
-                $('.rotate-button').hide();
-            }
-
-            if (adapterConfig.github_token) {
-                if (adapterConfig.hide_github_myIssues) {
-                    $('#myIssuesListOnGithub').remove();
-                }
-                if (adapterConfig.hide_github_myWatched) {
-                    $('#myWatchedListOnGithub').remove();
-                }
-                if (adapterConfig.hide_github_myStarred) {
-                    $('#myStarredListOnGithub').remove();
-                }
-                if (adapterConfig.hide_github_myAssigned) {
-                    $('#myAssignedListOnGithub').remove();
-                }
-                githubHelper.getUserdata();
-                $('#githubbuttonslist').removeClass('hidden');
-            } else {
-                $('#popupnews').css('margin-top', '-40px');
-            }
-
-            if (adapterConfig.hide_events) {
-                $('.events').hide();
-                if (adapterConfig.clock) {
-                    //Uhr auch nicht da
-                    $('.popandgit').removeClass().addClass("col-xs-9 col-sm-9 col-md-9 col-lg-9 popandgit");
-                } else {
-                    $('.popandgit').removeClass().addClass("col-xs-11 col-sm-11 col-md-7 col-lg-7 popandgit");
-                }
-            } else {
-                formatGoogleCalendar.init({
-                    calendarUrl: 'https://cors-anywhere.herokuapp.com/https://www.googleapis.com/calendar/v3/calendars/mh14bh7m2bdva7pb7tkirsbcsg@group.calendar.google.com/events?key=AIzaSyA4GWhsN21aMARuc6uyl45zdq8Ue5dJu10',
-                    past: false,
-                    upcoming: true,
-                    sameDayTimes: true,
-                    dayNames: false,
-                    pastTopN: 0,
-                    upcomingTopN: 2,
-                    itemsTagName: 'li',
-                    upcomingSelector: '#events-upcoming',
-                    pastSelector: '#events-past',
-                    recurringEvents: true,
-                    upcomingHeading: '<h4>' + _('Upcoming events') + ' <a href="javascript:;" onclick="$(\'#modal-calendar\').modal({show: true});"><i class="fa fa-calendar" aria-hidden="true"></i></a></h4>',
-                    pastHeading: '<h4>' + _('Past events') + '</h4>',
-                    format: ['<div class="block"><div class="block_content"><div class="y_title spoiler-content" style="padding-left: 20px;"><ul class="nav navbar-right panel_toolbox"><li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li></ul><span>', '*date*', ': ', '*summary*', '</span></div><div class="y_content spoiler-content" style="display: none;"><p class="description">', '*description*', ' in ', '*location*', '</p></div></div></div>']
-                });
-            }
-
-            translateAll(systemLang);
-
-            startPopupNews();
-
-            systemInformations.getData();
-
+        if (adapterConfig.forum) {
+            startForum();
         } else {
-            socket.emit('unsubscribe', 'info.0.*');
-            startClock("stop");
+            $('#forumBlock').hide();
         }
+
+        if (adapterConfig.news) {
+            checkNewsLang();
+            readAndWriteNewsData();
+        } else {
+            $('#newsBlock').hide();
+        }
+
+        if (!adapterConfig.clock) {
+            startClock("start");
+        } else {
+            $('.clock').hide();
+        }
+
+        //adapterRequestIssueBlock
+        searchAdaptersOnGithub();
+        let blockCounter = [];
+        if (adapterConfig.new_adapters) {
+            blockCounter.push('#adapterSearchBlock');
+        } else {
+            $('#adapterSearchBlock').hide();
+        }
+        if (adapterConfig.adapter_request) {
+            blockCounter.push('#adapterRequestBlock');
+            showAdapterRequest();
+        } else {
+            $('#adapterRequestBlock').hide();
+        }
+        if (adapterConfig.adapter_issue) {
+            blockCounter.push('#knownIssuesBlock');
+            showIssues();
+        } else {
+            $('#knownIssuesBlock').hide();
+        }
+
+        if (blockCounter.length === 0) {
+            $('#adapterRequestIssueBlock').hide();
+        } else if (blockCounter.length === 1) {
+            $(blockCounter[0]).removeClass().addClass("col-xs-12 col-sm-12 col-md-12 col-lg-12");
+        } else if (blockCounter.length === 2) {
+            $(blockCounter[0]).removeClass().addClass("col-xs-12 col-sm-12 col-md-6 col-lg-6");
+            $(blockCounter[1]).removeClass().addClass("col-xs-12 col-sm-12 col-md-6 col-lg-6");
+        }
+
+        if (adapterConfig.documentation) {
+            showDocumentation();
+        } else {
+            $('.rotate-button').hide();
+        }
+
+        if (adapterConfig.github_token) {
+            if (adapterConfig.hide_github_myIssues) {
+                $('#myIssuesListOnGithub').remove();
+            }
+            if (adapterConfig.hide_github_myWatched) {
+                $('#myWatchedListOnGithub').remove();
+            }
+            if (adapterConfig.hide_github_myStarred) {
+                $('#myStarredListOnGithub').remove();
+            }
+            if (adapterConfig.hide_github_myAssigned) {
+                $('#myAssignedListOnGithub').remove();
+            }
+            githubHelper.getUserdata();
+            $('#githubbuttonslist').removeClass('hidden');
+        } else {
+            $('#popupnews').css('margin-top', '-40px');
+        }
+
+        if (adapterConfig.hide_events) {
+            $('.events').hide();
+            if (adapterConfig.clock) {
+                //Uhr auch nicht da
+                $('.popandgit').removeClass().addClass("col-xs-9 col-sm-9 col-md-9 col-lg-9 popandgit");
+            } else {
+                $('.popandgit').removeClass().addClass("col-xs-11 col-sm-11 col-md-7 col-lg-7 popandgit");
+            }
+        } else {
+            formatGoogleCalendar.init({
+                calendarUrl: 'https://cors-anywhere.herokuapp.com/https://www.googleapis.com/calendar/v3/calendars/mh14bh7m2bdva7pb7tkirsbcsg@group.calendar.google.com/events?key=AIzaSyA4GWhsN21aMARuc6uyl45zdq8Ue5dJu10',
+                past: false,
+                upcoming: true,
+                sameDayTimes: true,
+                dayNames: false,
+                pastTopN: 0,
+                upcomingTopN: 2,
+                itemsTagName: 'li',
+                upcomingSelector: '#events-upcoming',
+                pastSelector: '#events-past',
+                recurringEvents: true,
+                upcomingHeading: '<h4>' + _('Upcoming events') + ' <a href="javascript:;" onclick="$(\'#modal-calendar\').modal({show: true});"><i class="fa fa-calendar" aria-hidden="true"></i></a></h4>',
+                pastHeading: '<h4>' + _('Past events') + '</h4>',
+                format: ['<div class="block"><div class="block_content"><div class="y_title spoiler-content" style="padding-left: 20px;"><ul class="nav navbar-right panel_toolbox"><li><a class="collapse-link"><i class="fa fa-chevron-down"></i></a></li></ul><span>', '*date*', ': ', '*summary*', '</span></div><div class="y_content spoiler-content" style="display: none;"><p class="description">', '*description*', ' in ', '*location*', '</p></div></div></div>']
+            });
+        }
+
+        translateAll(systemLang);
+
+        startPopupNews();
+
+        systemInformations.getData();
 
     });
 });
