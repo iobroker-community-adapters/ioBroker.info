@@ -8,7 +8,7 @@ let documentationData = {};
 let systemConfig = {};
 let adapterConfig = {};
 
-const systemData = {};
+const systemInformationData = {"node": null, "npm": null, "os": null};
 
 let systemInfoForGithub = "";
 let githubMarkdownArea;
@@ -191,17 +191,17 @@ async function readInstanceConfig(callback) {
 
     socket.emit('getState', 'info.0.sysinfo.os.versions.node', function (err, data) {
         if (!err && data) {
-            systemData['node'] = data.val;
+            systemInformationData.node = data.val;
         }
     });
     socket.emit('getState', 'info.0.sysinfo.os.versions.npm', function (err, data) {
         if (!err && data) {
-            systemData['npm'] = data.val;
+            systemInformationData.npm = data.val;
         }
     });
     socket.emit('getState', 'info.0.sysinfo.os.info.platform', function (err, data) {
         if (!err && data) {
-            systemData['os'] = data.val;
+            systemInformationData.os = data.val;
         }
     });
 

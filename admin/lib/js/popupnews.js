@@ -1,4 +1,4 @@
-/* global socket, systemLang, io, sytemData */
+/* global socket, systemLang, io, systemInformationData */
 
 function startPopupNews() {
     socket.emit('subscribe', 'info.0.newsfeed');
@@ -114,16 +114,16 @@ const newsPopup = {
                         });
                     }
 
-                    if (showIt && message['node-version'] && sytemData.node) {
+                    if (showIt && message['node-version'] && systemInformationData.node) {
                         const condition = message['node-version'];
-                        showIt = newsPopup.checkConditions(condition, sytemData.node);
+                        showIt = newsPopup.checkConditions(condition, systemInformationData.node);
                     }
-                    if (showIt && message['npm-version'] && sytemData.npm) {
+                    if (showIt && message['npm-version'] && systemInformationData.npm) {
                         const condition = message['npm-version'];
-                        showIt = newsPopup.checkConditions(condition, sytemData.npm);
+                        showIt = newsPopup.checkConditions(condition, systemInformationData.npm);
                     }
-                    if (showIt && message['os'] && sytemData.os) {
-                        showIt = sytemData.os === message['os'];
+                    if (showIt && message['os'] && systemInformationData.os) {
+                        showIt = systemInformationData.os === message['os'];
                     }
 
                     if (showIt) {
