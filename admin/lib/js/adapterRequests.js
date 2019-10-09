@@ -64,14 +64,14 @@ async function cleanTitle(allIssues) {
     const response = [];
     await asyncForEach(allIssues, async function (issue) {
         let title = issue.title;
-        if(title){
+        if (title) {
             if (title.toLowerCase().startsWith("adapter for ") || title.toLowerCase().startsWith("adapter für ")) {
                 title = title.substring(12, title.length);
             } else if (title.toLowerCase().startsWith("adapter ")) {
                 title = title.substring(8, title.length);
             }
             issue.title = title;
-            allTitles.push(title);            
+            allTitles.push(title);
 
             response.push(issue);
         }
@@ -118,7 +118,7 @@ function writeAllIssuesV4(allIssues, id) {
                 }
                 if (issue.state === "OPEN") {
                     buttons += "<button type='button' title='" + (issue.reactions.viewerHasReacted ? _("I voted!") : _("Vote for this adapter request!")) + "' id='reactionAR" + issue.number + "' class='adapterRequestReaction btn btn-" + (issue.reactions.viewerHasReacted ? 'success' : 'default') + "'><i class='fa fa-thumbs-up fa-lg'></i></button>";
-                }else if(issue.reactions.viewerHasReacted){
+                } else if (issue.reactions.viewerHasReacted) {
                     buttons += "<button type='button' title='I voted!' class='btn btn-success'><i class='fa fa-thumbs-up fa-lg'></i></button>";
                 }
                 buttons += "</div>";
@@ -158,7 +158,7 @@ function writeAllIssuesV4(allIssues, id) {
             $item.find('.titleLink').text(issue.title).attr('href', issue.url);
             $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
             $item.find('.y_content').addClass('spoiler-content').css('display', 'none');
-            $item.find('.byline').text(createdAt.toLocaleDateString('en', dateOptions) + " - " + issue.author.login);
+            $item.find('.byline').text(createdAt.toLocaleDateString('en', dateOptions) + " - " + (issue.author ? issue.author.login : ''));
 
             const link = issue.url.match(/([^/]*\/){6}/);
             const html = new showdown.Converter().makeHtml(issue.body).replace(/src="(?!http)/g, 'src="' + link[0]).replace(/<img/g, '<img class="img-responsive"');
