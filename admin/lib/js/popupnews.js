@@ -114,15 +114,15 @@ const newsPopup = {
                         });
                     }
 
-                    if (showIt && message['node-version']) {
+                    if (showIt && message['node-version'] && sytemData.node) {
                         const condition = message['node-version'];
                         showIt = newsPopup.checkConditions(condition, sytemData.node);
                     }
-                    if (showIt && message['npm-version']) {
+                    if (showIt && message['npm-version'] && sytemData.npm) {
                         const condition = message['npm-version'];
                         showIt = newsPopup.checkConditions(condition, sytemData.npm);
                     }
-                    if (showIt && message['os']) {
+                    if (showIt && message['os'] && sytemData.os) {
                         showIt = sytemData.os === message['os'];
                     }
 

@@ -121,26 +121,26 @@ const checkNews = function () {
     });
 };
 
-function checkConditions(condition, installedVersion) {
+function checkConditions(condition, installedVersion, objectName) {
     if (condition.startsWith("equals")) {
         const vers = condition.substring(7, condition.length - 1).trim();
-        adapter.log.debug("NodeJS same version: " + installedVersion + " equals " + vers + " -> " + (installedVersion === vers));
+        adapter.log.debug(objectName + " same version: " + installedVersion + " equals " + vers + " -> " + (installedVersion === vers));
         return (installedVersion === vers);
     } else if (condition.startsWith("bigger")) {
         const vers = condition.substring(7, condition.length - 1).trim();
         const checked = checkVersion(vers, installedVersion);
-        adapter.log.debug("NodeJS bigger version: " + installedVersion + " bigger " + vers + " -> " + checked);
+        adapter.log.debug(objectName + " bigger version: " + installedVersion + " bigger " + vers + " -> " + checked);
         return checked;
     } else if (condition.startsWith("smaller")) {
         const vers = condition.substring(8, condition.length - 1).trim();
         const checked = checkVersion(installedVersion, vers);
-        adapter.log.debug("NodeJS smaller version: " + installedVersion + " smaller " + vers + " -> " + checked);
+        adapter.log.debug(objectName + " smaller version: " + installedVersion + " smaller " + vers + " -> " + checked);
         return checked;
     } else if (condition.startsWith("between")) {
         const vers1 = condition.substring(8, condition.indexOf(',')).trim();
         const vers2 = condition.substring(condition.indexOf(',') + 1, condition.length - 1).trim();
         const checked = checkVersionBetween(installedVersion, vers1, vers2);
-        adapter.log.debug("NodeJS between version: " + installedVersion + " between " + vers1 + " and " + vers2 + " -> " + checked);
+        adapter.log.debug(objectName + " between version: " + installedVersion + " between " + vers1 + " and " + vers2 + " -> " + checked);
         return checked;
     } else {
         return true;
@@ -180,7 +180,7 @@ function procedeNewsfeed(messages, systemLang) {
                                 adapter.log.debug("Adapter shoud not be installed");
                                 showIt = false;
                             } else if (adapt) {
-                                showIt = checkConditions(condition, adapt.version);
+                                showIt = checkConditions(condition, adapt.version, key);
                             }
 
                         });
@@ -188,12 +188,12 @@ function procedeNewsfeed(messages, systemLang) {
 
                     if (showIt && message['node-version']) {
                         const condition = message['node-version'];
-                        showIt = checkConditions(condition, versions.node);
+                        showIt = checkConditions(condition, versions.node, "NodeJS");
                     }
                     if (showIt && message['npm-version']) {
                         if (versions.npm != null) {
                             const condition = message['npm-version'];
-                            showIt = checkConditions(condition, versions.npm);
+                            showIt = checkConditions(condition, versions.npm, "NPM");
                         }
                     }
                     if (showIt && messages['os']) {
