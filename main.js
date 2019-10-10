@@ -168,21 +168,21 @@ function procedeNewsfeed(messages, systemLang) {
                     } else if (showIt && message.conditions && Object.keys(message.conditions).length > 0) {
                         adapter.log.debug("Checking conditions...");
                         Object.keys(message.conditions).forEach(key => {
+                            if (showIt) {
+                                adapter.log.debug("Conditions for " + key + " adapter");
+                                const adapt = instances[key];
+                                const condition = message.conditions[key];
 
-                            adapter.log.debug("Conditions for " + key + " adapter");
-                            const adapt = instances[key];
-                            const condition = message.conditions[key];
-
-                            if (!adapt && condition !== "!installed") {
-                                adapter.log.debug("Adapter shoud be installed");
-                                showIt = false;
-                            } else if (adapt && condition === "!installed") {
-                                adapter.log.debug("Adapter shoud not be installed");
-                                showIt = false;
-                            } else if (adapt) {
-                                showIt = checkConditions(condition, adapt.version, key);
+                                if (!adapt && condition !== "!installed") {
+                                    adapter.log.debug("Adapter shoud be installed");
+                                    showIt = false;
+                                } else if (adapt && condition === "!installed") {
+                                    adapter.log.debug("Adapter shoud not be installed");
+                                    showIt = false;
+                                } else if (adapt) {
+                                    showIt = checkConditions(condition, adapt.version, key);
+                                }
                             }
-
                         });
                     }
 

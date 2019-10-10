@@ -100,16 +100,17 @@ const newsPopup = {
                             adapters = window.top.gMain.tabs.adapters.curInstalled;
                         }
                         await asyncForEach(Object.keys(message.conditions), function (key) {
+                            if (showIt) {
+                                const adapter = adapters[key];
+                                const condition = message.conditions[key];
 
-                            const adapter = adapters[key];
-                            const condition = message.conditions[key];
-
-                            if (!adapter && condition !== "!installed") {
-                                showIt = false;
-                            } else if (adapter && condition === "!installed") {
-                                showIt = false;
-                            } else if (adapter) {
-                                showIt = newsPopup.checkConditions(condition, adapter.version);
+                                if (!adapter && condition !== "!installed") {
+                                    showIt = false;
+                                } else if (adapter && condition === "!installed") {
+                                    showIt = false;
+                                } else if (adapter) {
+                                    showIt = newsPopup.checkConditions(condition, adapter.version);
+                                }
                             }
                         });
                     }
