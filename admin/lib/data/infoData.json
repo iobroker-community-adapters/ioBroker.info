@@ -16,6 +16,10 @@
             "link": "https://forum.iobroker.net/category/28",
             "feeds": ["https://forum.iobroker.net/category/29.rss", "https://forum.iobroker.net/category/30.rss", "https://forum.iobroker.net/category/32.rss", "https://forum.iobroker.net/category/34.rss", "https://forum.iobroker.net/category/60.rss", "https://forum.iobroker.net/category/63.rss", "https://forum.iobroker.net/category/31.rss", "https://forum.iobroker.net/category/35.rss", "https://forum.iobroker.net/category/61.rss", "https://forum.iobroker.net/category/70.rss", "https://forum.iobroker.net/category/36.rss", "https://forum.iobroker.net/category/73.rss", "https://forum.iobroker.net/category/86.rss", "https://forum.iobroker.net/category/37.rss", "https://forum.iobroker.net/category/78.rss", "https://forum.iobroker.net/category/38.rss", "https://forum.iobroker.net/category/35.rss"]
         },
+        "pt": {
+            "link": "https://forum.iobroker.net/category/104",
+            "feeds": ["https://forum.iobroker.net/category/105.rss"]
+        },
         "zh-cn": {
             "link": "https://bbs.iobroker.cn",
             "feeds": ["https://bbs.iobroker.cn/?mod=rss"]
