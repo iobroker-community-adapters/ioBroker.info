@@ -191,13 +191,12 @@ function procedeNewsfeed(messages, systemLang) {
                         showIt = checkConditions(condition, versions.node, "NodeJS");
                     }
                     if (showIt && message['npm-version']) {
-                        if (versions.npm != null) {
-                            const condition = message['npm-version'];
-                            showIt = checkConditions(condition, versions.npm, "NPM");
-                        }
+                        const condition = message['npm-version'];
+                        showIt = versions.npm !== null && checkConditions(condition, versions.npm, "NPM");
                     }
                     if (showIt && messages['os']) {
                         const condition = message['os'];
+                        adapter.log.debug("OS Check: " + process.platform + " == " + condition);
                         showIt = process.platform === condition;
                     }
 

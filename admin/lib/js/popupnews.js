@@ -115,16 +115,14 @@ const newsPopup = {
                         });
                     }
 
-                    if (showIt && message['node-version'] && systemInformationData.node) {
-                        const condition = message['node-version'];
-                        showIt = newsPopup.checkConditions(condition, systemInformationData.node);
+                    if (showIt && message['node-version']) {
+                        showIt = systemInformationData.node && newsPopup.checkConditions(message['node-version'], systemInformationData.node);
                     }
-                    if (showIt && message['npm-version'] && systemInformationData.npm) {
-                        const condition = message['npm-version'];
-                        showIt = newsPopup.checkConditions(condition, systemInformationData.npm);
+                    if (showIt && message['npm-version']) {
+                        showIt = systemInformationData.npm && newsPopup.checkConditions(message['npm-version'], systemInformationData.npm);
                     }
-                    if (showIt && message['os'] && systemInformationData.os) {
-                        showIt = systemInformationData.os === message['os'];
+                    if (showIt && message['os']) {
+                        showIt = systemInformationData.os && systemInformationData.os === message['os'];
                     }
 
                     if (showIt) {
