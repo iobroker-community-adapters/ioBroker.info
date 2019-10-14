@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "info",
-        "version": "1.5.5",
+        "version": "1.5.6",
         "news": {
             "1.5.5": {
                 "en": "Add NPM and OS check for popup",

@@ -11,6 +11,7 @@ const updateInfoPage = async function () {
         getHostInfo(hosts[currentHost], function (data) {
             let text = '';
             if (data) {
+                const hostID = data.hostname.replace(/[^a-z0-9]/gmi, "_").replace(/\s+/g, "_");
                 text += "<h3>" + data.hostname + "</h3>";
                 text += "<dl class='dl-horizontal'>";
                 for (let item in data) {
@@ -18,7 +19,7 @@ const updateInfoPage = async function () {
                         text += '<dt>' + _(item) + '</dt>';
                         if (item === 'Node.js') {
                             systemInfoForGithub += "Node.js: " + data[item] + "\r\n";
-                            text += '<dd><span id="aktNodeVersion' + data.hostname + '">' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</span><span id="nodeExtraInfo' + data.hostname + '"></span></dd>';
+                            text += '<dd><span id="aktNodeVersion' + hostID + '">' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</span><span id="nodeExtraInfo' + hostID + '"></span></dd>';
                         } else {
                             if (item === 'NPM') {
                                 systemInfoForGithub += "NPM: " + data[item] + "\r\n";
@@ -27,7 +28,7 @@ const updateInfoPage = async function () {
                             } else if (item === "RAM") {
                                 systemInfoForGithub += "RAM: " + formatInfo[item](data[item]) + "\r\n";
                             }
-                            text += '<dd' + ((item === 'Uptime' || item === 'System uptime') ? (" id='" + data.hostname + item + "' class='timeCounter' data-start='" + data[item] + "'") : "") + '>' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</dd>';
+                            text += '<dd' + ((item === 'Uptime' || item === 'System uptime') ? (" id='" + hostID + item + "' class='timeCounter' data-start='" + data[item] + "'") : "") + '>' + (formatInfo[item] ? formatInfo[item](data[item]) : data[item]) + '</dd>';
                         }
                     }
                 }

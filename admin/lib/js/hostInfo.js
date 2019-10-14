@@ -31,7 +31,8 @@ async function getNodeVersionList(callback) {
 }
 
 function getNodeExtrainfo(host) {
-    const version = $('#aktNodeVersion' + host).text();
+    const hostID = host.replace(/[^a-z0-9]/gmi, "_").replace(/\s+/g, "_");
+    const version = $('#aktNodeVersion' + hostID).text();
     const aktKey = version.substring(0, version.indexOf("."));
 
     let extraInfo = "";
@@ -73,8 +74,8 @@ function getNodeExtrainfo(host) {
         extraInfo += ")";
     }
 
-    $('#nodeExtraInfo' + host).append(extraInfo);
-    $('#aktNodeVersion' + host).css('color', color).css('font-weight', 'bold');
+    $('#nodeExtraInfo' + hostID).append(extraInfo);
+    $('#aktNodeVersion' + hostID).css('color', color).css('font-weight', 'bold');
 
 }
 
