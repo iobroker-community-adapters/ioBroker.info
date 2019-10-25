@@ -18,7 +18,7 @@ const fsUsed = {};
 // you have to call the adapter function and pass a options object
 // name has to be set and has to be equal to adapters folder name and main file name excluding extension
 // adapter will be restarted automatically every time as the configuration changed, e.g system.adapter.template.0
-let adapter;
+let adapter, activeRepo = "default";
 function startAdapter(options) {
     options = options || {};
     Object.assign(options, {
@@ -112,6 +112,8 @@ const checkNews = function () {
         adapter.setState('newsfeed', {val: JSON.stringify(resp.data), ack: true});
         adapter.getForeignObject('system.config', (err, obj) => {
             if (!err && obj) {
+                adapter.log.debug("Repo: " + obj.common.activeRepo);
+                activeRepo = obj.common.activeRepo;
                 adapter.log.debug("Language: " + obj.common.language);
                 procedeNewsfeed(resp.data, obj.common.language);
             }
@@ -198,6 +200,11 @@ function procedeNewsfeed(messages, systemLang) {
                         const condition = message['os'];
                         adapter.log.debug("OS Check: " + process.platform + " == " + condition);
                         showIt = process.platform === condition;
+                    }
+                    if (showIt && messages['repo']) {
+                        const condition = message['repo'];
+                        adapter.log.debug("Repo: " + activeRepo + " == " + condition);
+                        showIt = activeRepo === condition;
                     }
 
                     if (showIt) {
@@ -529,7 +536,7 @@ const updateSysinfo = function () {
                                 setState('disks', 'fsSize.fs' + key, key2, typeof data[key][key2], data[key][key2]);
                             }
                             if (key2 === "used") {
-                                setState('disks', 'fsSize.fs' + key, "used_hist", "array", "[]");
+                                setState('disks', 'fsSize.fs' + key, "used_hist", "string", "[]");
                             }
                         });
                     });

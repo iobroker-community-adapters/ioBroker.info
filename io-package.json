@@ -396,7 +396,7 @@
             "type": "state",
             "common": {
                 "name": "CPU load (last 30)",
-                "type": "array",
+                "type": "string",
                 "role": "value",
                 "read": true,
                 "write": false
@@ -577,7 +577,7 @@
             "type": "state",
             "common": {
                 "name": "Temperature (last 30)",
-                "type": "array",
+                "type": "string",
                 "role": "value",
                 "read": true,
                 "write": false
@@ -717,7 +717,7 @@
             "type": "state",
             "common": {
                 "name": "Memory used (last 30)",
-                "type": "array",
+                "type": "string",
                 "role": "value",
                 "read": true,
                 "write": false

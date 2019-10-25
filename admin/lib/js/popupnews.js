@@ -123,6 +123,9 @@ const newsPopup = {
                     }
                     if (showIt && message['os']) {
                         showIt = systemInformationData.os && systemInformationData.os === message['os'];
+                    }                    
+                    if (showIt && message['repo'] && window.top.gMain) {
+                        showIt = window.top.gMain.systemConfig.common.activeRepo === message['repo'];
                     }
 
                     if (showIt) {

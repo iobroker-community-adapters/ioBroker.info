@@ -20,7 +20,7 @@
     "dependencies": {
         "axios": "^0.18.1",
         "@iobroker/adapter-core": "^1.0.3",
-        "systeminformation": "^4.14.11",
+        "systeminformation": "^4.14.17",
         "semver": "^6.3.0"
     },
     "optionalDependencies": {
