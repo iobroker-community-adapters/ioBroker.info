@@ -3,7 +3,7 @@
         "name": "info",
         "version": "1.5.6",
         "news": {
-            "1.5.5": {
+            "1.5.6": {
                 "en": "Add NPM and OS check for popup",
                 "de": "NPM- und Betriebssystemprüfung für Popup hinzufügen",
                 "ru": "Добавить проверку NPM и ОС для всплывающих окон",
@@ -51,18 +51,6 @@
                 "pl": "Naprawiono błąd wiadomości",
                 "zh-cn": "新闻错误已修复"
             },
-            "1.4.1": {
-                "en": "Removed default socket.io",
-                "de": "Standard Socket.io entfernt",
-                "ru": "Удален сокет по умолчанию",
-                "pt": "Removido socket.io padrão",
-                "nl": "Standaard socket.io verwijderd",
-                "fr": "Suppression du socket.io par défaut",
-                "it": "Predefinito socket.io rimosso",
-                "es": "Se eliminó socket.io predeterminado",
-                "pl": "Usunięto domyślne socket.io",
-                "zh-cn": "删除了默认的socket.io"
-            },
             "1.3.7": {
                 "en": "Better integration to admin adapter",
                 "de": "Bessere Integration in den Admin-Adapter",
@@ -74,66 +62,6 @@
                 "es": "Mejor integración al adaptador de administración.",
                 "pl": "Lepsza integracja z adapterem administratora",
                 "zh-cn": "更好地集成到管理适配器"
-            },
-            "1.3.6": {
-                "en": "Vote for adapters and show comments",
-                "de": "Stimmen Sie für Adapter und zeigen Sie Kommentare",
-                "ru": "Голосуйте за адаптеры и показывайте комментарии",
-                "pt": "Vote em adaptadores e mostre comentários",
-                "nl": "Stem op adapters en toon reacties",
-                "fr": "Votez pour les adaptateurs et affichez les commentaires",
-                "it": "Vota gli adattatori e mostra i commenti",
-                "es": "Vota por adaptadores y muestra comentarios.",
-                "pl": "Głosuj na adaptery i pokaż komentarze",
-                "zh-cn": "投票适配器和显示评论"
-            },
-            "1.3.4": {
-                "en": "Github buttons and vote for adapter requests",
-                "de": "Schaltflächen und stimme für Adapteranfragen",
-                "ru": "Кнопки Github и голосование за запросы адаптера",
-                "pt": "Botões do Github e vote nas solicitações do adaptador",
-                "nl": "Github-knoppen en stem voor adapterverzoeken",
-                "fr": "Boutons Github et vote pour les demandes d'adaptateur",
-                "it": "Pulsanti Github e vota per le richieste dell'adattatore",
-                "es": "Botones Github y voto para solicitudes de adaptadores.",
-                "pl": "Przyciski Github i głosuj na żądania adaptera",
-                "zh-cn": "Github按钮并为适配器请求投票"
-            },
-            "1.3.2": {
-                "en": "Create Github issues",
-                "de": "Erstellen Sie Github-Probleme",
-                "ru": "Создание вопросов Github",
-                "pt": "Criar problemas no Github",
-                "nl": "Maak Github-problemen",
-                "fr": "Créer des problèmes Github",
-                "it": "Crea problemi con Github",
-                "es": "Crear problemas Github",
-                "pl": "Utwórz problemy z Githubem",
-                "zh-cn": "创建Github问题"
-            },
-            "1.3.1": {
-                "en": "Charts added",
-                "de": "Charts hinzugefügt",
-                "ru": "Графики добавлены",
-                "pt": "Gráficos adicionados",
-                "nl": "Grafieken toegevoegd",
-                "fr": "Graphiques ajoutés",
-                "it": "Grafici aggiunti",
-                "es": "Cartas añadidas",
-                "pl": "Dodano wykresy",
-                "zh-cn": "图表补充说"
-            },
-            "1.3.0": {
-                "en": "More system infos and better documentation",
-                "de": "Weitere Systeminfos und bessere Dokumentation",
-                "ru": "Больше информации о системе и лучшая документация",
-                "pt": "Mais infos do sistema e melhor documentação",
-                "nl": "Meer systeeminformatie en betere documentatie",
-                "fr": "Plus d'informations système et une meilleure documentation",
-                "it": "Maggiori informazioni di sistema e documentazione migliore",
-                "es": "Más información del sistema y mejor documentación.",
-                "pl": "Więcej informacji o systemie i lepsza dokumentacja",
-                "zh-cn": "更多系统信息和更好的文档"
             }
         },
         "title": "Information tab",
