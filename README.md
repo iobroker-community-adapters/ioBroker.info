@@ -45,7 +45,7 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 * [单击此处获取详细文档 (zh-cn)](docs/zh-cn/info.md)
 
 ## Changelog
-### 1.5.6 (2019-xx-xx)
+### 1.5.6 (2019-11-05)
 * (ldittmar) Add Repo check for popup
 * (ldittmar) Fix dp type
 
