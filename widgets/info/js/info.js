@@ -3,7 +3,7 @@
 "use strict";
 
 vis.binds["info"] = {
-    version: "0.0.8",
+    version: "0.0.9",
     showVersion: function () {
         if (vis.binds["info"].version) {
             console.log('Version Info-Adapter-Widget: ' + vis.binds["info"].version);
@@ -26,6 +26,21 @@ vis.binds["info"] = {
             });
 
             setData(data.oid + '.val', widgetID, vis.editMode);
+        }
+
+    },
+    createCalendar: function (widgetID, view, data, style) {
+        var $div = $('#' + widgetID);
+        // if nothing found => wait
+        if (!$div.length) {
+            return setTimeout(function () {
+                vis.binds["info"].createCalendar(widgetID, view, data, style);
+            }, 100);
+        }
+
+        if (data) {
+            const text = `<iframe src="https://calendar.google.com/calendar/embed?height=${data.height}&amp;wkst=1&amp;bgcolor=%23${data.bgcolor}&amp;ctz=Europe%2FBerlin&amp;src=bWgxNGJoN20yYmR2YTdwYjd0a2lyc2Jjc2dAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%2330487E&amp;showTitle=1&amp;showNav=1&amp;showDate=1&amp;showPrint=0&amp;showTabs=1&amp;showCalendars=0&amp;showTz=1&amp;hl=de&amp;mode=${data.mode}" style="border-width:0" width="${data.width}" height="${data.height}" frameborder="0" scrolling="no"></iframe>`;
+            $div.append(text);            
         }
 
     }
