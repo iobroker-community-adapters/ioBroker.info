@@ -3,13 +3,15 @@
 "use strict";
 
 if (vis.editMode) {
-    let iobSystemDic = systemDictionary;
-    $.get("adapter/info/words.js", function (script) {
-        let translation = script.substring(script.indexOf('{'), script.length);
-        translation = translation.substring(0, translation.lastIndexOf(';'));
-        $.extend(systemDictionary, JSON.parse(translation));
-        $.extend(systemDictionary, iobSystemDic);
-    });
+    getTranslation();    
+}
+
+async function getTranslation(){
+    let translation = await(await fetch("adapter/info/words.js")).text();
+    if(translation){
+        translation = translation.substring(translation.indexOf('{'), translation.lastIndexOf(';'));
+        $.extend(true, systemDictionary, JSON.parse(translation));
+    }
 }
 
 
