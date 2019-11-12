@@ -14,6 +14,7 @@ Para ver a janela de informações na guia Guia, você deve primeiro verificar c
 </p>
 
 * **Não mostrar relógio** - Para ocultar o relógio no canto superior esquerdo.
+* **Não mostrar os eventos (somente alemão)** - O calendário de eventos não é exibido
 * **Mostrar solicitações do adaptador** - Exibe o painel com as solicitações do adaptador.
     * **Solicitações de adaptador fechadas na inicialização** - O painel com as solicitações do adaptador é fechado quando a janela Informações é iniciada.
 * **Exibir erros conhecidos** - Exibe o painel com erros conhecidos e solicitações de adaptadores instalados.

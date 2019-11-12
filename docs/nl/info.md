@@ -14,6 +14,7 @@ Om het informatievenster op het tabblad Tabblad te zien, moet u het na installat
 </p>
 
 * **Laat de klok niet zien** - om de klok bovenaan links te verbergen.
+* **Evenementen verbergen (alleen duits)** - Evenementkalender wordt niet weergegeven
 * **Adapteraanvragen weergeven** - Geeft het paneel weer met de adapteraanvragen.
     * **Adapterverzoeken gesloten bij opstarten** - Het paneel met de adapteraanvragen wordt gesloten wanneer het Info-venster wordt gestart.
 * **Bekijk bekende fouten** - Geeft het paneel met bekende fouten en verzoeken voor geïnstalleerde adapters weer.

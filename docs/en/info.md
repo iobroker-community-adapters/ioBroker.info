@@ -14,6 +14,7 @@ In order to see the info window in the Tab tab, you must first check it as Visib
 </p>
 
 * **Do not show clock** - To hide the clock at the top left.
+* **Hide events (only german)** - Event calendar is not displayed
 * **Show adapter requests** - Displays the panel with the adapter requests.
     * **Adapter requests closed at startup** - The panel with the adapter requests is closed when the Info window starts.
 * **View known errors** - Displays the panel with known errors and requests for installed adapters.

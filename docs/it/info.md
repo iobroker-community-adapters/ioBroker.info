@@ -14,6 +14,7 @@ Per visualizzare la finestra informativa nella scheda Scheda, è necessario prim
 </p>
 
 * **Non mostrare l'orologio** - Per nascondere l'orologio in alto a sinistra.
+* **Nascondi eventi (solo tedesco)** - Il calendario degli eventi non viene visualizzato
 * **Mostra richieste adattatore** - Visualizza il pannello con le richieste dell'adattatore.
     * **Richieste dell'adattatore chiuse all'avvio** - Il pannello con le richieste dell'adattatore viene chiuso all'avvio della finestra Informazioni.
 * **Visualizza errori noti **: visualizza il pannello con errori noti e richieste di adattatori installati.

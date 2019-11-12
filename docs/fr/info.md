@@ -14,6 +14,7 @@ Pour voir la fenêtre d’informations dans l’onglet Onglet, vous devez d’ab
 </p>
 
 * **Ne pas afficher l'horloge** - Pour masquer l'horloge en haut à gauche.
+* **Masquer les événements (seulement en allemand)** - Calendrier de l'événement n'est pas affiché
 * **Afficher les demandes d'adaptateur** - Affiche le panneau avec les demandes d'adaptateur.
     * **Demandes d'adaptateur fermées au démarrage** - Le panneau contenant les demandes d'adaptateur est fermé au démarrage de la fenêtre Info.
 * **Afficher les erreurs connues** - Affiche le panneau avec les erreurs connues et les demandes d'adaptateurs installés.

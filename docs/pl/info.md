@@ -14,6 +14,7 @@ Aby zobaczyć okno informacyjne w zakładce Tab, musisz najpierw sprawdzić, czy
 </p>
 
 * **Nie pokazuj zegara** - Aby ukryć zegar w lewym górnym rogu.
+* **Ukryj wydarzenia (tylko niemiecki)** - Kalendarz wydarzeń nie jest wyświetlany
 * **Pokaż żądania adaptera** - Wyświetla panel z żądaniami adaptera.
     * **Żądania adaptera zamknięte przy starcie** - Panel z żądaniami adaptera jest zamykany, gdy uruchamia się okno informacyjne.
 * **Wyświetl znane błędy** - Wyświetla panel ze znanymi błędami i żądaniami zainstalowanych kart.

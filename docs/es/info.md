@@ -14,6 +14,7 @@ Para ver la ventana de información en la pestaña Tab, primero debe verificarla
 </p>
 
 * **No mostrar reloj** - Para ocultar el reloj en la parte superior izquierda.
+* **Ocultar eventos (solo alemán)** - El calendario de eventos no se muestra
 * **Mostrar solicitudes de adaptador **: muestra el panel con las solicitudes de adaptador.
     * **Las solicitudes de adaptador se cerraron en el inicio** - El panel con las solicitudes de adaptador se cierra cuando se inicia la ventana de información.
 * **Ver errores conocidos **: muestra el panel con errores conocidos y solicitudes de adaptadores instalados.

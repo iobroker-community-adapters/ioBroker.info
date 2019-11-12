@@ -14,6 +14,7 @@ Um das Info Fenster im Tab-Reiter zu sehen, müssen Sie nach der Installation es
 </p>
 
 * **Uhr nicht anzeigen** - Um die Uhr oben Links auszublenden.
+* **Events ausblenden** - Eventkalender wird nicht angezeigt
 * **Adapteranfragen anzeigen** - Zeigt den Panel mit den Adapteranfragen an.
     * **Adapteranfragen beim Start geschlossen** - Das Panel mit der Adapteranfragen, ist beim Start des Info Fensters geschlossen.
 * **Bekannte Fehler anzeigen** - Zeigt den Panel mit bekannten Fehler und Wünsche für installierte Adaptern an.

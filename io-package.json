@@ -3,6 +3,18 @@
         "name": "info",
         "version": "1.5.7",
         "news": {
+            "1.5.7": {
+                "en": "Event calendar widget for Vis",
+                "de": "Eventkalender Widget für Vis",
+                "ru": "Виджет календаря событий для Vis",
+                "pt": "Widget de calendário de eventos para Vis",
+                "nl": "Evenementenagenda-widget voor Vis",
+                "fr": "Widget de calendrier d'événements pour Vis",
+                "it": "Widget del calendario degli eventi per Vis",
+                "es": "Widget de calendario de eventos para Vis",
+                "pl": "Widżet kalendarza wydarzeń dla Vis",
+                "zh-cn": "Vis的事件日历小部件"
+            },
             "1.5.6": {
                 "en": "Add NPM and OS check for popup",
                 "de": "NPM- und Betriebssystemprüfung für Popup hinzufügen",
