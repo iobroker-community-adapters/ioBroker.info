@@ -80,214 +80,279 @@
                 </div>
 
                 <div class="row">
-                    <div class="input-field col m4 l2">
-                        <input class="value" id="clock" type="checkbox" />
-                        <label for="clock" class="translate">Hide clock</label>
-                        <span class="translate"></span>
-                    </div>
-                    <div class="input-field col m4 l2">
-                        <input class="value" id="hide_events" type="checkbox" />
-                        <label for="hide_events" class="translate">Hide events</label>
-                        <span class="translate"></span>
-                    </div>
-                 </div>
 
-                <div class="row">    
-                    <div class="input-field col m4 l4">
-                        <input class="value" id="adapter_request" type="checkbox" />
-                        <label for="adapter_request" class="translate">Show adapter requests</label>
-                        <span class="translate"></span>
-                    </div>
-                    <div class="input-field col m4 l4">
-                        <input class="value" id="adapter_request_close_hidden" type="checkbox" />
-                        <label for="adapter_request_close_hidden" class="translate">Hide closed adapter requests</label>
-                        <span class="translate"></span>
-                    </div>                    
-                    <div class="input-field col m4 l4">
-                        <input class="value" id="adapter_request_closed" type="checkbox" />
-                        <label for="adapter_request_closed" class="translate">Show adapter requests closed at startup</label>
-                        <span class="translate"></span>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="input-field col m6 l2">
-                        <input class="value" id="adapter_issue" type="checkbox" />
-                        <label for="adapter_issue" class="translate">Show known errors</label>
-                        <span class="translate"></span>
-                    </div>
-                    <div class="input-field col m6 l3">
-                        <input class="value" id="adapter_issue_closed" type="checkbox" />
-                        <label for="adapter_issue_closed" class="translate">Known errors closed at startup</label>
-                        <span class="translate"></span>
-                    </div>                    
-                </div>
-
-                <div class="row">
-                    <div class="input-field col m6 l4">
-                        <input class="value" id="news" type="checkbox" />
-                        <label for="news" class="translate">Show ioBroker news</label>
-                        <span class="translate"></span>
-                    </div>
-                    <div class="input-field col m6 l4">
-                        <input class="value" id="forum" type="checkbox" />
-                        <label for="forum" class="translate">Show forum news</label>
-                        <span class="translate"></span>
-                    </div>
-                    <div class="input-field col m12 l4">
-                        <input class="value" id="feednami" type="password" />
-                        <label for="feednami" class="translate">Feednami API Key</label>
-                        <span class="translate">To read news or forum, you need a free API Key if your ioBroker installation can be reached via a hostname, such as iobroker: 8081 or something similar. For IP access it is not needed.</span>
-                        <span><a href="https://toolkit.sekando.com/docs/en/setup/hostnames" target="_blank" class="translate">Click here to register</a></span>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="input-field col m4">
-                        <input class="value" id="documentation" type="checkbox" />
-                        <label for="documentation" class="translate">Show documentations</label>
-                        <span class="translate"></span>
-                    </div>
-                    <div class="input-field col m8">
-                        <select class="value" multiple id="doc_langs">
-                            <option class="translate" value="" disabled selected>Select the desired languages for the documentations</option>
-                            <option class="translate" value="de">German</option>
-                            <option class="translate" value="en">English</option>
-                            <option class="translate" value="es">Spanish</option>
-                            <option class="translate" value="fr">French</option>
-                            <option class="translate" value="it">Italian</option>
-                            <option class="translate" value="nl">Dutch</option>
-                            <option class="translate" value="pl">Polish</option>
-                            <option class="translate" value="pt">Portuguese</option>
-                            <option class="translate" value="ru">Russian</option>                            
-                            <option class="translate" value="zh-cn">Chinese</option>
-                        </select>
-                        <label class="translate">Documentation languages</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="input-field col m12 l4">
-                        <input class="value" id="new_adapters" type="checkbox" />
-                        <label for="new_adapters" class="translate">Search for new adapters</label>
-                        <span class="translate">only for experts</span>
-                    </div>
-                    <div class="input-field col m4 l3">
-                        <select class="value" id="new_adapters_sort" >
-                            <option class="translate" value="name">name</option>
-                            <option class="translate" value="create">creation date</option>
-                            <option class="translate" value="update">last update</option>
-                        </select>    
-                        <label for="new_adapters_sort" class="translate">Sort adapters by</label>
-                        <span class="translate"></span>
-                    </div>
-                    <div class="input-field col m4 l2">
-                        <input class="value" id="new_adapters_order" type="checkbox" />
-                        <label for="new_adapters_order" class="translate">reverse order</label>
-                        <span class="translate"></span>
-                    </div>
-                    <div class="input-field col m4 l3">
-                        <input class="value" id="new_adapters_closed" type="checkbox" />
-                        <label for="new_adapters_closed" class="translate">New adapters closed at startup</label>
-                        <span class="translate"></span>
-                    </div>
-                </div>
-
-                <div class="row">                    
-                    <div class="input-field col s12 l4">
-                        <input class="value" id="github_token" type="password" />
-                        <label for="github_token" class="translate">GitHub personal access token</label>
-                        <span class="translate">To create messages about adapters or adapter requests, you need a Github account and a token with repo access.</span>
-                        <span><a href="https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line" target="_blank" class="translate">How to generate a token</a></span>
-                    </div>
-                    <div class="input-field col s3 l2">
-                        <input class="value" id="hide_github_myIssues" type="checkbox" />
-                        <label for="hide_github_myIssues" class="translate">Hide my issues button</label>
-                        <span class="translate"></span>
-                    </div>
-                    <div class="input-field col s3 l2">
-                        <input class="value" id="hide_github_myWatched" type="checkbox" />
-                        <label for="hide_github_myWatched" class="translate">Hide watched repos button</label>
-                        <span class="translate"></span>
-                    </div>
-                    <div class="input-field col s3 l2">
-                        <input class="value" id="hide_github_myStarred" type="checkbox" />
-                        <label for="hide_github_myStarred" class="translate">Hide starred repos button</label>
-                        <span class="translate"></span>
-                    </div>
-                    <div class="input-field col s3 l2">
-                        <input class="value" id="hide_github_myAssigned" type="checkbox" />
-                        <label for="hide_github_myAssigned" class="translate">Hide assigned issues button</label>
-                        <span class="translate"></span>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input class="value" id="noCurrentSysData" type="checkbox" />
-                        <label for="noCurrentSysData" class="translate">Don't load current system data</label>
-                        <span class="translate"></span>
-                    </div> 
-                </div>
-
-                <div class="row">
                     <div class="col s12">
-                        <div class="card-panel grey">
-                            <span class="white-text translate">Calling up current system data at too short intervals can lead to very high CPU consumption, especially under Windows. To switch off individual queries, set the slider to 0.</span>
+                        <ul class="tabs" id="infoTabs" style="display: none;">
+                            <li class="tab col s2"><a href="#tabView" class="translate active">View</a></li>
+                            <li class="tab col s2"><a href="#tabDoc" class="translate">Documentation</a></li>
+                            <li class="tab col s2"><a href="#tabGithub" class="translate">Github</a></li>
+                            <li class="tab col s2"><a href="#tabSystem" class="translate">System</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- ++++++++++ TAB: View ++++++++++ -->
+                    <div id="tabView" class="col s12 page">
+                        <div class="row">
+                            <div class="col s12">
+                                <h6 class="translate sub-title">View</h6>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col m4 l2">
+                                <input class="value" id="clock" type="checkbox" />
+                                <label for="clock" class="translate">Hide clock</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="input-field col m4 l2">
+                                <input class="value" id="hide_events" type="checkbox" />
+                                <label for="hide_events" class="translate">Hide events</label>
+                                <span class="translate"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">    
+                            <div class="input-field col m4 l4">
+                                <input class="value" id="adapter_request" type="checkbox" />
+                                <label for="adapter_request" class="translate">Show adapter requests</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="input-field col m4 l4">
+                                <input class="value" id="adapter_request_close_hidden" type="checkbox" />
+                                <label for="adapter_request_close_hidden" class="translate">Hide closed adapter requests</label>
+                                <span class="translate"></span>
+                            </div>                    
+                            <div class="input-field col m4 l4">
+                                <input class="value" id="adapter_request_closed" type="checkbox" />
+                                <label for="adapter_request_closed" class="translate">Show adapter requests closed at startup</label>
+                                <span class="translate"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col m6 l2">
+                                <input class="value" id="adapter_issue" type="checkbox" />
+                                <label for="adapter_issue" class="translate">Show known errors</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="input-field col m6 l3">
+                                <input class="value" id="adapter_issue_closed" type="checkbox" />
+                                <label for="adapter_issue_closed" class="translate">Known errors closed at startup</label>
+                                <span class="translate"></span>
+                            </div>                    
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ++++++++++ TAB: Documentation ++++++++++ -->
+                <div id="tabDoc"    class="col s12 page">
+                    <div class="row">
+                        <div class="col s12">
+                            <h6 class="translate sub-title">Documentation</h6>
                         </div>
                     </div>
+                    <div class="col s12" id="tableDoc">
+
+                        <div class="row">
+                            <div class="input-field col m6 l4">
+                                <input class="value" id="news" type="checkbox" />
+                                <label for="news" class="translate">Show ioBroker news</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="input-field col m6 l4">
+                                <input class="value" id="forum" type="checkbox" />
+                                <label for="forum" class="translate">Show forum news</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="input-field col m12 l4">
+                                <input class="value" id="feednami" type="password" />
+                                <label for="feednami" class="translate">Feednami API Key</label>
+                                <span class="translate">To read news or forum, you need a free API Key if your ioBroker installation can be reached via a hostname, such as iobroker: 8081 or something similar. For IP access it is not needed.</span>
+                                <span><a href="https://toolkit.sekando.com/docs/en/setup/hostnames" target="_blank" class="translate">Click here to register</a></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col m4">
+                                <input class="value" id="documentation" type="checkbox" />
+                                <label for="documentation" class="translate">Show documentations</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="input-field col m8">
+                                <select class="value" multiple id="doc_langs">
+                                    <option class="translate" value="" disabled selected>Select the desired languages for the documentations</option>
+                                    <option class="translate" value="de">German</option>
+                                    <option class="translate" value="en">English</option>
+                                    <option class="translate" value="es">Spanish</option>
+                                    <option class="translate" value="fr">French</option>
+                                    <option class="translate" value="it">Italian</option>
+                                    <option class="translate" value="nl">Dutch</option>
+                                    <option class="translate" value="pl">Polish</option>
+                                    <option class="translate" value="pt">Portuguese</option>
+                                    <option class="translate" value="ru">Russian</option>                            
+                                    <option class="translate" value="zh-cn">Chinese</option>
+                                </select>
+                                <label class="translate">Documentation languages</label>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div class="row">                  
-                    <div class="col m4 l2">
-                        <p class="range-field">
-                            <input class="value" id="cpuSpeed" type="range" min="0" max="240" />
-                        </p>
-                        <label for="cpuSpeed" class="translate">Load CPU data every x seconds</label>
-                        <span class="translate"></span>
+                <!-- ++++++++++ TAB: Github ++++++++++ -->
+                <div id="tabGithub"    class="col s12 page">
+                    <div class="row">
+                        <div class="col s12">
+                            <h6 class="translate sub-title">Github</h6>
+                        </div>
                     </div>
-                    <div class="col m4 l2">
-                        <p class="range-field">
-                            <input class="value" id="memSpeed" type="range" min="0" max="240" />
-                        </p>
-                        <label for="memSpeed" class="translate">Load memory data every x seconds</label>
-                        <span class="translate"></span>
+                    <div class="col s12" id="tableGithub">
+
+                        <div class="row">                    
+                            <div class="input-field col s12 l4">
+                                <input class="value" id="github_token" type="password" />
+                                <label for="github_token" class="translate">GitHub personal access token</label>
+                                <span class="translate">To create messages about adapters or adapter requests, you need a Github account and a token with repo access.</span>
+                                <span><a href="https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line" target="_blank" class="translate">How to generate a token</a></span>
+                            </div>
+                            <div class="input-field col s3 l2">
+                                <input class="value" id="hide_github_myIssues" type="checkbox" />
+                                <label for="hide_github_myIssues" class="translate">Hide my issues button</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="input-field col s3 l2">
+                                <input class="value" id="hide_github_myWatched" type="checkbox" />
+                                <label for="hide_github_myWatched" class="translate">Hide watched repos button</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="input-field col s3 l2">
+                                <input class="value" id="hide_github_myStarred" type="checkbox" />
+                                <label for="hide_github_myStarred" class="translate">Hide starred repos button</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="input-field col s3 l2">
+                                <input class="value" id="hide_github_myAssigned" type="checkbox" />
+                                <label for="hide_github_myAssigned" class="translate">Hide assigned issues button</label>
+                                <span class="translate"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col m12 l4">
+                                <input class="value" id="new_adapters" type="checkbox" />
+                                <label for="new_adapters" class="translate">Search for new adapters</label>
+                                <span class="translate">only for experts</span>
+                            </div>
+                            <div class="input-field col m4 l3">
+                                <select class="value" id="new_adapters_sort" >
+                                    <option class="translate" value="name">name</option>
+                                    <option class="translate" value="create">creation date</option>
+                                    <option class="translate" value="update">last update</option>
+                                </select>    
+                                <label for="new_adapters_sort" class="translate">Sort adapters by</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="input-field col m4 l2">
+                                <input class="value" id="new_adapters_order" type="checkbox" />
+                                <label for="new_adapters_order" class="translate">reverse order</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="input-field col m4 l3">
+                                <input class="value" id="new_adapters_closed" type="checkbox" />
+                                <label for="new_adapters_closed" class="translate">New adapters closed at startup</label>
+                                <span class="translate"></span>
+                            </div>
+                        </div>
+
+
                     </div>
-                    <div class="col m4 l2">
-                        <p class="range-field">
-                            <input class="value" id="diskSpeed" type="range" min="0" max="240" />
-                        </p>
-                        <label for="diskSpeed" class="translate">Load disk data every x seconds</label>
-                        <span class="translate"></span>
-                    </div>
-                    <div class="col m4 l2">
-                        <p class="range-field">
-                            <input class="value" id="batterySpeed" type="range" min="0" max="240" />
-                        </p>
-                        <label for="batterySpeed" class="translate">Load battery data every x seconds</label>
-                        <span class="translate"></span>
-                    </div>
-                    <div class="col m4 l2">
-                        <p class="range-field">
-                            <input class="value" id="networkSpeed" type="range" min="0" max="240" />
-                        </p>
-                        <label for="networkSpeed" class="translate">Load network data every x seconds</label>
-                        <span class="translate"></span>
-                    </div>
-                    <div class="col m4 l2">
-                        <p class="range-field">
-                            <input class="value" id="allProcessesUsers" type="range" min="0" max="240" />
-                        </p>
-                        <label for="allProcessesUsers" class="translate">Load process and user data every x seconds</label>
-                        <span class="translate"></span>
-                    </div>
+
                 </div>
+
+                <!-- ++++++++++ TAB: System ++++++++++ -->
+                <div id="tabSystem"    class="col s12 page">
+                    <div class="row">
+                        <div class="col s12">
+                            <h6 class="translate sub-title">System</h6>
+                        </div>
+                    </div>
+                    <div class="col s12" id="tableSystem">
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input class="value" id="noCurrentSysData" type="checkbox" />
+                                <label for="noCurrentSysData" class="translate">Don't load current system data</label>
+                                <span class="translate"></span>
+                            </div> 
+                        </div>
+
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="card-panel grey">
+                                    <span class="white-text translate">Calling up current system data at too short intervals can lead to very high CPU consumption, especially under Windows. To switch off individual queries, set the slider to 0.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">                  
+                            <div class="col m4 l2">
+                                <p class="range-field">
+                                    <input class="value" id="cpuSpeed" type="range" min="0" max="240" />
+                                </p>
+                                <label for="cpuSpeed" class="translate">Load CPU data every x seconds</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="col m4 l2">
+                                <p class="range-field">
+                                    <input class="value" id="memSpeed" type="range" min="0" max="240" />
+                                </p>
+                                <label for="memSpeed" class="translate">Load memory data every x seconds</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="col m4 l2">
+                                <p class="range-field">
+                                    <input class="value" id="diskSpeed" type="range" min="0" max="240" />
+                                </p>
+                                <label for="diskSpeed" class="translate">Load disk data every x seconds</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="col m4 l2">
+                                <p class="range-field">
+                                    <input class="value" id="batterySpeed" type="range" min="0" max="240" />
+                                </p>
+                                <label for="batterySpeed" class="translate">Load battery data every x seconds</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="col m4 l2">
+                                <p class="range-field">
+                                    <input class="value" id="networkSpeed" type="range" min="0" max="240" />
+                                </p>
+                                <label for="networkSpeed" class="translate">Load network data every x seconds</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="col m4 l2">
+                                <p class="range-field">
+                                    <input class="value" id="allProcessesUsers" type="range" min="0" max="240" />
+                                </p>
+                                <label for="allProcessesUsers" class="translate">Load process and user data every x seconds</label>
+                                <span class="translate"></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
 
                 <div class="row">
                     <div class="col s12">
                         <p class="translate">on save adapter restarts with new config immediately</p>
                     </div>
                 </div>
+                
             </div>
         </div>
     </body>

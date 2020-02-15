@@ -45,6 +45,8 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 * [单击此处获取详细文档 (zh-cn)](docs/zh-cn/info.md)
 
 ## Changelog
+### 1.6.0 (2020-xx-xx)
+
 ### 1.5.7 (2019-11-12)
 * (ldittmar) add event vis widget
 
@@ -149,7 +151,7 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017 - 2019 ldittmar <iobroker@lmdsoft.de>
+Copyright (c) 2017 - 2020 ldittmar <iobroker@lmdsoft.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

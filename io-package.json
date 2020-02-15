@@ -1,8 +1,11 @@
 {
     "common": {
         "name": "info",
-        "version": "1.5.7",
+        "version": "1.6.0",
         "news": {
+            "1.6.0": {
+                "en": ""
+            },
             "1.5.7": {
                 "en": "Event calendar widget for Vis",
                 "de": "Eventkalender Widget für Vis",
@@ -140,9 +143,22 @@
         "type": "misc-data",
         "license": "MIT",
         "messagebox": true,
+        "connectionType": "cloud",
+        "dataSource": "poll",
         "adminTab": {
             "singleton": true,
-            "name": "Info",
+            "name": {
+                "en": "Info",
+                "de": "Info",
+                "ru": "Информация",
+                "pt": "Informações",
+                "nl": "Info",
+                "fr": "Info",
+                "it": "Informazioni",
+                "es": "Informacion",
+                "pl": "Informacje",
+                "zh-cn": "信息"
+            },
             "fa-icon": "info"
         },
         "restartAdapters": [
