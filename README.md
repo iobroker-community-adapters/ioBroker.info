@@ -1,7 +1,5 @@
-<h1>
-  <img src="https://github.com/iobroker-community-adapters/ioBroker.info/blob/master/admin/info.png" width="64"/>
-  ioBroker.info
-</h1>
+![Logo](admin/info.png)
+# ioBroker.info
 
 ![Number of Installations](http://iobroker.live/badges/info-installed.svg) 
 ![Number of Installations](http://iobroker.live/badges/info-stable.svg) 
@@ -17,9 +15,9 @@
 
 ## Information adapter for ioBroker
 
-This is an ioBroker adapter to get informations about your system and some news about ioBroker.
+This is an ioBroker adapter to get information about your system and some news about ioBroker.
 
-## Informations
+## Information
 
 ### Forum and News
 If you reach your admin window over a hostname (for example, http://myhouseiscontrolledbyioBroker:8081), the news and forum entries will not be automatically displayed. To do this, you must first register your host name [here](https://toolkit.sekando.com/docs/en/setup/hostnames).
@@ -28,7 +26,7 @@ After that just enter the API Key in the configuration of the adapter.
 ### Popup Messages (VIS Widget)
 There is a new widget to display important messages in VIS. These messages are displayed ONLY if certain conditions are met. Either from date x to date y or even if you have a specific adapter installed. If nothing is displayed then everything is ok.
 
-### Systeminformation
+### System information
 Many thanks to sebhildebrandt for the great work on the package [systeminformation](https://github.com/sebhildebrandt/systeminformation), because without his work, we would not have all the great information about the system.
 
 ### Detailed informations
@@ -45,7 +43,11 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 * [单击此处获取详细文档 (zh-cn)](docs/zh-cn/info.md)
 
 ## Changelog
-### 1.6.0 (2020-xx-xx)
+### 1.6.0 (2020-04-08)
+* (SchumyHa) update Chinese bbs rss url
+* (ldittmar) Tabs were added to config
+* (ldittmar) Update translations
+* (bluefox) Widget corrected in edit mode
 
 ### 1.5.7 (2019-11-12)
 * (ldittmar) add event vis widget

@@ -4,7 +4,16 @@
         "version": "1.6.0",
         "news": {
             "1.6.0": {
-                "en": ""
+                "en": "Updated Chinese BBS RSS URL\nTabs were added to config\nUpdate translations\nWidget corrected in edit mode",
+                "de": "Aktualisierte chinesische BBS-RSS-URL\nDer Konfiguration wurden Registerkarten hinzugefügt\nÜbersetzungen aktualisieren\nWidget im Bearbeitungsmodus korrigiert",
+                "ru": "Обновленный китайский BBS RSS URL\nВкладки были добавлены в конфиг\nОбновить переводы\nИсправлен виджет в режиме редактирования",
+                "pt": "URL RSS BBS chinês atualizado\nGuias foram adicionadas à configuração\nAtualizar traduções\nWidget corrigido no modo de edição",
+                "nl": "Chinese BBS RSS-URL bijgewerkt\nTabbladen zijn toegevoegd aan de configuratie\nVertalingen bijwerken\nWidget gecorrigeerd in bewerkingsmodus",
+                "fr": "URL RSS du BBS chinois mise à jour\nDes onglets ont été ajoutés à la configuration\nMettre à jour les traductions\nWidget corrigé en mode édition",
+                "it": "URL RSS BBS cinese aggiornato\nLe schede sono state aggiunte alla configurazione\nAggiorna traduzioni\nWidget corretto in modalità modifica",
+                "es": "URL RSS de BBS chino actualizado\nSe agregaron pestañas a la configuración\nActualizar traducciones\nWidget corregido en modo edición",
+                "pl": "Zaktualizowany chiński adres URL RSS BBS\nKarty zostały dodane do konfiguracji\nZaktualizuj tłumaczenia\nWidżet poprawiony w trybie edycji",
+                "zh-cn": "更新了中文BBS RSS URL\n选项卡已添加到配置\n更新翻译\n在编辑模式下修正了小部件"
             },
             "1.5.7": {
                 "en": "Event calendar widget for Vis",

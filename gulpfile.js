@@ -2,16 +2,16 @@
  * ioBroker gulpfile
  * Date: 2019-01-28
  */
-"use strict";
+'use strict';
 
-const gulp = require("gulp");
-const fs = require("fs");
-const pkg = require("./package.json");
-const iopackage = require("./io-package.json");
-const version = (pkg && pkg.version) ? pkg.version : iopackage.common.version;
-const fileName = "words.js";
-const EMPTY = "";
-const translate = require("./lib/tools.js").translateText;
+const gulp = require('gulp');
+const fs = require('fs');
+const pkg = require('./package.json');
+const ioPackage = require('./io-package.json');
+const version = (pkg && pkg.version) ? pkg.version : ioPackage.common.version;
+const fileName = 'words.js';
+const EMPTY = '';
+const translate = require('./lib/tools.js').translateText;
 const languages = {
     en: {},
     de: {},
@@ -22,7 +22,7 @@ const languages = {
     it: {},
     es: {},
     pl: {},
-    "zh-cn": {}
+    'zh-cn': {}
 };
 
 function lang2data(lang, isFlat) {
@@ -34,7 +34,7 @@ function lang2data(lang, isFlat) {
             if (isFlat) {
                 str += (lang[w] === '' ? (isFlat[w] || w) : lang[w]) + '\n';
             } else {
-                const key = '    "' + w.replace(/"/g, '\\"') + '": ';
+                const key = '    "' + w.replace(/'/g, '\\"') + '": ';
                 str += key + '"' + lang[w].replace(/"/g, '\\"') + '",\n';
             }
         }
@@ -51,15 +51,15 @@ function lang2data(lang, isFlat) {
 function readWordJs(src) {
     try {
         let words;
-        if (fs.existsSync(src + "js/" + fileName)) {
-            words = fs.readFileSync(src + "js/" + fileName).toString();
+        if (fs.existsSync(src + 'js/' + fileName)) {
+            words = fs.readFileSync(src + 'js/' + fileName).toString();
         } else {
             words = fs.readFileSync(src + fileName).toString();
         }
         words = words.substring(words.indexOf('{'), words.length);
         words = words.substring(0, words.lastIndexOf(';'));
 
-        const resultFunc = new Function("return " + words + ";");
+        const resultFunc = new Function('return ' + words + ';');
 
         return resultFunc();
     } catch (e) {
@@ -345,7 +345,7 @@ async function translateNotExisting(obj, baseText, yandex) {
             if (!obj[l]) {                
                 const time = new Date().getTime();
                 obj[l] = await translate(t, l, yandex);
-                console.log("en -> " + l + " " + (new Date().getTime() - time) + " ms");
+                console.log('en -> ' + l + ' ' + (new Date().getTime() - time) + ' ms');
             }
         }
     }
@@ -373,28 +373,28 @@ gulp.task('adminLanguages2words', function (done) {
     done();
 });
 
-gulp.task("updatePackages", function (done) {
-    iopackage.common.version = pkg.version;
-    iopackage.common.news = iopackage.common.news || {};
-    if (!iopackage.common.news[pkg.version]) {
-        const news = iopackage.common.news;
+gulp.task('updatePackages', function (done) {
+    ioPackage.common.version = pkg.version;
+    ioPackage.common.news = ioPackage.common.news || {};
+    if (!ioPackage.common.news[pkg.version]) {
+        const news = ioPackage.common.news;
         const newNews = {};
 
         newNews[pkg.version] = {
-            en: "news",
-            de: "neues",
-            ru: "новое",
-            pt: "novidades",
-            nl: "nieuws",
-            fr: "nouvelles",
-            it: "notizie",
-            es: "noticias",
-            pl: "nowości",
-            "zh-cn": "新"
+            en: 'news',
+            de: 'neues',
+            ru: 'новое',
+            pt: 'novidades',
+            nl: 'nieuws',
+            fr: 'nouvelles',
+            it: 'notizie',
+            es: 'noticias',
+            pl: 'nowości',
+            'zh-cn': '新'
         };
-        iopackage.common.news = Object.assign(newNews, news);
+        ioPackage.common.news = Object.assign(newNews, news);
     }
-    fs.writeFileSync("io-package.json", JSON.stringify(iopackage, null, 4));
+    fs.writeFileSync('io-package.json', JSON.stringify(ioPackage, null, 4));
     done();
 });
 
@@ -412,8 +412,8 @@ gulp.task('updateReadme', function (done) {
                     ('0' + (timestamp.getDate()).toString(10)).slice(-2);
 
             let news = '';
-            if (iopackage.common.news && iopackage.common.news[pkg.version]) {
-                news += '* ' + iopackage.common.news[pkg.version].en;
+            if (ioPackage.common.news && ioPackage.common.news[pkg.version]) {
+                news += '* ' + ioPackage.common.news[pkg.version].en;
             }
 
             fs.writeFileSync('README.md', readmeStart + '### ' + version + ' (' + date + ')\n' + (news ? news + '\n\n' : '\n') + readmeEnd);
@@ -423,35 +423,34 @@ gulp.task('updateReadme', function (done) {
 });
 
 gulp.task('translate', async function (done) {
-
     let yandex;
-    const i = process.argv.indexOf("--yandex");
+    const i = process.argv.indexOf('--yandex');
     if (i > -1) {
         yandex = process.argv[i + 1];
     }
     
-    if (iopackage && iopackage.common) {
-        if (iopackage.common.news) {
-            console.log("Translate News");
-            for (let k in iopackage.common.news) {
-                console.log("News: " + k);
-                let nw = iopackage.common.news[k];
+    if (ioPackage && ioPackage.common) {
+        if (ioPackage.common.news) {
+            console.log('Translate News');
+            for (let k in ioPackage.common.news) {
+                console.log('News: ' + k);
+                let nw = ioPackage.common.news[k];
                 await translateNotExisting(nw, null, yandex);
             }
         }
-        if (iopackage.common.titleLang) {
-            console.log("Translate Title");
-            await translateNotExisting(iopackage.common.titleLang, iopackage.common.title, yandex);
+        if (ioPackage.common.titleLang) {
+            console.log('Translate Title');
+            await translateNotExisting(ioPackage.common.titleLang, ioPackage.common.title, yandex);
         }
-        if (iopackage.common.desc) {
-            console.log("Translate Description");
-            await translateNotExisting(iopackage.common.desc, null, yandex);
+        if (ioPackage.common.desc) {
+            console.log('Translate Description');
+            await translateNotExisting(ioPackage.common.desc, null, yandex);
         }
        
         if (fs.existsSync('./admin/i18n/en/translations.json')) {
             let enTranslations = require('./admin/i18n/en/translations.json');
             for (let l in languages) {
-                console.log("Translate Text: " + l);
+                console.log('Translate Text: ' + l);
                 let existing = {};
                 if (fs.existsSync('./admin/i18n/' + l + '/translations.json')) {
                     existing = require('./admin/i18n/' + l + '/translations.json');
@@ -469,9 +468,14 @@ gulp.task('translate', async function (done) {
         }
 
     }
-    fs.writeFileSync('io-package.json', JSON.stringify(iopackage, null, 4));    
+    fs.writeFileSync('io-package.json', JSON.stringify(ioPackage, null, 4));
 });
 
-gulp.task("translateAndUpdateWordsJS", gulp.series("translate", "adminLanguages2words", "adminWords2languages"));
+gulp.task('translateAndUpdateWordsJS', gulp.series('translate', 'adminLanguages2words', 'adminWords2languages'));
 
-gulp.task('default', gulp.series('updatePackages', 'updateReadme'));
+gulp.task('copy', done => {
+    fs.writeFileSync(__dirname + '/widgets/info/js/words.js', fs.readFileSync(__dirname + '/admin/words.js'));
+    done();
+});
+
+gulp.task('default', gulp.series('copy'));
