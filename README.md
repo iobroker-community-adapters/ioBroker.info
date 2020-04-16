@@ -47,6 +47,7 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 ## Changelog
 
 ### 1.7.0 (2020-04-16)
+* (Apollon77) IMPORTANT: Supported version minimum nodejs 10
 * (Apollon77) add Sentry error reporting and update dependencies
 * (Apollon77) remove usage of objects directly to prevent js-controller 3.0 warnings
 * (Apollon77) update dependencies

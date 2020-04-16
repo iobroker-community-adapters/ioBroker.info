@@ -17,6 +17,9 @@
         "type": "git",
         "url": "https://github.com/iobroker-community-adapters/ioBroker.info"
     },
+    "engines": {
+        "node": ">=10.0.0"
+    },
     "dependencies": {
         "axios": "^0.19.2",
         "@iobroker/adapter-core": "^2.3.0",
