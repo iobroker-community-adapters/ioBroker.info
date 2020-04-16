@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.6.0",
+        "version": "1.7.0",
         "news": {
+            "1.7.0": {
+                "en": "js-controller 3.0 warnings prevented, compact mode problems fixed, other optimizations and fixes, Added Sentry for use with js-controller 3.0",
+                "de": "js-controller 3.0-Warnungen verhindert, Probleme mit dem Kompaktmodus behoben, andere Optimierungen und Korrekturen, Sentry zur Verwendung mit js-controller 3.0 hinzugefügt",
+                "ru": "Предупреждения js-controller 3.0 предотвращены, исправлены проблемы компактного режима, другие оптимизации и исправления, добавлен Sentry для использования с js-controller 3.0",
+                "pt": "avisos do js-controller 3.0 impedidos, problemas no modo compacto corrigidos, outras otimizações e correções, Adicionado Sentry para uso com o js-controller 3.0",
+                "nl": "js-controller 3.0-waarschuwingen voorkomen, compacte modusproblemen opgelost, andere optimalisaties en fixes, Sentry toegevoegd voor gebruik met js-controller 3.0",
+                "fr": "avertissements de js-controller 3.0 évités, problèmes de mode compact corrigés, autres optimisations et corrections, Sentry ajoutée pour une utilisation avec js-controller 3.0",
+                "it": "Avvisi js-controller 3.0 evitati, problemi di modalità compatta risolti, altre ottimizzazioni e correzioni, Sentry aggiunto per l'uso con js-controller 3.0",
+                "es": "Advertencias de js-controller 3.0 prevenidas, problemas de modo compacto arreglados, otras optimizaciones y arreglos, Sentry agregado para usar con js-controller 3.0",
+                "pl": "zapobiega ostrzeżeniom js-kontrolera 3.0, naprawiono problemy z trybem kompaktowym, inne optymalizacje i poprawki, dodano Sentry do użytku z js-kontrolerem 3.0",
+                "zh-cn": "防止了js-controller 3.0警告，修复了紧凑模式问题，进行了其他优化和修复，添加了与js-controller 3.0一起使用的Sentry"
+            },
             "1.6.0": {
                 "en": "Updated Chinese BBS RSS URL\nTabs were added to config\nUpdate translations\nWidget corrected in edit mode",
                 "de": "Aktualisierte chinesische BBS-RSS-URL\nDer Konfiguration wurden Registerkarten hinzugefügt\nÜbersetzungen aktualisieren\nWidget im Bearbeitungsmodus korrigiert",
@@ -175,9 +187,19 @@
         ],
         "dependencies": [
             {
+                "js-controller": ">=2.0.0"
+            }
+        ],
+        "globalDependencies": [
+            {
                 "admin": ">=3.0.0"
             }
-        ]
+        ],
+        "plugins": {
+            "sentry": {
+                "dsn": "https://866497ca02584bf2bc72d8c6fff73e15@sentry.iobroker.net/32"
+            }
+        }
     },
     "native": {
         "news": true,

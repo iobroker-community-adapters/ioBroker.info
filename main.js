@@ -15,6 +15,8 @@ const cpuTemp = [];
 const memUsed = [];
 const fsUsed = {};
 
+const adapterIntervals = {};
+
 // you have to call the adapter function and pass a options object
 // name has to be set and has to be equal to adapters folder name and main file name excluding extension
 // adapter will be restarted automatically every time as the configuration changed, e.g system.adapter.template.0
@@ -25,35 +27,12 @@ function startAdapter(options) {
         name: 'info',
         unload: function (callback) {
             try {
+                Object.keys(adapterIntervals).forEach(interval => clearInterval(adapterIntervals[interval]));
+
                 adapter.log.info('cleaned everything up...');
                 callback();
             } catch (e) {
                 callback();
-            }
-        },
-        objectChange: function (id, obj) {
-            // Warning, obj can be null if it was deleted
-            adapter.log.info('objectChange ' + id + ' ' + JSON.stringify(obj));
-        },
-        stateChange: function (id, state) {
-            // Warning, state can be null if it was deleted
-            adapter.log.info('stateChange ' + id + ' ' + JSON.stringify(state));
-
-            // you can use the ack flag to detect if it is status (true) or command (false)
-            if (state && !state.ack) {
-                adapter.log.info('ack is not set!');
-            }
-        },
-        message: function (obj) {
-            if (typeof obj === 'object' && obj.message) {
-                if (obj.command === 'send') {
-                    // e.g. send email or pushover or whatever
-                    console.log('send command');
-
-                    // Send response in callback if required
-                    if (obj.callback)
-                        adapter.sendTo(obj.from, obj.command, 'Message received', obj.callback);
-                }
             }
         },
         ready: function () {
@@ -220,6 +199,7 @@ function procedeNewsfeed(messages, systemLang) {
 }
 
 const checkVersion = function (smaller, bigger) {
+    if (smaller === undefined || bigger === undefined) return false;
     smaller = smaller.split('.');
     bigger = bigger.split('.');
     smaller[0] = parseInt(smaller[0], 10);
@@ -250,7 +230,7 @@ const checkVersionBetween = function (inst, vers1, vers2) {
 
 function getInstances(callback) {
     adapter.log.debug("Getting instances...");
-    adapter.objects.getObjectView('system', 'instance', {startkey: 'system.adapter.', endkey: 'system.adapter.\u9999'}, (err, doc) => {
+    adapter.getObjectView('system', 'instance', {startkey: 'system.adapter.', endkey: 'system.adapter.\u9999'}, (err, doc) => {
         if (err || !doc || !doc.rows || !doc.rows.length) {
             return callback && callback([]);
         }
@@ -365,7 +345,7 @@ const updateSysinfo = function () {
                         speed = 60;
                     }
                     adapter.log.info("Reading CPU data every " + speed + " seconds.");
-                    setInterval(updateCurrentCPUInfos, speed * 1000);
+                    adapterIntervals.updateCurrentCPUInfos = setInterval(updateCurrentCPUInfos, speed * 1000);
                 }
             })
             .catch(error => adapter.log.error(error));
@@ -383,7 +363,7 @@ const updateSysinfo = function () {
                         speed = 60;
                     }
                     adapter.log.info("Reading CPU temp data every " + speed + " seconds.");
-                    setInterval(updateCurrentCPUTempInfos, speed * 1000);
+                    adapterIntervals.updateCurrentCPUTempInfos = setInterval(updateCurrentCPUTempInfos, speed * 1000);
                 }
             })
             .catch(error => adapter.log.error(error));
@@ -402,7 +382,7 @@ const updateSysinfo = function () {
                             speed = 60;
                         }
                         adapter.log.info("Reading CPU current speed every " + speed + " seconds.");
-                        setInterval(updateCurrentCPUSpeed, speed * 1000);
+                        adapterIntervals.updateCurrentCPUSpeed = setInterval(updateCurrentCPUSpeed, speed * 1000);
                     }
                 }
             })
@@ -420,7 +400,7 @@ const updateSysinfo = function () {
                         speed = 60;
                     }
                     adapter.log.info("Reading memory data every " + speed + " seconds.");
-                    setInterval(updateCurrentMemoryInfos, speed * 1000);
+                    adapterIntervals.updateCurrentMemoryInfos = setInterval(updateCurrentMemoryInfos, speed * 1000);
                 }
             })
             .catch(error => adapter.log.error(error));
@@ -470,7 +450,7 @@ const updateSysinfo = function () {
                         speed = 120;
                     }
                     adapter.log.info("Reading user data every " + speed + " seconds.");
-                    setInterval(updateCurrentUsersInfos, speed * 1000);
+                    adapterIntervals.updateCurrentUsersInfos = setInterval(updateCurrentUsersInfos, speed * 1000);
                 }
             })
             .catch(error => adapter.log.error(error));
@@ -489,7 +469,7 @@ const updateSysinfo = function () {
                         speed = 120;
                     }
                     adapter.log.info("Reading process data every " + speed + " seconds.");
-                    setInterval(updateCurrentProcessInfos, speed * 1000);
+                    adapterIntervals.updateCurrentProcessInfos = setInterval(updateCurrentProcessInfos, speed * 1000);
                 }
             })
             .catch(error => adapter.log.error(error));
@@ -546,7 +526,7 @@ const updateSysinfo = function () {
                             speed = 120;
                         }
                         adapter.log.info("Reading disk data every " + speed + " seconds.");
-                        setInterval(updateCurrentFilesystemInfos, speed * 1000);
+                        adapterIntervals.updateCurrentFilesystemInfos = setInterval(updateCurrentFilesystemInfos, speed * 1000);
                     }
                 }
             })
@@ -582,7 +562,7 @@ const updateSysinfo = function () {
                         speed = 120;
                     }
                     adapter.log.info("Reading battery data every " + speed + " seconds.");
-                    setInterval(updateCurrentBatteryInfos, speed * 1000);
+                    adapterIntervals.updateCurrentBatteryInfos = setInterval(updateCurrentBatteryInfos, speed * 1000);
                 }
             })
             .catch(error => adapter.log.error(error));
@@ -700,6 +680,7 @@ const updateCurrentFilesystemInfos = function () {
                 if (data.length > 0) {
                     Object.keys(data).forEach(function (key) {
                         adapter.setState('sysinfo.disks.fsSize.fs' + key + '.used', {val: data[key]['used'], ack: true});
+                        fsUsed[key] = fsUsed[key] || [];
                         fsUsed[key].push(data[key]['used']);
                         if (fsUsed[key].length > 30) {
                             fsUsed[key].shift();
@@ -762,7 +743,7 @@ function main() {
         }
     });
     checkNews();
-    setInterval(checkNews, 30 * 60 * 1000);
+    adapterIntervals.checkNews = setInterval(checkNews, 30 * 60 * 1000);
     updateSysinfo();
 }
 

@@ -17,6 +17,8 @@
 
 This is an ioBroker adapter to get information about your system and some news about ioBroker.
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## Information
 
 ### Forum and News
@@ -43,6 +45,14 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 * [单击此处获取详细文档 (zh-cn)](docs/zh-cn/info.md)
 
 ## Changelog
+
+### 1.6.1 (2020-04-16)
+* (Apollon77) add Sentry error reporting and update dependencies
+* (Apollon77) remove usage of objects directly to prevent js-controller 3.0 warnings
+* (Apollon77) update dependencies
+* (Apollon77) fix some crashes
+* (Apollon77) fix compact mode
+
 ### 1.6.0 (2020-04-08)
 * (SchumyHa) update Chinese bbs rss url
 * (ldittmar) Tabs were added to config
