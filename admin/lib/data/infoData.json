@@ -27,8 +27,8 @@
     },
     "supportedNewsLang": ["de", "en", "ru", "zh-cn"],
     "languages": ["de", "en", "ru", "pt", "nl", "fr", "it", "es", "pl", "zh-cn"],
-    "nodeOld": ["v0", "v4", "v5", "v7", "v9"],
-    "nodeNew": ["v11", "v12"],
-    "nodeAccepted": ["v6", "v8"],
+    "nodeOld": ["v0", "v4", "v5", "v6", "v7", "v9", "v11"],
+    "nodeNew": ["v15", "v16"],
+    "nodeAccepted": ["v6", "v8", "v12", "v13", "v14"],
     "nodeRecommended": "v10"
 }
