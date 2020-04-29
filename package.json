@@ -1,6 +1,6 @@
 {
     "name": "iobroker.info",
-    "version": "1.7.0",
+    "version": "1.7.1",
     "description": "Some information about your ioBroker",
     "author": {
         "name": "ldittmar",
@@ -23,7 +23,7 @@
     "dependencies": {
         "axios": "^0.19.2",
         "@iobroker/adapter-core": "^2.3.0",
-        "systeminformation": "^4.23.3",
+        "systeminformation": "^4.23.8",
         "semver": "^7.3.2"
     },
     "optionalDependencies": {
