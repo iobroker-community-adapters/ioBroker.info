@@ -79,6 +79,22 @@ const newsPopup = {
             return true;
         }
     },
+    checkActive: function(adapterName) {
+        const instances = window.top.gMain.instances;
+        if(!instances){
+            return false;
+        }
+        const instCreated = instances.filter(function (str) { return str.includes("." + adapterName + "."); });
+        if(instCreated.length === 0){
+            return false;
+        }
+        instCreated.forEach(function(id){
+            if(window.top.gMain.main.objects[id].common.enabled){
+                return true;
+            }
+        });
+        return false;
+    },
     checkMessages: async function (obj, instAdapters) {
         const messagesToShow = [];
         try {
@@ -108,6 +124,10 @@ const newsPopup = {
                                     showIt = false;
                                 } else if (adapter && condition === "!installed") {
                                     showIt = false;
+                                } else if (adapter && condition === "active") {
+                                    showIt = newsPopup.checkActive(key);
+                                } else if (adapter && condition === "!active") {
+                                    showIt = !newsPopup.checkActive(key);
                                 } else if (adapter) {
                                     showIt = newsPopup.checkConditions(condition, adapter.version);
                                 }

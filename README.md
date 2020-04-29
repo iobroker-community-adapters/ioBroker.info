@@ -46,6 +46,10 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 
 ## Changelog
 
+### 1.7.1 (2020-04-29)
+* (ldittmar) Update systeminformation library
+* (ldittmar) Check instance active for messages
+
 ### 1.7.0 (2020-04-16)
 * (Apollon77) IMPORTANT: Supported version minimum nodejs 10
 * (Apollon77) add Sentry error reporting and update dependencies
