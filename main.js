@@ -102,6 +102,26 @@ const checkNews = function () {
     });
 };
 
+function checkActive(adapterName) {
+    const instances = window.top.gMain.instances;
+    if (!instances) {
+        return false;
+    }
+    const instCreated = instances.filter(function (str) {
+        return str.includes("." + adapterName + ".");
+    });
+    if (instCreated.length === 0) {
+        return false;
+    }
+    let i;
+    for (i = 0; i < instCreated.length; i++) {
+        if (window.top.gMain.objects[instCreated[i]].common.enabled) {
+            return true;
+        }
+    }
+    return false;
+}
+
 function checkConditions(condition, installedVersion, objectName) {
     if (condition.startsWith("equals")) {
         const vers = condition.substring(7, condition.length - 1).trim();
@@ -160,6 +180,12 @@ function procedeNewsfeed(messages, systemLang) {
                                 } else if (adapt && condition === "!installed") {
                                     adapter.log.debug("Adapter shoud not be installed");
                                     showIt = false;
+                                } else if (adapt && condition === "active") {
+                                    adapter.log.debug("At least one instance is active");
+                                    showIt = checkActive(key);
+                                } else if (adapt && condition === "!active") {
+                                    adapter.log.debug("No active instance of adapter");
+                                    showIt = !checkActive(key);
                                 } else if (adapt) {
                                     showIt = checkConditions(condition, adapt.version, key);
                                 }
@@ -199,7 +225,9 @@ function procedeNewsfeed(messages, systemLang) {
 }
 
 const checkVersion = function (smaller, bigger) {
-    if (smaller === undefined || bigger === undefined) return false;
+    if (smaller === undefined || bigger === undefined){
+        return false;
+    }
     smaller = smaller.split('.');
     bigger = bigger.split('.');
     smaller[0] = parseInt(smaller[0], 10);

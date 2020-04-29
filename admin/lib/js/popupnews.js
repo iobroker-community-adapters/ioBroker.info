@@ -22,6 +22,9 @@ function startPopupNews() {
 
 const newsPopup = {
     checkVersion: function (smaller, bigger) {
+        if (smaller === undefined || bigger === undefined) {
+            return false;
+        }
         smaller = smaller.split('.');
         bigger = bigger.split('.');
         smaller[0] = parseInt(smaller[0], 10);
@@ -79,20 +82,23 @@ const newsPopup = {
             return true;
         }
     },
-    checkActive: function(adapterName) {
+    checkActive: function (adapterName) {
         const instances = window.top.gMain.instances;
-        if(!instances){
+        if (!instances) {
             return false;
         }
-        const instCreated = instances.filter(function (str) { return str.includes("." + adapterName + "."); });
-        if(instCreated.length === 0){
+        const instCreated = instances.filter(function (str) {
+            return str.includes("." + adapterName + ".");
+        });
+        if (instCreated.length === 0) {
             return false;
         }
-        instCreated.forEach(function(id){
-            if(window.top.gMain.main.objects[id].common.enabled){
+        let i;
+        for (i = 0; i < instCreated.length; i++) {
+            if (window.top.gMain.objects[instCreated[i]].common.enabled) {
                 return true;
             }
-        });
+        }
         return false;
     },
     checkMessages: async function (obj, instAdapters) {
@@ -143,7 +149,7 @@ const newsPopup = {
                     }
                     if (showIt && message['os']) {
                         showIt = systemInformationData.os && systemInformationData.os === message['os'];
-                    }                    
+                    }
                     if (showIt && message['repo'] && window.top.gMain) {
                         showIt = window.top.gMain.systemConfig.common.activeRepo === message['repo'];
                     }
