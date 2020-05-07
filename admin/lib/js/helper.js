@@ -8,6 +8,8 @@ let documentationData = {};
 let systemConfig = {};
 let adapterConfig = {};
 
+let ignoredNews = [];
+
 const systemInformationData = {"node": null, "npm": null, "os": null};
 
 let systemInfoForGithub = "";
@@ -202,6 +204,12 @@ async function readInstanceConfig(callback) {
     socket.emit('getState', 'info.0.sysinfo.os.info.platform', function (err, data) {
         if (!err && data) {
             systemInformationData.os = data.val;
+        }
+    });
+
+    socket.emit('getState', 'info.0.ignored_news', function (err, data) {
+        if (!err && data) {
+            ignoredNews = data.val;
         }
     });
 
@@ -427,6 +435,15 @@ $(function () {
 
     $(document.body).on('click', '.spoiler-control', function () {
         $(this).parent().children(".spoiler-content").toggle();
+    });
+
+    $(document.body).on('click', '.popupnewsneveragain', function () {
+        const id = $(this).attr('data-id');
+        if (!ignoredNews || !Array.isArray(ignoredNews)) {
+            ignoredNews = [];
+        }
+        ignoredNews.push(id);
+        socket.emit('setState', 'info.0.ignored_news', {val: JSON.stringify(ignoredNews), ack: true});
     });
 
     var $menu = $('#sidebar-wrapper');

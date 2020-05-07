@@ -1,4 +1,4 @@
-/* global socket, systemLang, io, systemInformationData */
+/* global socket, systemLang, io, systemInformationData, ignoredNews */
 
 function startPopupNews() {
     socket.emit('subscribe', 'info.0.newsfeed');
@@ -57,7 +57,7 @@ const newsPopup = {
             messages = await newsPopup.checkMessages(obj);
             if (messages.length > 0) {
                 await asyncForEach(messages, async function (message) {
-                    newsPopup.showDiv(message.id, message.title, message.content, message.class, message.icon, id);
+                    newsPopup.showDiv(message.id, message.title, message.content, message.class, message.icon, id, message.id + message.created);
                 });
             }
         } else {
@@ -109,6 +109,10 @@ const newsPopup = {
             if (messages.length > 0) {
                 await asyncForEach(messages, async function (message) {
                     let showIt = true;
+                    const uniqueId = message.id + message.created;
+                    if (ignoredNews && Array.isArray(ignoredNews)) {
+                        showIt = !ignoredNews.includes(uniqueId);
+                    }
 
                     if (showIt && message['date-start'] && new Date(message['date-start']).getTime() > today) {
                         showIt = false;
@@ -167,7 +171,7 @@ const newsPopup = {
 
         return messagesToShow;
     },
-    showDiv: function (id, title, content, type, icon, appendId) {
+    showDiv: function (id, title, content, type, icon, appendId, uniqueId) {
         const types = ["info", "success", "warning", "danger"];
         if (id && $("#popupnewsid_" + id).length === 0) {
             const $item = $('#popupNewsTemplate').children().clone(true, true);
@@ -178,6 +182,11 @@ const newsPopup = {
             }
             if (icon && icon !== 'exclamation-triangle') {
                 $item.find('.fa').removeClass('fa-exclamation-triangle').addClass('fa-' + icon);
+            }
+            if (uniqueId) {
+                $item.find('.popupnewsneveragain').attr('data-id', uniqueId);
+            } else {
+                $item.find('.popupnewsneveragain').remove();
             }
             $('#' + (appendId ? appendId : "popupnews")).append($item);
         }
@@ -200,7 +209,7 @@ const newsPopup = {
                     const messages = await newsPopup.checkMessages(obj, curInstalled);
                     if (messages.length > 0) {
                         await asyncForEach(messages, async function (message) {
-                            newsPopup.showDiv(message.id, message.title, message.content, message.class, 'exclamation-triangle', toSetId);
+                            newsPopup.showDiv(message.id, message.title, message.content, message.class, 'exclamation-triangle', toSetId, message.id + message.created);
                         });
                     } else if (dummy) {
                         newsPopup.showDiv("TestID", "Nothing to show (DUMMY)", "<p>These are the voyages of the Starship Enterprise. Its continuing mission, to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no one has gone before. We need to neutralize the homing signal. Each unit has total environmental control, gravity, temperature, atmosphere, light, in a protective field. Sensors show energy readings in your area. We had a forced chamber explosion in the resonator coil. Field strength has increased by 3,000 percent.</p>", "danger", 'exclamation-triangle', toSetId);

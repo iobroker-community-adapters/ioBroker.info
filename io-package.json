@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "info",
-        "version": "1.7.1",
+        "version": "1.7.2",
         "news": {
             "1.7.0": {
                 "en": "REQUIRES node.js 10, js-controller 3.0 warnings prevented, compact mode problems fixed, other optimizations and fixes, Added Sentry for use with js-controller 3.0",
@@ -262,6 +262,18 @@
             "type": "state",
             "common": {
                 "name": "Last Newsfeed - filtered",
+                "type": "string",
+                "role": "json",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "ignored_news",
+            "type": "state",
+            "common": {
+                "name": "News already read",
                 "type": "string",
                 "role": "json",
                 "read": true,
