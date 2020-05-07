@@ -3,6 +3,18 @@
         "name": "info",
         "version": "1.7.2",
         "news": {
+            "1.7.2": {
+                "en": "Newest version of syteminformation library\nMessages can be hidden",
+                "de": "Neueste Version der Systeminformationsbibliothek\nNachrichten können ausgeblendet werden",
+                "ru": "Новейшая версия syteminformation библиотеки\nСообщения могут быть скрыты",
+                "pt": "Versão mais recente da biblioteca de informações de sistemas\nAs mensagens podem ser ocultadas",
+                "nl": "Nieuwste versie van sy nietformation-bibliotheek\nBerichten kunnen worden verborgen",
+                "fr": "Nouvelle version de la bibliothèque syteminformation\nLes messages peuvent être masqués",
+                "it": "La versione più recente della libreria di informazioni sulla sinistruttura\nI messaggi possono essere nascosti",
+                "es": "La versión más reciente de la biblioteca de syteminformation\nLos mensajes pueden estar ocultos",
+                "pl": "Najnowsza wersja biblioteki informacji systemowych\nWiadomości można ukryć",
+                "zh-cn": "最新版本的语法信息库\n消息可以隐藏"
+            },
             "1.7.0": {
                 "en": "REQUIRES node.js 10, js-controller 3.0 warnings prevented, compact mode problems fixed, other optimizations and fixes, Added Sentry for use with js-controller 3.0",
                 "de": "ERFORDERLICH node.js 10, Warnungen vor js-controller 3.0 verhindert, Probleme mit dem Kompaktmodus behoben, andere Optimierungen und Korrekturen, Sentry zur Verwendung mit js-controller 3.0 hinzugefügt",
@@ -38,30 +50,6 @@
                 "es": "Widget de calendario de eventos para Vis",
                 "pl": "Widżet kalendarza wydarzeń dla Vis",
                 "zh-cn": "Vis的事件日历小部件"
-            },
-            "1.5.6": {
-                "en": "Add NPM and OS check for popup",
-                "de": "NPM- und Betriebssystemprüfung für Popup hinzufügen",
-                "ru": "Добавить проверку NPM и ОС для всплывающих окон",
-                "pt": "Adicionar NPM e verificação do SO para pop-up",
-                "nl": "NPM en OS-controle voor pop-up toevoegen",
-                "fr": "Ajouter NPM et vérification du système d'exploitation pour les fenêtres contextuelles",
-                "it": "Aggiungi NPM e controllo OS per popup",
-                "es": "Agregar NPM y verificación del sistema operativo para ventana emergente",
-                "pl": "Dodaj narzędzie NPM i OS do wyskakującego okienka",
-                "zh-cn": "添加NPM和OS检查弹出窗口"
-            },
-            "1.5.4": {
-                "en": "Event calendar",
-                "de": "Veranstaltungskalender",
-                "ru": "Календарь событий",
-                "pt": "Calendário de eventos",
-                "nl": "Evenementen kalender",
-                "fr": "Calendrier de l'événement",
-                "it": "Calendario degli eventi",
-                "es": "Calendario de eventos",
-                "pl": "Kalendarz wydarzeń",
-                "zh-cn": "活动日历"
             },
             "1.5.2": {
                 "en": "New features for adapter request and little fixes",
