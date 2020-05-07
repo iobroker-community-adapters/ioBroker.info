@@ -110,7 +110,7 @@ const newsPopup = {
                 await asyncForEach(messages, async function (message) {
                     let showIt = true;
                     const uniqueId = message.id + message.created;
-                    if (ignoredNews && Array.isArray(ignoredNews)) {
+                    if (Array.isArray(ignoredNews)) {
                         showIt = !ignoredNews.includes(uniqueId);
                     }
 
@@ -173,7 +173,11 @@ const newsPopup = {
     },
     showDiv: function (id, title, content, type, icon, appendId, uniqueId) {
         const types = ["info", "success", "warning", "danger"];
-        if (id && $("#popupnewsid_" + id).length === 0) {
+        let ignored = false;
+        if(Array.isArray(ignoredNews)){
+            ignored = ignoredNews.includes(uniqueId);
+        }
+        if (id && $("#popupnewsid_" + id).length === 0 && !ignored) {
             const $item = $('#popupNewsTemplate').children().clone(true, true);
             $item.find('.popupnews_title').text(title).attr('id', "popupnewsid_" + id);
             $item.find('.popupnews_content').html(content);

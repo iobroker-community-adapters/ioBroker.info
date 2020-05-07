@@ -439,7 +439,7 @@ $(function () {
 
     $(document.body).on('click', '.popupnewsneveragain', function () {
         const id = $(this).attr('data-id');
-        if (!ignoredNews || !Array.isArray(ignoredNews)) {
+        if (!Array.isArray(ignoredNews)) {
             ignoredNews = [];
         }
         ignoredNews.push(id);
