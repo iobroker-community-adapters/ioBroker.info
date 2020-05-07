@@ -209,7 +209,7 @@ async function readInstanceConfig(callback) {
 
     socket.emit('getState', 'info.0.ignored_news', function (err, data) {
         if (!err && data) {
-            ignoredNews = data.val;
+            ignoredNews = JSON.parse(data.val);
         }
     });
 
