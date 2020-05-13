@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "info",
-        "version": "1.7.2",
+        "version": "1.7.3",
         "news": {
             "1.7.2": {
                 "en": "Newest version of syteminformation library\nMessages can be hidden",

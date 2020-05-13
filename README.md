@@ -46,6 +46,9 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 
 ## Changelog
 
+### 1.7.3 (2020-xx-xx)
+* (ldittmar) Added full S.M.A.R.T data. To be able to detect S.M.A.R.T. status on Linux you need to install smartmontools >= 7.0
+
 ### 1.7.2 (2020-05-07)
 * (ldittmar) Update systeminformation library
 * (ldittmar) Messages can be hidden
