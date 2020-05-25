@@ -27,7 +27,7 @@
         "semver": "^7.3.2"
     },
     "optionalDependencies": {
-        "osx-temperature-sensor": "^1.0.5"
+        "osx-temperature-sensor": "^1.0.7"
     },
     "devDependencies": {
         "@iobroker/testing": "^2.2.0",
