@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.7.3",
+        "version": "1.7.4",
         "news": {
+            "1.7.4": {
+                "en": "Newest version of syteminformation library\nAdded full S.M.A.R.T data when smartmontools >= 7.0 is installed",
+                "de": "Neueste Version der Systeminformationsbibliothek\nEs wurden vollständige S.M.A.R.T-Daten hinzugefügt, wenn smartmontools> = 7.0 installiert ist",
+                "ru": "Новейшая версия syteminformation библиотеки\nДобавлены полные данные S.M.A.R.T при установке smartmontools> = 7.0",
+                "pt": "Versão mais recente da biblioteca de informações de sistemas\nAdicionado dados completos do S.M.A.R.T quando smartmontools> = 7.0 está instalado",
+                "nl": "Nieuwste versie van sy nietformation-bibliotheek\nVolledige S.M.A.R.T-gegevens toegevoegd wanneer smartmontools> = 7.0 is geïnstalleerd",
+                "fr": "Nouvelle version de la bibliothèque syteminformation\nAjout de données S.M.A.R.T complètes lorsque smartmontools> = 7.0 est installé",
+                "it": "La versione più recente della libreria di informazioni sinistrutturali\nAggiunti dati S.M.A.R.T completi quando sono installati smartmontools> = 7.0",
+                "es": "La versión más reciente de la biblioteca de syteminformation\nSe agregaron datos completos de S.M.A.R.T cuando se instala smartmontools> = 7.0",
+                "pl": "Najnowsza wersja biblioteki informacji systemowych\nDodano pełne dane S.M.A.R.T po zainstalowaniu smartmontools> = 7.0",
+                "zh-cn": "最新版本的语法信息库\n当安装smartmontools> = 7.0时添加了完整的S.M.A.R.T数据"
+            },
             "1.7.2": {
                 "en": "Newest version of syteminformation library\nMessages can be hidden",
                 "de": "Neueste Version der Systeminformationsbibliothek\nNachrichten können ausgeblendet werden",
