@@ -91,7 +91,7 @@ const checkNews = function () {
     const newsLink = test ? 'https://raw.githubusercontent.com/ioBrokerChecker/testData/master/testMessage.json' : 'https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/info/news.json';
 
     axios(newsLink).then(function (resp) {
-        adapter.log.debug("Popup news was read..." + test?" (DEBUG)":"");
+        adapter.log.debug("Popup news was read..." + (test ? " (DEBUG)" : ""));
         adapter.setState('newsfeed', {val: JSON.stringify(resp.data), ack: true});
 
         adapter.getForeignObject('system.meta.uuid', (err, obj) => {
@@ -106,7 +106,9 @@ const checkNews = function () {
 
         adapter.getForeignObject('system.config', (err, obj) => {
             if (!err && obj) {
+                adapter.log.debug("Repo: " + obj.common.activeRepo);
                 activeRepo = obj.common.activeRepo;
+                adapter.log.debug("Language: " + obj.common.language);
                 procedeNewsfeed(resp.data, obj.common.language);
             }
         });
@@ -209,22 +211,28 @@ function procedeNewsfeed(messages, systemLang) {
 
                     if (showIt && message['node-version']) {
                         const condition = message['node-version'];
+                        adapter.log.debug("Node check");
                         showIt = checkConditions(condition, versions.node, "NodeJS");
                     }
                     if (showIt && message['npm-version']) {
                         const condition = message['npm-version'];
+                        adapter.log.debug("NPM check");
                         showIt = versions.npm !== null && checkConditions(condition, versions.npm, "NPM");
                     }
                     if (showIt && messages['os']) {
                         const condition = message['os'];
+                        adapter.log.debug("OS check");
                         showIt = process.platform === condition;
                     }
                     if (showIt && messages['repo']) {
                         const condition = message['repo'];
+                        adapter.log.debug("Repo check");
                         showIt = activeRepo === condition;
                     }
                     if (showIt && messages['uuid']) {
+                        adapter.log.debug("UUID check");
                         if (Array.isArray(message['uuid'])) {
+                            adapter.log.debug("UUID List check");
                             let oneMustBe = false;
                             if (uuid) {
                                 message['uuid'].forEach(function (uuidCondition) {
@@ -235,6 +243,7 @@ function procedeNewsfeed(messages, systemLang) {
                             }
                             showIt = oneMustBe;
                         } else {
+                            adapter.log.debug("UUID only one");
                             showIt = uuid && uuid === message['uuid'];
                         }
                     }
@@ -798,15 +807,17 @@ function main() {
         } else {
             adapter.setState('readTestFile', {val: false, ack: true});
         }
+
+        adapter.getState('last_popup', function (err, obj) {
+            if (!err && (!obj || !obj.val)) {
+                adapter.setState('last_popup', {val: '2019-01-01T00:00:00.000Z', ack: true});
+            }
+            checkNews();
+            adapterIntervals.checkNews = setInterval(checkNews, 30 * 60 * 1000);
+            updateSysinfo();
+        });
+
     });
-    adapter.getState('last_popup', function (err, obj) {
-        if (!err && (!obj || !obj.val)) {
-            adapter.setState('last_popup', {val: '2019-01-01T00:00:00.000Z', ack: true});
-        }
-    });
-    checkNews();
-    adapterIntervals.checkNews = setInterval(checkNews, 30 * 60 * 1000);
-    updateSysinfo();
 }
 
 // If started as allInOne/compact mode => return function to create instance
