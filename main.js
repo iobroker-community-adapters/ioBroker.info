@@ -21,7 +21,7 @@ const adapterIntervals = {};
 // you have to call the adapter function and pass a options object
 // name has to be set and has to be equal to adapters folder name and main file name excluding extension
 // adapter will be restarted automatically every time as the configuration changed, e.g system.adapter.template.0
-let adapter, activeRepo = "default", uuid = null, test = false;
+let adapter, activeRepo = "default", uuid = null, test = false, testLink;
 
 const sha = new hash.SHA1;
 
@@ -88,7 +88,7 @@ function getSystemVersions() {
 
 const checkNews = function () {
 
-    const newsLink = test ? 'https://raw.githubusercontent.com/ioBrokerChecker/testData/master/testMessage.json' : 'https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/info/news.json';
+    const newsLink = test ? testLink : 'https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/info/news.json';
 
     axios(newsLink).then(function (resp) {
         adapter.log.debug("Popup news was read..." + (test ? " (DEBUG)" : ""));
@@ -804,7 +804,8 @@ const updateCurrentUsersInfos = function () {
 function main() {
     adapter.getState('readTestFile', function (err, obj) {
         if (!err && obj) {
-            test = obj.val;
+            testLink = obj.val;
+            test = testLink && testLink.length > 0 && testLink.toUpperCase().endsWith(".JSON");
         } else {
             adapter.setState('readTestFile', {val: false, ack: true});
         }

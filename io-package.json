@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.7.4",
+        "version": "1.7.5",
         "news": {
+            "1.7.5": {
+                "en": "UUID Check",
+                "de": "UUID-Prüfung",
+                "ru": "Проверка UUID",
+                "pt": "Verificação de UUID",
+                "nl": "UUID-controle",
+                "fr": "Vérification UUID",
+                "it": "Controllo UUID",
+                "es": "Comprobación de UUID",
+                "pl": "Kontrola UUID",
+                "zh-cn": "UUID检查"
+            },
             "1.7.4": {
                 "en": "Newest version of syteminformation library\nAdded full S.M.A.R.T data when smartmontools >= 7.0 is installed",
                 "de": "Neueste Version der Systeminformationsbibliothek\nEs wurden vollständige S.M.A.R.T-Daten hinzugefügt, wenn smartmontools> = 7.0 installiert ist",
@@ -274,11 +286,10 @@
             "type": "state",
             "common": {
                 "name": "Testdatei für Entwicklung lesen",
-                "type": "boolean",
-                "role": "",
+                "type": "string",
                 "read": true,
                 "write": true,
-                "def": false
+                "def": ""
             },
             "native": {}
         },
