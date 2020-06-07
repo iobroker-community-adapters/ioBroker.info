@@ -91,7 +91,7 @@ const checkNews = function () {
     const newsLink = test ? 'https://raw.githubusercontent.com/ioBrokerChecker/testData/master/testMessage.json' : 'https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/info/news.json';
 
     axios(newsLink).then(function (resp) {
-        adapter.log.info("Popup news was read...");
+        adapter.log.debug("Popup news was read..." + test?" (DEBUG)":"");
         adapter.setState('newsfeed', {val: JSON.stringify(resp.data), ack: true});
 
         adapter.getForeignObject('system.meta.uuid', (err, obj) => {
@@ -106,9 +106,7 @@ const checkNews = function () {
 
         adapter.getForeignObject('system.config', (err, obj) => {
             if (!err && obj) {
-                adapter.log.debug("Repo: " + obj.common.activeRepo);
                 activeRepo = obj.common.activeRepo;
-                adapter.log.debug("Language: " + obj.common.language);
                 procedeNewsfeed(resp.data, obj.common.language);
             }
         });
