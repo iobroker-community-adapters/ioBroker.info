@@ -10,7 +10,6 @@ test
 .travis.yml
 appveyor.yml
 package-lock.json
-data/news.json
 .github
 iob_npm.done
 *.test.js

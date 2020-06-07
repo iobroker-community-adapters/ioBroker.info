@@ -9,6 +9,7 @@ const sistm = require('systeminformation');
 const path = require('path');
 const child_process = require('child_process');
 const semver = require('semver');
+const hash = require("jshashes");
 
 const cpuUsed = [];
 const cpuTemp = [];
@@ -20,7 +21,10 @@ const adapterIntervals = {};
 // you have to call the adapter function and pass a options object
 // name has to be set and has to be equal to adapters folder name and main file name excluding extension
 // adapter will be restarted automatically every time as the configuration changed, e.g system.adapter.template.0
-let adapter, activeRepo = "default";
+let adapter, activeRepo = "default", uuid = null, test = false;
+
+const sha = new hash.SHA1;
+
 function startAdapter(options) {
     options = options || {};
     Object.assign(options, {
@@ -84,11 +88,22 @@ function getSystemVersions() {
 
 const checkNews = function () {
 
-    const newsLink = 'https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/info/news.json';
+    const newsLink = test ? 'https://raw.githubusercontent.com/ioBrokerChecker/testData/master/testMessage.json' : 'https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/info/news.json';
 
     axios(newsLink).then(function (resp) {
         adapter.log.info("Popup news was read...");
         adapter.setState('newsfeed', {val: JSON.stringify(resp.data), ack: true});
+
+        adapter.getForeignObject('system.meta.uuid', (err, obj) => {
+            if (!err && obj) {
+                let myUUID = obj && obj.native ? obj.native.uuid : null;
+                if (myUUID) {
+                    uuid = sha.hex("iobroker-uuid" + myUUID);
+                    adapter.setState('uuid', {val: uuid, ack: true});
+                }
+            }
+        });
+
         adapter.getForeignObject('system.config', (err, obj) => {
             if (!err && obj) {
                 adapter.log.debug("Repo: " + obj.common.activeRepo);
@@ -97,6 +112,7 @@ const checkNews = function () {
                 procedeNewsfeed(resp.data, obj.common.language);
             }
         });
+
     }).catch(function (error) {
         adapter.log.error(error);
     });
@@ -203,13 +219,26 @@ function procedeNewsfeed(messages, systemLang) {
                     }
                     if (showIt && messages['os']) {
                         const condition = message['os'];
-                        adapter.log.debug("OS Check: " + process.platform + " == " + condition);
                         showIt = process.platform === condition;
                     }
                     if (showIt && messages['repo']) {
                         const condition = message['repo'];
-                        adapter.log.debug("Repo: " + activeRepo + " == " + condition);
                         showIt = activeRepo === condition;
+                    }
+                    if (showIt && messages['uuid']) {
+                        if (Array.isArray(message['uuid'])) {
+                            let oneMustBe = false;
+                            if (uuid) {
+                                message['uuid'].forEach(function (uuidCondition) {
+                                    if (!oneMustBe) {
+                                        oneMustBe = uuid === uuidCondition;
+                                    }
+                                });
+                            }
+                            showIt = oneMustBe;
+                        } else {
+                            showIt = uuid && uuid === message['uuid'];
+                        }
                     }
 
                     if (showIt) {
@@ -225,7 +254,7 @@ function procedeNewsfeed(messages, systemLang) {
 }
 
 const checkVersion = function (smaller, bigger) {
-    if (smaller === undefined || bigger === undefined){
+    if (smaller === undefined || bigger === undefined) {
         return false;
     }
     smaller = smaller.split('.');
@@ -765,6 +794,13 @@ const updateCurrentUsersInfos = function () {
 };
 
 function main() {
+    adapter.getState('readTestFile', function (err, obj) {
+        if (!err && obj) {
+            test = obj.val;
+        } else {
+            adapter.setState('readTestFile', {val: false, ack: true});
+        }
+    });
     adapter.getState('last_popup', function (err, obj) {
         if (!err && (!obj || !obj.val)) {
             adapter.setState('last_popup', {val: '2019-01-01T00:00:00.000Z', ack: true});

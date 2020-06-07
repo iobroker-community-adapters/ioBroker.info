@@ -157,6 +157,21 @@ const newsPopup = {
                     if (showIt && message['repo'] && window.top.gMain) {
                         showIt = window.top.gMain.systemConfig.common.activeRepo === message['repo'];
                     }
+                    if (showIt && message['uuid']) {
+                        if (Array.isArray(message['uuid'])) {
+                            let oneMustBe = false;
+                            if(systemInformationData.uuid){
+                                await asyncForEach(message['uuid'], function(uuid){
+                                    if (!oneMustBe) {
+                                        oneMustBe = systemInformationData.uuid === uuid;
+                                    }
+                                });
+                            }
+                            showIt = oneMustBe;
+                        } else {
+                            showIt = systemInformationData.uuid && systemInformationData.uuid === message['uuid'];
+                        }
+                    }
 
                     if (showIt) {
                         messagesToShow.push({"id": message.id, "title": message.title[systemLang], "content": message.content[systemLang], "class": message.class, "icon": message['fa-icon'], "created": message.created});
@@ -174,7 +189,7 @@ const newsPopup = {
     showDiv: function (id, title, content, type, icon, appendId, uniqueId) {
         const types = ["info", "success", "warning", "danger"];
         let ignored = false;
-        if(Array.isArray(ignoredNews)){
+        if (Array.isArray(ignoredNews)) {
             ignored = ignoredNews.includes(uniqueId);
         }
         if (id && $("#popupnewsid_" + id).length === 0 && !ignored) {

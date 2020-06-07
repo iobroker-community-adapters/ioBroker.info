@@ -63,18 +63,6 @@
                 "pl": "Widżet kalendarza wydarzeń dla Vis",
                 "zh-cn": "Vis的事件日历小部件"
             },
-            "1.5.2": {
-                "en": "New features for adapter request and little fixes",
-                "de": "Neue Funktionen für Adapteranfragen und kleine Korrekturen",
-                "ru": "Новые функции для запроса адаптера и небольшие исправления",
-                "pt": "Novos recursos para solicitação de adaptador e pequenas correções",
-                "nl": "Nieuwe functies voor adapteraanvraag en kleine oplossingen",
-                "fr": "Nouvelles fonctionnalités pour la demande d'adaptateur et de petites corrections",
-                "it": "Nuove funzionalità per la richiesta dell'adattatore e piccole correzioni",
-                "es": "Nuevas características para solicitud de adaptador y pequeñas correcciones",
-                "pl": "Nowe funkcje żądania adaptera i małe poprawki",
-                "zh-cn": "适配器请求的新功能和少量修复"
-            },
             "1.4.3": {
                 "en": "News bug fixed",
                 "de": "News Bug behoben",
@@ -86,18 +74,6 @@
                 "es": "Error de noticias corregido",
                 "pl": "Naprawiono błąd wiadomości",
                 "zh-cn": "新闻错误已修复"
-            },
-            "1.3.7": {
-                "en": "Better integration to admin adapter",
-                "de": "Bessere Integration in den Admin-Adapter",
-                "ru": "Лучшая интеграция с адаптером администратора",
-                "pt": "Melhor integração ao adaptador de administração",
-                "nl": "Betere integratie met de Admin-adapter",
-                "fr": "Meilleure intégration à l'adaptateur administrateur",
-                "it": "Migliore integrazione con l'adattatore di amministrazione",
-                "es": "Mejor integración al adaptador de administración.",
-                "pl": "Lepsza integracja z adapterem administratora",
-                "zh-cn": "更好地集成到管理适配器"
             }
         },
         "title": "Information tab",
@@ -278,6 +254,31 @@
                 "role": "json",
                 "read": true,
                 "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "uuid",
+            "type": "state",
+            "common": {
+                "name": "UUID",
+                "type": "string",
+                "role": "json",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "readTestFile",
+            "type": "state",
+            "common": {
+                "name": "Testdatei für Entwicklung lesen",
+                "type": "boolean",
+                "role": "",
+                "read": true,
+                "write": true,
+                "def": false
             },
             "native": {}
         },

@@ -23,8 +23,9 @@
     "dependencies": {
         "axios": "^0.19.2",
         "@iobroker/adapter-core": "^2.4.0",
-        "systeminformation": "^4.26.5",
-        "semver": "^7.3.2"
+        "systeminformation": "^4.26.6",
+        "semver": "^7.3.2",
+        "jshashes": "^1.0.8"
     },
     "optionalDependencies": {
         "osx-temperature-sensor": "^1.0.7"

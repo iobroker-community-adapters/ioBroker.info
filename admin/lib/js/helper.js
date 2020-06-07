@@ -206,6 +206,11 @@ async function readInstanceConfig(callback) {
             systemInformationData.os = data.val;
         }
     });
+    socket.emit('getState', 'info.0.uuid', function (err, data) {
+        if (!err && data) {
+            systemInformationData.uuid = data.val;
+        }
+    });
 
     socket.emit('getState', 'info.0.ignored_news', function (err, data) {
         if (!err && data) {
