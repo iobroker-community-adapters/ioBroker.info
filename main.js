@@ -219,23 +219,24 @@ function procedeNewsfeed(messages, systemLang) {
                         adapter.log.debug("NPM check");
                         showIt = versions.npm !== null && checkConditions(condition, versions.npm, "NPM");
                     }
-                    if (showIt && messages['os']) {
+                    if (showIt && message['os']) {
                         const condition = message['os'];
                         adapter.log.debug("OS check");
                         showIt = process.platform === condition;
                     }
-                    if (showIt && messages['repo']) {
+                    if (showIt && message['repo']) {
                         const condition = message['repo'];
                         adapter.log.debug("Repo check");
                         showIt = activeRepo === condition;
                     }
-                    if (showIt && messages['uuid']) {
+                    if (showIt && message['uuid']) {
+                        const condition = message['uuid'];
                         adapter.log.debug("UUID check");
                         if (Array.isArray(message['uuid'])) {
                             adapter.log.debug("UUID List check");
                             let oneMustBe = false;
                             if (uuid) {
-                                message['uuid'].forEach(function (uuidCondition) {
+                                condition.forEach(function (uuidCondition) {
                                     if (!oneMustBe) {
                                         oneMustBe = uuid === uuidCondition;
                                     }
@@ -244,7 +245,7 @@ function procedeNewsfeed(messages, systemLang) {
                             showIt = oneMustBe;
                         } else {
                             adapter.log.debug("UUID only one");
-                            showIt = uuid && uuid === message['uuid'];
+                            showIt = uuid && uuid === condition;
                         }
                     }
 
