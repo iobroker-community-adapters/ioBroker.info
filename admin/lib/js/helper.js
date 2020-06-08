@@ -10,7 +10,7 @@ let adapterConfig = {};
 
 let ignoredNews = [];
 
-const systemInformationData = {"node": null, "npm": null, "os": null};
+const systemInformationData = {"node": null, "npm": null, "os": null, "uuid": null};
 
 let systemInfoForGithub = "";
 let githubMarkdownArea;
