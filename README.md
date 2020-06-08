@@ -46,8 +46,9 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 
 ## Changelog
 
-### 1.7.5 (2020-06-xx)
+### 1.7.5 (2020-06-08)
 * (ldittmar) Check UUID for messages
+* (ldittmar) New field for test messages
 
 ### 1.7.4 (2020-06-01)
 * (Apollon77) Update systeminformation and other deps
