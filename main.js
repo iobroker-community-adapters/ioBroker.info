@@ -23,7 +23,7 @@ const adapterIntervals = {};
 // adapter will be restarted automatically every time as the configuration changed, e.g system.adapter.template.0
 let adapter, activeRepo = "default", uuid = null, test = false, testLink;
 
-const sha = new hash.SHA1;
+const sha = new hash.SHA256;
 
 function startAdapter(options) {
     options = options || {};
