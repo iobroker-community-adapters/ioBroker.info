@@ -802,6 +802,12 @@ const updateCurrentUsersInfos = function () {
 };
 
 function main() {
+    if (!axios || typeof axios !== 'function') {
+        adapter.log.error('Axios HTTP client could not be required. Please check your installation!');
+        adapter.terminate ? adapter.terminate(11) : process.exit(11);
+        return;
+    }
+
     adapter.getState('readTestFile', function (err, obj) {
         if (!err && obj) {
             testLink = obj.val;
