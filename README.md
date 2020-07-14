@@ -45,7 +45,7 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 * [单击此处获取详细文档 (zh-cn)](docs/zh-cn/info.md)
 
 ## Changelog
-
+<!-- sdsd -->
 ### 1.7.6 (2020-07-14)
 * (Apollon77) Update systeminformation and other deps
 * (Apollon77) Check for axios existance and exit adapter if not existing to prevent crashes (Sentry IOBROKER-INFO-C)
