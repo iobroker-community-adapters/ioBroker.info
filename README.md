@@ -46,6 +46,10 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 
 ## Changelog
 
+### __WORK IN PROGRESS__
+* (Apollon77) Update systeminformation and other deps
+* (Apollon77) Check for axios existance and exit adapter if not existing to prevent crashes (Sentry IOBROKER-INFO-C)
+
 ### 1.7.5 (2020-06-08)
 * (ldittmar) Check UUID for messages
 * (ldittmar) New field for test messages
