@@ -46,7 +46,7 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 1.7.6 (2020-07-14)
 * (Apollon77) Update systeminformation and other deps
 * (Apollon77) Check for axios existance and exit adapter if not existing to prevent crashes (Sentry IOBROKER-INFO-C)
 * (ldittmar) UUID Hash with SHA256
