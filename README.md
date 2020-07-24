@@ -45,7 +45,9 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 * [单击此处获取详细文档 (zh-cn)](docs/zh-cn/info.md)
 
 ## Changelog
-<!-- sdsd -->
+<!-- 
+### __WORK IN PROGRESS__
+ -->
 
 ### __WORK IN PROGRESS__
 * (Apollon77) Prevented a crash case (Sentry IOBROKER-INFO-K)
