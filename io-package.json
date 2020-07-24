@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.7.5",
+        "version": "1.7.6",
         "news": {
+            "1.7.6": {
+                "en": "Update systeminformation and other deps\nCheck for axios existance and exit adapter if not existing to prevent crashes (Sentry IOBROKER-INFO-C)\nUUID Hash with SHA256",
+                "de": "Aktualisieren Sie Systeminformationen und andere Deps\nÜberprüfen Sie, ob Axios vorhanden sind, und beenden Sie den Adapter, falls nicht vorhanden, um Abstürze zu vermeiden (Sentry IOBROKER-INFO-C).\nUUID Hash mit SHA256",
+                "ru": "Обновление системной информации и других депов\nПроверьте наличие осей и выйдите из адаптера, если он не существует, чтобы предотвратить сбои (Sentry IOBROKER-INFO-C)\nUUID хэш с SHA256",
+                "pt": "Atualizar informações do sistema e outros departamentos\nVerifique a existência de axios e o adaptador de saída, se não existir, para evitar falhas (Sentry IOBROKER-INFO-C)\nHash UUID com SHA256",
+                "nl": "Systeeminformatie en andere afdelingen bijwerken\nControleer op het bestaan van axios en sluit de adapter af als deze niet bestaat om crashes te voorkomen (Sentry IOBROKER-INFO-C)\nUUID Hash met SHA256",
+                "fr": "Mettre à jour les informations système et autres deps\nVérifier l'existence d'axios et sortir l'adaptateur s'il n'existe pas pour éviter les plantages (Sentry IOBROKER-INFO-C)\nHash UUID avec SHA256",
+                "it": "Aggiorna le informazioni di sistema e altri deps\nVerifica l'esistenza degli assi e l'adattatore di uscita se non esistente per evitare arresti anomali (Sentry IOBROKER-INFO-C)\nUUID Hash con SHA256",
+                "es": "Actualice la información del sistema y otros departamentos\nVerifique la existencia de axios y el adaptador de salida si no existe para evitar accidentes (Sentry IOBROKER-INFO-C)\nHash UUID con SHA256",
+                "pl": "Zaktualizuj informacje o systemie i inne działy\nSprawdź, czy axios istnieje i adapter wyjścia, jeśli nie istnieje, aby zapobiec awariom (Sentry IOBROKER-INFO-C)\nHash UUID z SHA256",
+                "zh-cn": "更新系统信息和其他部门\n检查axios是否存在并退出适配器（如果不存在）以防止崩溃（Sentry IOBROKER-INFO-C）\n具有SHA256的UUID哈希"
+            },
             "1.7.5": {
                 "en": "UUID Check",
                 "de": "UUID-Prüfung",
