@@ -166,7 +166,7 @@ function checkConditions(condition, installedVersion, objectName) {
 
 function procedeNewsfeed(messages, systemLang) {
     adapter.log.debug("Messages: " + messages.length);
-    if (messages.length > 0) {
+    if (Array.isArray(messages) && messages.length > 0) {
         const filtered = [];
         const today = new Date().getTime();
         getInstances(instances => {
