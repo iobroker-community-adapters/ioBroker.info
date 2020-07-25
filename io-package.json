@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.7.6",
+        "version": "1.7.7",
         "news": {
+            "1.7.7": {
+                "en": "Prevented a crash case (Sentry IOBROKER-INFO-K)",
+                "de": "Verhinderte einen Absturz (Sentry IOBROKER-INFO-K)",
+                "ru": "Предотвращен случай аварии (Sentry IOBROKER-INFO-K)",
+                "pt": "Impediu um caso de falha (Sentry IOBROKER-INFO-K)",
+                "nl": "Voorkom een crashcase (Sentry IOBROKER-INFO-K)",
+                "fr": "Empêcher un cas de crash (Sentry IOBROKER-INFO-K)",
+                "it": "Impedito un caso di crash (Sentry IOBROKER-INFO-K)",
+                "es": "Se evitó un caso de bloqueo (Sentry IOBROKER-INFO-K)",
+                "pl": "Zapobiegnięto awariom (Sentry IOBROKER-INFO-K)",
+                "zh-cn": "防止发生崩溃情况（Sentry IOBROKER-INFO-K）"
+            },
             "1.7.6": {
                 "en": "Update systeminformation and other deps\nCheck for axios existance and exit adapter if not existing to prevent crashes (Sentry IOBROKER-INFO-C)\nUUID Hash with SHA256",
                 "de": "Aktualisieren Sie Systeminformationen und andere Deps\nÜberprüfen Sie, ob Axios vorhanden sind, und beenden Sie den Adapter, falls nicht vorhanden, um Abstürze zu vermeiden (Sentry IOBROKER-INFO-C).\nUUID Hash mit SHA256",
