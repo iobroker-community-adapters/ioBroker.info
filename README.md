@@ -17,21 +17,24 @@
 
 This is an ioBroker adapter to get information about your system and some news about ioBroker.
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Information
 
 ### Forum and News
-If you reach your admin window over a hostname (for example, http://myhouseiscontrolledbyioBroker:8081), the news and forum entries will not be automatically displayed. To do this, you must first register your host name [here](https://toolkit.sekando.com/docs/en/setup/hostnames).
+If you reach your admin window over a hostname (for example, http://myhouseiscontrolledbyioBroker:8081), the news and forum entries will not be automatically displayed. 
+To do this, you must first register your host name [here](https://toolkit.sekando.com/docs/en/setup/hostnames).
 After that just enter the API Key in the configuration of the adapter.
 
 ### Popup Messages (VIS Widget)
-There is a new widget to display important messages in VIS. These messages are displayed ONLY if certain conditions are met. Either from date x to date y or even if you have a specific adapter installed. If nothing is displayed then everything is ok.
+There is a new widget to display important messages in VIS. These messages are displayed ONLY if certain conditions are met. 
+Either from date x to date y or even if you have a specific adapter installed. If nothing is displayed then everything is ok.
 
 ### System information
-Many thanks to sebhildebrandt for the great work on the package [systeminformation](https://github.com/sebhildebrandt/systeminformation), because without his work, we would not have all the great information about the system.
+Many thanks to `sebhildebrandt` for the great work on the package [systeminformation](https://github.com/sebhildebrandt/systeminformation), because without his work, we would not have all the great information about the system.
 
-### Detailed informations
+### Detailed information
 
 * [Click here for the detailed documentation (en)](docs/en/info.md)
 * [Klicken Sie hier für die ausführliche Dokumentation (de)](docs/de/info.md)
@@ -46,6 +49,9 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+
+### __WORK IN PROGRESS__
+* (bluefox) Fixed words.js in widget
 
 ### 1.7.7 (2020-07-25)
 * (Apollon77) Prevented a crash case (Sentry IOBROKER-INFO-K)
@@ -141,15 +147,15 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 
 ### 1.2.7 (2019-03-17)
 * (ldittmar) little fixes
-* (ldittmar) unknow adapters search new design
+* (ldittmar) unknown adapters search new design
 * (ldittmar) better design for PC monitor
-* (ldittmar) unknow adapters show more informations
+* (ldittmar) unknown adapters show more information
 * (ldittmar) stable version
 
 ### 1.2.5 (2019-03-14)
 * (ldittmar) show adapter requests
 * (ldittmar) show bugs and issues
-* (ldittmar) diyplay important links
+* (ldittmar) display important links
 * (ldittmar) show important popup news
 * (ldittmar) vis widget for popup news
 
@@ -161,7 +167,7 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 * (ldittmar) move to iobroker-community-adapters
 
 ### 1.0.2 (2018-11-30)
-* (ldittmar) fixed problems with Node version info in multihost system
+* (ldittmar) fixed problems with Node version info in multi-host system
 
 ### 1.0.1 (2018-11-27)
 * (ldittmar) search for new adapters on Github
@@ -181,8 +187,8 @@ Many thanks to sebhildebrandt for the great work on the package [systeminformati
 
 ### 0.0.4 (2017-12-08)
 * (ldittmar) some fixes and design correction
-* (ldittmar) show informations about adapters (update/new)
-* (ldittmar) show system informations
+* (ldittmar) show information about adapters (update/new)
+* (ldittmar) show system information
 
 ### 0.0.1 (2017-11-23)
 * (ldittmar) initial commit
