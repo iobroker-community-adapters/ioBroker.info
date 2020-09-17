@@ -342,7 +342,7 @@ async function translateNotExisting(obj, baseText, yandex) {
 
     if (t) {
         for (let l in languages) {
-            if (!obj[l]) {                
+            if (!obj[l]) {
                 const time = new Date().getTime();
                 obj[l] = await translate(t, l, yandex);
                 console.log('en -> ' + l + ' ' + (new Date().getTime() - time) + ' ms');
@@ -428,7 +428,7 @@ gulp.task('translate', async function (done) {
     if (i > -1) {
         yandex = process.argv[i + 1];
     }
-    
+
     if (ioPackage && ioPackage.common) {
         if (ioPackage.common.news) {
             console.log('Translate News');
@@ -446,7 +446,7 @@ gulp.task('translate', async function (done) {
             console.log('Translate Description');
             await translateNotExisting(ioPackage.common.desc, null, yandex);
         }
-       
+
         if (fs.existsSync('./admin/i18n/en/translations.json')) {
             let enTranslations = require('./admin/i18n/en/translations.json');
             for (let l in languages) {
@@ -474,7 +474,16 @@ gulp.task('translate', async function (done) {
 gulp.task('translateAndUpdateWordsJS', gulp.series('translate', 'adminLanguages2words', 'adminWords2languages'));
 
 gulp.task('copy', done => {
-    fs.writeFileSync(__dirname + '/widgets/info/js/words.js', fs.readFileSync(__dirname + '/admin/words.js'));
+    const words = fs.readFileSync(__dirname + '/admin/words.js').toString('utf8');
+    const translation = words.substring(words.indexOf('{'), words.lastIndexOf(';'));
+    try {
+        JSON.parse(translation); // check that the words can be parsed
+    } catch (e) {
+        const lines = translation.split(/\r\n|\n\r/);
+        throw new Error('Cannot parse admin/words.js. Please fix. Probably it is a comma a the very last line: ...' + lines[lines.length - 2].substring(lines[lines.length - 2].length - 20));
+    }
+
+    fs.writeFileSync(__dirname + '/widgets/info/js/words.js', words);
     done();
 });
 
