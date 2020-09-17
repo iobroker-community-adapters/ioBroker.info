@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.7.7",
+        "version": "1.7.8",
         "news": {
+            "1.7.8": {
+                "en": "Fixed words.js in widget",
+                "de": "Wörter.js im Widget behoben",
+                "ru": "Исправлены слова words.js в виджете",
+                "pt": "Foi corrigido o words.js no widget",
+                "nl": "Vaste words.js in widget",
+                "fr": "Correction de words.js dans le widget",
+                "it": "Words.js risolto nel widget",
+                "es": "Word.js fijo en el widget",
+                "pl": "Naprawiono words.js w widgecie",
+                "zh-cn": "固定小部件中的words.js"
+            },
             "1.7.7": {
                 "en": "Prevented a crash case (Sentry IOBROKER-INFO-K)",
                 "de": "Verhinderte einen Absturz (Sentry IOBROKER-INFO-K)",
