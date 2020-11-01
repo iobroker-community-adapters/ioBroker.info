@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="widgets/info/css/style.css" />
 
-<script type="text/javascript" src="../socket.io/socket.io.js"></script>
 <script type="text/javascript" src="../adapter/info/lib/js/commons.js"></script>
 <script type="text/javascript" src="../adapter/info/lib/js/popupnews.js"></script>
 <script type="text/javascript" src="widgets/info/js/info.js"></script>
@@ -25,7 +24,7 @@
         data-vis-attrs="width[400]/number;height[400]/number;bgcolor[ffffff]/text;mode[AGENDA]/select,AGENDA,MONTH,WEEK"
         data-vis-set="info"
         data-vis-type="data"
-        data-vis-name="Event calendar">  
+        data-vis-name="Event calendar">
     <div class="vis-widget <%== this.data.attr('class') %>" style="overflow:visible; width: 400px; height: 400px" id="<%= this.data.attr('wid') %>">
     <% vis.binds.info.createCalendar(this.data.wid, this.view, this.data, this.style); %>
     </div>

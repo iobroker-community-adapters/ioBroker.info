@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.7.8",
+        "version": "1.7.9",
         "news": {
+            "1.7.9": {
+                "en": "Corrected socket.io in widget",
+                "de": "Socket.io im Widget korrigiert",
+                "ru": "Исправлен socket.io в виджете",
+                "pt": "Socket.io corrigido no widget",
+                "nl": "Socket.io in widget gecorrigeerd",
+                "fr": "Correction de socket.io dans le widget",
+                "it": "Corretto socket.io nel widget",
+                "es": "Socket.io corregido en el widget",
+                "pl": "Poprawiono socket.io w widgecie",
+                "zh-cn": "更正了小部件中的socket.io"
+            },
             "1.7.8": {
                 "en": "Fixed words.js in widget",
                 "de": "Wörter.js im Widget behoben",

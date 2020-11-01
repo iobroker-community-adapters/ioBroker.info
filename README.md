@@ -14,7 +14,6 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.info/badge.svg)](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.info)
 
 ## Information adapter for ioBroker
-
 This is an ioBroker adapter to get information about your system and some news about ioBroker.
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
@@ -49,6 +48,9 @@ Many thanks to `sebhildebrandt` for the great work on the package [systeminforma
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+
+### 1.7.9 (2020-11-01)
+* (bluefox) Corrected socket.io in widget
 
 ### 1.7.8 (2020-09-17)
 * (bluefox) Fixed words.js in widget
