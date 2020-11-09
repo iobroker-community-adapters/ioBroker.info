@@ -303,8 +303,10 @@ function getInstances(callback) {
         doc.rows.forEach(row => res.push(row.value));
         const instances = {};
         res.forEach(instance => {
-            instances[instance.common.name] = {};
-            instances[instance.common.name].version = instance.common.installedVersion;
+            if (instance && instance.common && instance.common.name) {
+                instances[instance.common.name] = {};
+                instances[instance.common.name].version = instance.common.installedVersion;
+            }
         });
         callback && callback(instances);
     });

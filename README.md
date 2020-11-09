@@ -49,6 +49,9 @@ Many thanks to `sebhildebrandt` for the great work on the package [systeminforma
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
+### __WORK IN PROGRESS__
+* (Apollon77) fix crash case (Sentry IOBROKER-INFO-13)
+
 ### 1.7.9 (2020-11-01)
 * (bluefox) Corrected socket.io in widget
 
