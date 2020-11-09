@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.7.9",
+        "version": "1.7.10",
         "news": {
+            "1.7.10": {
+                "en": "fix crash case (Sentry IOBROKER-INFO-13)",
+                "de": "Absturzfall beheben (Sentry IOBROKER-INFO-13)",
+                "ru": "исправить случай сбоя (Sentry IOBROKER-INFO-13)",
+                "pt": "corrigir caso de falha (Sentry IOBROKER-INFO-13)",
+                "nl": "crash case repareren (Sentry IOBROKER-INFO-13)",
+                "fr": "correction d'un cas de crash (Sentry IOBROKER-INFO-13)",
+                "it": "risolvere il caso di crash (Sentry IOBROKER-INFO-13)",
+                "es": "reparar caso de bloqueo (Sentry IOBROKER-INFO-13)",
+                "pl": "naprawa awarii (Sentry IOBROKER-INFO-13)",
+                "zh-cn": "修复崩溃案例（Sentry IOBROKER-INFO-13）"
+            },
             "1.7.9": {
                 "en": "Corrected socket.io in widget",
                 "de": "Socket.io im Widget korrigiert",
