@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.7.10",
+        "version": "1.7.11",
         "news": {
+            "1.7.11": {
+                "en": "fix crash case (Sentry IOBROKER-INFO-1F)\nAdd Weblate translations",
+                "de": "Absturzfall beheben (Sentry IOBROKER-INFO-1F)\nWeblate-Übersetzungen hinzufügen",
+                "ru": "исправить случай сбоя (Sentry IOBROKER-INFO-1F)\nДобавить переводы Weblate",
+                "pt": "corrigir caso de falha (Sentry IOBROKER-INFO-1F)\nAdicionar traduções Weblate",
+                "nl": "crashcase repareren (Sentry IOBROKER-INFO-1F)\nVoeg Weblate-vertalingen toe",
+                "fr": "correction d'un cas de crash (Sentry IOBROKER-INFO-1F)\nAjouter des traductions Weblate",
+                "it": "risolvere il caso di crash (Sentry IOBROKER-INFO-1F)\nAggiungi le traduzioni di Weblate",
+                "es": "reparar caso de bloqueo (Sentry IOBROKER-INFO-1F)\nAgregar traducciones de Weblate",
+                "pl": "naprawa awarii (Sentry IOBROKER-INFO-1F)\nDodaj tłumaczenia Weblate",
+                "zh-cn": "修复崩溃案例（Sentry IOBROKER-INFO-1F）\n添加网页翻译"
+            },
             "1.7.10": {
                 "en": "fix crash case (Sentry IOBROKER-INFO-13)",
                 "de": "Absturzfall beheben (Sentry IOBROKER-INFO-13)",

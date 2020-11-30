@@ -49,7 +49,7 @@ Many thanks to `sebhildebrandt` for the great work on the package [systeminforma
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
-### __WORK IN PROGRESS__
+### 1.7.11 (2020-11-30)
 * (Apollon77) fix crash case (Sentry IOBROKER-INFO-1F)
 * Add Weblate translations
 
