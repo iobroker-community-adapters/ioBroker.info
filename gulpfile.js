@@ -479,7 +479,7 @@ gulp.task('copy', done => {
     try {
         JSON.parse(translation); // check that the words can be parsed
     } catch (e) {
-        const lines = translation.split(/\r\n|\n\r/);
+        const lines = translation.split(/\r\n|\n\r|\n/);
         throw new Error('Cannot parse admin/words.js. Please fix. Probably it is a comma a the very last line: ...' + lines[lines.length - 2].substring(lines[lines.length - 2].length - 20));
     }
 
