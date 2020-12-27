@@ -105,11 +105,14 @@ const checkNews = function () {
         });
 
         adapter.getForeignObject('system.config', (err, obj) => {
-            if (!err && obj) {
+            if (!err && obj && obj.common) {
                 adapter.log.debug("Repo: " + obj.common.activeRepo);
                 activeRepo = obj.common.activeRepo;
                 adapter.log.debug("Language: " + obj.common.language);
                 procedeNewsfeed(resp.data, obj.common.language);
+            }
+            else {
+                adapter.log.warn('Invalid system.config object');
             }
         });
 
