@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.7.13",
+        "version": "1.7.14",
         "news": {
+            "1.7.14": {
+                "en": "fix crash case (Sentry IOBROKER-INFO-1R)",
+                "de": "Absturzfall beheben (Sentry IOBROKER-INFO-1R)",
+                "ru": "исправить случай сбоя (Sentry IOBROKER-INFO-1R)",
+                "pt": "corrigir caso de falha (Sentry IOBROKER-INFO-1R)",
+                "nl": "crash case repareren (Sentry IOBROKER-INFO-1R)",
+                "fr": "correction d'un cas de crash (Sentry IOBROKER-INFO-1R)",
+                "it": "risolvere il caso di crash (Sentry IOBROKER-INFO-1R)",
+                "es": "reparar caso de bloqueo (Sentry IOBROKER-INFO-1R)",
+                "pl": "naprawa awarii (Sentry IOBROKER-INFO-1R)",
+                "zh-cn": "修复崩溃案例（Sentry IOBROKER-INFO-1R）"
+            },
             "1.7.13": {
                 "en": "fix crash case (Sentry IOBROKER-INFO-A)",
                 "de": "Absturzfall beheben (Sentry IOBROKER-INFO-A)",
