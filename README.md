@@ -49,6 +49,9 @@ Many thanks to `sebhildebrandt` for the great work on the package [systeminforma
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
+### __WORK IN PROGRESS__
+* (Apollon77) fix crash case (Sentry IOBROKER-INFO-1X)
+
 ### 1.7.14 (2020-12-27)
 * (Apollon77) fix crash case (Sentry IOBROKER-INFO-1R)
 
