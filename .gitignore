@@ -12,4 +12,3 @@ Thumbs.db
 # i18n intermediate files
 admin/i18n/flat.txt
 admin/i18n/*/flat.txt
-/widgets/info/js/words.js

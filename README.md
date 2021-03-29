@@ -1,17 +1,15 @@
 ![Logo](admin/info.png)
 # ioBroker.info
 
-![Number of Installations](http://iobroker.live/badges/info-installed.svg) 
-![Number of Installations](http://iobroker.live/badges/info-stable.svg) 
 [![NPM version](http://img.shields.io/npm/v/iobroker.info.svg)](https://www.npmjs.com/package/iobroker.info)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.info.svg)](https://www.npmjs.com/package/iobroker.info)
+![Number of Installations](http://iobroker.live/badges/info-installed.svg) 
+![Number of Installations](http://iobroker.live/badges/info-stable.svg)
+[![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.info.svg)](https://david-dm.org/iobroker-community-adapters/iobroker.info)
 
 [![NPM](https://nodei.co/npm/iobroker.info.png?downloads=true)](https://nodei.co/npm/iobroker.info/)
 
-[![Travis-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.info/master.svg)](https://travis-ci.org/iobroker-community-adapters/ioBroker.info)
-[![Greenkeeper badge](https://badges.greenkeeper.io/iobroker-community-adapters/ioBroker.info.svg)](https://greenkeeper.io/)
-[![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.info.svg)](https://david-dm.org/iobroker-community-adapters/iobroker.info)
-[![Known Vulnerabilities](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.info/badge.svg)](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.info)
+**Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.info/workflows/Test%20and%20Release/badge.svg)
 
 ## Information adapter for ioBroker
 This is an ioBroker adapter to get information about your system and some news about ioBroker.
@@ -48,6 +46,9 @@ Many thanks to `sebhildebrandt` for the great work on the package [systeminforma
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+
+### 1.8.0 (2021-xx-xx)
+* (ldittmar81) Update libraries
 
 ### 1.7.15 (2021-01-13)
 * (Apollon77) fix crash case (Sentry IOBROKER-INFO-1X)

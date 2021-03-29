@@ -14,7 +14,7 @@
         <script type="text/javascript" src="words.js"></script>
         <style>
             .m .col .select-wrapper+label {
-                top: -26px;  
+                top: -26px;
             }
             .m span{
                 font-size: 0.9em;
@@ -111,7 +111,7 @@
                             </div>
                         </div>
 
-                        <div class="row">    
+                        <div class="row">
                             <div class="input-field col m4 l4">
                                 <input class="value" id="adapter_request" type="checkbox" />
                                 <label for="adapter_request" class="translate">Show adapter requests</label>
@@ -121,7 +121,7 @@
                                 <input class="value" id="adapter_request_close_hidden" type="checkbox" />
                                 <label for="adapter_request_close_hidden" class="translate">Hide closed adapter requests</label>
                                 <span class="translate"></span>
-                            </div>                    
+                            </div>
                             <div class="input-field col m4 l4">
                                 <input class="value" id="adapter_request_closed" type="checkbox" />
                                 <label for="adapter_request_closed" class="translate">Show adapter requests closed at startup</label>
@@ -139,7 +139,7 @@
                                 <input class="value" id="adapter_issue_closed" type="checkbox" />
                                 <label for="adapter_issue_closed" class="translate">Known errors closed at startup</label>
                                 <span class="translate"></span>
-                            </div>                    
+                            </div>
                         </div>
 
                     </div>
@@ -191,7 +191,7 @@
                                     <option class="translate" value="nl">Dutch</option>
                                     <option class="translate" value="pl">Polish</option>
                                     <option class="translate" value="pt">Portuguese</option>
-                                    <option class="translate" value="ru">Russian</option>                            
+                                    <option class="translate" value="ru">Russian</option>
                                     <option class="translate" value="zh-cn">Chinese</option>
                                 </select>
                                 <label class="translate">Documentation languages</label>
@@ -211,7 +211,7 @@
                     </div>
                     <div class="col s12" id="tableGithub">
 
-                        <div class="row">                    
+                        <div class="row">
                             <div class="input-field col s12 l4">
                                 <input class="value" id="github_token" type="password" />
                                 <label for="github_token" class="translate">GitHub personal access token</label>
@@ -251,7 +251,7 @@
                                     <option class="translate" value="name">name</option>
                                     <option class="translate" value="create">creation date</option>
                                     <option class="translate" value="update">last update</option>
-                                </select>    
+                                </select>
                                 <label for="new_adapters_sort" class="translate">Sort adapters by</label>
                                 <span class="translate"></span>
                             </div>
@@ -286,7 +286,7 @@
                                 <input class="value" id="noCurrentSysData" type="checkbox" />
                                 <label for="noCurrentSysData" class="translate">Don't load current system data</label>
                                 <span class="translate"></span>
-                            </div> 
+                            </div>
                         </div>
 
                         <div class="row">
@@ -297,7 +297,7 @@
                             </div>
                         </div>
 
-                        <div class="row">                  
+                        <div class="row">
                             <div class="col m4 l2">
                                 <p class="range-field">
                                     <input class="value" id="cpuSpeed" type="range" min="0" max="240" />
@@ -340,6 +340,27 @@
                                 <label for="allProcessesUsers" class="translate">Load process and user data every x seconds</label>
                                 <span class="translate"></span>
                             </div>
+                            <div class="col m4 l2">
+                                <p class="range-field">
+                                    <input class="value" id="wifiSpeed" type="range" min="0" max="240" />
+                                </p>
+                                <label for="wifiSpeed" class="translate">Load wifi data every x seconds</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="col m4 l2">
+                                <p class="range-field">
+                                    <input class="value" id="usbSpeed" type="range" min="0" max="240" />
+                                </p>
+                                <label for="usbSpeed" class="translate">Load usb data every x seconds</label>
+                                <span class="translate"></span>
+                            </div>
+                            <div class="col m4 l2">
+                                <p class="range-field">
+                                    <input class="value" id="bluetoothSpeed" type="range" min="0" max="240" />
+                                </p>
+                                <label for="bluetoothSpeed" class="translate">Load bluetooth data every x seconds</label>
+                                <span class="translate"></span>
+                            </div>
                         </div>
 
                     </div>
@@ -352,7 +373,7 @@
                         <p class="translate">on save adapter restarts with new config immediately</p>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </body>

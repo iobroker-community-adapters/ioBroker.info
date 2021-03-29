@@ -1,8 +1,11 @@
 {
     "common": {
         "name": "info",
-        "version": "1.7.15",
+        "version": "1.8.0",
         "news": {
+            "1.8.0": {
+                "en": "Update libraries"
+            },
             "1.7.15": {
                 "en": "fix crash case (Sentry IOBROKER-INFO-1X)",
                 "de": "Absturz behoben (Sentry IOBROKER-INFO-1X)",
@@ -27,54 +30,6 @@
                 "pl": "naprawa awarii (Sentry IOBROKER-INFO-1R)",
                 "zh-cn": "修复崩溃案例（Sentry IOBROKER-INFO-1R）"
             },
-            "1.7.13": {
-                "en": "fix crash case (Sentry IOBROKER-INFO-A)",
-                "de": "Absturzfall beheben (Sentry IOBROKER-INFO-A)",
-                "ru": "исправить случай сбоя (Sentry IOBROKER-INFO-A)",
-                "pt": "corrigir caso de falha (Sentry IOBROKER-INFO-A)",
-                "nl": "crash case repareren (Sentry IOBROKER-INFO-A)",
-                "fr": "correction d'un cas de crash (Sentry IOBROKER-INFO-A)",
-                "it": "risolvere il caso di crash (Sentry IOBROKER-INFO-A)",
-                "es": "reparar caso de bloqueo (Sentry IOBROKER-INFO-A)",
-                "pl": "naprawa awarii (Sentry IOBROKER-INFO-A)",
-                "zh-cn": "修复崩溃情况（Sentry IOBROKER-INFO-A）"
-            },
-            "1.7.12": {
-                "en": "fix crash case (Sentry IOBROKER-INFO-1G)",
-                "de": "Absturzfall beheben (Sentry IOBROKER-INFO-1G)",
-                "ru": "исправить случай сбоя (Sentry IOBROKER-INFO-1G)",
-                "pt": "corrigir caso de falha (Sentry IOBROKER-INFO-1G)",
-                "nl": "crashcase repareren (Sentry IOBROKER-INFO-1G)",
-                "fr": "correction d'un cas de crash (Sentry IOBROKER-INFO-1G)",
-                "it": "risolvere il caso di crash (Sentry IOBROKER-INFO-1G)",
-                "es": "reparar caso de bloqueo (Sentry IOBROKER-INFO-1G)",
-                "pl": "naprawa awarii (Sentry IOBROKER-INFO-1G)",
-                "zh-cn": "修复崩溃的情况（Sentry IOBROKER-INFO-1G）"
-            },
-            "1.7.11": {
-                "en": "fix crash case (Sentry IOBROKER-INFO-1F)\nAdd Weblate translations",
-                "de": "Absturzfall beheben (Sentry IOBROKER-INFO-1F)\nWeblate-Übersetzungen hinzufügen",
-                "ru": "исправить случай сбоя (Sentry IOBROKER-INFO-1F)\nДобавить переводы Weblate",
-                "pt": "corrigir caso de falha (Sentry IOBROKER-INFO-1F)\nAdicionar traduções Weblate",
-                "nl": "crashcase repareren (Sentry IOBROKER-INFO-1F)\nVoeg Weblate-vertalingen toe",
-                "fr": "correction d'un cas de crash (Sentry IOBROKER-INFO-1F)\nAjouter des traductions Weblate",
-                "it": "risolvere il caso di crash (Sentry IOBROKER-INFO-1F)\nAggiungi le traduzioni di Weblate",
-                "es": "reparar caso de bloqueo (Sentry IOBROKER-INFO-1F)\nAgregar traducciones de Weblate",
-                "pl": "naprawa awarii (Sentry IOBROKER-INFO-1F)\nDodaj tłumaczenia Weblate",
-                "zh-cn": "修复崩溃案例（Sentry IOBROKER-INFO-1F）\n添加网页翻译"
-            },
-            "1.7.10": {
-                "en": "fix crash case (Sentry IOBROKER-INFO-13)",
-                "de": "Absturzfall beheben (Sentry IOBROKER-INFO-13)",
-                "ru": "исправить случай сбоя (Sentry IOBROKER-INFO-13)",
-                "pt": "corrigir caso de falha (Sentry IOBROKER-INFO-13)",
-                "nl": "crash case repareren (Sentry IOBROKER-INFO-13)",
-                "fr": "correction d'un cas de crash (Sentry IOBROKER-INFO-13)",
-                "it": "risolvere il caso di crash (Sentry IOBROKER-INFO-13)",
-                "es": "reparar caso de bloqueo (Sentry IOBROKER-INFO-13)",
-                "pl": "naprawa awarii (Sentry IOBROKER-INFO-13)",
-                "zh-cn": "修复崩溃案例（Sentry IOBROKER-INFO-13）"
-            },
             "1.7.9": {
                 "en": "Corrected socket.io in widget",
                 "de": "Socket.io im Widget korrigiert",
@@ -87,54 +42,6 @@
                 "pl": "Poprawiono socket.io w widgecie",
                 "zh-cn": "更正了小部件中的socket.io"
             },
-            "1.7.8": {
-                "en": "Fixed words.js in widget",
-                "de": "Wörter.js im Widget behoben",
-                "ru": "Исправлены слова words.js в виджете",
-                "pt": "Foi corrigido o words.js no widget",
-                "nl": "Vaste words.js in widget",
-                "fr": "Correction de words.js dans le widget",
-                "it": "Words.js risolto nel widget",
-                "es": "Word.js fijo en el widget",
-                "pl": "Naprawiono words.js w widgecie",
-                "zh-cn": "固定小部件中的words.js"
-            },
-            "1.7.7": {
-                "en": "Prevented a crash case (Sentry IOBROKER-INFO-K)",
-                "de": "Verhinderte einen Absturz (Sentry IOBROKER-INFO-K)",
-                "ru": "Предотвращен случай аварии (Sentry IOBROKER-INFO-K)",
-                "pt": "Impediu um caso de falha (Sentry IOBROKER-INFO-K)",
-                "nl": "Voorkom een crashcase (Sentry IOBROKER-INFO-K)",
-                "fr": "Empêcher un cas de crash (Sentry IOBROKER-INFO-K)",
-                "it": "Impedito un caso di crash (Sentry IOBROKER-INFO-K)",
-                "es": "Se evitó un caso de bloqueo (Sentry IOBROKER-INFO-K)",
-                "pl": "Zapobiegnięto awariom (Sentry IOBROKER-INFO-K)",
-                "zh-cn": "防止发生崩溃情况（Sentry IOBROKER-INFO-K）"
-            },
-            "1.7.6": {
-                "en": "Update systeminformation and other deps\nCheck for axios existance and exit adapter if not existing to prevent crashes (Sentry IOBROKER-INFO-C)\nUUID Hash with SHA256",
-                "de": "Aktualisieren Sie Systeminformationen und andere Deps\nÜberprüfen Sie, ob Axios vorhanden sind, und beenden Sie den Adapter, falls nicht vorhanden, um Abstürze zu vermeiden (Sentry IOBROKER-INFO-C).\nUUID Hash mit SHA256",
-                "ru": "Обновление системной информации и других депов\nПроверьте наличие осей и выйдите из адаптера, если он не существует, чтобы предотвратить сбои (Sentry IOBROKER-INFO-C)\nUUID хэш с SHA256",
-                "pt": "Atualizar informações do sistema e outros departamentos\nVerifique a existência de axios e o adaptador de saída, se não existir, para evitar falhas (Sentry IOBROKER-INFO-C)\nHash UUID com SHA256",
-                "nl": "Systeeminformatie en andere afdelingen bijwerken\nControleer op het bestaan van axios en sluit de adapter af als deze niet bestaat om crashes te voorkomen (Sentry IOBROKER-INFO-C)\nUUID Hash met SHA256",
-                "fr": "Mettre à jour les informations système et autres deps\nVérifier l'existence d'axios et sortir l'adaptateur s'il n'existe pas pour éviter les plantages (Sentry IOBROKER-INFO-C)\nHash UUID avec SHA256",
-                "it": "Aggiorna le informazioni di sistema e altri deps\nVerifica l'esistenza degli assi e l'adattatore di uscita se non esistente per evitare arresti anomali (Sentry IOBROKER-INFO-C)\nUUID Hash con SHA256",
-                "es": "Actualice la información del sistema y otros departamentos\nVerifique la existencia de axios y el adaptador de salida si no existe para evitar accidentes (Sentry IOBROKER-INFO-C)\nHash UUID con SHA256",
-                "pl": "Zaktualizuj informacje o systemie i inne działy\nSprawdź, czy axios istnieje i adapter wyjścia, jeśli nie istnieje, aby zapobiec awariom (Sentry IOBROKER-INFO-C)\nHash UUID z SHA256",
-                "zh-cn": "更新系统信息和其他部门\n检查axios是否存在并退出适配器（如果不存在）以防止崩溃（Sentry IOBROKER-INFO-C）\n具有SHA256的UUID哈希"
-            },
-            "1.7.5": {
-                "en": "UUID Check",
-                "de": "UUID-Prüfung",
-                "ru": "Проверка UUID",
-                "pt": "Verificação de UUID",
-                "nl": "UUID-controle",
-                "fr": "Vérification UUID",
-                "it": "Controllo UUID",
-                "es": "Comprobación de UUID",
-                "pl": "Kontrola UUID",
-                "zh-cn": "UUID检查"
-            },
             "1.7.4": {
                 "en": "Newest version of syteminformation library\nAdded full S.M.A.R.T data when smartmontools >= 7.0 is installed",
                 "de": "Neueste Version der Systeminformationsbibliothek\nEs wurden vollständige S.M.A.R.T-Daten hinzugefügt, wenn smartmontools> = 7.0 installiert ist",
@@ -146,30 +53,6 @@
                 "es": "La versión más reciente de la biblioteca de syteminformation\nSe agregaron datos completos de S.M.A.R.T cuando se instala smartmontools> = 7.0",
                 "pl": "Najnowsza wersja biblioteki informacji systemowych\nDodano pełne dane S.M.A.R.T po zainstalowaniu smartmontools> = 7.0",
                 "zh-cn": "最新版本的语法信息库\n当安装smartmontools> = 7.0时添加了完整的S.M.A.R.T数据"
-            },
-            "1.7.2": {
-                "en": "Newest version of syteminformation library\nMessages can be hidden",
-                "de": "Neueste Version der Systeminformationsbibliothek\nNachrichten können ausgeblendet werden",
-                "ru": "Новейшая версия syteminformation библиотеки\nСообщения могут быть скрыты",
-                "pt": "Versão mais recente da biblioteca de informações de sistemas\nAs mensagens podem ser ocultadas",
-                "nl": "Nieuwste versie van sy nietformation-bibliotheek\nBerichten kunnen worden verborgen",
-                "fr": "Nouvelle version de la bibliothèque syteminformation\nLes messages peuvent être masqués",
-                "it": "La versione più recente della libreria di informazioni sulla sinistruttura\nI messaggi possono essere nascosti",
-                "es": "La versión más reciente de la biblioteca de syteminformation\nLos mensajes pueden estar ocultos",
-                "pl": "Najnowsza wersja biblioteki informacji systemowych\nWiadomości można ukryć",
-                "zh-cn": "最新版本的语法信息库\n消息可以隐藏"
-            },
-            "1.7.0": {
-                "en": "REQUIRES node.js 10, js-controller 3.0 warnings prevented, compact mode problems fixed, other optimizations and fixes, Added Sentry for use with js-controller 3.0",
-                "de": "ERFORDERLICH node.js 10, Warnungen vor js-controller 3.0 verhindert, Probleme mit dem Kompaktmodus behoben, andere Optimierungen und Korrekturen, Sentry zur Verwendung mit js-controller 3.0 hinzugefügt",
-                "ru": "ТРЕБУЕТСЯ node.js 10, предупреждения js-controller 3.0 предотвращены, исправлены проблемы компактного режима, другие оптимизации и исправления, добавлен Sentry для использования с js-controller 3.0",
-                "pt": "REQUER Nó.js 10, avisos do js-controller 3.0 impedidos, problemas no modo compacto corrigidos, outras otimizações e correções, Adicionado Sentry para uso com o js-controller 3.0",
-                "nl": "VEREIST node.js 10, js-controller 3.0-waarschuwingen voorkomen, compacte modusproblemen verholpen, andere optimalisaties en fixes, Sentry toegevoegd voor gebruik met js-controller 3.0",
-                "fr": "NÉCESSITE node.js 10, avertissements de js-controller 3.0 évités, problèmes de mode compact corrigés, autres optimisations et correctifs, Sentry ajoutée pour une utilisation avec js-controller 3.0",
-                "it": "RICHIEDE node.js 10, avvisi js-controller 3.0 evitati, problemi di modalità compatta risolti, altre ottimizzazioni e correzioni, Sentry aggiunto per l'uso con js-controller 3.0",
-                "es": "REQUIERE node.js 10, se evitaron las advertencias de js-controller 3.0, se solucionaron los problemas del modo compacto, otras optimizaciones y correcciones, Sentry agregado para usar con js-controller 3.0",
-                "pl": "WYMAGA węzła.js 10, zapobiega ostrzeżeniom js-kontrolera 3.0, naprawiono problemy z trybem kompaktowym, inne optymalizacje i poprawki, Dodano Sentry do użytku z js-kontrolerem 3.0",
-                "zh-cn": "要求node.js 10，防止js-controller 3.0警告，修复紧凑模式问题，其他优化和修复，已添加Sentry与js-controller 3.0一起使用"
             },
             "1.6.0": {
                 "en": "Updated Chinese BBS RSS URL\nTabs were added to config\nUpdate translations\nWidget corrected in edit mode",
@@ -210,16 +93,16 @@
         },
         "title": "Information tab",
         "titleLang": {
-            "en": "ioBroker information tab",
-            "de": "ioBroker Informationsseite",
-            "ru": "Информационная страница ioBroker",
-            "pt": "Página de informações do ioBroker",
-            "nl": "ioBroker-informatiepagina",
-            "fr": "Page d'information ioBroker",
-            "it": "Pagina di informazioni di ioBroker",
-            "es": "Página de información de ioBroker",
-            "pl": "Adapter informacyjny ioBroker",
-            "zh-cn": "ioBroker信息页面"
+            "en": "Information tab",
+            "de": "Informationsseite",
+            "ru": "Информационная страница",
+            "pt": "Página de informações",
+            "nl": "Informatiepagina",
+            "fr": "Page d'information",
+            "it": "Pagina di informazioni",
+            "es": "Página de información",
+            "pl": "Adapter informacyjny",
+            "zh-cn": "信息页面"
         },
         "desc": {
             "en": "This is an ioBroker adapter to get informations about your system and some news about ioBroker.",
@@ -288,6 +171,7 @@
                 "pl": "Informacje",
                 "zh-cn": "信息"
             },
+            "link": "",
             "fa-icon": "info"
         },
         "restartAdapters": [
@@ -331,7 +215,10 @@
         "memSpeed": 60,
         "diskSpeed": 120,
         "batterySpeed": 120,
-        "networkSpeed": 60,
+        "networkSpeed": 120,
+        "wifiSpeed": 120,
+        "usbSpeed": 120,
+        "bluetoothSpeed": 120,
         "allProcessesUsers": 120,
         "github_token": "",
         "hide_github_myIssues": false,
@@ -441,6 +328,15 @@
             "native": {}
         },
         {
+            "_id": "sysinfo.system.uuid",
+            "type": "channel",
+            "common": {
+                "name": "UUIDs",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
             "_id": "sysinfo.system.bios",
             "type": "channel",
             "common": {
@@ -496,7 +392,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad.avgload",
+            "_id": "sysinfo.cpu.currentLoad.avgLoad",
             "type": "state",
             "common": {
                 "name": "CPU average load",
@@ -508,7 +404,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad.currentload",
+            "_id": "sysinfo.cpu.currentLoad.currentLoad",
             "type": "state",
             "common": {
                 "name": "CPU load in %",
@@ -523,7 +419,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad.currentload_hist",
+            "_id": "sysinfo.cpu.currentLoad.currentLoad_hist",
             "type": "state",
             "common": {
                 "name": "CPU load (last 30)",
@@ -535,7 +431,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad.currentload_user",
+            "_id": "sysinfo.cpu.currentLoad.currentLoadUser",
             "type": "state",
             "common": {
                 "name": "CPU load user in %",
@@ -550,7 +446,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad.currentload_system",
+            "_id": "sysinfo.cpu.currentLoad.currentLoadSystem",
             "type": "state",
             "common": {
                 "name": "CPU load system in %",
@@ -565,7 +461,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad.currentload_nice",
+            "_id": "sysinfo.cpu.currentLoad.currentLoadNice",
             "type": "state",
             "common": {
                 "name": "CPU load nice in %",
@@ -580,7 +476,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad.currentload_idle",
+            "_id": "sysinfo.cpu.currentLoad.currentLoadIdle",
             "type": "state",
             "common": {
                 "name": "CPU load idle in %",
@@ -595,7 +491,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad.currentload_irq",
+            "_id": "sysinfo.cpu.currentLoad.currentLoadIrq",
             "type": "state",
             "common": {
                 "name": "CPU load irq in %",
@@ -610,7 +506,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad.raw_currentload",
+            "_id": "sysinfo.cpu.currentLoad.rawCurrentLoad",
             "type": "state",
             "common": {
                 "name": "CPU load raw values",
@@ -622,7 +518,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad.raw_currentload_user",
+            "_id": "sysinfo.cpu.currentLoad.rawCurrentLoadUser",
             "type": "state",
             "common": {
                 "name": "CPU load user raw values",
@@ -634,7 +530,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad.raw_currentload_system",
+            "_id": "sysinfo.cpu.currentLoad.rawCurrentLoadSystem",
             "type": "state",
             "common": {
                 "name": "CPU load system raw values",
@@ -646,7 +542,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad.raw_currentload_nice",
+            "_id": "sysinfo.cpu.currentLoad.rawCurrentLoadNice",
             "type": "state",
             "common": {
                 "name": "CPU load nice raw values",
@@ -658,7 +554,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad.raw_currentload_idle",
+            "_id": "sysinfo.cpu.currentLoad.rawCurrentLoadIdle",
             "type": "state",
             "common": {
                 "name": "CPU load idle raw values",
@@ -670,7 +566,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentLoad.raw_currentload_irq",
+            "_id": "sysinfo.cpu.currentLoad.rawCurrentLoadIrq",
             "type": "state",
             "common": {
                 "name": "CPU load irq raw values",
@@ -741,16 +637,16 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentspeed",
+            "_id": "sysinfo.cpu.currentSpeed",
             "type": "channel",
             "common": {
-                "name": "CPU currentspeed",
+                "name": "CPU currentSpeed",
                 "role": "info"
             },
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentspeed.avgSpeed",
+            "_id": "sysinfo.cpu.currentSpeed.avgSpeed",
             "type": "state",
             "common": {
                 "name": "avg CPU speed (all cores)",
@@ -763,7 +659,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentspeed.maxSpeed",
+            "_id": "sysinfo.cpu.currentSpeed.maxSpeed",
             "type": "state",
             "common": {
                 "name": "max CPU speed (all cores)",
@@ -776,7 +672,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentspeed.minSpeed",
+            "_id": "sysinfo.cpu.currentSpeed.minSpeed",
             "type": "state",
             "common": {
                 "name": "min CPU speed (all cores)",
@@ -789,7 +685,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.cpu.currentspeed.coresSpeed",
+            "_id": "sysinfo.cpu.currentSpeed.coresSpeed",
             "type": "state",
             "common": {
                 "name": "CPU speed per core",
@@ -1084,7 +980,25 @@
             "native": {}
         },
         {
+            "_id": "sysinfo.network.info",
+            "type": "channel",
+            "common": {
+                "name": "Network informations",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
             "_id": "sysinfo.network.interfaces",
+            "type": "channel",
+            "common": {
+                "name": "Current network stats",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.network.stats",
             "type": "channel",
             "common": {
                 "name": "Network interfaces",
@@ -1103,7 +1017,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.battery.hasbattery",
+            "_id": "sysinfo.battery.hasBattery",
             "type": "state",
             "common": {
                 "name": "Battery present",
@@ -1115,7 +1029,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.battery.cyclecount",
+            "_id": "sysinfo.battery.cycleCount",
             "type": "state",
             "common": {
                 "name": "Numbers of recharges",
@@ -1127,7 +1041,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.battery.ischarging",
+            "_id": "sysinfo.battery.isCharging",
             "type": "state",
             "common": {
                 "name": "Is charging",
@@ -1139,7 +1053,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.battery.maxcapacity",
+            "_id": "sysinfo.battery.maxCapacity",
             "type": "state",
             "common": {
                 "name": "Max capacity",
@@ -1151,7 +1065,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.battery.currentcapacity",
+            "_id": "sysinfo.battery.currentCapacity",
             "type": "state",
             "common": {
                 "name": "Current capacity",
@@ -1176,7 +1090,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.battery.timeremaining",
+            "_id": "sysinfo.battery.timeRemaining",
             "type": "state",
             "common": {
                 "name": "Minutes left (if discharging)",
@@ -1188,7 +1102,7 @@
             "native": {}
         },
         {
-            "_id": "sysinfo.battery.acconnected",
+            "_id": "sysinfo.battery.acConnected",
             "type": "state",
             "common": {
                 "name": "AC connected",
@@ -1223,6 +1137,119 @@
             "type": "channel",
             "common": {
                 "name": "Monitor/display",
+                "role": "info"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.usb",
+            "type": "channel",
+            "common": {
+                "name": "USB Devices",
+                "role": "info",
+                "icon": "lib/img/icons/usb.png"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.printer",
+            "type": "channel",
+            "common": {
+                "name": "Printer informations",
+                "role": "info",
+                "icon": "lib/img/icons/printer.png"
+            },
+            "native": {}
+        },
+        {
+            "_id": "sysinfo.audio",
+            "type": "channel",
+            "common": {
+                "name": "Audio informations",
+                "role": "info",
+                "icon": "lib/img/icons/audio.png"
+            },
+            "native": {}
+        },{
+            "_id": "sysinfo.wifi",
+            "type": "channel",
+            "common": {
+                "name": "Wifi informations",
+                "role": "info",
+                "icon": "lib/img/icons/wifi.png"
+            },
+            "native": {}
+        },{
+            "_id": "sysinfo.wifi.interfaces",
+            "type": "channel",
+            "common": {
+                "name": "Wifi interfaces",
+                "role": "info"
+            },
+            "native": {}
+        },{
+            "_id": "sysinfo.wifi.connections",
+            "type": "channel",
+            "common": {
+                "name": "Wifi connections",
+                "role": "info"
+            },
+            "native": {}
+        },{
+            "_id": "sysinfo.wifi.networks",
+            "type": "channel",
+            "common": {
+                "name": "Wifi networks",
+                "role": "info"
+            },
+            "native": {}
+        },{
+            "_id": "sysinfo.bluetooth",
+            "type": "channel",
+            "common": {
+                "name": "Bluetooth informations",
+                "role": "info",
+                "icon": "lib/img/icons/bluetooth.png"
+            },
+            "native": {}
+        },{
+            "_id": "sysinfo.docker",
+            "type": "channel",
+            "common": {
+                "name": "Docker informations",
+                "role": "info",
+                "icon": "lib/img/icons/docker.png"
+            },
+            "native": {}
+        },{
+            "_id": "sysinfo.docker.info",
+            "type": "channel",
+            "common": {
+                "name": "General docker info",
+                "role": "info"
+            },
+            "native": {}
+        },{
+            "_id": "sysinfo.docker.images",
+            "type": "channel",
+            "common": {
+                "name": "Docker images",
+                "role": "info"
+            },
+            "native": {}
+        },{
+            "_id": "sysinfo.docker.containers",
+            "type": "channel",
+            "common": {
+                "name": "Docker containers",
+                "role": "info"
+            },
+            "native": {}
+        },{
+            "_id": "sysinfo.docker.volumes",
+            "type": "channel",
+            "common": {
+                "name": "Docker volumes",
                 "role": "info"
             },
             "native": {}

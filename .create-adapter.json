@@ -1,0 +1,43 @@
+{
+	"cli": true,
+	"adapterName": "info2",
+	"title": "Information tab",
+	"description": "This is an ioBroker adapter to get informations about your system and some news about ioBroker.",
+	"keywords": [
+		"ioBroker",
+		"information",
+		"info"
+	],
+	"expert": "yes",
+	"features": [
+		"adapter",
+		"vis"
+	],
+	"adminFeatures": [
+		"tab"
+	],
+	"type": "misc-data",
+	"startMode": "daemon",
+	"connectionType": "cloud",
+	"dataSource": "poll",
+	"connectionIndicator": "yes",
+	"language": "JavaScript",
+	"adminReact": "no",
+	"tabReact": "no",
+	"tools": [
+		"ESLint",
+		"type checking"
+	],
+	"indentation": "Tab",
+	"quotes": "double",
+	"es6class": "yes",
+	"authorName": "ldittmar",
+	"authorGithub": "ldittmar81",
+	"authorEmail": "iobroker@lmdsoft.de",
+	"gitRemoteProtocol": "HTTPS",
+	"gitCommit": "no",
+	"license": "MIT License",
+	"ci": "gh-actions",
+	"dependabot": "yes",
+	"creatorVersion": "1.32.0"
+}

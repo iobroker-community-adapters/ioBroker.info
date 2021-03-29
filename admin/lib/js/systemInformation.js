@@ -21,13 +21,13 @@ const formatInfo = {
     'cpu.cache-l1i': formatter.formatByte,
     'cpu.cache-l2': formatter.formatByte,
     'cpu.cache-l3': formatter.formatByte,
-    'cpu.currentload': formatter.formatPercent2Digits,
-    'cpu.currentload_idle': formatter.formatPercent2Digits,
-    'cpu.currentload_irq': formatter.formatPercent2Digits,
-    'cpu.currentload_nice': formatter.formatPercent2Digits,
-    'cpu.currentload_system': formatter.formatPercent2Digits,
-    'cpu.currentload_user': formatter.formatPercent2Digits,
-    'cpu.avgload': formatter.formatDecimalPercent2Digits,
+    'cpu.currentLoad': formatter.formatPercent2Digits,
+    'cpu.currentLoadIdle': formatter.formatPercent2Digits,
+    'cpu.currentLoadIrq': formatter.formatPercent2Digits,
+    'cpu.currentLoadNice': formatter.formatPercent2Digits,
+    'cpu.currentLoadSystem': formatter.formatPercent2Digits,
+    'cpu.currentLoadUser': formatter.formatPercent2Digits,
+    'cpu.avgLoad': formatter.formatDecimalPercent2Digits,
     'cpu.main': formatter.formatTemperature,
     'cpu.socket': formatter.formatTranslate,
     'cpu.coresSpeed': formatter.formatArrayGhz,
@@ -60,17 +60,17 @@ const formatInfo = {
     'network.operstate': formatter.formatTranslate,
     'network.mtu': formatter.formatByte,
     'network.virtual': formatter.formatBoolean,
-    'graphics.resolutiony': formatter.formatPixel,
-    'graphics.resolutionx': formatter.formatPixel,
-    'graphics.pixeldepth': formatter.formatBits,
-    'graphics.sizex': formatter.formatMm,
-    'graphics.sizey': formatter.formatMm,
+    'graphics.resolutionY': formatter.formatPixel,
+    'graphics.resolutionX': formatter.formatPixel,
+    'graphics.pixelDepth': formatter.formatBits,
+    'graphics.sizeX': formatter.formatMm,
+    'graphics.sizeY': formatter.formatMm,
     'graphics.vram': formatter.formatMb,
     'graphics.main': formatter.formatBoolean,
     'graphics.builtin': formatter.formatBoolean,
-    'battery.hasbattery': formatter.formatBoolean,
-    'battery.acconnected': formatter.formatBoolean,
-    'battery.ischarging': formatter.formatBoolean
+    'battery.hasBattery': formatter.formatBoolean,
+    'battery.acConnected': formatter.formatBoolean,
+    'battery.isCharging': formatter.formatBoolean
 };
 
 const infoCharts = {
@@ -176,7 +176,7 @@ const systemInformations = {
         if (obj.systype === "os" && obj.name === "logofile") {
             $('#sys_info_os_img_logo').attr('src', 'lib/img/logos/' + obj.value + '.png');
         } else if (obj.name.endsWith('_hist')) {
-            if (obj.name === "currentload_hist" && obj.value) {
+            if (obj.name === "currentLoad_hist" && obj.value) {
                 infoCharts.showCPU(obj.value.split(','));
             } else if (obj.name === "used_hist" && obj.value) {
                 infoCharts.showMemory(obj.value.split(','));
@@ -219,7 +219,7 @@ const systemInformations = {
             } else if (id === "info.0.sysinfo.os.processes.list") {
                 const list = JSON.parse(obj.val);
                 processProcessesList(list);
-            } else if (id === "info.0.sysinfo.cpu.currentLoad.currentload_hist") {
+            } else if (id === "info.0.sysinfo.cpu.currentLoad.currentLoad_hist") {
                 infoCharts.showCPU(obj.val.split(','));
             } else if (id === "info.0.sysinfo.memory.info.used_hist") {
                 infoCharts.showMemory(obj.val.split(','));
@@ -240,11 +240,11 @@ function processProcessesList(list) {
     list.forEach(function (data) {
         let row = "<tr id='tr_process_" + data.pid + "'>";
         row += "<td>" + data.name + "</td>";
-        row += "<td>" + formatter.formatPercent2Digits(data.pcpu) + "</td>";
-        row += "<td>" + formatter.formatPercent2Digits(data.pmem) + "</td>";
+        row += "<td>" + formatter.formatPercent2Digits(data.cpu) + "</td>";
+        row += "<td>" + formatter.formatPercent2Digits(data.mem) + "</td>";
         row += "<td>" + data.priority + "</td>";
-        row += "<td>" + formatter.formatByte(data.mem_vsz) + "</td>";
-        row += "<td>" + formatter.formatByte(data.mem_rss) + "</td>";
+        row += "<td>" + formatter.formatByte(data.memVsz) + "</td>";
+        row += "<td>" + formatter.formatByte(data.memRss) + "</td>";
         row += "<td>" + data.started + "</td>";
         row += "<td>" + _(data.state) + "</td>";
         row += "<td>" + data.user + "</td>";
