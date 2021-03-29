@@ -337,7 +337,16 @@ const setState = function (channel, channel2, key, type, value) {
 };
 
 const createChannel = function (channel, channel2, channel3) {
-	if(channel3 == null) {
+	if(channel2 == null) {
+		adapter.setObjectNotExists("sysinfo." + channel, {
+			type: "channel",
+			common: {
+				name: channel,
+				role: "info"
+			},
+			native: {}
+		});
+	} else if(channel3 == null) {
 		adapter.setObjectNotExists("sysinfo." + channel + "." + channel2, {
 			type: "channel",
 			common: {
@@ -359,15 +368,26 @@ const createChannel = function (channel, channel2, channel3) {
 };
 
 function setSystemStates(data, channel, channel2) {
-	Object.keys(data).forEach(function (key) {
-		if (typeof data[key] === "object") {
-			Object.keys(data[key]).forEach(function (key2) {
-				setState(channel, channel2, key + "-" + key2, typeof data[key][key2], data[key][key2]);
-			});
-		} else if ((typeof data[key] === "string" && data[key].length) || (typeof data[key] !== "string")) {
-			setState(channel, channel2, key, typeof data[key], data[key]);
-		}
-	});
+	adapter.getStatesOfAsync("sysinfo", channel + (channel2 != null? "." + channel2: ""))
+	.then(result => {
+		result.forEach(stateObject => {
+			  adapter.delObject(stateObject._id);
+			}
+		)
+	})
+	.finally(() =>
+		Object.keys(data).forEach(function (key) {
+			if (typeof data[key] === "undefined"){
+				//do nothing
+			} else if (typeof data[key] === "object") {
+				Object.keys(data[key]).forEach(function (key2) {
+					setState(channel, channel2, key + "-" + key2, typeof data[key][key2], data[key][key2]);
+				});
+			} else if ((typeof data[key] === "string" && data[key].length) || (typeof data[key] !== "string")) {
+				setState(channel, channel2, key, typeof data[key], data[key]);
+			}
+		})
+	);
 }
 
 const updateSysinfo = function (setIntervals) {
@@ -460,7 +480,7 @@ const updateSysinfo = function (setIntervals) {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("memory", "memLayout", "ram" + key);
-					setSystemStates(data, "memory","memLayout.ram" + key);
+					setSystemStates(data[key], "memory","memLayout.ram" + key);
 				});
 			}
 		})
@@ -488,13 +508,13 @@ const updateSysinfo = function (setIntervals) {
 				if (data.controllers && data.controllers.length > 0) {
 					Object.keys(data.controllers).forEach(function (key) {
 						createChannel("graphics", "controllers", "ctrl" + key);
-						setSystemStates(data, "graphics","controllers.ctrl" + key);
+						setSystemStates(data[key], "graphics","controllers.ctrl" + key);
 					});
 				}
 				if (data.displays && data.displays.length > 0) {
 					Object.keys(data.displays).forEach(function (key) {
 						createChannel("graphics", "displays", "dspl" + key);
-						setSystemStates(data, "graphics","displays.dspl" + key);
+						setSystemStates(data[key], "graphics","displays.dspl" + key);
 					});
 				}
 			}
@@ -549,7 +569,7 @@ const updateSysinfo = function (setIntervals) {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("disks", "blockDevices", "dev" + key);
-					setSystemStates(data, "disks","blockDevices.dev" + key);
+					setSystemStates(data[key], "disks","blockDevices.dev" + key);
 				});
 			}
 		})
@@ -560,7 +580,7 @@ const updateSysinfo = function (setIntervals) {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("disks", "diskLayout", "dev" + key);
-					setSystemStates(data, "disks","diskLayout.dev" + key);
+					setSystemStates(data[key], "disks","diskLayout.dev" + key);
 				});
 			}
 		})
@@ -599,7 +619,7 @@ const updateSysinfo = function (setIntervals) {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("usb", "dev" + key, null);
-					setSystemStates(data, "usb","dev" + key);
+					setSystemStates(data[key], "usb","dev" + key);
 				});
 			}
 		})
@@ -619,7 +639,7 @@ const updateSysinfo = function (setIntervals) {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("printer", "dev" + key, null);
-					setSystemStates(data, "printer","dev" + key);
+					setSystemStates(data[key], "printer","dev" + key);
 				});
 			}
 		})
@@ -631,7 +651,7 @@ const updateSysinfo = function (setIntervals) {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("audio", "dev" + key, null);
-					setSystemStates(data, "audio","dev" + key);
+					setSystemStates(data[key], "audio","dev" + key);
 				});
 			}
 		})
@@ -643,7 +663,7 @@ const updateSysinfo = function (setIntervals) {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("network", "interfaces", "iface" + key);
-					setSystemStates(data, "network","interfaces.iface" + key);
+					setSystemStates(data[key], "network","interfaces.iface" + key);
 				});
 			}
 		})
@@ -666,7 +686,7 @@ const updateSysinfo = function (setIntervals) {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("network", "stats", "iface" + key);
-					setSystemStates(data, "network","stats.iface" + key);
+					setSystemStates(data[key], "network","stats.iface" + key);
 				});
 			}
 			if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.networkSpeed !== 0) {
@@ -686,7 +706,7 @@ const updateSysinfo = function (setIntervals) {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("wifi", "interfaces", "iface" + key);
-					setSystemStates(data, "wifi","interfaces.iface" + key);
+					setSystemStates(data[key], "wifi","interfaces.iface" + key);
 				});
 			}
 		})
@@ -697,7 +717,7 @@ const updateSysinfo = function (setIntervals) {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("wifi", "connections", "connection" + key);
-					setSystemStates(data, "wifi","connections.connection" + key);
+					setSystemStates(data[key], "wifi","connections.connection" + key);
 				});
 			}
 		})
@@ -708,7 +728,7 @@ const updateSysinfo = function (setIntervals) {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("wifi", "networks", "net" + key);
-					setSystemStates(data, "wifi","networks.net" + key);
+					setSystemStates(data[key], "wifi","networks.net" + key);
 				});
 			}
 			if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.wifiSpeed !== 0) {
@@ -728,7 +748,7 @@ const updateSysinfo = function (setIntervals) {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("bluetooth", "dev" + key, null);
-					setSystemStates(data, "bluetooth","dev" + key);
+					setSystemStates(data[key], "bluetooth","dev" + key);
 				});
 			}
 		})
@@ -756,7 +776,7 @@ const updateSysinfo = function (setIntervals) {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("docker", "images", "img" + key);
-					setSystemStates(data, "docker","images.img" + key);
+					setSystemStates(data[key], "docker","images.img" + key);
 				});
 			}
 		})
@@ -767,7 +787,7 @@ const updateSysinfo = function (setIntervals) {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("docker", "containers", "cnt" + key);
-					setSystemStates(data, "docker","containers.cnt" + key);
+					setSystemStates(data[key], "docker","containers.cnt" + key);
 				});
 			}
 		})
@@ -778,7 +798,7 @@ const updateSysinfo = function (setIntervals) {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("docker", "volumes", "vol" + key);
-					setSystemStates(data, "docker","volumes.vol" + key);
+					setSystemStates(data[key], "docker","volumes.vol" + key);
 				});
 			}
 		})
@@ -872,7 +892,7 @@ const updateCurrentUsbInfos = function () {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("usb", "dev" + key, null);
-					setSystemStates(data, "usb", "dev" + key);
+					setSystemStates(data[key], "usb", "dev" + key);
 				});
 			}
 		})
@@ -885,7 +905,7 @@ const updateCurrentBluetoothInfos = function () {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("bluetooth", "dev" + key, null);
-					setSystemStates(data, "bluetooth", "dev" + key);
+					setSystemStates(data[key], "bluetooth", "dev" + key);
 				});
 			}
 		})
@@ -921,7 +941,7 @@ const updateCurrentNetworkInfos = function () {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("network", "stats", "iface" + key);
-					setSystemStates(data, "network","stats.iface" + key);
+					setSystemStates(data[key], "network","stats.iface" + key);
 				});
 			}
 		})
@@ -936,7 +956,7 @@ const updateCurrentWifiInfos = function () {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("wifi", "networks", "net" + key);
-					setSystemStates(data, "wifi","networks.net" + key);
+					setSystemStates(data[key], "wifi","networks.net" + key);
 				});
 			}
 		})
@@ -947,7 +967,7 @@ const updateCurrentWifiInfos = function () {
 			if (data.length > 0) {
 				Object.keys(data).forEach(function (key) {
 					createChannel("wifi", "connections", "connection" + key);
-					setSystemStates(data, "wifi","connections.connection" + key);
+					setSystemStates(data[key], "wifi","connections.connection" + key);
 				});
 			}
 		})
