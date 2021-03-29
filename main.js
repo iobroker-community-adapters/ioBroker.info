@@ -368,26 +368,17 @@ const createChannel = function (channel, channel2, channel3) {
 };
 
 function setSystemStates(data, channel, channel2) {
-	adapter.getStatesOfAsync("sysinfo", channel + (channel2 != null? "." + channel2: ""))
-	.then(result => {
-		result.forEach(stateObject => {
-			  adapter.delObject(stateObject._id);
-			}
-		)
-	})
-	.finally(() =>
-		Object.keys(data).forEach(function (key) {
-			if (typeof data[key] === "undefined"){
-				//do nothing
-			} else if (typeof data[key] === "object") {
-				Object.keys(data[key]).forEach(function (key2) {
-					setState(channel, channel2, key + "-" + key2, typeof data[key][key2], data[key][key2]);
-				});
-			} else if ((typeof data[key] === "string" && data[key].length) || (typeof data[key] !== "string")) {
-				setState(channel, channel2, key, typeof data[key], data[key]);
-			}
-		})
-	);
+	Object.keys(data).forEach(function (key) {
+		if (typeof data[key] === "undefined"){
+			//do nothing
+		} else if (typeof data[key] === "object") {
+			Object.keys(data[key]).forEach(function (key2) {
+				setState(channel, channel2, key + "-" + key2, typeof data[key][key2], data[key][key2]);
+			});
+		} else if ((typeof data[key] === "string" && data[key].length) || (typeof data[key] !== "string")) {
+			setState(channel, channel2, key, typeof data[key], data[key]);
+		}
+	});
 }
 
 const updateSysinfo = function (setIntervals) {
