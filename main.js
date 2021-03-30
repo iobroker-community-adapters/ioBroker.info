@@ -368,20 +368,23 @@ const createChannel = function (channel, channel2, channel3) {
 };
 
 function setSystemStates(data, channel, channel2) {
-	Object.keys(data).forEach(function (key) {
-		if (typeof data[key] === "undefined"){
-			//do nothing
-		} else if (typeof data[key] === "object") {
-			Object.keys(data[key]).forEach(function (key2) {
-				setState(channel, channel2, key + "-" + key2, typeof data[key][key2], data[key][key2]);
-			});
-		} else if ((typeof data[key] === "string" && data[key].length) || (typeof data[key] !== "string")) {
-			setState(channel, channel2, key, typeof data[key], data[key]);
-		}
-	});
+	if(typeof data !== "undefined" && data !== null) {
+		Object.keys(data).forEach(function (key) {
+			const data2 = data[key];
+		 	if (typeof data2 === "object" && data2 !== null && typeof data2 !== "undefined") {
+				Object.keys(data2).forEach(function (key2) {
+					setState(channel, channel2, key + "-" + key2, typeof data2[key2], data2[key2]);
+				});
+			} else if ((typeof data2 === "string" && data2.length) || (typeof data2 !== "string")) {
+				setState(channel, channel2, key, typeof data2, data2);
+			}
+		});
+	}
 }
 
 const updateSysinfo = function (setIntervals) {
+
+	adapter.log.info("Reading/updating systemdata.");
 
 	//SYSTEM
 	sistm.system()
