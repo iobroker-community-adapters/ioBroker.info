@@ -714,10 +714,16 @@
                             <li><a data-toggle="tab" class="translate" href="#sys_info_tab_os">Software</a></li>
                             <li><a data-toggle="tab" class="translate" href="#sys_info_tab_cpu">CPU</a></li>
                             <li><a data-toggle="tab" class="translate" href="#sys_info_tab_memory">Memory</a></li>
-                            <li><a data-toggle="tab" class="translate" href="#sys_info_tab_disks">Disks</a></li>
                             <li><a data-toggle="tab" class="translate" href="#sys_info_tab_graphics">Graphics</a></li>
                             <li><a data-toggle="tab" class="translate" href="#sys_info_tab_network">Network</a></li>
+                            <li><a data-toggle="tab" class="translate" href="#sys_info_tab_wifi">Wifi</a></li>
+                            <li><a data-toggle="tab" class="translate" href="#sys_info_tab_docker">Docker</a></li>
+                            <li><a data-toggle="tab" class="translate" href="#sys_info_tab_disks">Disks</a></li>
+                            <li><a data-toggle="tab" class="translate" href="#sys_info_tab_usb">USB</a></li>
+                            <li><a data-toggle="tab" class="translate" href="#sys_info_tab_bluetooth">Bluetooth</a></li>
                             <li><a data-toggle="tab" class="translate" href="#sys_info_tab_battery">Battery</a></li>
+                            <li><a data-toggle="tab" class="translate" href="#sys_info_tab_audio">Audio</a></li>
+                            <li><a data-toggle="tab" class="translate" href="#sys_info_tab_printer">Printer</a></li>
                         </ul>
 
                         <div class="tab-content">
@@ -752,7 +758,15 @@
                                     </div>
                                 </div>
 
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">UUIDs</div>
+                                    <div class="panel-body">
+                                        <dl class="dl-horizontal dl-lg" id="sys_info_system_uuid"></dl>
+                                    </div>
+                                </div>
+
                             </div>
+
                             <div id="sys_info_tab_os" class="tab-pane fade">
                                 <h3 class="translate">Software</h3>
 
@@ -847,6 +861,7 @@
                                 </div>
 
                             </div>
+
                             <div id="sys_info_tab_cpu" class="tab-pane fade">
                                 <h3 class="translate">CPU</h3>
 
@@ -887,6 +902,7 @@
                                 </div>
 
                             </div>
+
                             <div id="sys_info_tab_memory" class="tab-pane fade">
                                 <h3 class="translate">Memory</h3>
 
@@ -913,6 +929,99 @@
                                 </div>
 
                             </div>
+
+                            <div id="sys_info_tab_graphics" class="tab-pane fade">
+                                <h3 class="translate">Graphics</h3>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading translate">Graphics controllers</div>
+                                    <div class="panel-body">
+                                        <div id="sys_info_graphics_controllers"></div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading translate">Monitor/display</div>
+                                    <div class="panel-body">
+                                        <div id="sys_info_graphics_displays"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="tab-content">
+                                <div id="sys_info_tab_docker" class="tab-pane fade in active">
+                                    <h3 class="translate">Docker</h3>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading translate">General docker info</div>
+                                        <div class="panel-body">
+                                            <dl class="dl-horizontal dl-lg" id="sys_info_docker_info"></dl>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading translate">Containers</div>
+                                        <div class="panel-body">
+                                            <dl class="dl-horizontal dl-lg" id="sys_info_docker_containers"></dl>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading translate">Images</div>
+                                        <div class="panel-body">
+                                            <dl class="dl-horizontal dl-lg" id="sys_info_docker_images"></dl>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading translate">Volumes</div>
+                                        <div class="panel-body">
+                                            <dl class="dl-horizontal dl-lg" id="sys_info_docker_volumes"></dl>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div id="sys_info_tab_network" class="tab-pane fade">
+                                <h3 class="translate">Network</h3>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading translate">Network interfaces</div>
+                                    <div class="panel-body">
+                                        <div id="sys_info_network_interfaces"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div id="sys_info_tab_wifi" class="tab-pane fade">
+                                <h3 class="translate">Wifi</h3>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading translate">Wifi interfaces</div>
+                                    <div class="panel-body">
+                                        <div id="sys_info_wifi_interfaces"></div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading translate">Wifi connections</div>
+                                    <div class="panel-body">
+                                        <div id="sys_info_wifi_connections"></div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading translate">Wifi networks</div>
+                                    <div class="panel-body">
+                                        <div id="sys_info_wifi_networks"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
                             <div id="sys_info_tab_disks" class="tab-pane fade">
                                 <h3 class="translate">Disks</h3>
 
@@ -936,37 +1045,32 @@
                                         <div id="sys_info_disks_fsSize"></div>
                                     </div>
                                 </div>
-
                             </div>
-                            <div id="sys_info_tab_graphics" class="tab-pane fade">
-                                <h3 class="translate">Graphics</h3>
+
+                            <div id="sys_info_tab_usb" class="tab-pane fade">
+                                <h3 class="translate">USB</h3>
 
                                 <div class="panel panel-default">
-                                    <div class="panel-heading translate">Graphics controllers</div>
+                                    <div class="panel-heading translate">USB Devices</div>
                                     <div class="panel-body">
-                                        <div id="sys_info_graphics_controllers"></div>
-                                    </div>
-                                </div>
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading translate">Monitor/display</div>
-                                    <div class="panel-body">
-                                        <div id="sys_info_graphics_displays"></div>
+                                        <dl class="dl-horizontal dl-lg" id="sys_info_usb"></dl>
                                     </div>
                                 </div>
 
                             </div>
-                            <div id="sys_info_tab_network" class="tab-pane fade">
-                                <h3 class="translate">Network</h3>
+
+                            <div id="sys_info_tab_bluetooth" class="tab-pane fade">
+                                <h3 class="translate">Bluetooth</h3>
 
                                 <div class="panel panel-default">
-                                    <div class="panel-heading translate">Network interfaces</div>
+                                    <div class="panel-heading translate">Detected Bluetooth Devices</div>
                                     <div class="panel-body">
-                                        <div id="sys_info_network_interfaces"></div>
+                                        <dl class="dl-horizontal dl-lg" id="sys_info_bluetooth"></dl>
                                     </div>
                                 </div>
 
                             </div>
+
                             <div id="sys_info_tab_battery" class="tab-pane fade">
                                 <h3 class="translate">Battery</h3>
 
@@ -978,6 +1082,31 @@
                                 </div>
 
                             </div>
+
+                            <div id="sys_info_tab_audio" class="tab-pane fade">
+                                <h3 class="translate">Battery</h3>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading translate">Detected Audio Devices</div>
+                                    <div class="panel-body">
+                                        <dl class="dl-horizontal dl-lg" id="sys_info_audio"></dl>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div id="sys_info_tab_printer" class="tab-pane fade">
+                                <h3 class="translate">Printer</h3>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading translate">Detected Printers</div>
+                                    <div class="panel-body">
+                                        <dl class="dl-horizontal dl-lg" id="sys_info_printer"></dl>
+                                    </div>
+                                </div>
+
+                            </div>
+
                         </div>
 
                     </div>

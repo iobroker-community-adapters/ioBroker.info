@@ -320,6 +320,9 @@ function getInstances(callback) {
 }
 
 const setState = function (channel, channel2, key, type, value) {
+	if(type === "undefined"){
+		type = "string";
+	}
 	const link = "sysinfo." + channel + (channel2 ? "." + channel2 : "");
 	adapter.setObjectNotExists(link + "." + key, {
 		type: "state",
@@ -367,7 +370,7 @@ const createChannel = function (channel, channel2, channel3) {
 	}
 };
 
-function setSystemStates(data, channel, channel2) {
+const setSystemStates = function (data, channel, channel2, nameChange) {
 	if(typeof data !== "undefined" && data !== null) {
 		Object.keys(data).forEach(function (key) {
 			const data2 = data[key];
@@ -376,7 +379,13 @@ function setSystemStates(data, channel, channel2) {
 					setState(channel, channel2, key + "-" + key2, typeof data2[key2], data2[key2]);
 				});
 			} else if ((typeof data2 === "string" && data2.length) || (typeof data2 !== "string")) {
-				setState(channel, channel2, key, typeof data2, data2);
+		 		let name;
+		 		if(nameChange.hasOwnProperty(key)){
+		 			name = nameChange[key];
+				}else{
+		 			name = key;
+				}
+				setState(channel, channel2, name, typeof data2, data2);
 			}
 		});
 	}
@@ -412,7 +421,7 @@ const updateSysinfo = function (setIntervals) {
 		.then(data => {	setSystemStates(data, "cpu","info"); })
 		.catch(error => adapter.log.error(error));
 
-	sistm.cpu()
+	sistm.currentLoad()
 		.then(data => {
 			setSystemStates(data, "cpu","currentLoad");
 			if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.cpuSpeed !== 0) {
@@ -442,7 +451,7 @@ const updateSysinfo = function (setIntervals) {
 
 	sistm.cpuCurrentSpeed()
 		.then(data => {
-			setSystemStates(data, "cpu","currentSpeed");
+			setSystemStates(data, "cpu","currentSpeed", {"min":"minSpeed", "max": "maxSpeed", "avg": "avgSpeed"});
 			if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.cpuSpeed !== 0) {
 				let speed = adapter.config.cpuSpeed;
 				if (!speed) {
@@ -498,7 +507,7 @@ const updateSysinfo = function (setIntervals) {
 	//GRAPHICS
 	sistm.graphics()
 		.then(data => {
-			if (data && Object.getOwnPropertyNames(data).length !== 0) {
+			if (data !== null && typeof data !== "undefined") {
 				if (data.controllers && data.controllers.length > 0) {
 					Object.keys(data.controllers).forEach(function (key) {
 						createChannel("graphics", "controllers", "ctrl" + key);

@@ -54,6 +54,8 @@ const formatter = {
         return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
     }, formatSpeedMhz: function (mhz) {
         return mhz + " MHz";
+    }, formatBattmWh: function (mwh) {
+            return mwh + " mWh";
     }, formatSpeedGhz: function (ghz) {
         return ghz + " GHz";
     }, formatSpeedV: function (v) {
