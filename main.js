@@ -380,7 +380,7 @@ const setSystemStates = function (data, channel, channel2, nameChange) {
 				});
 			} else if ((typeof data2 === "string" && data2.length) || (typeof data2 !== "string")) {
 		 		let name;
-		 		if(nameChange.hasOwnProperty(key)){
+		 		if(nameChange && nameChange.hasOwnProperty(key)){
 		 			name = nameChange[key];
 				}else{
 		 			name = key;
