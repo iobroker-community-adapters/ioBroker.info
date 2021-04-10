@@ -47,7 +47,7 @@ Many thanks to `sebhildebrandt` for the great work on the package [systeminforma
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
-### 1.8.0 (2021-xx-xx)
+### 1.8.0 (2021-04-10)
 * (ldittmar81) Update libraries
 * (ldittmar81) Added Wifi, Docker, USB, Printer, Bluetooth and Audio infos
 * (ldittmar81) Breaking changes: Some sytemdata objects have new names
