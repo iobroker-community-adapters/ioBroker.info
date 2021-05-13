@@ -21,7 +21,7 @@
     "CPU temperature": "CPU-Temperatur",
     "CPU-Load": "CPU-Last",
     "CPUs": "CPUs",
-    "Calling up current system data at too short intervals can lead to very high CPU consumption, especially under Windows. To switch off individual queries, set the slider to 0.": "Das Aufrufen aktueller Systemdaten in zu kurzen Intervallen, kann besonders unter Windows, zu sehr hohen CPU Verbrauch führen. Um einzelnen Abfragen abzuschalten, regler auf 0 stellen.",
+    "Calling up current system data at too short intervals can lead to very high CPU consumption, especially under Windows. To switch off individual queries, set the slider to 0.": "Das Aufrufen aktueller Systemdaten in zu kurzen Intervallen, kann besonders unter Windows, zu sehr hohem CPU Verbrauch führen. Um individuelle Abfragen abzuschalten, Regler auf 0 stellen.",
     "Cancel": "Abbrechen",
     "Chassis": "Gehäuse",
     "Chinese": "Chinesisch",
