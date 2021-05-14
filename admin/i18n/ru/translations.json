@@ -427,7 +427,7 @@
     "os.systemOpenssl": "ОС версия OpenSSL",
     "os.systemOpensslLib": "Библиотека OpenSSL",
     "os.time": "Время входа в систему ",
-    "os.tsc": "Машинопись версия",
+    "os.tsc": "Версия TypeScript",
     "os.tty": "Терминал",
     "os.uefi": "ОС запускается через UEFI",
     "os.unknown": "Количество всех процессов неизвестным статусом",
