@@ -22,7 +22,7 @@
     "CPU-Load": "Нагрузка процессора",
     "CPUs": "Процессоры",
     "Calling up current system data at too short intervals can lead to very high CPU consumption, especially under Windows. To switch off individual queries, set the slider to 0.": "Вызов нынешней системе данные на слишком короткие промежутки времени могут привести к очень высоким потреблением процессора, особенно под Windows. Для выключения отдельных запросов, установите ползунок на 0.",
-    "Cancel": "Отменить",
+    "Cancel": "Отмена",
     "Chassis": "Шасси",
     "Chinese": "Китайский язык",
     "Click here to register": "Нажмите здесь, чтобы зарегистрироваться",
