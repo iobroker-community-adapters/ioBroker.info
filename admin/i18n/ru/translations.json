@@ -341,7 +341,7 @@
     "memory.voltageMax": "Максимальное напряжение",
     "memory.voltageMin": "Напряжение мин",
     "mode": "Посмотреть",
-    "name": "название",
+    "name": "имя",
     "network.carrierChanges": "Ряд изменений вверх/вниз",
     "network.dhcp": "IP-адрес, полученный по DHCP",
     "network.dnsSuffix": "DNS-суффикс",
