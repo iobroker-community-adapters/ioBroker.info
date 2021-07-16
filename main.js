@@ -600,7 +600,7 @@ const updateSysinfo = function (setIntervals) {
 							setState("disks", "fsSize.fs" + key, key2, typeof data[key][key2], data[key][key2]);
 						}
 						if (key2 === "used") {
-							setState("disks", "fsSize.fs" + key, "used_hist", "string", "[]");
+							setState("disks", "fsSize.fs" + key, "used_hist", "array", "[]");
 						}
 					});
 				});
@@ -879,7 +879,7 @@ const updateCurrentMemoryInfos = function () {
 			if (memUsed.length > 30) {
 				memUsed.shift();
 			}
-			adapter.setState("sysinfo.memory.info.used_hist", {val: memUsed.toString(), ack: true});
+			adapter.setState("sysinfo.memory.info.used_hist", {val: JSON.stringify(memUsed), ack: true});
 			adapter.setState("sysinfo.memory.info.available", {val: data.available, ack: true});
 			adapter.setState("sysinfo.memory.info.buffcache", {val: data.buffcache, ack: true});
 			adapter.setState("sysinfo.memory.info.swapused", {val: data.swapused, ack: true});
@@ -928,7 +928,7 @@ const updateCurrentFilesystemInfos = function () {
 					if (fsUsed[key].length > 30) {
 						fsUsed[key].shift();
 					}
-					adapter.setState("sysinfo.disks.fsSize.fs" + key + ".used_hist", {val: fsUsed[key].toString(), ack: true});
+					adapter.setState("sysinfo.disks.fsSize.fs" + key + ".used_hist", {val: JSON.stringify(fsUsed[key]), ack: true});
 					adapter.setState("sysinfo.disks.fsSize.fs" + key + ".use", {val: data[key].use, ack: true});
 				});
 			}

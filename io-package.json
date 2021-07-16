@@ -157,6 +157,7 @@
         "messagebox": true,
         "connectionType": "cloud",
         "dataSource": "poll",
+        "tier": 3,
         "adminTab": {
             "singleton": true,
             "name": {
@@ -744,8 +745,8 @@
             "type": "state",
             "common": {
                 "name": "Memory used (last 30)",
-                "type": "string",
-                "role": "value",
+                "type": "array",
+                "role": "list",
                 "read": true,
                 "write": false
             },
