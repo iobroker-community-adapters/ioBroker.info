@@ -12,9 +12,6 @@
 	"plugins": [
 	],
 	"settings": {
-		"react": {
-			"version": "detect"
-		}
 	},
 	"rules": {
 		"indent": [
