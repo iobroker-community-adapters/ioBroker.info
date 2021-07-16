@@ -373,7 +373,7 @@ const createChannel = function (channel, channel2, channel3) {
 const setSystemStates = function (data, channel, channel2, nameChange) {
 	if(typeof data !== "undefined" && data !== null) {
 		Object.keys(data).forEach(function (key) {
-			const data2 = data[key];
+			let data2 = data[key];
 		 	if (typeof data2 === "object" && data2 !== null && typeof data2 !== "undefined") {
 				Object.keys(data2).forEach(function (key2) {
 					setState(channel, channel2, key + "-" + key2, typeof data2[key2], data2[key2]);
@@ -385,7 +385,12 @@ const setSystemStates = function (data, channel, channel2, nameChange) {
 				}else{
 		 			name = key;
 				}
-				setState(channel, channel2, name, typeof data2, data2);
+		 		let stateType = typeof data2;
+		 		if (stateType === 'object') {
+					stateType = 'object';
+					data2 = JSON.stringify(data2);
+				}
+				setState(channel, channel2, name, stateType, data2);
 			}
 		});
 	}
@@ -822,7 +827,7 @@ const updateCurrentCPUInfos = function () {
 			if (cpuUsed.length > 30) {
 				cpuUsed.shift();
 			}
-			adapter.setState("sysinfo.cpu.currentLoad.currentLoad_hist", {val: cpuUsed.toString(), ack: true});
+			adapter.setState("sysinfo.cpu.currentLoad.currentLoad_hist", {val: JSON.stringify(cpuUsed), ack: true});
 			adapter.setState("sysinfo.cpu.currentLoad.currentLoadUser", {val: data.currentLoadUser, ack: true});
 			adapter.setState("sysinfo.cpu.currentLoad.currentLoadSystem", {val: data.currentLoadSystem, ack: true});
 			adapter.setState("sysinfo.cpu.currentLoad.currentLoadNice", {val: data.currentLoadNice, ack: true});
@@ -848,7 +853,7 @@ const updateCurrentCPUTempInfos = function () {
 			if (cpuTemp.length > 30) {
 				cpuTemp.shift();
 			}
-			adapter.setState("sysinfo.cpu.temperature.main_hist", {val: cpuTemp.toString(), ack: true});
+			adapter.setState("sysinfo.cpu.temperature.main_hist", {val: JSON.stringify(cpuTemp), ack: true});
 			adapter.setState("sysinfo.cpu.temperature.cores", {val: JSON.stringify(data.cores), ack: true});
 			adapter.setState("sysinfo.cpu.temperature.max", {val: data.max, ack: true});
 		})

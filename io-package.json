@@ -424,8 +424,8 @@
             "type": "state",
             "common": {
                 "name": "CPU load (last 30)",
-                "type": "string",
-                "role": "value",
+                "type": "array",
+                "role": "list",
                 "read": true,
                 "write": false
             },
@@ -605,8 +605,8 @@
             "type": "state",
             "common": {
                 "name": "Temperature (last 30)",
-                "type": "string",
-                "role": "value",
+                "type": "array",
+                "role": "list",
                 "read": true,
                 "write": false
             },
