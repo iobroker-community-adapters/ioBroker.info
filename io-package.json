@@ -93,16 +93,16 @@
         },
         "title": "Information tab",
         "titleLang": {
-            "en": "Information tab/adapter",
-            "de": "Informationsseite/-adapter",
-            "ru": "Информационная вкладка / адаптер",
-            "pt": "Guia / adaptador de informações",
-            "nl": "Informatietabblad/adapter",
-            "fr": "Onglet d'information/adaptateur",
-            "it": "Scheda/adattatore informazioni",
-            "es": "Pestaña / adaptador de información",
-            "pl": "Zakładka/adapter informacyjny",
-            "zh-cn": "信息选项卡/适配器"
+            "en": "Information page",
+            "de": "Informationsseite",
+            "ru": "Информационная страница",
+            "pt": "Página de informação",
+            "nl": "Informatiepagina",
+            "fr": "Page d'informations",
+            "it": "Pagina informativa",
+            "es": "Página de información",
+            "pl": "Strona informacyjna",
+            "zh-cn": "信息页"
         },
         "desc": {
             "en": "This is an ioBroker adapter to get informations about your system and some news about ioBroker.",
