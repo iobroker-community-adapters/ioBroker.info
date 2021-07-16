@@ -849,7 +849,7 @@ const updateCurrentCPUTempInfos = function () {
 				cpuTemp.shift();
 			}
 			adapter.setState("sysinfo.cpu.temperature.main_hist", {val: cpuTemp.toString(), ack: true});
-			adapter.setState("sysinfo.cpu.temperature.cores", {val: data.cores, ack: true});
+			adapter.setState("sysinfo.cpu.temperature.cores", {val: JSON.stringify(data.cores), ack: true});
 			adapter.setState("sysinfo.cpu.temperature.max", {val: data.max, ack: true});
 		})
 		.catch(error => adapter.log.error(error));
@@ -863,7 +863,7 @@ const updateCurrentCPUSpeed = function () {
 			adapter.setState("sysinfo.cpu.currentSpeed.avgSpeed", {val: data.avg, ack: true});
 			adapter.setState("sysinfo.cpu.currentSpeed.minSpeed", {val: data.min, ack: true});
 			adapter.setState("sysinfo.cpu.currentSpeed.maxSpeed", {val: data.max, ack: true});
-			adapter.setState("sysinfo.cpu.currentSpeed.coresSpeed", {val: data.cores, ack: true});
+			adapter.setState("sysinfo.cpu.currentSpeed.coresSpeed", {val: JSON.stringify(data.cores), ack: true});
 		})
 		.catch(error => adapter.log.error(error));
 };
