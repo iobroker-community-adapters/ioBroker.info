@@ -323,6 +323,11 @@ const setState = function (channel, channel2, key, type, value) {
 	if(type === "undefined"){
 		type = "string";
 	}
+	if (type === "object") {
+		type = "object";
+		value = JSON.stringify(value);
+	}
+
 	const link = "sysinfo." + channel + (channel2 ? "." + channel2 : "");
 	adapter.setObjectNotExists(link + "." + key, {
 		type: "state",
@@ -369,26 +374,22 @@ const createChannel = function (channel, channel2, channel3) {
 };
 
 const setSystemStates = function (data, channel, channel2, nameChange) {
+	adapter.log.debug(`Process ${channel} with ${channel2}: ${JSON.stringify(data)}`);
 	if(typeof data !== "undefined" && data !== null) {
 		Object.keys(data).forEach(function (key) {
 			let data2 = data[key];
-		 	if (typeof data2 === "object" && data2 !== null && typeof data2 !== "undefined") {
+			if (typeof data2 === "object" && data2 !== null && typeof data2 !== "undefined") {
 				Object.keys(data2).forEach(function (key2) {
 					data2[key2] !== null && setState(channel, channel2, key + "-" + key2, typeof data2[key2], data2[key2]);
 				});
 			} else if ((typeof data2 === "string" && data2.length) || (typeof data2 !== "string")) {
-		 		let name;
-		 		if(nameChange && nameChange.hasOwnProperty(key)){
-		 			name = nameChange[key];
+				let name;
+				if(nameChange && nameChange.hasOwnProperty(key)){
+					name = nameChange[key];
 				} else{
-		 			name = key;
+					name = key;
 				}
-		 		let stateType = typeof data2;
-		 		if (stateType === 'object') {
-					stateType = 'object';
-					data2 = JSON.stringify(data2);
-				}
-				setState(channel, channel2, name, stateType, data2);
+				setState(channel, channel2, name, typeof data2, data2);
 			}
 		});
 	}
@@ -846,14 +847,14 @@ const updateCurrentCPUTempInfos = function () {
 
 	sistm.cpuTemperature()
 		.then(data => {
-			adapter.setState("sysinfo.cpu.temperature.main", {val: data.main, ack: true});
+			adapter.setState("sysinfo.cpu.temperature.main", {val: parseFloat(data.main), ack: true});
 			cpuTemp.push(data.main);
 			if (cpuTemp.length > 30) {
 				cpuTemp.shift();
 			}
 			adapter.setState("sysinfo.cpu.temperature.main_hist", {val: JSON.stringify(cpuTemp), ack: true});
 			adapter.setState("sysinfo.cpu.temperature.cores", {val: JSON.stringify(data.cores), ack: true});
-			adapter.setState("sysinfo.cpu.temperature.max", {val: data.max, ack: true});
+			adapter.setState("sysinfo.cpu.temperature.max", {val: parseFloat(data.max), ack: true});
 		})
 		.catch(error => adapter.log.error(error));
 
