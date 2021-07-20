@@ -47,7 +47,7 @@ Many thanks to `sebhildebrandt` for the great work on the package [systeminforma
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
-### __WORK IN PROGRESS__
+### 1.9.0 (2021-07-20)
 * Breaking changes: Some systemdata objects have new names and corrected types and content! You might need to adjust scripts and visualizations!
 * (ldittmar81) Added Wifi, Docker, USB, Printer, Bluetooth and Audio infos
 * (Apollon77) Optimize for js-controller 3.3

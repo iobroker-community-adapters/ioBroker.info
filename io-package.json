@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.8.0",
+        "version": "1.9.0",
         "news": {
+            "1.9.0": {
+                "en": "Breaking changes: Some systemdata objects have new names and corrected types and content! You might need to adjust scripts and visualizations!\nAdded Wifi, Docker, USB, Printer, Bluetooth and Audio infos\nOptimize for js-controller 3.3",
+                "de": "Breaking Changes: Einige Systemdata-Objekte haben neue Namen und korrigierte Typen und Inhalte! Möglicherweise müssen Sie Skripte und Visualisierungen anpassen!\nWifi, Docker, USB, Drucker, Bluetooth und Audioinfos hinzugefügt Added\nOptimieren Sie für js-Controller 3.3",
+                "ru": "Критические изменения: некоторые объекты системных данных имеют новые имена, исправленные типы и содержимое! Возможно, вам потребуется настроить скрипты и визуализации!\nДобавлена информация о Wi-Fi, Docker, USB, принтере, Bluetooth и аудио.\nОптимизировать под js-controller 3.3",
+                "pt": "Mudanças significativas: Alguns objetos de dados do sistema têm novos nomes e tipos e conteúdo corrigidos! Você pode precisar ajustar scripts e visualizações!\nAdicionadas informações de Wifi, Docker, USB, impressora, Bluetooth e áudio\nOtimize para js-controller 3.3",
+                "nl": "Baanbrekende wijzigingen: Sommige systeemgegevensobjecten hebben nieuwe namen en gecorrigeerde typen en inhoud! Mogelijk moet u scripts en visualisaties aanpassen!\nWifi, Docker, USB, Printer, Bluetooth en Audio-info toegevoegd\nOptimaliseren voor js-controller 3.3",
+                "fr": "Changements décisifs : certains objets de données système ont de nouveaux noms et des types et contenus corrigés ! Vous devrez peut-être ajuster les scripts et les visualisations !\nAjout d'infos Wifi, Docker, USB, Imprimante, Bluetooth et Audio\nOptimiser pour js-controller 3.3",
+                "it": "Modifiche importanti: alcuni oggetti systemdata hanno nuovi nomi e tipi e contenuti corretti! Potrebbe essere necessario modificare script e visualizzazioni!\nAggiunte informazioni su Wifi, Docker, USB, stampante, Bluetooth e audio\nOttimizza per js-controller 3.3",
+                "es": "Cambios importantes: ¡algunos objetos de datos del sistema tienen nuevos nombres y tipos y contenido corregidos! ¡Es posible que deba ajustar los scripts y las visualizaciones!\nSe agregó información sobre Wifi, Docker, USB, Impresora, Bluetooth y Audio\nOptimizar para js-controller 3.3",
+                "pl": "Najważniejsze zmiany: Niektóre obiekty systemdata mają nowe nazwy oraz poprawione typy i zawartość! Może być konieczne dostosowanie skryptów i wizualizacji!\nDodano informacje o Wifi, Docker, USB, drukarce, Bluetooth i audio\nOptymalizacja dla kontrolera js 3.3",
+                "zh-cn": "重大更改：某些系统数据对象具有新名称并更正了类型和内容！您可能需要调整脚本和可视化！\n添加了 Wifi、Docker、USB、打印机、蓝牙和音频信息\n针对 js-controller 3.3 优化"
+            },
             "1.8.0": {
                 "en": "Update libraries"
             },
@@ -1171,7 +1183,8 @@
                 "icon": "lib/img/icons/audio.png"
             },
             "native": {}
-        },{
+        },
+        {
             "_id": "sysinfo.wifi",
             "type": "channel",
             "common": {
@@ -1180,7 +1193,8 @@
                 "icon": "lib/img/icons/wifi.png"
             },
             "native": {}
-        },{
+        },
+        {
             "_id": "sysinfo.wifi.interfaces",
             "type": "channel",
             "common": {
@@ -1188,7 +1202,8 @@
                 "role": "info"
             },
             "native": {}
-        },{
+        },
+        {
             "_id": "sysinfo.wifi.connections",
             "type": "channel",
             "common": {
@@ -1196,7 +1211,8 @@
                 "role": "info"
             },
             "native": {}
-        },{
+        },
+        {
             "_id": "sysinfo.wifi.networks",
             "type": "channel",
             "common": {
@@ -1204,7 +1220,8 @@
                 "role": "info"
             },
             "native": {}
-        },{
+        },
+        {
             "_id": "sysinfo.bluetooth",
             "type": "channel",
             "common": {
@@ -1213,7 +1230,8 @@
                 "icon": "lib/img/icons/bluetooth.png"
             },
             "native": {}
-        },{
+        },
+        {
             "_id": "sysinfo.docker",
             "type": "channel",
             "common": {
@@ -1222,7 +1240,8 @@
                 "icon": "lib/img/icons/docker.png"
             },
             "native": {}
-        },{
+        },
+        {
             "_id": "sysinfo.docker.info",
             "type": "channel",
             "common": {
@@ -1230,7 +1249,8 @@
                 "role": "info"
             },
             "native": {}
-        },{
+        },
+        {
             "_id": "sysinfo.docker.images",
             "type": "channel",
             "common": {
@@ -1238,7 +1258,8 @@
                 "role": "info"
             },
             "native": {}
-        },{
+        },
+        {
             "_id": "sysinfo.docker.containers",
             "type": "channel",
             "common": {
@@ -1246,7 +1267,8 @@
                 "role": "info"
             },
             "native": {}
-        },{
+        },
+        {
             "_id": "sysinfo.docker.volumes",
             "type": "channel",
             "common": {
