@@ -334,9 +334,7 @@ const setState = function (channel, channel2, key, type, value) {
 			write: false
 		},
 		native: {}
-	});
-
-	adapter.setState(link + "." + key, {val: value, ack: true});
+	}, err => !err && adapter.setState(link + "." + key, {val: value, ack: true}));
 };
 
 const createChannel = function (channel, channel2, channel3) {
@@ -376,13 +374,13 @@ const setSystemStates = function (data, channel, channel2, nameChange) {
 			let data2 = data[key];
 		 	if (typeof data2 === "object" && data2 !== null && typeof data2 !== "undefined") {
 				Object.keys(data2).forEach(function (key2) {
-					setState(channel, channel2, key + "-" + key2, typeof data2[key2], data2[key2]);
+					data2[key2] !== null && setState(channel, channel2, key + "-" + key2, typeof data2[key2], data2[key2]);
 				});
 			} else if ((typeof data2 === "string" && data2.length) || (typeof data2 !== "string")) {
 		 		let name;
 		 		if(nameChange && nameChange.hasOwnProperty(key)){
 		 			name = nameChange[key];
-				}else{
+				} else{
 		 			name = key;
 				}
 		 		let stateType = typeof data2;
