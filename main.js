@@ -333,7 +333,7 @@ const setState = function (channel, channel2, key, type, value) {
 		type: "state",
 		common: {
 			name: key,
-			type: type,
+			type: type !== "string" ? "mixed" : type,
 			role: "value",
 			read: true,
 			write: false
