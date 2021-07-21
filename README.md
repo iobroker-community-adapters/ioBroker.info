@@ -47,7 +47,7 @@ Many thanks to `sebhildebrandt` for the great work on the package [systeminforma
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
-### __WORK IN PROGRESS__
+### 1.9.1 (2021-07-21)
 * Adjust object types to prevent js-controller 3.3 warnings
 * Disable all data collection by default  -  users can activate whatever they really need
 

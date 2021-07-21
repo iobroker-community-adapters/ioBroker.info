@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.9.0",
+        "version": "1.9.1",
         "news": {
+            "1.9.1": {
+                "en": "Adjust object types to prevent js-controller 3.3 warnings\nDisable all data collection by default  -  users can activate whatever they really need",
+                "de": "Passen Sie die Objekttypen an, um js-controller 3.3-Warnungen zu verhindern\nDeaktivieren Sie standardmäßig die gesamte Datenerfassung - Benutzer können alles aktivieren, was sie wirklich brauchen",
+                "ru": "Отрегулируйте типы объектов, чтобы предотвратить предупреждения js-controller 3.3\nОтключить сбор всех данных по умолчанию - пользователи могут активировать все, что им действительно нужно.",
+                "pt": "Ajuste os tipos de objeto para evitar avisos do js-controller 3.3\nDesative toda a coleta de dados por padrão - os usuários podem ativar o que realmente precisam",
+                "nl": "Pas objecttypen aan om js-controller 3.3-waarschuwingen te voorkomen\nSchakel alle gegevensverzameling standaard uit - gebruikers kunnen alles activeren wat ze echt nodig hebben",
+                "fr": "Ajustez les types d'objets pour empêcher les avertissements js-controller 3.3\nDésactivez toutes les collectes de données par défaut - les utilisateurs peuvent activer tout ce dont ils ont vraiment besoin",
+                "it": "Regola i tipi di oggetti per evitare avvisi di js-controller 3.3\nDisabilita tutta la raccolta dati per impostazione predefinita: gli utenti possono attivare tutto ciò di cui hanno realmente bisogno",
+                "es": "Ajuste los tipos de objetos para evitar advertencias de js-controller 3.3\nDeshabilite toda la recopilación de datos de forma predeterminada: los usuarios pueden activar lo que realmente necesiten",
+                "pl": "Dostosuj typy obiektów, aby zapobiec ostrzeżeniom js-controller 3.3\nDomyślnie wyłącz zbieranie wszystkich danych - użytkownicy mogą aktywować wszystko, czego naprawdę potrzebują",
+                "zh-cn": "调整对象类型以防止 js-controller 3.3 警告\n默认禁用所有数据收集 - 用户可以激活他们真正需要的任何东西"
+            },
             "1.9.0": {
                 "en": "Breaking changes: Some systemdata objects have new names and corrected types and content! You might need to adjust scripts and visualizations!\nAdded Wifi, Docker, USB, Printer, Bluetooth and Audio infos\nOptimize for js-controller 3.3",
                 "de": "Breaking Changes: Einige Systemdata-Objekte haben neue Namen und korrigierte Typen und Inhalte! Möglicherweise müssen Sie Skripte und Visualisierungen anpassen!\nWifi, Docker, USB, Drucker, Bluetooth und Audioinfos hinzugefügt Added\nOptimieren Sie für js-Controller 3.3",
