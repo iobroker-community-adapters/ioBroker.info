@@ -49,6 +49,7 @@ Many thanks to `sebhildebrandt` for the great work on the package [systeminforma
 
 ### __WORK IN PROGRESS__
 * Adjust object types to prevent js-controller 3.3 warnings
+* Disable all data collection by default  -  users can activate whatever they really need
 
 ### 1.9.0 (2021-07-20)
 * Breaking changes: Some systemdata objects have new names and corrected types and content! You might need to adjust scripts and visualizations!
