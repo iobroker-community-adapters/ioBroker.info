@@ -19,6 +19,7 @@ const cpuUsed = [];
 const cpuTemp = [];
 const memUsed = [];
 const fsUsed = {};
+const knownObjects = {};
 
 const adapterIntervals = {};
 
@@ -319,7 +320,7 @@ function getInstances(callback) {
 	});
 }
 
-const setState = function (channel, channel2, key, type, value) {
+const setState = async function (channel, channel2, key, type, value) {
 	if(type === "undefined"){
 		type = "string";
 	}
@@ -329,22 +330,26 @@ const setState = function (channel, channel2, key, type, value) {
 	}
 
 	const link = "sysinfo." + channel + (channel2 ? "." + channel2 : "");
-	adapter.setObjectNotExists(link + "." + key, {
-		type: "state",
-		common: {
-			name: key,
-			type: type !== "string" ? "mixed" : type,
-			role: "value",
-			read: true,
-			write: false
-		},
-		native: {}
-	}, err => !err && adapter.setState(link + "." + key, {val: value, ack: true}));
+	if (!knownObjects[link + "." + key]) {
+		await adapter.setObjectNotExistsAsync(link + "." + key, {
+			type: "state",
+			common: {
+				name: key,
+				type: "mixed",
+				role: "value",
+				read: true,
+				write: false
+			},
+			native: {}
+		});
+		knownObjects[link + "." + key] = true;
+	}
+	await adapter.setStateAsync(link + "." + key, {val: value, ack: true});
 };
 
-const createChannel = function (channel, channel2, channel3) {
-	if(channel2 == null) {
-		adapter.setObjectNotExists("sysinfo." + channel, {
+const createChannel = async function (channel, channel2, channel3) {
+	if (channel2 == null && !knownObjects["sysinfo." + channel]) {
+		await adapter.setObjectNotExistsAsync("sysinfo." + channel, {
 			type: "channel",
 			common: {
 				name: channel,
@@ -352,8 +357,9 @@ const createChannel = function (channel, channel2, channel3) {
 			},
 			native: {}
 		});
-	} else if(channel3 == null) {
-		adapter.setObjectNotExists("sysinfo." + channel + "." + channel2, {
+		knownObjects["sysinfo." + channel] = true;
+	} else if(channel3 == null && !knownObjects["sysinfo." + channel + "." + channel2]) {
+		await adapter.setObjectNotExistsAsync("sysinfo." + channel + "." + channel2, {
 			type: "channel",
 			common: {
 				name: channel2,
@@ -361,8 +367,9 @@ const createChannel = function (channel, channel2, channel3) {
 			},
 			native: {}
 		});
-	} else {
-		adapter.setObjectNotExists("sysinfo." + channel + "." + channel2 + "." + channel3, {
+		knownObjects["sysinfo." + channel + "." + channel2] = true;
+	} else if (!knownObjects["sysinfo." + channel + "." + channel2 + "." + channel3]) {
+		await adapter.setObjectNotExistsAsync("sysinfo." + channel + "." + channel2 + "." + channel3, {
 			type: "channel",
 			common: {
 				name: channel3,
@@ -370,18 +377,19 @@ const createChannel = function (channel, channel2, channel3) {
 			},
 			native: {}
 		});
+		knownObjects["sysinfo." + channel + "." + channel2 + "." + channel3] = true;
 	}
 };
 
-const setSystemStates = function (data, channel, channel2, nameChange) {
+const setSystemStates = async function (data, channel, channel2, nameChange) {
 	adapter.log.debug(`Process ${channel} with ${channel2}: ${JSON.stringify(data)}`);
 	if(typeof data !== "undefined" && data !== null) {
-		Object.keys(data).forEach(function (key) {
-			let data2 = data[key];
+		for (const key of Object.keys(data)) {
+			const data2 = data[key];
 			if (typeof data2 === "object" && data2 !== null && typeof data2 !== "undefined") {
-				Object.keys(data2).forEach(function (key2) {
-					data2[key2] !== null && setState(channel, channel2, key + "-" + key2, typeof data2[key2], data2[key2]);
-				});
+				for (const key2 of Object.keys(data2)) {
+					data2[key2] !== null && await setState(channel, channel2, key + "-" + key2, typeof data2[key2], data2[key2]);
+				}
 			} else if ((typeof data2 === "string" && data2.length) || (typeof data2 !== "string")) {
 				let name;
 				if(nameChange && nameChange.hasOwnProperty(key)){
@@ -389,248 +397,282 @@ const setSystemStates = function (data, channel, channel2, nameChange) {
 				} else{
 					name = key;
 				}
-				setState(channel, channel2, name, typeof data2, data2);
+				await setState(channel, channel2, name, typeof data2, data2);
 			}
-		});
+		}
 	}
-}
+};
 
-const updateSysinfo = function (setIntervals) {
+const updateSysinfo = async function (setIntervals) {
 
 	adapter.log.info("Reading/updating systemdata.");
 
 	//SYSTEM
-	sistm.system()
-		.then(data => {	setSystemStates(data, "system","hardware"); })
-		.catch(error => adapter.log.error(error));
+	try {
+		const data = await sistm.system();
+		await setSystemStates(data, "system", "hardware");
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.uuid()
-		.then(data => {	setSystemStates(data, "system","uuid"); })
-		.catch(error => adapter.log.error(error));
+	try {
+		const data2 = await sistm.uuid();
+		await setSystemStates(data2, "system","uuid");
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.bios()
-		.then(data => {	setSystemStates(data, "system","bios"); })
-		.catch(error => adapter.log.error(error));
+	try {
+		const data3 = await sistm.bios();
+		await setSystemStates(data3, "system","bios");
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.baseboard()
-		.then(data => {	setSystemStates(data, "system","baseboard"); })
-		.catch(error => adapter.log.error(error));
+	try {
+		const data4 = await sistm.baseboard();
+		await setSystemStates(data4, "system","baseboard");
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.chassis()
-		.then(data => {	setSystemStates(data, "system","chassis"); })
-		.catch(error => adapter.log.error(error));
+	try {
+		const data5 = await sistm.chassis();
+		await setSystemStates(data5, "system","chassis");
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
 	//CPU
-	sistm.cpu()
-		.then(data => {	setSystemStates(data, "cpu","info"); })
-		.catch(error => adapter.log.error(error));
+	try {
+		const data6 = await sistm.cpu();
+		await setSystemStates(data6, "cpu","info");
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.currentLoad()
-		.then(data => {
-			setSystemStates(data, "cpu","currentLoad");
-			if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.cpuSpeed !== 0) {
-				let speed = adapter.config.cpuSpeed;
-				if (!speed) {
-					speed = 60;
-				}
-				adapter.log.info("Reading CPU data every " + speed + " seconds.");
-				adapterIntervals.updateCurrentCPUInfos = setInterval(updateCurrentCPUInfos, speed * 1000);
+	try {
+		const data7 = await sistm.currentLoad();
+		await setSystemStates(data7, "cpu","currentLoad");
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.cpuSpeed !== 0) {
+			let speed = adapter.config.cpuSpeed;
+			if (!speed) {
+				speed = 60;
 			}
-		})
-		.catch(error => adapter.log.error(error));
+			adapter.log.info("Reading CPU data every " + speed + " seconds.");
+			adapterIntervals.updateCurrentCPUInfos = setInterval(updateCurrentCPUInfos, speed * 1000);
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.cpuTemperature()
-		.then(data => {
-			setSystemStates(data, "cpu","temperature");
-			if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.cpuSpeed !== 0) {
-				let speed = adapter.config.cpuSpeed;
-				if (!speed) {
-					speed = 60;
-				}
-				adapter.log.info("Reading CPU temp data every " + speed + " seconds.");
-				adapterIntervals.updateCurrentCPUTempInfos = setInterval(updateCurrentCPUTempInfos, speed * 1000);
+	try {
+		const data8 = await sistm.cpuTemperature();
+		await setSystemStates(data8, "cpu","temperature");
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.cpuSpeed !== 0) {
+			let speed = adapter.config.cpuSpeed;
+			if (!speed) {
+				speed = 60;
 			}
-		})
-		.catch(error => adapter.log.error(error));
+			adapter.log.info("Reading CPU temp data every " + speed + " seconds.");
+			adapterIntervals.updateCurrentCPUTempInfos = setInterval(updateCurrentCPUTempInfos, speed * 1000);
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.cpuCurrentSpeed()
-		.then(data => {
-			setSystemStates(data, "cpu","currentSpeed", {"min":"minSpeed", "max": "maxSpeed", "avg": "avgSpeed"});
-			if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.cpuSpeed !== 0) {
-				let speed = adapter.config.cpuSpeed;
-				if (!speed) {
-					speed = 60;
-				}
-				adapter.log.info("Reading CPU current speed every " + speed + " seconds.");
-				adapterIntervals.updateCurrentCPUSpeed = setInterval(updateCurrentCPUSpeed, speed * 1000);
+	try {
+		const data9 = await sistm.cpuCurrentSpeed();
+		await setSystemStates(data9, "cpu","currentSpeed", {"min":"minSpeed", "max": "maxSpeed", "avg": "avgSpeed"});
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.cpuSpeed !== 0) {
+			let speed = adapter.config.cpuSpeed;
+			if (!speed) {
+				speed = 60;
 			}
-		})
-		.catch(error => adapter.log.error(error));
+			adapter.log.info("Reading CPU current speed every " + speed + " seconds.");
+			adapterIntervals.updateCurrentCPUSpeed = setInterval(updateCurrentCPUSpeed, speed * 1000);
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
 	//MEMORY
-	sistm.mem()
-		.then(data => {
-			setSystemStates(data, "memory","info");
-			if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.memSpeed !== 0) {
-				let speed = adapter.config.memSpeed;
-				if (!speed) {
-					speed = 60;
-				}
-				adapter.log.info("Reading memory data every " + speed + " seconds.");
-				adapterIntervals.updateCurrentMemoryInfos = setInterval(updateCurrentMemoryInfos, speed * 1000);
+	try {
+		const data10 = await sistm.mem();
+		await setSystemStates(data10, "memory","info");
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.memSpeed !== 0) {
+			let speed = adapter.config.memSpeed;
+			if (!speed) {
+				speed = 60;
 			}
-		})
-		.catch(error => adapter.log.error(error));
+			adapter.log.info("Reading memory data every " + speed + " seconds.");
+			adapterIntervals.updateCurrentMemoryInfos = setInterval(updateCurrentMemoryInfos, speed * 1000);
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.memLayout()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("memory", "memLayout", "ram" + key);
-					setSystemStates(data[key], "memory","memLayout.ram" + key);
-				});
+	try {
+		const data11 = await sistm.memLayout();
+		if (data11) {
+			for (const key of Object.keys(data11)) {
+				await createChannel("memory", "memLayout", "ram" + key);
+				await setSystemStates(data11[key], "memory","memLayout.ram" + key);
 			}
-		})
-		.catch(error => adapter.log.error(error));
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
 	//BATTERY
-	sistm.system()
-		.then(data => {
-			setSystemStates(data, "battery",null);
-			if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.batterySpeed !== 0) {
-				let speed = adapter.config.batterySpeed;
-				if (!speed) {
-					speed = 120;
-				}
-				adapter.log.info("Reading battery data every " + speed + " seconds.");
-				adapterIntervals.updateCurrentBatteryInfos = setInterval(updateCurrentBatteryInfos, speed * 1000);
+	try {
+		const data12 = await sistm.system();
+		await setSystemStates(data12, "battery",null);
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.batterySpeed !== 0) {
+			let speed = adapter.config.batterySpeed;
+			if (!speed) {
+				speed = 120;
 			}
-		})
-		.catch(error => adapter.log.error(error));
+			adapter.log.info("Reading battery data every " + speed + " seconds.");
+			adapterIntervals.updateCurrentBatteryInfos = setInterval(updateCurrentBatteryInfos, speed * 1000);
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
 	//GRAPHICS
-	sistm.graphics()
-		.then(data => {
-			if (data !== null && typeof data !== "undefined") {
-				if (data.controllers && data.controllers.length > 0) {
-					Object.keys(data.controllers).forEach(function (key) {
-						createChannel("graphics", "controllers", "ctrl" + key);
-						setSystemStates(data[key], "graphics","controllers.ctrl" + key);
-					});
-				}
-				if (data.displays && data.displays.length > 0) {
-					Object.keys(data.displays).forEach(function (key) {
-						createChannel("graphics", "displays", "dspl" + key);
-						setSystemStates(data[key], "graphics","displays.dspl" + key);
-					});
+	try {
+		const data13 = await sistm.graphics();
+		if (data13) {
+			if (data13.controllers && data13.controllers.length > 0) {
+				for (const key of Object.keys(data13.controllers)) {
+					await createChannel("graphics", "controllers", "ctrl" + key);
+					await setSystemStates(data13.controllers[key], "graphics","controllers.ctrl" + key);
 				}
 			}
-		})
-		.catch(error => adapter.log.error(error));
+			if (data13.displays && data13.displays.length > 0) {
+				for (const key of Object.keys(data13.displays)) {
+					await createChannel("graphics", "displays", "dspl" + key);
+					await setSystemStates(data13.displays[key], "graphics","displays.dspl" + key);
+				}
+			}
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
 	//OS
-	sistm.osInfo()
-		.then(data => {	setSystemStates(data, "os","info"); })
-		.catch(error => adapter.log.error(error));
+	try {
+		const data14 = await sistm.osInfo();
+		await setSystemStates(data14, "os","info");
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.versions()
-		.then(data => {	setSystemStates(data, "os","versions");	})
-		.catch(error => adapter.log.error(error));
+	try {
+		const data15 = await sistm.versions();
+		await setSystemStates(data15, "os","versions");
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.users()
-		.then(data => {
-			setState("os", null, "users", "string", JSON.stringify(data));
-			if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.allProcessesUsers !== 0) {
-				let speed = adapter.config.allProcessesUsers;
-				if (!speed) {
-					speed = 120;
-				}
-				adapter.log.info("Reading user data every " + speed + " seconds.");
-				adapterIntervals.updateCurrentUsersInfos = setInterval(updateCurrentUsersInfos, speed * 1000);
+	try {
+		const data16 = await sistm.users();
+		await setState("os", null, "users", "string", JSON.stringify(data16));
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.allProcessesUsers !== 0) {
+			let speed = adapter.config.allProcessesUsers;
+			if (!speed) {
+				speed = 120;
 			}
-		})
-		.catch(error => adapter.log.error(error));
+			adapter.log.info("Reading user data every " + speed + " seconds.");
+			adapterIntervals.updateCurrentUsersInfos = setInterval(updateCurrentUsersInfos, speed * 1000);
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.processes()
-		.then(data => {
-			setState("os", "processes", "all", "number", data.all);
-			setState("os", "processes", "running", "number", data.running);
-			setState("os", "processes", "blocked", "number", data.blocked);
-			setState("os", "processes", "sleeping", "number", data.sleeping);
-			setState("os", "processes", "unknown", "number", data.unknown);
-			setState("os", "processes", "list", "string", JSON.stringify(data.list));
-			if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.allProcessesUsers !== 0) {
-				let speed = adapter.config.allProcessesUsers;
-				if (!speed) {
-					speed = 120;
-				}
-				adapter.log.info("Reading process data every " + speed + " seconds.");
-				adapterIntervals.updateCurrentProcessInfos = setInterval(updateCurrentProcessInfos, speed * 1000);
+	try {
+		const data17 = await sistm.processes();
+		await setState("os", "processes", "all", "number", data17.all || null);
+		await setState("os", "processes", "running", "number", data17.running || null);
+		await setState("os", "processes", "blocked", "number", data17.blocked || null);
+		await setState("os", "processes", "sleeping", "number", data17.sleeping || null);
+		await setState("os", "processes", "unknown", "number", data17.unknown || null);
+		await setState("os", "processes", "list", "string", JSON.stringify(data17.list));
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.allProcessesUsers !== 0) {
+			let speed = adapter.config.allProcessesUsers;
+			if (!speed) {
+				speed = 120;
 			}
-		})
-		.catch(error => adapter.log.error(error));
+			adapter.log.info("Reading process data every " + speed + " seconds.");
+			adapterIntervals.updateCurrentProcessInfos = setInterval(updateCurrentProcessInfos, speed * 1000);
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
 	//DISKS
-	sistm.blockDevices()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("disks", "blockDevices", "dev" + key);
-					setSystemStates(data[key], "disks","blockDevices.dev" + key);
-				});
+	try {
+		const data18 = await sistm.blockDevices();
+		if (data18) {
+			for (const key of Object.keys(data18)) {
+				await createChannel("disks", "blockDevices", "dev" + key);
+				await setSystemStates(data18[key], "disks","blockDevices.dev" + key);
 			}
-		})
-		.catch(error => adapter.log.error(error));
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.diskLayout()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("disks", "diskLayout", "dev" + key);
-					setSystemStates(data[key], "disks","diskLayout.dev" + key);
-				});
+	try {
+		const data19 = await sistm.diskLayout();
+		if (data19) {
+			for (const key of Object.keys(data19)) {
+				createChannel("disks", "diskLayout", "dev" + key);
+				setSystemStates(data19[key], "disks","diskLayout.dev" + key);
 			}
-		})
-		.catch(error => adapter.log.error(error));
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.fsSize()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					fsUsed[key] = [];
-					createChannel("disks", "fsSize", "fs" + key);
-					Object.keys(data[key]).forEach(function (key2) {
-						if ((typeof data[key][key2] === "string" && data[key][key2].length) || typeof data[key][key2] !== "string") {
-							setState("disks", "fsSize.fs" + key, key2, typeof data[key][key2], data[key][key2]);
-						}
-						if (key2 === "used") {
-							setState("disks", "fsSize.fs" + key, "used_hist", "array", "[]");
-						}
-					});
-				});
-			}
-			if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.diskSpeed !== 0) {
-				let speed = adapter.config.diskSpeed;
-				if (!speed) {
-					speed = 120;
+	try {
+		const data20 = await sistm.fsSize();
+		if (data20) {
+			for (const key of Object.keys(data20)) {
+				fsUsed[key] = [];
+				await createChannel("disks", "fsSize", "fs" + key);
+				for (const key2 of Object.keys(data20[key])) {
+					if ((typeof data20[key][key2] === "string" && data20[key][key2].length) || typeof data20[key][key2] !== "string") {
+						await setState("disks", "fsSize.fs" + key, key2, typeof data20[key][key2], data20[key][key2]);
+					}
+					if (key2 === "used") {
+						await setState("disks", "fsSize.fs" + key, "used_hist", "array", "[]");
+					}
 				}
-				adapter.log.info("Reading disk data every " + speed + " seconds.");
-				adapterIntervals.updateCurrentFilesystemInfos = setInterval(updateCurrentFilesystemInfos, speed * 1000);
 			}
-		})
-		.catch(error => adapter.log.error(error));
+		}
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.diskSpeed !== 0) {
+			let speed = adapter.config.diskSpeed;
+			if (!speed) {
+				speed = 120;
+			}
+			adapter.log.info("Reading disk data every " + speed + " seconds.");
+			adapterIntervals.updateCurrentFilesystemInfos = setInterval(updateCurrentFilesystemInfos, speed * 1000);
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
 	//USB
-	sistm.usb()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("usb", "dev" + key, null);
-					setSystemStates(data[key], "usb","dev" + key);
-				});
+	try {
+		const data21 = await sistm.usb();
+		if (data21) {
+			for (const key of Object.keys(data21)) {
+				await createChannel("usb", "dev" + key, null);
+				await setSystemStates(data21[key], "usb","dev" + key);
 			}
-		})
-		.catch(error => adapter.log.error(error));
+		}
 		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.usbSpeed !== 0) {
 			let speed = adapter.config.usbSpeed;
 			if (!speed) {
@@ -639,182 +681,201 @@ const updateSysinfo = function (setIntervals) {
 			adapter.log.info("Reading usb data every " + speed + " seconds.");
 			adapterIntervals.updateCurrentUsbInfos = setInterval(updateCurrentUsbInfos, speed * 1000);
 		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
 	//PRINTER
-	sistm.printer()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("printer", "dev" + key, null);
-					setSystemStates(data[key], "printer","dev" + key);
-				});
+	try {
+		const data22 = await sistm.printer();
+		if (data22) {
+			for (const key of Object.keys(data22)) {
+				await createChannel("printer", "dev" + key, null);
+				await setSystemStates(data22[key], "printer","dev" + key);
 			}
-		})
-		.catch(error => adapter.log.error(error));
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
 	//AUDIO
-	sistm.audio()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("audio", "dev" + key, null);
-					setSystemStates(data[key], "audio","dev" + key);
-				});
+	try {
+		const data23 = await sistm.audio();
+		if (data23) {
+			for (const key of Object.keys(data23)) {
+				await createChannel("audio", "dev" + key, null);
+				await setSystemStates(data23[key], "audio","dev" + key);
 			}
-		})
-		.catch(error => adapter.log.error(error));
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
 	//NETWORK
-	sistm.networkInterfaces()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("network", "interfaces", "iface" + key);
-					setSystemStates(data[key], "network","interfaces.iface" + key);
-				});
+	try {
+		const data24 = await sistm.networkInterfaces();
+		if (data24) {
+			for (const key of Object.keys(data24)) {
+				await createChannel("network", "interfaces", "iface" + key);
+				await setSystemStates(data24[key], "network","interfaces.iface" + key);
 			}
-		})
-		.catch(error => adapter.log.error(error));
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.networkInterfaceDefault()
-		.then(data => {
-			setState("network", "info", "defaultInterface", "string", data);
-		})
-		.catch(error => adapter.log.error(error));
+	try {
+		const data25 = await sistm.networkInterfaceDefault();
+		await setState("network", "info", "defaultInterface", "string", data25);
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.networkGatewayDefault()
-		.then(data => {
-			setState("network", "info", "defaultGateway", "string", data);
-		})
-		.catch(error => adapter.log.error(error));
+	try {
+		const data26 = await sistm.networkGatewayDefault();
+		await setState("network", "info", "defaultGateway", "string", data26);
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.networkStats()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("network", "stats", "iface" + key);
-					setSystemStates(data[key], "network","stats.iface" + key);
-				});
+	try {
+		const data27 = await sistm.networkStats();
+		if (data27) {
+			for (const key of Object.keys(data27)) {
+				await createChannel("network", "stats", "iface" + key);
+				await setSystemStates(data27[key], "network","stats.iface" + key);
 			}
-			if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.networkSpeed !== 0) {
-				let speed = adapter.config.networkSpeed;
-				if (!speed) {
-					speed = 120;
-				}
-				adapter.log.info("Reading network data every " + speed + " seconds.");
-				adapterIntervals.updateCurrentNetworkInfos = setInterval(updateCurrentNetworkInfos, speed * 1000);
+		}
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.networkSpeed !== 0) {
+			let speed = adapter.config.networkSpeed;
+			if (!speed) {
+				speed = 120;
 			}
-		})
-		.catch(error => adapter.log.error(error));
+			adapter.log.info("Reading network data every " + speed + " seconds.");
+			adapterIntervals.updateCurrentNetworkInfos = setInterval(updateCurrentNetworkInfos, speed * 1000);
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
 	//WIFI
-	sistm.wifiInterfaces()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("wifi", "interfaces", "iface" + key);
-					setSystemStates(data[key], "wifi","interfaces.iface" + key);
-				});
+	try {
+		const data28 = await sistm.wifiInterfaces();
+		if (data28.length > 0) {
+			for (const key of Object.keys(data28)) {
+				await createChannel("wifi", "interfaces", "iface" + key);
+				await setSystemStates(data28[key], "wifi","interfaces.iface" + key);
 			}
-		})
-		.catch(error => adapter.log.error(error));
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.wifiConnections()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("wifi", "connections", "connection" + key);
-					setSystemStates(data[key], "wifi","connections.connection" + key);
-				});
+	try {
+		const data29 = await sistm.wifiConnections();
+		if (data29) {
+			for (const key of Object.keys(data29)) {
+				await createChannel("wifi", "connections", "connection" + key);
+				await setSystemStates(data29[key], "wifi","connections.connection" + key);
 			}
-		})
-		.catch(error => adapter.log.error(error));
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.wifiNetworks()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("wifi", "networks", "net" + key);
-					setSystemStates(data[key], "wifi","networks.net" + key);
-				});
+	try {
+		const data30 = await sistm.wifiNetworks();
+		if (data30) {
+			for (const key of Object.keys(data30)) {
+				await createChannel("wifi", "networks", "net" + key);
+				await setSystemStates(data30[key], "wifi","networks.net" + key);
 			}
-			if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.wifiSpeed !== 0) {
-				let speed = adapter.config.wifiSpeed;
-				if (!speed) {
-					speed = 120;
-				}
-				adapter.log.info("Reading network data every " + speed + " seconds.");
-				adapterIntervals.updateCurrentWifiInfos = setInterval(updateCurrentWifiInfos, speed * 1000);
+		}
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.wifiSpeed !== 0) {
+			let speed = adapter.config.wifiSpeed;
+			if (!speed) {
+				speed = 120;
 			}
-		})
-		.catch(error => adapter.log.error(error));
+			adapter.log.info("Reading network data every " + speed + " seconds.");
+			adapterIntervals.updateCurrentWifiInfos = setInterval(updateCurrentWifiInfos, speed * 1000);
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
 	//BLUETOOTH
-	sistm.bluetoothDevices()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("bluetooth", "dev" + key, null);
-					setSystemStates(data[key], "bluetooth","dev" + key);
-				});
+	try {
+		const data31 = await sistm.bluetoothDevices();
+		if (data31) {
+			for (const key of Object.keys(data31)) {
+				await createChannel("bluetooth", "dev" + key, null);
+				await setSystemStates(data31[key], "bluetooth","dev" + key);
 			}
-		})
-		.catch(error => adapter.log.error(error));
-	if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.bluetoothSpeed !== 0) {
-		let speed = adapter.config.bluetoothSpeed;
-		if (!speed) {
-			speed = 120;
 		}
-		adapter.log.info("Reading usb data every " + speed + " seconds.");
-		adapterIntervals.updateCurrentBluetoothInfos = setInterval(updateCurrentBluetoothInfos, speed * 1000);
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.bluetoothSpeed !== 0) {
+			let speed = adapter.config.bluetoothSpeed;
+			if (!speed) {
+				speed = 120;
+			}
+			adapter.log.info("Reading usb data every " + speed + " seconds.");
+			adapterIntervals.updateCurrentBluetoothInfos = setInterval(updateCurrentBluetoothInfos, speed * 1000);
+		}
+	} catch (err) {
+		adapter.log.error(err);
 	}
 
 	//DOCKER
-	sistm.dockerInfo()
-		.then(data => {	setSystemStates(data, "docker","info");	})
-		.catch(error => adapter.log.error(error));
-
-	if(setIntervals) {
-		adapterIntervals.globalReloadData = setInterval(updateAllData, 12 * 60 * 60 * 1000);
+	try {
+		const data34 = await sistm.dockerInfo();
+		await setSystemStates(data34, "docker","info");
+	} catch (err) {
+		adapter.log.error(err);
 	}
 
-	sistm.dockerImages()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("docker", "images", "img" + key);
-					setSystemStates(data[key], "docker","images.img" + key);
-				});
+	try {
+		const data35 = await sistm.dockerImages();
+		if (data35) {
+			for (const key of Object.keys(data35)) {
+				await createChannel("docker", "images", "img" + key);
+				await setSystemStates(data35[key], "docker","images.img" + key);
 			}
-		})
-		.catch(error => adapter.log.error(error));
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.dockerContainers()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("docker", "containers", "cnt" + key);
-					setSystemStates(data[key], "docker","containers.cnt" + key);
-				});
+	try {
+		const data36 = await sistm.dockerContainers();
+		if (data36) {
+			for (const key of Object.keys(data36)) {
+				await createChannel("docker", "containers", "cnt" + key);
+				await setSystemStates(data36[key], "docker","containers.cnt" + key);
 			}
-		})
-		.catch(error => adapter.log.error(error));
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.dockerVolumes()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("docker", "volumes", "vol" + key);
-					setSystemStates(data[key], "docker","volumes.vol" + key);
-				});
+	try {
+		const data37 = await sistm.dockerVolumes();
+		if (data37) {
+			for (const key of Object.keys(data37)) {
+				await createChannel("docker", "volumes", "vol" + key);
+				await setSystemStates(data37[key], "docker","volumes.vol" + key);
 			}
-		})
-		.catch(error => adapter.log.error(error));
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
+
+	if (setIntervals) {
+		adapterIntervals.globalReloadData = setInterval(updateAllData, 12 * 60 * 60 * 1000);
+	}
 };
 
 const updateAllData = function () {
 	updateSysinfo(false);
-}
+};
 
 const updateCurrentCPUInfos = function () {
 
@@ -895,12 +956,12 @@ const updateCurrentMemoryInfos = function () {
 
 const updateCurrentUsbInfos = function () {
 	sistm.usb()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("usb", "dev" + key, null);
-					setSystemStates(data[key], "usb", "dev" + key);
-				});
+		.then(async data => {
+			if (data) {
+				for (const key of Object.keys(data)) {
+					await createChannel("usb", "dev" + key, null);
+					await setSystemStates(data[key], "usb", "dev" + key);
+				}
 			}
 		})
 		.catch(error => adapter.log.error(error));
@@ -908,82 +969,77 @@ const updateCurrentUsbInfos = function () {
 
 const updateCurrentBluetoothInfos = function () {
 	sistm.bluetoothDevices()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("bluetooth", "dev" + key, null);
-					setSystemStates(data[key], "bluetooth", "dev" + key);
-				});
+		.then(async data => {
+			if (data) {
+				for (const key of Object.keys(data)) {
+					await createChannel("bluetooth", "dev" + key, null);
+					await setSystemStates(data[key], "bluetooth", "dev" + key);
+				}
 			}
 		})
 		.catch(error => adapter.log.error(error));
-}
+};
 
 const updateCurrentFilesystemInfos = function () {
-
 	sistm.fsSize()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("disks", "fsSize", "fs" + key);
-					adapter.setState("sysinfo.disks.fsSize.fs" + key + ".used", {val: data[key].used, ack: true});
+		.then(async data => {
+			if (data) {
+				for (const key of Object.keys(data)) {
+					await createChannel("disks", "fsSize", "fs" + key);
+					await adapter.setStateAsync("sysinfo.disks.fsSize.fs" + key + ".used", {val: data[key].used, ack: true});
 					fsUsed[key] = fsUsed[key] || [];
 					fsUsed[key].push(data[key]["used"]);
 					if (fsUsed[key].length > 30) {
 						fsUsed[key].shift();
 					}
-					adapter.setState("sysinfo.disks.fsSize.fs" + key + ".used_hist", {val: JSON.stringify(fsUsed[key]), ack: true});
-					adapter.setState("sysinfo.disks.fsSize.fs" + key + ".use", {val: data[key].use, ack: true});
-				});
+					await adapter.setStateAsync("sysinfo.disks.fsSize.fs" + key + ".used_hist", {val: JSON.stringify(fsUsed[key]), ack: true});
+					await adapter.setStateAsync("sysinfo.disks.fsSize.fs" + key + ".use", {val: data[key].use, ack: true});
+				}
 			}
 		})
 		.catch(error => adapter.log.error(error));
-
 };
 
 const updateCurrentNetworkInfos = function () {
-
 	sistm.networkStats()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("network", "stats", "iface" + key);
-					setSystemStates(data[key], "network","stats.iface" + key);
-				});
+		.then(async data => {
+			if (data) {
+				for (const key of Object.keys(data)) {
+					await createChannel("network", "stats", "iface" + key);
+					await setSystemStates(data[key], "network","stats.iface" + key);
+				}
 			}
 		})
 		.catch(error => adapter.log.error(error));
-
 }
 
-const updateCurrentWifiInfos = function () {
-
-	sistm.wifiNetworks()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("wifi", "networks", "net" + key);
-					setSystemStates(data[key], "wifi","networks.net" + key);
-				});
+const updateCurrentWifiInfos = async function () {
+	try {
+		const data = sistm.wifiNetworks();
+		if (data) {
+			for (const key of Object.keys(data)) {
+				await createChannel("wifi", "networks", "net" + key);
+				await setSystemStates(data[key], "wifi", "networks.net" + key);
 			}
-		})
-		.catch(error => adapter.log.error(error));
+		}
+	} catch (err) {
+		adapter.log.error(err);
+	}
 
-	sistm.wifiConnections()
-		.then(data => {
-			if (data.length > 0) {
-				Object.keys(data).forEach(function (key) {
-					createChannel("wifi", "connections", "connection" + key);
-					setSystemStates(data[key], "wifi","connections.connection" + key);
-				});
+	try {
+		const data = sistm.wifiConnections();
+		if (data) {
+			for (const key of Object.keys(data)) {
+				await createChannel("wifi", "connections", "connection" + key);
+				await setSystemStates(data[key], "wifi", "connections.connection" + key);
 			}
-		})
-		.catch(error => adapter.log.error(error));
-
-}
+		}
+	} catch(err) {
+		adapter.log.error(err);
+	}
+};
 
 const updateCurrentBatteryInfos = function () {
-
 	sistm.battery()
 		.then(data => {
 			adapter.setState("sysinfo.battery.hasBattery", {val: data.hasBattery, ack: true});
@@ -996,11 +1052,9 @@ const updateCurrentBatteryInfos = function () {
 			adapter.setState("sysinfo.battery.acConnected", {val: data.acConnected, ack: true});
 		})
 		.catch(error => adapter.log.error(error));
-
 };
 
 const updateCurrentProcessInfos = function () {
-
 	sistm.processes()
 		.then(data => {
 			adapter.setState("sysinfo.os.processes.all", {val: data.all, ack: true});
@@ -1011,17 +1065,14 @@ const updateCurrentProcessInfos = function () {
 			adapter.setState("sysinfo.os.processes.list", {val: JSON.stringify(data.list), ack: true});
 		})
 		.catch(error => adapter.log.error(error));
-
 };
 
 const updateCurrentUsersInfos = function () {
-
 	sistm.users()
 		.then(data => {
 			adapter.setState("sysinfo.os.users", {val: JSON.stringify(data), ack: true});
 		})
 		.catch(error => adapter.log.error(error));
-
 };
 
 function main() {
