@@ -564,11 +564,8 @@ const updateSysinfo = async function (setIntervals) {
 	try {
 		const data16 = await sistm.users();
 		await setState("os", null, "users", "string", JSON.stringify(data16));
-		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.allProcessesUsers !== 0) {
-			let speed = adapter.config.allProcessesUsers;
-			if (!speed) {
-				speed = 120;
-			}
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.allProcessesUsers != 0) {
+			const speed = parseInt(adapter.config.allProcessesUsers) || 120;
 			adapter.log.info("Reading user data every " + speed + " seconds.");
 			adapterIntervals.updateCurrentUsersInfos = setInterval(updateCurrentUsersInfos, speed * 1000);
 		}
@@ -584,11 +581,8 @@ const updateSysinfo = async function (setIntervals) {
 		await setState("os", "processes", "sleeping", "number", data17.sleeping || null);
 		await setState("os", "processes", "unknown", "number", data17.unknown || null);
 		await setState("os", "processes", "list", "string", JSON.stringify(data17.list));
-		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.allProcessesUsers !== 0) {
-			let speed = adapter.config.allProcessesUsers;
-			if (!speed) {
-				speed = 120;
-			}
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.allProcessesUsers != 0) {
+			const speed = parseInt(adapter.config.allProcessesUsers) || 120;
 			adapter.log.info("Reading process data every " + speed + " seconds.");
 			adapterIntervals.updateCurrentProcessInfos = setInterval(updateCurrentProcessInfos, speed * 1000);
 		}
