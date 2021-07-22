@@ -47,7 +47,7 @@ Many thanks to `sebhildebrandt` for the great work on the package [systeminforma
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
-### __WORK IN PROGRESS__
+### 1.9.2 (2021-07-22)
 * Fix too high load because of wrong parsing of settings
 
 ### 1.9.1 (2021-07-21)

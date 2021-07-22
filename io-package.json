@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.9.1",
+        "version": "1.9.2",
         "news": {
+            "1.9.2": {
+                "en": "Fix too high load because of wrong parsing of settings",
+                "de": "Fix zu hohe Last wegen falscher Analyse der Einstellungen",
+                "ru": "Исправить слишком высокую нагрузку из-за неправильного разбора настроек",
+                "pt": "Corrigir carga muito alta devido à análise incorreta das configurações",
+                "nl": "Te hoge belasting repareren vanwege verkeerd ontleden van instellingen",
+                "fr": "Correction d'une charge trop élevée en raison d'une mauvaise analyse des paramètres",
+                "it": "Risolto il problema con il carico troppo elevato a causa dell'analisi errata delle impostazioni",
+                "es": "Se corrigió una carga demasiado alta debido a un análisis incorrecto de la configuración",
+                "pl": "Napraw zbyt duże obciążenie z powodu nieprawidłowego przetwarzania ustawień",
+                "zh-cn": "修复由于错误解析设置导致的过高负载"
+            },
             "1.9.1": {
                 "en": "Adjust object types to prevent js-controller 3.3 warnings\nDisable all data collection by default  -  users can activate whatever they really need",
                 "de": "Passen Sie die Objekttypen an, um js-controller 3.3-Warnungen zu verhindern\nDeaktivieren Sie standardmäßig die gesamte Datenerfassung - Benutzer können alles aktivieren, was sie wirklich brauchen",
