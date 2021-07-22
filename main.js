@@ -454,11 +454,8 @@ const updateSysinfo = async function (setIntervals) {
 	try {
 		const data7 = await sistm.currentLoad();
 		await setSystemStates(data7, "cpu","currentLoad");
-		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.cpuSpeed !== 0) {
-			let speed = adapter.config.cpuSpeed;
-			if (!speed) {
-				speed = 60;
-			}
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.cpuSpeed != 0) {
+			const speed = parseInt(adapter.config.cpuSpeed) || 60;
 			adapter.log.info("Reading CPU data every " + speed + " seconds.");
 			adapterIntervals.updateCurrentCPUInfos = setInterval(updateCurrentCPUInfos, speed * 1000);
 		}
@@ -469,11 +466,8 @@ const updateSysinfo = async function (setIntervals) {
 	try {
 		const data8 = await sistm.cpuTemperature();
 		await setSystemStates(data8, "cpu","temperature");
-		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.cpuSpeed !== 0) {
-			let speed = adapter.config.cpuSpeed;
-			if (!speed) {
-				speed = 60;
-			}
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.cpuSpeed != 0) {
+			const speed = parseInt(adapter.config.cpuSpeed) || 60;
 			adapter.log.info("Reading CPU temp data every " + speed + " seconds.");
 			adapterIntervals.updateCurrentCPUTempInfos = setInterval(updateCurrentCPUTempInfos, speed * 1000);
 		}
@@ -484,11 +478,8 @@ const updateSysinfo = async function (setIntervals) {
 	try {
 		const data9 = await sistm.cpuCurrentSpeed();
 		await setSystemStates(data9, "cpu","currentSpeed", {"min":"minSpeed", "max": "maxSpeed", "avg": "avgSpeed"});
-		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.cpuSpeed !== 0) {
-			let speed = adapter.config.cpuSpeed;
-			if (!speed) {
-				speed = 60;
-			}
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.cpuSpeed != 0) {
+			const speed = parseInt(adapter.config.cpuSpeed) || 60;
 			adapter.log.info("Reading CPU current speed every " + speed + " seconds.");
 			adapterIntervals.updateCurrentCPUSpeed = setInterval(updateCurrentCPUSpeed, speed * 1000);
 		}
@@ -500,11 +491,8 @@ const updateSysinfo = async function (setIntervals) {
 	try {
 		const data10 = await sistm.mem();
 		await setSystemStates(data10, "memory","info");
-		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.memSpeed !== 0) {
-			let speed = adapter.config.memSpeed;
-			if (!speed) {
-				speed = 60;
-			}
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.memSpeed != 0) {
+			const speed = parseInt(adapter.config.memSpeed) || 60;
 			adapter.log.info("Reading memory data every " + speed + " seconds.");
 			adapterIntervals.updateCurrentMemoryInfos = setInterval(updateCurrentMemoryInfos, speed * 1000);
 		}
@@ -528,11 +516,8 @@ const updateSysinfo = async function (setIntervals) {
 	try {
 		const data12 = await sistm.system();
 		await setSystemStates(data12, "battery",null);
-		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.batterySpeed !== 0) {
-			let speed = adapter.config.batterySpeed;
-			if (!speed) {
-				speed = 120;
-			}
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.batterySpeed != 0) {
+			const speed = parseInt(adapter.config.batterySpeed) || 120;
 			adapter.log.info("Reading battery data every " + speed + " seconds.");
 			adapterIntervals.updateCurrentBatteryInfos = setInterval(updateCurrentBatteryInfos, speed * 1000);
 		}
@@ -652,11 +637,8 @@ const updateSysinfo = async function (setIntervals) {
 				}
 			}
 		}
-		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.diskSpeed !== 0) {
-			let speed = adapter.config.diskSpeed;
-			if (!speed) {
-				speed = 120;
-			}
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.diskSpeed != 0) {
+			const speed = parseInt(adapter.config.diskSpeed) || 120;
 			adapter.log.info("Reading disk data every " + speed + " seconds.");
 			adapterIntervals.updateCurrentFilesystemInfos = setInterval(updateCurrentFilesystemInfos, speed * 1000);
 		}
@@ -673,11 +655,8 @@ const updateSysinfo = async function (setIntervals) {
 				await setSystemStates(data21[key], "usb","dev" + key);
 			}
 		}
-		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.usbSpeed !== 0) {
-			let speed = adapter.config.usbSpeed;
-			if (!speed) {
-				speed = 120;
-			}
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.usbSpeed != 0) {
+			const speed = parseInt(adapter.config.usbSpeed) || 120;
 			adapter.log.info("Reading usb data every " + speed + " seconds.");
 			adapterIntervals.updateCurrentUsbInfos = setInterval(updateCurrentUsbInfos, speed * 1000);
 		}
@@ -746,11 +725,8 @@ const updateSysinfo = async function (setIntervals) {
 				await setSystemStates(data27[key], "network","stats.iface" + key);
 			}
 		}
-		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.networkSpeed !== 0) {
-			let speed = adapter.config.networkSpeed;
-			if (!speed) {
-				speed = 120;
-			}
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.networkSpeed != 0) {
+			const speed = parseInt(adapter.config.networkSpeed) || 120;
 			adapter.log.info("Reading network data every " + speed + " seconds.");
 			adapterIntervals.updateCurrentNetworkInfos = setInterval(updateCurrentNetworkInfos, speed * 1000);
 		}
@@ -791,11 +767,8 @@ const updateSysinfo = async function (setIntervals) {
 				await setSystemStates(data30[key], "wifi","networks.net" + key);
 			}
 		}
-		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.wifiSpeed !== 0) {
-			let speed = adapter.config.wifiSpeed;
-			if (!speed) {
-				speed = 120;
-			}
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.wifiSpeed != 0) {
+			const speed = parseInt(adapter.config.wifiSpeed) || 120;
 			adapter.log.info("Reading network data every " + speed + " seconds.");
 			adapterIntervals.updateCurrentWifiInfos = setInterval(updateCurrentWifiInfos, speed * 1000);
 		}
@@ -812,11 +785,8 @@ const updateSysinfo = async function (setIntervals) {
 				await setSystemStates(data31[key], "bluetooth","dev" + key);
 			}
 		}
-		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.bluetoothSpeed !== 0) {
-			let speed = adapter.config.bluetoothSpeed;
-			if (!speed) {
-				speed = 120;
-			}
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.bluetoothSpeed != 0) {
+			const speed = parseInt(adapter.config.bluetoothSpeed) || 120;
 			adapter.log.info("Reading usb data every " + speed + " seconds.");
 			adapterIntervals.updateCurrentBluetoothInfos = setInterval(updateCurrentBluetoothInfos, speed * 1000);
 		}
