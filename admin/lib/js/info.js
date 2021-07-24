@@ -12,7 +12,7 @@ const updateInfoPage = async function () {
             let text = '';
             if (data) {
                 const hostID = data.hostname.replace(/[^a-z0-9]/gmi, "_").replace(/\s+/g, "_");
-                text += "<h3>" + data.hostname + "</h3>";
+                text += "<h3 style='margin-top: 1px !important;'>" + data.hostname + "</h3>";
                 text += "<dl class='dl-horizontal'>";
                 for (let item in data) {
                     if (data.hasOwnProperty(item)) {
