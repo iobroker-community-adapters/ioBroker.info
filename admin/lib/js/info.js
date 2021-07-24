@@ -121,6 +121,10 @@ const updateInfoPage = async function () {
         listNew.sort();
 
         fillList('new', listNew, repository, installedList);
+        setTimeout (() => {
+            $('.load').hide();
+            $('.loadFinish').fadeIn();
+        }, 500);
 
     });
 };
@@ -128,7 +132,6 @@ const updateInfoPage = async function () {
 $(function () {
     //------------------------------------------------------- FILL DATA -----------------------------------------------------------------------
     readInstanceConfig(async function () {
-
         getHosts(await getNodeVersionList());
 
         if (adapterConfig.forum) {
@@ -237,6 +240,5 @@ $(function () {
         startPopupNews();
 
         systemInformations.getData();
-
     });
 });
