@@ -68,7 +68,7 @@ body{
     position: relative;
     width: 100%;
     margin-bottom: 10px;
-    padding: 10px 17px;
+    /*padding: 10px 17px;*/
     display: inline-block;
     background: #fff;
     /*border: 1px solid #E6E9ED;*/
@@ -81,6 +81,12 @@ body{
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14),0 3px 1px -2px rgba(0, 0, 0, .12),0 1px 5px 0 rgba(0, 0, 0, .2);
 }
 .x_panel:hover {
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2),0 6px 20px 0 rgba(0, 0, 0, .19);
+}
+.alert {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14),0 3px 1px -2px rgba(0, 0, 0, .12),0 1px 5px 0 rgba(0, 0, 0, .2);
+}
+.alert:hover {
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2),0 6px 20px 0 rgba(0, 0, 0, .19);
 }
 .title {
@@ -103,14 +109,19 @@ h4 {
     background-color:#3399CC !important;
     border-radius: 4px !important;
 }
+.m .btn:hover {
+    background-color: #3399CC !important;
+    filter: brightness(115%) !important;
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2) !important;
+}
 .x_title {
     border-bottom: 2px solid #E6E9ED;
-    padding: 1px 5px 6px;
-    margin-bottom: 10px;
+    padding: 4px 17px 6px;
+    /*margin-bottom: 10px;*/
     cursor: pointer;
     height: 53px;
     background-color: rgba(192, 192, 192, 0.2);
-    border-radius: 4px;
+    /*border-radius: 4px;*/
 }
 .x_title .filter {
     width: 40%;
@@ -131,7 +142,8 @@ h4 {
     color: #BDBDBD;
 }
 .x_content {
-    padding: 0 5px 6px;
+    /*padding: 0 5px 6px;*/
+    padding: 10px 17px;
     position: relative;
     width: 100%;
     float: left;
