@@ -126,7 +126,7 @@ const updateInfoPage = async function () {
 };
 
 $(function () {
-    //------------------------------------------------------- FILL DATA -----------------------------------------------------------------------   
+    //------------------------------------------------------- FILL DATA -----------------------------------------------------------------------
     readInstanceConfig(async function () {
 
         getHosts(await getNodeVersionList());
@@ -164,12 +164,12 @@ $(function () {
         } else {
             $('#adapterRequestBlock').hide();
         }
-        if (adapterConfig.adapter_issue) {
-            blockCounter.push('#knownIssuesBlock');
-            showIssues();
-        } else {
+        //if (adapterConfig.adapter_issue) {
+            //blockCounter.push('#knownIssuesBlock');
+            //showIssues();
+        //} else {
             $('#knownIssuesBlock').hide();
-        }
+        //}
 
         if (blockCounter.length === 0) {
             $('#adapterRequestIssueBlock').hide();
