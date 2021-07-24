@@ -47,6 +47,9 @@ Many thanks to `sebhildebrandt` for the great work on the package [systeminforma
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
+### 1.9.3 (2021-07-24)
+* Ready for Admin 5
+
 ### 1.9.2 (2021-07-22)
 * Fix too high load because of wrong parsing of settings
 
