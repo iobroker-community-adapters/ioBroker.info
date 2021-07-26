@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.9.5",
+        "version": "1.9.6",
         "news": {
+            "1.9.6": {
+                "en": "Design fix",
+                "de": "Designkorrektur",
+                "ru": "Исправление дизайна",
+                "pt": "Correção de design",
+                "nl": "Ontwerp fix",
+                "fr": "Correction de conception",
+                "it": "Correzione del design",
+                "es": "Corrección de diseño",
+                "pl": "Poprawka projektowa",
+                "zh-cn": "设计修复"
+            },
             "1.9.5": {
                 "en": "Design Fix",
                 "de": "Design-Fix",

@@ -47,7 +47,7 @@ Many thanks to `sebhildebrandt` for the great work on the package [systeminforma
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
-### __WORK IN PROGRESS__
+### 1.9.6 (2021-07-26)
 * (simatec) Design fix
 
 ### 1.9.5 (2021-07-25)
