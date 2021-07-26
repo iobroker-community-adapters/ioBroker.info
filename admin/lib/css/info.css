@@ -197,6 +197,7 @@ ul#cssClock li{
     top: -80px;
     width: 200px;
     z-index: 100;
+    color: rgba(0, 0, 0, 0.87);
 }
 
 .clock {
@@ -625,7 +626,7 @@ ul#cssClock li{
 }
 
 .marginHoch2{
-    margin-top: -30px;
+    margin-top: -32px;
 }
 
 .comments-counter{
@@ -664,6 +665,7 @@ ul#cssClock li{
     }
     .y_title .collapse-link:not(.titleRSS){
         padding: 5px 10px 0 0;
+        margin-top: 10px;
     }
     .y_title h2.title:not(.titleRSS){
         margin-top: -5px;
@@ -700,4 +702,3 @@ ul#cssClock li{
     background-color: #ccc;
     border-radius: 5px;
 }
-
