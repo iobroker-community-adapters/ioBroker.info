@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.9.4",
+        "version": "1.9.5",
         "news": {
+            "1.9.5": {
+                "en": "Design Fix",
+                "de": "Design-Fix",
+                "ru": "Исправление дизайна",
+                "pt": "Correção de design",
+                "nl": "Ontwerp fix",
+                "fr": "Correction de conception",
+                "it": "Correzione del design",
+                "es": "Corrección de diseño",
+                "pl": "Poprawka projektowa",
+                "zh-cn": "设计修复"
+            },
             "1.9.4": {
                 "en": "Ready for Admin 5",
                 "de": "Bereit für Admin 5",
