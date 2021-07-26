@@ -65,7 +65,7 @@ async function cleanTitle(allIssues) {
     await asyncForEach(allIssues, async function (issue) {
         let title = issue.title;
         if (title) {
-            if (title.toLowerCase().startsWith("adapter for ") || title.toLowerCase().startsWith("adapter für ")) {
+            if (title.toLowerCase().startsWith("adapter for ") || title.toLowerCase().startsWith("adapter fÃ¼r ")) {
                 title = title.substring(12, title.length);
             } else if (title.toLowerCase().startsWith("adapter ")) {
                 title = title.substring(8, title.length);
@@ -83,7 +83,7 @@ async function cleanTitleV4(allIssues) {
     const response = [];
     await asyncForEach(allIssues, async function (issue) {
         let title = issue.node.title;
-        if (title.toLowerCase().startsWith("adapter for ") || title.toLowerCase().startsWith("adapter für ")) {
+        if (title.toLowerCase().startsWith("adapter for ") || title.toLowerCase().startsWith("adapter fÃ¼r ")) {
             title = title.substring(12, title.length);
         } else if (title.toLowerCase().startsWith("adapter ")) {
             title = title.substring(8, title.length);
@@ -199,8 +199,9 @@ function writeAllIssues(allIssues, id) {
             $item.find('.label-success').remove();
             $item.find('.titleLink').text(issue.title).attr('href', issue.html_url);
             $item.find('.y_title').addClass('spoiler-content').css('padding-left', '20px');
-            const thumb = "<div class='pull-right marginHoch2'><button type='button' class='btn btn-default disabled'><i class='fa fa-thumbs-up fa-lg'></i></button></div>";
-            $item.find('.y_content').append($(thumb)).addClass('spoiler-content').css('display', 'none');
+            //const thumb = "<div class='pull-right marginHoch2'><button type='button' class='btn btn-default disabled'><i class='fa fa-thumbs-up fa-lg'></i></button></div>";
+            //$item.find('.y_content').append($(thumb)).addClass('spoiler-content').css('display', 'none');
+            $item.find('.y_content').addClass('spoiler-content').css('display', 'none');
             const createdAt = new Date(issue.created_at);
             $item.find('.byline').text(createdAt.toLocaleDateString('en', dateOptions) + " - " + issue.user.login);
 
