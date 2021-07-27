@@ -1,6 +1,6 @@
 {
   "name": "iobroker.info",
-  "version": "1.9.6",
+  "version": "1.9.7",
   "description": "This is an ioBroker adapter to get informations about your system and some news about ioBroker.",
   "author": {
     "name": "ldittmar",

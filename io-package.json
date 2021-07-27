@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.9.6",
+        "version": "1.9.7",
         "news": {
+            "1.9.7": {
+                "en": "updated the clock background",
+                "de": "den Hintergrund der Uhr aktualisiert",
+                "ru": "обновил фон часов",
+                "pt": "atualizou o fundo do relógio",
+                "nl": "de klokachtergrond bijgewerkt",
+                "fr": "mis à jour l'arrière-plan de l'horloge",
+                "it": "aggiornato lo sfondo dell'orologio",
+                "es": "actualizó el fondo del reloj",
+                "pl": "zaktualizowałem tło zegara",
+                "zh-cn": "更新了时钟背景"
+            },
             "1.9.6": {
                 "en": "Design fix",
                 "de": "Designkorrektur",
