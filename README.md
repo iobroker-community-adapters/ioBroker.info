@@ -46,6 +46,8 @@ Many thanks to `sebhildebrandt` for the great work on the package [systeminforma
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (bluefox) updated the clock background 
 
 ### 1.9.6 (2021-07-26)
 * (simatec) Design fix
@@ -236,7 +238,7 @@ Many thanks to `sebhildebrandt` for the great work on the package [systeminforma
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017 - 2020 ldittmar <iobroker@lmdsoft.de>
+Copyright (c) 2017 - 2021 ldittmar <iobroker@lmdsoft.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

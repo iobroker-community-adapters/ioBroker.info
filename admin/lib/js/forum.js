@@ -30,6 +30,9 @@ function startForum() {
                     $('#forumListLoader').remove();
                 }
                 const feed = await getDescription(thread);
+                if (!feed) {
+                    continue;
+                }
                 const $item = $('#forumEntryTemplate').children().clone(true, true);
                 $item.find('.navbar-right').remove();
                 $item.find('.assignDiv').remove();
@@ -38,9 +41,8 @@ function startForum() {
                 $item.find('.y_title').addClass('titleRSS');
                 $item.find('.title').addClass('titleRSS');
                 $item.find('.collapse-link').addClass('titleRSS');
-                const title = feed.title.replace("Reply to ", "");
+                const title = feed.title.replace('Reply to ', '');
                 $item.find('.titleLink').addClass('titleRSS').text(title).attr('href', feed.link);
-
                 let desc = feed.description;
                 desc += "<div style='width: 100%; text-align: center;'>&#9711;&nbsp;&#9711;&nbsp;&#9711;</div>";
                 desc += "<p class='spoiler-content'>";
@@ -50,7 +52,6 @@ function startForum() {
 
                 $item.find('.description').html(desc);
                 $item.find('.description a').attr('target', '_blank');
-
                 $item.find('.byline').text(new Date(feed.pubDate).toLocaleDateString(systemLang, dateOptions) + " - " + feed.author);
                 $('#forumList').append($item);
             }

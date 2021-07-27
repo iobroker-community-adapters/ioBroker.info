@@ -276,13 +276,12 @@
             "sentry": {
                 "dsn": "https://866497ca02584bf2bc72d8c6fff73e15@sentry.iobroker.net/32"
             }
-        },
-        "installedFrom": "iobroker-community-adapters/ioBroker.info#master"
+        }
     },
     "native": {
         "news": true,
         "forum": true,
-        "clock": false,
+        "clock": true,
         "hide_events": false,
         "new_adapters": false,
         "new_adapters_sort": "name",

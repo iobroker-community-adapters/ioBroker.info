@@ -148,7 +148,7 @@ $(function () {
         }
 
         if (!adapterConfig.clock) {
-            startClock("start");
+            startClock('start');
         } else {
             $('.clock').hide();
         }
@@ -177,10 +177,10 @@ $(function () {
         if (blockCounter.length === 0) {
             $('#adapterRequestIssueBlock').hide();
         } else if (blockCounter.length === 1) {
-            $(blockCounter[0]).removeClass().addClass("col-xs-12 col-sm-12 col-md-12 col-lg-12");
+            $(blockCounter[0]).removeClass().addClass('col-xs-12 col-sm-12 col-md-12 col-lg-12');
         } else if (blockCounter.length === 2) {
-            $(blockCounter[0]).removeClass().addClass("col-xs-12 col-sm-12 col-md-6 col-lg-6");
-            $(blockCounter[1]).removeClass().addClass("col-xs-12 col-sm-12 col-md-6 col-lg-6");
+            $(blockCounter[0]).removeClass().addClass('col-xs-12 col-sm-12 col-md-6 col-lg-6');
+            $(blockCounter[1]).removeClass().addClass('col-xs-12 col-sm-12 col-md-6 col-lg-6');
         }
 
         if (adapterConfig.documentation) {

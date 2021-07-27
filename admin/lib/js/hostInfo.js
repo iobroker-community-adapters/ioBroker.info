@@ -7,7 +7,7 @@ let mainHost = '';
 
 //------------------------------------------------------ HOST INFORMATION FUNCTIONS -------------------------------------------------------
 async function getNodeVersionList(callback) {
-    
+
     let data;
     if (sessionStorage.getItem('ioBroker.info.nodejsInfo')) {
         data = JSON.parse(sessionStorage.getItem('ioBroker.info.nodejsInfo'));
@@ -79,23 +79,35 @@ function getNodeExtrainfo(host) {
 
 }
 
+const getState = async function (id) {
+    return new Promise(function (resolve, reject) {
+        socket.emit('getState', id, async function (err, state) {
+            return err ? reject(err) : resolve(state);
+        });
+    });
+};
+
 const getHosts = function () {
     socket.emit('getObjectView', 'system', 'host', {startkey: 'system.host.', endkey: 'system.host.\u9999'}, async function (err, res) {
         if (!err && res) {
             hosts = [];
             for (let i = 0; i < res.rows.length; i++) {
                 hosts.push(res.rows[i].id.substring('system.host.'.length));
+
+                // check if host is alive
+                var alive = await getState(res.rows[i].id + '.alive');
+                if (alive && alive.val) {
+                    mainHost = res.rows[i].id.substring('system.host.'.length);
+                }
             }
-            mainHost = res.rows[0].id.substring('system.host.'.length);
         }
 
         await getNodeVersionList(updateInfoPage);
-
     });
 };
 
-/** 
- * Get host informations
+/**
+ * Get host information
  * @param {type} host
  * @param {type} callback
  */
