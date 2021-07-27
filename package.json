@@ -1,7 +1,7 @@
 {
   "name": "iobroker.info",
   "version": "1.9.7",
-  "description": "This is an ioBroker adapter to get informations about your system and some news about ioBroker.",
+  "description": "This is an ioBroker adapter to get information about your system and some news about ioBroker.",
   "author": {
     "name": "ldittmar",
     "email": "iobroker@lmdsoft.de"
