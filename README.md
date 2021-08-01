@@ -50,6 +50,10 @@ because without his work, we would not have all the great information about the 
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+
+### __WORK IN PROGRESS__
+* Adjust object types to prevent js-controller 3.3 warnings
+
 ### 1.9.7 (2021-07-27)
 * (bluefox) updated the clock background 
 
