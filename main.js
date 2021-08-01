@@ -324,8 +324,7 @@ const setState = async function (channel, channel2, key, type, value) {
 	if(type === "undefined"){
 		type = "string";
 	}
-	if (type === "object") {
-		type = "object";
+	if (type === "object" && value !== null) {
 		value = JSON.stringify(value);
 	}
 
@@ -386,7 +385,7 @@ const setSystemStates = async function (data, channel, channel2, nameChange) {
 	if(typeof data !== "undefined" && data !== null) {
 		for (const key of Object.keys(data)) {
 			const data2 = data[key];
-			if (typeof data2 === "object" && data2 !== null && typeof data2 !== "undefined") {
+			if (typeof data2 === "object" && data2 !== null) {
 				for (const key2 of Object.keys(data2)) {
 					data2[key2] !== null && await setState(channel, channel2, key + "-" + key2, typeof data2[key2], data2[key2]);
 				}
