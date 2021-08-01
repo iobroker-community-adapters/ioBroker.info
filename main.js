@@ -873,9 +873,9 @@ const updateCurrentCPUTempInfos = function () {
 	sistm.cpuTemperature()
 		.then(data => {
 			let mainTemp = parseFloat(data.main);
-			if (isNaN(mainTemp)) mainTemp = null;
+			if (!mainTemp && mainTemp !== 0.0) mainTemp = null;
 			let maxTemp = parseFloat(data.max);
-			if (isNaN(maxTemp)) maxTemp = null;
+			if (!maxTemp && maxTemp !== 0.0) maxTemp = null;
 			adapter.setState("sysinfo.cpu.temperature.main", {val: mainTemp, ack: true});
 			cpuTemp.push(data.main);
 			if (cpuTemp.length > 30) {
