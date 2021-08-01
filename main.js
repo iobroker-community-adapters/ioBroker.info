@@ -876,6 +876,7 @@ const updateCurrentCPUTempInfos = function () {
 			if (!mainTemp && mainTemp !== 0.0) mainTemp = null;
 			let maxTemp = parseFloat(data.max);
 			if (!maxTemp && maxTemp !== 0.0) maxTemp = null;
+			adapter.log.info("Value main = " + JSON.stringify(mainTemp) + ", max = " + JSON.stringify(maxTemp));
 			adapter.setState("sysinfo.cpu.temperature.main", {val: mainTemp, ack: true});
 			cpuTemp.push(data.main);
 			if (cpuTemp.length > 30) {
