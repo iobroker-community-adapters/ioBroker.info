@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.9.7",
+        "version": "1.9.8",
         "news": {
+            "1.9.8": {
+                "en": "Adjust object types to prevent js-controller 3.3 warnings",
+                "de": "Passen Sie die Objekttypen an, um js-controller 3.3-Warnungen zu verhindern",
+                "ru": "Отрегулируйте типы объектов, чтобы предотвратить предупреждения js-controller 3.3",
+                "pt": "Ajuste os tipos de objetos para evitar avisos do js-controller 3.3",
+                "nl": "Pas objecttypes aan om js-controller 3.3-waarschuwingen te voorkomen",
+                "fr": "Ajustez les types d'objets pour empêcher les avertissements js-controller 3.3",
+                "it": "Regola i tipi di oggetti per evitare avvisi di js-controller 3.3",
+                "es": "Ajuste los tipos de objetos para evitar advertencias de js-controller 3.3",
+                "pl": "Dostosuj typy obiektów, aby zapobiec ostrzeżeniom js-controller 3.3",
+                "zh-cn": "调整对象类型以防止 js-controller 3.3 警告"
+            },
             "1.9.7": {
                 "en": "updated the clock background",
                 "de": "den Hintergrund der Uhr aktualisiert",
