@@ -872,22 +872,16 @@ const updateCurrentCPUTempInfos = function () {
 
 	sistm.cpuTemperature()
 		.then(data => {
-			let mainTemp = parseFloat(data.main);
-			if (!mainTemp && mainTemp !== 0.0) mainTemp = null;
-			let maxTemp = parseFloat(data.max);
-			if (!maxTemp && maxTemp !== 0.0) maxTemp = null;
-			adapter.log.info("Value main = " + JSON.stringify(mainTemp) + ", max = " + JSON.stringify(maxTemp));
-			adapter.setState("sysinfo.cpu.temperature.main", {val: mainTemp, ack: true});
-			cpuTemp.push(data.main);
+			adapter.setState("sysinfo.cpu.temperature.main", {val: data.main !== null ? data.main : null, ack: true});
+			data.main !== null && cpuTemp.push(data.main);
 			if (cpuTemp.length > 30) {
 				cpuTemp.shift();
 			}
 			adapter.setState("sysinfo.cpu.temperature.main_hist", {val: JSON.stringify(cpuTemp), ack: true});
 			adapter.setState("sysinfo.cpu.temperature.cores", {val: JSON.stringify(data.cores), ack: true});
-			adapter.setState("sysinfo.cpu.temperature.max", {val: maxTemp, ack: true});
+			adapter.setState("sysinfo.cpu.temperature.max", {val: data.max !== null ? data.max : null, ack: true});
 		})
 		.catch(error => adapter.log.error(error));
-
 };
 
 const updateCurrentCPUSpeed = function () {
