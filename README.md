@@ -51,7 +51,7 @@ because without his work, we would not have all the great information about the 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
-### __WORK IN PROGRESS__
+### 1.9.9 (2021-09-02)
 * (Apollon77) update library to prevent some errors
 * (Apollon77) Adjust some actions to prevent js-controller 3.3 warnings
 

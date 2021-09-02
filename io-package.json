@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.9.8",
+        "version": "1.9.9",
         "news": {
+            "1.9.9": {
+                "en": "update library to prevent some errors\nAdjust some actions to prevent js-controller 3.3 warnings",
+                "de": "Aktualisieren Sie die Bibliothek, um einige Fehler zu vermeiden\nPassen Sie einige Aktionen an, um js-controller 3.3-Warnungen zu verhindern",
+                "ru": "обновить библиотеку, чтобы предотвратить некоторые ошибки\nНастройте некоторые действия для предотвращения предупреждений js-controller 3.3",
+                "pt": "atualize a biblioteca para evitar alguns erros\nAjuste algumas ações para evitar avisos do js-controller 3.3",
+                "nl": "update bibliotheek om enkele fouten te voorkomen\nPas enkele acties aan om js-controller 3.3-waarschuwingen te voorkomen",
+                "fr": "mettre à jour la bibliothèque pour éviter certaines erreurs\nAjustez certaines actions pour empêcher les avertissements js-controller 3.3",
+                "it": "aggiorna la libreria per evitare alcuni errori\nRegola alcune azioni per evitare avvisi di js-controller 3.3",
+                "es": "actualizar la biblioteca para evitar algunos errores\nAjuste algunas acciones para evitar advertencias de js-controller 3.3",
+                "pl": "zaktualizuj bibliotekę, aby zapobiec niektórym błędom\nDostosuj niektóre działania, aby zapobiec ostrzeżeniom js-controller 3.3",
+                "zh-cn": "更新库以防止一些错误\n调整部分动作防止js-controller 3.3警告"
+            },
             "1.9.8": {
                 "en": "Adjust object types to prevent js-controller 3.3 warnings",
                 "de": "Passen Sie die Objekttypen an, um js-controller 3.3-Warnungen zu verhindern",
