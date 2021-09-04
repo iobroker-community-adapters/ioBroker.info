@@ -188,7 +188,7 @@
     "battery.serial": "Seriennummer",
     "battery.sku": "SKU",
     "battery.timeRemaining": "Minuten verbleibend",
-    "battery.type": "Akku-Typ",
+    "battery.type": "Batterietyp",
     "battery.uuid": "UUID",
     "battery.version": "Version",
     "battery.voltage": "Aktuelle Spannung der Batterie",
