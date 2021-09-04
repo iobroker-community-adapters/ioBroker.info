@@ -854,7 +854,7 @@ const updateCurrentCPUInfos = function () {
 			if (cpuUsed.length > 30) {
 				cpuUsed.shift();
 			}
-			adapter.setState("sysinfo.cpu.currentLoad.currentload_hist", {val: JSON.stringify(cpuUsed), ack: true});
+			adapter.setState("sysinfo.cpu.currentLoad.currentLoad_hist", {val: JSON.stringify(cpuUsed), ack: true});
 			adapter.setState("sysinfo.cpu.currentLoad.currentLoadUser", {val: data.currentLoadUser, ack: true});
 			adapter.setState("sysinfo.cpu.currentLoad.currentLoadSystem", {val: data.currentLoadSystem, ack: true});
 			adapter.setState("sysinfo.cpu.currentLoad.currentLoadNice", {val: data.currentLoadNice, ack: true});
@@ -894,7 +894,7 @@ const updateCurrentCPUSpeed = function () {
 			adapter.setState("sysinfo.cpu.currentSpeed.avgSpeed", {val: data.avg, ack: true});
 			adapter.setState("sysinfo.cpu.currentSpeed.minSpeed", {val: data.min, ack: true});
 			adapter.setState("sysinfo.cpu.currentSpeed.maxSpeed", {val: data.max, ack: true});
-			adapter.setState("sysinfo.cpu.currentSpeed.coresspeed", {val: JSON.stringify(data.cores), ack: true});
+			adapter.setState("sysinfo.cpu.currentSpeed.coresSpeed", {val: JSON.stringify(data.cores), ack: true});
 		})
 		.catch(error => adapter.log.error(error));
 };
