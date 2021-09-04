@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "info",
-        "version": "1.9.9",
+        "version": "1.9.10",
         "news": {
+            "1.9.10": {
+                "en": "Adjust some actions to prevent js-controller 3.3 warnings",
+                "de": "Passen Sie einige Aktionen an, um js-controller 3.3-Warnungen zu verhindern",
+                "ru": "Настройте некоторые действия для предотвращения предупреждений js-controller 3.3",
+                "pt": "Ajuste algumas ações para evitar avisos do js-controller 3.3",
+                "nl": "Pas enkele acties aan om js-controller 3.3-waarschuwingen te voorkomen",
+                "fr": "Ajustez certaines actions pour empêcher les avertissements js-controller 3.3",
+                "it": "Regola alcune azioni per evitare avvisi di js-controller 3.3",
+                "es": "Ajuste algunas acciones para evitar advertencias de js-controller 3.3",
+                "pl": "Dostosuj niektóre działania, aby zapobiec ostrzeżeniom js-controller 3.3",
+                "zh-cn": "调整部分动作防止js-controller 3.3警告"
+            },
             "1.9.9": {
                 "en": "update library to prevent some errors\nAdjust some actions to prevent js-controller 3.3 warnings",
                 "de": "Aktualisieren Sie die Bibliothek, um einige Fehler zu vermeiden\nPassen Sie einige Aktionen an, um js-controller 3.3-Warnungen zu verhindern",
