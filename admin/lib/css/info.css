@@ -4,7 +4,7 @@
 */
 
 body{
-    /*background-color: #efefef;*/
+    background-color: transparent;
     padding-top: 50px;
     overflow: hidden;
 }
@@ -70,7 +70,7 @@ body{
     margin-bottom: 10px;
     /*padding: 10px 17px;*/
     display: inline-block;
-    background: #fff;
+    /*background: #fff;*/
     /*border: 1px solid #E6E9ED;*/
     -webkit-column-break-inside: avoid;
     -moz-column-break-inside: avoid;
@@ -92,7 +92,14 @@ body{
 .title {
     color: #000 !important;
     letter-spacing: 0px !important;
-    background: #fff !important;
+    /*background: #fff !important;*/
+    background: none !important;
+}
+.m .btn i, .m .btn-flat i, .m .btn-floating i, .m .btn-large i, .m .btn-small i {
+    overflow: hidden;
+}
+.m :after, .m :before {
+    background-color: transparent !important;
 }
 .m h2 {
     font-size: 3.56rem;
@@ -423,7 +430,7 @@ ul#cssClock li{
 }
 
 .y_title, .y_content {
-    background-color: white;
+    /*background-color: white;*/
 }
 
 #homeTemplate {
