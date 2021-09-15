@@ -132,6 +132,17 @@ const updateInfoPage = async function () {
 $(function () {
     //------------------------------------------------------- FILL DATA -----------------------------------------------------------------------
     readInstanceConfig(async function () {
+        var query = (window.location.search || '').replace(/^\?/, '').replace(/#.*$/, '');
+
+        // detect, that we are now in react container (themeNames = ['dark', 'blue', 'colored', 'light'])
+        const _query = query.split('&');
+
+        for (var q = 0; q < _query.length; q++) {
+            if (_query[q].indexOf('react=') !== -1) {
+                $('.adapter-container').addClass('react-' + _query[q].substring(6));
+            }
+        }
+
         getHosts(await getNodeVersionList());
 
         if (adapterConfig.forum) {

@@ -121,6 +121,36 @@ h4 {
     filter: brightness(115%) !important;
     box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2) !important;
 }
+.m.react-dark .btn, .m.react-dark .btn-large, .m.react-dark .btn-small {
+    background-color: #3b3b3b !important;
+}
+.m.react-dark .btn i, .m.react-dark .btn-flat i, .m.react-dark .btn-floating i, .m.react-dark .btn-large i, .m.react-dark .btn-small i {
+    background-color:#3b3b3b !important;
+    border-radius: 4px !important;
+}
+.m.react-dark .btn:hover {
+    background-color: rgba(192, 192, 192, 0.15) !important;
+    filter: brightness(115%) !important;
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2) !important;
+}
+.m.react-dark .nav > li > a:focus, .m.react-dark .nav > li > a:hover {
+    background-color: rgba(192, 192, 192, 0.15);
+}
+.m.react-blue .btn, .m.react-blue .btn-large, .m.react-blue .btn-small {
+    background-color: #3b3b3b !important;
+}
+.m.react-blue .btn i, .m.react-blue .btn-flat i, .m.react-blue .btn-floating i, .m.react-blue .btn-large i, .m.react-blue .btn-small i {
+    background-color:#3b3b3b !important;
+    border-radius: 4px !important;
+}
+.m.react-blue .btn:hover {
+    background-color: rgba(192, 192, 192, 0.15) !important;
+    filter: brightness(115%) !important;
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2) !important;
+}
+.m.react-blue .nav > li > a:focus, .m.react-blue .nav > li > a:hover {
+    background-color: rgba(192, 192, 192, 0.15);
+}
 .x_title {
     border-bottom: 2px solid #E6E9ED;
     padding: 4px 17px 6px;

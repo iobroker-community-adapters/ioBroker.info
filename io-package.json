@@ -3,6 +3,9 @@
         "name": "info",
         "version": "1.9.10",
         "news": {
+            "1.9.11": {
+                "en": "Design fix for react-dark theme"
+            },
             "1.9.10": {
                 "en": "Adjust some actions to prevent js-controller 3.3 warnings",
                 "de": "Passen Sie einige Aktionen an, um js-controller 3.3-Warnungen zu verhindern",

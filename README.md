@@ -51,6 +51,9 @@ because without his work, we would not have all the great information about the 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
+### __WORK IN PROGRESS__
+* (simatec) Design fix for react-dark theme
+
 ### 1.9.10 (2021-09-04)
 * (Speedbreaker12) Adjust some actions to prevent js-controller 3.3 warnings
 
