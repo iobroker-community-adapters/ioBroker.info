@@ -23,7 +23,7 @@
     "node": ">=10.0.0"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "@iobroker/adapter-core": "^2.5.1",
     "systeminformation": "^5.9.9",
     "semver": "^7.3.5",
