@@ -50,6 +50,8 @@ because without his work, we would not have all the great information about the 
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) fix test and release
 
 ### 1.9.12 (2021-11-10)
 * (simatec) fix testing
