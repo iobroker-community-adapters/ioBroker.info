@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "info",
-        "version": "1.9.10",
+        "version": "1.9.11",
         "news": {
             "1.9.11": {
                 "en": "Design fix for react-dark theme"
