@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "info",
-        "version": "1.9.12",
+        "version": "1.9.13",
         "news": {
             "1.9.12": {
                 "en": "fix testing",
