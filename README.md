@@ -50,7 +50,7 @@ because without his work, we would not have all the great information about the 
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 1.9.15 (2021-11-10)
 * (simatec) Design fix for react-dark theme
 
 ### 1.9.10 (2021-09-04)
