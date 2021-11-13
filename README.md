@@ -50,8 +50,7 @@ because without his work, we would not have all the great information about the 
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-
-### __WORK IN PROGRESS__
+### 1.9.16 (2021-11-13)
 * (Apollon77) Update dependencies
 * (Apollon77) Fix translations
 

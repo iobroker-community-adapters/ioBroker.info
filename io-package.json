@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "info",
-    "version": "1.9.15",
+    "version": "1.9.16",
     "news": {
+      "1.9.16": {
+        "en": "Update dependencies\nFix translations",
+        "de": "Abhängigkeiten aktualisieren\nÜbersetzungen korrigieren",
+        "ru": "Обновить зависимости\nИсправить переводы",
+        "pt": "Atualizar dependências\nCorrigir traduções",
+        "nl": "Afhankelijkheden bijwerken\nVertalingen repareren",
+        "fr": "Mettre à jour les dépendances\nCorrection des traductions",
+        "it": "Aggiorna dipendenze\nCorreggi le traduzioni",
+        "es": "Actualizar dependencias\nCorregir traducciones",
+        "pl": "Aktualizuj zależności\nNapraw tłumaczenia",
+        "zh-cn": "更新依赖\n修复翻译"
+      },
       "1.9.15": {
         "en": "Design fix for react-dark theme",
         "de": "Design-Fix für das React-Dark-Theme",
@@ -66,18 +78,6 @@
       "1.9.6": {
         "en": "Design fix",
         "de": "Designkorrektur",
-        "ru": "Исправление дизайна",
-        "pt": "Correção de design",
-        "nl": "Ontwerp fix",
-        "fr": "Correction de conception",
-        "it": "Correzione del design",
-        "es": "Corrección de diseño",
-        "pl": "Poprawka projektowa",
-        "zh-cn": "设计修复"
-      },
-      "1.9.5": {
-        "en": "Design Fix",
-        "de": "Design-Fix",
         "ru": "Исправление дизайна",
         "pt": "Correção de design",
         "nl": "Ontwerp fix",
