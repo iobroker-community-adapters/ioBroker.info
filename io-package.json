@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "info",
-    "version": "1.9.16",
+    "version": "1.9.17",
     "news": {
+      "1.9.17": {
+        "en": "Design fix\nUpdate dependencies",
+        "de": "Design-Fix\nAbhängigkeiten aktualisieren",
+        "ru": "Исправление дизайна\nОбновить зависимости",
+        "pt": "Correção de projeto\nAtualizar dependências",
+        "nl": "Ontwerp fix\nAfhankelijkheden bijwerken",
+        "fr": "Correctif de conception\nMettre à jour les dépendances",
+        "it": "Correzione del design\nAggiorna le dipendenze",
+        "es": "Corrección de diseño\nActualizar dependencias",
+        "pl": "Poprawka projektowa\nAktualizuj zależności",
+        "zh-cn": "设计修复\n更新依赖项"
+      },
       "1.9.16": {
         "en": "Update dependencies\nFix translations",
         "de": "Abhängigkeiten aktualisieren\nÜbersetzungen korrigieren",
@@ -74,18 +86,6 @@
         "es": "actualizó el fondo del reloj",
         "pl": "zaktualizowałem tło zegara",
         "zh-cn": "更新了时钟背景"
-      },
-      "1.9.6": {
-        "en": "Design fix",
-        "de": "Designkorrektur",
-        "ru": "Исправление дизайна",
-        "pt": "Correção de design",
-        "nl": "Ontwerp fix",
-        "fr": "Correction de conception",
-        "it": "Correzione del design",
-        "es": "Corrección de diseño",
-        "pl": "Poprawka projektowa",
-        "zh-cn": "设计修复"
       }
     },
     "title": "Information tab",

@@ -50,8 +50,7 @@ because without his work, we would not have all the great information about the 
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-
-### __WORK IN PROGRESS__
+### 1.9.17 (2022-01-26)
 * (simatec) Design fix
 * (simatec) Update dependencies
 
