@@ -102,9 +102,9 @@ body{
     background-color: transparent !important;
 }
 .m h2 {
-    font-size: 3.56rem;
+    font-size: 2.2rem !important;
     line-height: 110%;
-    margin: 0rem !important;
+    margin: 1.0rem !important;
 }
 h4 {
     background-color: #fff !important;
@@ -151,14 +151,23 @@ h4 {
 .m.react-blue .nav > li > a:focus, .m.react-blue .nav > li > a:hover {
     background-color: rgba(192, 192, 192, 0.15);
 }
+.m .progress .indeterminate:after {
+    background-color: inherit!important;
+}
+.m .progress .indeterminate:after, .m .progress .indeterminate:before, .m.react-blue .progress .indeterminate:after, .m.react-blue .progress .indeterminate:before, .m.react-dark .progress .indeterminate:after, .m.react-dark .progress .indeterminate:before {
+    background-color: inherit !important;
+}
+pre {
+    background-color: #cccc;
+}
 .x_title {
     border-bottom: 2px solid #E6E9ED;
-    padding: 4px 17px 6px;
+    padding: 4px 10px 6px;
     /*margin-bottom: 10px;*/
     cursor: pointer;
     height: 53px;
     background-color: rgba(192, 192, 192, 0.2);
-    /*border-radius: 4px;*/
+    border-radius: 5px 5px 0px 0px;
 }
 .x_title .filter {
     width: 40%;
@@ -185,7 +194,8 @@ h4 {
     width: 100%;
     float: left;
     clear: both;
-    margin-top: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 .x_content h4 {
     font-size: 16px;
@@ -525,11 +535,11 @@ ul#cssClock li{
 .no-margin {
     margin-top: 0;
 }
-
+/*
 .x_title>h2>span {
     font-size: 25px;
 }
-
+*/
 .navbar-right {
     float: right;
 }
