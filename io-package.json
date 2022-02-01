@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "info",
-    "version": "1.9.17",
+    "version": "1.9.18",
     "news": {
+      "1.9.18": {
+        "en": "Fix invalid object definition to prevent errors in js-controller 4",
+        "de": "Beheben Sie eine ungültige Objektdefinition, um Fehler in js-controller 4 zu vermeiden",
+        "ru": "Исправьте неверное определение объекта, чтобы предотвратить ошибки в js-контроллере 4.",
+        "pt": "Corrija a definição de objeto inválida para evitar erros no js-controller 4",
+        "nl": "Herstel ongeldige objectdefinitie om fouten in js-controller te voorkomen",
+        "fr": "Correction d'une définition d'objet invalide pour éviter les erreurs dans js-controller 4",
+        "it": "Correggi la definizione di oggetto non valida per evitare errori in js-controller 4",
+        "es": "Solucione la definición de objeto no válida para evitar errores en js-controller 4",
+        "pl": "Napraw nieprawidłową definicję obiektu, aby zapobiec błędom w kontrolerze js 4",
+        "zh-cn": "修复无效的对象定义以防止 js-controller 4 中的错误"
+      },
       "1.9.17": {
         "en": "Design fix\nUpdate dependencies",
         "de": "Design-Fix\nAbhängigkeiten aktualisieren",
@@ -74,18 +86,6 @@
         "es": "Ajuste los tipos de objetos para evitar advertencias de js-controller 3.3",
         "pl": "Dostosuj typy obiektów, aby zapobiec ostrzeżeniom js-controller 3.3",
         "zh-cn": "调整对象类型以防止 js-controller 3.3 警告"
-      },
-      "1.9.7": {
-        "en": "updated the clock background",
-        "de": "den Hintergrund der Uhr aktualisiert",
-        "ru": "обновил фон часов",
-        "pt": "atualizou o fundo do relógio",
-        "nl": "de klokachtergrond bijgewerkt",
-        "fr": "mis à jour l'arrière-plan de l'horloge",
-        "it": "aggiornato lo sfondo dell'orologio",
-        "es": "actualizó el fondo del reloj",
-        "pl": "zaktualizowałem tło zegara",
-        "zh-cn": "更新了时钟背景"
       }
     },
     "title": "Information tab",
