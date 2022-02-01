@@ -467,7 +467,7 @@ const updateSysinfo = async function (setIntervals) {
 
 	try {
 		const data8 = await sistm.cpuTemperature();
-		adapter.log.info('cpu Temp res = ' + JSON.stringify(data8));
+		adapter.log.info("cpu Temp res = " + JSON.stringify(data8));
 		await setSystemStates(data8, "cpu","temperature");
 		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.cpuSpeed != 0) {
 			const speed = parseInt(adapter.config.cpuSpeed) || 60;
