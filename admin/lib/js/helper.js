@@ -289,37 +289,43 @@ $(function () {
         infoCharts.startCharts;
         $('#modal-system').modal();
     });
-    $('a[href="#sys_info_tab_os"]').on('show.bs.tab', function (e) {
+    $('a[href="#sys_info_tab_os"]').on('show.bs.tab', () => {
         socket.emit('subscribe', 'info.0.sysinfo.os.*');
-    });
-    $('a[href="#sys_info_tab_os"]').on('hide.bs.tab', function (e) {
+    }).on('hide.bs.tab', () => {
         socket.emit('unsubscribe', 'info.0.sysinfo.os.*');
     });
-    $('a[href="#sys_info_tab_cpu"]').on('show.bs.tab', function (e) {
+    $('a[href="#sys_info_tab_cpu"]').on('show.bs.tab', () => {
         socket.emit('subscribe', 'info.0.sysinfo.cpu.*');
-    });
-    $('a[href="#sys_info_tab_cpu"]').on('hide.bs.tab', function (e) {
+    }).on('hide.bs.tab', () => {
         socket.emit('unsubscribe', 'info.0.sysinfo.cpu.*');
     });
-    $('a[href="#sys_info_tab_memory"]').on('show.bs.tab', function (e) {
+    $('a[href="#sys_info_tab_memory"]').on('show.bs.tab', () => {
         socket.emit('subscribe', 'info.0.sysinfo.memory.*');
-    });
-    $('a[href="#sys_info_tab_memory"]').on('hide.bs.tab', function (e) {
+    }).on('hide.bs.tab', () => {
         socket.emit('unsubscribe', 'info.0.sysinfo.memory.*');
     });
-    $('a[href="#sys_info_tab_disks"]').on('show.bs.tab', function (e) {
+    $('a[href="#sys_info_tab_disks"]').on('show.bs.tab', () => {
         socket.emit('subscribe', 'info.0.sysinfo.disks.*');
-    });
-    $('a[href="#sys_info_tab_disks"]').on('hide.bs.tab', function (e) {
+    }).on('hide.bs.tab', () => {
         socket.emit('unsubscribe', 'info.0.sysinfo.disks.*');
     });
-    $('a[href="#sys_info_tab_battery"]').on('show.bs.tab', function (e) {
+    $('a[href="#sys_info_tab_battery"]').on('show.bs.tab', () => {
         socket.emit('subscribe', 'info.0.sysinfo.battery.*');
-    });
-    $('a[href="#sys_info_tab_battery"]').on('hide.bs.tab', function (e) {
+    }).on('hide.bs.tab', () => {
         socket.emit('unsubscribe', 'info.0.sysinfo.battery.*');
     });
-    $('#modal-system').on('hidden.bs.modal', function (e) {
+    $('a[href="#sys_info_tab_usb"]').on('show.bs.tab', () => {
+        socket.emit('subscribe', 'info.0.sysinfo.usb.*');
+    }).on('hide.bs.tab', () => {
+        socket.emit('unsubscribe', 'info.0.sysinfo.usb.*');
+    });
+    $('a[href="#sys_info_tab_bluetooth"]').on('show.bs.tab', () => {
+        socket.emit('subscribe', 'info.0.sysinfo.bluetooth.*');
+    }).on('hide.bs.tab', () => {
+        socket.emit('unsubscribe', 'info.0.sysinfo.bluetooth.*');
+    });
+
+    $('#modal-system').on('hidden.bs.modal', () => {
         socket.emit('unsubscribe', 'info.0.sysinfo.*');
     });
 

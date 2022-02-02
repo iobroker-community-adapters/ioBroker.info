@@ -722,7 +722,7 @@ const updateSysinfo = async function (setIntervals) {
 				await setSystemStates(data27[key], "network","stats.iface" + key);
 			}
 		}
-		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.networkSpeed != 0) {
+		if (setIntervals && adapter.config.noCurrentSysData !== true && adapter.config.networkSpeed !== 0) {
 			const speed = parseInt(adapter.config.networkSpeed) || 120;
 			adapter.log.info("Reading network data every " + speed + " seconds.");
 			adapterIntervals.updateCurrentNetworkInfos = setInterval(updateCurrentNetworkInfos, speed * 1000);

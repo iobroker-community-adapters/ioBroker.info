@@ -16,7 +16,7 @@ const formatInfo = {
     'battery.maxCapacity': formatter.formatBattmWh,
     'battery.currentCapacity': formatter.formatBattmWh,
     'battery.voltage': formatter.formatSpeedV,
-    'cpu.speedmax': formatter.formatSpeedGhz,
+    'cpu.speedMax': formatter.formatSpeedGhz,
     'cpu.speedMin': formatter.formatSpeedGhz,
     'cpu.avgSpeed': formatter.formatSpeedGhz,
     'cpu.maxSpeed': formatter.formatSpeedGhz,
@@ -45,7 +45,6 @@ const formatInfo = {
     'memory.clockSpeed': formatter.formatSpeedMhz,
     'memory.buffcache': formatter.formatByte,
     'memory.available': formatter.formatByte,
-    'memory.type': formatter.formatTranslate,
     'memory.swaptotal': formatter.formatByte,
     'memory.swapused': formatter.formatByte,
     'memory.swapfree': formatter.formatByte,
@@ -75,7 +74,11 @@ const formatInfo = {
     'graphics.builtin': formatter.formatBoolean,
     'battery.hasBattery': formatter.formatBoolean,
     'battery.acConnected': formatter.formatBoolean,
-    'battery.isCharging': formatter.formatBoolean
+    'battery.isCharging': formatter.formatBoolean,
+    'system.virtual': formatter.formatBoolean,
+    'os.uefi': formatter.formatBoolean,
+    'os.hypervisor': formatter.formatBoolean,
+    'os.remoteSession': formatter.formatBoolean
 };
 
 const infoCharts = {
@@ -119,12 +122,12 @@ const infoCharts = {
     },
     showCPU: function (data) {
 
-        var data = {
+        const dta = {
             labels: cpuLabels,
             series: [data]
         };
 
-        var options = {
+        const options = {
             high: 100,
             low: 0,
             width: '400px',
@@ -132,22 +135,22 @@ const infoCharts = {
             showPoint: false
         };
 
-        new Chartist.Line('#cpu-chart', data, options);
+        new Chartist.Line('#cpu-chart', dta, options);
     },
     showMemory: function (data) {
 
-        var data = {
+        const dta = {
             labels: memLabels,
             series: [data]
         };
 
-        var options = {
+        const options = {
             width: '400px',
             height: '280px',
             showPoint: false
         };
 
-        new Chartist.Line('#memory-chart', data, options);
+        new Chartist.Line('#memory-chart', dta, options);
     }
 };
 
@@ -210,7 +213,11 @@ const systemInformations = {
                 if (obj.device && $("#sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device).length === 0) {
                     const dl = "<h3 id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "_devicename'>" + obj.device + "</h3><dl class='dl-horizontal dl-lg' id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_" + obj.device + "'></dl>";
                     $('#sys_info_' + obj.systype + '_' + obj.syssubtype).append($(dl));
+                } else if (['usb','bluetooth','audio','printer'].includes(obj.systype) && $("#sys_info_" + obj.systype + "_" + obj.syssubtype).length === 0){
+                    const dl = "<h3 id='sys_info_" + obj.systype + "_" + obj.syssubtype + "_device'>" + obj.syssubtype + "</h3><dl class='dl-horizontal dl-lg' id='sys_info_" + obj.systype + "_" + obj.syssubtype + "'></dl>";
+                    $('#sys_info_' + obj.systype).append($(dl));
                 }
+
                 const row = "<dt>" + _(obj.systype + "." + obj.name) + "</dt><dd id='info_0_sysinfo_" + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '') + "_" + obj.name + "_data'>" + (formatInfo[obj.systype + "." + obj.name] ? formatInfo[obj.systype + "." + obj.name](obj.value) : obj.value) + "</dd>";
                 $('#sys_info_' + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '')).append($(row));
             }
@@ -242,7 +249,8 @@ const systemInformations = {
 
 function processProcessesList(list) {
     $('#info_0_sysinfo_os_processes_list_datas').empty();
-    list.forEach(function (data) {
+
+    list?.forEach((data) => {
         let row = "<tr id='tr_process_" + data.pid + "'>";
         row += "<td>" + data.name + "</td>";
         row += "<td>" + formatter.formatPercent2Digits(data.cpu) + "</td>";
@@ -260,7 +268,7 @@ function processProcessesList(list) {
 
 function processUsersList(list) {
     $('#info_0_sysinfo_os_users_datas').empty();
-    list.forEach(function (data) {
+    list?.forEach((data) => {
         let row = "<tr id='tr_user_" + data.user + "'>";
         row += "<td>" + data.user + "</td>";
         row += "<td>" + data.tty + "</td>";
