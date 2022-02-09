@@ -236,6 +236,7 @@
     "cpu.chipset": "Chipset temperature",
     "cpu.cores": "Cores",
     "cpu.coresSpeed": "CPU speed per core (array)",
+    "cpu.cpus": "core",
     "cpu.currentLoad": "CPU load in %",
     "cpu.currentLoadIdle": "CPU load idle in %",
     "cpu.currentLoadIrq": "CPU load IRQ in %",

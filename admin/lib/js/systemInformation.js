@@ -218,7 +218,18 @@ const systemInformations = {
                     $('#sys_info_' + obj.systype).append($(dl));
                 }
 
-                const row = "<dt>" + _(obj.systype + "." + obj.name) + "</dt><dd id='info_0_sysinfo_" + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '') + "_" + obj.name + "_data'>" + (formatInfo[obj.systype + "." + obj.name] ? formatInfo[obj.systype + "." + obj.name](obj.value) : obj.value) + "</dd>";
+                let name;
+                if(obj.systype === "cpu" && obj.name.startsWith("cpus-")){
+                    name = _("cpu.cpus") + " " + (parseInt(obj.name.split("-")[1]) + 1);
+                } else if(obj.systype === "cpu" && obj.name.startsWith("cores-")){
+                    name = _("cpu.cores") + " " + (parseInt(obj.name.split("-")[1]) + 1);
+                } else if(obj.systype === "system" && obj.name.startsWith("macs-")){
+                    name = _("system.macs") + " " + (parseInt(obj.name.split("-")[1]) + 1);
+                } else {
+                    name = _(obj.systype + "." + obj.name);
+                }
+
+                const row = "<dt>" + name + "</dt><dd id='info_0_sysinfo_" + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '') + "_" + obj.name + "_data'>" + (formatInfo[obj.systype + "." + obj.name] ? formatInfo[obj.systype + "." + obj.name](obj.value) : obj.value) + "</dd>";
                 $('#sys_info_' + obj.systype + (obj.systype !== "battery" ? '_' + obj.syssubtype : '') + (obj.device ? '_' + obj.device : '')).append($(row));
             }
         }
