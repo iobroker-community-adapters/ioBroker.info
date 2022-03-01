@@ -51,7 +51,7 @@ because without his work, we would not have all the great information about the 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
-### 1.9.19 (2022-xx-xx)
+### 1.9.19 (2022-03-01)
 * (ldittmar) Fix audio, USB, bluetooth and printer view
 * (ldittmar) Translations fix
 
