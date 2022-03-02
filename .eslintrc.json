@@ -38,9 +38,6 @@
 		]
 	},
 	"parserOptions": {
-		"ecmaVersion": 2018,
-		"ecmaFeatures": {
-			"jsx": true
-		}
+		"ecmaVersion": 2018
 	}
 }

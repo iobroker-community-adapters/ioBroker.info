@@ -4,7 +4,7 @@
 [![NPM version](http://img.shields.io/npm/v/iobroker.info.svg)](https://www.npmjs.com/package/iobroker.info)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.info.svg)](https://www.npmjs.com/package/iobroker.info)
 ![Number of Installations](http://iobroker.live/badges/info-installed.svg) 
-![Number of Installations](http://iobroker.live/badges/info-stable.svg)
+![Current version in stable repository](http://iobroker.live/badges/info-stable.svg)
 [![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.info.svg)](https://david-dm.org/iobroker-community-adapters/iobroker.info)
 
 [![NPM](https://nodei.co/npm/iobroker.info.png?downloads=true)](https://nodei.co/npm/iobroker.info/)
@@ -50,6 +50,8 @@ because without his work, we would not have all the great information about the 
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+
+### 1.9.20 (**WORK IN PROGRESS**)
 
 ### 1.9.19 (2022-03-01)
 * (ldittmar) Fix audio, USB, bluetooth and printer view

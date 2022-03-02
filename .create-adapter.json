@@ -1,6 +1,7 @@
 {
 	"cli": true,
-	"adapterName": "info2",
+	"target": "directory",
+	"adapterName": "info",
 	"title": "Information tab",
 	"description": "This is an ioBroker adapter to get informations about your system and some news about ioBroker.",
 	"keywords": [
@@ -28,6 +29,10 @@
 		"ESLint",
 		"type checking"
 	],
+	"i18n": "JSON",
+	"releaseScript": "yes",
+	"devServer": "yes",
+	"devServerPort": 8081,
 	"indentation": "Tab",
 	"quotes": "double",
 	"es6class": "yes",
@@ -36,8 +41,9 @@
 	"authorEmail": "iobroker@lmdsoft.de",
 	"gitRemoteProtocol": "HTTPS",
 	"gitCommit": "no",
+	"defaultBranch": "master",
 	"license": "MIT License",
 	"ci": "gh-actions",
 	"dependabot": "yes",
-	"creatorVersion": "1.32.0"
+	"creatorVersion": "2.1.0"
 }
