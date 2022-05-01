@@ -25,7 +25,7 @@
   "dependencies": {
     "axios": "^0.26.1",
     "@iobroker/adapter-core": "^2.6.0",
-    "systeminformation": "^5.11.11",
+    "systeminformation": "^5.11.14",
     "semver": "^7.3.7",
     "jshashes": "^1.0.8"
   },
