@@ -239,7 +239,7 @@
     "cpu.chipset": "Chipsatz-Temperatur",
     "cpu.cores": "Kerne",
     "cpu.coresSpeed": "CPU-Geschwindigkeit pro Kern",
-    "cpu.cpus": "Ader",
+    "cpu.cpus": "CPU",
     "cpu.currentLoad": "CPU-Last in %",
     "cpu.currentLoadIdle": "CPU-Last (Leerlauf) in %",
     "cpu.currentLoadIrq": "CPU Last (IRQ) in %",
