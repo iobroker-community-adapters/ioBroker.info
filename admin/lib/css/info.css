@@ -470,8 +470,20 @@ ul#cssClock li{
 }
 
 .y_title, .y_content {
+    border-radius: 0px 0px 5px 5px;
     /*background-color: white;*/
 }
+
+.m.react-blue .y_title, .m.react-blue .y_content {
+    background-color: rgb(34, 42, 46);
+    border-radius: 0px 0px 5px 5px;
+}
+
+.m.react-dark .y_title, .m.react-dark .y_content {
+    background-color: rgb(31, 31, 31);
+    border-radius: 0px 0px 5px 5px;
+}
+
 
 #homeTemplate {
     min-height: 100%;
