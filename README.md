@@ -51,7 +51,7 @@ because without his work, we would not have all the great information about the 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
 
-__WORK IN PROGRESS__
+### **WORK IN PROGRESS**
 * (simatec) Design Fix
 * (simatec) Fix Adapter Title
 * (simatec) Update dependencies
