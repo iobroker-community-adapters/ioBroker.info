@@ -10,7 +10,7 @@ body{
 }
 
 .height_320 {
-    height: 320px;
+    height: 310px;
     overflow-x: auto;
 }
 
@@ -189,7 +189,7 @@ pre {
 }
 .x_content {
     /*padding: 0 5px 6px;*/
-    padding: 10px 17px;
+    padding: 5px 17px;
     position: relative;
     width: 100%;
     float: left;

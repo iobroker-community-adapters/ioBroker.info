@@ -149,7 +149,7 @@ function fillList(type, list, repository, installedList) {
         if (isHost) {
             $tmpLiElement.find('.title').text(_("Your host '%s' is outdated!", adapter));
         } else {
-            $tmpLiElement.find('.title').text((obj.title || '').replace('ioBroker Visualisation - ', ''));
+            $tmpLiElement.find('.title').text((obj.title || adapter).replace('ioBroker Visualisation - ', ''));
         }
 
         $tmpLiElement.find('.version').text(obj.version);
