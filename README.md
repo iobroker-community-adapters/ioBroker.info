@@ -50,6 +50,9 @@ because without his work, we would not have all the great information about the 
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Fix Adapter Title
+
 ### 1.9.20 (2022-09-17)
 * (simatec) Design Fix
 * (simatec) Fix Adapter Title
