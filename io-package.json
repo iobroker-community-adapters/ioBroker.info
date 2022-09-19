@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "info",
-    "version": "1.9.20",
+    "version": "1.9.21",
     "news": {
+      "1.9.21": {
+        "en": "Fix Adapter Title",
+        "de": "Fix Adapter Titel",
+        "ru": "Fix Заголовок адаптера",
+        "pt": "Título do adaptador de fixação",
+        "nl": "Vertaling:",
+        "fr": "Titre de l'adaptateur fixe",
+        "it": "Fissare il titolo dell'adattatore",
+        "es": "Título del adaptador fijo",
+        "pl": "Fix Adapter Title",
+        "zh-cn": "Fix Adapter"
+      },
       "1.9.20": {
         "en": "Design Fix\nFix Adapter Title\nUpdate dependencies",
         "de": "Design Fix\nFix Adapter Titel\nAbhängigkeiten aktualisieren",
@@ -74,18 +86,6 @@
         "es": "Corrección de diseño para el tema React-Dark",
         "pl": "Poprawka projektowa dla motywu React-Dark",
         "zh-cn": "react-dark 主题的设计修复"
-      },
-      "1.9.10": {
-        "en": "Adjust some actions to prevent js-controller 3.3 warnings",
-        "de": "Passen Sie einige Aktionen an, um js-controller 3.3-Warnungen zu verhindern",
-        "ru": "Настройте некоторые действия для предотвращения предупреждений js-controller 3.3",
-        "pt": "Ajuste algumas ações para evitar avisos do js-controller 3.3",
-        "nl": "Pas enkele acties aan om js-controller 3.3-waarschuwingen te voorkomen",
-        "fr": "Ajustez certaines actions pour empêcher les avertissements js-controller 3.3",
-        "it": "Regola alcune azioni per evitare avvisi di js-controller 3.3",
-        "es": "Ajuste algunas acciones para evitar advertencias de js-controller 3.3",
-        "pl": "Dostosuj niektóre działania, aby zapobiec ostrzeżeniom js-controller 3.3",
-        "zh-cn": "调整部分动作防止js-controller 3.3警告"
       }
     },
     "title": "Information tab",
