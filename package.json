@@ -74,7 +74,10 @@
     "check": "tsc --noEmit -p tsconfig.check.json",
     "lint": "eslint",
     "translate": "translate-adapter",
-    "release": "release-script"
+    "release": "release-script",
+    "release-patch": "release-script patch --yes",
+    "release-minor": "release-script minor --yes",
+    "release-major": "release-script major --yes"
   },
   "bugs": {
     "url": "https://github.com/iobroker-community-adapters/ioBroker.info/issues"
