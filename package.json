@@ -26,7 +26,7 @@
     "axios": "^0.27.2",
     "@iobroker/adapter-core": "^2.6.0",
     "systeminformation": "^5.12.6",
-    "semver": "^7.3.7",
+    "semver": "^7.3.8",
     "jshashes": "^1.0.8"
   },
   "optionalDependencies": {
