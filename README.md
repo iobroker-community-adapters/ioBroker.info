@@ -50,7 +50,7 @@ because without his work, we would not have all the great information about the 
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-**WORK IN PROGRESS**
+### **WORK IN PROGRESS**
 * (bluefox) Corrected widget
 
 ### 1.9.21 (2022-09-19)
