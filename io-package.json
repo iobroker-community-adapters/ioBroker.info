@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "info",
-    "version": "1.9.21",
+    "version": "1.9.22",
     "news": {
+      "1.9.22": {
+        "en": "Corrected widget",
+        "de": "Korrigiertes Widget",
+        "ru": "Правильный виджет",
+        "pt": "Widget corrigido",
+        "nl": "Vertaling:",
+        "fr": "Corrigé widget",
+        "it": "Widget corretti",
+        "es": "Widget corregido",
+        "pl": "Poprawka",
+        "uk": "Виправлений віджет",
+        "zh-cn": "殴打妻子"
+      },
       "1.9.21": {
         "en": "Fix Adapter Title",
         "de": "Fix Adapter Titel",
@@ -74,18 +87,6 @@
         "es": "Actualizar dependencias\nCorregir traducciones",
         "pl": "Aktualizuj zależności\nNapraw tłumaczenia",
         "zh-cn": "更新依赖\n修复翻译"
-      },
-      "1.9.15": {
-        "en": "Design fix for react-dark theme",
-        "de": "Design-Fix für das React-Dark-Theme",
-        "ru": "Исправление дизайна для темы react-dark",
-        "pt": "Correção de design para tema reativo escuro",
-        "nl": "Ontwerpfix voor react-dark thema",
-        "fr": "Correctif de conception pour le thème React-Dark",
-        "it": "Correzione del design per il tema react-dark",
-        "es": "Corrección de diseño para el tema React-Dark",
-        "pl": "Poprawka projektowa dla motywu React-Dark",
-        "zh-cn": "react-dark 主题的设计修复"
       }
     },
     "title": "Information tab",

@@ -50,7 +50,7 @@ because without his work, we would not have all the great information about the 
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-### **WORK IN PROGRESS**
+### 1.9.22 (2022-11-21)
 * (bluefox) Corrected widget
 
 ### 1.9.21 (2022-09-19)
@@ -67,10 +67,6 @@ because without his work, we would not have all the great information about the 
 
 ### 1.9.18 (2022-02-01)
 * (Apollon77) Fix invalid object definition to prevent errors in js-controller 4
-
-### 1.9.17 (2022-01-26)
-* (simatec) Design fix
-* (simatec) Update dependencies
 
 ## License
 The MIT License (MIT)
