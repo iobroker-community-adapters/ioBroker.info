@@ -49,7 +49,10 @@ because without his work, we would not have all the great information about the 
 * [单击此处获取详细文档 (zh-cn)](docs/zh-cn/info.md)
 
 ## Changelog
-<!-- ### __WORK IN PROGRESS__ -->
+<!-- ### **WORK IN PROGRESS** -->
+**WORK IN PROGRESS**
+* (bluefox) Corrected widget
+
 ### 1.9.21 (2022-09-19)
 * (simatec) Fix Adapter Title
 

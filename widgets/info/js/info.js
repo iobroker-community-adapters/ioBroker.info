@@ -3,13 +3,18 @@
 "use strict";
 
 if (vis.editMode) {
-    getTranslation();    
+    getTranslation();
 }
 
 async function getTranslation(){
     let translation = await(await fetch("widgets/info/js/words.js")).text();
     if (translation) {
         translation = translation.substring(translation.indexOf('{'), translation.lastIndexOf(';'));
+        translation = translation.replace(/\r\n/g, '').replace(/\r/g, '').replace(/\n/g, '');
+        if (translation.substring(translation.length - 2, translation.length) !== '}}') {
+            translation = translation.substring(0, translation.length - 2) + '}}';
+        }
+        if (translation.substring(translation.length - 3, translation.length - 1) !== '}') {
         $.extend(true, systemDictionary, JSON.parse(translation));
     }
 }
@@ -50,9 +55,9 @@ vis.binds.info = {
             }, 100);
         }
 
-        if (data) {            
+        if (data) {
             const text = `<iframe src="https://calendar.google.com/calendar/embed?height=${data.height ? data.height: '400'}&amp;wkst=1&amp;bgcolor=%23${data.bgcolor ? data.bgcolor : 'ffffff'}&amp;ctz=Europe%2FBerlin&amp;src=bWgxNGJoN20yYmR2YTdwYjd0a2lyc2Jjc2dAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%2330487E&amp;showTitle=1&amp;showNav=1&amp;showDate=1&amp;showPrint=0&amp;showTabs=1&amp;showCalendars=0&amp;showTz=1&amp;hl=de&amp;mode=${data.mode?data.mode:'AGENDA'}" style="border-width:0" width="${data.width ? data.width: '400'}" height="${data.height ? data.height : '400'}" frameborder="0" scrolling="no"></iframe>`;
-            $div.html(text);        
+            $div.html(text);
         }
     }
 };
