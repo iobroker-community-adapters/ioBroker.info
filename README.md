@@ -50,6 +50,9 @@ because without his work, we would not have all the great information about the 
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### **WORK IN PROGRESS**
+* (bluefox) Packages were updated
+
 ### 1.9.22 (2022-11-21)
 * (bluefox) Corrected widget
 

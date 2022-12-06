@@ -1,5 +1,6 @@
-/* jshint -W097 */// jshint strict:false
-/*jslint node: true */
+/* jshint -W097 */
+/* jshint strict: false */
+/* jslint node: true */
 "use strict";
 
 /*
@@ -845,7 +846,6 @@ const updateAllData = function () {
 };
 
 const updateCurrentCPUInfos = function () {
-
 	sistm.currentLoad()
 		.then(data => {
 			adapter.setState("sysinfo.cpu.currentLoad.avgLoad", {val: data.avgLoad, ack: true});
@@ -872,7 +872,6 @@ const updateCurrentCPUInfos = function () {
 };
 
 const updateCurrentCPUTempInfos = function () {
-
 	sistm.cpuTemperature()
 		.then(data => {
 			adapter.setState("sysinfo.cpu.temperature.main", {val: data.main !== null ? data.main : null, ack: true});
@@ -888,7 +887,6 @@ const updateCurrentCPUTempInfos = function () {
 };
 
 const updateCurrentCPUSpeed = function () {
-
 	sistm.cpuCurrentSpeed()
 		.then(data => {
 			adapter.setState("sysinfo.cpu.currentSpeed.avgSpeed", {val: data.avg, ack: true});
@@ -900,7 +898,6 @@ const updateCurrentCPUSpeed = function () {
 };
 
 const updateCurrentMemoryInfos = function () {
-
 	sistm.mem()
 		.then(data => {
 			adapter.setState("sysinfo.memory.info.free", {val: data.free, ack: true});
@@ -931,7 +928,7 @@ const updateCurrentUsbInfos = function () {
 			}
 		})
 		.catch(error => adapter.log.error(error));
-}
+};
 
 const updateCurrentBluetoothInfos = function () {
 	sistm.bluetoothDevices()
@@ -977,7 +974,7 @@ const updateCurrentNetworkInfos = function () {
 			}
 		})
 		.catch(error => adapter.log.error(error));
-}
+};
 
 const updateCurrentWifiInfos = async function () {
 	try {
