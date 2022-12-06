@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "info",
-    "version": "1.9.22",
+    "version": "1.9.23",
     "news": {
+      "1.9.23": {
+        "en": "Packages were updated",
+        "de": "Pakete wurden aktualisiert",
+        "ru": "Пакеты были обновлены",
+        "pt": "Pacotes foram atualizados",
+        "nl": "Packages werden geüpload",
+        "fr": "Les paquets ont été mis à jour",
+        "it": "I pacchetti sono stati aggiornati",
+        "es": "Se actualizaron los paquetes",
+        "pl": "Pakiety zostały zaktualizowane",
+        "uk": "Пакети оновлено",
+        "zh-cn": "包装更新"
+      },
       "1.9.22": {
         "en": "Corrected widget",
         "de": "Korrigiertes Widget",
@@ -75,18 +88,6 @@
         "es": "Corrección de diseño\nActualizar dependencias",
         "pl": "Poprawka projektowa\nAktualizuj zależności",
         "zh-cn": "设计修复\n更新依赖项"
-      },
-      "1.9.16": {
-        "en": "Update dependencies\nFix translations",
-        "de": "Abhängigkeiten aktualisieren\nÜbersetzungen korrigieren",
-        "ru": "Обновить зависимости\nИсправить переводы",
-        "pt": "Atualizar dependências\nCorrigir traduções",
-        "nl": "Afhankelijkheden bijwerken\nVertalingen repareren",
-        "fr": "Mettre à jour les dépendances\nCorrection des traductions",
-        "it": "Aggiorna dipendenze\nCorreggi le traduzioni",
-        "es": "Actualizar dependencias\nCorregir traducciones",
-        "pl": "Aktualizuj zależności\nNapraw tłumaczenia",
-        "zh-cn": "更新依赖\n修复翻译"
       }
     },
     "title": "Information tab",
