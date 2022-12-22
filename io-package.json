@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "info",
-    "version": "1.9.23",
+    "version": "1.9.24",
     "news": {
+      "1.9.24": {
+        "en": "downgrade axios package",
+        "de": "abwärts axios paket",
+        "ru": "downgrade пакет axios",
+        "pt": "pacote de axios downgrade",
+        "nl": "axios pakket",
+        "fr": "paquet axios de qualité",
+        "it": "pacchetto assio downgrade",
+        "es": "paquete de axios degradados",
+        "pl": "axios",
+        "uk": "пакет axios",
+        "zh-cn": "十二. 低级轴线包"
+      },
       "1.9.23": {
         "en": "Packages were updated",
         "de": "Pakete wurden aktualisiert",
@@ -76,18 +89,6 @@
         "es": "Solucione la definición de objeto no válida para evitar errores en js-controller 4",
         "pl": "Napraw nieprawidłową definicję obiektu, aby zapobiec błędom w kontrolerze js 4",
         "zh-cn": "修复无效的对象定义以防止 js-controller 4 中的错误"
-      },
-      "1.9.17": {
-        "en": "Design fix\nUpdate dependencies",
-        "de": "Design-Fix\nAbhängigkeiten aktualisieren",
-        "ru": "Исправление дизайна\nОбновить зависимости",
-        "pt": "Correção de projeto\nAtualizar dependências",
-        "nl": "Ontwerp fix\nAfhankelijkheden bijwerken",
-        "fr": "Correctif de conception\nMettre à jour les dépendances",
-        "it": "Correzione del design\nAggiorna le dipendenze",
-        "es": "Corrección de diseño\nActualizar dependencias",
-        "pl": "Poprawka projektowa\nAktualizuj zależności",
-        "zh-cn": "设计修复\n更新依赖项"
       }
     },
     "title": "Information tab",

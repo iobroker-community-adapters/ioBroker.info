@@ -50,8 +50,7 @@ because without his work, we would not have all the great information about the 
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-
-### __WORK IN PROGRESS__
+### 1.9.24 (2022-12-22)
 * (Apollon77) downgrade axios package
 
 ### 1.9.23 (2022-12-06)
@@ -67,10 +66,6 @@ because without his work, we would not have all the great information about the 
 * (simatec) Design Fix
 * (simatec) Fix Adapter Title
 * (simatec) Update dependencies
-
-### 1.9.19 (2022-03-01)
-* (ldittmar) Fix audio, USB, bluetooth and printer view
-* (ldittmar) Translations fix
 
 ## License
 The MIT License (MIT)

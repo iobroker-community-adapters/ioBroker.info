@@ -1,4 +1,8 @@
 # Older changes
+## 1.9.19 (2022-03-01)
+* (ldittmar) Fix audio, USB, bluetooth and printer view
+* (ldittmar) Translations fix
+
 ## 1.9.18 (2022-02-01)
 * (Apollon77) Fix invalid object definition to prevent errors in js-controller 4
 
