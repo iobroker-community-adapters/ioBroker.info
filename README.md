@@ -50,6 +50,10 @@ because without his work, we would not have all the great information about the 
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+
+### __WORK IN PROGRESS__
+* (Apollon77) downgrade axios package
+
 ### 1.9.23 (2022-12-06)
 * (bluefox) Packages were updated
 
