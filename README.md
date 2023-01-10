@@ -73,7 +73,7 @@ because without his work, we would not have all the great information about the 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017 - 2022 ldittmar <iobroker@lmdsoft.de>
+Copyright (c) 2017 - 2023 ldittmar <iobroker@lmdsoft.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
