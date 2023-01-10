@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "info",
-    "version": "1.9.24",
+    "version": "1.9.25",
     "news": {
+      "1.9.25": {
+        "en": "Updated dependencies",
+        "de": "Aktualisierte Abhängigkeiten",
+        "ru": "Обновленные зависимости",
+        "pt": "Dependências atualizadas",
+        "nl": "Verouderde afhankelijkheid",
+        "fr": "Mise à jour des dépendances",
+        "it": "Dipendenze aggiornate",
+        "es": "Dependencias actualizadas",
+        "pl": "Zależność od upoważnienia",
+        "uk": "Оновлені залежності",
+        "zh-cn": "A. 最新依赖情况"
+      },
       "1.9.24": {
         "en": "downgrade axios package",
         "de": "abwärts axios paket",
@@ -77,18 +90,6 @@
         "es": "Fijar audio, USB, bluetooth y vista de impresora",
         "pl": "Napraw widok audio, USB, bluetooth i drukarki",
         "zh-cn": "修复音频、USB、蓝牙和打印机视图"
-      },
-      "1.9.18": {
-        "en": "Fix invalid object definition to prevent errors in js-controller 4",
-        "de": "Beheben Sie eine ungültige Objektdefinition, um Fehler in js-controller 4 zu vermeiden",
-        "ru": "Исправьте неверное определение объекта, чтобы предотвратить ошибки в js-контроллере 4.",
-        "pt": "Corrija a definição de objeto inválida para evitar erros no js-controller 4",
-        "nl": "Herstel ongeldige objectdefinitie om fouten in js-controller te voorkomen",
-        "fr": "Correction d'une définition d'objet invalide pour éviter les erreurs dans js-controller 4",
-        "it": "Correggi la definizione di oggetto non valida per evitare errori in js-controller 4",
-        "es": "Solucione la definición de objeto no válida para evitar errores en js-controller 4",
-        "pl": "Napraw nieprawidłową definicję obiektu, aby zapobiec błędom w kontrolerze js 4",
-        "zh-cn": "修复无效的对象定义以防止 js-controller 4 中的错误"
       }
     },
     "title": "Information tab",

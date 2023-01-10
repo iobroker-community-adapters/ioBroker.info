@@ -50,7 +50,7 @@ because without his work, we would not have all the great information about the 
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-### __WORK IN PROGRESS__
+### 1.9.25 (2023-01-10)
 * (Apollon77) Updated dependencies
 
 ### 1.9.24 (2022-12-22)
@@ -64,11 +64,6 @@ because without his work, we would not have all the great information about the 
 
 ### 1.9.21 (2022-09-19)
 * (simatec) Fix Adapter Title
-
-### 1.9.20 (2022-09-17)
-* (simatec) Design Fix
-* (simatec) Fix Adapter Title
-* (simatec) Update dependencies
 
 ## License
 The MIT License (MIT)

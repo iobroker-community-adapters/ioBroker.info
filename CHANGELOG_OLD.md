@@ -1,4 +1,9 @@
 # Older changes
+## 1.9.20 (2022-09-17)
+* (simatec) Design Fix
+* (simatec) Fix Adapter Title
+* (simatec) Update dependencies
+
 ## 1.9.19 (2022-03-01)
 * (ldittmar) Fix audio, USB, bluetooth and printer view
 * (ldittmar) Translations fix
