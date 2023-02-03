@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "info",
-    "version": "1.9.25",
+    "version": "1.9.26",
     "news": {
+      "1.9.26": {
+        "en": "Corrected widget",
+        "de": "Korrigiertes Widget",
+        "ru": "Правильный виджет",
+        "pt": "Widget corrigido",
+        "nl": "Vertaling:",
+        "fr": "Corrigé widget",
+        "it": "Widget corretti",
+        "es": "Widget corregido",
+        "pl": "Poprawka",
+        "uk": "Виправлений віджет",
+        "zh-cn": "殴打妻子"
+      },
       "1.9.25": {
         "en": "Updated dependencies",
         "de": "Aktualisierte Abhängigkeiten",
@@ -78,18 +91,6 @@
         "es": "Diseño fijo\nTítulo del adaptador fijo\nActualizar las dependencias",
         "pl": "Design\nFix Adapter Title\nZależności aktualnej",
         "zh-cn": "设计\nFix Adapter\n最新依赖"
-      },
-      "1.9.19": {
-        "en": "Fix audio, USB, bluetooth and printer view",
-        "de": "Korrigieren Sie die Audio-, USB-, Bluetooth- und Druckeransicht",
-        "ru": "Исправить звук, USB, Bluetooth и вид принтера",
-        "pt": "Corrigir áudio, USB, bluetooth e visualização da impressora",
-        "nl": "Audio-, USB-, bluetooth- en printerweergave herstellen",
-        "fr": "Correction de l'audio, de l'USB, du Bluetooth et de l'affichage de l'imprimante",
-        "it": "Correggi la visualizzazione di audio, USB, bluetooth e stampante",
-        "es": "Fijar audio, USB, bluetooth y vista de impresora",
-        "pl": "Napraw widok audio, USB, bluetooth i drukarki",
-        "zh-cn": "修复音频、USB、蓝牙和打印机视图"
       }
     },
     "title": "Information tab",

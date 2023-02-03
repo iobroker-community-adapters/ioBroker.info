@@ -49,7 +49,7 @@ because without his work, we would not have all the great information about the 
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-### **WORK IN PROGRESS**
+### 1.9.26 (2023-02-03)
 * (bluefox) Corrected widget
 
 ### 1.9.25 (2023-01-10)
@@ -63,9 +63,6 @@ because without his work, we would not have all the great information about the 
 
 ### 1.9.22 (2022-11-21)
 * (bluefox) Corrected widget
-
-### 1.9.21 (2022-09-19)
-* (simatec) Fix Adapter Title
 
 ## License
 The MIT License (MIT)
