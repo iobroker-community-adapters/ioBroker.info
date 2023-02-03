@@ -36,7 +36,6 @@ Many thanks to `sebhildebrandt` for the great work on the package [systeminforma
 because without his work, we would not have all the great information about the system.
 
 ### Detailed information
-
 * [Click here for the detailed documentation (en)](docs/en/info.md)
 * [Klicken Sie hier für die ausführliche Dokumentation (de)](docs/de/info.md)
 * [Нажмите здесь для подробной документации (ru)](docs/ru/info.md)
@@ -50,6 +49,9 @@ because without his work, we would not have all the great information about the 
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### **WORK IN PROGRESS**
+* (bluefox) Corrected widget
+
 ### 1.9.25 (2023-01-10)
 * (Apollon77) Updated dependencies
 
@@ -68,7 +70,7 @@ because without his work, we would not have all the great information about the 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017 - 2023 ldittmar <iobroker@lmdsoft.de>
+Copyright (c) 2017-2023 ldittmar <iobroker@lmdsoft.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
