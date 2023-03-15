@@ -29,6 +29,6 @@
     "languages": ["de", "en", "ru", "pt", "nl", "fr", "it", "es", "pl", "zh-cn"],
     "nodeOld": ["v0", "v4", "v5", "v6", "v7", "v8", "v9", "v10", "v11", "v13", "v15"],
     "nodeNew": ["v17", "v19"],
-    "nodeAccepted": ["v12", "v14", "v16],
+    "nodeAccepted": ["v12", "v14", "v16"],
     "nodeRecommended": "v18"
 }
