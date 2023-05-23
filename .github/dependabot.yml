@@ -3,10 +3,16 @@ updates:
   - package-ecosystem: npm
     directory: "/"
     schedule:
-      interval: monthly
+      interval: weekly
       time: "04:00"
       timezone: Europe/Berlin
-    open-pull-requests-limit: 20
-    assignees:
-      - ldittmar81
+    open-pull-requests-limit: 15
     versioning-strategy: increase
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      time: "04:00"
+      timezone: Europe/Berlin
+    open-pull-requests-limit: 15
