@@ -23,13 +23,13 @@ For more details and for information how to disable the error reporting see [Sen
 If you reach your admin window over a hostname (for example, http://myhouseiscontrolledbyioBroker:8081), 
 the news and forum entries will not be automatically displayed. 
 To do this, you must first register your host name [here](https://toolkit.sekando.com/docs/en/setup/hostnames).
-After that just enter the API Key in the configuration of the adapter.
+After that, just enter the API Key in the configuration of the adapter.
 
 ### Popup Messages (VIS Widget)
 There is a new widget to display important messages in VIS. 
 These messages are displayed ONLY if certain conditions are met. 
 Either from date x to date y or even if you have a specific adapter installed.
-If nothing is displayed then everything is ok.
+If nothing is displayed, then everything is ok.
 
 ### System information
 Many thanks to `sebhildebrandt` for the great work on the package [systeminformation](https://github.com/sebhildebrandt/systeminformation), 
