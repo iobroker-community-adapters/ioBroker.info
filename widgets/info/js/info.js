@@ -23,7 +23,7 @@ async function getTranslation(){
 }
 
 vis.binds.info = {
-	version: "0.0.9",
+	version: "1.9.26",
 	showVersion: function () {
 		if (vis.binds.info.version) {
 			console.log("Version Info-Adapter-Widget: " + vis.binds.info.version);

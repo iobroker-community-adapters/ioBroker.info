@@ -49,6 +49,10 @@ because without his work, we would not have all the great information about the 
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### **WORK IN PROGRESS**
+* (bluefox) Updated packages
+* (bluefox) Breaking change: minimal supported node.js version is 16.x
+
 ### 1.9.26 (2023-02-03)
 * (bluefox) Corrected widget
 
