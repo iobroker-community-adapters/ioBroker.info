@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "info",
-    "version": "1.9.26",
+    "version": "2.0.0",
     "news": {
+      "2.0.0": {
+        "en": "Updated packages\nBreaking change: minimal supported node.js version is 16.x",
+        "de": "Aktualisierte Pakete\nBreaking change: minimal unterstützt node.js version is 16.x",
+        "ru": "Обновленные пакеты\nИзменение разрыва: минимальная поддерживаемая версия node.js 16.x",
+        "pt": "Pacotes atualizados\nAlteração de ruptura: versão node.js suportada mínima é 16.x",
+        "nl": "Verouderde pakketten\nVerandering: minimaal ondersteunde node",
+        "fr": "Forfaits mis à jour\nChangement de rupture: la version node.js supportée minimale est 16.x",
+        "it": "Pacchetti aggiornati\nCambiamento di rottura: versione minima node.js supportata è 16.x",
+        "es": "Paquetes actualizados\nCambio de ruptura: la versión mínima de node.js es 16.x",
+        "pl": "Pakiet upoważniony\nZmiana przeładowania: wersja minimalna jest 16.x",
+        "uk": "Оновлені пакети\nЗміна розривів: мінімальний підтриманий вузол.js версія 16.x",
+        "zh-cn": "最新一揽子计划\n断然变化:最低支持无端。"
+      },
       "1.9.26": {
         "en": "Corrected widget",
         "de": "Korrigiertes Widget",
@@ -79,18 +92,6 @@
         "es": "Título del adaptador fijo",
         "pl": "Fix Adapter Title",
         "zh-cn": "Fix Adapter"
-      },
-      "1.9.20": {
-        "en": "Design Fix\nFix Adapter Title\nUpdate dependencies",
-        "de": "Design Fix\nFix Adapter Titel\nAbhängigkeiten aktualisieren",
-        "ru": "Дизайн Fix\nFix Заголовок адаптера\nОбновить зависимости",
-        "pt": "Design Fix\nTítulo do adaptador de fixação\nDependências de atualização",
-        "nl": "Design Fix\nVertaling:\nUpdate afhankelijkheid",
-        "fr": "Design Fix\nTitre de l'adaptateur fixe\nMettre à jour les dépendances",
-        "it": "Design Fix\nFissare il titolo dell'adattatore\nDipendenze di aggiornamento",
-        "es": "Diseño fijo\nTítulo del adaptador fijo\nActualizar las dependencias",
-        "pl": "Design\nFix Adapter Title\nZależności aktualnej",
-        "zh-cn": "设计\nFix Adapter\n最新依赖"
       }
     },
     "title": "Information tab",

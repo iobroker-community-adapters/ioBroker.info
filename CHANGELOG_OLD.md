@@ -1,4 +1,7 @@
 # Older changes
+## 1.9.22 (2022-11-21)
+* (bluefox) Corrected widget
+
 ## 1.9.21 (2022-09-19)
 * (simatec) Fix Adapter Title
 

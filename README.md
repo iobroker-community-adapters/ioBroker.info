@@ -49,7 +49,7 @@ because without his work, we would not have all the great information about the 
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-### **WORK IN PROGRESS**
+### 2.0.0 (2023-09-10)
 * (bluefox) Updated packages
 * (bluefox) Breaking change: minimal supported node.js version is 16.x
 
@@ -64,9 +64,6 @@ because without his work, we would not have all the great information about the 
 
 ### 1.9.23 (2022-12-06)
 * (bluefox) Packages were updated
-
-### 1.9.22 (2022-11-21)
-* (bluefox) Corrected widget
 
 ## License
 The MIT License (MIT)
