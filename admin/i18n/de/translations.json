@@ -289,7 +289,7 @@
     "disks.model": "Modell",
     "disks.mount": "Mount-Punkt",
     "disks.name": "Name",
-    "disks.physical": "Physische Art",
+    "disks.physical": "Physischer Typ",
     "disks.protocol": "Protokoll",
     "disks.removable": "Wechselmedium",
     "disks.sectorsPerTrack": "Sektoren pro Spur",
