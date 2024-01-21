@@ -24,7 +24,7 @@
     "CPU-Load": "Użycie procesora",
     "CPUs": "Procesory",
     "Calling up current system data at too short intervals can lead to very high CPU consumption, especially under Windows. To switch off individual queries, set the slider to 0.": "Ustawienie żądania odczytu danych o systemie w zbyt krótkich odstępach czasu może spowodować bardzo wysokie zużycie procesora, szczególnie pod Windows. W celu wyłączenia poszczególnych żądań, ustaw suwak na 0.",
-    "Cancel": "Pomiń",
+    "Cancel": "Odwołaj",
     "Chassis": "Podstawa",
     "Chinese": "Chiński",
     "Click here to register": "Kliknij tutaj, aby się zarejestrować",
