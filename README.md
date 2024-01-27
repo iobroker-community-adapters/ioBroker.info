@@ -1,3 +1,12 @@
+
+# This adapter is DEPRECATED and will not be developed any further
+
+-----
+
+Currently there is no further development for this adapter planned.
+
+-----
+
 ![Logo](admin/info.png)
 # ioBroker.info
 
